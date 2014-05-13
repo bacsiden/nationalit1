@@ -78,32 +78,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\BaoCaoThongKeController.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Common.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\BuuKienController.cs" />
-    <Compile Include="Controllers\CardController.cs" />
-    <Compile Include="Controllers\CreatedCardController.cs" />
-    <Compile Include="Controllers\CRMController.cs" />
-    <Compile Include="Controllers\CuocPhiController.cs" />
     <Compile Include="Controllers\Customer_InfoController.cs" />
-    <Compile Include="Controllers\DanhMucController.cs" />
-    <Compile Include="Controllers\DichVuCongThemController.cs" />
-    <Compile Include="Controllers\GroupController.cs" />
-    <Compile Include="Controllers\HandOverController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\KhachHangController.cs" />
-    <Compile Include="Controllers\MenuController.cs" />
-    <Compile Include="Controllers\PromoController.cs" />
-    <Compile Include="Controllers\RoleController.cs" />
-    <Compile Include="DataSetBaoCao.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetBaoCao.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Data\CardDAL.cs" />
-    <Compile Include="Data\SmashCardDAL.cs" />
     <Compile Include="DB.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -113,23 +89,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="NL_CheckOut.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PublicServices\Clients.asmx.cs">
-      <DependentUpon>Clients.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Service References\CRM\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\bootstrap-colorpicker\css\colorpicker.css" />
@@ -234,35 +194,6 @@
     <Content Include="Content\js\flaty.js" />
     <Content Include="Content\js\myJquery.js" />
     <Content Include="Global.asax" />
-    <Content Include="PublicServices\Clients.asmx" />
-    <None Include="DataSetBaoCao.xsc">
-      <DependentUpon>DataSetBaoCao.xsd</DependentUpon>
-    </None>
-    <None Include="DataSetBaoCao.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetBaoCao.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSetBaoCao.xss">
-      <DependentUpon>DataSetBaoCao.xsd</DependentUpon>
-    </None>
-    <EntityDeploy Include="Model2.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model2.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Service References\CRM\Alabama.CRM.KeyPairInfo.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\CRM\Alabama.CRM.PackageInfo.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\CRM\publicService.disco" />
-    <None Include="Service References\CRM\configuration91.svcinfo" />
-    <None Include="Service References\CRM\configuration.svcinfo" />
-    <None Include="Service References\CRM\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -291,73 +222,19 @@
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Account\ChangePassword.cshtml" />
-    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
-    <Content Include="Views\Account\LogOn2.cshtml" />
-    <Content Include="Views\Account\Register1.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Web.config" />
-    <None Include="Service References\CRM\publicService.wsdl" />
-    <Content Include="Views\Account\AddMoney.cshtml" />
-    <Content Include="Views\Account\AddMoney1.cshtml" />
-    <Content Include="Views\Promo\Index.cshtml" />
-    <Content Include="Views\Promo\Create.cshtml" />
     <Content Include="Views\Home\ErrorDetails.cshtml" />
-    <Content Include="Views\Promo\Thanks.cshtml" />
-    <Content Include="Views\Promo\Edit.cshtml" />
-    <Content Include="Views\Card\Details.cshtml" />
-    <Content Include="Views\Account\AddCard.cshtml" />
-    <Content Include="Views\Account\Index.cshtml" />
-    <Content Include="Views\Group\AddUser.cshtml" />
-    <Content Include="Views\Group\Create.cshtml" />
-    <Content Include="Views\Group\Edit.cshtml" />
-    <Content Include="Views\Group\Index.cshtml" />
-    <Content Include="Views\Group\Role.cshtml" />
-    <Content Include="Views\Group\UsersInGroup.cshtml" />
-    <Content Include="Views\Role\Create.cshtml" />
-    <Content Include="Views\Role\Edit.cshtml" />
-    <Content Include="Views\Role\Function.cshtml" />
-    <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Home\SystemConfig.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
-    <Content Include="Views\CuocPhi\Index.cshtml" />
-    <Content Include="Views\CuocPhi\Create.cshtml" />
-    <Content Include="Views\CuocPhi\Edit.cshtml" />
-    <Content Include="Views\DichVuCongThem\Create.cshtml" />
-    <Content Include="Views\DichVuCongThem\Index.cshtml" />
-    <Content Include="Views\DichVuCongThem\Edit.cshtml" />
-    <Content Include="Views\KhachHang\IndexKhachHang.cshtml" />
-    <Content Include="Views\KhachHang\CreateKH.cshtml" />
-    <Content Include="Views\KhachHang\EditKH.cshtml" />
-    <Content Include="Views\Menu\Index.cshtml" />
-    <Content Include="Views\Menu\Create.cshtml" />
-    <Content Include="Views\Menu\Edit.cshtml" />
-    <Content Include="Views\DanhMuc\LoaiHangIndex.cshtml" />
-    <Content Include="Views\DanhMuc\LoaiHangCreate.cshtml" />
-    <Content Include="Views\DanhMuc\LoaiHangEdit.cshtml" />
-    <Content Include="Views\DanhMuc\BuuCucIndex.cshtml" />
-    <Content Include="Views\DanhMuc\BuuCucCreate.cshtml" />
-    <Content Include="Views\DanhMuc\BuuCucEdit.cshtml" />
-    <Content Include="Views\BuuKien\Index.cshtml" />
-    <Content Include="Views\BuuKien\Create.cshtml" />
-    <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Shared\AccountTask.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Group\Menu.cshtml" />
-    <Content Include="Views\BuuKien\Details.cshtml" />
-    <Content Include="Views\BuuKien\Edit.cshtml" />
-    <Content Include="Views\BuuKien\ChuyenBuuKien.cshtml" />
-    <Content Include="Views\BaoCaoThongKe\Index.cshtml" />
-    <Content Include="Views\BaoCaoThongKe\BaoCaoTongHop.cshtml" />
-    <Content Include="Views\BaoCaoThongKe\BaoCaoTheoBuuCuc.cshtml" />
-    <Content Include="Views\BaoCaoThongKe\BaoCaoTheoTrangThai.cshtml" />
     <Content Include="Views\Customer_Info\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="PromoData\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -371,22 +248,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Views\CreatedCard\Index.cshtml" />
-    <Content Include="Views\CreatedCard\Details.cshtml" />
-    <Content Include="Views\Card\Index.cshtml" />
-    <Content Include="Views\CreatedCard\Create.cshtml" />
-    <Content Include="Views\CreatedCard\Release.cshtml" />
-    <Content Include="Views\HandOver\Index.cshtml" />
-    <Content Include="Views\Promo\Details.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\CRM\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\BaoCaoThongKe\BaoCao.rdlc" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -33,7 +33,7 @@ namespace Alabama
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Group", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
 
         }
@@ -44,11 +44,6 @@ namespace Alabama
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
-        }
-
-        protected void Session_Start()
-        {
-            HttpContext.Current.Session[Constant.SESSION_CURRENT_SITE_LANGUAGE_CODE] = Request.RequestContext.RouteData.Values["site_language"];
         }
 
         protected void Session_End()
