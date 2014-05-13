@@ -11,12 +11,12 @@ namespace Alabama.Controllers
         //
         // GET: /KhachHang/
 
-        [Authorize]
+        
         public ActionResult Index()
         {
             return View();
         }
-        [Authorize]
+        
         [ValidationFunction("/Home/index", ActionName.VIEWLISTKHACHHANG)]
         public ActionResult IndexKhachHang(int id = 0)
         {
@@ -31,7 +31,7 @@ namespace Alabama.Controllers
                 return View(new List<KhachHang>());
             }
         }
-        [Authorize]
+        
         [ValidationFunction("/Home/index", ActionName.ADDNEWKHACHHANG)]
         public ActionResult DoCreateKH(KhachHang model)
         {
@@ -47,13 +47,13 @@ namespace Alabama.Controllers
                 return View(new List<KhachHang>());
             }
         }
-        [Authorize]
+        
         [ValidationFunction("/Home/index", ActionName.ADDNEWKHACHHANG)]
         public ActionResult CreateKH()
         {
             return View(new KhachHang());
         }
-        [Authorize]
+        
         [ValidationFunction("/Home/index", ActionName.DELETEKHACHHANG)]
         public ActionResult DeleteKH(int id)
         {
@@ -70,7 +70,7 @@ namespace Alabama.Controllers
                 return RedirectToAction("IndexKhachHang");
             }
         }
-        [Authorize]
+        
         [ValidationFunction("/Home/index", ActionName.EDITKHACHHANG)]
         public ActionResult EditKH(int id = 0)
         {
@@ -81,7 +81,7 @@ namespace Alabama.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        
         [ValidationFunction("/Home/index", ActionName.EDITKHACHHANG)]
         public ActionResult EditKH(KhachHang model)
         {

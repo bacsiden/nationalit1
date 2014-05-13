@@ -12,7 +12,6 @@ namespace Alabama.Controllers
 {
     public class HomeController : BaseController
     {
-        [Authorize]
         public ActionResult Index()
         {
             ViewBag.Message = "CHÀO MỪNG ĐẾN VỚI PHẦN MỀM QUẢN LÝ BƯU PHẨM - BƯU KIỆN";
@@ -62,25 +61,25 @@ namespace Alabama.Controllers
             return false;
         }
 
-        [Authorize]
+        
         public ActionResult ErrorDetails()
         {
             ViewBag.Message = Request.QueryString["message"];
             return View();
         }
-        [Authorize]
+        
         public ActionResult SystemConfig()
         {
             return View(DB.Entities.Config);
         }
-        [Authorize]
+        
         public ActionResult Edit(int id)
         {
             var db = DB.Entities.Config;
             var obj = db.FirstOrDefault(m => m.ID == id);
             return View(obj);
         }
-        [Authorize]
+        
         public ActionResult DoEdit(Config model)
         {
             var db = DB.Entities;
@@ -91,12 +90,12 @@ namespace Alabama.Controllers
             db.SaveChanges();
             return View("SystemConfig", db.Config);
         }
-        [Authorize]
+        
         public ActionResult Create()
         {
             return View(new Config());
         }
-        [Authorize]
+        
         public ActionResult Create(Config model)
         {
             var db = DB.Entities;

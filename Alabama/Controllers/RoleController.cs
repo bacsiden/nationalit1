@@ -11,14 +11,14 @@ namespace Alabama.Controllers
         //
         // GET: /Role/
 
-        [Authorize]
+        
         [ValidationFunction("/Home/index", ActionName.VIEWLISTROLE)]
         public ActionResult Index()
         {
             return View(DB.Entities.Role1);
         }
 
-        [Authorize]
+        
         [ValidationFunction("/Role/index", ActionName.ADDNEWROLE)]
         public ActionResult Create()
         {
@@ -26,7 +26,7 @@ namespace Alabama.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        
         [ValidationFunction("/Role/index", ActionName.ADDNEWROLE)]
         public ActionResult Create(Role1 model)
         {
@@ -45,7 +45,7 @@ namespace Alabama.Controllers
             }
         }
 
-        [Authorize]
+        
         [ValidationFunction("/Role/index", ActionName.EDITROLE)]
         public ActionResult Edit(int id = 0)
         {
@@ -56,7 +56,7 @@ namespace Alabama.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        
         [ValidationFunction("/Role/index", ActionName.EDITROLE)]
         public ActionResult Edit(Role1 model)
         {
@@ -76,7 +76,7 @@ namespace Alabama.Controllers
             }
         }
 
-        [Authorize]
+        
         [ValidationFunction("/Role/index", ActionName.DELETEROLE)]
         public ActionResult Delete(int id)
         {
@@ -94,7 +94,7 @@ namespace Alabama.Controllers
             }
         }
 
-        [Authorize]
+        
         [ValidationFunction("/Role/index", ActionName.ADDFUNCTIONFORROLE)]
         public ActionResult Function(int id)
         {
@@ -122,7 +122,7 @@ namespace Alabama.Controllers
             }
         }
 
-        [Authorize]
+        
         [ValidationFunction("/Role/index", ActionName.ADDFUNCTIONFORROLE)]
         public ActionResult DoFunction(int roleID, string listCheck)
         {

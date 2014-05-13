@@ -11,7 +11,7 @@ namespace Alabama.Controllers
         //
         // GET: /DichVuCongThem/
 
-        [Authorize]
+        
         [ValidationFunction("/Home/index", ActionName.VIEWLISTDICHVUCONGTHEM)]
         public ActionResult Index()
         {
@@ -24,7 +24,7 @@ namespace Alabama.Controllers
         //
         // GET: /CuocPhi/Create
 
-        [Authorize]
+        
         [ValidationFunction("/DichVuCongThem/index", ActionName.ADDNEWDICHVUCONGTHEM)]
         public ActionResult Create()
         {
@@ -35,7 +35,7 @@ namespace Alabama.Controllers
         // POST: /CuocPhi/Create
 
         [HttpPost]
-        [Authorize]
+        
         [ValidationFunction("/DichVuCongThem/index", ActionName.ADDNEWDICHVUCONGTHEM)]
         public ActionResult Create(DichVuCongThem model)
         {
@@ -56,7 +56,7 @@ namespace Alabama.Controllers
         //
         // GET: /CuocPhi/Edit/5
 
-        [Authorize]
+        
         [ValidationFunction("/DichVuCongThem/index", ActionName.EDITDICHVUCONGTHEM)]
         public ActionResult Edit(int id)
         {
@@ -68,7 +68,7 @@ namespace Alabama.Controllers
         // POST: /CuocPhi/Edit/5
 
         [HttpPost]
-        [Authorize]
+        
         [ValidationFunction("/DichVuCongThem/index", ActionName.EDITDICHVUCONGTHEM)]
         public ActionResult DoEdit(DichVuCongThem model)
         {
@@ -94,7 +94,7 @@ namespace Alabama.Controllers
 
 
 
-        [Authorize]
+        
         [ValidationFunction("/DichVuCongThem/index", ActionName.DELETEDICHVUCONGTHEM)]
         public ActionResult Delete(int id)
         {

@@ -8,14 +8,14 @@ namespace Alabama.Controllers
 {
     public class GroupController : BaseController
     {
-        [Authorize]
+        
         [ValidationFunction("/Home/index", ActionName.VIEWLISTGROUP)]
         public ActionResult Index()
         {
             return View(DB.Entities.Group);
         }
 
-        [Authorize]
+        
         [ValidationFunction("/Group/index", ActionName.ADDUSERFORGROUP)]
         public ActionResult UsersInGroup(int id = 0)
         {
@@ -29,7 +29,7 @@ namespace Alabama.Controllers
             return View(DB.Entities.User.Where(m => m.Group.FirstOrDefault(x => x.ID == g.ID) != null));
         }
 
-        [Authorize]
+        
         [ValidationFunction("/Group/index", ActionName.ADDUSERFORGROUP)]
         public ActionResult RemoveUser(int id, int groupID)
         {
@@ -41,7 +41,7 @@ namespace Alabama.Controllers
             return RedirectToAction("UsersInGroup", new { id = groupID });
         }
 
-        [Authorize]
+        
         [ValidationFunction("/Group/index", ActionName.ADDUSERFORGROUP)]
         public ActionResult AddUser(int id)
         {
@@ -50,7 +50,7 @@ namespace Alabama.Controllers
             return View(new User());
         }
 
-        [Authorize]
+        
         [ValidationFunction("/Group/index", ActionName.ADDUSERFORGROUP)]
         public ActionResult DoAddUser(User objUser, int groupID)
         {
@@ -70,7 +70,7 @@ namespace Alabama.Controllers
             }
         }
 
-        [Authorize]
+        
         public ActionResult Details(int id = 0)
         {
             var obj = DB.Entities.Group.First(m => m.ID == id);
@@ -79,7 +79,7 @@ namespace Alabama.Controllers
             return View(obj);
         }
 
-        [Authorize]
+        
         [ValidationFunction("/Group/index", ActionName.ADDNEWGROUP)]
         public ActionResult Create()
         {
@@ -87,7 +87,7 @@ namespace Alabama.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        
         [ValidationFunction("/Group/index", ActionName.ADDNEWGROUP)]
         public ActionResult Create(Group model)
         {
@@ -106,7 +106,7 @@ namespace Alabama.Controllers
             }
         }
 
-        [Authorize]
+        
         [ValidationFunction("/Group/index", ActionName.EDITGROUP)]
         public ActionResult Edit(int id = 0)
         {
@@ -117,7 +117,7 @@ namespace Alabama.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        
         [ValidationFunction("/Group/index", ActionName.EDITGROUP)]
         public ActionResult Edit(Group model)
         {
@@ -137,7 +137,7 @@ namespace Alabama.Controllers
             }
         }
 
-        [Authorize]
+        
         [ValidationFunction("/Group/index", ActionName.DELETEGROUP)]
         public ActionResult Delete(int id)
         {
@@ -155,7 +155,7 @@ namespace Alabama.Controllers
             }
         }
 
-        [Authorize]
+        
         [ValidationFunction("/Group/index", ActionName.ADDROLESFORGROUP)]
         public ActionResult Role(int id)
         {
@@ -183,7 +183,7 @@ namespace Alabama.Controllers
             }
         }
 
-        [Authorize]
+        
         [ValidationFunction("/Group/index", ActionName.ADDROLESFORGROUP)]
         public ActionResult DoRole(int groupID, string listCheck)
         {
@@ -216,7 +216,7 @@ namespace Alabama.Controllers
                 return View();
             }
         }
-        [Authorize]
+        
         [ValidationFunction("/Group/index", ActionName.ADDMENUFORGROUP)]
         public ActionResult Menu(int id)
         {
@@ -243,7 +243,7 @@ namespace Alabama.Controllers
                 return View();
             }
         }
-        [Authorize]
+        
         [HttpPost]
         [ValidationFunction("/Group/index", ActionName.ADDMENUFORGROUP)]
         public ActionResult Menu(int groupID, string listCheck)

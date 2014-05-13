@@ -10,7 +10,7 @@ namespace Alabama.Controllers
     {
         //
         // GET: /CuocPhi/
-        [Authorize]
+        
         [ValidationFunction("/Home/index", ActionName.VIEWLISTCUOCPHI)]
         public ActionResult Index()
         {
@@ -22,7 +22,7 @@ namespace Alabama.Controllers
 
         //
         // GET: /CuocPhi/Create
-        [Authorize]
+        
         [ValidationFunction("/CuocPhi/index", ActionName.ADDNEWCUOCPHI)]
         public ActionResult Create()
         {
@@ -31,7 +31,7 @@ namespace Alabama.Controllers
 
         //
         // POST: /CuocPhi/Create
-        [Authorize]
+        
         [HttpPost]
         [ValidationFunction("/CuocPhi/index", ActionName.ADDNEWCUOCPHI)]
         public ActionResult Create(CuocPhi model)
@@ -52,7 +52,7 @@ namespace Alabama.Controllers
         
         //
         // GET: /CuocPhi/Edit/5
-         [Authorize]
+         
          [ValidationFunction("/CuocPhi/index", ActionName.EDITCUOCPHI)]
         public ActionResult Edit(int id)
         {
@@ -62,7 +62,7 @@ namespace Alabama.Controllers
 
         //
         // POST: /CuocPhi/Edit/5
-        [Authorize]
+        
         [HttpPost]
         [ValidationFunction("/CuocPhi/index", ActionName.EDITCUOCPHI)]
         public ActionResult DoEdit(CuocPhi model)
@@ -88,7 +88,7 @@ namespace Alabama.Controllers
         // GET: /CuocPhi/Delete/5
 
 
-        [Authorize]
+        
         [ValidationFunction("/CuocPhi/index", ActionName.DELETECUOCPHI)]
         public ActionResult Delete(int id)
         {
