@@ -9,14 +9,7 @@ namespace Alabama
 {
     public class DB
     {
-        public static VPSSEntities Entities
-        {
-            get
-            {
-                return new VPSSEntities();
-            }
-        }
-        public static nationalITEntities Entities1
+        public static nationalITEntities Entities
         {
             get
             {
@@ -25,11 +18,11 @@ namespace Alabama
         }
         public class BaseClass<T> where T : EntityObject
         {
-            VPSSEntities _db;
+            nationalITEntities _db;
 
             public BaseClass()
             {
-                _db = new VPSSEntities();
+                _db = new nationalITEntities();
             }
 
             public T GetByID(int id)
