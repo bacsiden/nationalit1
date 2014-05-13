@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Webdiyer.WebControls.Mvc;
 
 
 namespace Alabama.Controllers
 {
     public class Customer_InfoController : Controller
     {
+        int pageSize = 20;
         //
         // GET: /Customer_Info/
 
-        public ActionResult Index()
-        {
-            return View(DB.Entities.Customer_Info.ToList().Take(10));
+        public ActionResult Index(int? page)
+        {            
+            return View(DB.Entities.Customer_Info.OrderByDescending(m=>m.Customer_ID).ToPagedList(!page.HasValue ? 0 : page.Value,pageSize));
         }
 
         //
@@ -30,7 +32,7 @@ namespace Alabama.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            return View(new Customer_Info());
         } 
 
         //
@@ -43,7 +45,9 @@ namespace Alabama.Controllers
             {
                 // TODO: Add insert logic here
                 var db = DB.Entities;
-                db.Customer_Info.AddObject(model);
+                var obj = new Customer_Info();
+                obj = model;
+                db.Customer_Info.AddObject(obj);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,12 +69,24 @@ namespace Alabama.Controllers
         // POST: /Customer_Info/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Customer_Info model)
         {
             try
             {
                 // TODO: Add update logic here
- 
+                var db = DB.Entities;
+                var obj = db.Customer_Info.FirstOrDefault(m=>m.Customer_ID==model.Customer_ID);
+                obj.City = model.City;
+                obj.Comments = model.Comments;
+                obj.Contact = model.Contact;
+                obj.Customer_Name = model.Customer_Name;
+                obj.Days_to_pay = model.Days_to_pay;
+                obj.Fax = model.Fax;
+                obj.Phone = model.Phone;
+                obj.Street = model.Street;
+                obj.ZIP_Code = model.ZIP_Code;
+                db.ObjectStateManager.ChangeObjectState(obj, System.Data.EntityState.Modified);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
@@ -79,30 +95,23 @@ namespace Alabama.Controllers
             }
         }
 
-        //
-        // GET: /Customer_Info/Delete/5
- 
+       
+        
         public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Customer_Info/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
                 // TODO: Add delete logic here
- 
-                return RedirectToAction("Index");
+                var db = DB.Entities;
+                var obj = db.Customer_Info.FirstOrDefault(m=>m.Customer_ID==id);
+                db.Customer_Info.DeleteObject(obj);
+                db.SaveChanges();                
             }
             catch
             {
-                return View();
+                
             }
+            return RedirectToAction("Index");
         }
     }
 }

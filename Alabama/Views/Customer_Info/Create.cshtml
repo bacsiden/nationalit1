@@ -31,6 +31,20 @@
                         @Html.ValidationMessageFor(model => model.City)
                     </div>
                     <div class="editor-label">
+                        @Html.LabelFor(model => model.Customer_Name)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Customer_Name)
+                        @Html.ValidationMessageFor(model => model.Customer_Name)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Street)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Street)
+                        @Html.ValidationMessageFor(model => model.Street)
+                    </div>
+                    <div class="editor-label">
                         @Html.LabelFor(model => model.State)
                     </div>
                     <div class="editor-field">
