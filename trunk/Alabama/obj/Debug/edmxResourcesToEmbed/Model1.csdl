@@ -1,696 +1,435 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="VPSSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-  <EntityContainer Name="VPSSEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="BalanceLog" EntityType="VPSSModel.BalanceLog" />
-    <EntitySet Name="Card" EntityType="VPSSModel.Card" />
-    <EntitySet Name="CardAction" EntityType="VPSSModel.CardAction" />
-    <EntitySet Name="CardLog" EntityType="VPSSModel.CardLog" />
-    <EntitySet Name="CardStatus" EntityType="VPSSModel.CardStatus" />
-    <EntitySet Name="CauHoiDieuTra" EntityType="VPSSModel.CauHoiDieuTra" />
-    <EntitySet Name="ChangeType" EntityType="VPSSModel.ChangeType" />
-    <EntitySet Name="Config" EntityType="VPSSModel.Config" />
-    <EntitySet Name="CreateCardAmount" EntityType="VPSSModel.CreateCardAmount" />
-    <EntitySet Name="CreatedCard" EntityType="VPSSModel.CreatedCard" />
-    <EntitySet Name="CuocPhi" EntityType="VPSSModel.CuocPhi" />
-    <EntitySet Name="Function" EntityType="VPSSModel.Function" />
-    <EntitySet Name="Group" EntityType="VPSSModel.Group" />
-    <EntitySet Name="HandOverCard" EntityType="VPSSModel.HandOverCard" />
-    <EntitySet Name="KhachHang" EntityType="VPSSModel.KhachHang" />
-    <EntitySet Name="LoaiHang" EntityType="VPSSModel.LoaiHang" />
-    <EntitySet Name="Menu" EntityType="VPSSModel.Menu" />
-    <EntitySet Name="PriceLevel" EntityType="VPSSModel.PriceLevel" />
-    <EntitySet Name="Role1" EntityType="VPSSModel.Role1" />
-    <EntitySet Name="TraLoiCauHoiDieuTra" EntityType="VPSSModel.TraLoiCauHoiDieuTra" />
-    <EntitySet Name="User" EntityType="VPSSModel.User" />
-    <EntitySet Name="UserKind" EntityType="VPSSModel.UserKind" />
-    <AssociationSet Name="FK_BalanceLog_ChangeType" Association="VPSSModel.FK_BalanceLog_ChangeType">
-      <End Role="ChangeType" EntitySet="ChangeType" />
-      <End Role="BalanceLog" EntitySet="BalanceLog" />
-    </AssociationSet>
-    <AssociationSet Name="FK_BalanceLog_User1" Association="VPSSModel.FK_BalanceLog_User1">
-      <End Role="User" EntitySet="User" />
-      <End Role="BalanceLog" EntitySet="BalanceLog" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Card_CardStatus" Association="VPSSModel.FK_Card_CardStatus">
-      <End Role="CardStatus" EntitySet="CardStatus" />
-      <End Role="Card" EntitySet="Card" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Card_CreatedCard" Association="VPSSModel.FK_Card_CreatedCard">
-      <End Role="CreatedCard" EntitySet="CreatedCard" />
-      <End Role="Card" EntitySet="Card" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CardLog_Card" Association="VPSSModel.FK_CardLog_Card">
-      <End Role="Card" EntitySet="Card" />
-      <End Role="CardLog" EntitySet="CardLog" />
-    </AssociationSet>
-    <AssociationSet Name="FK_HandOverCard_Card" Association="VPSSModel.FK_HandOverCard_Card">
-      <End Role="Card" EntitySet="Card" />
-      <End Role="HandOverCard" EntitySet="HandOverCard" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CardLog_User" Association="VPSSModel.FK_CardLog_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="CardLog" EntitySet="CardLog" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TraLoiCauHoiDieuTra_CauHoiDieuTra" Association="VPSSModel.FK_TraLoiCauHoiDieuTra_CauHoiDieuTra">
-      <End Role="CauHoiDieuTra" EntitySet="CauHoiDieuTra" />
-      <End Role="TraLoiCauHoiDieuTra" EntitySet="TraLoiCauHoiDieuTra" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CreateCard_User1" Association="VPSSModel.FK_CreateCard_User1">
-      <End Role="User" EntitySet="User" />
-      <End Role="CreatedCard" EntitySet="CreatedCard" />
-    </AssociationSet>
-    <AssociationSet Name="FK_HandOverCard_User" Association="VPSSModel.FK_HandOverCard_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="HandOverCard" EntitySet="HandOverCard" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserKind_Users" Association="VPSSModel.FK_UserKind_Users">
-      <End Role="UserKind" EntitySet="UserKind" />
-      <End Role="User" EntitySet="User" />
-    </AssociationSet>
-    <AssociationSet Name="FunctionInRole" Association="VPSSModel.FunctionInRole">
-      <End Role="Function" EntitySet="Function" />
-      <End Role="Role1" EntitySet="Role1" />
-    </AssociationSet>
-    <AssociationSet Name="GroupInMenu" Association="VPSSModel.GroupInMenu">
-      <End Role="Group" EntitySet="Group" />
-      <End Role="Menu" EntitySet="Menu" />
-    </AssociationSet>
-    <AssociationSet Name="RoleInGroup" Association="VPSSModel.RoleInGroup">
-      <End Role="Group" EntitySet="Group" />
-      <End Role="Role1" EntitySet="Role1" />
-    </AssociationSet>
-    <AssociationSet Name="UserInGroup" Association="VPSSModel.UserInGroup">
-      <End Role="Group" EntitySet="Group" />
-      <End Role="User" EntitySet="User" />
-    </AssociationSet>
-    <EntitySet Name="BuuCuc" EntityType="VPSSModel.BuuCuc" />
-    <EntitySet Name="sysdiagrams" EntityType="VPSSModel.sysdiagrams" />
-    <EntitySet Name="BuuCucInBuuKien" EntityType="VPSSModel.BuuCucInBuuKien" />
-    <AssociationSet Name="FK_BuuCucInBuuKien_BuuCuc" Association="VPSSModel.FK_BuuCucInBuuKien_BuuCuc">
-      <End Role="BuuCuc" EntitySet="BuuCuc" />
-      <End Role="BuuCucInBuuKien" EntitySet="BuuCucInBuuKien" />
-    </AssociationSet>
-    <EntitySet Name="BuuKien" EntityType="VPSSModel.BuuKien" />
-    <EntitySet Name="DichVuCongThem" EntityType="VPSSModel.DichVuCongThem" />
-    <AssociationSet Name="FK_BuuKien_BuuCuc3" Association="VPSSModel.FK_BuuKien_BuuCuc3">
-      <End Role="BuuCuc" EntitySet="BuuCuc" />
-      <End Role="BuuKien" EntitySet="BuuKien" />
-    </AssociationSet>
-    <AssociationSet Name="FK_BuuCucInBuuKien_BuuKien" Association="VPSSModel.FK_BuuCucInBuuKien_BuuKien">
-      <End Role="BuuKien" EntitySet="BuuKien" />
-      <End Role="BuuCucInBuuKien" EntitySet="BuuCucInBuuKien" />
-    </AssociationSet>
-    <AssociationSet Name="FK_BuuKien_CuocPhi" Association="VPSSModel.FK_BuuKien_CuocPhi">
-      <End Role="CuocPhi" EntitySet="CuocPhi" />
-      <End Role="BuuKien" EntitySet="BuuKien" />
-    </AssociationSet>
-    <AssociationSet Name="FK_BuuKien_DichVuCongThem" Association="VPSSModel.FK_BuuKien_DichVuCongThem">
-      <End Role="DichVuCongThem" EntitySet="DichVuCongThem" />
-      <End Role="BuuKien" EntitySet="BuuKien" />
-    </AssociationSet>
-    <AssociationSet Name="FK_BuuKien_KhachHang" Association="VPSSModel.FK_BuuKien_KhachHang">
-      <End Role="KhachHang" EntitySet="KhachHang" />
-      <End Role="BuuKien" EntitySet="BuuKien" />
-    </AssociationSet>
-    <AssociationSet Name="FK_BuuKien_LoaiHang" Association="VPSSModel.FK_BuuKien_LoaiHang">
-      <End Role="LoaiHang" EntitySet="LoaiHang" />
-      <End Role="BuuKien" EntitySet="BuuKien" />
-    </AssociationSet>
-    <AssociationSet Name="FK_BuuKien_User" Association="VPSSModel.FK_BuuKien_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="BuuKien" EntitySet="BuuKien" />
-    </AssociationSet>
+<Schema Namespace="vpss1Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="vpss1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Company_Expanses" EntityType="vpss1Model.Company_Expanses" />
+    <EntitySet Name="Customer_Info" EntityType="vpss1Model.Customer_Info" />
+    <EntitySet Name="Dispatchers" EntityType="vpss1Model.Dispatchers" />
+    <EntitySet Name="Equipment" EntityType="vpss1Model.Equipment" />
+    <EntitySet Name="fixed_charges" EntityType="vpss1Model.fixed_charges" />
+    <EntitySet Name="Income" EntityType="vpss1Model.Income" />
+    <EntitySet Name="InvoiceA" EntityType="vpss1Model.InvoiceA" />
+    <EntitySet Name="Maintenance" EntityType="vpss1Model.Maintenance" />
+    <EntitySet Name="Operating_Expenses" EntityType="vpss1Model.Operating_Expenses" />
+    <EntitySet Name="Owners" EntityType="vpss1Model.Owners" />
+    <EntitySet Name="Printed_Temp_Fuel___Expenses" EntityType="vpss1Model.Printed_Temp_Fuel___Expenses" />
+    <EntitySet Name="Printed_Temp_Split_Expenses_Driver" EntityType="vpss1Model.Printed_Temp_Split_Expenses_Driver" />
+    <EntitySet Name="Printed_Temp_Split_Expenses_Owner" EntityType="vpss1Model.Printed_Temp_Split_Expenses_Owner" />
+    <EntitySet Name="Printed_Temp_Trip_Info" EntityType="vpss1Model.Printed_Temp_Trip_Info" />
+    <EntitySet Name="ReportIDs" EntityType="vpss1Model.ReportIDs" />
+    <EntitySet Name="split_expenses" EntityType="vpss1Model.split_expenses" />
+    <EntitySet Name="Temp_Fuel___Expenses" EntityType="vpss1Model.Temp_Fuel___Expenses" />
+    <EntitySet Name="Temp_Operating_Expenses" EntityType="vpss1Model.Temp_Operating_Expenses" />
+    <EntitySet Name="Temp_split_expenses_Driver" EntityType="vpss1Model.Temp_split_expenses_Driver" />
+    <EntitySet Name="Temp_split_expenses_owner" EntityType="vpss1Model.Temp_split_expenses_owner" />
+    <EntitySet Name="Temp_Trip_Info" EntityType="vpss1Model.Temp_Trip_Info" />
+    <EntitySet Name="Trip_Info___old" EntityType="vpss1Model.Trip_Info___old" />
+    <EntitySet Name="Violations" EntityType="vpss1Model.Violations" />
   </EntityContainer>
-  <EntityType Name="BalanceLog">
+  <EntityType Name="Company_Expanses">
+    <Key>
+      <PropertyRef Name="CompanyExpansesID" />
+    </Key>
+    <Property Name="CompanyExpansesID" Type="Int32" Nullable="false" />
+    <Property Name="Expanses" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Date" Type="DateTime" />
+    <Property Name="Comment" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Customer_Info">
+    <Key>
+      <PropertyRef Name="Customer_ID" />
+      <PropertyRef Name="Customer_Name" />
+      <PropertyRef Name="Street" />
+    </Key>
+    <Property Name="Customer_ID" Type="Int32" Nullable="false" />
+    <Property Name="Customer_Name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Street" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="City" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="State" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="ZIP_Code" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+    <Property Name="Fax" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+    <Property Name="Contact" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Comments" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Days_to_pay" Type="Int16" />
+  </EntityType>
+  <EntityType Name="Dispatchers">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Last_name" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Last_name" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
+    <Property Name="First_name" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
+    <Property Name="SSN" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+    <Property Name="DOB" Type="DateTime" />
+    <Property Name="Hire_date" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="Equipment">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="UserID" Nullable="false" />
-    <Property Type="Int32" Name="Money" Nullable="false" />
-    <Property Type="DateTime" Name="Date" Nullable="false" />
-    <Property Type="Int32" Name="TransactionID" />
-    <Property Type="Int32" Name="ChangeTypeID" Nullable="false" />
-    <NavigationProperty Name="ChangeType" Relationship="VPSSModel.FK_BalanceLog_ChangeType" FromRole="BalanceLog" ToRole="ChangeType" />
-    <NavigationProperty Name="User" Relationship="VPSSModel.FK_BalanceLog_User1" FromRole="BalanceLog" ToRole="User" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Equipment_Type" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
+    <Property Name="Equipment_number" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
+    <Property Name="Driver" Type="Int32" />
+    <Property Name="Owner" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="VIN" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
+    <Property Name="Registration_Expiration" Type="DateTime" />
+    <Property Name="Inspection_Expiration" Type="DateTime" />
+    <Property Name="DATE_LEASED" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="EQUIPMENT_VALUE" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="EQUIPMENT_DESCRIPTION" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="MODEL_YEAR" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="MAKE" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
   </EntityType>
-  <EntityType Name="Card">
+  <EntityType Name="fixed_charges">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Fee_Charged" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="DriverId" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Frequency" Type="Int32" />
+    <Property Name="Beginning" Type="DateTime" />
+    <Property Name="Fee_Charged" Type="Boolean" Nullable="false" />
+    <Property Name="Next_Date" Type="DateTime" />
+    <Property Name="Prv_Date" Type="DateTime" />
+    <Property Name="Amount_To_Date" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="Income">
+    <Key>
+      <PropertyRef Name="IncomeID" />
+    </Key>
+    <Property Name="IncomeID" Type="Int32" Nullable="false" />
+    <Property Name="IncomeDate" Type="DateTime" />
+    <Property Name="AmountInvoiced" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="FundedAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ReserveAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="AdvanceFee" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ChargeBacks" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Comments" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="InvoiceA">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Serial" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
-    <Property Type="String" Name="CardChar" Nullable="false" MaxLength="14" FixedLength="true" Unicode="false" />
-    <Property Type="Int32" Name="CreatedCardID" Nullable="false" />
-    <Property Type="Int32" Name="CardStatusID" Nullable="false" />
-    <Property Type="Int32" Name="HandOverCardID" />
-    <NavigationProperty Name="CardStatus" Relationship="VPSSModel.FK_Card_CardStatus" FromRole="Card" ToRole="CardStatus" />
-    <NavigationProperty Name="CreatedCard" Relationship="VPSSModel.FK_Card_CreatedCard" FromRole="Card" ToRole="CreatedCard" />
-    <NavigationProperty Name="CardLog" Relationship="VPSSModel.FK_CardLog_Card" FromRole="Card" ToRole="CardLog" />
-    <NavigationProperty Name="HandOverCard" Relationship="VPSSModel.FK_HandOverCard_Card" FromRole="Card" ToRole="HandOverCard" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Invoice" Type="Int32" />
   </EntityType>
-  <EntityType Name="CardAction">
+  <EntityType Name="Maintenance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Track_Trailer_Number" Type="Int32" />
+    <Property Name="Maintenance_performed" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Performed_date" Type="DateTime" />
+    <Property Name="Location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="PO_" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ApprovedAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SpentAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ApprovedBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Operating_Expenses">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Code" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Type="Int32" Name="BeforeStatusID" />
-    <Property Type="Int32" Name="AfterStatusID" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" />
+    <Property Name="Type" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Location" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="Driver" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Paid_off" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+    <Property Name="Current_Payroll" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
   </EntityType>
-  <EntityType Name="CardLog">
+  <EntityType Name="Owners">
+    <Key>
+      <PropertyRef Name="OwnerID" />
+    </Key>
+    <Property Name="OwnerID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ssn_" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="fee_rate" Type="Single" />
+    <Property Name="pay_rate" Type="Single" />
+  </EntityType>
+  <EntityType Name="Printed_Temp_Fuel___Expenses">
+    <Key>
+      <PropertyRef Name="Selection" />
+      <PropertyRef Name="Paid_off" />
+    </Key>
+    <Property Name="Selection" Type="Boolean" Nullable="false" />
+    <Property Name="ID" Type="Int32" />
+    <Property Name="Date" Type="DateTime" />
+    <Property Name="Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Driver" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Paid_off" Type="Boolean" Nullable="false" />
+    <Property Name="Current_Payroll" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ReportID" Type="Int32" />
+    <Property Name="AmountN" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="Printed_Temp_Split_Expenses_Driver">
+    <Key>
+      <PropertyRef Name="Selection" />
+      <PropertyRef Name="Index" />
+      <PropertyRef Name="Fee_Charged" />
+      <PropertyRef Name="Current_Payroll" />
+      <PropertyRef Name="Paid_Off" />
+    </Key>
+    <Property Name="Selection" Type="Boolean" Nullable="false" />
+    <Property Name="Id" Type="Int32" />
+    <Property Name="OwnerDriver" Type="Int32" />
+    <Property Name="Index" Type="Int32" Nullable="false" />
+    <Property Name="Expenses" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Details" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Date" Type="DateTime" />
+    <Property Name="Fee_Charged" Type="Boolean" Nullable="false" />
+    <Property Name="Current_Payroll" Type="Boolean" Nullable="false" />
+    <Property Name="Paid_Off" Type="Boolean" Nullable="false" />
+    <Property Name="ReportID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Printed_Temp_Split_Expenses_Owner">
+    <Key>
+      <PropertyRef Name="Selection" />
+      <PropertyRef Name="Index" />
+      <PropertyRef Name="Fee_Charged" />
+      <PropertyRef Name="Current_Payroll" />
+      <PropertyRef Name="Paid_Off" />
+    </Key>
+    <Property Name="Selection" Type="Boolean" Nullable="false" />
+    <Property Name="Id" Type="Int32" />
+    <Property Name="OwnerDriver" Type="Int32" />
+    <Property Name="Index" Type="Int32" Nullable="false" />
+    <Property Name="Expenses" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Details" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Date" Type="DateTime" />
+    <Property Name="Fee_Charged" Type="Boolean" Nullable="false" />
+    <Property Name="Current_Payroll" Type="Boolean" Nullable="false" />
+    <Property Name="Paid_Off" Type="Boolean" Nullable="false" />
+    <Property Name="ReportID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Printed_Temp_Trip_Info">
+    <Key>
+      <PropertyRef Name="Selection" />
+      <PropertyRef Name="Paid" />
+      <PropertyRef Name="Deliverd" />
+      <PropertyRef Name="Customer_Invoiced" />
+      <PropertyRef Name="Current_Payroll" />
+      <PropertyRef Name="Driver_paid" />
+    </Key>
+    <Property Name="Selection" Type="Boolean" Nullable="false" />
+    <Property Name="Trip_ID" Type="Int32" />
+    <Property Name="Order_Date" Type="DateTime" />
+    <Property Name="Pickup_Date" Type="DateTime" />
+    <Property Name="Delivery_Date" Type="DateTime" />
+    <Property Name="Pickup_Location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Delivery_Location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Extra_stops" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Loaded_miles" Type="Int32" />
+    <Property Name="Dead_head_miles" Type="Int32" />
+    <Property Name="Comfirmed_Rate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Customer" Type="Int32" />
+    <Property Name="Dispatcher" Type="Int32" />
+    <Property Name="Driver" Type="Int32" />
+    <Property Name="Paid" Type="Boolean" Nullable="false" />
+    <Property Name="Extra_Charges" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Detention_pay" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Total_charges" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Detention" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Picked" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Deliverd" Type="Boolean" Nullable="false" />
+    <Property Name="Invoice" Type="Int32" />
+    <Property Name="Customer_Invoiced" Type="Boolean" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Current_Payroll" Type="Boolean" Nullable="false" />
+    <Property Name="Driver_paid" Type="Boolean" Nullable="false" />
+    <Property Name="ReportId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ReportIDs">
+    <Key>
+      <PropertyRef Name="ReportID" />
+    </Key>
+    <Property Name="ReportID" Type="Int32" Nullable="false" />
+    <Property Name="DriverID" Type="Int32" />
+    <Property Name="Date" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="split_expenses">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Idndex" />
+      <PropertyRef Name="Fee_Charged" />
+      <PropertyRef Name="Current_Payroll" />
+      <PropertyRef Name="Paid_Off" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="OwnerDriver" Type="Int32" />
+    <Property Name="Idndex" Type="Int32" Nullable="false" />
+    <Property Name="Expenses" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Details" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Date" Type="DateTime" />
+    <Property Name="Fee_Charged" Type="Boolean" Nullable="false" />
+    <Property Name="Current_Payroll" Type="Boolean" Nullable="false" />
+    <Property Name="Paid_Off" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Temp_Fuel___Expenses">
+    <Key>
+      <PropertyRef Name="Selection" />
+      <PropertyRef Name="Paid_off" />
+    </Key>
+    <Property Name="Selection" Type="Boolean" Nullable="false" />
+    <Property Name="ID" Type="Int32" />
+    <Property Name="Date" Type="DateTime" />
+    <Property Name="Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Driver" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Paid_off" Type="Boolean" Nullable="false" />
+    <Property Name="Current_Payroll" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="AmountN" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="Temp_Operating_Expenses">
+    <Key>
+      <PropertyRef Name="Selection" />
+    </Key>
+    <Property Name="Selection" Type="Boolean" Nullable="false" />
+    <Property Name="OperatingID" Type="Int32" />
+    <Property Name="Date" Type="DateTime" />
+    <Property Name="Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Driver" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Paid_Off" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Current_payroll" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Temp_split_expenses_Driver">
+    <Key>
+      <PropertyRef Name="Selection" />
+      <PropertyRef Name="Index" />
+      <PropertyRef Name="Fee_Charged" />
+      <PropertyRef Name="Current_Payroll" />
+      <PropertyRef Name="Paid_Off" />
+    </Key>
+    <Property Name="Selection" Type="Boolean" Nullable="false" />
+    <Property Name="Id" Type="Int32" />
+    <Property Name="OwnerDriver" Type="Int32" />
+    <Property Name="Index" Type="Int32" Nullable="false" />
+    <Property Name="Expenses" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Details" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Date" Type="DateTime" />
+    <Property Name="Fee_Charged" Type="Boolean" Nullable="false" />
+    <Property Name="Current_Payroll" Type="Boolean" Nullable="false" />
+    <Property Name="Paid_Off" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Temp_split_expenses_owner">
+    <Key>
+      <PropertyRef Name="Selection" />
+      <PropertyRef Name="Index" />
+      <PropertyRef Name="Fee_Charged" />
+      <PropertyRef Name="Current_Payroll" />
+      <PropertyRef Name="Paid_Off" />
+    </Key>
+    <Property Name="Selection" Type="Boolean" Nullable="false" />
+    <Property Name="Id" Type="Int32" />
+    <Property Name="OwnerDriver" Type="Int32" />
+    <Property Name="Index" Type="Int32" Nullable="false" />
+    <Property Name="Expenses" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Details" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Date" Type="DateTime" />
+    <Property Name="Fee_Charged" Type="Boolean" Nullable="false" />
+    <Property Name="Current_Payroll" Type="Boolean" Nullable="false" />
+    <Property Name="Paid_Off" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Temp_Trip_Info">
+    <Key>
+      <PropertyRef Name="Selection" />
+      <PropertyRef Name="Paid" />
+      <PropertyRef Name="Deliverd" />
+      <PropertyRef Name="Customer_Invoiced" />
+      <PropertyRef Name="Current_Payroll" />
+      <PropertyRef Name="Driver_paid" />
+    </Key>
+    <Property Name="Selection" Type="Boolean" Nullable="false" />
+    <Property Name="Trip_ID" Type="Int32" />
+    <Property Name="Order_Date" Type="DateTime" />
+    <Property Name="Pickup_Date" Type="DateTime" />
+    <Property Name="Delivery_Date" Type="DateTime" />
+    <Property Name="Pickup_Location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Delivery_Location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Extra_stops" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Loaded_miles" Type="Int32" />
+    <Property Name="Dead_head_miles" Type="Int32" />
+    <Property Name="Comfirmed_Rate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Customer" Type="Int32" />
+    <Property Name="Dispatcher" Type="Int32" />
+    <Property Name="Driver" Type="Int32" />
+    <Property Name="Paid" Type="Boolean" Nullable="false" />
+    <Property Name="Extra_Charges" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Detention_pay" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Total_charges" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Detention" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Picked" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Deliverd" Type="Boolean" Nullable="false" />
+    <Property Name="Invoice" Type="Int32" />
+    <Property Name="Customer_Invoiced" Type="Boolean" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Current_Payroll" Type="Boolean" Nullable="false" />
+    <Property Name="Driver_paid" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Trip_Info___old">
+    <Key>
+      <PropertyRef Name="Trip_ID" />
+    </Key>
+    <Property Name="Trip_ID" Type="Int32" Nullable="false" />
+    <Property Name="Order_date" Type="DateTime" />
+    <Property Name="Pickup_date" Type="DateTime" />
+    <Property Name="Delivery_date" Type="DateTime" />
+    <Property Name="Pick_up_location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Delivery_location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Extra_stops" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Loaded_miles" Type="Int32" />
+    <Property Name="Dead_head_miles" Type="Int32" />
+    <Property Name="Comfirmed_Rate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Customer" Type="Int32" />
+    <Property Name="Dispatcher" Type="Int32" />
+    <Property Name="Driver" Type="Int32" />
+    <Property Name="Paid" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+    <Property Name="Extra_charges" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Detention_pay" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Total_charges" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Detention" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Picked" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Deliverd" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+    <Property Name="Invoice" Type="Int32" />
+    <Property Name="Customer_Invoiced" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Current_Payroll" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Driver_paid" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+    <Property Name="PO_" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+    <Property Name="Customer_Invoiced_date" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="Violations">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="UserID" Nullable="false" />
-    <Property Type="Int32" Name="CardID" Nullable="false" />
-    <Property Type="DateTime" Name="Date" Nullable="false" />
-    <NavigationProperty Name="Card" Relationship="VPSSModel.FK_CardLog_Card" FromRole="CardLog" ToRole="Card" />
-    <NavigationProperty Name="User" Relationship="VPSSModel.FK_CardLog_User" FromRole="CardLog" ToRole="User" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Driver" Type="Int32" />
+    <Property Name="Location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Date_occurred" Type="DateTime" />
+    <Property Name="Date_resolved" Type="DateTime" />
+    <Property Name="Equipment" Type="Int32" />
   </EntityType>
-  <EntityType Name="CardStatus">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Title" MaxLength="255" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Card" Relationship="VPSSModel.FK_Card_CardStatus" FromRole="CardStatus" ToRole="Card" />
-  </EntityType>
-  <EntityType Name="CauHoiDieuTra">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Title" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Type="Boolean" Name="IsMultiChoice" Nullable="false" />
-    <Property Type="String" Name="Company" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Type="Boolean" Name="Activated" Nullable="false" />
-    <Property Type="String" Name="Link" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
-    <Property Type="String" Name="Content" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="FileExtention" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="TraLoiCauHoiDieuTra" Relationship="VPSSModel.FK_TraLoiCauHoiDieuTra_CauHoiDieuTra" FromRole="CauHoiDieuTra" ToRole="TraLoiCauHoiDieuTra" />
-  </EntityType>
-  <EntityType Name="ChangeType">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="Title" MaxLength="255" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="BalanceLog" Relationship="VPSSModel.FK_BalanceLog_ChangeType" FromRole="ChangeType" ToRole="BalanceLog" />
-  </EntityType>
-  <EntityType Name="Config">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Key" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Type="Boolean" Name="Multiline" Nullable="false" />
-  </EntityType>
-  <EntityType Name="CreateCardAmount">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="Amount" Nullable="false" />
-  </EntityType>
-  <EntityType Name="CreatedCard">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="UserID" Nullable="false" />
-    <Property Type="Int32" Name="Amount" Nullable="false" />
-    <Property Type="Int32" Name="PriceLevel" Nullable="false" />
-    <Property Type="DateTime" Name="DateCreate" Nullable="false" />
-    <Property Type="DateTime" Name="DateRelease" Nullable="false" />
-    <Property Type="DateTime" Name="DateExpire" Nullable="false" />
-    <Property Type="String" Name="Note" MaxLength="500" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Card" Relationship="VPSSModel.FK_Card_CreatedCard" FromRole="CreatedCard" ToRole="Card" />
-    <NavigationProperty Name="User" Relationship="VPSSModel.FK_CreateCard_User1" FromRole="CreatedCard" ToRole="User" />
-  </EntityType>
-  <EntityType Name="CuocPhi">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-    <Property Type="Int32" Name="Cost" Nullable="false" />
-    <NavigationProperty Name="BuuKien" Relationship="VPSSModel.FK_BuuKien_CuocPhi" FromRole="CuocPhi" ToRole="BuuKien" />
-  </EntityType>
-  <EntityType Name="Function">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Code" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="Title" MaxLength="100" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Role1" Relationship="VPSSModel.FunctionInRole" FromRole="Function" ToRole="Role1" />
-  </EntityType>
-  <EntityType Name="Group">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Menu" Relationship="VPSSModel.GroupInMenu" FromRole="Group" ToRole="Menu" />
-    <NavigationProperty Name="Role1" Relationship="VPSSModel.RoleInGroup" FromRole="Group" ToRole="Role1" />
-    <NavigationProperty Name="User" Relationship="VPSSModel.UserInGroup" FromRole="Group" ToRole="User" />
-  </EntityType>
-  <EntityType Name="HandOverCard">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="UserID" />
-    <Property Type="Int32" Name="FirstCardID" />
-    <Property Type="Int32" Name="Amount" />
-    <Property Type="String" Name="Note" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Type="Int32" Name="CreatedCardID" />
-    <Property Type="Int64" Name="Money" />
-    <Property Type="DateTime" Name="RelaseTime" />
-    <Property Type="String" Name="FirstSerial" MaxLength="20" FixedLength="true" Unicode="true" />
-    <NavigationProperty Name="Card" Relationship="VPSSModel.FK_HandOverCard_Card" FromRole="HandOverCard" ToRole="Card" />
-    <NavigationProperty Name="User" Relationship="VPSSModel.FK_HandOverCard_User" FromRole="HandOverCard" ToRole="User" />
-  </EntityType>
-  <EntityType Name="KhachHang">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Address" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="BuuKien" Relationship="VPSSModel.FK_BuuKien_KhachHang" FromRole="KhachHang" ToRole="BuuKien" />
-  </EntityType>
-  <EntityType Name="LoaiHang">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Double" Name="HeSo" />
-    <Property Type="String" Name="Title" MaxLength="100" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="BuuKien" Relationship="VPSSModel.FK_BuuKien_LoaiHang" FromRole="LoaiHang" ToRole="BuuKien" />
-  </EntityType>
-  <EntityType Name="Menu">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Type="Int32" Name="ParentID" />
-    <Property Type="String" Name="TabTitle" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Url" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Icon" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="Int32" Name="Oder" />
-    <Property Type="Boolean" Name="Inherit" />
-    <Property Type="Boolean" Name="IsActive" />
-    <NavigationProperty Name="Group" Relationship="VPSSModel.GroupInMenu" FromRole="Menu" ToRole="Group" />
-  </EntityType>
-  <EntityType Name="PriceLevel">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="Amount" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Role1">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Function" Relationship="VPSSModel.FunctionInRole" FromRole="Role1" ToRole="Function" />
-    <NavigationProperty Name="Group" Relationship="VPSSModel.RoleInGroup" FromRole="Role1" ToRole="Group" />
-  </EntityType>
-  <EntityType Name="TraLoiCauHoiDieuTra">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="CauHoiDieuTraID" Nullable="false" />
-    <Property Type="String" Name="NoiDung" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Type="Int32" Name="SoLanChon" Nullable="false" />
-    <NavigationProperty Name="CauHoiDieuTra" Relationship="VPSSModel.FK_TraLoiCauHoiDieuTra_CauHoiDieuTra" FromRole="TraLoiCauHoiDieuTra" ToRole="CauHoiDieuTra" />
-  </EntityType>
-  <EntityType Name="User">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Guid" Name="AspnetUserID" Nullable="false" />
-    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="PhoneNumber" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Sex" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Type="DateTime" Name="Birthday" />
-    <Property Type="String" Name="Address" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Type="Int64" Name="Balance" Nullable="false" />
-    <Property Type="Int64" Name="VBalance" Nullable="false" />
-    <Property Type="Int32" Name="Point" Nullable="false" />
-    <Property Type="Int32" Name="FailCard" Nullable="false" />
-    <Property Type="Int32" Name="Status" Nullable="false" />
-    <Property Type="Boolean" Name="Locked" Nullable="false" />
-    <Property Type="String" Name="Avata" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="Int32" Name="UserKindID" Nullable="false" />
-    <Property Type="String" Name="MaKH" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="Int32" Name="BuuCucID" />
-    <NavigationProperty Name="BalanceLog" Relationship="VPSSModel.FK_BalanceLog_User1" FromRole="User" ToRole="BalanceLog" />
-    <NavigationProperty Name="CardLog" Relationship="VPSSModel.FK_CardLog_User" FromRole="User" ToRole="CardLog" />
-    <NavigationProperty Name="CreatedCard" Relationship="VPSSModel.FK_CreateCard_User1" FromRole="User" ToRole="CreatedCard" />
-    <NavigationProperty Name="HandOverCard" Relationship="VPSSModel.FK_HandOverCard_User" FromRole="User" ToRole="HandOverCard" />
-    <NavigationProperty Name="UserKind" Relationship="VPSSModel.FK_UserKind_Users" FromRole="User" ToRole="UserKind" />
-    <NavigationProperty Name="Group" Relationship="VPSSModel.UserInGroup" FromRole="User" ToRole="Group" />
-    <NavigationProperty Name="BuuKien" Relationship="VPSSModel.FK_BuuKien_User" FromRole="User" ToRole="BuuKien" />
-  </EntityType>
-  <EntityType Name="UserKind">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="User" Relationship="VPSSModel.FK_UserKind_Users" FromRole="UserKind" ToRole="User" />
-  </EntityType>
-  <Association Name="FK_BalanceLog_ChangeType">
-    <End Type="VPSSModel.ChangeType" Role="ChangeType" Multiplicity="1" />
-    <End Type="VPSSModel.BalanceLog" Role="BalanceLog" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ChangeType">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="BalanceLog">
-        <PropertyRef Name="ChangeTypeID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_BalanceLog_User1">
-    <End Type="VPSSModel.User" Role="User" Multiplicity="1" />
-    <End Type="VPSSModel.BalanceLog" Role="BalanceLog" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="BalanceLog">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Card_CardStatus">
-    <End Type="VPSSModel.CardStatus" Role="CardStatus" Multiplicity="1" />
-    <End Type="VPSSModel.Card" Role="Card" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CardStatus">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Card">
-        <PropertyRef Name="CardStatusID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Card_CreatedCard">
-    <End Type="VPSSModel.CreatedCard" Role="CreatedCard" Multiplicity="1" />
-    <End Type="VPSSModel.Card" Role="Card" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CreatedCard">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Card">
-        <PropertyRef Name="CreatedCardID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CardLog_Card">
-    <End Type="VPSSModel.Card" Role="Card" Multiplicity="1" />
-    <End Type="VPSSModel.CardLog" Role="CardLog" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Card">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="CardLog">
-        <PropertyRef Name="CardID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_HandOverCard_Card">
-    <End Type="VPSSModel.Card" Role="Card" Multiplicity="0..1" />
-    <End Type="VPSSModel.HandOverCard" Role="HandOverCard" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Card">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="HandOverCard">
-        <PropertyRef Name="FirstCardID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CardLog_User">
-    <End Type="VPSSModel.User" Role="User" Multiplicity="1" />
-    <End Type="VPSSModel.CardLog" Role="CardLog" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="CardLog">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TraLoiCauHoiDieuTra_CauHoiDieuTra">
-    <End Type="VPSSModel.CauHoiDieuTra" Role="CauHoiDieuTra" Multiplicity="1" />
-    <End Type="VPSSModel.TraLoiCauHoiDieuTra" Role="TraLoiCauHoiDieuTra" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CauHoiDieuTra">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="TraLoiCauHoiDieuTra">
-        <PropertyRef Name="CauHoiDieuTraID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CreateCard_User1">
-    <End Type="VPSSModel.User" Role="User" Multiplicity="1" />
-    <End Type="VPSSModel.CreatedCard" Role="CreatedCard" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="CreatedCard">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_HandOverCard_User">
-    <End Type="VPSSModel.User" Role="User" Multiplicity="0..1" />
-    <End Type="VPSSModel.HandOverCard" Role="HandOverCard" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="HandOverCard">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_UserKind_Users">
-    <End Type="VPSSModel.UserKind" Role="UserKind" Multiplicity="1" />
-    <End Type="VPSSModel.User" Role="User" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserKind">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="User">
-        <PropertyRef Name="UserKindID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FunctionInRole">
-    <End Type="VPSSModel.Function" Role="Function" Multiplicity="*" />
-    <End Type="VPSSModel.Role1" Role="Role1" Multiplicity="*" />
-  </Association>
-  <Association Name="GroupInMenu">
-    <End Type="VPSSModel.Group" Role="Group" Multiplicity="*" />
-    <End Type="VPSSModel.Menu" Role="Menu" Multiplicity="*" />
-  </Association>
-  <Association Name="RoleInGroup">
-    <End Type="VPSSModel.Group" Role="Group" Multiplicity="*" />
-    <End Type="VPSSModel.Role1" Role="Role1" Multiplicity="*" />
-  </Association>
-  <Association Name="UserInGroup">
-    <End Type="VPSSModel.Group" Role="Group" Multiplicity="*" />
-    <End Type="VPSSModel.User" Role="User" Multiplicity="*" />
-  </Association>
-  <EntityType Name="BuuCuc">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="TenBuuCuc" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="DiaChi" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="BuuCucInBuuKien" Relationship="VPSSModel.FK_BuuCucInBuuKien_BuuCuc" FromRole="BuuCuc" ToRole="BuuCucInBuuKien" />
-    <NavigationProperty Name="BuuKien" Relationship="VPSSModel.FK_BuuKien_BuuCuc3" FromRole="BuuCuc" ToRole="BuuKien" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Type="Int32" Name="principal_id" Nullable="false" />
-    <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="version" />
-    <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
-  </EntityType>
-  <EntityType Name="BuuCucInBuuKien">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="BuuCucID" Nullable="false" />
-    <Property Type="Int32" Name="BuuKienID" Nullable="false" />
-    <Property Type="Int32" Name="KieuChuyen" Nullable="false" />
-    <NavigationProperty Name="BuuCuc" Relationship="VPSSModel.FK_BuuCucInBuuKien_BuuCuc" FromRole="BuuCucInBuuKien" ToRole="BuuCuc" />
-    <NavigationProperty Name="BuuKien" Relationship="VPSSModel.FK_BuuCucInBuuKien_BuuKien" FromRole="BuuCucInBuuKien" ToRole="BuuKien" />
-  </EntityType>
-  <Association Name="FK_BuuCucInBuuKien_BuuCuc">
-    <End Type="VPSSModel.BuuCuc" Role="BuuCuc" Multiplicity="1" />
-    <End Type="VPSSModel.BuuCucInBuuKien" Role="BuuCucInBuuKien" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="BuuCuc">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="BuuCucInBuuKien">
-        <PropertyRef Name="BuuCucID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="BuuKien">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="MaBuuKien" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="TenBuuKien" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="DateTime" Name="NgayGui" />
-    <Property Type="DateTime" Name="NgayNhan" Nullable="false" />
-    <Property Type="Int32" Name="NguoiNhanID" Nullable="false" />
-    <Property Type="String" Name="TrangThai" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="Int32" Name="KhachHangID" />
-    <Property Type="String" Name="NguoiGui" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="DiaChiNguoiGui" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="NguoiNhan" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="DiaChiNguoiNhan" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Type="Int32" Name="CuocPhiID" Nullable="false" />
-    <Property Type="Double" Name="KhoiLuong" />
-    <Property Type="String" Name="GhiChu" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Type="Int32" Name="LoaiHangID" Nullable="false" />
-    <Property Type="Int32" Name="BuuCucHienTaiID" />
-    <Property Type="Int32" Name="BuuCucTraID" />
-    <Property Type="Int32" Name="BuuCucNhanGuiID" />
-    <Property Type="Int32" Name="DichVuCongThemID" />
-    <NavigationProperty Name="BuuCuc" Relationship="VPSSModel.FK_BuuKien_BuuCuc3" FromRole="BuuKien" ToRole="BuuCuc" />
-    <NavigationProperty Name="BuuCucInBuuKien" Relationship="VPSSModel.FK_BuuCucInBuuKien_BuuKien" FromRole="BuuKien" ToRole="BuuCucInBuuKien" />
-    <NavigationProperty Name="CuocPhi" Relationship="VPSSModel.FK_BuuKien_CuocPhi" FromRole="BuuKien" ToRole="CuocPhi" />
-    <NavigationProperty Name="DichVuCongThem" Relationship="VPSSModel.FK_BuuKien_DichVuCongThem" FromRole="BuuKien" ToRole="DichVuCongThem" />
-    <NavigationProperty Name="KhachHang" Relationship="VPSSModel.FK_BuuKien_KhachHang" FromRole="BuuKien" ToRole="KhachHang" />
-    <NavigationProperty Name="LoaiHang" Relationship="VPSSModel.FK_BuuKien_LoaiHang" FromRole="BuuKien" ToRole="LoaiHang" />
-    <NavigationProperty Name="User" Relationship="VPSSModel.FK_BuuKien_User" FromRole="BuuKien" ToRole="User" />
-  </EntityType>
-  <EntityType Name="DichVuCongThem">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="Double" Name="Cost" />
-    <NavigationProperty Name="BuuKien" Relationship="VPSSModel.FK_BuuKien_DichVuCongThem" FromRole="DichVuCongThem" ToRole="BuuKien" />
-  </EntityType>
-  <Association Name="FK_BuuKien_BuuCuc3">
-    <End Type="VPSSModel.BuuCuc" Role="BuuCuc" Multiplicity="0..1" />
-    <End Type="VPSSModel.BuuKien" Role="BuuKien" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="BuuCuc">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="BuuKien">
-        <PropertyRef Name="BuuCucNhanGuiID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_BuuCucInBuuKien_BuuKien">
-    <End Type="VPSSModel.BuuKien" Role="BuuKien" Multiplicity="1" />
-    <End Type="VPSSModel.BuuCucInBuuKien" Role="BuuCucInBuuKien" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="BuuKien">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="BuuCucInBuuKien">
-        <PropertyRef Name="BuuKienID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_BuuKien_CuocPhi">
-    <End Type="VPSSModel.CuocPhi" Role="CuocPhi" Multiplicity="1" />
-    <End Type="VPSSModel.BuuKien" Role="BuuKien" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CuocPhi">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="BuuKien">
-        <PropertyRef Name="CuocPhiID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_BuuKien_DichVuCongThem">
-    <End Type="VPSSModel.DichVuCongThem" Role="DichVuCongThem" Multiplicity="0..1" />
-    <End Type="VPSSModel.BuuKien" Role="BuuKien" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DichVuCongThem">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="BuuKien">
-        <PropertyRef Name="DichVuCongThemID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_BuuKien_KhachHang">
-    <End Type="VPSSModel.KhachHang" Role="KhachHang" Multiplicity="0..1" />
-    <End Type="VPSSModel.BuuKien" Role="BuuKien" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="KhachHang">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="BuuKien">
-        <PropertyRef Name="KhachHangID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_BuuKien_LoaiHang">
-    <End Type="VPSSModel.LoaiHang" Role="LoaiHang" Multiplicity="1" />
-    <End Type="VPSSModel.BuuKien" Role="BuuKien" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="LoaiHang">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="BuuKien">
-        <PropertyRef Name="LoaiHangID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_BuuKien_User">
-    <End Type="VPSSModel.User" Role="User" Multiplicity="1" />
-    <End Type="VPSSModel.BuuKien" Role="BuuKien" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="BuuKien">
-        <PropertyRef Name="NguoiNhanID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>

@@ -13,7 +13,7 @@ namespace Alabama.Controllers
 
         public ActionResult Index()
         {
-            return View(DB.Entities1.Customer_Info.ToList());
+            return View(DB.Entities.Customer_Info.ToList());
         }
 
         //

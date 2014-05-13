@@ -1,820 +1,837 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="VPSSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-  <EntityContainer Name="VPSSModelStoreContainer">
-    <EntitySet Name="BalanceLog" EntityType="VPSSModel.Store.BalanceLog" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="BuuCuc" EntityType="VPSSModel.Store.BuuCuc" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="BuuCucInBuuKien" EntityType="VPSSModel.Store.BuuCucInBuuKien" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="BuuKien" EntityType="VPSSModel.Store.BuuKien" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Card" EntityType="VPSSModel.Store.Card" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CardAction" EntityType="VPSSModel.Store.CardAction" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CardLog" EntityType="VPSSModel.Store.CardLog" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CardStatus" EntityType="VPSSModel.Store.CardStatus" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CauHoiDieuTra" EntityType="VPSSModel.Store.CauHoiDieuTra" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ChangeType" EntityType="VPSSModel.Store.ChangeType" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Config" EntityType="VPSSModel.Store.Config" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CreateCardAmount" EntityType="VPSSModel.Store.CreateCardAmount" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CreatedCard" EntityType="VPSSModel.Store.CreatedCard" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CuocPhi" EntityType="VPSSModel.Store.CuocPhi" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DichVuCongThem" EntityType="VPSSModel.Store.DichVuCongThem" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Function" EntityType="VPSSModel.Store.Function" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="FunctionInRole" EntityType="VPSSModel.Store.FunctionInRole" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Group" EntityType="VPSSModel.Store.Group" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="GroupInMenu" EntityType="VPSSModel.Store.GroupInMenu" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="HandOverCard" EntityType="VPSSModel.Store.HandOverCard" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="KhachHang" EntityType="VPSSModel.Store.KhachHang" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="LoaiHang" EntityType="VPSSModel.Store.LoaiHang" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Menu" EntityType="VPSSModel.Store.Menu" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PriceLevel" EntityType="VPSSModel.Store.PriceLevel" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Role1" EntityType="VPSSModel.Store.Role1" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="RoleInGroup" EntityType="VPSSModel.Store.RoleInGroup" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="sysdiagrams" EntityType="VPSSModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TraLoiCauHoiDieuTra" EntityType="VPSSModel.Store.TraLoiCauHoiDieuTra" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="User" EntityType="VPSSModel.Store.User" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserInGroup" EntityType="VPSSModel.Store.UserInGroup" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserKind" EntityType="VPSSModel.Store.UserKind" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_BalanceLog_ChangeType" Association="VPSSModel.Store.FK_BalanceLog_ChangeType">
-      <End Role="ChangeType" EntitySet="ChangeType" />
-      <End Role="BalanceLog" EntitySet="BalanceLog" />
-    </AssociationSet>
-    <AssociationSet Name="FK_BalanceLog_User1" Association="VPSSModel.Store.FK_BalanceLog_User1">
-      <End Role="User" EntitySet="User" />
-      <End Role="BalanceLog" EntitySet="BalanceLog" />
-    </AssociationSet>
-    <AssociationSet Name="FK_BuuCucInBuuKien_BuuCuc" Association="VPSSModel.Store.FK_BuuCucInBuuKien_BuuCuc">
-      <End Role="BuuCuc" EntitySet="BuuCuc" />
-      <End Role="BuuCucInBuuKien" EntitySet="BuuCucInBuuKien" />
-    </AssociationSet>
-    <AssociationSet Name="FK_BuuCucInBuuKien_BuuKien" Association="VPSSModel.Store.FK_BuuCucInBuuKien_BuuKien">
-      <End Role="BuuKien" EntitySet="BuuKien" />
-      <End Role="BuuCucInBuuKien" EntitySet="BuuCucInBuuKien" />
-    </AssociationSet>
-    <AssociationSet Name="FK_BuuKien_BuuCuc3" Association="VPSSModel.Store.FK_BuuKien_BuuCuc3">
-      <End Role="BuuCuc" EntitySet="BuuCuc" />
-      <End Role="BuuKien" EntitySet="BuuKien" />
-    </AssociationSet>
-    <AssociationSet Name="FK_BuuKien_CuocPhi" Association="VPSSModel.Store.FK_BuuKien_CuocPhi">
-      <End Role="CuocPhi" EntitySet="CuocPhi" />
-      <End Role="BuuKien" EntitySet="BuuKien" />
-    </AssociationSet>
-    <AssociationSet Name="FK_BuuKien_DichVuCongThem" Association="VPSSModel.Store.FK_BuuKien_DichVuCongThem">
-      <End Role="DichVuCongThem" EntitySet="DichVuCongThem" />
-      <End Role="BuuKien" EntitySet="BuuKien" />
-    </AssociationSet>
-    <AssociationSet Name="FK_BuuKien_KhachHang" Association="VPSSModel.Store.FK_BuuKien_KhachHang">
-      <End Role="KhachHang" EntitySet="KhachHang" />
-      <End Role="BuuKien" EntitySet="BuuKien" />
-    </AssociationSet>
-    <AssociationSet Name="FK_BuuKien_LoaiHang" Association="VPSSModel.Store.FK_BuuKien_LoaiHang">
-      <End Role="LoaiHang" EntitySet="LoaiHang" />
-      <End Role="BuuKien" EntitySet="BuuKien" />
-    </AssociationSet>
-    <AssociationSet Name="FK_BuuKien_User" Association="VPSSModel.Store.FK_BuuKien_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="BuuKien" EntitySet="BuuKien" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Card_CardStatus" Association="VPSSModel.Store.FK_Card_CardStatus">
-      <End Role="CardStatus" EntitySet="CardStatus" />
-      <End Role="Card" EntitySet="Card" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Card_CreatedCard" Association="VPSSModel.Store.FK_Card_CreatedCard">
-      <End Role="CreatedCard" EntitySet="CreatedCard" />
-      <End Role="Card" EntitySet="Card" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CardLog_Card" Association="VPSSModel.Store.FK_CardLog_Card">
-      <End Role="Card" EntitySet="Card" />
-      <End Role="CardLog" EntitySet="CardLog" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CardLog_User" Association="VPSSModel.Store.FK_CardLog_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="CardLog" EntitySet="CardLog" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CreateCard_User1" Association="VPSSModel.Store.FK_CreateCard_User1">
-      <End Role="User" EntitySet="User" />
-      <End Role="CreatedCard" EntitySet="CreatedCard" />
-    </AssociationSet>
-    <AssociationSet Name="FK_FunctionInRole_Function" Association="VPSSModel.Store.FK_FunctionInRole_Function">
-      <End Role="Function" EntitySet="Function" />
-      <End Role="FunctionInRole" EntitySet="FunctionInRole" />
-    </AssociationSet>
-    <AssociationSet Name="FK_FunctionInRole_Role1" Association="VPSSModel.Store.FK_FunctionInRole_Role1">
-      <End Role="Role1" EntitySet="Role1" />
-      <End Role="FunctionInRole" EntitySet="FunctionInRole" />
-    </AssociationSet>
-    <AssociationSet Name="FK_GroupInMenu_Group" Association="VPSSModel.Store.FK_GroupInMenu_Group">
-      <End Role="Group" EntitySet="Group" />
-      <End Role="GroupInMenu" EntitySet="GroupInMenu" />
-    </AssociationSet>
-    <AssociationSet Name="FK_GroupInMenu_Menu" Association="VPSSModel.Store.FK_GroupInMenu_Menu">
-      <End Role="Menu" EntitySet="Menu" />
-      <End Role="GroupInMenu" EntitySet="GroupInMenu" />
-    </AssociationSet>
-    <AssociationSet Name="FK_HandOverCard_Card" Association="VPSSModel.Store.FK_HandOverCard_Card">
-      <End Role="Card" EntitySet="Card" />
-      <End Role="HandOverCard" EntitySet="HandOverCard" />
-    </AssociationSet>
-    <AssociationSet Name="FK_HandOverCard_User" Association="VPSSModel.Store.FK_HandOverCard_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="HandOverCard" EntitySet="HandOverCard" />
-    </AssociationSet>
-    <AssociationSet Name="FK_RoleInGroup_Group" Association="VPSSModel.Store.FK_RoleInGroup_Group">
-      <End Role="Group" EntitySet="Group" />
-      <End Role="RoleInGroup" EntitySet="RoleInGroup" />
-    </AssociationSet>
-    <AssociationSet Name="FK_RoleInGroup_Role1" Association="VPSSModel.Store.FK_RoleInGroup_Role1">
-      <End Role="Role1" EntitySet="Role1" />
-      <End Role="RoleInGroup" EntitySet="RoleInGroup" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TraLoiCauHoiDieuTra_CauHoiDieuTra" Association="VPSSModel.Store.FK_TraLoiCauHoiDieuTra_CauHoiDieuTra">
-      <End Role="CauHoiDieuTra" EntitySet="CauHoiDieuTra" />
-      <End Role="TraLoiCauHoiDieuTra" EntitySet="TraLoiCauHoiDieuTra" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserInGroup_Group" Association="VPSSModel.Store.FK_UserInGroup_Group">
-      <End Role="Group" EntitySet="Group" />
-      <End Role="UserInGroup" EntitySet="UserInGroup" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserInGroup_User" Association="VPSSModel.Store.FK_UserInGroup_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="UserInGroup" EntitySet="UserInGroup" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserKind_Users" Association="VPSSModel.Store.FK_UserKind_Users">
-      <End Role="UserKind" EntitySet="UserKind" />
-      <End Role="User" EntitySet="User" />
-    </AssociationSet>
+<Schema Namespace="vpss1Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="vpss1ModelStoreContainer">
+    <EntitySet Name="Company Expanses" EntityType="vpss1Model.Store.Company Expanses" store:Type="Tables" store:Schema="dbo" store:Name="Company Expanses">
+      <DefiningQuery>SELECT 
+      [Company Expanses].[CompanyExpansesID] AS [CompanyExpansesID], 
+      [Company Expanses].[Expanses] AS [Expanses], 
+      [Company Expanses].[Amount] AS [Amount], 
+      [Company Expanses].[Date] AS [Date], 
+      [Company Expanses].[Comment] AS [Comment]
+      FROM [dbo].[Company Expanses] AS [Company Expanses]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Customer Info" EntityType="vpss1Model.Store.Customer Info" store:Type="Tables" store:Schema="dbo" store:Name="Customer Info">
+      <DefiningQuery>SELECT 
+      [Customer Info].[Customer ID] AS [Customer ID], 
+      [Customer Info].[Customer Name] AS [Customer Name], 
+      [Customer Info].[Street] AS [Street], 
+      [Customer Info].[City] AS [City], 
+      [Customer Info].[State] AS [State], 
+      [Customer Info].[ZIP Code] AS [ZIP Code], 
+      [Customer Info].[Phone] AS [Phone], 
+      [Customer Info].[Fax] AS [Fax], 
+      [Customer Info].[Contact] AS [Contact], 
+      [Customer Info].[Comments] AS [Comments], 
+      [Customer Info].[Days to pay] AS [Days to pay]
+      FROM [dbo].[Customer Info] AS [Customer Info]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Dispatchers" EntityType="vpss1Model.Store.Dispatchers" store:Type="Tables" store:Schema="dbo" store:Name="Dispatchers">
+      <DefiningQuery>SELECT 
+      [Dispatchers].[ID] AS [ID], 
+      [Dispatchers].[Last name] AS [Last name], 
+      [Dispatchers].[First name] AS [First name], 
+      [Dispatchers].[SSN] AS [SSN], 
+      [Dispatchers].[DOB] AS [DOB], 
+      [Dispatchers].[Hire date] AS [Hire date]
+      FROM [dbo].[Dispatchers] AS [Dispatchers]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Equipment" EntityType="vpss1Model.Store.Equipment" store:Type="Tables" store:Schema="dbo" store:Name="Equipment">
+      <DefiningQuery>SELECT 
+      [Equipment].[ID] AS [ID], 
+      [Equipment].[Equipment Type] AS [Equipment Type], 
+      [Equipment].[Equipment number] AS [Equipment number], 
+      [Equipment].[Driver] AS [Driver], 
+      [Equipment].[Owner] AS [Owner], 
+      [Equipment].[VIN] AS [VIN], 
+      [Equipment].[Registration Expiration] AS [Registration Expiration], 
+      [Equipment].[Inspection Expiration] AS [Inspection Expiration], 
+      [Equipment].[DATE LEASED] AS [DATE LEASED], 
+      [Equipment].[EQUIPMENT VALUE] AS [EQUIPMENT VALUE], 
+      [Equipment].[EQUIPMENT DESCRIPTION] AS [EQUIPMENT DESCRIPTION], 
+      [Equipment].[MODEL YEAR] AS [MODEL YEAR], 
+      [Equipment].[MAKE] AS [MAKE]
+      FROM [dbo].[Equipment] AS [Equipment]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="fixed charges" EntityType="vpss1Model.Store.fixed charges" store:Type="Tables" store:Schema="dbo" store:Name="fixed charges">
+      <DefiningQuery>SELECT 
+      [fixed charges].[Id] AS [Id], 
+      [fixed charges].[DriverId] AS [DriverId], 
+      [fixed charges].[Amount] AS [Amount], 
+      [fixed charges].[Type] AS [Type], 
+      [fixed charges].[Frequency] AS [Frequency], 
+      [fixed charges].[Beginning] AS [Beginning], 
+      [fixed charges].[Fee Charged] AS [Fee Charged], 
+      [fixed charges].[Next Date] AS [Next Date], 
+      [fixed charges].[Prv Date] AS [Prv Date], 
+      [fixed charges].[Amount To Date] AS [Amount To Date]
+      FROM [dbo].[fixed charges] AS [fixed charges]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Income" EntityType="vpss1Model.Store.Income" store:Type="Tables" store:Schema="dbo" store:Name="Income">
+      <DefiningQuery>SELECT 
+      [Income].[IncomeID] AS [IncomeID], 
+      [Income].[IncomeDate] AS [IncomeDate], 
+      [Income].[AmountInvoiced] AS [AmountInvoiced], 
+      [Income].[FundedAmount] AS [FundedAmount], 
+      [Income].[ReserveAmount] AS [ReserveAmount], 
+      [Income].[AdvanceFee] AS [AdvanceFee], 
+      [Income].[ChargeBacks] AS [ChargeBacks], 
+      [Income].[Comments] AS [Comments]
+      FROM [dbo].[Income] AS [Income]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="InvoiceA" EntityType="vpss1Model.Store.InvoiceA" store:Type="Tables" store:Schema="dbo" store:Name="InvoiceA">
+      <DefiningQuery>SELECT 
+      [InvoiceA].[ID] AS [ID], 
+      [InvoiceA].[Invoice] AS [Invoice]
+      FROM [dbo].[InvoiceA] AS [InvoiceA]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Maintenance" EntityType="vpss1Model.Store.Maintenance" store:Type="Tables" store:Schema="dbo" store:Name="Maintenance">
+      <DefiningQuery>SELECT 
+      [Maintenance].[Id] AS [Id], 
+      [Maintenance].[Track/Trailer Number] AS [Track/Trailer Number], 
+      [Maintenance].[Maintenance performed] AS [Maintenance performed], 
+      [Maintenance].[Performed date] AS [Performed date], 
+      [Maintenance].[Location] AS [Location], 
+      [Maintenance].[PO#] AS [PO#], 
+      [Maintenance].[ApprovedAmount] AS [ApprovedAmount], 
+      [Maintenance].[SpentAmount] AS [SpentAmount], 
+      [Maintenance].[ApprovedBy] AS [ApprovedBy]
+      FROM [dbo].[Maintenance] AS [Maintenance]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Operating Expenses" EntityType="vpss1Model.Store.Operating Expenses" store:Type="Tables" store:Schema="dbo" store:Name="Operating Expenses">
+      <DefiningQuery>SELECT 
+      [Operating Expenses].[ID] AS [ID], 
+      [Operating Expenses].[Date] AS [Date], 
+      [Operating Expenses].[Type] AS [Type], 
+      [Operating Expenses].[Amount] AS [Amount], 
+      [Operating Expenses].[Location] AS [Location], 
+      [Operating Expenses].[Driver] AS [Driver], 
+      [Operating Expenses].[Description] AS [Description], 
+      [Operating Expenses].[Paid off] AS [Paid off], 
+      [Operating Expenses].[Current Payroll] AS [Current Payroll]
+      FROM [dbo].[Operating Expenses] AS [Operating Expenses]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Owners" EntityType="vpss1Model.Store.Owners" store:Type="Tables" store:Schema="dbo" store:Name="Owners">
+      <DefiningQuery>SELECT 
+      [Owners].[OwnerID] AS [OwnerID], 
+      [Owners].[Name] AS [Name], 
+      [Owners].[ssn#] AS [ssn#], 
+      [Owners].[fee rate] AS [fee rate], 
+      [Owners].[pay rate] AS [pay rate]
+      FROM [dbo].[Owners] AS [Owners]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Printed Temp Fuel &amp; Expenses" EntityType="vpss1Model.Store.Printed Temp Fuel &amp; Expenses" store:Type="Tables" store:Schema="dbo" store:Name="Printed Temp Fuel &amp; Expenses">
+      <DefiningQuery>SELECT 
+      [Printed Temp Fuel &amp; Expenses].[Selection] AS [Selection], 
+      [Printed Temp Fuel &amp; Expenses].[ID] AS [ID], 
+      [Printed Temp Fuel &amp; Expenses].[Date] AS [Date], 
+      [Printed Temp Fuel &amp; Expenses].[Type] AS [Type], 
+      [Printed Temp Fuel &amp; Expenses].[Amount] AS [Amount], 
+      [Printed Temp Fuel &amp; Expenses].[Location] AS [Location], 
+      [Printed Temp Fuel &amp; Expenses].[Driver] AS [Driver], 
+      [Printed Temp Fuel &amp; Expenses].[Description] AS [Description], 
+      [Printed Temp Fuel &amp; Expenses].[Paid off] AS [Paid off], 
+      [Printed Temp Fuel &amp; Expenses].[Current Payroll] AS [Current Payroll], 
+      [Printed Temp Fuel &amp; Expenses].[ReportID] AS [ReportID], 
+      [Printed Temp Fuel &amp; Expenses].[AmountN] AS [AmountN]
+      FROM [dbo].[Printed Temp Fuel &amp; Expenses] AS [Printed Temp Fuel &amp; Expenses]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Printed Temp Split Expenses Driver" EntityType="vpss1Model.Store.Printed Temp Split Expenses Driver" store:Type="Tables" store:Schema="dbo" store:Name="Printed Temp Split Expenses Driver">
+      <DefiningQuery>SELECT 
+      [Printed Temp Split Expenses Driver].[Selection] AS [Selection], 
+      [Printed Temp Split Expenses Driver].[Id] AS [Id], 
+      [Printed Temp Split Expenses Driver].[OwnerDriver] AS [OwnerDriver], 
+      [Printed Temp Split Expenses Driver].[Index] AS [Index], 
+      [Printed Temp Split Expenses Driver].[Expenses] AS [Expenses], 
+      [Printed Temp Split Expenses Driver].[Amount] AS [Amount], 
+      [Printed Temp Split Expenses Driver].[Details] AS [Details], 
+      [Printed Temp Split Expenses Driver].[Date] AS [Date], 
+      [Printed Temp Split Expenses Driver].[Fee Charged] AS [Fee Charged], 
+      [Printed Temp Split Expenses Driver].[Current Payroll] AS [Current Payroll], 
+      [Printed Temp Split Expenses Driver].[Paid Off] AS [Paid Off], 
+      [Printed Temp Split Expenses Driver].[ReportID] AS [ReportID]
+      FROM [dbo].[Printed Temp Split Expenses Driver] AS [Printed Temp Split Expenses Driver]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Printed Temp Split Expenses Owner" EntityType="vpss1Model.Store.Printed Temp Split Expenses Owner" store:Type="Tables" store:Schema="dbo" store:Name="Printed Temp Split Expenses Owner">
+      <DefiningQuery>SELECT 
+      [Printed Temp Split Expenses Owner].[Selection] AS [Selection], 
+      [Printed Temp Split Expenses Owner].[Id] AS [Id], 
+      [Printed Temp Split Expenses Owner].[OwnerDriver] AS [OwnerDriver], 
+      [Printed Temp Split Expenses Owner].[Index] AS [Index], 
+      [Printed Temp Split Expenses Owner].[Expenses] AS [Expenses], 
+      [Printed Temp Split Expenses Owner].[Amount] AS [Amount], 
+      [Printed Temp Split Expenses Owner].[Details] AS [Details], 
+      [Printed Temp Split Expenses Owner].[Date] AS [Date], 
+      [Printed Temp Split Expenses Owner].[Fee Charged] AS [Fee Charged], 
+      [Printed Temp Split Expenses Owner].[Current Payroll] AS [Current Payroll], 
+      [Printed Temp Split Expenses Owner].[Paid Off] AS [Paid Off], 
+      [Printed Temp Split Expenses Owner].[ReportID] AS [ReportID]
+      FROM [dbo].[Printed Temp Split Expenses Owner] AS [Printed Temp Split Expenses Owner]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Printed Temp Trip Info" EntityType="vpss1Model.Store.Printed Temp Trip Info" store:Type="Tables" store:Schema="dbo" store:Name="Printed Temp Trip Info">
+      <DefiningQuery>SELECT 
+      [Printed Temp Trip Info].[Selection] AS [Selection], 
+      [Printed Temp Trip Info].[Trip ID] AS [Trip ID], 
+      [Printed Temp Trip Info].[Order Date] AS [Order Date], 
+      [Printed Temp Trip Info].[Pickup Date] AS [Pickup Date], 
+      [Printed Temp Trip Info].[Delivery Date] AS [Delivery Date], 
+      [Printed Temp Trip Info].[Pickup Location] AS [Pickup Location], 
+      [Printed Temp Trip Info].[Delivery Location] AS [Delivery Location], 
+      [Printed Temp Trip Info].[Extra stops] AS [Extra stops], 
+      [Printed Temp Trip Info].[Loaded miles] AS [Loaded miles], 
+      [Printed Temp Trip Info].[Dead head miles] AS [Dead head miles], 
+      [Printed Temp Trip Info].[Comfirmed Rate] AS [Comfirmed Rate], 
+      [Printed Temp Trip Info].[Customer] AS [Customer], 
+      [Printed Temp Trip Info].[Dispatcher] AS [Dispatcher], 
+      [Printed Temp Trip Info].[Driver] AS [Driver], 
+      [Printed Temp Trip Info].[Paid] AS [Paid], 
+      [Printed Temp Trip Info].[Extra Charges] AS [Extra Charges], 
+      [Printed Temp Trip Info].[Detention pay] AS [Detention pay], 
+      [Printed Temp Trip Info].[Total charges] AS [Total charges], 
+      [Printed Temp Trip Info].[Detention] AS [Detention], 
+      [Printed Temp Trip Info].[Picked] AS [Picked], 
+      [Printed Temp Trip Info].[Deliverd] AS [Deliverd], 
+      [Printed Temp Trip Info].[Invoice] AS [Invoice], 
+      [Printed Temp Trip Info].[Customer Invoiced] AS [Customer Invoiced], 
+      [Printed Temp Trip Info].[Address] AS [Address], 
+      [Printed Temp Trip Info].[Current Payroll] AS [Current Payroll], 
+      [Printed Temp Trip Info].[Driver paid] AS [Driver paid], 
+      [Printed Temp Trip Info].[ReportId] AS [ReportId]
+      FROM [dbo].[Printed Temp Trip Info] AS [Printed Temp Trip Info]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ReportIDs" EntityType="vpss1Model.Store.ReportIDs" store:Type="Tables" store:Schema="dbo" store:Name="ReportIDs">
+      <DefiningQuery>SELECT 
+      [ReportIDs].[ReportID] AS [ReportID], 
+      [ReportIDs].[DriverID] AS [DriverID], 
+      [ReportIDs].[Date] AS [Date]
+      FROM [dbo].[ReportIDs] AS [ReportIDs]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="split expenses" EntityType="vpss1Model.Store.split expenses" store:Type="Tables" store:Schema="dbo" store:Name="split expenses">
+      <DefiningQuery>SELECT 
+      [split expenses].[Id] AS [Id], 
+      [split expenses].[OwnerDriver] AS [OwnerDriver], 
+      [split expenses].[Idndex] AS [Idndex], 
+      [split expenses].[Expenses] AS [Expenses], 
+      [split expenses].[Amount] AS [Amount], 
+      [split expenses].[Details] AS [Details], 
+      [split expenses].[Date] AS [Date], 
+      [split expenses].[Fee Charged] AS [Fee Charged], 
+      [split expenses].[Current Payroll] AS [Current Payroll], 
+      [split expenses].[Paid Off] AS [Paid Off]
+      FROM [dbo].[split expenses] AS [split expenses]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Temp Fuel &amp; Expenses" EntityType="vpss1Model.Store.Temp Fuel &amp; Expenses" store:Type="Tables" store:Schema="dbo" store:Name="Temp Fuel &amp; Expenses">
+      <DefiningQuery>SELECT 
+      [Temp Fuel &amp; Expenses].[Selection] AS [Selection], 
+      [Temp Fuel &amp; Expenses].[ID] AS [ID], 
+      [Temp Fuel &amp; Expenses].[Date] AS [Date], 
+      [Temp Fuel &amp; Expenses].[Type] AS [Type], 
+      [Temp Fuel &amp; Expenses].[Amount] AS [Amount], 
+      [Temp Fuel &amp; Expenses].[Location] AS [Location], 
+      [Temp Fuel &amp; Expenses].[Driver] AS [Driver], 
+      [Temp Fuel &amp; Expenses].[Description] AS [Description], 
+      [Temp Fuel &amp; Expenses].[Paid off] AS [Paid off], 
+      [Temp Fuel &amp; Expenses].[Current Payroll] AS [Current Payroll], 
+      [Temp Fuel &amp; Expenses].[AmountN] AS [AmountN]
+      FROM [dbo].[Temp Fuel &amp; Expenses] AS [Temp Fuel &amp; Expenses]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Temp Operating Expenses" EntityType="vpss1Model.Store.Temp Operating Expenses" store:Type="Tables" store:Schema="dbo" store:Name="Temp Operating Expenses">
+      <DefiningQuery>SELECT 
+      [Temp Operating Expenses].[Selection] AS [Selection], 
+      [Temp Operating Expenses].[OperatingID] AS [OperatingID], 
+      [Temp Operating Expenses].[Date] AS [Date], 
+      [Temp Operating Expenses].[Type] AS [Type], 
+      [Temp Operating Expenses].[Amount] AS [Amount], 
+      [Temp Operating Expenses].[Location] AS [Location], 
+      [Temp Operating Expenses].[Driver] AS [Driver], 
+      [Temp Operating Expenses].[Description] AS [Description], 
+      [Temp Operating Expenses].[Paid Off] AS [Paid Off], 
+      [Temp Operating Expenses].[Current payroll] AS [Current payroll]
+      FROM [dbo].[Temp Operating Expenses] AS [Temp Operating Expenses]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Temp split expenses Driver" EntityType="vpss1Model.Store.Temp split expenses Driver" store:Type="Tables" store:Schema="dbo" store:Name="Temp split expenses Driver">
+      <DefiningQuery>SELECT 
+      [Temp split expenses Driver].[Selection] AS [Selection], 
+      [Temp split expenses Driver].[Id] AS [Id], 
+      [Temp split expenses Driver].[OwnerDriver] AS [OwnerDriver], 
+      [Temp split expenses Driver].[Index] AS [Index], 
+      [Temp split expenses Driver].[Expenses] AS [Expenses], 
+      [Temp split expenses Driver].[Amount] AS [Amount], 
+      [Temp split expenses Driver].[Details] AS [Details], 
+      [Temp split expenses Driver].[Date] AS [Date], 
+      [Temp split expenses Driver].[Fee Charged] AS [Fee Charged], 
+      [Temp split expenses Driver].[Current Payroll] AS [Current Payroll], 
+      [Temp split expenses Driver].[Paid Off] AS [Paid Off]
+      FROM [dbo].[Temp split expenses Driver] AS [Temp split expenses Driver]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Temp split expenses owner" EntityType="vpss1Model.Store.Temp split expenses owner" store:Type="Tables" store:Schema="dbo" store:Name="Temp split expenses owner">
+      <DefiningQuery>SELECT 
+      [Temp split expenses owner].[Selection] AS [Selection], 
+      [Temp split expenses owner].[Id] AS [Id], 
+      [Temp split expenses owner].[OwnerDriver] AS [OwnerDriver], 
+      [Temp split expenses owner].[Index] AS [Index], 
+      [Temp split expenses owner].[Expenses] AS [Expenses], 
+      [Temp split expenses owner].[Amount] AS [Amount], 
+      [Temp split expenses owner].[Details] AS [Details], 
+      [Temp split expenses owner].[Date] AS [Date], 
+      [Temp split expenses owner].[Fee Charged] AS [Fee Charged], 
+      [Temp split expenses owner].[Current Payroll] AS [Current Payroll], 
+      [Temp split expenses owner].[Paid Off] AS [Paid Off]
+      FROM [dbo].[Temp split expenses owner] AS [Temp split expenses owner]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Temp Trip Info" EntityType="vpss1Model.Store.Temp Trip Info" store:Type="Tables" store:Schema="dbo" store:Name="Temp Trip Info">
+      <DefiningQuery>SELECT 
+      [Temp Trip Info].[Selection] AS [Selection], 
+      [Temp Trip Info].[Trip ID] AS [Trip ID], 
+      [Temp Trip Info].[Order Date] AS [Order Date], 
+      [Temp Trip Info].[Pickup Date] AS [Pickup Date], 
+      [Temp Trip Info].[Delivery Date] AS [Delivery Date], 
+      [Temp Trip Info].[Pickup Location] AS [Pickup Location], 
+      [Temp Trip Info].[Delivery Location] AS [Delivery Location], 
+      [Temp Trip Info].[Extra stops] AS [Extra stops], 
+      [Temp Trip Info].[Loaded miles] AS [Loaded miles], 
+      [Temp Trip Info].[Dead head miles] AS [Dead head miles], 
+      [Temp Trip Info].[Comfirmed Rate] AS [Comfirmed Rate], 
+      [Temp Trip Info].[Customer] AS [Customer], 
+      [Temp Trip Info].[Dispatcher] AS [Dispatcher], 
+      [Temp Trip Info].[Driver] AS [Driver], 
+      [Temp Trip Info].[Paid] AS [Paid], 
+      [Temp Trip Info].[Extra Charges] AS [Extra Charges], 
+      [Temp Trip Info].[Detention pay] AS [Detention pay], 
+      [Temp Trip Info].[Total charges] AS [Total charges], 
+      [Temp Trip Info].[Detention] AS [Detention], 
+      [Temp Trip Info].[Picked] AS [Picked], 
+      [Temp Trip Info].[Deliverd] AS [Deliverd], 
+      [Temp Trip Info].[Invoice] AS [Invoice], 
+      [Temp Trip Info].[Customer Invoiced] AS [Customer Invoiced], 
+      [Temp Trip Info].[Address] AS [Address], 
+      [Temp Trip Info].[Current Payroll] AS [Current Payroll], 
+      [Temp Trip Info].[Driver paid] AS [Driver paid]
+      FROM [dbo].[Temp Trip Info] AS [Temp Trip Info]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Trip Info - old" EntityType="vpss1Model.Store.Trip Info - old" store:Type="Tables" store:Schema="dbo" store:Name="Trip Info - old">
+      <DefiningQuery>SELECT 
+      [Trip Info - old].[Trip ID] AS [Trip ID], 
+      [Trip Info - old].[Order date] AS [Order date], 
+      [Trip Info - old].[Pickup date] AS [Pickup date], 
+      [Trip Info - old].[Delivery date] AS [Delivery date], 
+      [Trip Info - old].[Pick up location] AS [Pick up location], 
+      [Trip Info - old].[Delivery location] AS [Delivery location], 
+      [Trip Info - old].[Extra stops] AS [Extra stops], 
+      [Trip Info - old].[Loaded miles] AS [Loaded miles], 
+      [Trip Info - old].[Dead head miles] AS [Dead head miles], 
+      [Trip Info - old].[Comfirmed Rate] AS [Comfirmed Rate], 
+      [Trip Info - old].[Customer] AS [Customer], 
+      [Trip Info - old].[Dispatcher] AS [Dispatcher], 
+      [Trip Info - old].[Driver] AS [Driver], 
+      [Trip Info - old].[Paid] AS [Paid], 
+      [Trip Info - old].[Extra charges] AS [Extra charges], 
+      [Trip Info - old].[Detention pay] AS [Detention pay], 
+      [Trip Info - old].[Total charges] AS [Total charges], 
+      [Trip Info - old].[Detention] AS [Detention], 
+      [Trip Info - old].[Picked] AS [Picked], 
+      [Trip Info - old].[Deliverd] AS [Deliverd], 
+      [Trip Info - old].[Invoice] AS [Invoice], 
+      [Trip Info - old].[Customer Invoiced] AS [Customer Invoiced], 
+      [Trip Info - old].[Address] AS [Address], 
+      [Trip Info - old].[Current Payroll] AS [Current Payroll], 
+      [Trip Info - old].[Driver paid] AS [Driver paid], 
+      [Trip Info - old].[PO#] AS [PO#], 
+      [Trip Info - old].[Customer Invoiced date] AS [Customer Invoiced date]
+      FROM [dbo].[Trip Info - old] AS [Trip Info - old]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Violations" EntityType="vpss1Model.Store.Violations" store:Type="Tables" store:Schema="dbo" store:Name="Violations">
+      <DefiningQuery>SELECT 
+      [Violations].[ID] AS [ID], 
+      [Violations].[Driver] AS [Driver], 
+      [Violations].[Location] AS [Location], 
+      [Violations].[Date occurred] AS [Date occurred], 
+      [Violations].[Date resolved] AS [Date resolved], 
+      [Violations].[Equipment] AS [Equipment]
+      FROM [dbo].[Violations] AS [Violations]</DefiningQuery>
+    </EntitySet>
   </EntityContainer>
-  <EntityType Name="BalanceLog">
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.Company Expanses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Company Expanses">
+    <Key>
+      <PropertyRef Name="CompanyExpansesID" />
+    </Key>
+    <Property Name="CompanyExpansesID" Type="int" Nullable="false" />
+    <Property Name="Expanses" Type="nvarchar" MaxLength="50" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.Customer Info' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Customer Info">
+    <Key>
+      <PropertyRef Name="Customer ID" />
+      <PropertyRef Name="Customer Name" />
+      <PropertyRef Name="Street" />
+    </Key>
+    <Property Name="Customer ID" Type="int" Nullable="false" />
+    <Property Name="Customer Name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Street" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="City" Type="nvarchar" MaxLength="64" />
+    <Property Name="State" Type="nvarchar" MaxLength="64" />
+    <Property Name="ZIP Code" Type="nvarchar" MaxLength="24" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="24" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="24" />
+    <Property Name="Contact" Type="nvarchar" MaxLength="128" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="255" />
+    <Property Name="Days to pay" Type="smallint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.Dispatchers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Dispatchers">
     <Key>
       <PropertyRef Name="ID" />
+      <PropertyRef Name="Last name" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="UserID" Type="int" Nullable="false" />
-    <Property Name="Money" Type="int" Nullable="false" />
-    <Property Name="Date" Type="datetime" Nullable="false" />
-    <Property Name="TransactionID" Type="int" />
-    <Property Name="ChangeTypeID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Last name" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="First name" Type="nvarchar" MaxLength="32" />
+    <Property Name="SSN" Type="nvarchar" MaxLength="12" />
+    <Property Name="DOB" Type="datetime" />
+    <Property Name="Hire date" Type="datetime" />
   </EntityType>
-  <EntityType Name="BuuCuc">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="TenBuuCuc" Type="nvarchar" MaxLength="200" />
-    <Property Name="DiaChi" Type="nvarchar" MaxLength="200" />
-    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="BuuCucInBuuKien">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="BuuCucID" Type="int" Nullable="false" />
-    <Property Name="BuuKienID" Type="int" Nullable="false" />
-    <Property Name="KieuChuyen" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="BuuKien">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="MaBuuKien" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="TenBuuKien" Type="nvarchar" MaxLength="50" />
-    <Property Name="NgayGui" Type="datetime" />
-    <Property Name="NgayNhan" Type="datetime" Nullable="false" />
-    <Property Name="NguoiNhanID" Type="int" Nullable="false" />
-    <Property Name="TrangThai" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="KhachHangID" Type="int" />
-    <Property Name="NguoiGui" Type="nvarchar" MaxLength="50" />
-    <Property Name="DiaChiNguoiGui" Type="nvarchar" MaxLength="100" />
-    <Property Name="NguoiNhan" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="DiaChiNguoiNhan" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="CuocPhiID" Type="int" Nullable="false" />
-    <Property Name="KhoiLuong" Type="float" />
-    <Property Name="GhiChu" Type="text" />
-    <Property Name="LoaiHangID" Type="int" Nullable="false" />
-    <Property Name="BuuCucHienTaiID" Type="int" />
-    <Property Name="BuuCucTraID" Type="int" />
-    <Property Name="BuuCucNhanGuiID" Type="int" />
-    <Property Name="DichVuCongThemID" Type="int" />
-  </EntityType>
-  <EntityType Name="Card">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Serial" Type="char" Nullable="false" MaxLength="9" />
-    <Property Name="CardChar" Type="char" Nullable="false" MaxLength="14" />
-    <Property Name="CreatedCardID" Type="int" Nullable="false" />
-    <Property Name="CardStatusID" Type="int" Nullable="false" />
-    <Property Name="HandOverCardID" Type="int" />
-  </EntityType>
-  <EntityType Name="CardAction">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="20" />
-    <Property Name="BeforeStatusID" Type="int" />
-    <Property Name="AfterStatusID" Type="int" />
-  </EntityType>
-  <EntityType Name="CardLog">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="UserID" Type="int" Nullable="false" />
-    <Property Name="CardID" Type="int" Nullable="false" />
-    <Property Name="Date" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="CardStatus">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Title" Type="nvarchar" MaxLength="255" />
-  </EntityType>
-  <EntityType Name="CauHoiDieuTra">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="500" />
-    <Property Name="IsMultiChoice" Type="bit" Nullable="false" />
-    <Property Name="Company" Type="nvarchar" MaxLength="200" />
-    <Property Name="Activated" Type="bit" Nullable="false" />
-    <Property Name="Link" Type="nvarchar" MaxLength="255" />
-    <Property Name="CreatedDate" Type="date" Nullable="false" />
-    <Property Name="Content" Type="nvarchar" MaxLength="500" />
-    <Property Name="FileExtention" Type="varchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="ChangeType">
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.Equipment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Equipment">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
-    <Property Name="Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Equipment Type" Type="nvarchar" MaxLength="32" />
+    <Property Name="Equipment number" Type="nvarchar" MaxLength="32" />
+    <Property Name="Driver" Type="int" />
+    <Property Name="Owner" Type="nvarchar" MaxLength="128" />
+    <Property Name="VIN" Type="nvarchar" MaxLength="32" />
+    <Property Name="Registration Expiration" Type="datetime" />
+    <Property Name="Inspection Expiration" Type="datetime" />
+    <Property Name="DATE LEASED" Type="nvarchar" MaxLength="255" />
+    <Property Name="EQUIPMENT VALUE" Type="nvarchar" MaxLength="255" />
+    <Property Name="EQUIPMENT DESCRIPTION" Type="nvarchar" MaxLength="255" />
+    <Property Name="MODEL YEAR" Type="nvarchar" MaxLength="255" />
+    <Property Name="MAKE" Type="nvarchar" MaxLength="255" />
   </EntityType>
-  <EntityType Name="Config">
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.fixed charges' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="fixed charges">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Fee Charged" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="DriverId" Type="int" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Frequency" Type="int" />
+    <Property Name="Beginning" Type="datetime" />
+    <Property Name="Fee Charged" Type="bit" Nullable="false" />
+    <Property Name="Next Date" Type="datetime" />
+    <Property Name="Prv Date" Type="datetime" />
+    <Property Name="Amount To Date" Type="money" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.Income' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Income">
+    <Key>
+      <PropertyRef Name="IncomeID" />
+    </Key>
+    <Property Name="IncomeID" Type="int" Nullable="false" />
+    <Property Name="IncomeDate" Type="datetime" />
+    <Property Name="AmountInvoiced" Type="money" />
+    <Property Name="FundedAmount" Type="money" />
+    <Property Name="ReserveAmount" Type="money" />
+    <Property Name="AdvanceFee" Type="money" />
+    <Property Name="ChargeBacks" Type="money" />
+    <Property Name="Comments" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.InvoiceA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="InvoiceA">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Key" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="Title" Type="nvarchar" MaxLength="500" />
-    <Property Name="Multiline" Type="bit" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Invoice" Type="int" />
   </EntityType>
-  <EntityType Name="CreateCardAmount">
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.Maintenance' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Maintenance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Track/Trailer Number" Type="int" />
+    <Property Name="Maintenance performed" Type="nvarchar" MaxLength="255" />
+    <Property Name="Performed date" Type="datetime" />
+    <Property Name="Location" Type="nvarchar" MaxLength="128" />
+    <Property Name="PO#" Type="nvarchar" MaxLength="50" />
+    <Property Name="ApprovedAmount" Type="money" />
+    <Property Name="SpentAmount" Type="money" />
+    <Property Name="ApprovedBy" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.Operating Expenses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Operating Expenses">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Type" Type="nvarchar" MaxLength="24" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Location" Type="nvarchar" MaxLength="64" />
+    <Property Name="Driver" Type="int" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+    <Property Name="Paid off" Type="nvarchar" MaxLength="8" />
+    <Property Name="Current Payroll" Type="nvarchar" MaxLength="8" />
   </EntityType>
-  <EntityType Name="CreatedCard">
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.Owners' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Owners">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="OwnerID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="UserID" Type="int" Nullable="false" />
-    <Property Name="Amount" Type="int" Nullable="false" />
-    <Property Name="PriceLevel" Type="int" Nullable="false" />
-    <Property Name="DateCreate" Type="datetime" Nullable="false" />
-    <Property Name="DateRelease" Type="datetime" Nullable="false" />
-    <Property Name="DateExpire" Type="datetime" Nullable="false" />
-    <Property Name="Note" Type="nvarchar" MaxLength="500" />
-  </EntityType>
-  <EntityType Name="CuocPhi">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Title" Type="nchar" Nullable="false" MaxLength="50" />
-    <Property Name="Cost" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="DichVuCongThem">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="Cost" Type="float" />
-  </EntityType>
-  <EntityType Name="Function">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Code" Type="varchar" MaxLength="50" />
-    <Property Name="Title" Type="nvarchar" MaxLength="100" />
-  </EntityType>
-  <EntityType Name="FunctionInRole">
-    <Key>
-      <PropertyRef Name="RoleID" />
-      <PropertyRef Name="FunctionID" />
-    </Key>
-    <Property Name="RoleID" Type="int" Nullable="false" />
-    <Property Name="FunctionID" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Group">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="GroupInMenu">
-    <Key>
-      <PropertyRef Name="GroupID" />
-      <PropertyRef Name="MenuID" />
-    </Key>
-    <Property Name="GroupID" Type="int" Nullable="false" />
-    <Property Name="MenuID" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="HandOverCard">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="UserID" Type="int" />
-    <Property Name="FirstCardID" Type="int" />
-    <Property Name="Amount" Type="int" />
-    <Property Name="Note" Type="nvarchar" MaxLength="500" />
-    <Property Name="CreatedCardID" Type="int" />
-    <Property Name="Money" Type="bigint" />
-    <Property Name="RelaseTime" Type="datetime" />
-    <Property Name="FirstSerial" Type="nchar" MaxLength="20" />
-  </EntityType>
-  <EntityType Name="KhachHang">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OwnerID" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
-    <Property Name="Address" Type="nvarchar" MaxLength="50" />
-    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
-    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="ssn#" Type="nvarchar" MaxLength="50" />
+    <Property Name="fee rate" Type="real" />
+    <Property Name="pay rate" Type="real" />
   </EntityType>
-  <EntityType Name="LoaiHang">
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.Printed Temp Fuel & Expenses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Printed Temp Fuel &amp; Expenses">
+    <Key>
+      <PropertyRef Name="Selection" />
+      <PropertyRef Name="Paid off" />
+    </Key>
+    <Property Name="Selection" Type="bit" Nullable="false" />
+    <Property Name="ID" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Location" Type="nvarchar" MaxLength="128" />
+    <Property Name="Driver" Type="int" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+    <Property Name="Paid off" Type="bit" Nullable="false" />
+    <Property Name="Current Payroll" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReportID" Type="int" />
+    <Property Name="AmountN" Type="money" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.Printed Temp Split Expenses Driver' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Printed Temp Split Expenses Driver">
+    <Key>
+      <PropertyRef Name="Selection" />
+      <PropertyRef Name="Index" />
+      <PropertyRef Name="Fee Charged" />
+      <PropertyRef Name="Current Payroll" />
+      <PropertyRef Name="Paid Off" />
+    </Key>
+    <Property Name="Selection" Type="bit" Nullable="false" />
+    <Property Name="Id" Type="int" />
+    <Property Name="OwnerDriver" Type="int" />
+    <Property Name="Index" Type="int" Nullable="false" />
+    <Property Name="Expenses" Type="nvarchar" MaxLength="255" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Details" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Fee Charged" Type="bit" Nullable="false" />
+    <Property Name="Current Payroll" Type="bit" Nullable="false" />
+    <Property Name="Paid Off" Type="bit" Nullable="false" />
+    <Property Name="ReportID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.Printed Temp Split Expenses Owner' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Printed Temp Split Expenses Owner">
+    <Key>
+      <PropertyRef Name="Selection" />
+      <PropertyRef Name="Index" />
+      <PropertyRef Name="Fee Charged" />
+      <PropertyRef Name="Current Payroll" />
+      <PropertyRef Name="Paid Off" />
+    </Key>
+    <Property Name="Selection" Type="bit" Nullable="false" />
+    <Property Name="Id" Type="int" />
+    <Property Name="OwnerDriver" Type="int" />
+    <Property Name="Index" Type="int" Nullable="false" />
+    <Property Name="Expenses" Type="nvarchar" MaxLength="255" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Details" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Fee Charged" Type="bit" Nullable="false" />
+    <Property Name="Current Payroll" Type="bit" Nullable="false" />
+    <Property Name="Paid Off" Type="bit" Nullable="false" />
+    <Property Name="ReportID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.Printed Temp Trip Info' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Printed Temp Trip Info">
+    <Key>
+      <PropertyRef Name="Selection" />
+      <PropertyRef Name="Paid" />
+      <PropertyRef Name="Deliverd" />
+      <PropertyRef Name="Customer Invoiced" />
+      <PropertyRef Name="Current Payroll" />
+      <PropertyRef Name="Driver paid" />
+    </Key>
+    <Property Name="Selection" Type="bit" Nullable="false" />
+    <Property Name="Trip ID" Type="int" />
+    <Property Name="Order Date" Type="datetime" />
+    <Property Name="Pickup Date" Type="datetime" />
+    <Property Name="Delivery Date" Type="datetime" />
+    <Property Name="Pickup Location" Type="nvarchar" MaxLength="128" />
+    <Property Name="Delivery Location" Type="nvarchar" MaxLength="128" />
+    <Property Name="Extra stops" Type="nvarchar" MaxLength="128" />
+    <Property Name="Loaded miles" Type="int" />
+    <Property Name="Dead head miles" Type="int" />
+    <Property Name="Comfirmed Rate" Type="money" />
+    <Property Name="Customer" Type="int" />
+    <Property Name="Dispatcher" Type="int" />
+    <Property Name="Driver" Type="int" />
+    <Property Name="Paid" Type="bit" Nullable="false" />
+    <Property Name="Extra Charges" Type="money" />
+    <Property Name="Detention pay" Type="money" />
+    <Property Name="Total charges" Type="money" />
+    <Property Name="Detention" Type="money" />
+    <Property Name="Picked" Type="image" />
+    <Property Name="Deliverd" Type="bit" Nullable="false" />
+    <Property Name="Invoice" Type="int" />
+    <Property Name="Customer Invoiced" Type="bit" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="128" />
+    <Property Name="Current Payroll" Type="bit" Nullable="false" />
+    <Property Name="Driver paid" Type="bit" Nullable="false" />
+    <Property Name="ReportId" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.ReportIDs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="ReportIDs">
+    <Key>
+      <PropertyRef Name="ReportID" />
+    </Key>
+    <Property Name="ReportID" Type="int" Nullable="false" />
+    <Property Name="DriverID" Type="int" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.split expenses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="split expenses">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Idndex" />
+      <PropertyRef Name="Fee Charged" />
+      <PropertyRef Name="Current Payroll" />
+      <PropertyRef Name="Paid Off" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="OwnerDriver" Type="int" />
+    <Property Name="Idndex" Type="int" Nullable="false" />
+    <Property Name="Expenses" Type="nvarchar" MaxLength="255" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Details" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Fee Charged" Type="bit" Nullable="false" />
+    <Property Name="Current Payroll" Type="bit" Nullable="false" />
+    <Property Name="Paid Off" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.Temp Fuel & Expenses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Temp Fuel &amp; Expenses">
+    <Key>
+      <PropertyRef Name="Selection" />
+      <PropertyRef Name="Paid off" />
+    </Key>
+    <Property Name="Selection" Type="bit" Nullable="false" />
+    <Property Name="ID" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Location" Type="nvarchar" MaxLength="128" />
+    <Property Name="Driver" Type="int" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+    <Property Name="Paid off" Type="bit" Nullable="false" />
+    <Property Name="Current Payroll" Type="nvarchar" MaxLength="50" />
+    <Property Name="AmountN" Type="money" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.Temp Operating Expenses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Temp Operating Expenses">
+    <Key>
+      <PropertyRef Name="Selection" />
+    </Key>
+    <Property Name="Selection" Type="bit" Nullable="false" />
+    <Property Name="OperatingID" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Location" Type="nvarchar" MaxLength="128" />
+    <Property Name="Driver" Type="int" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+    <Property Name="Paid Off" Type="nvarchar" MaxLength="50" />
+    <Property Name="Current payroll" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.Temp split expenses Driver' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Temp split expenses Driver">
+    <Key>
+      <PropertyRef Name="Selection" />
+      <PropertyRef Name="Index" />
+      <PropertyRef Name="Fee Charged" />
+      <PropertyRef Name="Current Payroll" />
+      <PropertyRef Name="Paid Off" />
+    </Key>
+    <Property Name="Selection" Type="bit" Nullable="false" />
+    <Property Name="Id" Type="int" />
+    <Property Name="OwnerDriver" Type="int" />
+    <Property Name="Index" Type="int" Nullable="false" />
+    <Property Name="Expenses" Type="nvarchar" MaxLength="255" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Details" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Fee Charged" Type="bit" Nullable="false" />
+    <Property Name="Current Payroll" Type="bit" Nullable="false" />
+    <Property Name="Paid Off" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.Temp split expenses owner' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Temp split expenses owner">
+    <Key>
+      <PropertyRef Name="Selection" />
+      <PropertyRef Name="Index" />
+      <PropertyRef Name="Fee Charged" />
+      <PropertyRef Name="Current Payroll" />
+      <PropertyRef Name="Paid Off" />
+    </Key>
+    <Property Name="Selection" Type="bit" Nullable="false" />
+    <Property Name="Id" Type="int" />
+    <Property Name="OwnerDriver" Type="int" />
+    <Property Name="Index" Type="int" Nullable="false" />
+    <Property Name="Expenses" Type="nvarchar" MaxLength="255" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Details" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Fee Charged" Type="bit" Nullable="false" />
+    <Property Name="Current Payroll" Type="bit" Nullable="false" />
+    <Property Name="Paid Off" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.Temp Trip Info' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Temp Trip Info">
+    <Key>
+      <PropertyRef Name="Selection" />
+      <PropertyRef Name="Paid" />
+      <PropertyRef Name="Deliverd" />
+      <PropertyRef Name="Customer Invoiced" />
+      <PropertyRef Name="Current Payroll" />
+      <PropertyRef Name="Driver paid" />
+    </Key>
+    <Property Name="Selection" Type="bit" Nullable="false" />
+    <Property Name="Trip ID" Type="int" />
+    <Property Name="Order Date" Type="datetime" />
+    <Property Name="Pickup Date" Type="datetime" />
+    <Property Name="Delivery Date" Type="datetime" />
+    <Property Name="Pickup Location" Type="nvarchar" MaxLength="128" />
+    <Property Name="Delivery Location" Type="nvarchar" MaxLength="128" />
+    <Property Name="Extra stops" Type="nvarchar" MaxLength="128" />
+    <Property Name="Loaded miles" Type="int" />
+    <Property Name="Dead head miles" Type="int" />
+    <Property Name="Comfirmed Rate" Type="money" />
+    <Property Name="Customer" Type="int" />
+    <Property Name="Dispatcher" Type="int" />
+    <Property Name="Driver" Type="int" />
+    <Property Name="Paid" Type="bit" Nullable="false" />
+    <Property Name="Extra Charges" Type="money" />
+    <Property Name="Detention pay" Type="money" />
+    <Property Name="Total charges" Type="money" />
+    <Property Name="Detention" Type="money" />
+    <Property Name="Picked" Type="image" />
+    <Property Name="Deliverd" Type="bit" Nullable="false" />
+    <Property Name="Invoice" Type="int" />
+    <Property Name="Customer Invoiced" Type="bit" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="128" />
+    <Property Name="Current Payroll" Type="bit" Nullable="false" />
+    <Property Name="Driver paid" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.Trip Info - old' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Trip Info - old">
+    <Key>
+      <PropertyRef Name="Trip ID" />
+    </Key>
+    <Property Name="Trip ID" Type="int" Nullable="false" />
+    <Property Name="Order date" Type="datetime" />
+    <Property Name="Pickup date" Type="datetime" />
+    <Property Name="Delivery date" Type="datetime" />
+    <Property Name="Pick up location" Type="nvarchar" MaxLength="128" />
+    <Property Name="Delivery location" Type="nvarchar" MaxLength="128" />
+    <Property Name="Extra stops" Type="nvarchar" MaxLength="128" />
+    <Property Name="Loaded miles" Type="int" />
+    <Property Name="Dead head miles" Type="int" />
+    <Property Name="Comfirmed Rate" Type="money" />
+    <Property Name="Customer" Type="int" />
+    <Property Name="Dispatcher" Type="int" />
+    <Property Name="Driver" Type="int" />
+    <Property Name="Paid" Type="nvarchar" MaxLength="12" />
+    <Property Name="Extra charges" Type="money" />
+    <Property Name="Detention pay" Type="money" />
+    <Property Name="Total charges" Type="money" />
+    <Property Name="Detention" Type="money" />
+    <Property Name="Picked" Type="nvarchar" MaxLength="50" />
+    <Property Name="Deliverd" Type="nvarchar" MaxLength="8" />
+    <Property Name="Invoice" Type="int" />
+    <Property Name="Customer Invoiced" Type="nvarchar" MaxLength="8" />
+    <Property Name="Address" Type="nvarchar" MaxLength="128" />
+    <Property Name="Current Payroll" Type="nvarchar" MaxLength="50" />
+    <Property Name="Driver paid" Type="nvarchar" MaxLength="8" />
+    <Property Name="PO#" Type="nvarchar" MaxLength="16" />
+    <Property Name="Customer Invoiced date" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.Violations' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Violations">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="HeSo" Type="float" />
-    <Property Name="Title" Type="nvarchar" MaxLength="100" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Driver" Type="int" />
+    <Property Name="Location" Type="nvarchar" MaxLength="128" />
+    <Property Name="Date occurred" Type="datetime" />
+    <Property Name="Date resolved" Type="datetime" />
+    <Property Name="Equipment" Type="int" />
   </EntityType>
-  <EntityType Name="Menu">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="ParentID" Type="int" />
-    <Property Name="TabTitle" Type="nvarchar" MaxLength="255" />
-    <Property Name="Url" Type="nvarchar" MaxLength="255" />
-    <Property Name="Icon" Type="nvarchar" MaxLength="50" />
-    <Property Name="Oder" Type="int" />
-    <Property Name="Inherit" Type="bit" />
-    <Property Name="IsActive" Type="bit" />
-  </EntityType>
-  <EntityType Name="PriceLevel">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Amount" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Role1">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
-    <Property Name="Description" Type="nvarchar" MaxLength="500" />
-  </EntityType>
-  <EntityType Name="RoleInGroup">
-    <Key>
-      <PropertyRef Name="GroupID" />
-      <PropertyRef Name="RoleID" />
-    </Key>
-    <Property Name="GroupID" Type="int" Nullable="false" />
-    <Property Name="RoleID" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
-  <EntityType Name="TraLoiCauHoiDieuTra">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="CauHoiDieuTraID" Type="int" Nullable="false" />
-    <Property Name="NoiDung" Type="nvarchar" Nullable="false" MaxLength="500" />
-    <Property Name="SoLanChon" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="User">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="AspnetUserID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" />
-    <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
-    <Property Name="Email" Type="nvarchar" MaxLength="100" />
-    <Property Name="Sex" Type="nvarchar" MaxLength="20" />
-    <Property Name="Birthday" Type="datetime" />
-    <Property Name="Address" Type="nvarchar" MaxLength="200" />
-    <Property Name="Balance" Type="bigint" Nullable="false" />
-    <Property Name="VBalance" Type="bigint" Nullable="false" />
-    <Property Name="Point" Type="int" Nullable="false" />
-    <Property Name="FailCard" Type="int" Nullable="false" />
-    <Property Name="Status" Type="int" Nullable="false" />
-    <Property Name="Locked" Type="bit" Nullable="false" />
-    <Property Name="Avata" Type="varchar" MaxLength="50" />
-    <Property Name="UserKindID" Type="int" Nullable="false" />
-    <Property Name="MaKH" Type="varchar" MaxLength="50" />
-    <Property Name="BuuCucID" Type="int" />
-  </EntityType>
-  <EntityType Name="UserInGroup">
-    <Key>
-      <PropertyRef Name="GroupID" />
-      <PropertyRef Name="UserID" />
-    </Key>
-    <Property Name="GroupID" Type="int" Nullable="false" />
-    <Property Name="UserID" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="UserKind">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <Association Name="FK_BalanceLog_ChangeType">
-    <End Role="ChangeType" Type="VPSSModel.Store.ChangeType" Multiplicity="1" />
-    <End Role="BalanceLog" Type="VPSSModel.Store.BalanceLog" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ChangeType">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="BalanceLog">
-        <PropertyRef Name="ChangeTypeID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_BalanceLog_User1">
-    <End Role="User" Type="VPSSModel.Store.User" Multiplicity="1" />
-    <End Role="BalanceLog" Type="VPSSModel.Store.BalanceLog" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="BalanceLog">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_BuuCucInBuuKien_BuuCuc">
-    <End Role="BuuCuc" Type="VPSSModel.Store.BuuCuc" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="BuuCucInBuuKien" Type="VPSSModel.Store.BuuCucInBuuKien" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="BuuCuc">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="BuuCucInBuuKien">
-        <PropertyRef Name="BuuCucID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_BuuCucInBuuKien_BuuKien">
-    <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="BuuCucInBuuKien" Type="VPSSModel.Store.BuuCucInBuuKien" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="BuuKien">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="BuuCucInBuuKien">
-        <PropertyRef Name="BuuKienID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_BuuKien_BuuCuc3">
-    <End Role="BuuCuc" Type="VPSSModel.Store.BuuCuc" Multiplicity="0..1" />
-    <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="BuuCuc">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="BuuKien">
-        <PropertyRef Name="BuuCucNhanGuiID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_BuuKien_CuocPhi">
-    <End Role="CuocPhi" Type="VPSSModel.Store.CuocPhi" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CuocPhi">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="BuuKien">
-        <PropertyRef Name="CuocPhiID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_BuuKien_DichVuCongThem">
-    <End Role="DichVuCongThem" Type="VPSSModel.Store.DichVuCongThem" Multiplicity="0..1" />
-    <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DichVuCongThem">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="BuuKien">
-        <PropertyRef Name="DichVuCongThemID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_BuuKien_KhachHang">
-    <End Role="KhachHang" Type="VPSSModel.Store.KhachHang" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="KhachHang">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="BuuKien">
-        <PropertyRef Name="KhachHangID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_BuuKien_LoaiHang">
-    <End Role="LoaiHang" Type="VPSSModel.Store.LoaiHang" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="LoaiHang">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="BuuKien">
-        <PropertyRef Name="LoaiHangID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_BuuKien_User">
-    <End Role="User" Type="VPSSModel.Store.User" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="BuuKien">
-        <PropertyRef Name="NguoiNhanID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Card_CardStatus">
-    <End Role="CardStatus" Type="VPSSModel.Store.CardStatus" Multiplicity="1" />
-    <End Role="Card" Type="VPSSModel.Store.Card" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CardStatus">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Card">
-        <PropertyRef Name="CardStatusID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Card_CreatedCard">
-    <End Role="CreatedCard" Type="VPSSModel.Store.CreatedCard" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Card" Type="VPSSModel.Store.Card" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CreatedCard">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Card">
-        <PropertyRef Name="CreatedCardID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CardLog_Card">
-    <End Role="Card" Type="VPSSModel.Store.Card" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="CardLog" Type="VPSSModel.Store.CardLog" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Card">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="CardLog">
-        <PropertyRef Name="CardID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CardLog_User">
-    <End Role="User" Type="VPSSModel.Store.User" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="CardLog" Type="VPSSModel.Store.CardLog" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="CardLog">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CreateCard_User1">
-    <End Role="User" Type="VPSSModel.Store.User" Multiplicity="1" />
-    <End Role="CreatedCard" Type="VPSSModel.Store.CreatedCard" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="CreatedCard">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_FunctionInRole_Function">
-    <End Role="Function" Type="VPSSModel.Store.Function" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="FunctionInRole" Type="VPSSModel.Store.FunctionInRole" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Function">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="FunctionInRole">
-        <PropertyRef Name="FunctionID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_FunctionInRole_Role1">
-    <End Role="Role1" Type="VPSSModel.Store.Role1" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="FunctionInRole" Type="VPSSModel.Store.FunctionInRole" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Role1">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="FunctionInRole">
-        <PropertyRef Name="RoleID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_GroupInMenu_Group">
-    <End Role="Group" Type="VPSSModel.Store.Group" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="GroupInMenu" Type="VPSSModel.Store.GroupInMenu" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Group">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="GroupInMenu">
-        <PropertyRef Name="GroupID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_GroupInMenu_Menu">
-    <End Role="Menu" Type="VPSSModel.Store.Menu" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="GroupInMenu" Type="VPSSModel.Store.GroupInMenu" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Menu">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="GroupInMenu">
-        <PropertyRef Name="MenuID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_HandOverCard_Card">
-    <End Role="Card" Type="VPSSModel.Store.Card" Multiplicity="0..1" />
-    <End Role="HandOverCard" Type="VPSSModel.Store.HandOverCard" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Card">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="HandOverCard">
-        <PropertyRef Name="FirstCardID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_HandOverCard_User">
-    <End Role="User" Type="VPSSModel.Store.User" Multiplicity="0..1" />
-    <End Role="HandOverCard" Type="VPSSModel.Store.HandOverCard" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="HandOverCard">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_RoleInGroup_Group">
-    <End Role="Group" Type="VPSSModel.Store.Group" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="RoleInGroup" Type="VPSSModel.Store.RoleInGroup" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Group">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="RoleInGroup">
-        <PropertyRef Name="GroupID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_RoleInGroup_Role1">
-    <End Role="Role1" Type="VPSSModel.Store.Role1" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="RoleInGroup" Type="VPSSModel.Store.RoleInGroup" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Role1">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="RoleInGroup">
-        <PropertyRef Name="RoleID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TraLoiCauHoiDieuTra_CauHoiDieuTra">
-    <End Role="CauHoiDieuTra" Type="VPSSModel.Store.CauHoiDieuTra" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="TraLoiCauHoiDieuTra" Type="VPSSModel.Store.TraLoiCauHoiDieuTra" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CauHoiDieuTra">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="TraLoiCauHoiDieuTra">
-        <PropertyRef Name="CauHoiDieuTraID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_UserInGroup_Group">
-    <End Role="Group" Type="VPSSModel.Store.Group" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="UserInGroup" Type="VPSSModel.Store.UserInGroup" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Group">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="UserInGroup">
-        <PropertyRef Name="GroupID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_UserInGroup_User">
-    <End Role="User" Type="VPSSModel.Store.User" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="UserInGroup" Type="VPSSModel.Store.UserInGroup" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="UserInGroup">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_UserKind_Users">
-    <End Role="UserKind" Type="VPSSModel.Store.UserKind" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="User" Type="VPSSModel.Store.User" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserKind">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="User">
-        <PropertyRef Name="UserKindID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
+  <!--Errors Found During Generation:
+      warning 6013: The table/view 'VPSS1.dbo.Trailers1_ImportErrors' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="Trailers1_ImportErrors">
+        <Property Name="Error" Type="nvarchar" MaxLength="255" />
+        <Property Name="Field" Type="nvarchar" MaxLength="255" />
+        <Property Name="Row" Type="int" />
+      </EntityType>-->
 </Schema>
