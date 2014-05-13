@@ -84,22 +84,6 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Customer_Info> Customer_Info
-        {
-            get
-            {
-                if ((_Customer_Info == null))
-                {
-                    _Customer_Info = base.CreateObjectSet<Customer_Info>("Customer_Info");
-                }
-                return _Customer_Info;
-            }
-        }
-        private ObjectSet<Customer_Info> _Customer_Info;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Dispatchers> Dispatchers
         {
             get
@@ -432,6 +416,22 @@ namespace Alabama
             }
         }
         private ObjectSet<Violations> _Violations;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Customer_Info> Customer_Info
+        {
+            get
+            {
+                if ((_Customer_Info == null))
+                {
+                    _Customer_Info = base.CreateObjectSet<Customer_Info>("Customer_Info");
+                }
+                return _Customer_Info;
+            }
+        }
+        private ObjectSet<Customer_Info> _Customer_Info;
 
         #endregion
 
@@ -443,14 +443,6 @@ namespace Alabama
         public void AddToCompany_Expanses(Company_Expanses company_Expanses)
         {
             base.AddObject("Company_Expanses", company_Expanses);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Customer_Info EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToCustomer_Info(Customer_Info customer_Info)
-        {
-            base.AddObject("Customer_Info", customer_Info);
         }
     
         /// <summary>
@@ -619,6 +611,14 @@ namespace Alabama
         public void AddToViolations(Violations violations)
         {
             base.AddObject("Violations", violations);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Customer_Info EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCustomer_Info(Customer_Info customer_Info)
+        {
+            base.AddObject("Customer_Info", customer_Info);
         }
 
         #endregion
@@ -841,7 +841,7 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Customer_Name
         {
@@ -851,14 +851,11 @@ namespace Alabama
             }
             set
             {
-                if (_Customer_Name != value)
-                {
-                    OnCustomer_NameChanging(value);
-                    ReportPropertyChanging("Customer_Name");
-                    _Customer_Name = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("Customer_Name");
-                    OnCustomer_NameChanged();
-                }
+                OnCustomer_NameChanging(value);
+                ReportPropertyChanging("Customer_Name");
+                _Customer_Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Customer_Name");
+                OnCustomer_NameChanged();
             }
         }
         private global::System.String _Customer_Name;
@@ -868,7 +865,7 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Street
         {
@@ -878,14 +875,11 @@ namespace Alabama
             }
             set
             {
-                if (_Street != value)
-                {
-                    OnStreetChanging(value);
-                    ReportPropertyChanging("Street");
-                    _Street = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("Street");
-                    OnStreetChanged();
-                }
+                OnStreetChanging(value);
+                ReportPropertyChanging("Street");
+                _Street = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Street");
+                OnStreetChanged();
             }
         }
         private global::System.String _Street;
