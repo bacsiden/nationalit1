@@ -11,7 +11,7 @@ namespace Alabama.Controllers
     {
         //
         // GET: /BuuKien/
-        [Authorize]
+        
         [ValidationFunction("/Home/index", ActionName.VIEWLISTBUUKIEN)]
         public ActionResult Index()
         {
@@ -30,7 +30,7 @@ namespace Alabama.Controllers
 
         }
 
-        [Authorize]
+        
         [ValidationFunction("/BuuKien/index", ActionName.ADDNEWBUUKIEN)]
         public ActionResult Create()
         {
@@ -85,7 +85,7 @@ namespace Alabama.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        
         [ValidationFunction("/BuuKien/index", ActionName.ADDNEWBUUKIEN)]
         public ActionResult Create(BuuKien model)
         {
@@ -167,7 +167,7 @@ namespace Alabama.Controllers
 
         }
 
-        [Authorize]
+        
         [ValidationFunction("/BuuKien/index", ActionName.EDITBUUKIEN)]
         public ActionResult Edit(int id)
         {
@@ -219,7 +219,7 @@ namespace Alabama.Controllers
             return View(objBuuKien);
         }
 
-        [Authorize]
+        
         [HttpPost]
         [ValidationFunction("/BuuKien/index", ActionName.EDITBUUKIEN)]
         public ActionResult Edit(BuuKien model)
@@ -282,7 +282,7 @@ namespace Alabama.Controllers
                 return View(model);
             }
         }
-        [Authorize]
+        
         [ValidationFunction("/BuuKien/index", ActionName.CHUYENBUUKIEN)]
         public ActionResult ChuyenBuuKien(int id)
         {
@@ -297,7 +297,7 @@ namespace Alabama.Controllers
             return View(model);
         }
 
-        [Authorize]
+        
         [HttpPost]
         [ValidationFunction("/BuuKien/index", ActionName.CHUYENBUUKIEN)]
         public ActionResult ChuyenBuuKien(int id, int SelectListBuuCuc)
@@ -320,7 +320,7 @@ namespace Alabama.Controllers
         }
 
 
-        [Authorize]
+        
         [HttpPost]
         [ValidationFunction("/BuuKien/index", ActionName.TRABUUKIEN)]
         public ActionResult TraBuuKien(int id, int SelectListBuuCuc)
@@ -343,7 +343,7 @@ namespace Alabama.Controllers
         }
 
         [ValidationFunction("/BuuKien/index", ActionName.DETAILS)]
-        [Authorize]
+        
         public ActionResult Details(int id)
         {
             var model = DB.Entities.BuuKien.FirstOrDefault(m => m.ID == id);
@@ -360,7 +360,7 @@ namespace Alabama.Controllers
         }
 
         [ValidationFunction("/BuuKien/index", ActionName.DETAILS)]
-        [Authorize]
+        
         public ActionResult Delete(int id)
         {
             try

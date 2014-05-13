@@ -63,3 +63,10 @@ D:\Project\Quan ly Buu Kien\VPSS\Alabama\Alabama\obj\Debug\RdlCompile.cache
 D:\Project\Quan ly Buu Kien\VPSS\Alabama\Alabama\obj\Debug\RdlCompile.compiled
 D:\Project\Quan ly Buu Kien\VPSS\Alabama\Alabama\obj\Debug\Alabama.dll
 D:\Project\Quan ly Buu Kien\VPSS\Alabama\Alabama\obj\Debug\Alabama.pdb
+D:\Freelancer\NationalIT\nationalit1\Alabama\bin\Alabama.dll
+D:\Freelancer\NationalIT\nationalit1\Alabama\bin\Alabama.pdb
+D:\Freelancer\NationalIT\nationalit1\Alabama\obj\Debug\Alabama.csprojResolveAssemblyReference.cache
+D:\Freelancer\NationalIT\nationalit1\Alabama\obj\Debug\RdlCompile.cache
+D:\Freelancer\NationalIT\nationalit1\Alabama\obj\Debug\RdlCompile.compiled
+D:\Freelancer\NationalIT\nationalit1\Alabama\obj\Debug\Alabama.dll
+D:\Freelancer\NationalIT\nationalit1\Alabama\obj\Debug\Alabama.pdb

@@ -25,7 +25,7 @@ namespace Alabama.Controllers
 
             return View();
         }
-        [Authorize]
+        
         //[ValidationFunction(ActionName.EXPORTREGISTER)]
         public ActionResult ThongKe(FormCollection frm)
         {
@@ -93,7 +93,7 @@ namespace Alabama.Controllers
         {
             return View(model);
         }
-        //[Authorize]
+        //
         //[ValidationFunction(ActionName.EXPORTREGISTER)]
         //public ActionResult ThongKeReport(FormCollection frm)
         //{

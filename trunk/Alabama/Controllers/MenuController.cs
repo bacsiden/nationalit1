@@ -8,14 +8,14 @@ namespace Alabama.Controllers
 {
     public class MenuController : BaseController
     {
-        [Authorize]
+        
         [ValidationFunction("/Home/index", ActionName.VIEWLISTMENU)]
         public ActionResult Index()
         {
             return View(DB.Entities.Menu);
         }
 
-        [Authorize]
+        
         [ValidationFunction("/Menu/index", ActionName.ADDNEWMENU)]
         public ActionResult Create()
         {
@@ -32,7 +32,7 @@ namespace Alabama.Controllers
         // POST: /CuocPhi/Create
 
         [HttpPost]
-        [Authorize]
+        
         [ValidationFunction("/Menu/index", ActionName.ADDNEWMENU)]
         public ActionResult Create(Menu model)
         {
@@ -71,7 +71,7 @@ namespace Alabama.Controllers
         //
         // GET: /CuocPhi/Edit/5
 
-        [Authorize]
+        
         [ValidationFunction("/Menu/index", ActionName.DELETEMENU)]
         public ActionResult Edit(int id)
         {
@@ -90,7 +90,7 @@ namespace Alabama.Controllers
         // POST: /CuocPhi/Edit/5
 
         [HttpPost]
-        [Authorize]
+        
         [ValidationFunction("/Menu/index", ActionName.EDITMENU)]
         public ActionResult Edit(Menu model)
         {
@@ -137,7 +137,7 @@ namespace Alabama.Controllers
 
 
 
-        [Authorize]
+        
         [ValidationFunction("/Menu/index", ActionName.EDITMENU)]
         public ActionResult Delete(int id)
         {

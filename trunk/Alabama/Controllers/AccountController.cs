@@ -243,14 +243,14 @@ namespace Alabama.Controllers
         // URL: /Account/ChangePassword
         // **************************************
 
-        [Authorize]
+        
         public ActionResult ChangePassword()
         {
             ViewBag.PasswordLength = MembershipService.MinPasswordLength;
             return View();
         }
 
-        [Authorize]
+        
         [HttpPost]
         public ActionResult ChangePassword(ChangePasswordModel model)
         {

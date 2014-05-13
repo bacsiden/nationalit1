@@ -11,7 +11,7 @@ namespace Alabama.Controllers
         //
         // GET: /DanhMuc/
         #region Danh Mục Loại Hàng
-        [Authorize]
+        
         [ValidationFunction("/Home/index", ActionName.VIEWLISTLOAIHANG)]
         public ActionResult LoaiHangIndex()
         {
@@ -24,7 +24,7 @@ namespace Alabama.Controllers
         //
         // GET: /CuocPhi/Create
 
-        [Authorize]
+        
         [ValidationFunction("/DanhMuc/LoaiHangIndex", ActionName.ADDNEWLOAIHANG)]
         public ActionResult LoaiHangCreate()
         {
@@ -35,7 +35,7 @@ namespace Alabama.Controllers
         // POST: /CuocPhi/Create
 
         [HttpPost]
-        [Authorize]
+        
         [ValidationFunction("/DanhMuc/LoaiHangIndex", ActionName.ADDNEWLOAIHANG)]
         public ActionResult LoaiHangCreate(LoaiHang model)
         {
@@ -56,7 +56,7 @@ namespace Alabama.Controllers
         //
         // GET: /CuocPhi/Edit/5
 
-        [Authorize]
+        
         [ValidationFunction("/DanhMuc/LoaiHangIndex", ActionName.EDITLOAIHANG)]
         public ActionResult LoaiHangEdit(int id)
         {
@@ -68,7 +68,7 @@ namespace Alabama.Controllers
         // POST: /CuocPhi/Edit/5
 
         [HttpPost]
-        [Authorize]
+        
         [ValidationFunction("/DanhMuc/LoaiHangIndex", ActionName.EDITLOAIHANG)]
         public ActionResult LoaiHangEdit(LoaiHang model)
         {
@@ -93,7 +93,7 @@ namespace Alabama.Controllers
 
 
 
-        [Authorize]
+        
         [ValidationFunction("/DanhMuc/LoaiHangIndex", ActionName.DELETELOAIHANG)]
         public ActionResult LoaiHangDelete(int id)
         {
@@ -113,7 +113,7 @@ namespace Alabama.Controllers
         #endregion
 
         #region Danh Mục Bưu cục
-        [Authorize]
+        
         [ValidationFunction("/Home/index", ActionName.VIEWLISTBUUCUC)]
         public ActionResult BuuCucIndex()
         {
@@ -126,7 +126,7 @@ namespace Alabama.Controllers
         //
         // GET: /CuocPhi/Create
 
-        [Authorize]
+        
         [ValidationFunction("/DanhMuc/BuuCucIndex", ActionName.ADDNEWBUUCUC)]
         public ActionResult BuuCucCreate()
         {
@@ -137,7 +137,7 @@ namespace Alabama.Controllers
         // POST: /CuocPhi/Create
 
         [HttpPost]
-        [Authorize]
+        
         [ValidationFunction("/DanhMuc/BuuCucIndex", ActionName.ADDNEWBUUCUC)]
         public ActionResult BuuCucCreate(BuuCuc model)
         {
@@ -158,7 +158,7 @@ namespace Alabama.Controllers
         //
         // GET: /CuocPhi/Edit/5
 
-        [Authorize]
+        
         [ValidationFunction("/DanhMuc/BuuCucIndex", ActionName.EDITBUUCUC)]
         public ActionResult BuuCucEdit(int id)
         {
@@ -170,7 +170,7 @@ namespace Alabama.Controllers
         // POST: /CuocPhi/Edit/5
 
         [HttpPost]
-        [Authorize]
+        
         [ValidationFunction("/DanhMuc/BuuCucIndex", ActionName.EDITBUUCUC)]
         public ActionResult BuuCucEdit(BuuCuc model)
         {
@@ -197,7 +197,7 @@ namespace Alabama.Controllers
 
 
 
-        [Authorize]
+        
         [ValidationFunction("/DanhMuc/BuuCucIndex", ActionName.DELETEBUUCUC)]
         public ActionResult BuuCucDelete(int id)
         {
