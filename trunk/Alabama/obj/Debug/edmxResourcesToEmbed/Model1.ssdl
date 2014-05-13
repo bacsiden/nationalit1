@@ -1,0 +1,820 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VPSSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="VPSSModelStoreContainer">
+    <EntitySet Name="BalanceLog" EntityType="VPSSModel.Store.BalanceLog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BuuCuc" EntityType="VPSSModel.Store.BuuCuc" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BuuCucInBuuKien" EntityType="VPSSModel.Store.BuuCucInBuuKien" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BuuKien" EntityType="VPSSModel.Store.BuuKien" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Card" EntityType="VPSSModel.Store.Card" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CardAction" EntityType="VPSSModel.Store.CardAction" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CardLog" EntityType="VPSSModel.Store.CardLog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CardStatus" EntityType="VPSSModel.Store.CardStatus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CauHoiDieuTra" EntityType="VPSSModel.Store.CauHoiDieuTra" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ChangeType" EntityType="VPSSModel.Store.ChangeType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Config" EntityType="VPSSModel.Store.Config" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CreateCardAmount" EntityType="VPSSModel.Store.CreateCardAmount" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CreatedCard" EntityType="VPSSModel.Store.CreatedCard" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CuocPhi" EntityType="VPSSModel.Store.CuocPhi" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DichVuCongThem" EntityType="VPSSModel.Store.DichVuCongThem" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Function" EntityType="VPSSModel.Store.Function" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FunctionInRole" EntityType="VPSSModel.Store.FunctionInRole" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Group" EntityType="VPSSModel.Store.Group" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GroupInMenu" EntityType="VPSSModel.Store.GroupInMenu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HandOverCard" EntityType="VPSSModel.Store.HandOverCard" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="KhachHang" EntityType="VPSSModel.Store.KhachHang" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LoaiHang" EntityType="VPSSModel.Store.LoaiHang" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Menu" EntityType="VPSSModel.Store.Menu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PriceLevel" EntityType="VPSSModel.Store.PriceLevel" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Role1" EntityType="VPSSModel.Store.Role1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RoleInGroup" EntityType="VPSSModel.Store.RoleInGroup" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="VPSSModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TraLoiCauHoiDieuTra" EntityType="VPSSModel.Store.TraLoiCauHoiDieuTra" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User" EntityType="VPSSModel.Store.User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserInGroup" EntityType="VPSSModel.Store.UserInGroup" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserKind" EntityType="VPSSModel.Store.UserKind" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_BalanceLog_ChangeType" Association="VPSSModel.Store.FK_BalanceLog_ChangeType">
+      <End Role="ChangeType" EntitySet="ChangeType" />
+      <End Role="BalanceLog" EntitySet="BalanceLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BalanceLog_User1" Association="VPSSModel.Store.FK_BalanceLog_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="BalanceLog" EntitySet="BalanceLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BuuCucInBuuKien_BuuCuc" Association="VPSSModel.Store.FK_BuuCucInBuuKien_BuuCuc">
+      <End Role="BuuCuc" EntitySet="BuuCuc" />
+      <End Role="BuuCucInBuuKien" EntitySet="BuuCucInBuuKien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BuuCucInBuuKien_BuuKien" Association="VPSSModel.Store.FK_BuuCucInBuuKien_BuuKien">
+      <End Role="BuuKien" EntitySet="BuuKien" />
+      <End Role="BuuCucInBuuKien" EntitySet="BuuCucInBuuKien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BuuKien_BuuCuc3" Association="VPSSModel.Store.FK_BuuKien_BuuCuc3">
+      <End Role="BuuCuc" EntitySet="BuuCuc" />
+      <End Role="BuuKien" EntitySet="BuuKien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BuuKien_CuocPhi" Association="VPSSModel.Store.FK_BuuKien_CuocPhi">
+      <End Role="CuocPhi" EntitySet="CuocPhi" />
+      <End Role="BuuKien" EntitySet="BuuKien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BuuKien_DichVuCongThem" Association="VPSSModel.Store.FK_BuuKien_DichVuCongThem">
+      <End Role="DichVuCongThem" EntitySet="DichVuCongThem" />
+      <End Role="BuuKien" EntitySet="BuuKien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BuuKien_KhachHang" Association="VPSSModel.Store.FK_BuuKien_KhachHang">
+      <End Role="KhachHang" EntitySet="KhachHang" />
+      <End Role="BuuKien" EntitySet="BuuKien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BuuKien_LoaiHang" Association="VPSSModel.Store.FK_BuuKien_LoaiHang">
+      <End Role="LoaiHang" EntitySet="LoaiHang" />
+      <End Role="BuuKien" EntitySet="BuuKien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BuuKien_User" Association="VPSSModel.Store.FK_BuuKien_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="BuuKien" EntitySet="BuuKien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Card_CardStatus" Association="VPSSModel.Store.FK_Card_CardStatus">
+      <End Role="CardStatus" EntitySet="CardStatus" />
+      <End Role="Card" EntitySet="Card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Card_CreatedCard" Association="VPSSModel.Store.FK_Card_CreatedCard">
+      <End Role="CreatedCard" EntitySet="CreatedCard" />
+      <End Role="Card" EntitySet="Card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CardLog_Card" Association="VPSSModel.Store.FK_CardLog_Card">
+      <End Role="Card" EntitySet="Card" />
+      <End Role="CardLog" EntitySet="CardLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CardLog_User" Association="VPSSModel.Store.FK_CardLog_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="CardLog" EntitySet="CardLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CreateCard_User1" Association="VPSSModel.Store.FK_CreateCard_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="CreatedCard" EntitySet="CreatedCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FunctionInRole_Function" Association="VPSSModel.Store.FK_FunctionInRole_Function">
+      <End Role="Function" EntitySet="Function" />
+      <End Role="FunctionInRole" EntitySet="FunctionInRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FunctionInRole_Role1" Association="VPSSModel.Store.FK_FunctionInRole_Role1">
+      <End Role="Role1" EntitySet="Role1" />
+      <End Role="FunctionInRole" EntitySet="FunctionInRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupInMenu_Group" Association="VPSSModel.Store.FK_GroupInMenu_Group">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="GroupInMenu" EntitySet="GroupInMenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupInMenu_Menu" Association="VPSSModel.Store.FK_GroupInMenu_Menu">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="GroupInMenu" EntitySet="GroupInMenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HandOverCard_Card" Association="VPSSModel.Store.FK_HandOverCard_Card">
+      <End Role="Card" EntitySet="Card" />
+      <End Role="HandOverCard" EntitySet="HandOverCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HandOverCard_User" Association="VPSSModel.Store.FK_HandOverCard_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="HandOverCard" EntitySet="HandOverCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleInGroup_Group" Association="VPSSModel.Store.FK_RoleInGroup_Group">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="RoleInGroup" EntitySet="RoleInGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleInGroup_Role1" Association="VPSSModel.Store.FK_RoleInGroup_Role1">
+      <End Role="Role1" EntitySet="Role1" />
+      <End Role="RoleInGroup" EntitySet="RoleInGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TraLoiCauHoiDieuTra_CauHoiDieuTra" Association="VPSSModel.Store.FK_TraLoiCauHoiDieuTra_CauHoiDieuTra">
+      <End Role="CauHoiDieuTra" EntitySet="CauHoiDieuTra" />
+      <End Role="TraLoiCauHoiDieuTra" EntitySet="TraLoiCauHoiDieuTra" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInGroup_Group" Association="VPSSModel.Store.FK_UserInGroup_Group">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="UserInGroup" EntitySet="UserInGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInGroup_User" Association="VPSSModel.Store.FK_UserInGroup_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserInGroup" EntitySet="UserInGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserKind_Users" Association="VPSSModel.Store.FK_UserKind_Users">
+      <End Role="UserKind" EntitySet="UserKind" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BalanceLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Money" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="TransactionID" Type="int" />
+    <Property Name="ChangeTypeID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BuuCuc">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TenBuuCuc" Type="nvarchar" MaxLength="200" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="200" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BuuCucInBuuKien">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BuuCucID" Type="int" Nullable="false" />
+    <Property Name="BuuKienID" Type="int" Nullable="false" />
+    <Property Name="KieuChuyen" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BuuKien">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MaBuuKien" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="TenBuuKien" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgayGui" Type="datetime" />
+    <Property Name="NgayNhan" Type="datetime" Nullable="false" />
+    <Property Name="NguoiNhanID" Type="int" Nullable="false" />
+    <Property Name="TrangThai" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="KhachHangID" Type="int" />
+    <Property Name="NguoiGui" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiaChiNguoiGui" Type="nvarchar" MaxLength="100" />
+    <Property Name="NguoiNhan" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DiaChiNguoiNhan" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="CuocPhiID" Type="int" Nullable="false" />
+    <Property Name="KhoiLuong" Type="float" />
+    <Property Name="GhiChu" Type="text" />
+    <Property Name="LoaiHangID" Type="int" Nullable="false" />
+    <Property Name="BuuCucHienTaiID" Type="int" />
+    <Property Name="BuuCucTraID" Type="int" />
+    <Property Name="BuuCucNhanGuiID" Type="int" />
+    <Property Name="DichVuCongThemID" Type="int" />
+  </EntityType>
+  <EntityType Name="Card">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Serial" Type="char" Nullable="false" MaxLength="9" />
+    <Property Name="CardChar" Type="char" Nullable="false" MaxLength="14" />
+    <Property Name="CreatedCardID" Type="int" Nullable="false" />
+    <Property Name="CardStatusID" Type="int" Nullable="false" />
+    <Property Name="HandOverCardID" Type="int" />
+  </EntityType>
+  <EntityType Name="CardAction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="BeforeStatusID" Type="int" />
+    <Property Name="AfterStatusID" Type="int" />
+  </EntityType>
+  <EntityType Name="CardLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="CardID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CardStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="CauHoiDieuTra">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="IsMultiChoice" Type="bit" Nullable="false" />
+    <Property Name="Company" Type="nvarchar" MaxLength="200" />
+    <Property Name="Activated" Type="bit" Nullable="false" />
+    <Property Name="Link" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreatedDate" Type="date" Nullable="false" />
+    <Property Name="Content" Type="nvarchar" MaxLength="500" />
+    <Property Name="FileExtention" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ChangeType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Config">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Key" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" MaxLength="500" />
+    <Property Name="Multiline" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CreateCardAmount">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CreatedCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="PriceLevel" Type="int" Nullable="false" />
+    <Property Name="DateCreate" Type="datetime" Nullable="false" />
+    <Property Name="DateRelease" Type="datetime" Nullable="false" />
+    <Property Name="DateExpire" Type="datetime" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="CuocPhi">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nchar" Nullable="false" MaxLength="50" />
+    <Property Name="Cost" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DichVuCongThem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Cost" Type="float" />
+  </EntityType>
+  <EntityType Name="Function">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="FunctionInRole">
+    <Key>
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="FunctionID" />
+    </Key>
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="FunctionID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="GroupInMenu">
+    <Key>
+      <PropertyRef Name="GroupID" />
+      <PropertyRef Name="MenuID" />
+    </Key>
+    <Property Name="GroupID" Type="int" Nullable="false" />
+    <Property Name="MenuID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HandOverCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="FirstCardID" Type="int" />
+    <Property Name="Amount" Type="int" />
+    <Property Name="Note" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedCardID" Type="int" />
+    <Property Name="Money" Type="bigint" />
+    <Property Name="RelaseTime" Type="datetime" />
+    <Property Name="FirstSerial" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LoaiHang">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="HeSo" Type="float" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="ParentID" Type="int" />
+    <Property Name="TabTitle" Type="nvarchar" MaxLength="255" />
+    <Property Name="Url" Type="nvarchar" MaxLength="255" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="50" />
+    <Property Name="Oder" Type="int" />
+    <Property Name="Inherit" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="PriceLevel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role1">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="RoleInGroup">
+    <Key>
+      <PropertyRef Name="GroupID" />
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="GroupID" Type="int" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TraLoiCauHoiDieuTra">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CauHoiDieuTraID" Type="int" Nullable="false" />
+    <Property Name="NoiDung" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="SoLanChon" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AspnetUserID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="20" />
+    <Property Name="Birthday" Type="datetime" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="Balance" Type="bigint" Nullable="false" />
+    <Property Name="VBalance" Type="bigint" Nullable="false" />
+    <Property Name="Point" Type="int" Nullable="false" />
+    <Property Name="FailCard" Type="int" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="Locked" Type="bit" Nullable="false" />
+    <Property Name="Avata" Type="varchar" MaxLength="50" />
+    <Property Name="UserKindID" Type="int" Nullable="false" />
+    <Property Name="MaKH" Type="varchar" MaxLength="50" />
+    <Property Name="BuuCucID" Type="int" />
+  </EntityType>
+  <EntityType Name="UserInGroup">
+    <Key>
+      <PropertyRef Name="GroupID" />
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="GroupID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserKind">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_BalanceLog_ChangeType">
+    <End Role="ChangeType" Type="VPSSModel.Store.ChangeType" Multiplicity="1" />
+    <End Role="BalanceLog" Type="VPSSModel.Store.BalanceLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChangeType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BalanceLog">
+        <PropertyRef Name="ChangeTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BalanceLog_User1">
+    <End Role="User" Type="VPSSModel.Store.User" Multiplicity="1" />
+    <End Role="BalanceLog" Type="VPSSModel.Store.BalanceLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BalanceLog">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BuuCucInBuuKien_BuuCuc">
+    <End Role="BuuCuc" Type="VPSSModel.Store.BuuCuc" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BuuCucInBuuKien" Type="VPSSModel.Store.BuuCucInBuuKien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BuuCuc">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BuuCucInBuuKien">
+        <PropertyRef Name="BuuCucID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BuuCucInBuuKien_BuuKien">
+    <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BuuCucInBuuKien" Type="VPSSModel.Store.BuuCucInBuuKien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BuuKien">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BuuCucInBuuKien">
+        <PropertyRef Name="BuuKienID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BuuKien_BuuCuc3">
+    <End Role="BuuCuc" Type="VPSSModel.Store.BuuCuc" Multiplicity="0..1" />
+    <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BuuCuc">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BuuKien">
+        <PropertyRef Name="BuuCucNhanGuiID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BuuKien_CuocPhi">
+    <End Role="CuocPhi" Type="VPSSModel.Store.CuocPhi" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CuocPhi">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BuuKien">
+        <PropertyRef Name="CuocPhiID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BuuKien_DichVuCongThem">
+    <End Role="DichVuCongThem" Type="VPSSModel.Store.DichVuCongThem" Multiplicity="0..1" />
+    <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DichVuCongThem">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BuuKien">
+        <PropertyRef Name="DichVuCongThemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BuuKien_KhachHang">
+    <End Role="KhachHang" Type="VPSSModel.Store.KhachHang" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BuuKien">
+        <PropertyRef Name="KhachHangID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BuuKien_LoaiHang">
+    <End Role="LoaiHang" Type="VPSSModel.Store.LoaiHang" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiHang">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BuuKien">
+        <PropertyRef Name="LoaiHangID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BuuKien_User">
+    <End Role="User" Type="VPSSModel.Store.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BuuKien">
+        <PropertyRef Name="NguoiNhanID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Card_CardStatus">
+    <End Role="CardStatus" Type="VPSSModel.Store.CardStatus" Multiplicity="1" />
+    <End Role="Card" Type="VPSSModel.Store.Card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CardStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Card">
+        <PropertyRef Name="CardStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Card_CreatedCard">
+    <End Role="CreatedCard" Type="VPSSModel.Store.CreatedCard" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Card" Type="VPSSModel.Store.Card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CreatedCard">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Card">
+        <PropertyRef Name="CreatedCardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CardLog_Card">
+    <End Role="Card" Type="VPSSModel.Store.Card" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CardLog" Type="VPSSModel.Store.CardLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Card">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CardLog">
+        <PropertyRef Name="CardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CardLog_User">
+    <End Role="User" Type="VPSSModel.Store.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CardLog" Type="VPSSModel.Store.CardLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CardLog">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CreateCard_User1">
+    <End Role="User" Type="VPSSModel.Store.User" Multiplicity="1" />
+    <End Role="CreatedCard" Type="VPSSModel.Store.CreatedCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CreatedCard">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FunctionInRole_Function">
+    <End Role="Function" Type="VPSSModel.Store.Function" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FunctionInRole" Type="VPSSModel.Store.FunctionInRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Function">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FunctionInRole">
+        <PropertyRef Name="FunctionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FunctionInRole_Role1">
+    <End Role="Role1" Type="VPSSModel.Store.Role1" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FunctionInRole" Type="VPSSModel.Store.FunctionInRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role1">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FunctionInRole">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupInMenu_Group">
+    <End Role="Group" Type="VPSSModel.Store.Group" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="GroupInMenu" Type="VPSSModel.Store.GroupInMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GroupInMenu">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupInMenu_Menu">
+    <End Role="Menu" Type="VPSSModel.Store.Menu" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="GroupInMenu" Type="VPSSModel.Store.GroupInMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GroupInMenu">
+        <PropertyRef Name="MenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HandOverCard_Card">
+    <End Role="Card" Type="VPSSModel.Store.Card" Multiplicity="0..1" />
+    <End Role="HandOverCard" Type="VPSSModel.Store.HandOverCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Card">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HandOverCard">
+        <PropertyRef Name="FirstCardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HandOverCard_User">
+    <End Role="User" Type="VPSSModel.Store.User" Multiplicity="0..1" />
+    <End Role="HandOverCard" Type="VPSSModel.Store.HandOverCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HandOverCard">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleInGroup_Group">
+    <End Role="Group" Type="VPSSModel.Store.Group" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RoleInGroup" Type="VPSSModel.Store.RoleInGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RoleInGroup">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleInGroup_Role1">
+    <End Role="Role1" Type="VPSSModel.Store.Role1" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RoleInGroup" Type="VPSSModel.Store.RoleInGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role1">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RoleInGroup">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TraLoiCauHoiDieuTra_CauHoiDieuTra">
+    <End Role="CauHoiDieuTra" Type="VPSSModel.Store.CauHoiDieuTra" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TraLoiCauHoiDieuTra" Type="VPSSModel.Store.TraLoiCauHoiDieuTra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CauHoiDieuTra">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TraLoiCauHoiDieuTra">
+        <PropertyRef Name="CauHoiDieuTraID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInGroup_Group">
+    <End Role="Group" Type="VPSSModel.Store.Group" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserInGroup" Type="VPSSModel.Store.UserInGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserInGroup">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInGroup_User">
+    <End Role="User" Type="VPSSModel.Store.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserInGroup" Type="VPSSModel.Store.UserInGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserInGroup">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserKind_Users">
+    <End Role="UserKind" Type="VPSSModel.Store.UserKind" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="User" Type="VPSSModel.Store.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserKind">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserKindID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
