@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="vpss1Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="vpss1Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="vpss1ModelStoreContainer">
           <EntitySet Name="Company Expanses" EntityType="vpss1Model.Store.Company Expanses" store:Type="Tables" store:Schema="dbo" store:Name="Company Expanses">
             <DefiningQuery>SELECT 
@@ -15,21 +15,7 @@
       [Company Expanses].[Comment] AS [Comment]
       FROM [dbo].[Company Expanses] AS [Company Expanses]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="Customer Info" EntityType="vpss1Model.Store.Customer Info" store:Type="Tables" store:Schema="dbo" store:Name="Customer Info">
-            <DefiningQuery>SELECT 
-      [Customer Info].[Customer ID] AS [Customer ID], 
-      [Customer Info].[Customer Name] AS [Customer Name], 
-      [Customer Info].[Street] AS [Street], 
-      [Customer Info].[City] AS [City], 
-      [Customer Info].[State] AS [State], 
-      [Customer Info].[ZIP Code] AS [ZIP Code], 
-      [Customer Info].[Phone] AS [Phone], 
-      [Customer Info].[Fax] AS [Fax], 
-      [Customer Info].[Contact] AS [Contact], 
-      [Customer Info].[Comments] AS [Comments], 
-      [Customer Info].[Days to pay] AS [Days to pay]
-      FROM [dbo].[Customer Info] AS [Customer Info]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Customer Info" EntityType="vpss1Model.Store.Customer Info" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Dispatchers" EntityType="vpss1Model.Store.Dispatchers" store:Type="Tables" store:Schema="dbo" store:Name="Dispatchers">
             <DefiningQuery>SELECT 
       [Dispatchers].[ID] AS [ID], 
@@ -368,16 +354,11 @@
           <Property Name="Date" Type="datetime" />
           <Property Name="Comment" Type="nvarchar(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.Customer Info' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="Customer Info">
           <Key>
             <PropertyRef Name="Customer ID" />
-            <PropertyRef Name="Customer Name" />
-            <PropertyRef Name="Street" />
           </Key>
-          <Property Name="Customer ID" Type="int" Nullable="false" />
+          <Property Name="Customer ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Customer Name" Type="nvarchar" Nullable="false" MaxLength="128" />
           <Property Name="Street" Type="nvarchar" Nullable="false" MaxLength="64" />
           <Property Name="City" Type="nvarchar" MaxLength="64" />
@@ -831,22 +812,12 @@
           <Property Name="Date resolved" Type="datetime" />
           <Property Name="Equipment" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6013: The table/view 'VPSS1.dbo.Trailers1_ImportErrors' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-      
-      <EntityType Name="Trailers1_ImportErrors">
-        <Property Name="Error" Type="nvarchar" MaxLength="255" />
-        <Property Name="Field" Type="nvarchar" MaxLength="255" />
-        <Property Name="Row" Type="int" />
-      </EntityType>-->
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="vpss1Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="vpss1Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Company_Expanses" EntityType="vpss1Model.Company_Expanses" />
-          <EntitySet Name="Customer_Info" EntityType="vpss1Model.Customer_Info" />
           <EntitySet Name="Dispatchers" EntityType="vpss1Model.Dispatchers" />
           <EntitySet Name="Equipment" EntityType="vpss1Model.Equipment" />
           <EntitySet Name="fixed_charges" EntityType="vpss1Model.fixed_charges" />
@@ -868,6 +839,7 @@
           <EntitySet Name="Temp_Trip_Info" EntityType="vpss1Model.Temp_Trip_Info" />
           <EntitySet Name="Trip_Info___old" EntityType="vpss1Model.Trip_Info___old" />
           <EntitySet Name="Violations" EntityType="vpss1Model.Violations" />
+          <EntitySet Name="Customer_Info" EntityType="vpss1Model.Customer_Info" />
         </EntityContainer>
         <EntityType Name="Company_Expanses">
           <Key>
@@ -878,24 +850,6 @@
           <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Date" Type="DateTime" />
           <Property Name="Comment" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Customer_Info">
-          <Key>
-            <PropertyRef Name="Customer_ID" />
-            <PropertyRef Name="Customer_Name" />
-            <PropertyRef Name="Street" />
-          </Key>
-          <Property Name="Customer_ID" Type="Int32" Nullable="false" />
-          <Property Name="Customer_Name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Street" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
-          <Property Name="City" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
-          <Property Name="State" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
-          <Property Name="ZIP_Code" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
-          <Property Name="Phone" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
-          <Property Name="Fax" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
-          <Property Name="Contact" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Comments" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Days_to_pay" Type="Int16" />
         </EntityType>
         <EntityType Name="Dispatchers">
           <Key>
@@ -1276,6 +1230,22 @@
           <Property Name="Date_resolved" Type="DateTime" />
           <Property Name="Equipment" Type="Int32" />
         </EntityType>
+        <EntityType Name="Customer_Info">
+          <Key>
+            <PropertyRef Name="Customer_ID" />
+          </Key>
+          <Property Type="Int32" Name="Customer_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Customer_Name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Street" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="State" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ZIP_Code" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Fax" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Contact" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comments" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int16" Name="Days_to_pay" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1290,23 +1260,6 @@
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Customer_Info">
-            <EntityTypeMapping TypeName="vpss1Model.Customer_Info">
-              <MappingFragment StoreEntitySet="Customer Info">
-                <ScalarProperty Name="Customer_ID" ColumnName="Customer ID" />
-                <ScalarProperty Name="Customer_Name" ColumnName="Customer Name" />
-                <ScalarProperty Name="Street" ColumnName="Street" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="ZIP_Code" ColumnName="ZIP Code" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Fax" ColumnName="Fax" />
-                <ScalarProperty Name="Contact" ColumnName="Contact" />
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="Days_to_pay" ColumnName="Days to pay" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1676,6 +1629,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Customer_Info">
+            <EntityTypeMapping TypeName="vpss1Model.Customer_Info">
+              <MappingFragment StoreEntitySet="Customer Info">
+                <ScalarProperty Name="Days_to_pay" ColumnName="Days to pay" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="ZIP_Code" ColumnName="ZIP Code" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer Name" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1690,7 +1660,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </Options>
@@ -1698,7 +1668,6 @@
     <Diagrams>
       <Diagram Name="Model1">
         <EntityTypeShape EntityType="vpss1Model.Company_Expanses" Width="1.5" PointX="0.75" PointY="0.75" Height="1.9802864583333331" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Customer_Info" Width="1.5" PointX="2.75" PointY="0.75" Height="3.1340950520833326" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Dispatchers" Width="1.5" PointX="4.75" PointY="0.75" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Equipment" Width="1.5" PointX="0.75" PointY="4.75" Height="3.5186979166666656" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.fixed_charges" Width="1.5" PointX="2.75" PointY="4.75" Height="2.9417936197916656" IsExpanded="true" />
@@ -1720,6 +1689,7 @@
         <EntityTypeShape EntityType="vpss1Model.Temp_Trip_Info" Width="1.5" PointX="12.75" PointY="4.75" Height="6.0186165364583282" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Trip_Info___old" Width="1.5" PointX="12.75" PointY="11.75" Height="6.2109179687500067" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Violations" Width="1.5" PointX="4.75" PointY="13.75" Height="2.1725878906250102" IsExpanded="true" />
+        <EntityTypeShape EntityType="vpss1Model.Customer_Info" Width="1.5" PointX="2.75" PointY="0.75" Height="3.1340950520833246" />
       </Diagram>
     </Diagrams>
   </Designer>

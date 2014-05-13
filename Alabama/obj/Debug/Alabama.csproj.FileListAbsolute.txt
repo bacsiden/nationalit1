@@ -68,3 +68,8 @@ D:\Freelancer\NationalIT\nationalit1\Alabama\bin\Alabama.pdb
 D:\Freelancer\NationalIT\nationalit1\Alabama\obj\Debug\Alabama.csprojResolveAssemblyReference.cache
 D:\Freelancer\NationalIT\nationalit1\Alabama\obj\Debug\Alabama.dll
 D:\Freelancer\NationalIT\nationalit1\Alabama\obj\Debug\Alabama.pdb
+D:\Project\Freelancer\NationalIT\Alabama\bin\Alabama.dll
+D:\Project\Freelancer\NationalIT\Alabama\bin\Alabama.pdb
+D:\Project\Freelancer\NationalIT\Alabama\obj\Debug\Alabama.csprojResolveAssemblyReference.cache
+D:\Project\Freelancer\NationalIT\Alabama\obj\Debug\Alabama.dll
+D:\Project\Freelancer\NationalIT\Alabama\obj\Debug\Alabama.pdb

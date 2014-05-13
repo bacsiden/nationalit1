@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace Alabama.Controllers
 {
     public class Customer_InfoController : Controller
@@ -13,7 +14,7 @@ namespace Alabama.Controllers
 
         public ActionResult Index()
         {
-            return View(DB.Entities.Customer_Info.ToList());
+            return View(DB.Entities.Customer_Info.ToList().Take(10));
         }
 
         //
@@ -36,12 +37,14 @@ namespace Alabama.Controllers
         // POST: /Customer_Info/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Customer_Info model)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                var db = DB.Entities;
+                db.Customer_Info.AddObject(model);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
@@ -55,7 +58,7 @@ namespace Alabama.Controllers
  
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(DB.Entities.Customer_Info.FirstOrDefault(m=>m.Customer_ID==id));
         }
 
         //
