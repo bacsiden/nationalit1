@@ -1,0 +1,2074 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VPSSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="VPSSModelStoreContainer">
+          <EntitySet Name="BalanceLog" EntityType="VPSSModel.Store.BalanceLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BuuCuc" EntityType="VPSSModel.Store.BuuCuc" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BuuCucInBuuKien" EntityType="VPSSModel.Store.BuuCucInBuuKien" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BuuKien" EntityType="VPSSModel.Store.BuuKien" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Card" EntityType="VPSSModel.Store.Card" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CardAction" EntityType="VPSSModel.Store.CardAction" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CardLog" EntityType="VPSSModel.Store.CardLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CardStatus" EntityType="VPSSModel.Store.CardStatus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CauHoiDieuTra" EntityType="VPSSModel.Store.CauHoiDieuTra" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ChangeType" EntityType="VPSSModel.Store.ChangeType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Config" EntityType="VPSSModel.Store.Config" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CreateCardAmount" EntityType="VPSSModel.Store.CreateCardAmount" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CreatedCard" EntityType="VPSSModel.Store.CreatedCard" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CuocPhi" EntityType="VPSSModel.Store.CuocPhi" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DichVuCongThem" EntityType="VPSSModel.Store.DichVuCongThem" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Function" EntityType="VPSSModel.Store.Function" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FunctionInRole" EntityType="VPSSModel.Store.FunctionInRole" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Group" EntityType="VPSSModel.Store.Group" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GroupInMenu" EntityType="VPSSModel.Store.GroupInMenu" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HandOverCard" EntityType="VPSSModel.Store.HandOverCard" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="KhachHang" EntityType="VPSSModel.Store.KhachHang" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LoaiHang" EntityType="VPSSModel.Store.LoaiHang" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Menu" EntityType="VPSSModel.Store.Menu" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PriceLevel" EntityType="VPSSModel.Store.PriceLevel" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Role1" EntityType="VPSSModel.Store.Role1" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RoleInGroup" EntityType="VPSSModel.Store.RoleInGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="VPSSModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TraLoiCauHoiDieuTra" EntityType="VPSSModel.Store.TraLoiCauHoiDieuTra" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="VPSSModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserInGroup" EntityType="VPSSModel.Store.UserInGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserKind" EntityType="VPSSModel.Store.UserKind" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_BalanceLog_ChangeType" Association="VPSSModel.Store.FK_BalanceLog_ChangeType">
+            <End Role="ChangeType" EntitySet="ChangeType" />
+            <End Role="BalanceLog" EntitySet="BalanceLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BalanceLog_User1" Association="VPSSModel.Store.FK_BalanceLog_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="BalanceLog" EntitySet="BalanceLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuuCucInBuuKien_BuuCuc" Association="VPSSModel.Store.FK_BuuCucInBuuKien_BuuCuc">
+            <End Role="BuuCuc" EntitySet="BuuCuc" />
+            <End Role="BuuCucInBuuKien" EntitySet="BuuCucInBuuKien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuuCucInBuuKien_BuuKien" Association="VPSSModel.Store.FK_BuuCucInBuuKien_BuuKien">
+            <End Role="BuuKien" EntitySet="BuuKien" />
+            <End Role="BuuCucInBuuKien" EntitySet="BuuCucInBuuKien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuuKien_BuuCuc3" Association="VPSSModel.Store.FK_BuuKien_BuuCuc3">
+            <End Role="BuuCuc" EntitySet="BuuCuc" />
+            <End Role="BuuKien" EntitySet="BuuKien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuuKien_CuocPhi" Association="VPSSModel.Store.FK_BuuKien_CuocPhi">
+            <End Role="CuocPhi" EntitySet="CuocPhi" />
+            <End Role="BuuKien" EntitySet="BuuKien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuuKien_DichVuCongThem" Association="VPSSModel.Store.FK_BuuKien_DichVuCongThem">
+            <End Role="DichVuCongThem" EntitySet="DichVuCongThem" />
+            <End Role="BuuKien" EntitySet="BuuKien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuuKien_KhachHang" Association="VPSSModel.Store.FK_BuuKien_KhachHang">
+            <End Role="KhachHang" EntitySet="KhachHang" />
+            <End Role="BuuKien" EntitySet="BuuKien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuuKien_LoaiHang" Association="VPSSModel.Store.FK_BuuKien_LoaiHang">
+            <End Role="LoaiHang" EntitySet="LoaiHang" />
+            <End Role="BuuKien" EntitySet="BuuKien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuuKien_User" Association="VPSSModel.Store.FK_BuuKien_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="BuuKien" EntitySet="BuuKien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Card_CardStatus" Association="VPSSModel.Store.FK_Card_CardStatus">
+            <End Role="CardStatus" EntitySet="CardStatus" />
+            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Card_CreatedCard" Association="VPSSModel.Store.FK_Card_CreatedCard">
+            <End Role="CreatedCard" EntitySet="CreatedCard" />
+            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CardLog_Card" Association="VPSSModel.Store.FK_CardLog_Card">
+            <End Role="Card" EntitySet="Card" />
+            <End Role="CardLog" EntitySet="CardLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CardLog_User" Association="VPSSModel.Store.FK_CardLog_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="CardLog" EntitySet="CardLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CreateCard_User1" Association="VPSSModel.Store.FK_CreateCard_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="CreatedCard" EntitySet="CreatedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FunctionInRole_Function" Association="VPSSModel.Store.FK_FunctionInRole_Function">
+            <End Role="Function" EntitySet="Function" />
+            <End Role="FunctionInRole" EntitySet="FunctionInRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FunctionInRole_Role1" Association="VPSSModel.Store.FK_FunctionInRole_Role1">
+            <End Role="Role1" EntitySet="Role1" />
+            <End Role="FunctionInRole" EntitySet="FunctionInRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupInMenu_Group" Association="VPSSModel.Store.FK_GroupInMenu_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="GroupInMenu" EntitySet="GroupInMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupInMenu_Menu" Association="VPSSModel.Store.FK_GroupInMenu_Menu">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="GroupInMenu" EntitySet="GroupInMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HandOverCard_Card" Association="VPSSModel.Store.FK_HandOverCard_Card">
+            <End Role="Card" EntitySet="Card" />
+            <End Role="HandOverCard" EntitySet="HandOverCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HandOverCard_User" Association="VPSSModel.Store.FK_HandOverCard_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="HandOverCard" EntitySet="HandOverCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleInGroup_Group" Association="VPSSModel.Store.FK_RoleInGroup_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="RoleInGroup" EntitySet="RoleInGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleInGroup_Role1" Association="VPSSModel.Store.FK_RoleInGroup_Role1">
+            <End Role="Role1" EntitySet="Role1" />
+            <End Role="RoleInGroup" EntitySet="RoleInGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TraLoiCauHoiDieuTra_CauHoiDieuTra" Association="VPSSModel.Store.FK_TraLoiCauHoiDieuTra_CauHoiDieuTra">
+            <End Role="CauHoiDieuTra" EntitySet="CauHoiDieuTra" />
+            <End Role="TraLoiCauHoiDieuTra" EntitySet="TraLoiCauHoiDieuTra" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInGroup_Group" Association="VPSSModel.Store.FK_UserInGroup_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="UserInGroup" EntitySet="UserInGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInGroup_User" Association="VPSSModel.Store.FK_UserInGroup_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserInGroup" EntitySet="UserInGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserKind_Users" Association="VPSSModel.Store.FK_UserKind_Users">
+            <End Role="UserKind" EntitySet="UserKind" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BalanceLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Money" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="TransactionID" Type="int" />
+          <Property Name="ChangeTypeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BuuCuc">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TenBuuCuc" Type="nvarchar" MaxLength="200" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="200" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BuuCucInBuuKien">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BuuCucID" Type="int" Nullable="false" />
+          <Property Name="BuuKienID" Type="int" Nullable="false" />
+          <Property Name="KieuChuyen" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BuuKien">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MaBuuKien" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="TenBuuKien" Type="nvarchar" MaxLength="50" />
+          <Property Name="NgayGui" Type="datetime" />
+          <Property Name="NgayNhan" Type="datetime" Nullable="false" />
+          <Property Name="NguoiNhanID" Type="int" Nullable="false" />
+          <Property Name="TrangThai" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="KhachHangID" Type="int" />
+          <Property Name="NguoiGui" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiaChiNguoiGui" Type="nvarchar" MaxLength="100" />
+          <Property Name="NguoiNhan" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DiaChiNguoiNhan" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="CuocPhiID" Type="int" Nullable="false" />
+          <Property Name="KhoiLuong" Type="float" />
+          <Property Name="GhiChu" Type="text" />
+          <Property Name="LoaiHangID" Type="int" Nullable="false" />
+          <Property Name="BuuCucHienTaiID" Type="int" />
+          <Property Name="BuuCucTraID" Type="int" />
+          <Property Name="BuuCucNhanGuiID" Type="int" />
+          <Property Name="DichVuCongThemID" Type="int" />
+        </EntityType>
+        <EntityType Name="Card">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Serial" Type="char" Nullable="false" MaxLength="9" />
+          <Property Name="CardChar" Type="char" Nullable="false" MaxLength="14" />
+          <Property Name="CreatedCardID" Type="int" Nullable="false" />
+          <Property Name="CardStatusID" Type="int" Nullable="false" />
+          <Property Name="HandOverCardID" Type="int" />
+        </EntityType>
+        <EntityType Name="CardAction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="BeforeStatusID" Type="int" />
+          <Property Name="AfterStatusID" Type="int" />
+        </EntityType>
+        <EntityType Name="CardLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="CardID" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CardStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="CauHoiDieuTra">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="IsMultiChoice" Type="bit" Nullable="false" />
+          <Property Name="Company" Type="nvarchar" MaxLength="200" />
+          <Property Name="Activated" Type="bit" Nullable="false" />
+          <Property Name="Link" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreatedDate" Type="date" Nullable="false" />
+          <Property Name="Content" Type="nvarchar" MaxLength="500" />
+          <Property Name="FileExtention" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ChangeType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Config">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="500" />
+          <Property Name="Multiline" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CreateCardAmount">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CreatedCard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="PriceLevel" Type="int" Nullable="false" />
+          <Property Name="DateCreate" Type="datetime" Nullable="false" />
+          <Property Name="DateRelease" Type="datetime" Nullable="false" />
+          <Property Name="DateExpire" Type="datetime" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="CuocPhi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nchar" Nullable="false" MaxLength="50" />
+          <Property Name="Cost" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DichVuCongThem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Cost" Type="float" />
+        </EntityType>
+        <EntityType Name="Function">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="FunctionInRole">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="FunctionID" />
+          </Key>
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="FunctionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="GroupInMenu">
+          <Key>
+            <PropertyRef Name="GroupID" />
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="GroupID" Type="int" Nullable="false" />
+          <Property Name="MenuID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HandOverCard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="FirstCardID" Type="int" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="Note" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedCardID" Type="int" />
+          <Property Name="Money" Type="bigint" />
+          <Property Name="RelaseTime" Type="datetime" />
+          <Property Name="FirstSerial" Type="nchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LoaiHang">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="HeSo" Type="float" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="TabTitle" Type="nvarchar" MaxLength="255" />
+          <Property Name="Url" Type="nvarchar" MaxLength="255" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="50" />
+          <Property Name="Oder" Type="int" />
+          <Property Name="Inherit" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="PriceLevel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="RoleInGroup">
+          <Key>
+            <PropertyRef Name="GroupID" />
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="GroupID" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TraLoiCauHoiDieuTra">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CauHoiDieuTraID" Type="int" Nullable="false" />
+          <Property Name="NoiDung" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="SoLanChon" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AspnetUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="20" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="Balance" Type="bigint" Nullable="false" />
+          <Property Name="VBalance" Type="bigint" Nullable="false" />
+          <Property Name="Point" Type="int" Nullable="false" />
+          <Property Name="FailCard" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="Locked" Type="bit" Nullable="false" />
+          <Property Name="Avata" Type="varchar" MaxLength="50" />
+          <Property Name="UserKindID" Type="int" Nullable="false" />
+          <Property Name="MaKH" Type="varchar" MaxLength="50" />
+          <Property Name="BuuCucID" Type="int" />
+        </EntityType>
+        <EntityType Name="UserInGroup">
+          <Key>
+            <PropertyRef Name="GroupID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="GroupID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserKind">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_BalanceLog_ChangeType">
+          <End Role="ChangeType" Type="VPSSModel.Store.ChangeType" Multiplicity="1" />
+          <End Role="BalanceLog" Type="VPSSModel.Store.BalanceLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChangeType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BalanceLog">
+              <PropertyRef Name="ChangeTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BalanceLog_User1">
+          <End Role="User" Type="VPSSModel.Store.User" Multiplicity="1" />
+          <End Role="BalanceLog" Type="VPSSModel.Store.BalanceLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BalanceLog">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuuCucInBuuKien_BuuCuc">
+          <End Role="BuuCuc" Type="VPSSModel.Store.BuuCuc" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BuuCucInBuuKien" Type="VPSSModel.Store.BuuCucInBuuKien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuuCuc">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuuCucInBuuKien">
+              <PropertyRef Name="BuuCucID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuuCucInBuuKien_BuuKien">
+          <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BuuCucInBuuKien" Type="VPSSModel.Store.BuuCucInBuuKien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuuKien">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuuCucInBuuKien">
+              <PropertyRef Name="BuuKienID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuuKien_BuuCuc3">
+          <End Role="BuuCuc" Type="VPSSModel.Store.BuuCuc" Multiplicity="0..1" />
+          <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuuCuc">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuuKien">
+              <PropertyRef Name="BuuCucNhanGuiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuuKien_CuocPhi">
+          <End Role="CuocPhi" Type="VPSSModel.Store.CuocPhi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuocPhi">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuuKien">
+              <PropertyRef Name="CuocPhiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuuKien_DichVuCongThem">
+          <End Role="DichVuCongThem" Type="VPSSModel.Store.DichVuCongThem" Multiplicity="0..1" />
+          <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DichVuCongThem">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuuKien">
+              <PropertyRef Name="DichVuCongThemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuuKien_KhachHang">
+          <End Role="KhachHang" Type="VPSSModel.Store.KhachHang" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuuKien">
+              <PropertyRef Name="KhachHangID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuuKien_LoaiHang">
+          <End Role="LoaiHang" Type="VPSSModel.Store.LoaiHang" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiHang">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuuKien">
+              <PropertyRef Name="LoaiHangID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuuKien_User">
+          <End Role="User" Type="VPSSModel.Store.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BuuKien" Type="VPSSModel.Store.BuuKien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuuKien">
+              <PropertyRef Name="NguoiNhanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Card_CardStatus">
+          <End Role="CardStatus" Type="VPSSModel.Store.CardStatus" Multiplicity="1" />
+          <End Role="Card" Type="VPSSModel.Store.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CardStatus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="CardStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Card_CreatedCard">
+          <End Role="CreatedCard" Type="VPSSModel.Store.CreatedCard" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Card" Type="VPSSModel.Store.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CreatedCard">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="CreatedCardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CardLog_Card">
+          <End Role="Card" Type="VPSSModel.Store.Card" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CardLog" Type="VPSSModel.Store.CardLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Card">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CardLog">
+              <PropertyRef Name="CardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CardLog_User">
+          <End Role="User" Type="VPSSModel.Store.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CardLog" Type="VPSSModel.Store.CardLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CardLog">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CreateCard_User1">
+          <End Role="User" Type="VPSSModel.Store.User" Multiplicity="1" />
+          <End Role="CreatedCard" Type="VPSSModel.Store.CreatedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CreatedCard">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FunctionInRole_Function">
+          <End Role="Function" Type="VPSSModel.Store.Function" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FunctionInRole" Type="VPSSModel.Store.FunctionInRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Function">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FunctionInRole">
+              <PropertyRef Name="FunctionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FunctionInRole_Role1">
+          <End Role="Role1" Type="VPSSModel.Store.Role1" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FunctionInRole" Type="VPSSModel.Store.FunctionInRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role1">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FunctionInRole">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupInMenu_Group">
+          <End Role="Group" Type="VPSSModel.Store.Group" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GroupInMenu" Type="VPSSModel.Store.GroupInMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupInMenu">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupInMenu_Menu">
+          <End Role="Menu" Type="VPSSModel.Store.Menu" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GroupInMenu" Type="VPSSModel.Store.GroupInMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupInMenu">
+              <PropertyRef Name="MenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HandOverCard_Card">
+          <End Role="Card" Type="VPSSModel.Store.Card" Multiplicity="0..1" />
+          <End Role="HandOverCard" Type="VPSSModel.Store.HandOverCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Card">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HandOverCard">
+              <PropertyRef Name="FirstCardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HandOverCard_User">
+          <End Role="User" Type="VPSSModel.Store.User" Multiplicity="0..1" />
+          <End Role="HandOverCard" Type="VPSSModel.Store.HandOverCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HandOverCard">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleInGroup_Group">
+          <End Role="Group" Type="VPSSModel.Store.Group" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RoleInGroup" Type="VPSSModel.Store.RoleInGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RoleInGroup">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleInGroup_Role1">
+          <End Role="Role1" Type="VPSSModel.Store.Role1" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RoleInGroup" Type="VPSSModel.Store.RoleInGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role1">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RoleInGroup">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TraLoiCauHoiDieuTra_CauHoiDieuTra">
+          <End Role="CauHoiDieuTra" Type="VPSSModel.Store.CauHoiDieuTra" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TraLoiCauHoiDieuTra" Type="VPSSModel.Store.TraLoiCauHoiDieuTra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CauHoiDieuTra">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TraLoiCauHoiDieuTra">
+              <PropertyRef Name="CauHoiDieuTraID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInGroup_Group">
+          <End Role="Group" Type="VPSSModel.Store.Group" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserInGroup" Type="VPSSModel.Store.UserInGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserInGroup">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInGroup_User">
+          <End Role="User" Type="VPSSModel.Store.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserInGroup" Type="VPSSModel.Store.UserInGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserInGroup">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserKind_Users">
+          <End Role="UserKind" Type="VPSSModel.Store.UserKind" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="User" Type="VPSSModel.Store.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserKind">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserKindID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VPSSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="VPSSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BalanceLog" EntityType="VPSSModel.BalanceLog" />
+          <EntitySet Name="Card" EntityType="VPSSModel.Card" />
+          <EntitySet Name="CardAction" EntityType="VPSSModel.CardAction" />
+          <EntitySet Name="CardLog" EntityType="VPSSModel.CardLog" />
+          <EntitySet Name="CardStatus" EntityType="VPSSModel.CardStatus" />
+          <EntitySet Name="CauHoiDieuTra" EntityType="VPSSModel.CauHoiDieuTra" />
+          <EntitySet Name="ChangeType" EntityType="VPSSModel.ChangeType" />
+          <EntitySet Name="Config" EntityType="VPSSModel.Config" />
+          <EntitySet Name="CreateCardAmount" EntityType="VPSSModel.CreateCardAmount" />
+          <EntitySet Name="CreatedCard" EntityType="VPSSModel.CreatedCard" />
+          <EntitySet Name="CuocPhi" EntityType="VPSSModel.CuocPhi" />
+          <EntitySet Name="Function" EntityType="VPSSModel.Function" />
+          <EntitySet Name="Group" EntityType="VPSSModel.Group" />
+          <EntitySet Name="HandOverCard" EntityType="VPSSModel.HandOverCard" />
+          <EntitySet Name="KhachHang" EntityType="VPSSModel.KhachHang" />
+          <EntitySet Name="LoaiHang" EntityType="VPSSModel.LoaiHang" />
+          <EntitySet Name="Menu" EntityType="VPSSModel.Menu" />
+          <EntitySet Name="PriceLevel" EntityType="VPSSModel.PriceLevel" />
+          <EntitySet Name="Role1" EntityType="VPSSModel.Role1" />
+          <EntitySet Name="TraLoiCauHoiDieuTra" EntityType="VPSSModel.TraLoiCauHoiDieuTra" />
+          <EntitySet Name="User" EntityType="VPSSModel.User" />
+          <EntitySet Name="UserKind" EntityType="VPSSModel.UserKind" />
+          <AssociationSet Name="FK_BalanceLog_ChangeType" Association="VPSSModel.FK_BalanceLog_ChangeType">
+            <End Role="ChangeType" EntitySet="ChangeType" />
+            <End Role="BalanceLog" EntitySet="BalanceLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BalanceLog_User1" Association="VPSSModel.FK_BalanceLog_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="BalanceLog" EntitySet="BalanceLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Card_CardStatus" Association="VPSSModel.FK_Card_CardStatus">
+            <End Role="CardStatus" EntitySet="CardStatus" />
+            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Card_CreatedCard" Association="VPSSModel.FK_Card_CreatedCard">
+            <End Role="CreatedCard" EntitySet="CreatedCard" />
+            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CardLog_Card" Association="VPSSModel.FK_CardLog_Card">
+            <End Role="Card" EntitySet="Card" />
+            <End Role="CardLog" EntitySet="CardLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HandOverCard_Card" Association="VPSSModel.FK_HandOverCard_Card">
+            <End Role="Card" EntitySet="Card" />
+            <End Role="HandOverCard" EntitySet="HandOverCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CardLog_User" Association="VPSSModel.FK_CardLog_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="CardLog" EntitySet="CardLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TraLoiCauHoiDieuTra_CauHoiDieuTra" Association="VPSSModel.FK_TraLoiCauHoiDieuTra_CauHoiDieuTra">
+            <End Role="CauHoiDieuTra" EntitySet="CauHoiDieuTra" />
+            <End Role="TraLoiCauHoiDieuTra" EntitySet="TraLoiCauHoiDieuTra" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CreateCard_User1" Association="VPSSModel.FK_CreateCard_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="CreatedCard" EntitySet="CreatedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HandOverCard_User" Association="VPSSModel.FK_HandOverCard_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="HandOverCard" EntitySet="HandOverCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserKind_Users" Association="VPSSModel.FK_UserKind_Users">
+            <End Role="UserKind" EntitySet="UserKind" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FunctionInRole" Association="VPSSModel.FunctionInRole">
+            <End Role="Function" EntitySet="Function" />
+            <End Role="Role1" EntitySet="Role1" />
+          </AssociationSet>
+          <AssociationSet Name="GroupInMenu" Association="VPSSModel.GroupInMenu">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Menu" EntitySet="Menu" />
+          </AssociationSet>
+          <AssociationSet Name="RoleInGroup" Association="VPSSModel.RoleInGroup">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Role1" EntitySet="Role1" />
+          </AssociationSet>
+          <AssociationSet Name="UserInGroup" Association="VPSSModel.UserInGroup">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <EntitySet Name="BuuCuc" EntityType="VPSSModel.BuuCuc" />
+          <EntitySet Name="sysdiagrams" EntityType="VPSSModel.sysdiagrams" />
+          <EntitySet Name="BuuCucInBuuKien" EntityType="VPSSModel.BuuCucInBuuKien" />
+          <AssociationSet Name="FK_BuuCucInBuuKien_BuuCuc" Association="VPSSModel.FK_BuuCucInBuuKien_BuuCuc">
+            <End Role="BuuCuc" EntitySet="BuuCuc" />
+            <End Role="BuuCucInBuuKien" EntitySet="BuuCucInBuuKien" />
+          </AssociationSet>
+          <EntitySet Name="BuuKien" EntityType="VPSSModel.BuuKien" />
+          <EntitySet Name="DichVuCongThem" EntityType="VPSSModel.DichVuCongThem" />
+          <AssociationSet Name="FK_BuuKien_BuuCuc3" Association="VPSSModel.FK_BuuKien_BuuCuc3">
+            <End Role="BuuCuc" EntitySet="BuuCuc" />
+            <End Role="BuuKien" EntitySet="BuuKien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuuCucInBuuKien_BuuKien" Association="VPSSModel.FK_BuuCucInBuuKien_BuuKien">
+            <End Role="BuuKien" EntitySet="BuuKien" />
+            <End Role="BuuCucInBuuKien" EntitySet="BuuCucInBuuKien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuuKien_CuocPhi" Association="VPSSModel.FK_BuuKien_CuocPhi">
+            <End Role="CuocPhi" EntitySet="CuocPhi" />
+            <End Role="BuuKien" EntitySet="BuuKien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuuKien_DichVuCongThem" Association="VPSSModel.FK_BuuKien_DichVuCongThem">
+            <End Role="DichVuCongThem" EntitySet="DichVuCongThem" />
+            <End Role="BuuKien" EntitySet="BuuKien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuuKien_KhachHang" Association="VPSSModel.FK_BuuKien_KhachHang">
+            <End Role="KhachHang" EntitySet="KhachHang" />
+            <End Role="BuuKien" EntitySet="BuuKien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuuKien_LoaiHang" Association="VPSSModel.FK_BuuKien_LoaiHang">
+            <End Role="LoaiHang" EntitySet="LoaiHang" />
+            <End Role="BuuKien" EntitySet="BuuKien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BuuKien_User" Association="VPSSModel.FK_BuuKien_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="BuuKien" EntitySet="BuuKien" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BalanceLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="Int32" Name="Money" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <Property Type="Int32" Name="TransactionID" />
+          <Property Type="Int32" Name="ChangeTypeID" Nullable="false" />
+          <NavigationProperty Name="ChangeType" Relationship="VPSSModel.FK_BalanceLog_ChangeType" FromRole="BalanceLog" ToRole="ChangeType" />
+          <NavigationProperty Name="User" Relationship="VPSSModel.FK_BalanceLog_User1" FromRole="BalanceLog" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Card">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Serial" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="CardChar" Nullable="false" MaxLength="14" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="CreatedCardID" Nullable="false" />
+          <Property Type="Int32" Name="CardStatusID" Nullable="false" />
+          <Property Type="Int32" Name="HandOverCardID" />
+          <NavigationProperty Name="CardStatus" Relationship="VPSSModel.FK_Card_CardStatus" FromRole="Card" ToRole="CardStatus" />
+          <NavigationProperty Name="CreatedCard" Relationship="VPSSModel.FK_Card_CreatedCard" FromRole="Card" ToRole="CreatedCard" />
+          <NavigationProperty Name="CardLog" Relationship="VPSSModel.FK_CardLog_Card" FromRole="Card" ToRole="CardLog" />
+          <NavigationProperty Name="HandOverCard" Relationship="VPSSModel.FK_HandOverCard_Card" FromRole="Card" ToRole="HandOverCard" />
+        </EntityType>
+        <EntityType Name="CardAction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="BeforeStatusID" />
+          <Property Type="Int32" Name="AfterStatusID" />
+        </EntityType>
+        <EntityType Name="CardLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="Int32" Name="CardID" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <NavigationProperty Name="Card" Relationship="VPSSModel.FK_CardLog_Card" FromRole="CardLog" ToRole="Card" />
+          <NavigationProperty Name="User" Relationship="VPSSModel.FK_CardLog_User" FromRole="CardLog" ToRole="User" />
+        </EntityType>
+        <EntityType Name="CardStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Card" Relationship="VPSSModel.FK_Card_CardStatus" FromRole="CardStatus" ToRole="Card" />
+        </EntityType>
+        <EntityType Name="CauHoiDieuTra">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsMultiChoice" Nullable="false" />
+          <Property Type="String" Name="Company" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Activated" Nullable="false" />
+          <Property Type="String" Name="Link" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <Property Type="String" Name="Content" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FileExtention" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TraLoiCauHoiDieuTra" Relationship="VPSSModel.FK_TraLoiCauHoiDieuTra_CauHoiDieuTra" FromRole="CauHoiDieuTra" ToRole="TraLoiCauHoiDieuTra" />
+        </EntityType>
+        <EntityType Name="ChangeType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Title" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BalanceLog" Relationship="VPSSModel.FK_BalanceLog_ChangeType" FromRole="ChangeType" ToRole="BalanceLog" />
+        </EntityType>
+        <EntityType Name="Config">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Key" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Multiline" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CreateCardAmount">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Amount" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CreatedCard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="Int32" Name="Amount" Nullable="false" />
+          <Property Type="Int32" Name="PriceLevel" Nullable="false" />
+          <Property Type="DateTime" Name="DateCreate" Nullable="false" />
+          <Property Type="DateTime" Name="DateRelease" Nullable="false" />
+          <Property Type="DateTime" Name="DateExpire" Nullable="false" />
+          <Property Type="String" Name="Note" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Card" Relationship="VPSSModel.FK_Card_CreatedCard" FromRole="CreatedCard" ToRole="Card" />
+          <NavigationProperty Name="User" Relationship="VPSSModel.FK_CreateCard_User1" FromRole="CreatedCard" ToRole="User" />
+        </EntityType>
+        <EntityType Name="CuocPhi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="Cost" Nullable="false" />
+          <NavigationProperty Name="BuuKien" Relationship="VPSSModel.FK_BuuKien_CuocPhi" FromRole="CuocPhi" ToRole="BuuKien" />
+        </EntityType>
+        <EntityType Name="Function">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Code" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Title" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Role1" Relationship="VPSSModel.FunctionInRole" FromRole="Function" ToRole="Role1" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Menu" Relationship="VPSSModel.GroupInMenu" FromRole="Group" ToRole="Menu" />
+          <NavigationProperty Name="Role1" Relationship="VPSSModel.RoleInGroup" FromRole="Group" ToRole="Role1" />
+          <NavigationProperty Name="User" Relationship="VPSSModel.UserInGroup" FromRole="Group" ToRole="User" />
+        </EntityType>
+        <EntityType Name="HandOverCard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserID" />
+          <Property Type="Int32" Name="FirstCardID" />
+          <Property Type="Int32" Name="Amount" />
+          <Property Type="String" Name="Note" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CreatedCardID" />
+          <Property Type="Int64" Name="Money" />
+          <Property Type="DateTime" Name="RelaseTime" />
+          <Property Type="String" Name="FirstSerial" MaxLength="20" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Card" Relationship="VPSSModel.FK_HandOverCard_Card" FromRole="HandOverCard" ToRole="Card" />
+          <NavigationProperty Name="User" Relationship="VPSSModel.FK_HandOverCard_User" FromRole="HandOverCard" ToRole="User" />
+        </EntityType>
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BuuKien" Relationship="VPSSModel.FK_BuuKien_KhachHang" FromRole="KhachHang" ToRole="BuuKien" />
+        </EntityType>
+        <EntityType Name="LoaiHang">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Double" Name="HeSo" />
+          <Property Type="String" Name="Title" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BuuKien" Relationship="VPSSModel.FK_BuuKien_LoaiHang" FromRole="LoaiHang" ToRole="BuuKien" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ParentID" />
+          <Property Type="String" Name="TabTitle" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Url" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Icon" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Oder" />
+          <Property Type="Boolean" Name="Inherit" />
+          <Property Type="Boolean" Name="IsActive" />
+          <NavigationProperty Name="Group" Relationship="VPSSModel.GroupInMenu" FromRole="Menu" ToRole="Group" />
+        </EntityType>
+        <EntityType Name="PriceLevel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Amount" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Function" Relationship="VPSSModel.FunctionInRole" FromRole="Role1" ToRole="Function" />
+          <NavigationProperty Name="Group" Relationship="VPSSModel.RoleInGroup" FromRole="Role1" ToRole="Group" />
+        </EntityType>
+        <EntityType Name="TraLoiCauHoiDieuTra">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CauHoiDieuTraID" Nullable="false" />
+          <Property Type="String" Name="NoiDung" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="SoLanChon" Nullable="false" />
+          <NavigationProperty Name="CauHoiDieuTra" Relationship="VPSSModel.FK_TraLoiCauHoiDieuTra_CauHoiDieuTra" FromRole="TraLoiCauHoiDieuTra" ToRole="CauHoiDieuTra" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Guid" Name="AspnetUserID" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PhoneNumber" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Sex" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Birthday" />
+          <Property Type="String" Name="Address" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Balance" Nullable="false" />
+          <Property Type="Int64" Name="VBalance" Nullable="false" />
+          <Property Type="Int32" Name="Point" Nullable="false" />
+          <Property Type="Int32" Name="FailCard" Nullable="false" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="Boolean" Name="Locked" Nullable="false" />
+          <Property Type="String" Name="Avata" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="UserKindID" Nullable="false" />
+          <Property Type="String" Name="MaKH" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="BuuCucID" />
+          <NavigationProperty Name="BalanceLog" Relationship="VPSSModel.FK_BalanceLog_User1" FromRole="User" ToRole="BalanceLog" />
+          <NavigationProperty Name="CardLog" Relationship="VPSSModel.FK_CardLog_User" FromRole="User" ToRole="CardLog" />
+          <NavigationProperty Name="CreatedCard" Relationship="VPSSModel.FK_CreateCard_User1" FromRole="User" ToRole="CreatedCard" />
+          <NavigationProperty Name="HandOverCard" Relationship="VPSSModel.FK_HandOverCard_User" FromRole="User" ToRole="HandOverCard" />
+          <NavigationProperty Name="UserKind" Relationship="VPSSModel.FK_UserKind_Users" FromRole="User" ToRole="UserKind" />
+          <NavigationProperty Name="Group" Relationship="VPSSModel.UserInGroup" FromRole="User" ToRole="Group" />
+          <NavigationProperty Name="BuuKien" Relationship="VPSSModel.FK_BuuKien_User" FromRole="User" ToRole="BuuKien" />
+        </EntityType>
+        <EntityType Name="UserKind">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="VPSSModel.FK_UserKind_Users" FromRole="UserKind" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_BalanceLog_ChangeType">
+          <End Type="VPSSModel.ChangeType" Role="ChangeType" Multiplicity="1" />
+          <End Type="VPSSModel.BalanceLog" Role="BalanceLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChangeType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BalanceLog">
+              <PropertyRef Name="ChangeTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BalanceLog_User1">
+          <End Type="VPSSModel.User" Role="User" Multiplicity="1" />
+          <End Type="VPSSModel.BalanceLog" Role="BalanceLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BalanceLog">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Card_CardStatus">
+          <End Type="VPSSModel.CardStatus" Role="CardStatus" Multiplicity="1" />
+          <End Type="VPSSModel.Card" Role="Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CardStatus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="CardStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Card_CreatedCard">
+          <End Type="VPSSModel.CreatedCard" Role="CreatedCard" Multiplicity="1" />
+          <End Type="VPSSModel.Card" Role="Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CreatedCard">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="CreatedCardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CardLog_Card">
+          <End Type="VPSSModel.Card" Role="Card" Multiplicity="1" />
+          <End Type="VPSSModel.CardLog" Role="CardLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Card">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CardLog">
+              <PropertyRef Name="CardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HandOverCard_Card">
+          <End Type="VPSSModel.Card" Role="Card" Multiplicity="0..1" />
+          <End Type="VPSSModel.HandOverCard" Role="HandOverCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Card">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HandOverCard">
+              <PropertyRef Name="FirstCardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CardLog_User">
+          <End Type="VPSSModel.User" Role="User" Multiplicity="1" />
+          <End Type="VPSSModel.CardLog" Role="CardLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CardLog">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TraLoiCauHoiDieuTra_CauHoiDieuTra">
+          <End Type="VPSSModel.CauHoiDieuTra" Role="CauHoiDieuTra" Multiplicity="1" />
+          <End Type="VPSSModel.TraLoiCauHoiDieuTra" Role="TraLoiCauHoiDieuTra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CauHoiDieuTra">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TraLoiCauHoiDieuTra">
+              <PropertyRef Name="CauHoiDieuTraID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CreateCard_User1">
+          <End Type="VPSSModel.User" Role="User" Multiplicity="1" />
+          <End Type="VPSSModel.CreatedCard" Role="CreatedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CreatedCard">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HandOverCard_User">
+          <End Type="VPSSModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="VPSSModel.HandOverCard" Role="HandOverCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HandOverCard">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserKind_Users">
+          <End Type="VPSSModel.UserKind" Role="UserKind" Multiplicity="1" />
+          <End Type="VPSSModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserKind">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserKindID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FunctionInRole">
+          <End Type="VPSSModel.Function" Role="Function" Multiplicity="*" />
+          <End Type="VPSSModel.Role1" Role="Role1" Multiplicity="*" />
+        </Association>
+        <Association Name="GroupInMenu">
+          <End Type="VPSSModel.Group" Role="Group" Multiplicity="*" />
+          <End Type="VPSSModel.Menu" Role="Menu" Multiplicity="*" />
+        </Association>
+        <Association Name="RoleInGroup">
+          <End Type="VPSSModel.Group" Role="Group" Multiplicity="*" />
+          <End Type="VPSSModel.Role1" Role="Role1" Multiplicity="*" />
+        </Association>
+        <Association Name="UserInGroup">
+          <End Type="VPSSModel.Group" Role="Group" Multiplicity="*" />
+          <End Type="VPSSModel.User" Role="User" Multiplicity="*" />
+        </Association>
+        <EntityType Name="BuuCuc">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TenBuuCuc" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DiaChi" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BuuCucInBuuKien" Relationship="VPSSModel.FK_BuuCucInBuuKien_BuuCuc" FromRole="BuuCuc" ToRole="BuuCucInBuuKien" />
+          <NavigationProperty Name="BuuKien" Relationship="VPSSModel.FK_BuuKien_BuuCuc3" FromRole="BuuCuc" ToRole="BuuKien" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="principal_id" Nullable="false" />
+          <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="version" />
+          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="BuuCucInBuuKien">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="BuuCucID" Nullable="false" />
+          <Property Type="Int32" Name="BuuKienID" Nullable="false" />
+          <Property Type="Int32" Name="KieuChuyen" Nullable="false" />
+          <NavigationProperty Name="BuuCuc" Relationship="VPSSModel.FK_BuuCucInBuuKien_BuuCuc" FromRole="BuuCucInBuuKien" ToRole="BuuCuc" />
+          <NavigationProperty Name="BuuKien" Relationship="VPSSModel.FK_BuuCucInBuuKien_BuuKien" FromRole="BuuCucInBuuKien" ToRole="BuuKien" />
+        </EntityType>
+        <Association Name="FK_BuuCucInBuuKien_BuuCuc">
+          <End Type="VPSSModel.BuuCuc" Role="BuuCuc" Multiplicity="1" />
+          <End Type="VPSSModel.BuuCucInBuuKien" Role="BuuCucInBuuKien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuuCuc">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuuCucInBuuKien">
+              <PropertyRef Name="BuuCucID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BuuKien">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="MaBuuKien" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TenBuuKien" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="NgayGui" />
+          <Property Type="DateTime" Name="NgayNhan" Nullable="false" />
+          <Property Type="Int32" Name="NguoiNhanID" Nullable="false" />
+          <Property Type="String" Name="TrangThai" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="KhachHangID" />
+          <Property Type="String" Name="NguoiGui" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DiaChiNguoiGui" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NguoiNhan" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DiaChiNguoiNhan" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CuocPhiID" Nullable="false" />
+          <Property Type="Double" Name="KhoiLuong" />
+          <Property Type="String" Name="GhiChu" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="LoaiHangID" Nullable="false" />
+          <Property Type="Int32" Name="BuuCucHienTaiID" />
+          <Property Type="Int32" Name="BuuCucTraID" />
+          <Property Type="Int32" Name="BuuCucNhanGuiID" />
+          <Property Type="Int32" Name="DichVuCongThemID" />
+          <NavigationProperty Name="BuuCuc" Relationship="VPSSModel.FK_BuuKien_BuuCuc3" FromRole="BuuKien" ToRole="BuuCuc" />
+          <NavigationProperty Name="BuuCucInBuuKien" Relationship="VPSSModel.FK_BuuCucInBuuKien_BuuKien" FromRole="BuuKien" ToRole="BuuCucInBuuKien" />
+          <NavigationProperty Name="CuocPhi" Relationship="VPSSModel.FK_BuuKien_CuocPhi" FromRole="BuuKien" ToRole="CuocPhi" />
+          <NavigationProperty Name="DichVuCongThem" Relationship="VPSSModel.FK_BuuKien_DichVuCongThem" FromRole="BuuKien" ToRole="DichVuCongThem" />
+          <NavigationProperty Name="KhachHang" Relationship="VPSSModel.FK_BuuKien_KhachHang" FromRole="BuuKien" ToRole="KhachHang" />
+          <NavigationProperty Name="LoaiHang" Relationship="VPSSModel.FK_BuuKien_LoaiHang" FromRole="BuuKien" ToRole="LoaiHang" />
+          <NavigationProperty Name="User" Relationship="VPSSModel.FK_BuuKien_User" FromRole="BuuKien" ToRole="User" />
+        </EntityType>
+        <EntityType Name="DichVuCongThem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Cost" />
+          <NavigationProperty Name="BuuKien" Relationship="VPSSModel.FK_BuuKien_DichVuCongThem" FromRole="DichVuCongThem" ToRole="BuuKien" />
+        </EntityType>
+        <Association Name="FK_BuuKien_BuuCuc3">
+          <End Type="VPSSModel.BuuCuc" Role="BuuCuc" Multiplicity="0..1" />
+          <End Type="VPSSModel.BuuKien" Role="BuuKien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuuCuc">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuuKien">
+              <PropertyRef Name="BuuCucNhanGuiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuuCucInBuuKien_BuuKien">
+          <End Type="VPSSModel.BuuKien" Role="BuuKien" Multiplicity="1" />
+          <End Type="VPSSModel.BuuCucInBuuKien" Role="BuuCucInBuuKien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuuKien">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuuCucInBuuKien">
+              <PropertyRef Name="BuuKienID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuuKien_CuocPhi">
+          <End Type="VPSSModel.CuocPhi" Role="CuocPhi" Multiplicity="1" />
+          <End Type="VPSSModel.BuuKien" Role="BuuKien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuocPhi">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuuKien">
+              <PropertyRef Name="CuocPhiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuuKien_DichVuCongThem">
+          <End Type="VPSSModel.DichVuCongThem" Role="DichVuCongThem" Multiplicity="0..1" />
+          <End Type="VPSSModel.BuuKien" Role="BuuKien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DichVuCongThem">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuuKien">
+              <PropertyRef Name="DichVuCongThemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuuKien_KhachHang">
+          <End Type="VPSSModel.KhachHang" Role="KhachHang" Multiplicity="0..1" />
+          <End Type="VPSSModel.BuuKien" Role="BuuKien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuuKien">
+              <PropertyRef Name="KhachHangID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuuKien_LoaiHang">
+          <End Type="VPSSModel.LoaiHang" Role="LoaiHang" Multiplicity="1" />
+          <End Type="VPSSModel.BuuKien" Role="BuuKien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiHang">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuuKien">
+              <PropertyRef Name="LoaiHangID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BuuKien_User">
+          <End Type="VPSSModel.User" Role="User" Multiplicity="1" />
+          <End Type="VPSSModel.BuuKien" Role="BuuKien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BuuKien">
+              <PropertyRef Name="NguoiNhanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VPSSModelStoreContainer" CdmEntityContainer="VPSSEntities">
+          <EntitySetMapping Name="BalanceLog">
+            <EntityTypeMapping TypeName="VPSSModel.BalanceLog">
+              <MappingFragment StoreEntitySet="BalanceLog">
+                <ScalarProperty Name="ChangeTypeID" ColumnName="ChangeTypeID" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Money" ColumnName="Money" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Card">
+            <EntityTypeMapping TypeName="VPSSModel.Card">
+              <MappingFragment StoreEntitySet="Card">
+                <ScalarProperty Name="HandOverCardID" ColumnName="HandOverCardID" />
+                <ScalarProperty Name="CardStatusID" ColumnName="CardStatusID" />
+                <ScalarProperty Name="CreatedCardID" ColumnName="CreatedCardID" />
+                <ScalarProperty Name="CardChar" ColumnName="CardChar" />
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CardAction">
+            <EntityTypeMapping TypeName="VPSSModel.CardAction">
+              <MappingFragment StoreEntitySet="CardAction">
+                <ScalarProperty Name="AfterStatusID" ColumnName="AfterStatusID" />
+                <ScalarProperty Name="BeforeStatusID" ColumnName="BeforeStatusID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CardLog">
+            <EntityTypeMapping TypeName="VPSSModel.CardLog">
+              <MappingFragment StoreEntitySet="CardLog">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CardID" ColumnName="CardID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CardStatus">
+            <EntityTypeMapping TypeName="VPSSModel.CardStatus">
+              <MappingFragment StoreEntitySet="CardStatus">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CauHoiDieuTra">
+            <EntityTypeMapping TypeName="VPSSModel.CauHoiDieuTra">
+              <MappingFragment StoreEntitySet="CauHoiDieuTra">
+                <ScalarProperty Name="FileExtention" ColumnName="FileExtention" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Activated" ColumnName="Activated" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="IsMultiChoice" ColumnName="IsMultiChoice" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChangeType">
+            <EntityTypeMapping TypeName="VPSSModel.ChangeType">
+              <MappingFragment StoreEntitySet="ChangeType">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Config">
+            <EntityTypeMapping TypeName="VPSSModel.Config">
+              <MappingFragment StoreEntitySet="Config">
+                <ScalarProperty Name="Multiline" ColumnName="Multiline" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CreateCardAmount">
+            <EntityTypeMapping TypeName="VPSSModel.CreateCardAmount">
+              <MappingFragment StoreEntitySet="CreateCardAmount">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CreatedCard">
+            <EntityTypeMapping TypeName="VPSSModel.CreatedCard">
+              <MappingFragment StoreEntitySet="CreatedCard">
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="DateExpire" ColumnName="DateExpire" />
+                <ScalarProperty Name="DateRelease" ColumnName="DateRelease" />
+                <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+                <ScalarProperty Name="PriceLevel" ColumnName="PriceLevel" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CuocPhi">
+            <EntityTypeMapping TypeName="VPSSModel.CuocPhi">
+              <MappingFragment StoreEntitySet="CuocPhi">
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Function">
+            <EntityTypeMapping TypeName="VPSSModel.Function">
+              <MappingFragment StoreEntitySet="Function">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Group">
+            <EntityTypeMapping TypeName="VPSSModel.Group">
+              <MappingFragment StoreEntitySet="Group">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HandOverCard">
+            <EntityTypeMapping TypeName="VPSSModel.HandOverCard">
+              <MappingFragment StoreEntitySet="HandOverCard">
+                <ScalarProperty Name="FirstSerial" ColumnName="FirstSerial" />
+                <ScalarProperty Name="RelaseTime" ColumnName="RelaseTime" />
+                <ScalarProperty Name="Money" ColumnName="Money" />
+                <ScalarProperty Name="CreatedCardID" ColumnName="CreatedCardID" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="FirstCardID" ColumnName="FirstCardID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KhachHang">
+            <EntityTypeMapping TypeName="VPSSModel.KhachHang">
+              <MappingFragment StoreEntitySet="KhachHang">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoaiHang">
+            <EntityTypeMapping TypeName="VPSSModel.LoaiHang">
+              <MappingFragment StoreEntitySet="LoaiHang">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="HeSo" ColumnName="HeSo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menu">
+            <EntityTypeMapping TypeName="VPSSModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Inherit" ColumnName="Inherit" />
+                <ScalarProperty Name="Oder" ColumnName="Oder" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="TabTitle" ColumnName="TabTitle" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PriceLevel">
+            <EntityTypeMapping TypeName="VPSSModel.PriceLevel">
+              <MappingFragment StoreEntitySet="PriceLevel">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role1">
+            <EntityTypeMapping TypeName="VPSSModel.Role1">
+              <MappingFragment StoreEntitySet="Role1">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TraLoiCauHoiDieuTra">
+            <EntityTypeMapping TypeName="VPSSModel.TraLoiCauHoiDieuTra">
+              <MappingFragment StoreEntitySet="TraLoiCauHoiDieuTra">
+                <ScalarProperty Name="SoLanChon" ColumnName="SoLanChon" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="CauHoiDieuTraID" ColumnName="CauHoiDieuTraID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="VPSSModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="BuuCucID" ColumnName="BuuCucID" />
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="UserKindID" ColumnName="UserKindID" />
+                <ScalarProperty Name="Avata" ColumnName="Avata" />
+                <ScalarProperty Name="Locked" ColumnName="Locked" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="FailCard" ColumnName="FailCard" />
+                <ScalarProperty Name="Point" ColumnName="Point" />
+                <ScalarProperty Name="VBalance" ColumnName="VBalance" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AspnetUserID" ColumnName="AspnetUserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserKind">
+            <EntityTypeMapping TypeName="VPSSModel.UserKind">
+              <MappingFragment StoreEntitySet="UserKind">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FunctionInRole" TypeName="VPSSModel.FunctionInRole" StoreEntitySet="FunctionInRole">
+            <EndProperty Name="Role1">
+              <ScalarProperty Name="ID" ColumnName="RoleID" />
+            </EndProperty>
+            <EndProperty Name="Function">
+              <ScalarProperty Name="ID" ColumnName="FunctionID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="GroupInMenu" TypeName="VPSSModel.GroupInMenu" StoreEntitySet="GroupInMenu">
+            <EndProperty Name="Menu">
+              <ScalarProperty Name="ID" ColumnName="MenuID" />
+            </EndProperty>
+            <EndProperty Name="Group">
+              <ScalarProperty Name="ID" ColumnName="GroupID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="RoleInGroup" TypeName="VPSSModel.RoleInGroup" StoreEntitySet="RoleInGroup">
+            <EndProperty Name="Role1">
+              <ScalarProperty Name="ID" ColumnName="RoleID" />
+            </EndProperty>
+            <EndProperty Name="Group">
+              <ScalarProperty Name="ID" ColumnName="GroupID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="UserInGroup" TypeName="VPSSModel.UserInGroup" StoreEntitySet="UserInGroup">
+            <EndProperty Name="User">
+              <ScalarProperty Name="ID" ColumnName="UserID" />
+            </EndProperty>
+            <EndProperty Name="Group">
+              <ScalarProperty Name="ID" ColumnName="GroupID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="BuuCuc">
+            <EntityTypeMapping TypeName="VPSSModel.BuuCuc">
+              <MappingFragment StoreEntitySet="BuuCuc">
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="TenBuuCuc" ColumnName="TenBuuCuc" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="VPSSModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BuuCucInBuuKien">
+            <EntityTypeMapping TypeName="VPSSModel.BuuCucInBuuKien">
+              <MappingFragment StoreEntitySet="BuuCucInBuuKien">
+                <ScalarProperty Name="KieuChuyen" ColumnName="KieuChuyen" />
+                <ScalarProperty Name="BuuKienID" ColumnName="BuuKienID" />
+                <ScalarProperty Name="BuuCucID" ColumnName="BuuCucID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BuuKien">
+            <EntityTypeMapping TypeName="VPSSModel.BuuKien">
+              <MappingFragment StoreEntitySet="BuuKien">
+                <ScalarProperty Name="DichVuCongThemID" ColumnName="DichVuCongThemID" />
+                <ScalarProperty Name="BuuCucNhanGuiID" ColumnName="BuuCucNhanGuiID" />
+                <ScalarProperty Name="BuuCucTraID" ColumnName="BuuCucTraID" />
+                <ScalarProperty Name="BuuCucHienTaiID" ColumnName="BuuCucHienTaiID" />
+                <ScalarProperty Name="LoaiHangID" ColumnName="LoaiHangID" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="KhoiLuong" ColumnName="KhoiLuong" />
+                <ScalarProperty Name="CuocPhiID" ColumnName="CuocPhiID" />
+                <ScalarProperty Name="DiaChiNguoiNhan" ColumnName="DiaChiNguoiNhan" />
+                <ScalarProperty Name="NguoiNhan" ColumnName="NguoiNhan" />
+                <ScalarProperty Name="DiaChiNguoiGui" ColumnName="DiaChiNguoiGui" />
+                <ScalarProperty Name="NguoiGui" ColumnName="NguoiGui" />
+                <ScalarProperty Name="KhachHangID" ColumnName="KhachHangID" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="NguoiNhanID" ColumnName="NguoiNhanID" />
+                <ScalarProperty Name="NgayNhan" ColumnName="NgayNhan" />
+                <ScalarProperty Name="NgayGui" ColumnName="NgayGui" />
+                <ScalarProperty Name="TenBuuKien" ColumnName="TenBuuKien" />
+                <ScalarProperty Name="MaBuuKien" ColumnName="MaBuuKien" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DichVuCongThem">
+            <EntityTypeMapping TypeName="VPSSModel.DichVuCongThem">
+              <MappingFragment StoreEntitySet="DichVuCongThem">
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1" ZoomLevel="86">
+        <EntityTypeShape EntityType="VPSSModel.BalanceLog" Width="1.5" PointX="6" PointY="18.125" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="VPSSModel.Card" Width="1.5" PointX="8.25" PointY="24.125" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="VPSSModel.CardAction" Width="1.5" PointX="0.75" PointY="0.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="VPSSModel.CardLog" Width="1.5" PointX="9" PointY="18.25" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="VPSSModel.CardStatus" Width="1.5" PointX="6" PointY="31.875" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="VPSSModel.CauHoiDieuTra" Width="1.5" PointX="8.75" PointY="1" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="VPSSModel.ChangeType" Width="1.5" PointX="3.75" PointY="31.625" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="VPSSModel.Config" Width="1.5" PointX="2.75" PointY="0.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="VPSSModel.CreateCardAmount" Width="1.5" PointX="0.75" PointY="8.75" Height="1.4033821614583246" />
+        <EntityTypeShape EntityType="VPSSModel.CreatedCard" Width="1.5" PointX="6" PointY="24.125" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="VPSSModel.CuocPhi" Width="1.5" PointX="3.75" PointY="8.375" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="VPSSModel.Function" Width="1.5" PointX="4.5" PointY="28.375" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="VPSSModel.Group" Width="1.5" PointX="1.5" PointY="17.25" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="VPSSModel.HandOverCard" Width="1.5" PointX="11.5" PointY="20.125" Height="3.1340950520833246" />
+        <EntityTypeShape EntityType="VPSSModel.KhachHang" Width="1.5" PointX="3.75" PointY="10.875" Height="2.1725878906249818" />
+        <EntityTypeShape EntityType="VPSSModel.LoaiHang" Width="1.5" PointX="3.75" PointY="13.875" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="VPSSModel.Menu" Width="1.5" PointX="3.75" PointY="23.75" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="VPSSModel.PriceLevel" Width="1.5" PointX="8.75" PointY="7.75" Height="1.4033821614583246" />
+        <EntityTypeShape EntityType="VPSSModel.Role1" Width="1.5" PointX="6.75" PointY="15.25" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="VPSSModel.TraLoiCauHoiDieuTra" Width="1.5" PointX="11" PointY="1.5" Height="1.980286458333353" />
+        <EntityTypeShape EntityType="VPSSModel.User" Width="1.5" PointX="3.75" PointY="16.375" Height="6.018616536458353" />
+        <EntityTypeShape EntityType="VPSSModel.UserKind" Width="1.5" PointX="1.5" PointY="20" Height="1.5956835937499818" />
+        <AssociationConnector Association="VPSSModel.FK_BalanceLog_ChangeType" >
+          <ConnectorPoint PointX="5.25" PointY="32.422841796875" />
+          <ConnectorPoint PointX="5.75" PointY="32.422841796875" />
+          <ConnectorPoint PointX="5.75" PointY="31.625" />
+          <ConnectorPoint PointX="6.75" PointY="31.625" />
+          <ConnectorPoint PointX="6.75" PointY="27.316793619791667" />
+          <ConnectorPoint PointX="5.75" PointY="27.316793619791667" />
+          <ConnectorPoint PointX="5.75" PointY="21.057190755208339" />
+          <ConnectorPoint PointX="6.75" PointY="21.057190755208339" />
+          <ConnectorPoint PointX="6.75" PointY="20.682190755208339" />
+        </AssociationConnector>
+        <AssociationConnector Association="VPSSModel.FK_BalanceLog_User1" >
+          <ConnectorPoint PointX="5.25" PointY="19.403595377604169" />
+          <ConnectorPoint PointX="5.385416666666667" PointY="19.403595377604169" />
+          <ConnectorPoint PointX="5.552083333333333" PointY="19.403595377604169" />
+          <ConnectorPoint PointX="6" PointY="19.403595377604169" />
+        </AssociationConnector>
+        <AssociationConnector Association="VPSSModel.FK_Card_CardStatus" >
+          <ConnectorPoint PointX="7.5" PointY="32.672841796875" />
+          <ConnectorPoint PointX="9" PointY="32.672841796875" />
+          <ConnectorPoint PointX="9" PointY="27.066793619791667" />
+        </AssociationConnector>
+        <AssociationConnector Association="VPSSModel.FK_Card_CreatedCard" >
+          <ConnectorPoint PointX="7.5" PointY="25.595896809895834" />
+          <ConnectorPoint PointX="8.25" PointY="25.595896809895834" />
+        </AssociationConnector>
+        <AssociationConnector Association="VPSSModel.FK_CardLog_Card" >
+          <ConnectorPoint PointX="9.375" PointY="24.125" />
+          <ConnectorPoint PointX="9.375" PointY="20.42258789062501" />
+        </AssociationConnector>
+        <AssociationConnector Association="VPSSModel.FK_HandOverCard_Card" >
+          <ConnectorPoint PointX="8.625" PointY="24.125" />
+          <ConnectorPoint PointX="8.625" PointY="22.361868082682289" />
+          <ConnectorPoint PointX="9.2916666666666661" PointY="22.361868082682289" />
+          <ConnectorPoint PointX="9.4583333333333339" PointY="22.361868082682289" />
+          <ConnectorPoint PointX="11.5" PointY="22.361868082682289" />
+        </AssociationConnector>
+        <AssociationConnector Association="VPSSModel.FK_CardLog_User" >
+          <ConnectorPoint PointX="5.25" PointY="21.247345377604169" />
+          <ConnectorPoint PointX="5.385416666666667" PointY="21.247345377604169" />
+          <ConnectorPoint PointX="5.552083333333333" PointY="21.247345377604169" />
+          <ConnectorPoint PointX="5.666666666666667" PointY="21.247345377604169" />
+          <ConnectorPoint PointX="5.833333333333333" PointY="21.247345377604169" />
+          <ConnectorPoint PointX="8.4193212890624967" PointY="21.247345377604169" />
+          <ConnectorPoint PointX="8.5859879557291645" PointY="21.247345377604169" />
+          <ConnectorPoint PointX="9.2916666666666661" PointY="21.247345377604169" />
+          <ConnectorPoint PointX="9.4583333333333339" PointY="21.247345377604169" />
+          <ConnectorPoint PointX="9.9687525" PointY="21.247345377604169" />
+          <ConnectorPoint PointX="9.9687525" PointY="20.42258789062501" />
+        </AssociationConnector>
+        <AssociationConnector Association="VPSSModel.FK_TraLoiCauHoiDieuTra_CauHoiDieuTra" >
+          <ConnectorPoint PointX="10.25" PointY="2.4901432291666765" />
+          <ConnectorPoint PointX="11" PointY="2.4901432291666765" />
+        </AssociationConnector>
+        <AssociationConnector Association="VPSSModel.FK_CreateCard_User1" >
+          <ConnectorPoint PointX="5.25" PointY="22.393616536458332" />
+          <ConnectorPoint PointX="5.4098244349011217" PointY="22.553440971359453" />
+          <ConnectorPoint PointX="5.5276755650988791" PointY="22.67129210155721" />
+          <ConnectorPoint PointX="5.625" PointY="22.768616536458332" />
+          <ConnectorPoint PointX="5.625" PointY="25.595896809895834" />
+          <ConnectorPoint PointX="5.666666666666667" PointY="25.595896809895834" />
+          <ConnectorPoint PointX="5.833333333333333" PointY="25.595896809895834" />
+          <ConnectorPoint PointX="6" PointY="25.595896809895834" />
+        </AssociationConnector>
+        <AssociationConnector Association="VPSSModel.FK_HandOverCard_User" >
+          <ConnectorPoint PointX="5.25" PointY="20.838440755208339" />
+          <ConnectorPoint PointX="5.385416666666667" PointY="20.838440755208339" />
+          <ConnectorPoint PointX="5.552083333333333" PointY="20.838440755208339" />
+          <ConnectorPoint PointX="6.666666666666667" PointY="20.838440755208339" />
+          <ConnectorPoint PointX="6.833333333333333" PointY="20.838440755208339" />
+          <ConnectorPoint PointX="8.5416666666666661" PointY="20.838440755208339" />
+          <ConnectorPoint PointX="8.7083333333333339" PointY="20.838440755208339" />
+          <ConnectorPoint PointX="9.2916666666666661" PointY="20.838440755208339" />
+          <ConnectorPoint PointX="9.4583333333333339" PointY="20.838440755208339" />
+          <ConnectorPoint PointX="9.8854191666666669" PointY="20.838440755208339" />
+          <ConnectorPoint PointX="10.052085833333335" PointY="20.838440755208339" />
+          <ConnectorPoint PointX="11.5" PointY="20.838440755208339" />
+        </AssociationConnector>
+        <AssociationConnector Association="VPSSModel.FK_UserKind_Users" >
+          <ConnectorPoint PointX="3" PointY="20.797841796874991" />
+          <ConnectorPoint PointX="3.2916666666666665" PointY="20.797841796874991" />
+          <ConnectorPoint PointX="3.4583333333333335" PointY="20.797841796874991" />
+          <ConnectorPoint PointX="3.75" PointY="20.797841796874991" />
+        </AssociationConnector>
+        <AssociationConnector Association="VPSSModel.FunctionInRole" >
+          <ConnectorPoint PointX="5.46875" PointY="28.375" />
+          <ConnectorPoint PointX="5.46875" PointY="15.922841796875" />
+          <ConnectorPoint PointX="6.75" PointY="15.922841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="VPSSModel.GroupInMenu" >
+          <ConnectorPoint PointX="2.9999999999999996" PointY="19.230286458333325" />
+          <ConnectorPoint PointX="3.375" PointY="19.605286458333325" />
+          <ConnectorPoint PointX="3.375" PointY="25.220896809895834" />
+          <ConnectorPoint PointX="3.75" PointY="25.220896809895834" />
+        </AssociationConnector>
+        <AssociationConnector Association="VPSSModel.RoleInGroup" >
+          <ConnectorPoint PointX="2.25" PointY="17.25" />
+          <ConnectorPoint PointX="2.25" PointY="16.148923398437493" />
+          <ConnectorPoint PointX="5.385416666666667" PointY="16.148923398437493" />
+          <ConnectorPoint PointX="5.552083333333333" PointY="16.148923398437493" />
+          <ConnectorPoint PointX="6.75" PointY="16.148923398437493" />
+        </AssociationConnector>
+        <AssociationConnector Association="VPSSModel.UserInGroup" >
+          <ConnectorPoint PointX="3" PointY="18.208890729166662" />
+          <ConnectorPoint PointX="3.75" PointY="18.208890729166662" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="VPSSModel.BuuCuc" Width="1.5" PointX="6.75" PointY="12.25" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="VPSSModel.sysdiagrams" Width="1.5" PointX="5.375" PointY="0.75" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="VPSSModel.BuuCucInBuuKien" Width="1.5" PointX="11.25" PointY="13.25" Height="2.1725878906250102" />
+        <AssociationConnector Association="VPSSModel.FK_BuuCucInBuuKien_BuuCuc" >
+          <ConnectorPoint PointX="8.25" PointY="13.3362939453125" />
+          <ConnectorPoint PointX="8.75" PointY="13.3362939453125" />
+          <ConnectorPoint PointX="8.75" PointY="11" />
+          <ConnectorPoint PointX="10.322916666666666" PointY="11" />
+          <ConnectorPoint PointX="10.489583333333334" PointY="11" />
+          <ConnectorPoint PointX="12" PointY="11" />
+          <ConnectorPoint PointX="12" PointY="13.25" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="VPSSModel.BuuKien" Width="1.5" PointX="9" PointY="11.25" Height="6.210917968749996" />
+        <EntityTypeShape EntityType="VPSSModel.DichVuCongThem" Width="1.5" PointX="6.75" PointY="21.5" Height="1.7879850260416674" />
+        <AssociationConnector Association="VPSSModel.FK_BuuKien_BuuCuc3" >
+          <ConnectorPoint PointX="8.25" PointY="12.730646972656249" />
+          <ConnectorPoint PointX="8.6666666666666661" PointY="12.730646972656249" />
+          <ConnectorPoint PointX="8.8333333333333339" PointY="12.730646972656249" />
+          <ConnectorPoint PointX="9" PointY="12.730646972656249" />
+        </AssociationConnector>
+        <AssociationConnector Association="VPSSModel.FK_BuuCucInBuuKien_BuuKien" >
+          <ConnectorPoint PointX="10.5" PointY="14.3362939453125" />
+          <ConnectorPoint PointX="11.25" PointY="14.3362939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="VPSSModel.FK_BuuKien_CuocPhi" >
+          <ConnectorPoint PointX="5.25" PointY="9.689433593749996" />
+          <ConnectorPoint PointX="10.40625" PointY="9.689433593749996" />
+          <ConnectorPoint PointX="10.40625" PointY="11.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="VPSSModel.FK_BuuKien_DichVuCongThem" >
+          <ConnectorPoint PointX="8.25" PointY="21.5" />
+          <ConnectorPoint PointX="8.625" PointY="21.125" />
+          <ConnectorPoint PointX="8.625" PointY="15.398605457031248" />
+          <ConnectorPoint PointX="9" PointY="15.398605457031248" />
+        </AssociationConnector>
+        <AssociationConnector Association="VPSSModel.FK_BuuKien_KhachHang" >
+          <ConnectorPoint PointX="5.25" PointY="11.71875" />
+          <ConnectorPoint PointX="8.6666666666666661" PointY="11.71875" />
+          <ConnectorPoint PointX="8.8333333333333339" PointY="11.71875" />
+          <ConnectorPoint PointX="9" PointY="11.71875" />
+        </AssociationConnector>
+        <AssociationConnector Association="VPSSModel.FK_BuuKien_LoaiHang" >
+          <ConnectorPoint PointX="5.25" PointY="14.8362939453125" />
+          <ConnectorPoint PointX="9" PointY="14.8362939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="VPSSModel.FK_BuuKien_User" >
+          <ConnectorPoint PointX="5.25" PointY="17.37685221354166" />
+          <ConnectorPoint PointX="5.385416666666667" PointY="17.37685221354166" />
+          <ConnectorPoint PointX="5.552083333333333" PointY="17.37685221354166" />
+          <ConnectorPoint PointX="8.5416666666666661" PointY="17.37685221354166" />
+          <ConnectorPoint PointX="8.7083333333333339" PointY="17.37685221354166" />
+          <ConnectorPoint PointX="9" PointY="17.37685221354166" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
