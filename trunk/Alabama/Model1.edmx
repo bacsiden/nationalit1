@@ -6,354 +6,14 @@
     <edmx:StorageModels>
     <Schema Namespace="vpss1Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="vpss1ModelStoreContainer">
-          <EntitySet Name="Company Expanses" EntityType="vpss1Model.Store.Company Expanses" store:Type="Tables" store:Schema="dbo" store:Name="Company Expanses">
-            <DefiningQuery>SELECT 
-      [Company Expanses].[CompanyExpansesID] AS [CompanyExpansesID], 
-      [Company Expanses].[Expanses] AS [Expanses], 
-      [Company Expanses].[Amount] AS [Amount], 
-      [Company Expanses].[Date] AS [Date], 
-      [Company Expanses].[Comment] AS [Comment]
-      FROM [dbo].[Company Expanses] AS [Company Expanses]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="Customer Info" EntityType="vpss1Model.Store.Customer Info" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Dispatchers" EntityType="vpss1Model.Store.Dispatchers" store:Type="Tables" store:Schema="dbo" store:Name="Dispatchers">
-            <DefiningQuery>SELECT 
-      [Dispatchers].[ID] AS [ID], 
-      [Dispatchers].[Last name] AS [Last name], 
-      [Dispatchers].[First name] AS [First name], 
-      [Dispatchers].[SSN] AS [SSN], 
-      [Dispatchers].[DOB] AS [DOB], 
-      [Dispatchers].[Hire date] AS [Hire date]
-      FROM [dbo].[Dispatchers] AS [Dispatchers]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Equipment" EntityType="vpss1Model.Store.Equipment" store:Type="Tables" store:Schema="dbo" store:Name="Equipment">
-            <DefiningQuery>SELECT 
-      [Equipment].[ID] AS [ID], 
-      [Equipment].[Equipment Type] AS [Equipment Type], 
-      [Equipment].[Equipment number] AS [Equipment number], 
-      [Equipment].[Driver] AS [Driver], 
-      [Equipment].[Owner] AS [Owner], 
-      [Equipment].[VIN] AS [VIN], 
-      [Equipment].[Registration Expiration] AS [Registration Expiration], 
-      [Equipment].[Inspection Expiration] AS [Inspection Expiration], 
-      [Equipment].[DATE LEASED] AS [DATE LEASED], 
-      [Equipment].[EQUIPMENT VALUE] AS [EQUIPMENT VALUE], 
-      [Equipment].[EQUIPMENT DESCRIPTION] AS [EQUIPMENT DESCRIPTION], 
-      [Equipment].[MODEL YEAR] AS [MODEL YEAR], 
-      [Equipment].[MAKE] AS [MAKE]
-      FROM [dbo].[Equipment] AS [Equipment]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="fixed charges" EntityType="vpss1Model.Store.fixed charges" store:Type="Tables" store:Schema="dbo" store:Name="fixed charges">
-            <DefiningQuery>SELECT 
-      [fixed charges].[Id] AS [Id], 
-      [fixed charges].[DriverId] AS [DriverId], 
-      [fixed charges].[Amount] AS [Amount], 
-      [fixed charges].[Type] AS [Type], 
-      [fixed charges].[Frequency] AS [Frequency], 
-      [fixed charges].[Beginning] AS [Beginning], 
-      [fixed charges].[Fee Charged] AS [Fee Charged], 
-      [fixed charges].[Next Date] AS [Next Date], 
-      [fixed charges].[Prv Date] AS [Prv Date], 
-      [fixed charges].[Amount To Date] AS [Amount To Date]
-      FROM [dbo].[fixed charges] AS [fixed charges]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Income" EntityType="vpss1Model.Store.Income" store:Type="Tables" store:Schema="dbo" store:Name="Income">
-            <DefiningQuery>SELECT 
-      [Income].[IncomeID] AS [IncomeID], 
-      [Income].[IncomeDate] AS [IncomeDate], 
-      [Income].[AmountInvoiced] AS [AmountInvoiced], 
-      [Income].[FundedAmount] AS [FundedAmount], 
-      [Income].[ReserveAmount] AS [ReserveAmount], 
-      [Income].[AdvanceFee] AS [AdvanceFee], 
-      [Income].[ChargeBacks] AS [ChargeBacks], 
-      [Income].[Comments] AS [Comments]
-      FROM [dbo].[Income] AS [Income]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="InvoiceA" EntityType="vpss1Model.Store.InvoiceA" store:Type="Tables" store:Schema="dbo" store:Name="InvoiceA">
-            <DefiningQuery>SELECT 
-      [InvoiceA].[ID] AS [ID], 
-      [InvoiceA].[Invoice] AS [Invoice]
-      FROM [dbo].[InvoiceA] AS [InvoiceA]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Maintenance" EntityType="vpss1Model.Store.Maintenance" store:Type="Tables" store:Schema="dbo" store:Name="Maintenance">
-            <DefiningQuery>SELECT 
-      [Maintenance].[Id] AS [Id], 
-      [Maintenance].[Track/Trailer Number] AS [Track/Trailer Number], 
-      [Maintenance].[Maintenance performed] AS [Maintenance performed], 
-      [Maintenance].[Performed date] AS [Performed date], 
-      [Maintenance].[Location] AS [Location], 
-      [Maintenance].[PO#] AS [PO#], 
-      [Maintenance].[ApprovedAmount] AS [ApprovedAmount], 
-      [Maintenance].[SpentAmount] AS [SpentAmount], 
-      [Maintenance].[ApprovedBy] AS [ApprovedBy]
-      FROM [dbo].[Maintenance] AS [Maintenance]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Operating Expenses" EntityType="vpss1Model.Store.Operating Expenses" store:Type="Tables" store:Schema="dbo" store:Name="Operating Expenses">
-            <DefiningQuery>SELECT 
-      [Operating Expenses].[ID] AS [ID], 
-      [Operating Expenses].[Date] AS [Date], 
-      [Operating Expenses].[Type] AS [Type], 
-      [Operating Expenses].[Amount] AS [Amount], 
-      [Operating Expenses].[Location] AS [Location], 
-      [Operating Expenses].[Driver] AS [Driver], 
-      [Operating Expenses].[Description] AS [Description], 
-      [Operating Expenses].[Paid off] AS [Paid off], 
-      [Operating Expenses].[Current Payroll] AS [Current Payroll]
-      FROM [dbo].[Operating Expenses] AS [Operating Expenses]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Owners" EntityType="vpss1Model.Store.Owners" store:Type="Tables" store:Schema="dbo" store:Name="Owners">
-            <DefiningQuery>SELECT 
-      [Owners].[OwnerID] AS [OwnerID], 
-      [Owners].[Name] AS [Name], 
-      [Owners].[ssn#] AS [ssn#], 
-      [Owners].[fee rate] AS [fee rate], 
-      [Owners].[pay rate] AS [pay rate]
-      FROM [dbo].[Owners] AS [Owners]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Printed Temp Fuel &amp; Expenses" EntityType="vpss1Model.Store.Printed Temp Fuel &amp; Expenses" store:Type="Tables" store:Schema="dbo" store:Name="Printed Temp Fuel &amp; Expenses">
-            <DefiningQuery>SELECT 
-      [Printed Temp Fuel &amp; Expenses].[Selection] AS [Selection], 
-      [Printed Temp Fuel &amp; Expenses].[ID] AS [ID], 
-      [Printed Temp Fuel &amp; Expenses].[Date] AS [Date], 
-      [Printed Temp Fuel &amp; Expenses].[Type] AS [Type], 
-      [Printed Temp Fuel &amp; Expenses].[Amount] AS [Amount], 
-      [Printed Temp Fuel &amp; Expenses].[Location] AS [Location], 
-      [Printed Temp Fuel &amp; Expenses].[Driver] AS [Driver], 
-      [Printed Temp Fuel &amp; Expenses].[Description] AS [Description], 
-      [Printed Temp Fuel &amp; Expenses].[Paid off] AS [Paid off], 
-      [Printed Temp Fuel &amp; Expenses].[Current Payroll] AS [Current Payroll], 
-      [Printed Temp Fuel &amp; Expenses].[ReportID] AS [ReportID], 
-      [Printed Temp Fuel &amp; Expenses].[AmountN] AS [AmountN]
-      FROM [dbo].[Printed Temp Fuel &amp; Expenses] AS [Printed Temp Fuel &amp; Expenses]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Printed Temp Split Expenses Driver" EntityType="vpss1Model.Store.Printed Temp Split Expenses Driver" store:Type="Tables" store:Schema="dbo" store:Name="Printed Temp Split Expenses Driver">
-            <DefiningQuery>SELECT 
-      [Printed Temp Split Expenses Driver].[Selection] AS [Selection], 
-      [Printed Temp Split Expenses Driver].[Id] AS [Id], 
-      [Printed Temp Split Expenses Driver].[OwnerDriver] AS [OwnerDriver], 
-      [Printed Temp Split Expenses Driver].[Index] AS [Index], 
-      [Printed Temp Split Expenses Driver].[Expenses] AS [Expenses], 
-      [Printed Temp Split Expenses Driver].[Amount] AS [Amount], 
-      [Printed Temp Split Expenses Driver].[Details] AS [Details], 
-      [Printed Temp Split Expenses Driver].[Date] AS [Date], 
-      [Printed Temp Split Expenses Driver].[Fee Charged] AS [Fee Charged], 
-      [Printed Temp Split Expenses Driver].[Current Payroll] AS [Current Payroll], 
-      [Printed Temp Split Expenses Driver].[Paid Off] AS [Paid Off], 
-      [Printed Temp Split Expenses Driver].[ReportID] AS [ReportID]
-      FROM [dbo].[Printed Temp Split Expenses Driver] AS [Printed Temp Split Expenses Driver]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Printed Temp Split Expenses Owner" EntityType="vpss1Model.Store.Printed Temp Split Expenses Owner" store:Type="Tables" store:Schema="dbo" store:Name="Printed Temp Split Expenses Owner">
-            <DefiningQuery>SELECT 
-      [Printed Temp Split Expenses Owner].[Selection] AS [Selection], 
-      [Printed Temp Split Expenses Owner].[Id] AS [Id], 
-      [Printed Temp Split Expenses Owner].[OwnerDriver] AS [OwnerDriver], 
-      [Printed Temp Split Expenses Owner].[Index] AS [Index], 
-      [Printed Temp Split Expenses Owner].[Expenses] AS [Expenses], 
-      [Printed Temp Split Expenses Owner].[Amount] AS [Amount], 
-      [Printed Temp Split Expenses Owner].[Details] AS [Details], 
-      [Printed Temp Split Expenses Owner].[Date] AS [Date], 
-      [Printed Temp Split Expenses Owner].[Fee Charged] AS [Fee Charged], 
-      [Printed Temp Split Expenses Owner].[Current Payroll] AS [Current Payroll], 
-      [Printed Temp Split Expenses Owner].[Paid Off] AS [Paid Off], 
-      [Printed Temp Split Expenses Owner].[ReportID] AS [ReportID]
-      FROM [dbo].[Printed Temp Split Expenses Owner] AS [Printed Temp Split Expenses Owner]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Printed Temp Trip Info" EntityType="vpss1Model.Store.Printed Temp Trip Info" store:Type="Tables" store:Schema="dbo" store:Name="Printed Temp Trip Info">
-            <DefiningQuery>SELECT 
-      [Printed Temp Trip Info].[Selection] AS [Selection], 
-      [Printed Temp Trip Info].[Trip ID] AS [Trip ID], 
-      [Printed Temp Trip Info].[Order Date] AS [Order Date], 
-      [Printed Temp Trip Info].[Pickup Date] AS [Pickup Date], 
-      [Printed Temp Trip Info].[Delivery Date] AS [Delivery Date], 
-      [Printed Temp Trip Info].[Pickup Location] AS [Pickup Location], 
-      [Printed Temp Trip Info].[Delivery Location] AS [Delivery Location], 
-      [Printed Temp Trip Info].[Extra stops] AS [Extra stops], 
-      [Printed Temp Trip Info].[Loaded miles] AS [Loaded miles], 
-      [Printed Temp Trip Info].[Dead head miles] AS [Dead head miles], 
-      [Printed Temp Trip Info].[Comfirmed Rate] AS [Comfirmed Rate], 
-      [Printed Temp Trip Info].[Customer] AS [Customer], 
-      [Printed Temp Trip Info].[Dispatcher] AS [Dispatcher], 
-      [Printed Temp Trip Info].[Driver] AS [Driver], 
-      [Printed Temp Trip Info].[Paid] AS [Paid], 
-      [Printed Temp Trip Info].[Extra Charges] AS [Extra Charges], 
-      [Printed Temp Trip Info].[Detention pay] AS [Detention pay], 
-      [Printed Temp Trip Info].[Total charges] AS [Total charges], 
-      [Printed Temp Trip Info].[Detention] AS [Detention], 
-      [Printed Temp Trip Info].[Picked] AS [Picked], 
-      [Printed Temp Trip Info].[Deliverd] AS [Deliverd], 
-      [Printed Temp Trip Info].[Invoice] AS [Invoice], 
-      [Printed Temp Trip Info].[Customer Invoiced] AS [Customer Invoiced], 
-      [Printed Temp Trip Info].[Address] AS [Address], 
-      [Printed Temp Trip Info].[Current Payroll] AS [Current Payroll], 
-      [Printed Temp Trip Info].[Driver paid] AS [Driver paid], 
-      [Printed Temp Trip Info].[ReportId] AS [ReportId]
-      FROM [dbo].[Printed Temp Trip Info] AS [Printed Temp Trip Info]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ReportIDs" EntityType="vpss1Model.Store.ReportIDs" store:Type="Tables" store:Schema="dbo" store:Name="ReportIDs">
-            <DefiningQuery>SELECT 
-      [ReportIDs].[ReportID] AS [ReportID], 
-      [ReportIDs].[DriverID] AS [DriverID], 
-      [ReportIDs].[Date] AS [Date]
-      FROM [dbo].[ReportIDs] AS [ReportIDs]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="split expenses" EntityType="vpss1Model.Store.split expenses" store:Type="Tables" store:Schema="dbo" store:Name="split expenses">
-            <DefiningQuery>SELECT 
-      [split expenses].[Id] AS [Id], 
-      [split expenses].[OwnerDriver] AS [OwnerDriver], 
-      [split expenses].[Idndex] AS [Idndex], 
-      [split expenses].[Expenses] AS [Expenses], 
-      [split expenses].[Amount] AS [Amount], 
-      [split expenses].[Details] AS [Details], 
-      [split expenses].[Date] AS [Date], 
-      [split expenses].[Fee Charged] AS [Fee Charged], 
-      [split expenses].[Current Payroll] AS [Current Payroll], 
-      [split expenses].[Paid Off] AS [Paid Off]
-      FROM [dbo].[split expenses] AS [split expenses]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Temp Fuel &amp; Expenses" EntityType="vpss1Model.Store.Temp Fuel &amp; Expenses" store:Type="Tables" store:Schema="dbo" store:Name="Temp Fuel &amp; Expenses">
-            <DefiningQuery>SELECT 
-      [Temp Fuel &amp; Expenses].[Selection] AS [Selection], 
-      [Temp Fuel &amp; Expenses].[ID] AS [ID], 
-      [Temp Fuel &amp; Expenses].[Date] AS [Date], 
-      [Temp Fuel &amp; Expenses].[Type] AS [Type], 
-      [Temp Fuel &amp; Expenses].[Amount] AS [Amount], 
-      [Temp Fuel &amp; Expenses].[Location] AS [Location], 
-      [Temp Fuel &amp; Expenses].[Driver] AS [Driver], 
-      [Temp Fuel &amp; Expenses].[Description] AS [Description], 
-      [Temp Fuel &amp; Expenses].[Paid off] AS [Paid off], 
-      [Temp Fuel &amp; Expenses].[Current Payroll] AS [Current Payroll], 
-      [Temp Fuel &amp; Expenses].[AmountN] AS [AmountN]
-      FROM [dbo].[Temp Fuel &amp; Expenses] AS [Temp Fuel &amp; Expenses]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Temp Operating Expenses" EntityType="vpss1Model.Store.Temp Operating Expenses" store:Type="Tables" store:Schema="dbo" store:Name="Temp Operating Expenses">
-            <DefiningQuery>SELECT 
-      [Temp Operating Expenses].[Selection] AS [Selection], 
-      [Temp Operating Expenses].[OperatingID] AS [OperatingID], 
-      [Temp Operating Expenses].[Date] AS [Date], 
-      [Temp Operating Expenses].[Type] AS [Type], 
-      [Temp Operating Expenses].[Amount] AS [Amount], 
-      [Temp Operating Expenses].[Location] AS [Location], 
-      [Temp Operating Expenses].[Driver] AS [Driver], 
-      [Temp Operating Expenses].[Description] AS [Description], 
-      [Temp Operating Expenses].[Paid Off] AS [Paid Off], 
-      [Temp Operating Expenses].[Current payroll] AS [Current payroll]
-      FROM [dbo].[Temp Operating Expenses] AS [Temp Operating Expenses]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Temp split expenses Driver" EntityType="vpss1Model.Store.Temp split expenses Driver" store:Type="Tables" store:Schema="dbo" store:Name="Temp split expenses Driver">
-            <DefiningQuery>SELECT 
-      [Temp split expenses Driver].[Selection] AS [Selection], 
-      [Temp split expenses Driver].[Id] AS [Id], 
-      [Temp split expenses Driver].[OwnerDriver] AS [OwnerDriver], 
-      [Temp split expenses Driver].[Index] AS [Index], 
-      [Temp split expenses Driver].[Expenses] AS [Expenses], 
-      [Temp split expenses Driver].[Amount] AS [Amount], 
-      [Temp split expenses Driver].[Details] AS [Details], 
-      [Temp split expenses Driver].[Date] AS [Date], 
-      [Temp split expenses Driver].[Fee Charged] AS [Fee Charged], 
-      [Temp split expenses Driver].[Current Payroll] AS [Current Payroll], 
-      [Temp split expenses Driver].[Paid Off] AS [Paid Off]
-      FROM [dbo].[Temp split expenses Driver] AS [Temp split expenses Driver]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Temp split expenses owner" EntityType="vpss1Model.Store.Temp split expenses owner" store:Type="Tables" store:Schema="dbo" store:Name="Temp split expenses owner">
-            <DefiningQuery>SELECT 
-      [Temp split expenses owner].[Selection] AS [Selection], 
-      [Temp split expenses owner].[Id] AS [Id], 
-      [Temp split expenses owner].[OwnerDriver] AS [OwnerDriver], 
-      [Temp split expenses owner].[Index] AS [Index], 
-      [Temp split expenses owner].[Expenses] AS [Expenses], 
-      [Temp split expenses owner].[Amount] AS [Amount], 
-      [Temp split expenses owner].[Details] AS [Details], 
-      [Temp split expenses owner].[Date] AS [Date], 
-      [Temp split expenses owner].[Fee Charged] AS [Fee Charged], 
-      [Temp split expenses owner].[Current Payroll] AS [Current Payroll], 
-      [Temp split expenses owner].[Paid Off] AS [Paid Off]
-      FROM [dbo].[Temp split expenses owner] AS [Temp split expenses owner]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Temp Trip Info" EntityType="vpss1Model.Store.Temp Trip Info" store:Type="Tables" store:Schema="dbo" store:Name="Temp Trip Info">
-            <DefiningQuery>SELECT 
-      [Temp Trip Info].[Selection] AS [Selection], 
-      [Temp Trip Info].[Trip ID] AS [Trip ID], 
-      [Temp Trip Info].[Order Date] AS [Order Date], 
-      [Temp Trip Info].[Pickup Date] AS [Pickup Date], 
-      [Temp Trip Info].[Delivery Date] AS [Delivery Date], 
-      [Temp Trip Info].[Pickup Location] AS [Pickup Location], 
-      [Temp Trip Info].[Delivery Location] AS [Delivery Location], 
-      [Temp Trip Info].[Extra stops] AS [Extra stops], 
-      [Temp Trip Info].[Loaded miles] AS [Loaded miles], 
-      [Temp Trip Info].[Dead head miles] AS [Dead head miles], 
-      [Temp Trip Info].[Comfirmed Rate] AS [Comfirmed Rate], 
-      [Temp Trip Info].[Customer] AS [Customer], 
-      [Temp Trip Info].[Dispatcher] AS [Dispatcher], 
-      [Temp Trip Info].[Driver] AS [Driver], 
-      [Temp Trip Info].[Paid] AS [Paid], 
-      [Temp Trip Info].[Extra Charges] AS [Extra Charges], 
-      [Temp Trip Info].[Detention pay] AS [Detention pay], 
-      [Temp Trip Info].[Total charges] AS [Total charges], 
-      [Temp Trip Info].[Detention] AS [Detention], 
-      [Temp Trip Info].[Picked] AS [Picked], 
-      [Temp Trip Info].[Deliverd] AS [Deliverd], 
-      [Temp Trip Info].[Invoice] AS [Invoice], 
-      [Temp Trip Info].[Customer Invoiced] AS [Customer Invoiced], 
-      [Temp Trip Info].[Address] AS [Address], 
-      [Temp Trip Info].[Current Payroll] AS [Current Payroll], 
-      [Temp Trip Info].[Driver paid] AS [Driver paid]
-      FROM [dbo].[Temp Trip Info] AS [Temp Trip Info]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Trip Info - old" EntityType="vpss1Model.Store.Trip Info - old" store:Type="Tables" store:Schema="dbo" store:Name="Trip Info - old">
-            <DefiningQuery>SELECT 
-      [Trip Info - old].[Trip ID] AS [Trip ID], 
-      [Trip Info - old].[Order date] AS [Order date], 
-      [Trip Info - old].[Pickup date] AS [Pickup date], 
-      [Trip Info - old].[Delivery date] AS [Delivery date], 
-      [Trip Info - old].[Pick up location] AS [Pick up location], 
-      [Trip Info - old].[Delivery location] AS [Delivery location], 
-      [Trip Info - old].[Extra stops] AS [Extra stops], 
-      [Trip Info - old].[Loaded miles] AS [Loaded miles], 
-      [Trip Info - old].[Dead head miles] AS [Dead head miles], 
-      [Trip Info - old].[Comfirmed Rate] AS [Comfirmed Rate], 
-      [Trip Info - old].[Customer] AS [Customer], 
-      [Trip Info - old].[Dispatcher] AS [Dispatcher], 
-      [Trip Info - old].[Driver] AS [Driver], 
-      [Trip Info - old].[Paid] AS [Paid], 
-      [Trip Info - old].[Extra charges] AS [Extra charges], 
-      [Trip Info - old].[Detention pay] AS [Detention pay], 
-      [Trip Info - old].[Total charges] AS [Total charges], 
-      [Trip Info - old].[Detention] AS [Detention], 
-      [Trip Info - old].[Picked] AS [Picked], 
-      [Trip Info - old].[Deliverd] AS [Deliverd], 
-      [Trip Info - old].[Invoice] AS [Invoice], 
-      [Trip Info - old].[Customer Invoiced] AS [Customer Invoiced], 
-      [Trip Info - old].[Address] AS [Address], 
-      [Trip Info - old].[Current Payroll] AS [Current Payroll], 
-      [Trip Info - old].[Driver paid] AS [Driver paid], 
-      [Trip Info - old].[PO#] AS [PO#], 
-      [Trip Info - old].[Customer Invoiced date] AS [Customer Invoiced date]
-      FROM [dbo].[Trip Info - old] AS [Trip Info - old]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Violations" EntityType="vpss1Model.Store.Violations" store:Type="Tables" store:Schema="dbo" store:Name="Violations">
-            <DefiningQuery>SELECT 
-      [Violations].[ID] AS [ID], 
-      [Violations].[Driver] AS [Driver], 
-      [Violations].[Location] AS [Location], 
-      [Violations].[Date occurred] AS [Date occurred], 
-      [Violations].[Date resolved] AS [Date resolved], 
-      [Violations].[Equipment] AS [Equipment]
-      FROM [dbo].[Violations] AS [Violations]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Driver Info" EntityType="vpss1Model.Store.Driver Info" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Trip Info" EntityType="vpss1Model.Store.Trip Info" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Trip Info_Driver Info" Association="vpss1Model.Store.FK_Trip Info_Driver Info">
+            <End Role="Driver Info" EntitySet="Driver Info" />
+            <End Role="Trip Info" EntitySet="Trip Info" />
+          </AssociationSet>
         </EntityContainer>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.Company Expanses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="Company Expanses">
-          <Key>
-            <PropertyRef Name="CompanyExpansesID" />
-          </Key>
-          <Property Name="CompanyExpansesID" Type="int" Nullable="false" />
-          <Property Name="Expanses" Type="nvarchar" MaxLength="50" />
-          <Property Name="Amount" Type="money" />
-          <Property Name="Date" Type="datetime" />
-          <Property Name="Comment" Type="nvarchar(max)" />
-        </EntityType>
         <EntityType Name="Customer Info">
           <Key>
             <PropertyRef Name="Customer ID" />
@@ -370,407 +30,40 @@
           <Property Name="Comments" Type="nvarchar" MaxLength="255" />
           <Property Name="Days to pay" Type="smallint" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.Dispatchers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="Dispatchers">
-          <Key>
-            <PropertyRef Name="ID" />
-            <PropertyRef Name="Last name" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Last name" Type="nvarchar" Nullable="false" MaxLength="32" />
-          <Property Name="First name" Type="nvarchar" MaxLength="32" />
-          <Property Name="SSN" Type="nvarchar" MaxLength="12" />
-          <Property Name="DOB" Type="datetime" />
-          <Property Name="Hire date" Type="datetime" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.Equipment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="Equipment">
+        <EntityType Name="Driver Info">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Equipment Type" Type="nvarchar" MaxLength="32" />
-          <Property Name="Equipment number" Type="nvarchar" MaxLength="32" />
-          <Property Name="Driver" Type="int" />
-          <Property Name="Owner" Type="nvarchar" MaxLength="128" />
-          <Property Name="VIN" Type="nvarchar" MaxLength="32" />
-          <Property Name="Registration Expiration" Type="datetime" />
-          <Property Name="Inspection Expiration" Type="datetime" />
-          <Property Name="DATE LEASED" Type="nvarchar" MaxLength="255" />
-          <Property Name="EQUIPMENT VALUE" Type="nvarchar" MaxLength="255" />
-          <Property Name="EQUIPMENT DESCRIPTION" Type="nvarchar" MaxLength="255" />
-          <Property Name="MODEL YEAR" Type="nvarchar" MaxLength="255" />
-          <Property Name="MAKE" Type="nvarchar" MaxLength="255" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.fixed charges' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="fixed charges">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Fee Charged" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="DriverId" Type="int" />
-          <Property Name="Amount" Type="money" />
-          <Property Name="Type" Type="nvarchar" MaxLength="50" />
-          <Property Name="Frequency" Type="int" />
-          <Property Name="Beginning" Type="datetime" />
-          <Property Name="Fee Charged" Type="bit" Nullable="false" />
-          <Property Name="Next Date" Type="datetime" />
-          <Property Name="Prv Date" Type="datetime" />
-          <Property Name="Amount To Date" Type="money" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.Income' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="Income">
-          <Key>
-            <PropertyRef Name="IncomeID" />
-          </Key>
-          <Property Name="IncomeID" Type="int" Nullable="false" />
-          <Property Name="IncomeDate" Type="datetime" />
-          <Property Name="AmountInvoiced" Type="money" />
-          <Property Name="FundedAmount" Type="money" />
-          <Property Name="ReserveAmount" Type="money" />
-          <Property Name="AdvanceFee" Type="money" />
-          <Property Name="ChargeBacks" Type="money" />
-          <Property Name="Comments" Type="nvarchar(max)" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.InvoiceA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="InvoiceA">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Invoice" Type="int" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.Maintenance' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="Maintenance">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Track/Trailer Number" Type="int" />
-          <Property Name="Maintenance performed" Type="nvarchar" MaxLength="255" />
-          <Property Name="Performed date" Type="datetime" />
-          <Property Name="Location" Type="nvarchar" MaxLength="128" />
-          <Property Name="PO#" Type="nvarchar" MaxLength="50" />
-          <Property Name="ApprovedAmount" Type="money" />
-          <Property Name="SpentAmount" Type="money" />
-          <Property Name="ApprovedBy" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.Operating Expenses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="Operating Expenses">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Date" Type="datetime" />
-          <Property Name="Type" Type="nvarchar" MaxLength="24" />
-          <Property Name="Amount" Type="money" />
-          <Property Name="Location" Type="nvarchar" MaxLength="64" />
-          <Property Name="Driver" Type="int" />
-          <Property Name="Description" Type="nvarchar" MaxLength="255" />
-          <Property Name="Paid off" Type="nvarchar" MaxLength="8" />
-          <Property Name="Current Payroll" Type="nvarchar" MaxLength="8" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.Owners' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="Owners">
-          <Key>
-            <PropertyRef Name="OwnerID" />
-          </Key>
-          <Property Name="OwnerID" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="ssn#" Type="nvarchar" MaxLength="50" />
-          <Property Name="fee rate" Type="real" />
-          <Property Name="pay rate" Type="real" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.Printed Temp Fuel & Expenses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="Printed Temp Fuel &amp; Expenses">
-          <Key>
-            <PropertyRef Name="Selection" />
-            <PropertyRef Name="Paid off" />
-          </Key>
-          <Property Name="Selection" Type="bit" Nullable="false" />
-          <Property Name="ID" Type="int" />
-          <Property Name="Date" Type="datetime" />
-          <Property Name="Type" Type="nvarchar" MaxLength="50" />
-          <Property Name="Amount" Type="money" />
-          <Property Name="Location" Type="nvarchar" MaxLength="128" />
-          <Property Name="Driver" Type="int" />
-          <Property Name="Description" Type="nvarchar" MaxLength="255" />
-          <Property Name="Paid off" Type="bit" Nullable="false" />
-          <Property Name="Current Payroll" Type="nvarchar" MaxLength="50" />
-          <Property Name="ReportID" Type="int" />
-          <Property Name="AmountN" Type="money" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.Printed Temp Split Expenses Driver' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="Printed Temp Split Expenses Driver">
-          <Key>
-            <PropertyRef Name="Selection" />
-            <PropertyRef Name="Index" />
-            <PropertyRef Name="Fee Charged" />
-            <PropertyRef Name="Current Payroll" />
-            <PropertyRef Name="Paid Off" />
-          </Key>
-          <Property Name="Selection" Type="bit" Nullable="false" />
-          <Property Name="Id" Type="int" />
-          <Property Name="OwnerDriver" Type="int" />
-          <Property Name="Index" Type="int" Nullable="false" />
-          <Property Name="Expenses" Type="nvarchar" MaxLength="255" />
-          <Property Name="Amount" Type="money" />
-          <Property Name="Details" Type="nvarchar(max)" />
-          <Property Name="Date" Type="datetime" />
-          <Property Name="Fee Charged" Type="bit" Nullable="false" />
-          <Property Name="Current Payroll" Type="bit" Nullable="false" />
-          <Property Name="Paid Off" Type="bit" Nullable="false" />
-          <Property Name="ReportID" Type="int" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.Printed Temp Split Expenses Owner' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="Printed Temp Split Expenses Owner">
-          <Key>
-            <PropertyRef Name="Selection" />
-            <PropertyRef Name="Index" />
-            <PropertyRef Name="Fee Charged" />
-            <PropertyRef Name="Current Payroll" />
-            <PropertyRef Name="Paid Off" />
-          </Key>
-          <Property Name="Selection" Type="bit" Nullable="false" />
-          <Property Name="Id" Type="int" />
-          <Property Name="OwnerDriver" Type="int" />
-          <Property Name="Index" Type="int" Nullable="false" />
-          <Property Name="Expenses" Type="nvarchar" MaxLength="255" />
-          <Property Name="Amount" Type="money" />
-          <Property Name="Details" Type="nvarchar(max)" />
-          <Property Name="Date" Type="datetime" />
-          <Property Name="Fee Charged" Type="bit" Nullable="false" />
-          <Property Name="Current Payroll" Type="bit" Nullable="false" />
-          <Property Name="Paid Off" Type="bit" Nullable="false" />
-          <Property Name="ReportID" Type="int" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.Printed Temp Trip Info' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="Printed Temp Trip Info">
-          <Key>
-            <PropertyRef Name="Selection" />
-            <PropertyRef Name="Paid" />
-            <PropertyRef Name="Deliverd" />
-            <PropertyRef Name="Customer Invoiced" />
-            <PropertyRef Name="Current Payroll" />
-            <PropertyRef Name="Driver paid" />
-          </Key>
-          <Property Name="Selection" Type="bit" Nullable="false" />
-          <Property Name="Trip ID" Type="int" />
-          <Property Name="Order Date" Type="datetime" />
-          <Property Name="Pickup Date" Type="datetime" />
-          <Property Name="Delivery Date" Type="datetime" />
-          <Property Name="Pickup Location" Type="nvarchar" MaxLength="128" />
-          <Property Name="Delivery Location" Type="nvarchar" MaxLength="128" />
-          <Property Name="Extra stops" Type="nvarchar" MaxLength="128" />
-          <Property Name="Loaded miles" Type="int" />
-          <Property Name="Dead head miles" Type="int" />
-          <Property Name="Comfirmed Rate" Type="money" />
-          <Property Name="Customer" Type="int" />
-          <Property Name="Dispatcher" Type="int" />
-          <Property Name="Driver" Type="int" />
-          <Property Name="Paid" Type="bit" Nullable="false" />
-          <Property Name="Extra Charges" Type="money" />
-          <Property Name="Detention pay" Type="money" />
-          <Property Name="Total charges" Type="money" />
-          <Property Name="Detention" Type="money" />
-          <Property Name="Picked" Type="image" />
-          <Property Name="Deliverd" Type="bit" Nullable="false" />
-          <Property Name="Invoice" Type="int" />
-          <Property Name="Customer Invoiced" Type="bit" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Employee ID" Type="nvarchar" Nullable="false" MaxLength="32" />
+          <Property Name="Last name" Type="nvarchar" MaxLength="32" />
+          <Property Name="First name" Type="nvarchar" Nullable="false" MaxLength="32" />
+          <Property Name="Middle in" Type="nvarchar" MaxLength="32" />
+          <Property Name="SSN" Type="nvarchar" MaxLength="24" />
+          <Property Name="Drive Lic" Type="nvarchar" MaxLength="24" />
+          <Property Name="State" Type="nvarchar" MaxLength="32" />
+          <Property Name="Expiration Date" Type="nvarchar" MaxLength="255" />
+          <Property Name="Date Issued" Type="nvarchar" MaxLength="255" />
+          <Property Name="HazMat" Type="bit" Nullable="false" />
+          <Property Name="Pay rate" Type="real" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="255" />
+          <Property Name="Truck" Type="nvarchar" MaxLength="32" />
+          <Property Name="Trailer" Type="nvarchar" MaxLength="32" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="32" />
           <Property Name="Address" Type="nvarchar" MaxLength="128" />
-          <Property Name="Current Payroll" Type="bit" Nullable="false" />
-          <Property Name="Driver paid" Type="bit" Nullable="false" />
-          <Property Name="ReportId" Type="int" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.ReportIDs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="ReportIDs">
-          <Key>
-            <PropertyRef Name="ReportID" />
-          </Key>
-          <Property Name="ReportID" Type="int" Nullable="false" />
-          <Property Name="DriverID" Type="int" />
-          <Property Name="Date" Type="datetime" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.split expenses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="split expenses">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Idndex" />
-            <PropertyRef Name="Fee Charged" />
-            <PropertyRef Name="Current Payroll" />
-            <PropertyRef Name="Paid Off" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="OwnerDriver" Type="int" />
-          <Property Name="Idndex" Type="int" Nullable="false" />
-          <Property Name="Expenses" Type="nvarchar" MaxLength="255" />
-          <Property Name="Amount" Type="money" />
-          <Property Name="Details" Type="nvarchar(max)" />
-          <Property Name="Date" Type="datetime" />
-          <Property Name="Fee Charged" Type="bit" Nullable="false" />
-          <Property Name="Current Payroll" Type="bit" Nullable="false" />
-          <Property Name="Paid Off" Type="bit" Nullable="false" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.Temp Fuel & Expenses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="Temp Fuel &amp; Expenses">
-          <Key>
-            <PropertyRef Name="Selection" />
-            <PropertyRef Name="Paid off" />
-          </Key>
-          <Property Name="Selection" Type="bit" Nullable="false" />
-          <Property Name="ID" Type="int" />
-          <Property Name="Date" Type="datetime" />
-          <Property Name="Type" Type="nvarchar" MaxLength="50" />
-          <Property Name="Amount" Type="money" />
-          <Property Name="Location" Type="nvarchar" MaxLength="128" />
-          <Property Name="Driver" Type="int" />
-          <Property Name="Description" Type="nvarchar" MaxLength="255" />
-          <Property Name="Paid off" Type="bit" Nullable="false" />
-          <Property Name="Current Payroll" Type="nvarchar" MaxLength="50" />
-          <Property Name="AmountN" Type="money" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.Temp Operating Expenses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="Temp Operating Expenses">
-          <Key>
-            <PropertyRef Name="Selection" />
-          </Key>
-          <Property Name="Selection" Type="bit" Nullable="false" />
-          <Property Name="OperatingID" Type="int" />
-          <Property Name="Date" Type="datetime" />
-          <Property Name="Type" Type="nvarchar" MaxLength="50" />
-          <Property Name="Amount" Type="money" />
-          <Property Name="Location" Type="nvarchar" MaxLength="128" />
-          <Property Name="Driver" Type="int" />
-          <Property Name="Description" Type="nvarchar" MaxLength="255" />
-          <Property Name="Paid Off" Type="nvarchar" MaxLength="50" />
-          <Property Name="Current payroll" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.Temp split expenses Driver' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="Temp split expenses Driver">
-          <Key>
-            <PropertyRef Name="Selection" />
-            <PropertyRef Name="Index" />
-            <PropertyRef Name="Fee Charged" />
-            <PropertyRef Name="Current Payroll" />
-            <PropertyRef Name="Paid Off" />
-          </Key>
-          <Property Name="Selection" Type="bit" Nullable="false" />
-          <Property Name="Id" Type="int" />
-          <Property Name="OwnerDriver" Type="int" />
-          <Property Name="Index" Type="int" Nullable="false" />
-          <Property Name="Expenses" Type="nvarchar" MaxLength="255" />
-          <Property Name="Amount" Type="money" />
-          <Property Name="Details" Type="nvarchar(max)" />
-          <Property Name="Date" Type="datetime" />
-          <Property Name="Fee Charged" Type="bit" Nullable="false" />
-          <Property Name="Current Payroll" Type="bit" Nullable="false" />
-          <Property Name="Paid Off" Type="bit" Nullable="false" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.Temp split expenses owner' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="Temp split expenses owner">
-          <Key>
-            <PropertyRef Name="Selection" />
-            <PropertyRef Name="Index" />
-            <PropertyRef Name="Fee Charged" />
-            <PropertyRef Name="Current Payroll" />
-            <PropertyRef Name="Paid Off" />
-          </Key>
-          <Property Name="Selection" Type="bit" Nullable="false" />
-          <Property Name="Id" Type="int" />
-          <Property Name="OwnerDriver" Type="int" />
-          <Property Name="Index" Type="int" Nullable="false" />
-          <Property Name="Expenses" Type="nvarchar" MaxLength="255" />
-          <Property Name="Amount" Type="money" />
-          <Property Name="Details" Type="nvarchar(max)" />
-          <Property Name="Date" Type="datetime" />
-          <Property Name="Fee Charged" Type="bit" Nullable="false" />
-          <Property Name="Current Payroll" Type="bit" Nullable="false" />
-          <Property Name="Paid Off" Type="bit" Nullable="false" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.Temp Trip Info' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="Temp Trip Info">
-          <Key>
-            <PropertyRef Name="Selection" />
-            <PropertyRef Name="Paid" />
-            <PropertyRef Name="Deliverd" />
-            <PropertyRef Name="Customer Invoiced" />
-            <PropertyRef Name="Current Payroll" />
-            <PropertyRef Name="Driver paid" />
-          </Key>
-          <Property Name="Selection" Type="bit" Nullable="false" />
-          <Property Name="Trip ID" Type="int" />
-          <Property Name="Order Date" Type="datetime" />
-          <Property Name="Pickup Date" Type="datetime" />
-          <Property Name="Delivery Date" Type="datetime" />
-          <Property Name="Pickup Location" Type="nvarchar" MaxLength="128" />
-          <Property Name="Delivery Location" Type="nvarchar" MaxLength="128" />
-          <Property Name="Extra stops" Type="nvarchar" MaxLength="128" />
-          <Property Name="Loaded miles" Type="int" />
-          <Property Name="Dead head miles" Type="int" />
-          <Property Name="Comfirmed Rate" Type="money" />
-          <Property Name="Customer" Type="int" />
+          <Property Name="Fuel Card" Type="nvarchar" MaxLength="32" />
+          <Property Name="fuel &amp; advance Fee rate" Type="real" />
           <Property Name="Dispatcher" Type="int" />
-          <Property Name="Driver" Type="int" />
-          <Property Name="Paid" Type="bit" Nullable="false" />
-          <Property Name="Extra Charges" Type="money" />
-          <Property Name="Detention pay" Type="money" />
-          <Property Name="Total charges" Type="money" />
-          <Property Name="Detention" Type="money" />
-          <Property Name="Picked" Type="image" />
-          <Property Name="Deliverd" Type="bit" Nullable="false" />
-          <Property Name="Invoice" Type="int" />
-          <Property Name="Customer Invoiced" Type="bit" Nullable="false" />
-          <Property Name="Address" Type="nvarchar" MaxLength="128" />
-          <Property Name="Current Payroll" Type="bit" Nullable="false" />
-          <Property Name="Driver paid" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Owner" Type="bit" Nullable="false" />
+          <Property Name="Owner Pay Rate" Type="real" />
+          <Property Name="Owner Name" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.Trip Info - old' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="Trip Info - old">
+        <EntityType Name="Trip Info">
           <Key>
             <PropertyRef Name="Trip ID" />
           </Key>
-          <Property Name="Trip ID" Type="int" Nullable="false" />
+          <Property Name="Trip ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Order date" Type="datetime" />
           <Property Name="Pickup date" Type="datetime" />
           <Property Name="Delivery date" Type="datetime" />
@@ -783,453 +76,48 @@
           <Property Name="Customer" Type="int" />
           <Property Name="Dispatcher" Type="int" />
           <Property Name="Driver" Type="int" />
-          <Property Name="Paid" Type="nvarchar" MaxLength="12" />
+          <Property Name="Paid" Type="bit" />
           <Property Name="Extra charges" Type="money" />
           <Property Name="Detention pay" Type="money" />
           <Property Name="Total charges" Type="money" />
           <Property Name="Detention" Type="money" />
-          <Property Name="Picked" Type="nvarchar" MaxLength="50" />
-          <Property Name="Deliverd" Type="nvarchar" MaxLength="8" />
+          <Property Name="Picked" Type="bit" />
+          <Property Name="Deliverd" Type="bit" />
           <Property Name="Invoice" Type="int" />
-          <Property Name="Customer Invoiced" Type="nvarchar" MaxLength="8" />
+          <Property Name="Customer Invoiced" Type="bit" />
           <Property Name="Address" Type="nvarchar" MaxLength="128" />
-          <Property Name="Current Payroll" Type="nvarchar" MaxLength="50" />
-          <Property Name="Driver paid" Type="nvarchar" MaxLength="8" />
+          <Property Name="Current Payroll" Type="bit" />
+          <Property Name="Driver paid" Type="bit" />
+          <Property Name="Equipment ID" Type="int" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="255" />
           <Property Name="PO#" Type="nvarchar" MaxLength="16" />
           <Property Name="Customer Invoiced date" Type="datetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.Violations' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="Violations">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Driver" Type="int" />
-          <Property Name="Location" Type="nvarchar" MaxLength="128" />
-          <Property Name="Date occurred" Type="datetime" />
-          <Property Name="Date resolved" Type="datetime" />
-          <Property Name="Equipment" Type="int" />
-        </EntityType>
+        <Association Name="FK_Trip Info_Driver Info">
+          <End Role="Driver Info" Type="vpss1Model.Store.Driver Info" Multiplicity="0..1" />
+          <End Role="Trip Info" Type="vpss1Model.Store.Trip Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driver Info">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Trip Info">
+              <PropertyRef Name="Driver" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="vpss1Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="vpss1Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Company_Expanses" EntityType="vpss1Model.Company_Expanses" />
-          <EntitySet Name="Dispatchers" EntityType="vpss1Model.Dispatchers" />
-          <EntitySet Name="Equipment" EntityType="vpss1Model.Equipment" />
-          <EntitySet Name="fixed_charges" EntityType="vpss1Model.fixed_charges" />
-          <EntitySet Name="Income" EntityType="vpss1Model.Income" />
-          <EntitySet Name="InvoiceA" EntityType="vpss1Model.InvoiceA" />
-          <EntitySet Name="Maintenance" EntityType="vpss1Model.Maintenance" />
-          <EntitySet Name="Operating_Expenses" EntityType="vpss1Model.Operating_Expenses" />
-          <EntitySet Name="Owners" EntityType="vpss1Model.Owners" />
-          <EntitySet Name="Printed_Temp_Fuel___Expenses" EntityType="vpss1Model.Printed_Temp_Fuel___Expenses" />
-          <EntitySet Name="Printed_Temp_Split_Expenses_Driver" EntityType="vpss1Model.Printed_Temp_Split_Expenses_Driver" />
-          <EntitySet Name="Printed_Temp_Split_Expenses_Owner" EntityType="vpss1Model.Printed_Temp_Split_Expenses_Owner" />
-          <EntitySet Name="Printed_Temp_Trip_Info" EntityType="vpss1Model.Printed_Temp_Trip_Info" />
-          <EntitySet Name="ReportIDs" EntityType="vpss1Model.ReportIDs" />
-          <EntitySet Name="split_expenses" EntityType="vpss1Model.split_expenses" />
-          <EntitySet Name="Temp_Fuel___Expenses" EntityType="vpss1Model.Temp_Fuel___Expenses" />
-          <EntitySet Name="Temp_Operating_Expenses" EntityType="vpss1Model.Temp_Operating_Expenses" />
-          <EntitySet Name="Temp_split_expenses_Driver" EntityType="vpss1Model.Temp_split_expenses_Driver" />
-          <EntitySet Name="Temp_split_expenses_owner" EntityType="vpss1Model.Temp_split_expenses_owner" />
-          <EntitySet Name="Temp_Trip_Info" EntityType="vpss1Model.Temp_Trip_Info" />
-          <EntitySet Name="Trip_Info___old" EntityType="vpss1Model.Trip_Info___old" />
-          <EntitySet Name="Violations" EntityType="vpss1Model.Violations" />
           <EntitySet Name="Customer_Info" EntityType="vpss1Model.Customer_Info" />
+          <EntitySet Name="Driver_Info" EntityType="vpss1Model.Driver_Info" />
+          <EntitySet Name="Trip_Info" EntityType="vpss1Model.Trip_Info" />
+          <AssociationSet Name="FK_Trip_Info_Driver_Info" Association="vpss1Model.FK_Trip_Info_Driver_Info">
+            <End Role="Driver_Info" EntitySet="Driver_Info" />
+            <End Role="Trip_Info" EntitySet="Trip_Info" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Company_Expanses">
-          <Key>
-            <PropertyRef Name="CompanyExpansesID" />
-          </Key>
-          <Property Name="CompanyExpansesID" Type="Int32" Nullable="false" />
-          <Property Name="Expanses" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Date" Type="DateTime" />
-          <Property Name="Comment" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Dispatchers">
-          <Key>
-            <PropertyRef Name="ID" />
-            <PropertyRef Name="Last_name" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Last_name" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="First_name" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="SSN" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
-          <Property Name="DOB" Type="DateTime" />
-          <Property Name="Hire_date" Type="DateTime" />
-        </EntityType>
-        <EntityType Name="Equipment">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Equipment_Type" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="Equipment_number" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="Driver" Type="Int32" />
-          <Property Name="Owner" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="VIN" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="Registration_Expiration" Type="DateTime" />
-          <Property Name="Inspection_Expiration" Type="DateTime" />
-          <Property Name="DATE_LEASED" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="EQUIPMENT_VALUE" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="EQUIPMENT_DESCRIPTION" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="MODEL_YEAR" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="MAKE" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="fixed_charges">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Fee_Charged" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="DriverId" Type="Int32" />
-          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Frequency" Type="Int32" />
-          <Property Name="Beginning" Type="DateTime" />
-          <Property Name="Fee_Charged" Type="Boolean" Nullable="false" />
-          <Property Name="Next_Date" Type="DateTime" />
-          <Property Name="Prv_Date" Type="DateTime" />
-          <Property Name="Amount_To_Date" Type="Decimal" Precision="19" Scale="4" />
-        </EntityType>
-        <EntityType Name="Income">
-          <Key>
-            <PropertyRef Name="IncomeID" />
-          </Key>
-          <Property Name="IncomeID" Type="Int32" Nullable="false" />
-          <Property Name="IncomeDate" Type="DateTime" />
-          <Property Name="AmountInvoiced" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="FundedAmount" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="ReserveAmount" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="AdvanceFee" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="ChargeBacks" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Comments" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="InvoiceA">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Invoice" Type="Int32" />
-        </EntityType>
-        <EntityType Name="Maintenance">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Track_Trailer_Number" Type="Int32" />
-          <Property Name="Maintenance_performed" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Performed_date" Type="DateTime" />
-          <Property Name="Location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="PO_" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="ApprovedAmount" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="SpentAmount" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="ApprovedBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Operating_Expenses">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Date" Type="DateTime" />
-          <Property Name="Type" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
-          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Location" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
-          <Property Name="Driver" Type="Int32" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Paid_off" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
-          <Property Name="Current_Payroll" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Owners">
-          <Key>
-            <PropertyRef Name="OwnerID" />
-          </Key>
-          <Property Name="OwnerID" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="ssn_" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="fee_rate" Type="Single" />
-          <Property Name="pay_rate" Type="Single" />
-        </EntityType>
-        <EntityType Name="Printed_Temp_Fuel___Expenses">
-          <Key>
-            <PropertyRef Name="Selection" />
-            <PropertyRef Name="Paid_off" />
-          </Key>
-          <Property Name="Selection" Type="Boolean" Nullable="false" />
-          <Property Name="ID" Type="Int32" />
-          <Property Name="Date" Type="DateTime" />
-          <Property Name="Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Driver" Type="Int32" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Paid_off" Type="Boolean" Nullable="false" />
-          <Property Name="Current_Payroll" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="ReportID" Type="Int32" />
-          <Property Name="AmountN" Type="Decimal" Precision="19" Scale="4" />
-        </EntityType>
-        <EntityType Name="Printed_Temp_Split_Expenses_Driver">
-          <Key>
-            <PropertyRef Name="Selection" />
-            <PropertyRef Name="Index" />
-            <PropertyRef Name="Fee_Charged" />
-            <PropertyRef Name="Current_Payroll" />
-            <PropertyRef Name="Paid_Off" />
-          </Key>
-          <Property Name="Selection" Type="Boolean" Nullable="false" />
-          <Property Name="Id" Type="Int32" />
-          <Property Name="OwnerDriver" Type="Int32" />
-          <Property Name="Index" Type="Int32" Nullable="false" />
-          <Property Name="Expenses" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Details" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Date" Type="DateTime" />
-          <Property Name="Fee_Charged" Type="Boolean" Nullable="false" />
-          <Property Name="Current_Payroll" Type="Boolean" Nullable="false" />
-          <Property Name="Paid_Off" Type="Boolean" Nullable="false" />
-          <Property Name="ReportID" Type="Int32" />
-        </EntityType>
-        <EntityType Name="Printed_Temp_Split_Expenses_Owner">
-          <Key>
-            <PropertyRef Name="Selection" />
-            <PropertyRef Name="Index" />
-            <PropertyRef Name="Fee_Charged" />
-            <PropertyRef Name="Current_Payroll" />
-            <PropertyRef Name="Paid_Off" />
-          </Key>
-          <Property Name="Selection" Type="Boolean" Nullable="false" />
-          <Property Name="Id" Type="Int32" />
-          <Property Name="OwnerDriver" Type="Int32" />
-          <Property Name="Index" Type="Int32" Nullable="false" />
-          <Property Name="Expenses" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Details" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Date" Type="DateTime" />
-          <Property Name="Fee_Charged" Type="Boolean" Nullable="false" />
-          <Property Name="Current_Payroll" Type="Boolean" Nullable="false" />
-          <Property Name="Paid_Off" Type="Boolean" Nullable="false" />
-          <Property Name="ReportID" Type="Int32" />
-        </EntityType>
-        <EntityType Name="Printed_Temp_Trip_Info">
-          <Key>
-            <PropertyRef Name="Selection" />
-            <PropertyRef Name="Paid" />
-            <PropertyRef Name="Deliverd" />
-            <PropertyRef Name="Customer_Invoiced" />
-            <PropertyRef Name="Current_Payroll" />
-            <PropertyRef Name="Driver_paid" />
-          </Key>
-          <Property Name="Selection" Type="Boolean" Nullable="false" />
-          <Property Name="Trip_ID" Type="Int32" />
-          <Property Name="Order_Date" Type="DateTime" />
-          <Property Name="Pickup_Date" Type="DateTime" />
-          <Property Name="Delivery_Date" Type="DateTime" />
-          <Property Name="Pickup_Location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Delivery_Location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Extra_stops" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Loaded_miles" Type="Int32" />
-          <Property Name="Dead_head_miles" Type="Int32" />
-          <Property Name="Comfirmed_Rate" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Customer" Type="Int32" />
-          <Property Name="Dispatcher" Type="Int32" />
-          <Property Name="Driver" Type="Int32" />
-          <Property Name="Paid" Type="Boolean" Nullable="false" />
-          <Property Name="Extra_Charges" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Detention_pay" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Total_charges" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Detention" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Picked" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Deliverd" Type="Boolean" Nullable="false" />
-          <Property Name="Invoice" Type="Int32" />
-          <Property Name="Customer_Invoiced" Type="Boolean" Nullable="false" />
-          <Property Name="Address" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Current_Payroll" Type="Boolean" Nullable="false" />
-          <Property Name="Driver_paid" Type="Boolean" Nullable="false" />
-          <Property Name="ReportId" Type="Int32" />
-        </EntityType>
-        <EntityType Name="ReportIDs">
-          <Key>
-            <PropertyRef Name="ReportID" />
-          </Key>
-          <Property Name="ReportID" Type="Int32" Nullable="false" />
-          <Property Name="DriverID" Type="Int32" />
-          <Property Name="Date" Type="DateTime" />
-        </EntityType>
-        <EntityType Name="split_expenses">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Idndex" />
-            <PropertyRef Name="Fee_Charged" />
-            <PropertyRef Name="Current_Payroll" />
-            <PropertyRef Name="Paid_Off" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="OwnerDriver" Type="Int32" />
-          <Property Name="Idndex" Type="Int32" Nullable="false" />
-          <Property Name="Expenses" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Details" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Date" Type="DateTime" />
-          <Property Name="Fee_Charged" Type="Boolean" Nullable="false" />
-          <Property Name="Current_Payroll" Type="Boolean" Nullable="false" />
-          <Property Name="Paid_Off" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Temp_Fuel___Expenses">
-          <Key>
-            <PropertyRef Name="Selection" />
-            <PropertyRef Name="Paid_off" />
-          </Key>
-          <Property Name="Selection" Type="Boolean" Nullable="false" />
-          <Property Name="ID" Type="Int32" />
-          <Property Name="Date" Type="DateTime" />
-          <Property Name="Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Driver" Type="Int32" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Paid_off" Type="Boolean" Nullable="false" />
-          <Property Name="Current_Payroll" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="AmountN" Type="Decimal" Precision="19" Scale="4" />
-        </EntityType>
-        <EntityType Name="Temp_Operating_Expenses">
-          <Key>
-            <PropertyRef Name="Selection" />
-          </Key>
-          <Property Name="Selection" Type="Boolean" Nullable="false" />
-          <Property Name="OperatingID" Type="Int32" />
-          <Property Name="Date" Type="DateTime" />
-          <Property Name="Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Driver" Type="Int32" />
-          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Paid_Off" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Current_payroll" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Temp_split_expenses_Driver">
-          <Key>
-            <PropertyRef Name="Selection" />
-            <PropertyRef Name="Index" />
-            <PropertyRef Name="Fee_Charged" />
-            <PropertyRef Name="Current_Payroll" />
-            <PropertyRef Name="Paid_Off" />
-          </Key>
-          <Property Name="Selection" Type="Boolean" Nullable="false" />
-          <Property Name="Id" Type="Int32" />
-          <Property Name="OwnerDriver" Type="Int32" />
-          <Property Name="Index" Type="Int32" Nullable="false" />
-          <Property Name="Expenses" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Details" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Date" Type="DateTime" />
-          <Property Name="Fee_Charged" Type="Boolean" Nullable="false" />
-          <Property Name="Current_Payroll" Type="Boolean" Nullable="false" />
-          <Property Name="Paid_Off" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Temp_split_expenses_owner">
-          <Key>
-            <PropertyRef Name="Selection" />
-            <PropertyRef Name="Index" />
-            <PropertyRef Name="Fee_Charged" />
-            <PropertyRef Name="Current_Payroll" />
-            <PropertyRef Name="Paid_Off" />
-          </Key>
-          <Property Name="Selection" Type="Boolean" Nullable="false" />
-          <Property Name="Id" Type="Int32" />
-          <Property Name="OwnerDriver" Type="Int32" />
-          <Property Name="Index" Type="Int32" Nullable="false" />
-          <Property Name="Expenses" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Details" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Date" Type="DateTime" />
-          <Property Name="Fee_Charged" Type="Boolean" Nullable="false" />
-          <Property Name="Current_Payroll" Type="Boolean" Nullable="false" />
-          <Property Name="Paid_Off" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Temp_Trip_Info">
-          <Key>
-            <PropertyRef Name="Selection" />
-            <PropertyRef Name="Paid" />
-            <PropertyRef Name="Deliverd" />
-            <PropertyRef Name="Customer_Invoiced" />
-            <PropertyRef Name="Current_Payroll" />
-            <PropertyRef Name="Driver_paid" />
-          </Key>
-          <Property Name="Selection" Type="Boolean" Nullable="false" />
-          <Property Name="Trip_ID" Type="Int32" />
-          <Property Name="Order_Date" Type="DateTime" />
-          <Property Name="Pickup_Date" Type="DateTime" />
-          <Property Name="Delivery_Date" Type="DateTime" />
-          <Property Name="Pickup_Location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Delivery_Location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Extra_stops" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Loaded_miles" Type="Int32" />
-          <Property Name="Dead_head_miles" Type="Int32" />
-          <Property Name="Comfirmed_Rate" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Customer" Type="Int32" />
-          <Property Name="Dispatcher" Type="Int32" />
-          <Property Name="Driver" Type="Int32" />
-          <Property Name="Paid" Type="Boolean" Nullable="false" />
-          <Property Name="Extra_Charges" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Detention_pay" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Total_charges" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Detention" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Picked" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Deliverd" Type="Boolean" Nullable="false" />
-          <Property Name="Invoice" Type="Int32" />
-          <Property Name="Customer_Invoiced" Type="Boolean" Nullable="false" />
-          <Property Name="Address" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Current_Payroll" Type="Boolean" Nullable="false" />
-          <Property Name="Driver_paid" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Trip_Info___old">
-          <Key>
-            <PropertyRef Name="Trip_ID" />
-          </Key>
-          <Property Name="Trip_ID" Type="Int32" Nullable="false" />
-          <Property Name="Order_date" Type="DateTime" />
-          <Property Name="Pickup_date" Type="DateTime" />
-          <Property Name="Delivery_date" Type="DateTime" />
-          <Property Name="Pick_up_location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Delivery_location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Extra_stops" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Loaded_miles" Type="Int32" />
-          <Property Name="Dead_head_miles" Type="Int32" />
-          <Property Name="Comfirmed_Rate" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Customer" Type="Int32" />
-          <Property Name="Dispatcher" Type="Int32" />
-          <Property Name="Driver" Type="Int32" />
-          <Property Name="Paid" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
-          <Property Name="Extra_charges" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Detention_pay" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Total_charges" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Detention" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Picked" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Deliverd" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
-          <Property Name="Invoice" Type="Int32" />
-          <Property Name="Customer_Invoiced" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
-          <Property Name="Address" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Current_Payroll" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Driver_paid" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
-          <Property Name="PO_" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
-          <Property Name="Customer_Invoiced_date" Type="DateTime" />
-        </EntityType>
-        <EntityType Name="Violations">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Driver" Type="Int32" />
-          <Property Name="Location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Date_occurred" Type="DateTime" />
-          <Property Name="Date_resolved" Type="DateTime" />
-          <Property Name="Equipment" Type="Int32" />
-        </EntityType>
         <EntityType Name="Customer_Info">
           <Key>
             <PropertyRef Name="Customer_ID" />
@@ -1246,389 +134,89 @@
           <Property Type="String" Name="Comments" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="Int16" Name="Days_to_pay" />
         </EntityType>
-      </Schema>
+        <EntityType Name="Driver_Info">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Employee_ID" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Last_name" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="First_name" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Middle_in" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SSN" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Drive_Lic" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="State" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Expiration_Date" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Date_Issued" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="HazMat" Nullable="false" />
+          <Property Type="Single" Name="Pay_rate" />
+          <Property Type="String" Name="Comments" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Truck" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Trailer" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Fuel_Card" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="Single" Name="fuel___advance_Fee_rate" />
+          <Property Type="Int32" Name="Dispatcher" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+          <Property Type="Boolean" Name="Owner" Nullable="false" />
+          <Property Type="Single" Name="Owner_Pay_Rate" />
+          <Property Type="Int32" Name="Owner_Name" />
+          <NavigationProperty Name="Trip_Info" Relationship="vpss1Model.FK_Trip_Info_Driver_Info" FromRole="Driver_Info" ToRole="Trip_Info" />
+        </EntityType>
+        <EntityType Name="Trip_Info">
+          <Key>
+            <PropertyRef Name="Trip_ID" />
+          </Key>
+          <Property Type="Int32" Name="Trip_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Order_date" />
+          <Property Type="DateTime" Name="Pickup_date" />
+          <Property Type="DateTime" Name="Delivery_date" />
+          <Property Type="String" Name="Pick_up_location" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Delivery_location" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Extra_stops" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Loaded_miles" />
+          <Property Type="Int32" Name="Dead_head_miles" />
+          <Property Type="Decimal" Name="Comfirmed_Rate" Precision="19" Scale="4" />
+          <Property Type="Int32" Name="Customer" />
+          <Property Type="Int32" Name="Dispatcher" />
+          <Property Type="Int32" Name="Driver" />
+          <Property Type="Boolean" Name="Paid" />
+          <Property Type="Decimal" Name="Extra_charges" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="Detention_pay" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="Total_charges" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="Detention" Precision="19" Scale="4" />
+          <Property Type="Boolean" Name="Picked" />
+          <Property Type="Boolean" Name="Deliverd" />
+          <Property Type="Int32" Name="Invoice" />
+          <Property Type="Boolean" Name="Customer_Invoiced" />
+          <Property Type="String" Name="Address" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Current_Payroll" />
+          <Property Type="Boolean" Name="Driver_paid" />
+          <Property Type="Int32" Name="Equipment_ID" />
+          <Property Type="String" Name="Comment" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PO_" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Customer_Invoiced_date" />
+          <NavigationProperty Name="Driver_Info" Relationship="vpss1Model.FK_Trip_Info_Driver_Info" FromRole="Trip_Info" ToRole="Driver_Info" />
+        </EntityType>
+        <Association Name="FK_Trip_Info_Driver_Info">
+          <End Type="vpss1Model.Driver_Info" Role="Driver_Info" Multiplicity="0..1" />
+          <End Type="vpss1Model.Trip_Info" Role="Trip_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driver_Info">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Trip_Info">
+              <PropertyRef Name="Driver" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="vpss1ModelStoreContainer" CdmEntityContainer="vpss1Entities">
-          <EntitySetMapping Name="Company_Expanses">
-            <EntityTypeMapping TypeName="vpss1Model.Company_Expanses">
-              <MappingFragment StoreEntitySet="Company Expanses">
-                <ScalarProperty Name="CompanyExpansesID" ColumnName="CompanyExpansesID" />
-                <ScalarProperty Name="Expanses" ColumnName="Expanses" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Dispatchers">
-            <EntityTypeMapping TypeName="vpss1Model.Dispatchers">
-              <MappingFragment StoreEntitySet="Dispatchers">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Last_name" ColumnName="Last name" />
-                <ScalarProperty Name="First_name" ColumnName="First name" />
-                <ScalarProperty Name="SSN" ColumnName="SSN" />
-                <ScalarProperty Name="DOB" ColumnName="DOB" />
-                <ScalarProperty Name="Hire_date" ColumnName="Hire date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Equipment">
-            <EntityTypeMapping TypeName="vpss1Model.Equipment">
-              <MappingFragment StoreEntitySet="Equipment">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Equipment_Type" ColumnName="Equipment Type" />
-                <ScalarProperty Name="Equipment_number" ColumnName="Equipment number" />
-                <ScalarProperty Name="Driver" ColumnName="Driver" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="VIN" ColumnName="VIN" />
-                <ScalarProperty Name="Registration_Expiration" ColumnName="Registration Expiration" />
-                <ScalarProperty Name="Inspection_Expiration" ColumnName="Inspection Expiration" />
-                <ScalarProperty Name="DATE_LEASED" ColumnName="DATE LEASED" />
-                <ScalarProperty Name="EQUIPMENT_VALUE" ColumnName="EQUIPMENT VALUE" />
-                <ScalarProperty Name="EQUIPMENT_DESCRIPTION" ColumnName="EQUIPMENT DESCRIPTION" />
-                <ScalarProperty Name="MODEL_YEAR" ColumnName="MODEL YEAR" />
-                <ScalarProperty Name="MAKE" ColumnName="MAKE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="fixed_charges">
-            <EntityTypeMapping TypeName="vpss1Model.fixed_charges">
-              <MappingFragment StoreEntitySet="fixed charges">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="DriverId" ColumnName="DriverId" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Frequency" ColumnName="Frequency" />
-                <ScalarProperty Name="Beginning" ColumnName="Beginning" />
-                <ScalarProperty Name="Fee_Charged" ColumnName="Fee Charged" />
-                <ScalarProperty Name="Next_Date" ColumnName="Next Date" />
-                <ScalarProperty Name="Prv_Date" ColumnName="Prv Date" />
-                <ScalarProperty Name="Amount_To_Date" ColumnName="Amount To Date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Income">
-            <EntityTypeMapping TypeName="vpss1Model.Income">
-              <MappingFragment StoreEntitySet="Income">
-                <ScalarProperty Name="IncomeID" ColumnName="IncomeID" />
-                <ScalarProperty Name="IncomeDate" ColumnName="IncomeDate" />
-                <ScalarProperty Name="AmountInvoiced" ColumnName="AmountInvoiced" />
-                <ScalarProperty Name="FundedAmount" ColumnName="FundedAmount" />
-                <ScalarProperty Name="ReserveAmount" ColumnName="ReserveAmount" />
-                <ScalarProperty Name="AdvanceFee" ColumnName="AdvanceFee" />
-                <ScalarProperty Name="ChargeBacks" ColumnName="ChargeBacks" />
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="InvoiceA">
-            <EntityTypeMapping TypeName="vpss1Model.InvoiceA">
-              <MappingFragment StoreEntitySet="InvoiceA">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Invoice" ColumnName="Invoice" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Maintenance">
-            <EntityTypeMapping TypeName="vpss1Model.Maintenance">
-              <MappingFragment StoreEntitySet="Maintenance">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Track_Trailer_Number" ColumnName="Track/Trailer Number" />
-                <ScalarProperty Name="Maintenance_performed" ColumnName="Maintenance performed" />
-                <ScalarProperty Name="Performed_date" ColumnName="Performed date" />
-                <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="PO_" ColumnName="PO#" />
-                <ScalarProperty Name="ApprovedAmount" ColumnName="ApprovedAmount" />
-                <ScalarProperty Name="SpentAmount" ColumnName="SpentAmount" />
-                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Operating_Expenses">
-            <EntityTypeMapping TypeName="vpss1Model.Operating_Expenses">
-              <MappingFragment StoreEntitySet="Operating Expenses">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="Driver" ColumnName="Driver" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Paid_off" ColumnName="Paid off" />
-                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Owners">
-            <EntityTypeMapping TypeName="vpss1Model.Owners">
-              <MappingFragment StoreEntitySet="Owners">
-                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ssn_" ColumnName="ssn#" />
-                <ScalarProperty Name="fee_rate" ColumnName="fee rate" />
-                <ScalarProperty Name="pay_rate" ColumnName="pay rate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Printed_Temp_Fuel___Expenses">
-            <EntityTypeMapping TypeName="vpss1Model.Printed_Temp_Fuel___Expenses">
-              <MappingFragment StoreEntitySet="Printed Temp Fuel &amp; Expenses">
-                <ScalarProperty Name="Selection" ColumnName="Selection" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="Driver" ColumnName="Driver" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Paid_off" ColumnName="Paid off" />
-                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-                <ScalarProperty Name="ReportID" ColumnName="ReportID" />
-                <ScalarProperty Name="AmountN" ColumnName="AmountN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Printed_Temp_Split_Expenses_Driver">
-            <EntityTypeMapping TypeName="vpss1Model.Printed_Temp_Split_Expenses_Driver">
-              <MappingFragment StoreEntitySet="Printed Temp Split Expenses Driver">
-                <ScalarProperty Name="Selection" ColumnName="Selection" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="OwnerDriver" ColumnName="OwnerDriver" />
-                <ScalarProperty Name="Index" ColumnName="Index" />
-                <ScalarProperty Name="Expenses" ColumnName="Expenses" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Details" ColumnName="Details" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Fee_Charged" ColumnName="Fee Charged" />
-                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-                <ScalarProperty Name="Paid_Off" ColumnName="Paid Off" />
-                <ScalarProperty Name="ReportID" ColumnName="ReportID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Printed_Temp_Split_Expenses_Owner">
-            <EntityTypeMapping TypeName="vpss1Model.Printed_Temp_Split_Expenses_Owner">
-              <MappingFragment StoreEntitySet="Printed Temp Split Expenses Owner">
-                <ScalarProperty Name="Selection" ColumnName="Selection" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="OwnerDriver" ColumnName="OwnerDriver" />
-                <ScalarProperty Name="Index" ColumnName="Index" />
-                <ScalarProperty Name="Expenses" ColumnName="Expenses" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Details" ColumnName="Details" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Fee_Charged" ColumnName="Fee Charged" />
-                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-                <ScalarProperty Name="Paid_Off" ColumnName="Paid Off" />
-                <ScalarProperty Name="ReportID" ColumnName="ReportID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Printed_Temp_Trip_Info">
-            <EntityTypeMapping TypeName="vpss1Model.Printed_Temp_Trip_Info">
-              <MappingFragment StoreEntitySet="Printed Temp Trip Info">
-                <ScalarProperty Name="Selection" ColumnName="Selection" />
-                <ScalarProperty Name="Trip_ID" ColumnName="Trip ID" />
-                <ScalarProperty Name="Order_Date" ColumnName="Order Date" />
-                <ScalarProperty Name="Pickup_Date" ColumnName="Pickup Date" />
-                <ScalarProperty Name="Delivery_Date" ColumnName="Delivery Date" />
-                <ScalarProperty Name="Pickup_Location" ColumnName="Pickup Location" />
-                <ScalarProperty Name="Delivery_Location" ColumnName="Delivery Location" />
-                <ScalarProperty Name="Extra_stops" ColumnName="Extra stops" />
-                <ScalarProperty Name="Loaded_miles" ColumnName="Loaded miles" />
-                <ScalarProperty Name="Dead_head_miles" ColumnName="Dead head miles" />
-                <ScalarProperty Name="Comfirmed_Rate" ColumnName="Comfirmed Rate" />
-                <ScalarProperty Name="Customer" ColumnName="Customer" />
-                <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
-                <ScalarProperty Name="Driver" ColumnName="Driver" />
-                <ScalarProperty Name="Paid" ColumnName="Paid" />
-                <ScalarProperty Name="Extra_Charges" ColumnName="Extra Charges" />
-                <ScalarProperty Name="Detention_pay" ColumnName="Detention pay" />
-                <ScalarProperty Name="Total_charges" ColumnName="Total charges" />
-                <ScalarProperty Name="Detention" ColumnName="Detention" />
-                <ScalarProperty Name="Picked" ColumnName="Picked" />
-                <ScalarProperty Name="Deliverd" ColumnName="Deliverd" />
-                <ScalarProperty Name="Invoice" ColumnName="Invoice" />
-                <ScalarProperty Name="Customer_Invoiced" ColumnName="Customer Invoiced" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-                <ScalarProperty Name="Driver_paid" ColumnName="Driver paid" />
-                <ScalarProperty Name="ReportId" ColumnName="ReportId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ReportIDs">
-            <EntityTypeMapping TypeName="vpss1Model.ReportIDs">
-              <MappingFragment StoreEntitySet="ReportIDs">
-                <ScalarProperty Name="ReportID" ColumnName="ReportID" />
-                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="split_expenses">
-            <EntityTypeMapping TypeName="vpss1Model.split_expenses">
-              <MappingFragment StoreEntitySet="split expenses">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="OwnerDriver" ColumnName="OwnerDriver" />
-                <ScalarProperty Name="Idndex" ColumnName="Idndex" />
-                <ScalarProperty Name="Expenses" ColumnName="Expenses" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Details" ColumnName="Details" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Fee_Charged" ColumnName="Fee Charged" />
-                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-                <ScalarProperty Name="Paid_Off" ColumnName="Paid Off" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Temp_Fuel___Expenses">
-            <EntityTypeMapping TypeName="vpss1Model.Temp_Fuel___Expenses">
-              <MappingFragment StoreEntitySet="Temp Fuel &amp; Expenses">
-                <ScalarProperty Name="Selection" ColumnName="Selection" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="Driver" ColumnName="Driver" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Paid_off" ColumnName="Paid off" />
-                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-                <ScalarProperty Name="AmountN" ColumnName="AmountN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Temp_Operating_Expenses">
-            <EntityTypeMapping TypeName="vpss1Model.Temp_Operating_Expenses">
-              <MappingFragment StoreEntitySet="Temp Operating Expenses">
-                <ScalarProperty Name="Selection" ColumnName="Selection" />
-                <ScalarProperty Name="OperatingID" ColumnName="OperatingID" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="Driver" ColumnName="Driver" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Paid_Off" ColumnName="Paid Off" />
-                <ScalarProperty Name="Current_payroll" ColumnName="Current payroll" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Temp_split_expenses_Driver">
-            <EntityTypeMapping TypeName="vpss1Model.Temp_split_expenses_Driver">
-              <MappingFragment StoreEntitySet="Temp split expenses Driver">
-                <ScalarProperty Name="Selection" ColumnName="Selection" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="OwnerDriver" ColumnName="OwnerDriver" />
-                <ScalarProperty Name="Index" ColumnName="Index" />
-                <ScalarProperty Name="Expenses" ColumnName="Expenses" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Details" ColumnName="Details" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Fee_Charged" ColumnName="Fee Charged" />
-                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-                <ScalarProperty Name="Paid_Off" ColumnName="Paid Off" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Temp_split_expenses_owner">
-            <EntityTypeMapping TypeName="vpss1Model.Temp_split_expenses_owner">
-              <MappingFragment StoreEntitySet="Temp split expenses owner">
-                <ScalarProperty Name="Selection" ColumnName="Selection" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="OwnerDriver" ColumnName="OwnerDriver" />
-                <ScalarProperty Name="Index" ColumnName="Index" />
-                <ScalarProperty Name="Expenses" ColumnName="Expenses" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Details" ColumnName="Details" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Fee_Charged" ColumnName="Fee Charged" />
-                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-                <ScalarProperty Name="Paid_Off" ColumnName="Paid Off" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Temp_Trip_Info">
-            <EntityTypeMapping TypeName="vpss1Model.Temp_Trip_Info">
-              <MappingFragment StoreEntitySet="Temp Trip Info">
-                <ScalarProperty Name="Selection" ColumnName="Selection" />
-                <ScalarProperty Name="Trip_ID" ColumnName="Trip ID" />
-                <ScalarProperty Name="Order_Date" ColumnName="Order Date" />
-                <ScalarProperty Name="Pickup_Date" ColumnName="Pickup Date" />
-                <ScalarProperty Name="Delivery_Date" ColumnName="Delivery Date" />
-                <ScalarProperty Name="Pickup_Location" ColumnName="Pickup Location" />
-                <ScalarProperty Name="Delivery_Location" ColumnName="Delivery Location" />
-                <ScalarProperty Name="Extra_stops" ColumnName="Extra stops" />
-                <ScalarProperty Name="Loaded_miles" ColumnName="Loaded miles" />
-                <ScalarProperty Name="Dead_head_miles" ColumnName="Dead head miles" />
-                <ScalarProperty Name="Comfirmed_Rate" ColumnName="Comfirmed Rate" />
-                <ScalarProperty Name="Customer" ColumnName="Customer" />
-                <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
-                <ScalarProperty Name="Driver" ColumnName="Driver" />
-                <ScalarProperty Name="Paid" ColumnName="Paid" />
-                <ScalarProperty Name="Extra_Charges" ColumnName="Extra Charges" />
-                <ScalarProperty Name="Detention_pay" ColumnName="Detention pay" />
-                <ScalarProperty Name="Total_charges" ColumnName="Total charges" />
-                <ScalarProperty Name="Detention" ColumnName="Detention" />
-                <ScalarProperty Name="Picked" ColumnName="Picked" />
-                <ScalarProperty Name="Deliverd" ColumnName="Deliverd" />
-                <ScalarProperty Name="Invoice" ColumnName="Invoice" />
-                <ScalarProperty Name="Customer_Invoiced" ColumnName="Customer Invoiced" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-                <ScalarProperty Name="Driver_paid" ColumnName="Driver paid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Trip_Info___old">
-            <EntityTypeMapping TypeName="vpss1Model.Trip_Info___old">
-              <MappingFragment StoreEntitySet="Trip Info - old">
-                <ScalarProperty Name="Trip_ID" ColumnName="Trip ID" />
-                <ScalarProperty Name="Order_date" ColumnName="Order date" />
-                <ScalarProperty Name="Pickup_date" ColumnName="Pickup date" />
-                <ScalarProperty Name="Delivery_date" ColumnName="Delivery date" />
-                <ScalarProperty Name="Pick_up_location" ColumnName="Pick up location" />
-                <ScalarProperty Name="Delivery_location" ColumnName="Delivery location" />
-                <ScalarProperty Name="Extra_stops" ColumnName="Extra stops" />
-                <ScalarProperty Name="Loaded_miles" ColumnName="Loaded miles" />
-                <ScalarProperty Name="Dead_head_miles" ColumnName="Dead head miles" />
-                <ScalarProperty Name="Comfirmed_Rate" ColumnName="Comfirmed Rate" />
-                <ScalarProperty Name="Customer" ColumnName="Customer" />
-                <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
-                <ScalarProperty Name="Driver" ColumnName="Driver" />
-                <ScalarProperty Name="Paid" ColumnName="Paid" />
-                <ScalarProperty Name="Extra_charges" ColumnName="Extra charges" />
-                <ScalarProperty Name="Detention_pay" ColumnName="Detention pay" />
-                <ScalarProperty Name="Total_charges" ColumnName="Total charges" />
-                <ScalarProperty Name="Detention" ColumnName="Detention" />
-                <ScalarProperty Name="Picked" ColumnName="Picked" />
-                <ScalarProperty Name="Deliverd" ColumnName="Deliverd" />
-                <ScalarProperty Name="Invoice" ColumnName="Invoice" />
-                <ScalarProperty Name="Customer_Invoiced" ColumnName="Customer Invoiced" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-                <ScalarProperty Name="Driver_paid" ColumnName="Driver paid" />
-                <ScalarProperty Name="PO_" ColumnName="PO#" />
-                <ScalarProperty Name="Customer_Invoiced_date" ColumnName="Customer Invoiced date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Violations">
-            <EntityTypeMapping TypeName="vpss1Model.Violations">
-              <MappingFragment StoreEntitySet="Violations">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Driver" ColumnName="Driver" />
-                <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="Date_occurred" ColumnName="Date occurred" />
-                <ScalarProperty Name="Date_resolved" ColumnName="Date resolved" />
-                <ScalarProperty Name="Equipment" ColumnName="Equipment" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Customer_Info">
             <EntityTypeMapping TypeName="vpss1Model.Customer_Info">
               <MappingFragment StoreEntitySet="Customer Info">
@@ -1643,6 +231,71 @@
                 <ScalarProperty Name="Street" ColumnName="Street" />
                 <ScalarProperty Name="Customer_Name" ColumnName="Customer Name" />
                 <ScalarProperty Name="Customer_ID" ColumnName="Customer ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Driver_Info">
+            <EntityTypeMapping TypeName="vpss1Model.Driver_Info">
+              <MappingFragment StoreEntitySet="Driver Info">
+                <ScalarProperty Name="Owner_Name" ColumnName="Owner Name" />
+                <ScalarProperty Name="Owner_Pay_Rate" ColumnName="Owner Pay Rate" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
+                <ScalarProperty Name="fuel___advance_Fee_rate" ColumnName="fuel &amp; advance Fee rate" />
+                <ScalarProperty Name="Fuel_Card" ColumnName="Fuel Card" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Trailer" ColumnName="Trailer" />
+                <ScalarProperty Name="Truck" ColumnName="Truck" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Pay_rate" ColumnName="Pay rate" />
+                <ScalarProperty Name="HazMat" ColumnName="HazMat" />
+                <ScalarProperty Name="Date_Issued" ColumnName="Date Issued" />
+                <ScalarProperty Name="Expiration_Date" ColumnName="Expiration Date" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Drive_Lic" ColumnName="Drive Lic" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="Middle_in" ColumnName="Middle in" />
+                <ScalarProperty Name="First_name" ColumnName="First name" />
+                <ScalarProperty Name="Last_name" ColumnName="Last name" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trip_Info">
+            <EntityTypeMapping TypeName="vpss1Model.Trip_Info">
+              <MappingFragment StoreEntitySet="Trip Info">
+                <ScalarProperty Name="Customer_Invoiced_date" ColumnName="Customer Invoiced date" />
+                <ScalarProperty Name="PO_" ColumnName="PO#" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Equipment_ID" ColumnName="Equipment ID" />
+                <ScalarProperty Name="Driver_paid" ColumnName="Driver paid" />
+                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Customer_Invoiced" ColumnName="Customer Invoiced" />
+                <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+                <ScalarProperty Name="Deliverd" ColumnName="Deliverd" />
+                <ScalarProperty Name="Picked" ColumnName="Picked" />
+                <ScalarProperty Name="Detention" ColumnName="Detention" />
+                <ScalarProperty Name="Total_charges" ColumnName="Total charges" />
+                <ScalarProperty Name="Detention_pay" ColumnName="Detention pay" />
+                <ScalarProperty Name="Extra_charges" ColumnName="Extra charges" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Driver" ColumnName="Driver" />
+                <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="Comfirmed_Rate" ColumnName="Comfirmed Rate" />
+                <ScalarProperty Name="Dead_head_miles" ColumnName="Dead head miles" />
+                <ScalarProperty Name="Loaded_miles" ColumnName="Loaded miles" />
+                <ScalarProperty Name="Extra_stops" ColumnName="Extra stops" />
+                <ScalarProperty Name="Delivery_location" ColumnName="Delivery location" />
+                <ScalarProperty Name="Pick_up_location" ColumnName="Pick up location" />
+                <ScalarProperty Name="Delivery_date" ColumnName="Delivery date" />
+                <ScalarProperty Name="Pickup_date" ColumnName="Pickup date" />
+                <ScalarProperty Name="Order_date" ColumnName="Order date" />
+                <ScalarProperty Name="Trip_ID" ColumnName="Trip ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1667,29 +320,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Model1">
-        <EntityTypeShape EntityType="vpss1Model.Company_Expanses" Width="1.5" PointX="0.75" PointY="0.75" Height="1.9802864583333331" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Dispatchers" Width="1.5" PointX="4.75" PointY="0.75" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Equipment" Width="1.5" PointX="0.75" PointY="4.75" Height="3.5186979166666656" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.fixed_charges" Width="1.5" PointX="2.75" PointY="4.75" Height="2.9417936197916656" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Income" Width="1.5" PointX="4.75" PointY="3.75" Height="2.5571907552083322" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.InvoiceA" Width="1.5" PointX="6.75" PointY="0.75" Height="1.4033821614583317" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Maintenance" Width="1.5" PointX="6.75" PointY="3.75" Height="2.7494921874999996" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Operating_Expenses" Width="1.5" PointX="4.75" PointY="7.75" Height="2.7494921874999996" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Owners" Width="1.5" PointX="6.75" PointY="7.75" Height="1.9802864583333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Printed_Temp_Fuel___Expenses" Width="1.5" PointX="8.75" PointY="0.75" Height="3.3263964843750031" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Printed_Temp_Split_Expenses_Driver" Width="1.5" PointX="8.75" PointY="5.75" Height="3.3263964843750031" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Printed_Temp_Split_Expenses_Owner" Width="1.5" PointX="0.75" PointY="9.75" Height="3.3263964843750031" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Printed_Temp_Trip_Info" Width="1.5" PointX="10.75" PointY="0.75" Height="6.2109179687500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.ReportIDs" Width="1.5" PointX="6.75" PointY="10.75" Height="1.5956835937500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.split_expenses" Width="1.5" PointX="10.75" PointY="7.75" Height="2.9417936197916674" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Temp_Fuel___Expenses" Width="1.5" PointX="2.75" PointY="11.75" Height="3.1340950520833388" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Temp_Operating_Expenses" Width="1.5" PointX="8.75" PointY="11.75" Height="2.9417936197916674" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Temp_split_expenses_Driver" Width="1.5" PointX="10.75" PointY="11.75" Height="3.1340950520833388" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Temp_split_expenses_owner" Width="1.5" PointX="12.75" PointY="0.75" Height="3.1340950520833388" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Temp_Trip_Info" Width="1.5" PointX="12.75" PointY="4.75" Height="6.0186165364583282" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Trip_Info___old" Width="1.5" PointX="12.75" PointY="11.75" Height="6.2109179687500067" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Violations" Width="1.5" PointX="4.75" PointY="13.75" Height="2.1725878906250102" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Customer_Info" Width="1.5" PointX="2.75" PointY="0.75" Height="3.1340950520833246" />
+        <EntityTypeShape EntityType="vpss1Model.Customer_Info" Width="1.5" PointX="5.75" PointY="0.75" Height="3.1340950520833246" />
+        <EntityTypeShape EntityType="vpss1Model.Driver_Info" Width="1.5" PointX="0.75" PointY="1.625" Height="5.8263151041666674" />
+        <EntityTypeShape EntityType="vpss1Model.Trip_Info" Width="1.5" PointX="3" PointY="1.125" Height="6.787822265624996" />
+        <AssociationConnector Association="vpss1Model.FK_Trip_Info_Driver_Info" >
+          <ConnectorPoint PointX="2.25" PointY="4.5381575520833337" />
+          <ConnectorPoint PointX="3" PointY="4.5381575520833337" />
+        </AssociationConnector>
       </Diagram>
     </Diagrams>
   </Designer>
