@@ -21,6 +21,9 @@
                             <input type="checkbox" name="" value="" class="checkAll" />
                         </th>
                         <th>
+                            CompanyExpansesID
+                        </th>
+                        <th>
                             Expanses
                         </th>
                         <th>
@@ -38,6 +41,9 @@
                         <tr>
                             <td>
                                 <input type="checkbox" name="checkOwner" value="@item.CompanyExpansesID" class="checkitem"/>
+                            </td>
+                            <td>                                
+                                @Html.ActionLink(item.CompanyExpansesID.ToString(), "NewOrEdit", new { id=item.CompanyExpansesID})
                             </td>
                             <td>
                                 @item.Expanses
