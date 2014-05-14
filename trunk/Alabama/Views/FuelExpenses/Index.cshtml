@@ -1,0 +1,81 @@
+﻿@model Webdiyer.WebControls.Mvc.PagedList<Alabama.Fuel___Expenses>
+@using Webdiyer.WebControls.Mvc;
+<h3>
+    Fuel Expenses</h3>
+<p style="margin-left: 7px;">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info addNewItem" })
+    @Html.ActionLink("Edit", "Edit", null, new { @class = "btn btn-info EditItem" })
+    @Html.ActionLink("Delete", "Delete", null, new { @class = "btn btn-danger DeleteItem confirmDelete" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <input type="checkbox" name="" value="" class="checkAll" />
+            </th>
+            <th>
+                ID
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                AmountN
+            </th>
+            <th>
+                Location
+            </th>
+            <th>
+                Driver
+            </th>
+            <th>
+                Description
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <input type="checkbox" name="checkOwner" value="@item.ID" class="checkitem"/>
+                </td>
+                <td>
+                    <a href="/FuelExpenses/Edit/@item.ID" style="color: #0072BC;">@item.ID</a>
+                </td>
+                <td>
+                    @item.Date
+                </td>
+                <td>
+                    @item.Type
+                </td>
+                <td>
+                    @item.Amount
+                </td>
+                <td>
+                    @item.AmountN
+                </td>
+                <td>
+                    @item.Location
+                </td>
+                <td>
+                    @item.Driver_Info.First_name
+                </td>
+                @*<td>
+                        <a href="/CreatedCard/Details/@item.CreatedCardID" style="color: #0072BC;">@item.CreatedCard.Note</a>
+                    </td>*@
+                <td>
+                    @item.Description
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div style="text-align: center; margin-bottom: 10px; padding: 5px 10px; font-size: 13px;">
+@Html.Pager(Model, new PagerOptions { PageIndexParameterName = "page", CurrentPagerItemWrapperFormatString = "<b>{0}</b>", CurrentPageNumberFormatString = "[{0}]", FirstPageText = "<<", LastPageText = ">>", NextPageText = ">", PrevPageText = "<" })
