@@ -36,9 +36,11 @@
         $(".EditItem").hide();
         if ($(this).is(':checked')) {
             $(".checkitem").prop('checked', true);
+            $(".DeleteItem").text('Delete All');
             $(".DeleteItem").show();
         } else {
             $(".checkitem").prop('checked', false);
+            $(".DeleteItem").text('Delete');
             $(".DeleteItem").hide();
         }
     });
@@ -62,13 +64,13 @@
         $('input.checkitem:checkbox:checked').each(function () {
             listID += "," + $(this).val();
         });
-        if (listID!="") {
+        if (listID != "") {
             $(this).attr('href', url + "?arrayID=" + listID);
         } else {
             alert('Warring!');
             return false;
         }
-        
+
     });
 
     $(".EditItem").click(function () {

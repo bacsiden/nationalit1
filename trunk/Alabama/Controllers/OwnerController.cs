@@ -43,13 +43,9 @@ namespace Alabama.Controllers
                 }
                 else
                 {
-                    // Add new
-                    var obj = db.Owners.FirstOrDefault(m=>m.OwnerID==model.OwnerID);
-                    obj.Name = model.Name;
-                    obj.pay_rate = model.pay_rate;
-                    obj.fee_rate = model.fee_rate;
-                    obj.ssn_ = model.ssn_;
-                    db.ObjectStateManager.ChangeObjectState(obj, System.Data.EntityState.Modified);
+                    // Add new      
+                    db.AttachTo("Owners", model);
+                    db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
                 }
                 db.SaveChanges();
                 return RedirectToAction("Index");

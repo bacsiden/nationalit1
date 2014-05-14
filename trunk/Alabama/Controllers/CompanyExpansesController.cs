@@ -46,12 +46,8 @@ namespace Alabama.Controllers
                 else
                 {
                     // Add new
-                    var obj = db.Company_Expanses.FirstOrDefault(m => m.CompanyExpansesID == model.CompanyExpansesID);
-                    obj.Amount = model.Amount;
-                    obj.Comment = model.Comment;
-                    obj.Date = model.Date;
-                    obj.Expanses = model.Expanses;
-                    db.ObjectStateManager.ChangeObjectState(obj, System.Data.EntityState.Modified);
+                    db.AttachTo("Company_Expanses", model);
+                    db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
                 }
                 db.SaveChanges();
                 return RedirectToAction("Index");

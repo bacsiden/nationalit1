@@ -43,7 +43,7 @@
                                 <input type="checkbox" name="checkOwner" value="@item.OwnerID" class="checkitem"/>
                             </td>
                             <td>
-                                @item.OwnerID
+                                @Html.ActionLink(item.OwnerID.ToString(), "NewOrEdit", new { id = item.OwnerID })
                             </td>
                             <td>
                                 @item.Name
