@@ -13,10 +13,11 @@ namespace Alabama.Controllers
 
         public ActionResult Index(int? page)
         {
-            if (page == null) page = 0;
-            var db = DB.Entities;
-            var lst = db.Trip_Info;
-            return View(lst.OrderBy(m=>m.Trip_ID).ToPagedList(page.Value, 30));
+            //if (page == null) page = 0;
+            //var db = DB.Entities;
+            //var lst = db.Trip_Info;
+            //return View(lst.OrderBy(m=>m.Trip_ID).ToPagedList(page.Value, 30));
+            return View();
         }
 
     }
