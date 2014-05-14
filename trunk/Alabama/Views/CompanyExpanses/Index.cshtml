@@ -7,7 +7,7 @@
                 <h3>
                     <i class="icon-table"></i>List Owners</h3>
             </div>
-            <div class="box-content">                
+            <div class="box-content">
                 <div class="row-fluid">
                     <div class="span12">
                         @Html.ActionLink("Create New", "NewOrEdit", null, new { @class = "btn btn-info addNewItem" })
@@ -21,42 +21,36 @@
                             <input type="checkbox" name="" value="" class="checkAll" />
                         </th>
                         <th>
-                            OwnerID
+                            Expanses
                         </th>
                         <th>
-                            Name
+                            Amount
                         </th>
                         <th>
-                            ssn_
+                            Date
                         </th>
                         <th>
-                            fee_rate
+                            Comment
                         </th>
-                        <th>
-                            pay_rate
-                        </th>                        
                     </tr>
                     @foreach (var item in Model)
                     {
                         <tr>
                             <td>
-                                <input type="checkbox" name="checkOwner" value="@item.OwnerID" class="checkitem"/>
+                                <input type="checkbox" name="checkOwner" value="@item.CompanyExpansesID" class="checkitem"/>
                             </td>
                             <td>
-                                @item.OwnerID
+                                @item.Expanses
                             </td>
                             <td>
-                                @item.Name
+                                @String.Format("{0:F}", item.Amount)
                             </td>
                             <td>
-                                @item.ssn_
+                                @String.Format("{0:g}", item.Date)
                             </td>
                             <td>
-                                @item.fee_rate
+                                @item.Comment
                             </td>
-                            <td>
-                                @item.pay_rate
-                            </td>                            
                         </tr>
                     }
                 </table>
