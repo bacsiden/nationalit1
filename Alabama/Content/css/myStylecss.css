@@ -42,3 +42,10 @@ table.styleWidth
 {
     float:right;
 }
+
+/******* table hide button delete and edit ********************/
+
+.EditItem , .DeleteItem
+{
+    display:none;   
+}
