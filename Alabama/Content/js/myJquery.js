@@ -30,5 +30,57 @@
             }
         });
     });
+
+    // show hide button Edit & Delete when click checkbox
+    $(".checkAll").click(function () {
+        $(".EditItem").hide();
+        if ($(this).is(':checked')) {
+            $(".checkitem").prop('checked', true);
+            $(".DeleteItem").show();
+        } else {
+            $(".checkitem").prop('checked', false);
+            $(".DeleteItem").hide();
+        }
+    });
+    $(".checkitem").click(function () {
+        $(".DeleteItem").show();
+        var numberOfChecked = $('input:checkbox:checked').length;
+        if (numberOfChecked == 0) {
+            $(".DeleteItem").hide();
+        }
+        if (numberOfChecked == 1) {
+            $(".EditItem").show();
+        } else {
+            $(".EditItem").hide();
+        }
+    });
+
+    // Event click with button Edit & Delete
+    $(".DeleteItem").click(function () {
+        var listID = "";
+        var url = $(this).attr('href');
+        $('input.checkitem:checkbox:checked').each(function () {
+            listID += "," + $(this).val();
+        });
+        if (listID!="") {
+            $(this).attr('href', url + "?arrayID=" + listID);
+        } else {
+            alert('Warring!');
+            return false;
+        }
+        
+    });
+
+    $(".EditItem").click(function () {
+        var obj = $('input.checkitem:checkbox:checked');
+        if (obj.length == 1) {
+            var value = obj.val();
+            var url = $(this).attr('href');
+            $(this).attr('href', url + "/" + value);
+        } else {
+            alert('Warring!');
+            return false;
+        }
+    });
 });
 
