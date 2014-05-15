@@ -7,7 +7,7 @@ using Webdiyer.WebControls.Mvc;
 
 namespace Alabama.Controllers
 {
-    public class IncomeController : Controller
+    public class CustomerInfoController : Controller
     {
         int pageSize = 20;
         //
@@ -15,14 +15,14 @@ namespace Alabama.Controllers
 
         public ActionResult Index(int? page)
         {
-            return View(DB.Entities.Income.OrderByDescending(m => m.IncomeID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
+            return View(DB.Entities.Customer_Info.OrderByDescending(m => m.Customer_ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
         }
         //
         // GET: /Owner/Edit/5
 
         public ActionResult NewOrEdit(int? id = 0)
         {
-            var obj = DB.Entities.Income.FirstOrDefault(m => m.IncomeID == id);
+            var obj = DB.Entities.Customer_Info.FirstOrDefault(m => m.Customer_ID == id);
             return View(obj);
         }
 
@@ -30,21 +30,21 @@ namespace Alabama.Controllers
         // POST: /Owner/Edit/5
 
         [HttpPost]
-        public ActionResult NewOrEdit(Income model)
+        public ActionResult NewOrEdit(Customer_Info model)
         {
             try
             {
                 var db = DB.Entities;
 
-                if (model.IncomeID == 0)
+                if (model.Customer_ID == 0)
                 {
                     // Edit                    
-                    db.Income.AddObject(model);
+                    db.Customer_Info.AddObject(model);
                 }
                 else
                 {
                     // Add new      
-                    db.AttachTo("Income", model);
+                    db.AttachTo("Customer_Info", model);
                     db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
                 }
                 db.SaveChanges();
@@ -71,8 +71,8 @@ namespace Alabama.Controllers
                     foreach (var item in lstID)
                     {
                         int tmpID = int.Parse(item);
-                        var obj = db.Income.FirstOrDefault(m => m.IncomeID == tmpID);
-                        db.Income.DeleteObject(obj);
+                        var obj = db.Customer_Info.FirstOrDefault(m => m.Customer_ID == tmpID);
+                        db.Customer_Info.DeleteObject(obj);
                     }
                     db.SaveChanges();
                 }
