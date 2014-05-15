@@ -23,7 +23,7 @@
                         <div class="controls">
                             <div class="span12">
                                 @*<input type="text" name="username" id="username" class="input-xlarge" data-rule-required="true" data-rule-minlength="3" />*@
-                                @Html.TextBoxFor(model => model.IncomeDate, new { @class = "input-xlarge" })
+                                @Html.TextBoxFor(model => model.IncomeDate, new { @class = "input-xlarge date-picker", size = "16" })
                                 @Html.ValidationMessageFor(model => model.IncomeDate)
                             </div>
                         </div>
