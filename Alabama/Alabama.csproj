@@ -262,6 +262,7 @@
     <Content Include="Views\Income\NewOrEdit.cshtml" />
     <Content Include="Views\Dispatchers\Index.cshtml" />
     <Content Include="Views\Dispatchers\NewOrEdit.cshtml" />
+    <Content Include="Views\Shared\_ListMenu.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/Content/assets/bootstrap/bootstrap-responsive.min.css">
     <link href="/Content/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/Content/assets/normalize/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/Content/assets/bootstrap-datepicker/css/datepicker.css" />
     <link rel="stylesheet" href="/Content/css/flaty.css">
     <link rel="stylesheet" href="/Content/css/flaty-responsive.css">
     <link href="/Content/assets/data-tables/DT_bootstrap.css" rel="stylesheet" type="text/css" />
@@ -19,7 +20,8 @@
     <script type="text/javascript" src="/Content/assets/modernizr/modernizr-2.6.2.min.js"></script>
     <script type="text/javascript">        window.jQuery || document.write('<script src="/Content/assets/jquery/jquery-1.10.1.min.js"><\/script>')</script>
     <script type="text/javascript" src="/Content/assets/bootstrap/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/Content/assets/nicescroll/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="/Content/assets/nicescroll/jquery.nicescroll.min.js"></script>    
+<script type="text/javascript" src="/Content/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="/Content/js/flaty.js"></script>
     <script src="/Content/js/myJquery.js" type="text/javascript"></script>
 </head>
@@ -67,25 +69,7 @@
                 </li>
                 <!-- END Search Form -->
                 @Html.Raw(ViewBag.Menu)
-                <li>
-                    <a href="/Owner">
-                        <i class="icon-list"></i>
-                        <span>Owners</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/CompanyExpanses">
-                        <i class="icon-list"></i>
-                        <span>CompanyExpanses</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Income">
-                        <i class="icon-list"></i>
-                        <span>Income</span>
-                    </a>
-                </li>
-
+                @Html.Partial("_ListMenu")
             </ul>
             <!-- END Navlist -->
             <!-- BEGIN Sidebar Collapse Button -->
