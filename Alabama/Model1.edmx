@@ -4,9 +4,22 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="VPSS1Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="VPSS1Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="VPSS1ModelStoreContainer">
           <EntitySet Name="Company Expanses" EntityType="VPSS1Model.Store.Company Expanses" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Dispatchers" EntityType="VPSS1Model.Store.Dispatchers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Income" EntityType="VPSS1Model.Store.Income" store:Type="Tables" store:Schema="dbo" store:Name="Income">
+            <DefiningQuery>SELECT 
+      [Income].[IncomeID] AS [IncomeID], 
+      [Income].[IncomeDate] AS [IncomeDate], 
+      [Income].[AmountInvoiced] AS [AmountInvoiced], 
+      [Income].[FundedAmount] AS [FundedAmount], 
+      [Income].[ReserveAmount] AS [ReserveAmount], 
+      [Income].[AdvanceFee] AS [AdvanceFee], 
+      [Income].[ChargeBacks] AS [ChargeBacks], 
+      [Income].[Comments] AS [Comments]
+      FROM [dbo].[Income] AS [Income]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="Owners" EntityType="VPSS1Model.Store.Owners" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
         <EntityType Name="Company Expanses">
@@ -19,6 +32,33 @@
           <Property Name="Date" Type="datetime" />
           <Property Name="Comment" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="Dispatchers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Last name" Type="nvarchar" MaxLength="32" />
+          <Property Name="First name" Type="nvarchar" MaxLength="32" />
+          <Property Name="SSN" Type="nvarchar" MaxLength="12" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="Hire date" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'VPSS1.dbo.Income' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Income">
+          <Key>
+            <PropertyRef Name="IncomeID" />
+          </Key>
+          <Property Name="IncomeID" Type="int" Nullable="false" />
+          <Property Name="IncomeDate" Type="datetime" />
+          <Property Name="AmountInvoiced" Type="money" />
+          <Property Name="FundedAmount" Type="money" />
+          <Property Name="ReserveAmount" Type="money" />
+          <Property Name="AdvanceFee" Type="money" />
+          <Property Name="ChargeBacks" Type="money" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="Owners">
           <Key>
             <PropertyRef Name="OwnerID" />
@@ -29,14 +69,15 @@
           <Property Name="fee rate" Type="real" />
           <Property Name="pay rate" Type="real" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="VPSS1Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="VPSS1Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Company_Expanses" EntityType="VPSS1Model.Company_Expanses" />
           <EntitySet Name="Owners" EntityType="VPSS1Model.Owners" />
+          <EntitySet Name="Dispatchers" EntityType="VPSS1Model.Dispatchers" />
+          <EntitySet Name="Income" EntityType="VPSS1Model.Income" />
         </EntityContainer>
         <EntityType Name="Company_Expanses">
           <Key>
@@ -57,6 +98,30 @@
           <Property Name="ssn_" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="fee_rate" Type="Single" />
           <Property Name="pay_rate" Type="Single" />
+        </EntityType>
+        <EntityType Name="Dispatchers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Last_name" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="First_name" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SSN" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DOB" />
+          <Property Type="DateTime" Name="Hire_date" />
+        </EntityType>
+        <EntityType Name="Income">
+          <Key>
+            <PropertyRef Name="IncomeID" />
+          </Key>
+          <Property Type="Int32" Name="IncomeID" Nullable="false" />
+          <Property Type="DateTime" Name="IncomeDate" />
+          <Property Type="Decimal" Name="AmountInvoiced" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="FundedAmount" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="ReserveAmount" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="AdvanceFee" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="ChargeBacks" Precision="19" Scale="4" />
+          <Property Type="String" Name="Comments" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -86,6 +151,32 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Dispatchers">
+            <EntityTypeMapping TypeName="VPSS1Model.Dispatchers">
+              <MappingFragment StoreEntitySet="Dispatchers">
+                <ScalarProperty Name="Hire_date" ColumnName="Hire date" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="First_name" ColumnName="First name" />
+                <ScalarProperty Name="Last_name" ColumnName="Last name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Income">
+            <EntityTypeMapping TypeName="VPSS1Model.Income">
+              <MappingFragment StoreEntitySet="Income">
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="ChargeBacks" ColumnName="ChargeBacks" />
+                <ScalarProperty Name="AdvanceFee" ColumnName="AdvanceFee" />
+                <ScalarProperty Name="ReserveAmount" ColumnName="ReserveAmount" />
+                <ScalarProperty Name="FundedAmount" ColumnName="FundedAmount" />
+                <ScalarProperty Name="AmountInvoiced" ColumnName="AmountInvoiced" />
+                <ScalarProperty Name="IncomeDate" ColumnName="IncomeDate" />
+                <ScalarProperty Name="IncomeID" ColumnName="IncomeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -100,7 +191,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </Options>
@@ -109,6 +200,8 @@
       <Diagram Name="Model1">
         <EntityTypeShape EntityType="VPSS1Model.Company_Expanses" Width="1.5" PointX="0.75" PointY="0.75" Height="1.9802864583333331" IsExpanded="true" />
         <EntityTypeShape EntityType="VPSS1Model.Owners" Width="1.5" PointX="2.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="VPSS1Model.Dispatchers" Width="1.5" PointX="0.75" PointY="3.75" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="VPSS1Model.Income" Width="1.5" PointX="2.75" PointY="3.75" Height="2.5571907552083335" />
       </Diagram>
     </Diagrams>
   </Designer>
