@@ -86,8 +86,11 @@
     });
 
     // input DatePicker
-//    $('.date-picker').datepicker({ language: "en", format: "mm/dd/yyyy" }).on('changeDate', function (ev) {
-//        $('.date-picker').datepicker('hide');
-//    });
+    //    $('.date-picker').datepicker({ language: "en", format: "mm/dd/yyyy" }).on('changeDate', function (ev) {
+    //        $('.date-picker').datepicker('hide');
+    //    });
+
+
 });
 
+ 
