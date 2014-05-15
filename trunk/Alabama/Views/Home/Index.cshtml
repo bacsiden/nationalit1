@@ -34,8 +34,10 @@
     </thead>
     <tbody>
         @{int i = 0;}
-        @foreach (var item in Model)
+        @if (Model!=null && Model.Count > 0)
         {
+            foreach (var item in Model)
+            {
             <tr>
                 <td>
                     @item.Trip_ID
@@ -62,6 +64,7 @@
                     @item.Address
                 </td>
             </tr>
+            }
         }
     </tbody>
 </table>
