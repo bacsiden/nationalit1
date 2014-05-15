@@ -19,6 +19,14 @@ namespace Alabama.Controllers
             //return View(lst.OrderBy(m=>m.Trip_ID).ToPagedList(page.Value, 30));
             return View();
         }
+        public ActionResult Index1()
+        {
+            //if (page == null) page = 0;
+            //var db = DB.Entities;
+            //var lst = db.Trip_Info;
+            //return View(lst.OrderBy(m=>m.Trip_ID).ToPagedList(page.Value, 30));
+            return View(new Driver_Info().GetType().GetProperties());
+        }
 
     }
 }
