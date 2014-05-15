@@ -58,7 +58,7 @@
                         <label class="control-label" for="Hire_date">@Html.LabelFor(model => model.Hire_date)</label>
                         <div class="controls">
                             <div class="span12">
-                                @Html.TextBoxFor(model => model.Hire_date, new { @class = "input-xlarge" })
+                                @Html.TextBoxFor(model => model.Hire_date, new { @class = "input-xlarge date-picker" })
                                 @Html.ValidationMessageFor(model => model.Hire_date)
                             </div>
                         </div>

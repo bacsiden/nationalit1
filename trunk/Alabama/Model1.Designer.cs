@@ -24,6 +24,8 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("VPSS1Model", "FK_Driver_Info_Dispatchers", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Dispatchers), "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Driver_Info), true)]
 [assembly: EdmRelationshipAttribute("VPSS1Model", "FK_Driver_Info_Owners", "Owners", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Owners), "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Driver_Info), true)]
 [assembly: EdmRelationshipAttribute("VPSS1Model", "FK_Trip_Info_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Driver_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("VPSS1Model", "FK_Fuel___Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Driver_Info), "Fuel___Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Fuel___Expenses), true)]
+[assembly: EdmRelationshipAttribute("VPSS1Model", "FK_Operating_Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Driver_Info), "Operating_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Operating_Expenses), true)]
 
 #endregion
 
@@ -186,6 +188,38 @@ namespace Alabama
             }
         }
         private ObjectSet<Driver_Info> _Driver_Info;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Fuel___Expenses> Fuel___Expenses
+        {
+            get
+            {
+                if ((_Fuel___Expenses == null))
+                {
+                    _Fuel___Expenses = base.CreateObjectSet<Fuel___Expenses>("Fuel___Expenses");
+                }
+                return _Fuel___Expenses;
+            }
+        }
+        private ObjectSet<Fuel___Expenses> _Fuel___Expenses;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Operating_Expenses> Operating_Expenses
+        {
+            get
+            {
+                if ((_Operating_Expenses == null))
+                {
+                    _Operating_Expenses = base.CreateObjectSet<Operating_Expenses>("Operating_Expenses");
+                }
+                return _Operating_Expenses;
+            }
+        }
+        private ObjectSet<Operating_Expenses> _Operating_Expenses;
 
         #endregion
 
@@ -245,6 +279,22 @@ namespace Alabama
         public void AddToDriver_Info(Driver_Info driver_Info)
         {
             base.AddObject("Driver_Info", driver_Info);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Fuel___Expenses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToFuel___Expenses(Fuel___Expenses fuel___Expenses)
+        {
+            base.AddObject("Fuel___Expenses", fuel___Expenses);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Operating_Expenses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToOperating_Expenses(Operating_Expenses operating_Expenses)
+        {
+            base.AddObject("Operating_Expenses", operating_Expenses);
         }
 
         #endregion
@@ -1676,6 +1726,413 @@ namespace Alabama
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("VPSS1Model", "FK_Fuel___Expenses_Driver_Info", "Fuel___Expenses")]
+        public EntityCollection<Fuel___Expenses> Fuel___Expenses
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Fuel___Expenses>("VPSS1Model.FK_Fuel___Expenses_Driver_Info", "Fuel___Expenses");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Fuel___Expenses>("VPSS1Model.FK_Fuel___Expenses_Driver_Info", "Fuel___Expenses", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("VPSS1Model", "FK_Operating_Expenses_Driver_Info", "Operating_Expenses")]
+        public EntityCollection<Operating_Expenses> Operating_Expenses
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Operating_Expenses>("VPSS1Model.FK_Operating_Expenses_Driver_Info", "Operating_Expenses");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Operating_Expenses>("VPSS1Model.FK_Operating_Expenses_Driver_Info", "Operating_Expenses", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="VPSS1Model", Name="Fuel___Expenses")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Fuel___Expenses : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Fuel___Expenses object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        public static Fuel___Expenses CreateFuel___Expenses(global::System.Int32 id)
+        {
+            Fuel___Expenses fuel___Expenses = new Fuel___Expenses();
+            fuel___Expenses.ID = id;
+            return fuel___Expenses;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Date
+        {
+            get
+            {
+                return _Date;
+            }
+            set
+            {
+                OnDateChanging(value);
+                ReportPropertyChanging("Date");
+                _Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Date");
+                OnDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Date;
+        partial void OnDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Type
+        {
+            get
+            {
+                return _Type;
+            }
+            set
+            {
+                OnTypeChanging(value);
+                ReportPropertyChanging("Type");
+                _Type = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Type");
+                OnTypeChanged();
+            }
+        }
+        private global::System.String _Type;
+        partial void OnTypeChanging(global::System.String value);
+        partial void OnTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Amount
+        {
+            get
+            {
+                return _Amount;
+            }
+            set
+            {
+                OnAmountChanging(value);
+                ReportPropertyChanging("Amount");
+                _Amount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Amount");
+                OnAmountChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Amount;
+        partial void OnAmountChanging(Nullable<global::System.Decimal> value);
+        partial void OnAmountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> AmountN
+        {
+            get
+            {
+                return _AmountN;
+            }
+            set
+            {
+                OnAmountNChanging(value);
+                ReportPropertyChanging("AmountN");
+                _AmountN = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AmountN");
+                OnAmountNChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _AmountN;
+        partial void OnAmountNChanging(Nullable<global::System.Decimal> value);
+        partial void OnAmountNChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Location
+        {
+            get
+            {
+                return _Location;
+            }
+            set
+            {
+                OnLocationChanging(value);
+                ReportPropertyChanging("Location");
+                _Location = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Location");
+                OnLocationChanged();
+            }
+        }
+        private global::System.String _Location;
+        partial void OnLocationChanging(global::System.String value);
+        partial void OnLocationChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Driver
+        {
+            get
+            {
+                return _Driver;
+            }
+            set
+            {
+                OnDriverChanging(value);
+                ReportPropertyChanging("Driver");
+                _Driver = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Driver");
+                OnDriverChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Driver;
+        partial void OnDriverChanging(Nullable<global::System.Int32> value);
+        partial void OnDriverChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Paid_off
+        {
+            get
+            {
+                return _Paid_off;
+            }
+            set
+            {
+                OnPaid_offChanging(value);
+                ReportPropertyChanging("Paid_off");
+                _Paid_off = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Paid_off");
+                OnPaid_offChanged();
+            }
+        }
+        private global::System.String _Paid_off;
+        partial void OnPaid_offChanging(global::System.String value);
+        partial void OnPaid_offChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Current_Payroll
+        {
+            get
+            {
+                return _Current_Payroll;
+            }
+            set
+            {
+                OnCurrent_PayrollChanging(value);
+                ReportPropertyChanging("Current_Payroll");
+                _Current_Payroll = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Current_Payroll");
+                OnCurrent_PayrollChanged();
+            }
+        }
+        private global::System.String _Current_Payroll;
+        partial void OnCurrent_PayrollChanging(global::System.String value);
+        partial void OnCurrent_PayrollChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String fee_charged
+        {
+            get
+            {
+                return _fee_charged;
+            }
+            set
+            {
+                Onfee_chargedChanging(value);
+                ReportPropertyChanging("fee_charged");
+                _fee_charged = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("fee_charged");
+                Onfee_chargedChanged();
+            }
+        }
+        private global::System.String _fee_charged;
+        partial void Onfee_chargedChanging(global::System.String value);
+        partial void Onfee_chargedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Fuel_Card
+        {
+            get
+            {
+                return _Fuel_Card;
+            }
+            set
+            {
+                OnFuel_CardChanging(value);
+                ReportPropertyChanging("Fuel_Card");
+                _Fuel_Card = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Fuel_Card");
+                OnFuel_CardChanged();
+            }
+        }
+        private global::System.String _Fuel_Card;
+        partial void OnFuel_CardChanging(global::System.String value);
+        partial void OnFuel_CardChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("VPSS1Model", "FK_Fuel___Expenses_Driver_Info", "Driver_Info")]
+        public Driver_Info Driver_Info
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("VPSS1Model.FK_Fuel___Expenses_Driver_Info", "Driver_Info").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("VPSS1Model.FK_Fuel___Expenses_Driver_Info", "Driver_Info").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Driver_Info> Driver_InfoReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("VPSS1Model.FK_Fuel___Expenses_Driver_Info", "Driver_Info");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Driver_Info>("VPSS1Model.FK_Fuel___Expenses_Driver_Info", "Driver_Info", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -1904,6 +2361,297 @@ namespace Alabama
         #endregion
 
     
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="VPSS1Model", Name="Operating_Expenses")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Operating_Expenses : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Operating_Expenses object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        public static Operating_Expenses CreateOperating_Expenses(global::System.Int32 id)
+        {
+            Operating_Expenses operating_Expenses = new Operating_Expenses();
+            operating_Expenses.ID = id;
+            return operating_Expenses;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Date
+        {
+            get
+            {
+                return _Date;
+            }
+            set
+            {
+                OnDateChanging(value);
+                ReportPropertyChanging("Date");
+                _Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Date");
+                OnDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Date;
+        partial void OnDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Type
+        {
+            get
+            {
+                return _Type;
+            }
+            set
+            {
+                OnTypeChanging(value);
+                ReportPropertyChanging("Type");
+                _Type = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Type");
+                OnTypeChanged();
+            }
+        }
+        private global::System.String _Type;
+        partial void OnTypeChanging(global::System.String value);
+        partial void OnTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Amount
+        {
+            get
+            {
+                return _Amount;
+            }
+            set
+            {
+                OnAmountChanging(value);
+                ReportPropertyChanging("Amount");
+                _Amount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Amount");
+                OnAmountChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Amount;
+        partial void OnAmountChanging(Nullable<global::System.Decimal> value);
+        partial void OnAmountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Location
+        {
+            get
+            {
+                return _Location;
+            }
+            set
+            {
+                OnLocationChanging(value);
+                ReportPropertyChanging("Location");
+                _Location = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Location");
+                OnLocationChanged();
+            }
+        }
+        private global::System.String _Location;
+        partial void OnLocationChanging(global::System.String value);
+        partial void OnLocationChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Driver
+        {
+            get
+            {
+                return _Driver;
+            }
+            set
+            {
+                OnDriverChanging(value);
+                ReportPropertyChanging("Driver");
+                _Driver = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Driver");
+                OnDriverChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Driver;
+        partial void OnDriverChanging(Nullable<global::System.Int32> value);
+        partial void OnDriverChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Paid_off
+        {
+            get
+            {
+                return _Paid_off;
+            }
+            set
+            {
+                OnPaid_offChanging(value);
+                ReportPropertyChanging("Paid_off");
+                _Paid_off = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Paid_off");
+                OnPaid_offChanged();
+            }
+        }
+        private global::System.String _Paid_off;
+        partial void OnPaid_offChanging(global::System.String value);
+        partial void OnPaid_offChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Current_Payroll
+        {
+            get
+            {
+                return _Current_Payroll;
+            }
+            set
+            {
+                OnCurrent_PayrollChanging(value);
+                ReportPropertyChanging("Current_Payroll");
+                _Current_Payroll = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Current_Payroll");
+                OnCurrent_PayrollChanged();
+            }
+        }
+        private global::System.String _Current_Payroll;
+        partial void OnCurrent_PayrollChanging(global::System.String value);
+        partial void OnCurrent_PayrollChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("VPSS1Model", "FK_Operating_Expenses_Driver_Info", "Driver_Info")]
+        public Driver_Info Driver_Info
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("VPSS1Model.FK_Operating_Expenses_Driver_Info", "Driver_Info").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("VPSS1Model.FK_Operating_Expenses_Driver_Info", "Driver_Info").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Driver_Info> Driver_InfoReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("VPSS1Model.FK_Operating_Expenses_Driver_Info", "Driver_Info");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Driver_Info>("VPSS1Model.FK_Operating_Expenses_Driver_Info", "Driver_Info", value);
+                }
+            }
+        }
+
+        #endregion
+
     }
     
     /// <summary>
