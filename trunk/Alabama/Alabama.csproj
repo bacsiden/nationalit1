@@ -203,6 +203,7 @@
     <Content Include="Content\js\myJquery.js" />
     <Content Include="Global.asax" />
     <Content Include="Untitled.png" />
+    <Content Include="Untitled1.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
