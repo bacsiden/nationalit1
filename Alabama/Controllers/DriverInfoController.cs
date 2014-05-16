@@ -18,26 +18,28 @@ namespace Alabama.Controllers
 
         public ActionResult NewOrEdit(int? id = 0)
         {
-            var obj = DB.Entities.Trip_Info.FirstOrDefault(m => m.Trip_ID == id);
+            if (id == 0) return View(new Driver_Info());
+
+            var obj = DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == id);
             return View(obj);
         }
 
         [HttpPost]
-        public ActionResult NewOrEdit(Trip_Info model)
+        public ActionResult NewOrEdit(Driver_Info model)
         {
             try
             {
                 var db = DB.Entities;
 
-                if (model.Trip_ID == 0)
+                if (model.ID == 0)
                 {
                     // Edit                    
-                    db.Trip_Info.AddObject(model);
+                    db.Driver_Info.AddObject(model);
                 }
                 else
                 {
                     // Add new      
-                    db.AttachTo("Trip_Info", model);
+                    db.AttachTo("Driver_Info", model);
                     db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
                 }
                 db.SaveChanges();
@@ -61,8 +63,8 @@ namespace Alabama.Controllers
                     foreach (var item in lstID)
                     {
                         int tmpID = int.Parse(item);
-                        var obj = db.Trip_Info.FirstOrDefault(m => m.Trip_ID == tmpID);
-                        db.Trip_Info.DeleteObject(obj);
+                        var obj = db.Driver_Info.FirstOrDefault(m => m.ID == tmpID);
+                        db.Driver_Info.DeleteObject(obj);
                     }
                     db.SaveChanges();
                 }
