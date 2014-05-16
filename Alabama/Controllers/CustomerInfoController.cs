@@ -85,5 +85,12 @@ namespace Alabama.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult _Trip_Info_Partial(int id, int? page)
+        {
+            if (page == null) page = 0;
+            var db = DB.Entities;
+            return PartialView(db.Trip_Info.Where(m => m.Customer_Info.Customer_ID == id).OrderByDescending(m => m.Trip_ID).ToPagedList(page.Value, pageSize));
+        }
+
     }
 }
