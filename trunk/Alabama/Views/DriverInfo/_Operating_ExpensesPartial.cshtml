@@ -1,21 +1,10 @@
-﻿@model Webdiyer.WebControls.Mvc.PagedList<Alabama.Fuel___Expenses>
+﻿@model Webdiyer.WebControls.Mvc.PagedList<Alabama.Operating_Expenses>
 @using Webdiyer.WebControls.Mvc;
 <h3>
-    Fuel Expenses</h3>
-<p style="margin-left: 7px;">
-    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info addNewItem" })
-    @Html.ActionLink("Edit", "Edit", null, new { @class = "btn btn-info EditItem" })
-    @Html.ActionLink("Delete", "Delete", null, new { @class = "btn btn-danger DeleteItem confirmDelete" })
-</p>
+    Operating Expenses</h3>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                <input type="checkbox" name="" value="" class="checkAll" />
-            </th>
-            <th>
-                ID
-            </th>
             <th>
                 Date
             </th>
@@ -26,9 +15,6 @@
                 Amount
             </th>
             <th>
-                AmountN
-            </th>
-            <th>
                 Location
             </th>
             <th>
@@ -37,6 +23,12 @@
             <th>
                 Description
             </th>
+            <th>
+                Paid_off
+            </th>
+            <th>
+                Current_Payroll
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -44,22 +36,13 @@
         {
             <tr>
                 <td>
-                    <input type="checkbox" name="checkOwner" value="@item.ID" class="checkitem"/>
-                </td>
-                <td>
-                    <a href="/FuelExpenses/Edit/@item.ID" style="color: #0072BC;">@item.ID</a>
-                </td>
-                <td>
-                    @item.Date
+                    @String.Format("{0:g}", item.Date)
                 </td>
                 <td>
                     @item.Type
                 </td>
                 <td>
-                    @item.Amount
-                </td>
-                <td>
-                    @item.AmountN
+                    @String.Format("{0:F}", item.Amount)
                 </td>
                 <td>
                     @item.Location
@@ -67,11 +50,14 @@
                 <td>
                     @Html.Raw(item.Driver_Info != null ? item.Driver_Info.First_name : "")
                 </td>
-                @*<td>
-                        <a href="/CreatedCard/Details/@item.CreatedCardID" style="color: #0072BC;">@item.CreatedCard.Note</a>
-                    </td>*@
                 <td>
                     @item.Description
+                </td>
+                <td>
+                    @item.Paid_off
+                </td>
+                <td>
+                    @item.Current_Payroll
                 </td>
             </tr>
         }
