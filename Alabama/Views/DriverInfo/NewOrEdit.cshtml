@@ -159,7 +159,13 @@
                         @Html.ValidationMessageFor(model => model.Comments)
                     </div>
                 </div>
-            </div>      
+            </div>  
+            <div class="span12">
+                @Html.Action("_Fuel_ExpensesPartial", new { driver_infoID = Model.ID })
+            </div>
+            <div class="span12">
+                @Html.Action("_Operating_ExpensesPartial", new { driver_infoID = Model.ID })
+            </div>  
             <div class="span12">
                 <input type="submit" value="Save" class="btn btn-info" />
                 @Html.ActionLink("Cancel", "Index", null, new { @class = "btn" })
