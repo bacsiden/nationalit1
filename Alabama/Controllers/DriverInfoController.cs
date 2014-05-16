@@ -76,17 +76,17 @@ namespace Alabama.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult _Fuel_ExpensesPartial(int driver_infoID, int?page)
+        public ActionResult _Fuel_ExpensesPartial(int id, int?page)
         {
             if (page == null) page = 0;
             var db = DB.Entities;
-            return PartialView(db.Fuel___Expenses.Where(m => m.Driver_Info.ID == driver_infoID).OrderByDescending(m => m.ID).ToPagedList(page.Value, pageSize));
+            return PartialView(db.Fuel___Expenses.Where(m => m.Driver_Info.ID == id).OrderByDescending(m => m.ID).ToPagedList(page.Value, pageSize));
         }
-        public ActionResult _Operating_ExpensesPartial(int driver_infoID, int? page)
+        public ActionResult _Operating_ExpensesPartial(int id, int? page)
         {
             if (page == null) page = 0;
             var db = DB.Entities;
-            return PartialView(db.Operating_Expenses.Where(m => m.Driver_Info.ID == driver_infoID).OrderByDescending(m => m.ID).ToPagedList(page.Value, pageSize));
+            return PartialView(db.Operating_Expenses.Where(m => m.Driver_Info.ID == id).OrderByDescending(m => m.ID).ToPagedList(page.Value, pageSize));
         }
     }
 }
