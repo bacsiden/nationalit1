@@ -32,8 +32,10 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @if (Model != null)
         {
+            foreach (var item in Model)
+            {
             <tr>
                 <td>
                     @String.Format("{0:g}", item.Date)
@@ -60,13 +62,14 @@
                     @item.Current_Payroll
                 </td>
             </tr>
+            }
         }
     </tbody>
 </table>
 <div class="row-fluid">
     <div class="span4">
         <div class="dataTables_info">
-            @if (Model.TotalItemCount > 0)
+            @if (Model != null && Model.TotalItemCount > 0)
             {
                 if (Model.TotalItemCount < Model.PageSize)
                 {

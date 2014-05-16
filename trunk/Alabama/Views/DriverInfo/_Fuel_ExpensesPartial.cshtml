@@ -1,78 +1,85 @@
-﻿@model Webdiyer.WebControls.Mvc.PagedList<Alabama.Fuel___Expenses>
+﻿<div id="Fuel_ExpensesPartial">
+    @model Webdiyer.WebControls.Mvc.PagedList<Alabama.Fuel___Expenses>
 @using Webdiyer.WebControls.Mvc;
-<h3>
-    Fuel Expenses</h3>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Date
-            </th>
-            <th>
-                Type
-            </th>
-            <th>
-                Amount
-            </th>
-            <th>
-                AmountN
-            </th>
-            <th>
-                Location
-            </th>
-            <th>
-                Driver
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <script src="../../Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+    <h3>
+        Fuel Expenses</h3>
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @item.Date
-                </td>
-                <td>
-                    @item.Type
-                </td>
-                <td>
-                    @item.Amount
-                </td>
-                <td>
-                    @item.AmountN
-                </td>
-                <td>
-                    @item.Location
-                </td>
-                <td>
-                    @Html.Raw(item.Driver_Info != null ? item.Driver_Info.First_name : "")
-                </td>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Type
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    AmountN
+                </th>
+                <th>
+                    Location
+                </th>
+                <th>
+                    Driver
+                </th>
             </tr>
-        }
-    </tbody>
-</table>
-<div class="row-fluid">
-    <div class="span4">
-        <div class="dataTables_info">
-            @if (Model.TotalItemCount > 0)
+        </thead>
+        <tbody>
+            @if (Model != null)
             {
-                if (Model.TotalItemCount < Model.PageSize)
+                foreach (var item in Model)
                 {
-                <span>1 </span>
-                <span>- </span>@Model.TotalItemCount
+                <tr>
+                    <td>
+                        @item.Date
+                    </td>
+                    <td>
+                        @item.Type
+                    </td>
+                    <td>
+                        @item.Amount
+                    </td>
+                    <td>
+                        @item.AmountN
+                    </td>
+                    <td>
+                        @item.Location
+                    </td>
+                    <td>
+                        @Html.Raw(item.Driver_Info != null ? item.Driver_Info.First_name : "")
+                    </td>
+                </tr>
                 }
-                else
-                {
-                <span></span>@((Model.CurrentPageIndex - 1) * Model.PageSize + 1)
-                <span>- </span>@((Model.CurrentPageIndex != Model.TotalPageCount) ? (Model.CurrentPageIndex * Model.PageSize) : Math.Abs((Model.CurrentPageIndex) * Model.PageSize - (Model.PageSize * Model.TotalPageCount) - Model.TotalItemCount))
-                }
-                <span>of </span>@(Model.TotalItemCount)                            
             }
+        </tbody>
+    </table>
+    <div class="row-fluid">
+        <div class="span4">
+            <div class="dataTables_info">
+                @if (Model!=null && Model.TotalItemCount > 0)
+                {
+                    if (Model.TotalItemCount < Model.PageSize)
+                    {
+                    <span>1 </span>
+                    <span>- </span>@Model.TotalItemCount
+                    }
+                    else
+                    {
+                    <span></span>@((Model.CurrentPageIndex - 1) * Model.PageSize + 1)
+                    <span>- </span>@((Model.CurrentPageIndex != Model.TotalPageCount) ? (Model.CurrentPageIndex * Model.PageSize) : Math.Abs((Model.CurrentPageIndex) * Model.PageSize - (Model.PageSize * Model.TotalPageCount) - Model.TotalItemCount))
+                    }
+                    <span>of </span>@(Model.TotalItemCount)                            
+                }
+            </div>
         </div>
-    </div>
-    <div class="span8">
-        <div class="dataTables_paginate paging_bootstrap pagination phantrangmvcpager">
-            @Html.Pager(Model, new PagerOptions { ContainerTagName = "ul", PageIndexParameterName = "page", CurrentPagerItemWrapperFormatString = "<li class='active'>{0}</li>", CurrentPageNumberFormatString = "{0}", FirstPageText = "&laquo; ", LastPageText = " &raquo;", NextPageText = "Next →", PrevPageText = "← Prev", SeparatorHtml = "" })
+        <div class="span8">
+            <div class="dataTables_paginate paging_bootstrap pagination phantrangmvcpager">
+                @Ajax.Pager(Model, new PagerOptions { ContainerTagName = "ul", PageIndexParameterName = "page", CurrentPagerItemWrapperFormatString = "<li class='active'>{0}</li>", CurrentPageNumberFormatString = "{0}", FirstPageText = "&laquo; ", LastPageText = " &raquo;", NextPageText = "Next →", PrevPageText = "← Prev", SeparatorHtml = "" }, new AjaxOptions { UpdateTargetId = "Fuel_ExpensesPartial" })
+            </div>
         </div>
     </div>
 </div>
