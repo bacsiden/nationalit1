@@ -1,7 +1,7 @@
 ﻿.label-add
 {
-    line-height:28px;
-    font-weight:bold;
+    line-height: 28px;
+    font-weight: bold;
 }
 .fleft
 {
@@ -12,7 +12,7 @@ table.styleWidth
 {
     width: 50%;
 }
-.validation-summary-errors,.error
+.validation-summary-errors, .error
 {
     color: Red;
 }
@@ -40,15 +40,28 @@ table.styleWidth
 }
 #navbar .Fluild-Edit #OptionLogin .user-profile
 {
-    float:right;
+    float: right;
 }
 
 /******* table hide button delete and edit ********************/
 
-.EditItem , .DeleteItem
+.EditItem, .DeleteItem
 {
-    display:none;   
+    display: none;
 }
 
 
-label,input,button,select,textarea{font-size:13px;}
+/**************** Edit boostrap *******************************/
+label, input, button, select, textarea
+{
+    font-size: 13px;
+}
+select, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input
+{
+    height: 15px;
+}
+
+.form-horizontal .control-group
+{
+    margin-bottom: 8px;
+}
