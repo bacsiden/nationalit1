@@ -51,6 +51,28 @@
         }
     </tbody>
 </table>
-<div style="text-align: center; margin-bottom: 10px; padding: 5px 10px; font-size: 13px;">
-    @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "page", CurrentPagerItemWrapperFormatString = "<b>{0}</b>", CurrentPageNumberFormatString = "[{0}]", FirstPageText = "<<", LastPageText = ">>", NextPageText = ">", PrevPageText = "<" })
+<div class="row-fluid">
+    <div class="span4">
+        <div class="dataTables_info">
+            @if (Model.TotalItemCount > 0)
+            {
+                if (Model.TotalItemCount < Model.PageSize)
+                {
+                <span>1 </span>
+                <span>- </span>@Model.TotalItemCount
+                }
+                else
+                {
+                <span></span>@((Model.CurrentPageIndex - 1) * Model.PageSize + 1)
+                <span>- </span>@((Model.CurrentPageIndex != Model.TotalPageCount) ? (Model.CurrentPageIndex * Model.PageSize) : Math.Abs((Model.CurrentPageIndex) * Model.PageSize - (Model.PageSize * Model.TotalPageCount) - Model.TotalItemCount))
+                }
+                <span>of </span>@(Model.TotalItemCount)                            
+            }
+        </div>
+    </div>
+    <div class="span8">
+        <div class="dataTables_paginate paging_bootstrap pagination phantrangmvcpager">
+            @Html.Pager(Model, new PagerOptions { ContainerTagName = "ul", PageIndexParameterName = "page", CurrentPagerItemWrapperFormatString = "<li class='active'>{0}</li>", CurrentPageNumberFormatString = "{0}", FirstPageText = "&laquo; ", LastPageText = " &raquo;", NextPageText = "Next →", PrevPageText = "← Prev", SeparatorHtml = "" })
+        </div>
+    </div>
 </div>
