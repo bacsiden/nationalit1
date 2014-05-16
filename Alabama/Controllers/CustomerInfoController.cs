@@ -22,6 +22,7 @@ namespace Alabama.Controllers
 
         public ActionResult NewOrEdit(int? id = 0)
         {
+            if (id == 0) return View(new Customer_Info());
             var obj = DB.Entities.Customer_Info.FirstOrDefault(m => m.Customer_ID == id);
             return View(obj);
         }
