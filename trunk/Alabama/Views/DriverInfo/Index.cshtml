@@ -1,7 +1,6 @@
-﻿@model Webdiyer.WebControls.Mvc.PagedList<Alabama.Fuel___Expenses>
+﻿@model Webdiyer.WebControls.Mvc.PagedList<Alabama.Driver_Info>
 @using Webdiyer.WebControls.Mvc;
-<h3>
-    Fuel Expenses</h3>
+<h3>Driver Info</h3>
 <p style="margin-left: 7px;">
     @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info addNewItem" })
     @Html.ActionLink("Edit", "Edit", null, new { @class = "btn btn-info EditItem" })
@@ -17,25 +16,22 @@
                 ID
             </th>
             <th>
-                Date
+                First Name
             </th>
             <th>
-                Type
+                Date Issued
             </th>
             <th>
-                Amount
+                Active
             </th>
             <th>
-                AmountN
+                Drive Lic
             </th>
             <th>
-                Location
+                Owner
             </th>
             <th>
-                Driver
-            </th>
-            <th>
-                Description
+                Dispatcher
             </th>
         </tr>
     </thead>
@@ -50,29 +46,26 @@
                     <a href="/FuelExpenses/Edit/@item.ID" style="color: #0072BC;">@item.ID</a>
                 </td>
                 <td>
-                    @item.Date
+                    @item.First_name
                 </td>
                 <td>
-                    @item.Type
+                    @item.Date_Issued
                 </td>
                 <td>
-                    @item.Amount
+                    @item.Active
                 </td>
                 <td>
-                    @item.AmountN
+                    @item.Drive_Lic
                 </td>
                 <td>
-                    @item.Location
+                    @item.Owner
                 </td>
                 <td>
-                    @Html.Raw(item.Driver_Info != null ? item.Driver_Info.First_name : "")
+                    @Html.Raw(item.Dispatchers!= null ? item.Dispatchers.First_name : "")
                 </td>
                 @*<td>
                         <a href="/CreatedCard/Details/@item.CreatedCardID" style="color: #0072BC;">@item.CreatedCard.Note</a>
                     </td>*@
-                <td>
-                    @item.Description
-                </td>
             </tr>
         }
     </tbody>

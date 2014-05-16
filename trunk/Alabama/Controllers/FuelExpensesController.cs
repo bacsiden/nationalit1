@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Webdiyer.WebControls.Mvc;
-using Alabama.Models;
 namespace Alabama.Controllers
 {
     public class FuelExpensesController : Controller
