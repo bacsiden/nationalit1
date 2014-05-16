@@ -69,7 +69,7 @@
     </div>
     <div class="span8">
         <div class="dataTables_paginate paging_bootstrap pagination phantrangmvcpager">
-            @Html.Pager(Model, new PagerOptions { ContainerTagName = "ul", PageIndexParameterName = "page", CurrentPagerItemWrapperFormatString = "<li class='active'>{0}</li>", CurrentPageNumberFormatString = "{0}", FirstPageText = "&laquo; ", LastPageText = " &raquo;", NextPageText = "Next →", PrevPageText = "← Prev", SeparatorHtml = "" })
+            @Ajax.Pager(Model, new PagerOptions { ContainerTagName = "ul", PageIndexParameterName = "page", CurrentPagerItemWrapperFormatString = "<li class='active'>{0}</li>", CurrentPageNumberFormatString = "{0}", FirstPageText = "«", LastPageText = "»", NextPageText = "Next →", PrevPageText = "← Prev", SeparatorHtml = "" }, new AjaxOptions { UpdateTargetId = "CHECK" })
         </div>
     </div>
 </div>
