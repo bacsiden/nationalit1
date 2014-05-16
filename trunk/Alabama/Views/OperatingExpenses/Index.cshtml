@@ -1,4 +1,4 @@
-﻿@model Webdiyer.WebControls.Mvc.PagedList<Alabama.Driver_Info>
+﻿@model Webdiyer.WebControls.Mvc.PagedList<Alabama.Operating_Expenses>
 @using Webdiyer.WebControls.Mvc;
 <h3>Driver Info</h3>
 <p style="margin-left: 7px;">
@@ -19,19 +19,19 @@
                 First Name
             </th>
             <th>
-                Date Issued
+                Current Payroll
             </th>
             <th>
-                Active
+                Date
             </th>
             <th>
-                Drive Lic
+                Amount
             </th>
             <th>
-                Owner
+                Driver
             </th>
             <th>
-                Dispatcher
+                Paid_off
             </th>
         </tr>
     </thead>
@@ -46,22 +46,22 @@
                     <a href="/DriverInfo/NewOrEdit/@item.ID" style="color: #0072BC;">@item.ID</a>
                 </td>
                 <td>
-                    @item.First_name
+                    @Html.Raw(item.Driver_Info != null ? item.Driver_Info.First_name : "")
                 </td>
                 <td>
-                    @item.Date_Issued
+                    @item.Current_Payroll
                 </td>
                 <td>
-                    @item.Active
+                    @item.Date
                 </td>
                 <td>
-                    @item.Drive_Lic
+                    @item.Amount
                 </td>
                 <td>
-                    @item.Owner
+                    @item.Driver_Info
                 </td>
                 <td>
-                    @Html.Raw(item.Dispatchers!= null ? item.Dispatchers.First_name : "")
+                    @item.Paid_off
                 </td>
                 @*<td>
                         <a href="/CreatedCard/Details/@item.CreatedCardID" style="color: #0072BC;">@item.CreatedCard.Note</a>

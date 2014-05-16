@@ -7,31 +7,25 @@ using Webdiyer.WebControls.Mvc;
 
 namespace Alabama.Controllers
 {
-    public class DispatchersController : Controller
+    public class OperatingExpensesController : Controller
     {
         int pageSize = 20;
-        //
-        // GET: /Owner/
 
         public ActionResult Index(int? page)
         {
-            return View(DB.Entities.Dispatchers.OrderByDescending(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
+            return View(DB.Entities.Operating_Expenses.OrderByDescending(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
         }
-        //
-        // GET: /Owner/Edit/5
 
         public ActionResult NewOrEdit(int? id = 0)
         {
-            var obj = DB.Entities.Dispatchers.FirstOrDefault(m => m.ID == id);
-            if (obj == null) obj = new Dispatchers();
+            if (id == 0) return View(new Operating_Expenses());
+
+            var obj = DB.Entities.Operating_Expenses.FirstOrDefault(m => m.ID == id);
             return View(obj);
         }
 
-        //
-        // POST: /Owner/Edit/5
-
         [HttpPost]
-        public ActionResult NewOrEdit(Dispatchers model)
+        public ActionResult NewOrEdit(Operating_Expenses model)
         {
             try
             {
@@ -40,12 +34,12 @@ namespace Alabama.Controllers
                 if (model.ID == 0)
                 {
                     // Edit                    
-                    db.Dispatchers.AddObject(model);
+                    db.Operating_Expenses.AddObject(model);
                 }
                 else
                 {
                     // Add new      
-                    db.AttachTo("Dispatchers", model);
+                    db.AttachTo("Operating_Expenses", model);
                     db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
                 }
                 db.SaveChanges();
@@ -56,9 +50,6 @@ namespace Alabama.Controllers
                 return View();
             }
         }
-
-        //
-        // GET: /Owner/Delete/5
 
         public ActionResult Delete(string arrayID = "")
         {
@@ -72,8 +63,8 @@ namespace Alabama.Controllers
                     foreach (var item in lstID)
                     {
                         int tmpID = int.Parse(item);
-                        var obj = db.Dispatchers.FirstOrDefault(m => m.ID == tmpID);
-                        db.Dispatchers.DeleteObject(obj);
+                        var obj = db.Operating_Expenses.FirstOrDefault(m => m.ID == tmpID);
+                        db.Operating_Expenses.DeleteObject(obj);
                     }
                     db.SaveChanges();
                 }
@@ -84,6 +75,5 @@ namespace Alabama.Controllers
             }
             return RedirectToAction("Index");
         }
-
     }
 }
