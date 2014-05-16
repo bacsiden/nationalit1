@@ -49,3 +49,6 @@ table.styleWidth
 {
     display:none;   
 }
+
+
+label,input,button,select,textarea{font-size:13px;}
