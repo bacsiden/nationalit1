@@ -1,4 +1,4 @@
-﻿@model Webdiyer.WebControls.Mvc.PagedList<Alabama.Operating_Expenses>
+﻿@model Webdiyer.WebControls.Mvc.PagedList<Alabama.Trip_Info>
 @using Webdiyer.WebControls.Mvc;
 <h3>
     Operating Expenses</h3>
@@ -6,28 +6,19 @@
     <thead>
         <tr>
             <th>
-                Date
+                Order_date
             </th>
             <th>
-                Type
+                Pickup_date
             </th>
             <th>
-                Amount
+                Delivery_date
             </th>
             <th>
-                Location
+                Pick_up_location
             </th>
             <th>
-                Driver
-            </th>
-            <th>
-                Description
-            </th>
-            <th>
-                Paid_off
-            </th>
-            <th>
-                Current_Payroll
+                Delivery_location
             </th>
         </tr>
     </thead>
@@ -38,28 +29,19 @@
             {
             <tr>
                 <td>
-                    @String.Format("{0:g}", item.Date)
+                    @String.Format("{0:g}", item.Order_date)
                 </td>
                 <td>
-                    @item.Type
+                    @String.Format("{0:g}", item.Pickup_date)
                 </td>
                 <td>
-                    @String.Format("{0:F}", item.Amount)
+                    @String.Format("{0:F}", item.Delivery_date)
                 </td>
                 <td>
-                    @item.Location
+                    @item.Pick_up_location
                 </td>
                 <td>
-                    @Html.Raw(item.Driver_Info != null ? item.Driver_Info.First_name : "")
-                </td>
-                <td>
-                    @item.Description
-                </td>
-                <td>
-                    @item.Paid_off
-                </td>
-                <td>
-                    @item.Current_Payroll
+                    @item.Delivery_location
                 </td>
             </tr>
             }
@@ -87,7 +69,7 @@
     </div>
     <div class="span8">
         <div class="dataTables_paginate paging_bootstrap pagination phantrangmvcpager">
-            @Html.Pager(Model, new PagerOptions { ContainerTagName = "ul", PageIndexParameterName = "pageIndex", CurrentPagerItemWrapperFormatString = "<li class='active'>{0}</li>", CurrentPageNumberFormatString = "{0}", FirstPageText = "«", LastPageText = "»", NextPageText = "Next →", PrevPageText = "← Prev", SeparatorHtml = "" })
+            @Html.Pager(Model, new PagerOptions { ContainerTagName = "ul", PageIndexParameterName = "page", CurrentPagerItemWrapperFormatString = "<li class='active'>{0}</li>", CurrentPageNumberFormatString = "{0}", FirstPageText = "&laquo; ", LastPageText = " &raquo;", NextPageText = "Next →", PrevPageText = "← Prev", SeparatorHtml = "" })
         </div>
     </div>
 </div>

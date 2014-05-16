@@ -283,6 +283,7 @@
     </EntityDeploy>
     <Content Include="Views\DriverInfo\_Fuel_ExpensesPartial.cshtml" />
     <Content Include="Views\DriverInfo\_Operating_ExpensesPartial.cshtml" />
+    <Content Include="Views\CustomerInfo\_Trip_Info_Partial.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
