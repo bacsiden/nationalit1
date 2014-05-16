@@ -4,281 +4,203 @@
 }
 <div class="row-fluid">
     <div class="span12">
-        <div class="box">
-            <div class="box-title">
-                <h3>
-                    <i class="icon-table"></i>NewOrEdit Trip Info</h3>
-            </div>
-            <div class="box-content">
-                <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-                <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
-                @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
-                {
-                    @Html.ValidationSummary(true)                    
+        <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.ValidationSummary(true)                    
 
-                    @Html.HiddenFor(model => model.Trip_ID)
-                    
+            @Html.HiddenFor(model => model.Trip_ID)
+            <div class="row-fluid">
+                <div class="span12">
                     <div class="control-group">
-                        <label class="control-label" for="Order_date">@Html.LabelFor(model => model.Order_date)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Order_date, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Order_date)
-                            </div>
-                        </div>
+                        <label for="Customer">
+                            Customer</label>
+                        @Html.TextBoxFor(model => model.Customer, new { @class = "input-xxlarge" })
+                        @Html.ValidationMessageFor(model => model.Customer)
+                        <a href="#" class="btn btn-info">content</a> <a href="#" class="btn btn-info">content</a>
                     </div>
+                </div>
+            </div> 
+            <div class="row-fluid">
+                <div class="span12">
                     <div class="control-group">
-                        <label class="control-label" for="Pickup_date">@Html.LabelFor(model => model.Pickup_date)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Pickup_date, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Pickup_date)
-                            </div>
-                        </div>
+                        <label for="Address">
+                            Address</label>
+                        @Html.TextBoxFor(model => model.Address, new { @class = "input-xxlarge" })
+                        @Html.ValidationMessageFor(model => model.Address)
                     </div>
-                    <div class="control-group">
-                        <label class="control-label" for="Delivery_date">@Html.LabelFor(model => model.Delivery_date)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Delivery_date, new { @class = "input-xlarge date-picker" })
-                                @Html.ValidationMessageFor(model => model.Delivery_date)
-                            </div>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="Pick_up_location">@Html.LabelFor(model => model.Pick_up_location)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Pick_up_location, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Pick_up_location)
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <label class="control-label" for="Delivery_location">@Html.LabelFor(model => model.Delivery_location)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Delivery_location, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Delivery_location)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Extra_stops">@Html.LabelFor(model => model.Extra_stops)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Extra_stops, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Extra_stops)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Loaded_miles">@Html.LabelFor(model => model.Loaded_miles)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Loaded_miles, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Loaded_miles)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Dead_head_miles">@Html.LabelFor(model => model.Dead_head_miles)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Dead_head_miles, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Dead_head_miles)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Comfirmed_Rate">@Html.LabelFor(model => model.Comfirmed_Rate)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Comfirmed_Rate, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Comfirmed_Rate)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Customer">@Html.LabelFor(model => model.Customer)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Customer, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Customer)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Dispatcher">@Html.LabelFor(model => model.Dispatcher)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Dispatcher, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Dispatcher)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Driver">@Html.LabelFor(model => model.Driver)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Driver, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Driver)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Paid">@Html.LabelFor(model => model.Paid)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Paid, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Paid)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Extra_charges">@Html.LabelFor(model => model.Extra_charges)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Extra_charges, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Extra_charges)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Detention_pay">@Html.LabelFor(model => model.Detention_pay)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Detention_pay, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Detention_pay)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Total_charges">@Html.LabelFor(model => model.Total_charges)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Total_charges, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Total_charges)
-                            </div>
-                        </div>
-                    </div> 
-                    
-                        
-                    <div class="control-group">
-                        <label class="control-label" for="Detention">@Html.LabelFor(model => model.Detention)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Detention, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Detention)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Picked">@Html.LabelFor(model => model.Picked)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Picked, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Picked)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Deliverd">@Html.LabelFor(model => model.Deliverd)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Deliverd, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Deliverd)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Invoice">@Html.LabelFor(model => model.Invoice)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Invoice, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Invoice)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Customer_Invoiced">@Html.LabelFor(model => model.Customer_Invoiced)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Customer_Invoiced, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Customer_Invoiced)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Address">@Html.LabelFor(model => model.Address)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Address, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Address)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Current_Payroll">@Html.LabelFor(model => model.Current_Payroll)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Current_Payroll, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Current_Payroll)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Driver_paid">@Html.LabelFor(model => model.Driver_paid)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Driver_paid, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Driver_paid)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Equipment_ID">@Html.LabelFor(model => model.Equipment_ID)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Equipment_ID, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Equipment_ID)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Comment">@Html.LabelFor(model => model.Comment)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Comment, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Comment)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="PO_">@Html.LabelFor(model => model.PO_)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.PO_, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.PO_)
-                            </div>
-                        </div>
-                    </div>    
-                    <div class="control-group">
-                        <label class="control-label" for="Customer_Invoiced_date">@Html.LabelFor(model => model.Customer_Invoiced_date)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Customer_Invoiced_date, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.Customer_Invoiced_date)
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="form-actions">
-                        <input type="submit" value="Save" class="btn btn-info" />
-                        @Html.ActionLink("Cancel", "Index", null, new { @class = "btn" })
-                    </div>
-                }
+                </div>
             </div>
-        </div>
+            <div class="row-fluid">
+                <div class="span4">
+                    <div class="control-group">
+                        <label for="Order_date">
+                            Order_date</label>
+                        @Html.TextBoxFor(model => model.Order_date, new { @class = "input-xlarge date-picker" })
+                        @Html.ValidationMessageFor(model => model.Order_date)
+                    </div>
+                    <div class="control-group">
+                        <label for="PO_">
+                            PO#</label>
+                        @Html.TextBoxFor(model => model.PO_, new { @class = "input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.PO_)
+                    </div>
+                    <div class="control-group">
+                        <label for="Pick_up_location">
+                            Pick up location</label>
+                        @Html.TextBoxFor(model => model.Pick_up_location, new { @class = "input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.Pick_up_location)
+                    </div>
+                    <div class="control-group">
+                        <label for="Delivery_location">
+                            Delivery location</label>
+                        @Html.TextBoxFor(model => model.Delivery_location, new { @class = "input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.Delivery_location)
+                    </div>
+                    <div class="control-group">
+                        <label for="Extra_stops">
+                            Extra_stops</label>
+                        @Html.TextBoxFor(model => model.Extra_stops, new { @class = "input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.Extra_stops)
+                    </div>
+                    <div class="control-group">
+                        <label for="Dispatcher">
+                            Dispatcher</label>
+                        @Html.TextBoxFor(model => model.Dispatcher, new { @class = "input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.Dispatcher)
+                    </div>
+                    <div class="control-group">
+                        <label for="Driver">
+                            Driver</label>
+                        @Html.TextBoxFor(model => model.Driver, new { @class = "input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.Driver)
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="control-group">
+                        <label for="Pickup_date">
+                            Pickup_date</label>
+                        @Html.TextBoxFor(model => model.Pickup_date, new { @class = "input-xlarge date-picker" })
+                        @Html.ValidationMessageFor(model => model.Pickup_date)
+                    </div>
+                    <div class="control-group">
+                        <label for="Loaded_miles">
+                            Loaded_miles</label>
+                        @Html.TextBoxFor(model => model.Loaded_miles, new { @class = "input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.Loaded_miles)
+                    </div>
+                    <div class="control-group">
+                        <label for="Dead_head_miles">
+                            Dead_head_miles</label>
+                        @Html.TextBoxFor(model => model.Dead_head_miles, new { @class = "input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.Dead_head_miles)
+                    </div>
+                    <div class="control-group">
+                        <label for="Comfirmed_Rate">
+                            Comfirmed_Rate</label>
+                        @Html.TextBoxFor(model => model.Comfirmed_Rate, new { @class = "input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.Comfirmed_Rate)
+                    </div>
+                    <div class="control-group">
+                        <label for="Extra_charges">
+                            Lumner &Extra charges</label>
+                        @Html.TextBoxFor(model => model.Extra_charges, new { @class = "input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.Extra_charges)
+                    </div>
+                    <div class="control-group">
+                        <label for="Detention_pay">
+                            Detention pay</label>
+                        @Html.TextBoxFor(model => model.Detention_pay, new { @class = "input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.Detention_pay)
+                    </div>
+                    <div class="control-group">
+                        <label for="Equipment_ID">
+                            Equipment</label>
+                        @Html.TextBoxFor(model => model.Equipment_ID, new { @class = "input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.Equipment_ID)
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="control-group">
+                        <label for="Delivery_date">
+                            Delivery_date</label>
+                        @Html.TextBoxFor(model => model.Delivery_date, new { @class = "input-xlarge date-picker" })
+                        @Html.ValidationMessageFor(model => model.Delivery_date)
+                    </div>
+                    <div class="control-group">
+                        <label for="Total_charges">
+                            Total_charges</label>
+                        @Html.TextBoxFor(model => model.Total_charges, new { @class = "input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.Total_charges)
+                    </div>
+                    <div class="control-group">
+                        <label for="Total_charges">
+                            Chargebacks</label>
+                        <input type="text" name="Chargebacks" value=" " class="input-xlarge" />
+                    </div>
+                    <div class="control-group">
+                        <label for="Picked" class="checkbox">
+                            Picked
+                            @Html.CheckBoxFor(model => model.Picked.Value, new { @class = "input-xlarge" })</label>
+                        @Html.ValidationMessageFor(model => model.Picked)
+                    </div>
+                    <div class="control-group">
+                        <label for="Deliverd" class="checkbox">
+                            Deliverd
+                            @Html.CheckBoxFor(model => model.Deliverd.Value, new { @class = "input-xlarge" })</label>
+                        @Html.ValidationMessageFor(model => model.Deliverd)
+                    </div>
+                    <div class="control-group">
+                        <label for="Invoice">
+                            Invoice</label>
+                        @Html.TextBoxFor(model => model.Invoice, new { @class = "input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.Invoice)
+                    </div>
+                    <div class="control-group">
+                        <label for="Customer_Invoiced" class="checkbox">
+                            Customer_Invoiced
+                            @Html.CheckBoxFor(model => model.Customer_Invoiced.Value, new { @class = "input-xlarge" })</label>
+                        @Html.ValidationMessageFor(model => model.Customer_Invoiced)
+                    </div>
+                    <div class="control-group">
+                        <label for="Current_Payroll" class="checkbox">
+                            Current_Payroll
+                            @Html.CheckBoxFor(model => model.Current_Payroll.Value, new { @class = "input-xlarge" })</label>
+                        @Html.ValidationMessageFor(model => model.Current_Payroll)
+                    </div>
+                    <div class="control-group">
+                        <label for="Driver_paid" class="checkbox">
+                            Driver_paid
+                            @Html.CheckBoxFor(model => model.Driver_paid.Value, new { @class = "input-xlarge" })
+                        </label>
+                        @Html.ValidationMessageFor(model => model.Driver_paid)
+                    </div>
+                    <div class="control-group">
+                        <label for="Customer_Invoiced_date">
+                            Customer_Invoiced_date</label>
+                        @Html.TextBoxFor(model => model.Customer_Invoiced_date, new { @class = "input-xlarge date-picker" })
+                        @Html.ValidationMessageFor(model => model.Customer_Invoiced_date)
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="control-group">
+                        <label for="Comment">
+                            Comment</label>
+                        @Html.TextAreaFor(model => model.Comment, new { @class = "input-xxlarge", rows = "5" })
+                        @Html.ValidationMessageFor(model => model.Comment)
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <input type="submit" value="Save" class="btn btn-info" />
+                    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn" })
+                </div>
+            </div>
+            @Html.Partial("");
+        }
     </div>
 </div>
