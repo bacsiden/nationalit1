@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace Alabama.Reports
 {
@@ -12,15 +13,28 @@ namespace Alabama.Reports
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
-        {
+            {
+                string reportName = Request.QueryString["ReportName"];
                 ReportViewer1.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
-                ReportViewer1.LocalReport.ReportPath = Server.MapPath("/Reports/Report1.rdlc");
+                ReportViewer1.LocalReport.ReportPath = Server.MapPath("/Reports/" + reportName + ".rdlc");
                 ReportViewer1.LocalReport.DataSources.Clear();
-                //ReportViewer1.LocalReport.DataSources.Add(
-                    //new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", dataset.Tables[0]));
+                DataTable dt = LoadReportData(reportName);
+                ReportViewer1.LocalReport.DataSources.Add(
+                new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", dt));
 
                 ReportViewer1.LocalReport.Refresh();
+            }
         }
+
+        private DataTable LoadReportData(string reportName)
+        {
+            DataTable dt = new DispatcherTrip().DispatcherTrip1;
+            DataRow dr = dt.NewRow();
+            dr["DispatcherName"] = "xxxxxx";
+            dr["CustomerName"] = "y";
+            dr["TripID"] = "zzz";
+            dt.Rows.Add(dr);
+            return dt;
         }
     }
 }
