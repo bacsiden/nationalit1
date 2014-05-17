@@ -28,6 +28,17 @@ namespace Alabama.Reports
 
         private DataTable LoadReportData(string reportName)
         {
+            switch (reportName)
+            {
+                case "DispatcherTrip":
+                    return LoadDispatcherTrip();
+                default:
+                    return null;
+            }
+        }
+
+        private DataTable LoadDispatcherTrip()
+        {
             DataTable dt = new DispatcherTrip().DispatcherTrip1;
             DataRow dr = dt.NewRow();
             dr["DispatcherName"] = "xxxxxx";
