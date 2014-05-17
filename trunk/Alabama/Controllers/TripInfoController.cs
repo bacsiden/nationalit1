@@ -20,9 +20,42 @@ namespace Alabama.Controllers
         //
         // GET: /Owner/Edit/5
 
-        public ActionResult NewOrEdit(int? id = 0)
+        public ActionResult NewOrEdit(int? driverID = 0, int? id = 0)
         {
+            string dataDispatchers = "[";
+            foreach (var item in Alabama.DB.Entities.Dispatchers)
+            {
+                if (dataDispatchers.Equals("["))
+                {
+                    dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                }
+                else
+                {
+                    dataDispatchers += ",{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                }
+            }
+            ViewBag.dataDispatchers = dataDispatchers + "]";
+
+            string dataDriver = "[";
+            foreach (var item in Alabama.DB.Entities.Driver_Info)
+            {
+                if (dataDriver.Equals("["))
+                {
+                    dataDriver += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                }
+                else
+                {
+                    dataDriver += ",{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                }
+            }
+            ViewBag.dataDriver = dataDriver + "]";
+
+
             var obj = DB.Entities.Trip_Info.FirstOrDefault(m => m.Trip_ID == id);
+            if (obj == null)
+            {
+                obj = new Trip_Info() { Picked = false, Deliverd = false, Customer_Invoiced = false, Current_Payroll = false, Driver_paid = false, Driver = driverID.Value };
+            }
             return View(obj);
         }
 
@@ -52,6 +85,33 @@ namespace Alabama.Controllers
             }
             catch
             {
+                string dataDispatchers = "[";
+                foreach (var item in Alabama.DB.Entities.Dispatchers)
+                {
+                    if (dataDispatchers.Equals("["))
+                    {
+                        dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                    }
+                    else
+                    {
+                        dataDispatchers += ",{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                    }
+                }
+                ViewBag.dataDispatchers = dataDispatchers + "]";
+
+                string dataDriver = "[";
+                foreach (var item in Alabama.DB.Entities.Driver_Info)
+                {
+                    if (dataDriver.Equals("["))
+                    {
+                        dataDriver += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                    }
+                    else
+                    {
+                        dataDriver += ",{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                    }
+                }
+                ViewBag.dataDriver = dataDriver + "]";
                 return View();
             }
         }
@@ -83,6 +143,24 @@ namespace Alabama.Controllers
             }
             return RedirectToAction("Index");
         }
-
+        public ActionResult GetJsonCutomerInfo(string query = "")
+        {
+            var db = Alabama.DB.Entities;
+            var list = db.Customer_Info.Where(m => m.Customer_Name.Contains(query));
+            string dataCustomerInfo = "[";
+            foreach (var item in list)
+            {
+                if (dataCustomerInfo.Equals("["))
+                {
+                    dataCustomerInfo += "{ \"id\": " + item.Customer_ID + ", \"label\": \"" + item.Customer_Name + "\" }";
+                }
+                else
+                {
+                    dataCustomerInfo += ",{ \"id\": " + item.Customer_ID + ", \"label\": \"" + item.Customer_Name + "\" }";
+                }
+            }
+            dataCustomerInfo = dataCustomerInfo + "]";
+            return Json (dataCustomerInfo);
+        }
     }
 }

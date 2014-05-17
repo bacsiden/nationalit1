@@ -3,10 +3,14 @@
 @{
     ViewBag.Title = "NewOrEdit";
 }
+<script type="text/javascript">
+    $(document).ready(function () {        
+        autoCompleteByClassName($(":input.Dispatcher"),@Html.Raw(ViewBag.dataDispatchers));
+        autoCompleteByClassName($(":input.Owner_Name"),@Html.Raw(ViewBag.dataOwners));
+    });    
+</script>
 <div class="row-fluid">
     <div class="span12">
-        <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-        <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
         <h3>
             Driver Info</h3>
         @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
@@ -15,7 +19,7 @@
             @Html.HiddenFor(model => model.ID)
             <div class="row-fluid">
                 <div class="span12">
-                    <a href="#" class="btn btn-info">New Trip info</a> <a href="#" class="btn btn-info">
+                    <a href="/TripInfo/NewOrEdit?driverID=@(Model.ID)" target="_blank" class="btn btn-info">New Trip info</a> <a href="#" class="btn btn-info">
                         Equipment</a> <a href="#" class="btn btn-info">Violations</a> <a href="#" class="btn btn-info">
                             Maintenance</a> <a href="#" class="btn btn-info">Pay rolls rollback</a>
                     <a href="#" class="btn btn-info">Pay rolls operations rollback</a> <a href="#" class="btn btn-info">
@@ -123,7 +127,8 @@
                     <div class="control-group">
                         <label for="Dispatcher">
                             @Html.LabelFor(model => model.Dispatcher)</label>
-                        @Html.TextBoxFor(model => model.Dispatcher, new { @class = "input-xlarge" })
+                        @*@Html.TextBoxFor(model => model.Dispatcher, new { @class = "input-xlarge" })*@
+                        <input type="text" class="input-xlarge Dispatcher" name="Dispatcher" value="@Model.Dispatcher" style="margin: 0 auto;" data-provide="typeahead" data-items="4"  />
                         @Html.ValidationMessageFor(model => model.Dispatcher)
                     </div>
                 </div>
@@ -131,7 +136,8 @@
                     <div class="control-group">
                         <label for="Trailer">
                             @Html.LabelFor(model => model.Trailer)</label>
-                        @Html.TextBoxFor(model => model.Trailer, new { @class = "input-xlarge" })
+                        @*@Html.TextBoxFor(model => model.Trailer, new { @class = "input-xlarge" })*@
+                        <input type="text" class="input-xlarge" name="Trailer" value="@Model.Trailer" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[&quot;Alabama&quot;,&quot;Alaska&quot;,&quot;Arizona&quot;,&quot;Arkansas&quot;,&quot;California&quot;,&quot;Colorado&quot;,&quot;Connecticut&quot;,&quot;Delaware&quot;,&quot;Florida&quot;,&quot;Georgia&quot;,&quot;Hawaii&quot;,&quot;Idaho&quot;,&quot;Illinois&quot;,&quot;Indiana&quot;,&quot;Iowa&quot;,&quot;Kansas&quot;,&quot;Kentucky&quot;,&quot;Louisiana&quot;,&quot;Maine&quot;,&quot;Maryland&quot;,&quot;Massachusetts&quot;,&quot;Michigan&quot;,&quot;Minnesota&quot;,&quot;Mississippi&quot;,&quot;Missouri&quot;,&quot;Montana&quot;,&quot;Nebraska&quot;,&quot;Nevada&quot;,&quot;New Hampshire&quot;,&quot;New Jersey&quot;,&quot;New Mexico&quot;,&quot;New York&quot;,&quot;North Dakota&quot;,&quot;North Carolina&quot;,&quot;Ohio&quot;,&quot;Oklahoma&quot;,&quot;Oregon&quot;,&quot;Pennsylvania&quot;,&quot;Rhode Island&quot;,&quot;South Carolina&quot;,&quot;South Dakota&quot;,&quot;Tennessee&quot;,&quot;Texas&quot;,&quot;Utah&quot;,&quot;Vermont&quot;,&quot;Virginia&quot;,&quot;Washington&quot;,&quot;West Virginia&quot;,&quot;Wisconsin&quot;,&quot;Wyoming&quot;]" />
                         @Html.ValidationMessageFor(model => model.Trailer)
                     </div>
                     <div class="control-group">
@@ -150,7 +156,8 @@
                     <div class="control-group">
                         <label for="Owner_Name">
                             @Html.LabelFor(model => model.Owner_Name)</label>
-                        @Html.TextBoxFor(model => model.Owner_Name, new { @class = "input-xlarge" })
+                        @*@Html.TextBoxFor(model => model.Owner_Name, new { @class = "input-xlarge" })*@                        
+                        <input type="text" class="input-xlarge Owner_Name" name="Owner_Name" value="@Model.Owner_Name" style="margin: 0 auto;" data-provide="typeahead" data-items="4" />
                         @Html.ValidationMessageFor(model => model.Owner_Name)
                     </div>
                     <div class="control-group">

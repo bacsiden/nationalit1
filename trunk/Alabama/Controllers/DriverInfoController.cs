@@ -18,6 +18,35 @@ namespace Alabama.Controllers
 
         public ActionResult NewOrEdit(int? id = 0)
         {
+
+            string dataOwners = "[";
+            foreach (var item in Alabama.DB.Entities.Owners)
+            {
+                if (dataOwners.Equals("["))
+                {
+                    dataOwners += "{ \"id\": " + item.OwnerID + ", \"label\": \"" + item.Name+ "\" }";
+                }
+                else
+                {
+                    dataOwners += ",{ \"id\": " + item.OwnerID + ", \"label\": \"" + item.Name + "\" }";
+                }
+            }
+            ViewBag.dataOwners = dataOwners + "]";
+
+            string dataDispatchers = "[";
+            foreach (var item in Alabama.DB.Entities.Dispatchers)
+            {
+                if (dataDispatchers.Equals("["))
+                {
+                    dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                }
+                else
+                {
+                    dataDispatchers += ",{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                }
+            }
+            ViewBag.dataDispatchers = dataDispatchers + "]";
+
             if (id == 0) return View(new Driver_Info());
 
             var obj = DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == id);
@@ -76,7 +105,7 @@ namespace Alabama.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult _Fuel_ExpensesPartial(int id, int?page)
+        public ActionResult _Fuel_ExpensesPartial(int id, int? page)
         {
             if (page == null) page = 0;
             var db = DB.Entities;
