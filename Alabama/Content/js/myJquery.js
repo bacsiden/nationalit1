@@ -88,9 +88,28 @@
     // input DatePicker
     //    $('.date-picker').datepicker({ language: "en", format: "mm/dd/yyyy" }).on('changeDate', function (ev) {
     //        $('.date-picker').datepicker('hide');
-    //    });
-
+    //    });       
 
 });
+
+// autocomplete 
+function autoCompleteByClassName(className1, dataJson) {
+    className1.typeahead({
+        source: function (query, process) {
+            objects = [];
+            map = {};
+            var data = dataJson // Or get your JSON dynamically and load it into this variable
+            $.each(data, function (i, object) {
+                map[object.label] = object;
+                objects.push(object.label);
+            });
+            process(objects);
+        },
+        updater: function (item) {
+            this.$element.attr('value', map[item].id)
+            return item;
+        }
+    });
+}
 
  

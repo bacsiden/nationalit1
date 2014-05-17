@@ -2,13 +2,28 @@
 @{
     ViewBag.Title = "NewOrEdit";
 }
-
+<script type="text/javascript">
+    $(document).ready(function () {        
+        autoCompleteByClassName($(":input.Dispatcher"),@Html.Raw(ViewBag.dataDispatchers));
+        autoCompleteByClassName($(":input.Driver"),@Html.Raw(ViewBag.dataDriver)); 
+        $(':input.Customer').typeahead({
+            source: function (query, process) {
+            if (query.length>=3) {
+                return $.getJSON(
+                        '/TripInfo/GetJsonCutomerInfo',
+                        { query: query },
+                        function (data) {
+                            return process(data);
+                        });
+                     }
+            }
+        });
+    });    
+</script>
 <div class="row-fluid">
     <div class="span12">
-    <h3>
-    Trip Info</h3>
-        <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-        <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+        <h3>
+            Trip Info</h3>
         @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
         {
             @Html.ValidationSummary(true)                    
@@ -21,7 +36,8 @@
                             Customer</label>
                         @Html.TextBoxFor(model => model.Customer, new { @class = "input-xxlarge" })
                         @Html.ValidationMessageFor(model => model.Customer)
-                        <a href="#" class="btn btn-info">Customer info</a> <a href="#" class="btn btn-info">Select By Invoice</a>
+                        <a href="#AddCustomerInfo" role="button" class="btn btn-primary" data-toggle="modal">
+                            Customer info</a> <a href="#" class="btn btn-info">Select By Invoice</a>
                     </div>
                 </div>
             </div> 
@@ -70,13 +86,15 @@
                     <div class="control-group">
                         <label for="Dispatcher">
                             Dispatcher</label>
-                        @Html.TextBoxFor(model => model.Dispatcher, new { @class = "input-xlarge" })
+                        @*@Html.TextBoxFor(model => model.Dispatcher, new { @class = "input-xlarge" })*@
+                        <input type="text" class="input-xlarge Dispatcher" name="Dispatcher" value="@Model.Dispatcher" style="margin: 0 auto;" data-provide="typeahead" data-items="4" />
                         @Html.ValidationMessageFor(model => model.Dispatcher)
                     </div>
                     <div class="control-group">
                         <label for="Driver">
                             Driver</label>
-                        @Html.TextBoxFor(model => model.Driver, new { @class = "input-xlarge" })
+                        @*@Html.TextBoxFor(model => model.Driver, new { @class = "input-xlarge" })*@
+                        <input type="text" class="input-xlarge Driver" name="Driver" value="@Model.Driver" style="margin: 0 auto;" data-provide="typeahead" data-items="4"/>
                         @Html.ValidationMessageFor(model => model.Driver)
                     </div>
                 </div>
@@ -204,5 +222,26 @@
                 </div>
             </div>           
         }
+    </div>
+</div>
+<div id="AddCustomerInfo" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+    aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            ×</button>
+        <h3 id="myModalLabel1">
+            Customer Info</h3>
+    </div>
+    <div class="modal-body" id="Ajax">
+        <label for="Customer">
+            Customer</label>
+        <input type="text" class="input-xlarge Customer" name="Customer" value="@Model.Customer" style="margin: 0 auto;" data-provide="typeahead" data-items="4"/>
+        @Html.ValidationMessageFor(model => model.Customer)
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary " data-dismiss="modal">
+            Save changes</button>
+        <button class="btn" data-dismiss="modal" aria-hidden="true">
+            Close</button>
     </div>
 </div>
