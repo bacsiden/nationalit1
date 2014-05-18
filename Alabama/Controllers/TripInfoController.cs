@@ -21,7 +21,7 @@ namespace Alabama.Controllers
         //
         // GET: /Owner/Edit/5
 
-        public ActionResult NewOrEdit(int? driverID = 0, int? id = 0)
+        public ActionResult NewOrEdit(int? driverID, int? id = 0)
         {
             var obj = DB.Entities.Trip_Info.FirstOrDefault(m => m.Trip_ID == id);
             if (obj == null)
