@@ -20,11 +20,11 @@ using System.Xml.Serialization;
 #region EDM Relationship Metadata
 
 [assembly: EdmRelationshipAttribute("vpss1Model", "FK_Driver_Info_Dispatchers", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Dispatchers), "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Driver_Info), true)]
-[assembly: EdmRelationshipAttribute("vpss1Model", "FK_Driver_Info_Owners", "Owners", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Owners), "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Driver_Info), true)]
 [assembly: EdmRelationshipAttribute("vpss1Model", "FK_Fuel___Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Driver_Info), "Fuel___Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Fuel___Expenses), true)]
 [assembly: EdmRelationshipAttribute("vpss1Model", "FK_Operating_Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Driver_Info), "Operating_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Operating_Expenses), true)]
 [assembly: EdmRelationshipAttribute("vpss1Model", "FK_Trip_Info_Customer_Info1", "Customer_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Customer_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Trip_Info), true)]
 [assembly: EdmRelationshipAttribute("vpss1Model", "FK_Trip_Info_Dispatchers1", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Dispatchers), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("vpss1Model", "FK_Driver_Info_Owners", "Owners", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Owners), "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Driver_Info), true)]
 [assembly: EdmRelationshipAttribute("vpss1Model", "FK_Trip_Info_Driver_Info1", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Driver_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Trip_Info), true)]
 [assembly: EdmRelationshipAttribute("vpss1Model", "FK_Trip_Info_Equipment1", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Equipment), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Trip_Info), true)]
 
@@ -129,22 +129,6 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Driver_Info> Driver_Info
-        {
-            get
-            {
-                if ((_Driver_Info == null))
-                {
-                    _Driver_Info = base.CreateObjectSet<Driver_Info>("Driver_Info");
-                }
-                return _Driver_Info;
-            }
-        }
-        private ObjectSet<Driver_Info> _Driver_Info;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<fixed_charges> fixed_charges
         {
             get
@@ -237,22 +221,6 @@ namespace Alabama
             }
         }
         private ObjectSet<Operating_Expenses> _Operating_Expenses;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Owners> Owners
-        {
-            get
-            {
-                if ((_Owners == null))
-                {
-                    _Owners = base.CreateObjectSet<Owners>("Owners");
-                }
-                return _Owners;
-            }
-        }
-        private ObjectSet<Owners> _Owners;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -513,6 +481,38 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<Driver_Info> Driver_Info
+        {
+            get
+            {
+                if ((_Driver_Info == null))
+                {
+                    _Driver_Info = base.CreateObjectSet<Driver_Info>("Driver_Info");
+                }
+                return _Driver_Info;
+            }
+        }
+        private ObjectSet<Driver_Info> _Driver_Info;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Owners> Owners
+        {
+            get
+            {
+                if ((_Owners == null))
+                {
+                    _Owners = base.CreateObjectSet<Owners>("Owners");
+                }
+                return _Owners;
+            }
+        }
+        private ObjectSet<Owners> _Owners;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<Trip_Info> Trip_Info
         {
             get
@@ -552,14 +552,6 @@ namespace Alabama
         public void AddToDispatchers(Dispatchers dispatchers)
         {
             base.AddObject("Dispatchers", dispatchers);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Driver_Info EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToDriver_Info(Driver_Info driver_Info)
-        {
-            base.AddObject("Driver_Info", driver_Info);
         }
     
         /// <summary>
@@ -608,14 +600,6 @@ namespace Alabama
         public void AddToOperating_Expenses(Operating_Expenses operating_Expenses)
         {
             base.AddObject("Operating_Expenses", operating_Expenses);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Owners EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToOwners(Owners owners)
-        {
-            base.AddObject("Owners", owners);
         }
     
         /// <summary>
@@ -744,6 +728,22 @@ namespace Alabama
         public void AddToEquipment(Equipment equipment)
         {
             base.AddObject("Equipment", equipment);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Driver_Info EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToDriver_Info(Driver_Info driver_Info)
+        {
+            base.AddObject("Driver_Info", driver_Info);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Owners EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToOwners(Owners owners)
+        {
+            base.AddObject("Owners", owners);
         }
     
         /// <summary>
@@ -1507,18 +1507,28 @@ namespace Alabama
         /// Create a new Driver_Info object.
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
-        /// <param name="employee_ID">Initial value of the Employee_ID property.</param>
+        /// <param name="last_name">Initial value of the Last_name property.</param>
         /// <param name="first_name">Initial value of the First_name property.</param>
+        /// <param name="sSN">Initial value of the SSN property.</param>
+        /// <param name="drive_Lic">Initial value of the Drive_Lic property.</param>
+        /// <param name="state">Initial value of the State property.</param>
+        /// <param name="expiration_Date">Initial value of the Expiration_Date property.</param>
         /// <param name="hazMat">Initial value of the HazMat property.</param>
+        /// <param name="phone">Initial value of the Phone property.</param>
         /// <param name="active">Initial value of the Active property.</param>
         /// <param name="owner">Initial value of the Owner property.</param>
-        public static Driver_Info CreateDriver_Info(global::System.Int32 id, global::System.String employee_ID, global::System.String first_name, global::System.Boolean hazMat, global::System.Boolean active, global::System.Boolean owner)
+        public static Driver_Info CreateDriver_Info(global::System.Int32 id, global::System.String last_name, global::System.String first_name, global::System.String sSN, global::System.String drive_Lic, global::System.String state, global::System.String expiration_Date, global::System.Boolean hazMat, global::System.String phone, global::System.Boolean active, global::System.Boolean owner)
         {
             Driver_Info driver_Info = new Driver_Info();
             driver_Info.ID = id;
-            driver_Info.Employee_ID = employee_ID;
+            driver_Info.Last_name = last_name;
             driver_Info.First_name = first_name;
+            driver_Info.SSN = sSN;
+            driver_Info.Drive_Lic = drive_Lic;
+            driver_Info.State = state;
+            driver_Info.Expiration_Date = expiration_Date;
             driver_Info.HazMat = hazMat;
+            driver_Info.Phone = phone;
             driver_Info.Active = active;
             driver_Info.Owner = owner;
             return driver_Info;
@@ -1558,7 +1568,7 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Employee_ID
         {
@@ -1570,7 +1580,7 @@ namespace Alabama
             {
                 OnEmployee_IDChanging(value);
                 ReportPropertyChanging("Employee_ID");
-                _Employee_ID = StructuralObject.SetValidValue(value, false);
+                _Employee_ID = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Employee_ID");
                 OnEmployee_IDChanged();
             }
@@ -1582,7 +1592,7 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Last_name
         {
@@ -1594,7 +1604,7 @@ namespace Alabama
             {
                 OnLast_nameChanging(value);
                 ReportPropertyChanging("Last_name");
-                _Last_name = StructuralObject.SetValidValue(value, true);
+                _Last_name = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Last_name");
                 OnLast_nameChanged();
             }
@@ -1654,7 +1664,7 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String SSN
         {
@@ -1666,7 +1676,7 @@ namespace Alabama
             {
                 OnSSNChanging(value);
                 ReportPropertyChanging("SSN");
-                _SSN = StructuralObject.SetValidValue(value, true);
+                _SSN = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("SSN");
                 OnSSNChanged();
             }
@@ -1678,7 +1688,7 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Drive_Lic
         {
@@ -1690,7 +1700,7 @@ namespace Alabama
             {
                 OnDrive_LicChanging(value);
                 ReportPropertyChanging("Drive_Lic");
-                _Drive_Lic = StructuralObject.SetValidValue(value, true);
+                _Drive_Lic = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Drive_Lic");
                 OnDrive_LicChanged();
             }
@@ -1702,7 +1712,7 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String State
         {
@@ -1714,7 +1724,7 @@ namespace Alabama
             {
                 OnStateChanging(value);
                 ReportPropertyChanging("State");
-                _State = StructuralObject.SetValidValue(value, true);
+                _State = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("State");
                 OnStateChanged();
             }
@@ -1726,7 +1736,7 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Expiration_Date
         {
@@ -1738,7 +1748,7 @@ namespace Alabama
             {
                 OnExpiration_DateChanging(value);
                 ReportPropertyChanging("Expiration_Date");
-                _Expiration_Date = StructuralObject.SetValidValue(value, true);
+                _Expiration_Date = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Expiration_Date");
                 OnExpiration_DateChanged();
             }
@@ -1894,7 +1904,7 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Phone
         {
@@ -1906,7 +1916,7 @@ namespace Alabama
             {
                 OnPhoneChanging(value);
                 ReportPropertyChanging("Phone");
-                _Phone = StructuralObject.SetValidValue(value, true);
+                _Phone = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Phone");
                 OnPhoneChanged();
             }
@@ -2156,44 +2166,6 @@ namespace Alabama
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("vpss1Model", "FK_Driver_Info_Owners", "Owners")]
-        public Owners Owners
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Owners>("vpss1Model.FK_Driver_Info_Owners", "Owners").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Owners>("vpss1Model.FK_Driver_Info_Owners", "Owners").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Owners> OwnersReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Owners>("vpss1Model.FK_Driver_Info_Owners", "Owners");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Owners>("vpss1Model.FK_Driver_Info_Owners", "Owners", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("vpss1Model", "FK_Fuel___Expenses_Driver_Info", "Fuel___Expenses")]
         public EntityCollection<Fuel___Expenses> Fuel___Expenses
         {
@@ -2228,6 +2200,44 @@ namespace Alabama
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Operating_Expenses>("vpss1Model.FK_Operating_Expenses_Driver_Info", "Operating_Expenses", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("vpss1Model", "FK_Driver_Info_Owners", "Owners")]
+        public Owners Owners
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Owners>("vpss1Model.FK_Driver_Info_Owners", "Owners").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Owners>("vpss1Model.FK_Driver_Info_Owners", "Owners").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Owners> OwnersReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Owners>("vpss1Model.FK_Driver_Info_Owners", "Owners");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Owners>("vpss1Model.FK_Driver_Info_Owners", "Owners", value);
                 }
             }
         }
@@ -4130,10 +4140,12 @@ namespace Alabama
         /// Create a new Owners object.
         /// </summary>
         /// <param name="ownerID">Initial value of the OwnerID property.</param>
-        public static Owners CreateOwners(global::System.Int32 ownerID)
+        /// <param name="ssn_">Initial value of the ssn_ property.</param>
+        public static Owners CreateOwners(global::System.Int32 ownerID, global::System.String ssn_)
         {
             Owners owners = new Owners();
             owners.OwnerID = ownerID;
+            owners.ssn_ = ssn_;
             return owners;
         }
 
@@ -4195,7 +4207,7 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String ssn_
         {
@@ -4207,7 +4219,7 @@ namespace Alabama
             {
                 Onssn_Changing(value);
                 ReportPropertyChanging("ssn_");
-                _ssn_ = StructuralObject.SetValidValue(value, true);
+                _ssn_ = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("ssn_");
                 Onssn_Changed();
             }
@@ -8769,19 +8781,23 @@ namespace Alabama
         /// <param name="paid">Initial value of the Paid property.</param>
         /// <param name="picked">Initial value of the Picked property.</param>
         /// <param name="deliverd">Initial value of the Deliverd property.</param>
+        /// <param name="invoice">Initial value of the Invoice property.</param>
         /// <param name="customer_Invoiced">Initial value of the Customer_Invoiced property.</param>
         /// <param name="current_Payroll">Initial value of the Current_Payroll property.</param>
         /// <param name="driver_paid">Initial value of the Driver_paid property.</param>
-        public static Trip_Info CreateTrip_Info(global::System.Int32 trip_ID, global::System.Boolean paid, global::System.Boolean picked, global::System.Boolean deliverd, global::System.Boolean customer_Invoiced, global::System.Boolean current_Payroll, global::System.Boolean driver_paid)
+        /// <param name="customer_Invoiced_date">Initial value of the Customer_Invoiced_date property.</param>
+        public static Trip_Info CreateTrip_Info(global::System.Int32 trip_ID, global::System.Boolean paid, global::System.Boolean picked, global::System.Boolean deliverd, global::System.Int32 invoice, global::System.Boolean customer_Invoiced, global::System.Boolean current_Payroll, global::System.Boolean driver_paid, global::System.DateTime customer_Invoiced_date)
         {
             Trip_Info trip_Info = new Trip_Info();
             trip_Info.Trip_ID = trip_ID;
             trip_Info.Paid = paid;
             trip_Info.Picked = picked;
             trip_Info.Deliverd = deliverd;
+            trip_Info.Invoice = invoice;
             trip_Info.Customer_Invoiced = customer_Invoiced;
             trip_Info.Current_Payroll = current_Payroll;
             trip_Info.Driver_paid = driver_paid;
+            trip_Info.Customer_Invoiced_date = customer_Invoiced_date;
             return trip_Info;
         }
 
@@ -9275,9 +9291,9 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Invoice
+        public global::System.Int32 Invoice
         {
             get
             {
@@ -9292,8 +9308,8 @@ namespace Alabama
                 OnInvoiceChanged();
             }
         }
-        private Nullable<global::System.Int32> _Invoice;
-        partial void OnInvoiceChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _Invoice;
+        partial void OnInvoiceChanging(global::System.Int32 value);
         partial void OnInvoiceChanged();
     
         /// <summary>
@@ -9467,9 +9483,9 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> Customer_Invoiced_date
+        public global::System.DateTime Customer_Invoiced_date
         {
             get
             {
@@ -9484,8 +9500,8 @@ namespace Alabama
                 OnCustomer_Invoiced_dateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _Customer_Invoiced_date;
-        partial void OnCustomer_Invoiced_dateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _Customer_Invoiced_date;
+        partial void OnCustomer_Invoiced_dateChanging(global::System.DateTime value);
         partial void OnCustomer_Invoiced_dateChanged();
 
         #endregion
