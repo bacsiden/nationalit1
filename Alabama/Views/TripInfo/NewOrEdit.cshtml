@@ -5,19 +5,7 @@
 <script type="text/javascript">
     $(document).ready(function () {        
         autoCompleteByClassName($(":input.Dispatcher"),@Html.Raw(ViewBag.dataDispatchers));
-        autoCompleteByClassName($(":input.Driver"),@Html.Raw(ViewBag.dataDriver)); 
-        $(':input.Customer').typeahead({
-            source: function (query, process) {
-            if (query.length>=3) {
-                return $.getJSON(
-                        '/TripInfo/GetJsonCutomerInfo',
-                        { query: query },
-                        function (data) {
-                            return process(data);
-                        });
-                     }
-            }
-        });
+        autoCompleteByClassName($(":input.Driver"),@Html.Raw(ViewBag.dataDriver));         
     });    
 </script>
 <div class="row-fluid">
@@ -29,12 +17,13 @@
             @Html.ValidationSummary(true)                    
 
             @Html.HiddenFor(model => model.Trip_ID)
+            @Html.HiddenFor(model=>model.Customer)
             <div class="row-fluid">
                 <div class="span12">
                     <div class="control-group">
                         <label for="Customer">
-                            Customer</label>
-                        @Html.TextBoxFor(model => model.Customer, new { @class = "input-xxlarge" })
+                            Customer</label>                        
+                        <input type="text" name="CustomerDisplay" class = "input-xxlarge CustomerDisplay" value="@(Model.Customer_Info!=null?Model.Customer_Info.Customer_Name:"")" />
                         @Html.ValidationMessageFor(model => model.Customer)
                         <a href="#AddCustomerInfo" role="button" class="btn btn-primary" data-toggle="modal">
                             Customer info</a> <a href="#" class="btn btn-info">Select By Invoice</a>
@@ -235,12 +224,11 @@
     <div class="modal-body" id="Ajax">
         <label for="Customer">
             Customer</label>
-        <input type="text" class="input-xlarge Customer" name="Customer" value="@Model.Customer" style="margin: 0 auto;" data-provide="typeahead" data-items="4"/>
-        @Html.ValidationMessageFor(model => model.Customer)
+        <input type="text" class="span5 Customer" name="Customer" value="@Model.Customer"/>
+        <div id="resultCustomerInfo" class="resultCustomer">
+        </div>
     </div>
-    <div class="modal-footer">
-        <button class="btn btn-primary " data-dismiss="modal">
-            Save changes</button>
+    <div class="modal-footer">        
         <button class="btn" data-dismiss="modal" aria-hidden="true">
             Close</button>
     </div>

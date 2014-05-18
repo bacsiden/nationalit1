@@ -67,31 +67,36 @@ input[type="text"], input[type="password"], input[type="datetime"], input[type="
 }
 .paddingtop10
 {
-    padding-top:10px;
+    padding-top: 10px;
 }
 .report
 {
     padding: 30px 10px 20px 10px;
     position: relative;
-    border:1px solid #A5A5A5;
+    border: 1px solid #A5A5A5;
 }
 .report .btn-legend
 {
-    position:absolute;
-    top:-10px;
-    left:20px; 
-    height:auto;   
-    border:1px solid #ccc;
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    height: auto;
+    border: 1px solid #ccc;
 }
 .report .btn.btn-info
 {
     background-color: #5ab4da;
     margin-bottom: 2px;
     height: 90px;
-    font-size:13px;
+    font-size: 13px;
 }
 .report .btn.btn-info:hover
 {
     background-color: #50a1c3;
 }
 
+.modal
+{
+    width: 800px;
+    margin-left: -375px;
+}
