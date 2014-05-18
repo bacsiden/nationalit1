@@ -330,6 +330,7 @@
       <DependentUpon>ScheduleOfInvoices.xsd</DependentUpon>
     </None>
     <Content Include="Views\Report\Index.cshtml" />
+    <Content Include="Views\TripInfo\GetCutomerInfoByKey.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\DispatcherTrip.rdlc" />

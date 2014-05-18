@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Webdiyer.WebControls.Mvc;
+using System.Data.Objects.SqlClient;
 
 namespace Alabama.Controllers
 {
@@ -143,24 +144,21 @@ namespace Alabama.Controllers
             }
             return RedirectToAction("Index");
         }
-        public ActionResult GetJsonCutomerInfo(string query = "")
+
+        [HttpGet]
+        public ActionResult GetCutomerInfoByKey(int?page,string query = "")
         {
+            page = page.HasValue ? page.Value : 1;
             var db = Alabama.DB.Entities;
-            var list = db.Customer_Info.Where(m => m.Customer_Name.Contains(query));
-            string dataCustomerInfo = "[";
-            foreach (var item in list)
-            {
-                if (dataCustomerInfo.Equals("["))
-                {
-                    dataCustomerInfo += "{ \"id\": " + item.Customer_ID + ", \"label\": \"" + item.Customer_Name + "\" }";
-                }
-                else
-                {
-                    dataCustomerInfo += ",{ \"id\": " + item.Customer_ID + ", \"label\": \"" + item.Customer_Name + "\" }";
-                }
-            }
-            dataCustomerInfo = dataCustomerInfo + "]";
-            return Json (dataCustomerInfo);
+            var list = db.Customer_Info.Where(m => 
+                m.Customer_Name.Contains(query) || 
+                m.ZIP_Code.Contains(query) || 
+                m.State.Contains(query) || 
+                m.Phone.Contains(query) || 
+                //SqlFunctions.StringConvert((double)m.Customer_ID).Contains(query)||
+                m.Street.ToString().Contains(query)|| 
+                m.City.ToString().Contains(query));            
+            return PartialView(list.OrderByDescending(m => m.Customer_ID).ToPagedList(page.Value, 5));
         }
     }
 }

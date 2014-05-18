@@ -30,6 +30,7 @@
             }
         });
     });
+    // ------------------------------------------------------------------
 
     // show hide button Edit & Delete when click checkbox
     $(".checkAll").click(function () {
@@ -56,6 +57,7 @@
             $(".EditItem").hide();
         }
     });
+
 
     // Event click with button Edit & Delete
     $(".DeleteItem").click(function () {
@@ -84,13 +86,57 @@
             return false;
         }
     });
+    // ------------------------------------------------------------------
 
-    // input DatePicker
-    //    $('.date-picker').datepicker({ language: "en", format: "mm/dd/yyyy" }).on('changeDate', function (ev) {
-    //        $('.date-picker').datepicker('hide');
-    //    });       
+    // Enter for Custom info input text
+    $('input.Customer').bind("enterKey", function (e) {
+        var query = $(this).val();
+        $.ajax({
+            type: "GET",
+            url: "/TripInfo/GetCutomerInfoByKey",
+            data: { "query": query },
+            success: function (kq) {
+                $(".resultCustomer").html(kq);
+            }
+        });
+    });
+    $('input.Customer').keyup(function (e) {
+        if (e.keyCode == 13) {
+            $(this).trigger("enterKey");
+        }
+    });
+    // ------------------------------------------------------------------
 
-});
+    // ---------- Choice Customer Info in the future----------------------
+
+    $("#Ajax").on("click", ".choiceCustomer", function (event) {
+        // Fill data when click Customer info item
+        var $this = $(this);
+        var name = $.trim($this.parent().next().text());
+        var street = $.trim($this.parent().next().next().text());
+        var city = $.trim($this.parent().next().next().next().text());
+        var state = $.trim($this.parent().next().next().next().next().text());
+        var phone = $.trim($this.parent().next().next().next().next().next().text());
+        var zip_code = $.trim($this.parent().next().next().next().next().next().next().text());
+        var adress = street + ", " + city + ", " + state + " " + zip_code + ", Phone: " + phone;
+        $("#Customer").val($this.text());
+        $(".CustomerDisplay").val(name);
+        $("#Address").val(adress);
+
+        // hide Modal
+        $("#AddCustomerInfo").modal('hide');
+    });
+    //-----------------------------------------------------------------------
+
+    // Focus input text first when modal show
+    $('#AddCustomerInfo').on('shown.bs.modal', function () {
+        $("input.Customer").focus();
+    })
+    //-----------------------------------------------------------------------
+
+});   //----------------END DOCUMENT READY FUNCTION -------------------------------  
+
+
 
 // autocomplete 
 function autoCompleteByClassName(className1, dataJson) {
@@ -112,4 +158,4 @@ function autoCompleteByClassName(className1, dataJson) {
     });
 }
 
- 
+// ------------------------------------------------------------------
