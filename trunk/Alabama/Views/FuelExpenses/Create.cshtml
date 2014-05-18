@@ -26,7 +26,7 @@
                             Type
                         </div>
                         <div class="editor-field">
-                            <select name="cboType" class="span2">
+                            <select name="cboType">
                                 @Html.Raw(ViewBag.Type)
                             </select>
                         </div>
@@ -94,12 +94,10 @@
                             @Html.ValidationMessageFor(model => model.Fuel_Card)
                         </div>
                         <p>
-                            <input type="submit" value="Create" />
+                            <input type="submit" value="Create" class="btn btn-info"/>
+                            @Html.ActionLink("Back to List", "Index", null, new { @class="btn"})
                         </p>
                 }
-                <div>
-                    @Html.ActionLink("Back to List", "Index")
-                </div>
             </div>
         </div>
     </div>

@@ -65,6 +65,10 @@ input[type="text"], input[type="password"], input[type="datetime"], input[type="
 {
     margin-bottom: 8px;
 }
+label
+{
+    margin-bottom: 0;
+}
 .paddingtop10
 {
     padding-top: 10px;
@@ -103,5 +107,5 @@ input[type="text"], input[type="password"], input[type="datetime"], input[type="
 }
 .requiredStar
 {
-    color:Red;
+    color: Red;
 }
