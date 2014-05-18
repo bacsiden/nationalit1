@@ -837,18 +837,18 @@
           <Property Name="Customer" Type="int" />
           <Property Name="Dispatcher" Type="int" />
           <Property Name="Driver" Type="int" />
-          <Property Name="Paid" Type="bit" />
+          <Property Name="Paid" Type="bit" Nullable="false" />
           <Property Name="Extra charges" Type="money" />
           <Property Name="Detention pay" Type="money" />
           <Property Name="Total charges" Type="money" />
           <Property Name="Detention" Type="money" />
-          <Property Name="Picked" Type="bit" />
-          <Property Name="Deliverd" Type="bit" />
+          <Property Name="Picked" Type="bit" Nullable="false" />
+          <Property Name="Deliverd" Type="bit" Nullable="false" />
           <Property Name="Invoice" Type="int" />
-          <Property Name="Customer Invoiced" Type="bit" />
+          <Property Name="Customer Invoiced" Type="bit" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="128" />
-          <Property Name="Current Payroll" Type="bit" />
-          <Property Name="Driver paid" Type="bit" />
+          <Property Name="Current Payroll" Type="bit" Nullable="false" />
+          <Property Name="Driver paid" Type="bit" Nullable="false" />
           <Property Name="Equipment ID" Type="int" />
           <Property Name="Comment" Type="nvarchar" MaxLength="255" />
           <Property Name="PO#" Type="nvarchar" MaxLength="16" />
