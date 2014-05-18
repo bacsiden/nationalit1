@@ -17,39 +17,39 @@ namespace Alabama.Controllers
         }
 
         public ActionResult NewOrEdit(int? id = 0)
-        {
+        {            
+            var obj = DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == id);
+            if (obj == null) obj = new Driver_Info();
 
-            string dataOwners = "[";
+            string dataOwners = "<option value='0'>--Select Owners--</option>";
             foreach (var item in Alabama.DB.Entities.Owners)
             {
-                if (dataOwners.Equals("["))
+                if (obj != null && obj.Owner_Name == item.OwnerID)
                 {
-                    dataOwners += "{ \"id\": " + item.OwnerID + ", \"label\": \"" + item.Name+ "\" }";
+                    //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                    dataOwners += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.OwnerID, item.Name);
                 }
                 else
                 {
-                    dataOwners += ",{ \"id\": " + item.OwnerID + ", \"label\": \"" + item.Name + "\" }";
+                    dataOwners += string.Format("<option value='{0}'>{1}</option>", item.OwnerID, item.Name);
                 }
             }
-            ViewBag.dataOwners = dataOwners + "]";
+            ViewBag.dataOwners = dataOwners;
 
-            string dataDispatchers = "[";
+            string dataDispatchers = "<option value='0'>--Select Dispatcher--</option>";
             foreach (var item in Alabama.DB.Entities.Dispatchers)
             {
-                if (dataDispatchers.Equals("["))
+                if (obj != null && obj.Dispatcher == item.ID)
                 {
-                    dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                    //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                    dataDispatchers += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
                 }
                 else
                 {
-                    dataDispatchers += ",{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                    dataDispatchers += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
                 }
             }
-            ViewBag.dataDispatchers = dataDispatchers + "]";
-
-            if (id == 0) return View(new Driver_Info());
-
-            var obj = DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == id);
+            ViewBag.dataDispatchers = dataDispatchers;
             return View(obj);
         }
 

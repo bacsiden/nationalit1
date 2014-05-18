@@ -5,8 +5,8 @@
 }
 <script type="text/javascript">
     $(document).ready(function () {        
-        autoCompleteByClassName($(":input.Dispatcher"),@Html.Raw(ViewBag.dataDispatchers));
-        autoCompleteByClassName($(":input.Owner_Name"),@Html.Raw(ViewBag.dataOwners));
+//        autoCompleteByClassName($(":input.Dispatcher"),@Html.Raw(ViewBag.dataDispatchers));
+//        autoCompleteByClassName($(":input.Owner_Name"),@Html.Raw(ViewBag.dataOwners));
     });    
 </script>
 <div class="row-fluid">
@@ -128,7 +128,10 @@
                         <label for="Dispatcher">
                             @Html.LabelFor(model => model.Dispatcher)</label>
                         @*@Html.TextBoxFor(model => model.Dispatcher, new { @class = "input-xlarge" })*@
-                        <input type="text" class="input-xlarge Dispatcher" name="Dispatcher" value="@Model.Dispatcher" style="margin: 0 auto;" data-provide="typeahead" data-items="4"  />
+                        @*<input type="text" class="input-xlarge Dispatcher" name="Dispatcher" value="@Model.Dispatcher" style="margin: 0 auto;" data-provide="typeahead" data-items="4"  />*@
+                        <select data-placeholder="Select Dispatcher" name="Dispatcher" class="chosen-with-diselect">
+                            @Html.Raw(ViewBag.dataDispatchers)
+                        </select>
                         @Html.ValidationMessageFor(model => model.Dispatcher)
                     </div>
                 </div>
@@ -157,7 +160,10 @@
                         <label for="Owner_Name">
                             @Html.LabelFor(model => model.Owner_Name)</label>
                         @*@Html.TextBoxFor(model => model.Owner_Name, new { @class = "input-xlarge" })*@                        
-                        <input type="text" class="input-xlarge Owner_Name" name="Owner_Name" value="@Model.Owner_Name" style="margin: 0 auto;" data-provide="typeahead" data-items="4" />
+                        @*<input type="text" class="input-xlarge Owner_Name" name="Owner_Name" value="@Model.Owner_Name" style="margin: 0 auto;" data-provide="typeahead" data-items="4" />*@
+                        <select data-placeholder="Select Owners" name="Owner_Name" class="chosen-with-diselect">
+                            @Html.Raw(ViewBag.dataOwners)
+                        </select>
                         @Html.ValidationMessageFor(model => model.Owner_Name)
                     </div>
                     <div class="control-group">
