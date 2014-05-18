@@ -44,13 +44,13 @@
                         @Html.ActionLink(item.Trip_ID.ToString(), "NewOrEdit", new { id = item.Trip_ID })
                     </td>
                     <td>
-                        @String.Format("{0:g}", item.Order_date)
+                        @String.Format("{0:MM/dd/yyyy}", item.Order_date)
                     </td>
                     <td>
-                        @String.Format("{0:g}", item.Pickup_date)
+                        @String.Format("{0:MM/dd/yyyy}", item.Pickup_date)
                     </td>
                     <td>
-                        @String.Format("{0:g}", item.Delivery_date)
+                        @String.Format("{0:MM/dd/yyyy}", item.Delivery_date)
                     </td>
                     <td>
                         @item.Pick_up_location
