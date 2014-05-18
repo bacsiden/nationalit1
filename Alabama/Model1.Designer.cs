@@ -1256,10 +1256,12 @@ namespace Alabama
         /// Create a new Dispatchers object.
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
-        public static Dispatchers CreateDispatchers(global::System.Int32 id)
+        /// <param name="active">Initial value of the Active property.</param>
+        public static Dispatchers CreateDispatchers(global::System.Int32 id, global::System.String active)
         {
             Dispatchers dispatchers = new Dispatchers();
             dispatchers.ID = id;
+            dispatchers.Active = active;
             return dispatchers;
         }
 
@@ -1413,6 +1415,30 @@ namespace Alabama
         private Nullable<global::System.DateTime> _Hire_date;
         partial void OnHire_dateChanging(Nullable<global::System.DateTime> value);
         partial void OnHire_dateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Active
+        {
+            get
+            {
+                return _Active;
+            }
+            set
+            {
+                OnActiveChanging(value);
+                ReportPropertyChanging("Active");
+                _Active = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Active");
+                OnActiveChanged();
+            }
+        }
+        private global::System.String _Active;
+        partial void OnActiveChanging(global::System.String value);
+        partial void OnActiveChanged();
 
         #endregion
 

@@ -101,3 +101,7 @@ input[type="text"], input[type="password"], input[type="datetime"], input[type="
     color: red;
     float: left;
 }
+.requiredStar
+{
+    color:Red;
+}

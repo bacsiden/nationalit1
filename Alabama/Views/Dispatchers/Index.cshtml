@@ -31,6 +31,9 @@
                     DOB
                 </th>
                 <th>
+                    Active
+                </th>
+                <th>
                     Hire_date
                 </th>
             </tr>
@@ -54,6 +57,9 @@
                     </td>
                     <td>
                         @String.Format("{0:g}", item.DOB)
+                    </td>
+                    <td>
+                        @item.Active
                     </td>
                     <td>
                         @String.Format("{0:g}", item.Hire_date)
