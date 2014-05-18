@@ -15,7 +15,7 @@
             <div class="control-group">
                 <label for="Customer_ID">
                     Customer_ID</label>
-                @Html.TextBoxFor(model => model.Customer_ID, new { @class = "input-xlarge" })
+                @Html.TextBoxFor(model => model.Customer_ID, new { @class = "input-xlarge", @readonly="true" })
                 @Html.ValidationMessageFor(model => model.Customer_ID)
             </div>
             <div class="control-group">
