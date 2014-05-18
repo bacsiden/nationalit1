@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CompanyExpansesController.cs" />
+    <Compile Include="Controllers\EquipmentController.cs" />
     <Compile Include="Controllers\OperatingExpensesController.cs" />
     <Compile Include="Controllers\DriverInfoController.cs" />
     <Compile Include="Controllers\CustomerInfoController.cs" />
@@ -398,6 +399,8 @@
     <None Include="TripInfoOutstanding.xss">
       <DependentUpon>TripInfoOutstanding.xsd</DependentUpon>
     </None>
+    <Content Include="Views\Equipment\Index.cshtml" />
+    <Content Include="Views\Equipment\NewOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\DispatcherTrip.rdlc" />
