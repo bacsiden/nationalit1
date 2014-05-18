@@ -1066,7 +1066,7 @@
             <End Role="Equipment" EntitySet="Equipment" />
             <End Role="Trip_Info" EntitySet="Trip_Info" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Company_Expanses">
           <Key>
             <PropertyRef Name="CompanyExpansesID" />
@@ -1622,18 +1622,18 @@
           <Property Type="Int32" Name="Customer" />
           <Property Type="Int32" Name="Dispatcher" />
           <Property Type="Int32" Name="Driver" />
-          <Property Type="Boolean" Name="Paid" />
+          <Property Type="Boolean" Name="Paid" Nullable="false" />
           <Property Type="Decimal" Name="Extra_charges" Precision="19" Scale="4" />
           <Property Type="Decimal" Name="Detention_pay" Precision="19" Scale="4" />
           <Property Type="Decimal" Name="Total_charges" Precision="19" Scale="4" />
           <Property Type="Decimal" Name="Detention" Precision="19" Scale="4" />
-          <Property Type="Boolean" Name="Picked" />
-          <Property Type="Boolean" Name="Deliverd" />
+          <Property Type="Boolean" Name="Picked" Nullable="false" />
+          <Property Type="Boolean" Name="Deliverd" Nullable="false" />
           <Property Type="Int32" Name="Invoice" />
-          <Property Type="Boolean" Name="Customer_Invoiced" />
+          <Property Type="Boolean" Name="Customer_Invoiced" Nullable="false" />
           <Property Type="String" Name="Address" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="Current_Payroll" />
-          <Property Type="Boolean" Name="Driver_paid" />
+          <Property Type="Boolean" Name="Current_Payroll" Nullable="false" />
+          <Property Type="Boolean" Name="Driver_paid" Nullable="false" />
           <Property Type="Int32" Name="Equipment_ID" />
           <Property Type="String" Name="Comment" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="PO_" MaxLength="16" FixedLength="false" Unicode="true" />
@@ -1691,7 +1691,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -2318,7 +2318,7 @@
           <ConnectorPoint PointX="10.875" PointY="17.682363281249998" />
           <ConnectorPoint PointX="17.625" PointY="17.682363281249998" />
         </AssociationConnector>
-      </Diagram>
+        </Diagram>
     </Diagrams>
   </Designer>
 </edmx:Edmx>
