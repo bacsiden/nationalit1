@@ -95,3 +95,9 @@ input[type="text"], input[type="password"], input[type="datetime"], input[type="
     width: 800px;
     margin-left: -375px;
 }
+
+.field-validation-error
+{
+    color: red;
+    float: left;
+}
