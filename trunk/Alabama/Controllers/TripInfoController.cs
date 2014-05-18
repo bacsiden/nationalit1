@@ -23,40 +23,54 @@ namespace Alabama.Controllers
 
         public ActionResult NewOrEdit(int? driverID = 0, int? id = 0)
         {
-            string dataDispatchers = "[";
-            foreach (var item in Alabama.DB.Entities.Dispatchers)
-            {
-                if (dataDispatchers.Equals("["))
-                {
-                    dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
-                }
-                else
-                {
-                    dataDispatchers += ",{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
-                }
-            }
-            ViewBag.dataDispatchers = dataDispatchers + "]";
-
-            string dataDriver = "[";
-            foreach (var item in Alabama.DB.Entities.Driver_Info)
-            {
-                if (dataDriver.Equals("["))
-                {
-                    dataDriver += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
-                }
-                else
-                {
-                    dataDriver += ",{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
-                }
-            }
-            ViewBag.dataDriver = dataDriver + "]";
-
-
             var obj = DB.Entities.Trip_Info.FirstOrDefault(m => m.Trip_ID == id);
             if (obj == null)
             {
                 obj = new Trip_Info() { Picked = true, Deliverd = false, Customer_Invoiced = false, Current_Payroll = false, Driver_paid = false, Driver = driverID.Value };
             }
+
+            string dataDispatchers = "<option value='0'>--Select Dispatcher--</option>";
+            foreach (var item in Alabama.DB.Entities.Dispatchers)
+            {
+                if (obj!=null && obj.Dispatcher == item.ID)
+                {
+                    //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                    dataDispatchers += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>",item.ID,item.Last_name,item.First_name);
+                }
+                else
+                {
+                    dataDispatchers += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                }
+            }
+            ViewBag.dataDispatchers = dataDispatchers;
+
+            string dataDriver = "<option value='0'>--Select Driver--</option>";
+            foreach (var item in Alabama.DB.Entities.Driver_Info)
+            {
+                if (obj != null && obj.Driver == item.ID)
+                {
+                    dataDriver += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                }
+                else
+                {
+                    dataDriver += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                }
+            }
+            ViewBag.dataDriver = dataDriver;
+            
+            string dataEquipment = "<option value='0'>--Select Equiment--</option>";
+            //foreach (var item in Alabama.DB.Entities.Driver_Info)
+            //{
+            //if (obj != null && obj.Equipment_ID == item.ID)
+            //    {
+            //        dataEquipment += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+            //    }
+            //    else
+            //    {
+            //        dataEquipment += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+            //    }
+            //}
+            ViewBag.dataEquipment = dataEquipment;
             return View(obj);
         }
 

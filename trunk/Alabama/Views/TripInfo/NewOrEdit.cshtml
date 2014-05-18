@@ -4,8 +4,8 @@
 }
 <script type="text/javascript">
     $(document).ready(function () {        
-        autoCompleteByClassName($(":input.Dispatcher"),@Html.Raw(ViewBag.dataDispatchers));
-        autoCompleteByClassName($(":input.Driver"),@Html.Raw(ViewBag.dataDriver));         
+//        autoCompleteByClassName($(":input.Dispatcher"),@Html.Raw(ViewBag.dataDispatchers));
+//        autoCompleteByClassName($(":input.Driver"),@Html.Raw(ViewBag.dataDriver));         
     });    
 </script>
 <div class="row-fluid">
@@ -17,13 +17,13 @@
             @Html.ValidationSummary(true)                    
 
             @Html.HiddenFor(model => model.Trip_ID)
-            @Html.HiddenFor(model=>model.Customer)
+            @Html.HiddenFor(model => model.Customer)
             <div class="row-fluid">
                 <div class="span12">
                     <div class="control-group">
                         <label for="Customer">
-                            Customer</label>                        
-                        <input type="text" name="CustomerDisplay" class = "input-xxlarge CustomerDisplay" value="@(Model.Customer_Info!=null?Model.Customer_Info.Customer_Name:"")" />
+                            Customer</label>
+                        <input type="text" name="CustomerDisplay" class = "input-xxlarge CustomerDisplay" value="@(Model.Customer_Info != null ? Model.Customer_Info.Customer_Name : "")" />
                         @Html.ValidationMessageFor(model => model.Customer)
                         <a href="#AddCustomerInfo" role="button" class="btn btn-primary" data-toggle="modal">
                             Customer info</a> <a href="#" class="btn btn-info">Select By Invoice</a>
@@ -76,14 +76,20 @@
                         <label for="Dispatcher">
                             Dispatcher</label>
                         @*@Html.TextBoxFor(model => model.Dispatcher, new { @class = "input-xlarge" })*@
-                        <input type="text" class="input-xlarge Dispatcher" name="Dispatcher" value="@Model.Dispatcher" style="margin: 0 auto;" data-provide="typeahead" data-items="4" />
+                        @*<input type="text" class="input-xlarge Dispatcher" name="Dispatcher" value="@Model.Dispatcher" style="margin: 0 auto;" data-provide="typeahead" data-items="4" />*@
+                        <select data-placeholder="Select Dispatcher" name="Dispatcher" class="chosen-with-diselect">
+                            @Html.Raw(ViewBag.dataDispatchers)
+                        </select>
                         @Html.ValidationMessageFor(model => model.Dispatcher)
                     </div>
                     <div class="control-group">
                         <label for="Driver">
                             Driver</label>
                         @*@Html.TextBoxFor(model => model.Driver, new { @class = "input-xlarge" })*@
-                        <input type="text" class="input-xlarge Driver" name="Driver" value="@Model.Driver" style="margin: 0 auto;" data-provide="typeahead" data-items="4"/>
+                        @*<input type="text" class="input-xlarge Driver" name="Driver" value="@Model.Driver" style="margin: 0 auto;" data-provide="typeahead" data-items="4"/>*@
+                        <select data-placeholder="Select Driver" name="Driver" class="chosen-with-diselect">
+                            @Html.Raw(ViewBag.dataDriver)
+                        </select>
                         @Html.ValidationMessageFor(model => model.Driver)
                     </div>
                 </div>
@@ -127,7 +133,10 @@
                     <div class="control-group">
                         <label for="Equipment_ID">
                             Equipment</label>
-                        @Html.TextBoxFor(model => model.Equipment_ID, new { @class = "input-xlarge" })
+                        @*@Html.TextBoxFor(model => model.Equipment_ID, new { @class = "input-xlarge" })*@
+                        <select data-placeholder="Select Equipment" name="Equipment_ID" class="chosen-with-diselect">
+                            @Html.Raw(ViewBag.dataEquipment)
+                        </select>
                         @Html.ValidationMessageFor(model => model.Equipment_ID)
                     </div>
                 </div>
@@ -228,7 +237,7 @@
         <div id="resultCustomerInfo" class="resultCustomer">
         </div>
     </div>
-    <div class="modal-footer">        
+    <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">
             Close</button>
     </div>
