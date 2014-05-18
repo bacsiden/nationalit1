@@ -8740,10 +8740,22 @@ namespace Alabama
         /// Create a new Trip_Info object.
         /// </summary>
         /// <param name="trip_ID">Initial value of the Trip_ID property.</param>
-        public static Trip_Info CreateTrip_Info(global::System.Int32 trip_ID)
+        /// <param name="paid">Initial value of the Paid property.</param>
+        /// <param name="picked">Initial value of the Picked property.</param>
+        /// <param name="deliverd">Initial value of the Deliverd property.</param>
+        /// <param name="customer_Invoiced">Initial value of the Customer_Invoiced property.</param>
+        /// <param name="current_Payroll">Initial value of the Current_Payroll property.</param>
+        /// <param name="driver_paid">Initial value of the Driver_paid property.</param>
+        public static Trip_Info CreateTrip_Info(global::System.Int32 trip_ID, global::System.Boolean paid, global::System.Boolean picked, global::System.Boolean deliverd, global::System.Boolean customer_Invoiced, global::System.Boolean current_Payroll, global::System.Boolean driver_paid)
         {
             Trip_Info trip_Info = new Trip_Info();
             trip_Info.Trip_ID = trip_ID;
+            trip_Info.Paid = paid;
+            trip_Info.Picked = picked;
+            trip_Info.Deliverd = deliverd;
+            trip_Info.Customer_Invoiced = customer_Invoiced;
+            trip_Info.Current_Payroll = current_Payroll;
+            trip_Info.Driver_paid = driver_paid;
             return trip_Info;
         }
 
@@ -9069,9 +9081,9 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> Paid
+        public global::System.Boolean Paid
         {
             get
             {
@@ -9086,8 +9098,8 @@ namespace Alabama
                 OnPaidChanged();
             }
         }
-        private Nullable<global::System.Boolean> _Paid;
-        partial void OnPaidChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _Paid;
+        partial void OnPaidChanging(global::System.Boolean value);
         partial void OnPaidChanged();
     
         /// <summary>
@@ -9189,9 +9201,9 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> Picked
+        public global::System.Boolean Picked
         {
             get
             {
@@ -9206,16 +9218,16 @@ namespace Alabama
                 OnPickedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _Picked;
-        partial void OnPickedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _Picked;
+        partial void OnPickedChanging(global::System.Boolean value);
         partial void OnPickedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> Deliverd
+        public global::System.Boolean Deliverd
         {
             get
             {
@@ -9230,8 +9242,8 @@ namespace Alabama
                 OnDeliverdChanged();
             }
         }
-        private Nullable<global::System.Boolean> _Deliverd;
-        partial void OnDeliverdChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _Deliverd;
+        partial void OnDeliverdChanging(global::System.Boolean value);
         partial void OnDeliverdChanged();
     
         /// <summary>
@@ -9261,9 +9273,9 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> Customer_Invoiced
+        public global::System.Boolean Customer_Invoiced
         {
             get
             {
@@ -9278,8 +9290,8 @@ namespace Alabama
                 OnCustomer_InvoicedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _Customer_Invoiced;
-        partial void OnCustomer_InvoicedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _Customer_Invoiced;
+        partial void OnCustomer_InvoicedChanging(global::System.Boolean value);
         partial void OnCustomer_InvoicedChanged();
     
         /// <summary>
@@ -9309,9 +9321,9 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> Current_Payroll
+        public global::System.Boolean Current_Payroll
         {
             get
             {
@@ -9326,16 +9338,16 @@ namespace Alabama
                 OnCurrent_PayrollChanged();
             }
         }
-        private Nullable<global::System.Boolean> _Current_Payroll;
-        partial void OnCurrent_PayrollChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _Current_Payroll;
+        partial void OnCurrent_PayrollChanging(global::System.Boolean value);
         partial void OnCurrent_PayrollChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> Driver_paid
+        public global::System.Boolean Driver_paid
         {
             get
             {
@@ -9350,8 +9362,8 @@ namespace Alabama
                 OnDriver_paidChanged();
             }
         }
-        private Nullable<global::System.Boolean> _Driver_paid;
-        partial void OnDriver_paidChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _Driver_paid;
+        partial void OnDriver_paidChanging(global::System.Boolean value);
         partial void OnDriver_paidChanged();
     
         /// <summary>
