@@ -375,27 +375,28 @@
           <Property Name="SSN" Type="nvarchar" MaxLength="12" />
           <Property Name="DOB" Type="datetime" />
           <Property Name="Hire date" Type="datetime" />
+          <Property Name="Active" Type="nchar" Nullable="false" MaxLength="10" />
         </EntityType>
         <EntityType Name="Driver Info">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Employee ID" Type="nvarchar" Nullable="false" MaxLength="32" />
-          <Property Name="Last name" Type="nvarchar" MaxLength="32" />
+          <Property Name="Employee ID" Type="nvarchar" MaxLength="32" />
+          <Property Name="Last name" Type="nvarchar" Nullable="false" MaxLength="32" />
           <Property Name="First name" Type="nvarchar" Nullable="false" MaxLength="32" />
           <Property Name="Middle in" Type="nvarchar" MaxLength="32" />
-          <Property Name="SSN" Type="nvarchar" MaxLength="24" />
-          <Property Name="Drive Lic" Type="nvarchar" MaxLength="24" />
-          <Property Name="State" Type="nvarchar" MaxLength="32" />
-          <Property Name="Expiration Date" Type="nvarchar" MaxLength="255" />
+          <Property Name="SSN" Type="nvarchar" Nullable="false" MaxLength="24" />
+          <Property Name="Drive Lic" Type="nvarchar" Nullable="false" MaxLength="24" />
+          <Property Name="State" Type="nvarchar" Nullable="false" MaxLength="32" />
+          <Property Name="Expiration Date" Type="nvarchar" Nullable="false" MaxLength="255" />
           <Property Name="Date Issued" Type="nvarchar" MaxLength="255" />
           <Property Name="HazMat" Type="bit" Nullable="false" />
           <Property Name="Pay rate" Type="real" />
           <Property Name="Comments" Type="nvarchar" MaxLength="255" />
           <Property Name="Truck" Type="nvarchar" MaxLength="32" />
           <Property Name="Trailer" Type="nvarchar" MaxLength="32" />
-          <Property Name="Phone" Type="nvarchar" MaxLength="32" />
+          <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="32" />
           <Property Name="Address" Type="nvarchar" MaxLength="128" />
           <Property Name="Fuel Card" Type="nvarchar" MaxLength="32" />
           <Property Name="fuel &amp; advance Fee rate" Type="real" />
@@ -522,7 +523,7 @@
           </Key>
           <Property Name="OwnerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="ssn#" Type="nvarchar" MaxLength="50" />
+          <Property Name="ssn#" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="fee rate" Type="real" />
           <Property Name="pay rate" Type="real" />
         </EntityType>
@@ -844,7 +845,7 @@
           <Property Name="Detention" Type="money" />
           <Property Name="Picked" Type="bit" Nullable="false" />
           <Property Name="Deliverd" Type="bit" Nullable="false" />
-          <Property Name="Invoice" Type="int" />
+          <Property Name="Invoice" Type="int" Nullable="false" />
           <Property Name="Customer Invoiced" Type="bit" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="128" />
           <Property Name="Current Payroll" Type="bit" Nullable="false" />
@@ -852,7 +853,7 @@
           <Property Name="Equipment ID" Type="int" />
           <Property Name="Comment" Type="nvarchar" MaxLength="255" />
           <Property Name="PO#" Type="nvarchar" MaxLength="16" />
-          <Property Name="Customer Invoiced date" Type="datetime" />
+          <Property Name="Customer Invoiced date" Type="datetime" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'VPSS1.dbo.Trip Info - old' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -1106,6 +1107,7 @@
           <Property Name="Hire_date" Type="DateTime" />
           <NavigationProperty Name="Driver_Info" Relationship="vpss1Model.FK_Driver_Info_Dispatchers" FromRole="Dispatchers" ToRole="Driver_Info" />
           <NavigationProperty Name="Trip_Info" Relationship="vpss1Model.FK_Trip_Info_Dispatchers1" FromRole="Dispatchers" ToRole="Trip_Info" />
+          <Property Type="String" Name="Active" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Driver_Info">
           <Key>
@@ -1728,6 +1730,7 @@
           <EntitySetMapping Name="Dispatchers">
             <EntityTypeMapping TypeName="vpss1Model.Dispatchers">
               <MappingFragment StoreEntitySet="Dispatchers">
+                <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Last_name" ColumnName="Last name" />
                 <ScalarProperty Name="First_name" ColumnName="First name" />

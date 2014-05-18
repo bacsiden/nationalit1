@@ -26,7 +26,7 @@ namespace Alabama.Controllers
             var obj = DB.Entities.Trip_Info.FirstOrDefault(m => m.Trip_ID == id);
             if (obj == null)
             {
-                obj = new Trip_Info() {Driver=driverID};
+                obj = new Trip_Info() {Driver=driverID,Picked=true,Current_Payroll=true,Customer_Invoiced_date=DateTime.Now.Date,Invoice=DB.Entities.Trip_Info.Max(m=>m.Invoice)+1};
             }
 
             #region SELECT OPTION

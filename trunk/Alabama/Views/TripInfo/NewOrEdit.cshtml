@@ -53,7 +53,7 @@
                     <div class="control-group">
                         <label for="Order_date">
                             Order_date</label>
-                        @Html.TextBoxFor(model => model.Order_date, new { @class = "input-xlarge date-picker" })
+                        <input type="text" name="Order_date" value="@(Model.Order_date.HasValue? Model.Order_date.Value.ToString("MM/dd/yyyy") : "")"  class = "input-xlarge date-picker"/>
                         @Html.ValidationMessageFor(model => model.Order_date)
                     </div>
                     <div class="control-group">
@@ -104,8 +104,8 @@
                 <div class="span4">
                     <div class="control-group">
                         <label for="Pickup_date">
-                            Pickup_date</label>
-                        @Html.TextBoxFor(model => model.Pickup_date, new { @class = "input-xlarge date-picker" })
+                            Pickup_date</label>                        
+                        <input type="text" name="Pickup_date" value="@(Model.Pickup_date.HasValue ? Model.Pickup_date.Value.ToString("MM/dd/yyyy") : "")"  class = "input-xlarge date-picker"/>
                         @Html.ValidationMessageFor(model => model.Pickup_date)
                     </div>
                     <div class="control-group">
@@ -151,8 +151,8 @@
                 <div class="span4">
                     <div class="control-group">
                         <label for="Delivery_date">
-                            Delivery_date</label>
-                        @Html.TextBoxFor(model => model.Delivery_date, new { @class = "input-xlarge date-picker" })
+                            Delivery_date</label>                        
+                        <input type="text" name="Delivery_date" value="@(Model.Delivery_date.HasValue? Model.Delivery_date.Value.ToString("MM/dd/yyyy") : "")"  class = "input-xlarge date-picker"/>
                         @Html.ValidationMessageFor(model => model.Delivery_date)
                     </div>
                     <div class="control-group">
@@ -206,7 +206,7 @@
                     <div class="control-group">
                         <label for="Customer_Invoiced_date">
                             Customer_Invoiced_date</label>
-                        @Html.TextBoxFor(model => model.Customer_Invoiced_date, new { @class = "input-xlarge date-picker" })
+                        <input type="text" name="Customer_Invoiced_date" value="@(Model.Customer_Invoiced_date.HasValue? Model.Customer_Invoiced_date.Value.ToString("MM/dd/yyyy") : "")"  class = "input-xlarge date-picker"/>
                         @Html.ValidationMessageFor(model => model.Customer_Invoiced_date)
                     </div>
                 </div>
