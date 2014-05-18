@@ -55,7 +55,7 @@ namespace Alabama.Controllers
             var obj = DB.Entities.Trip_Info.FirstOrDefault(m => m.Trip_ID == id);
             if (obj == null)
             {
-                obj = new Trip_Info() { Picked = false, Deliverd = false, Customer_Invoiced = false, Current_Payroll = false, Driver_paid = false, Driver = driverID.Value };
+                obj = new Trip_Info() { Picked = true, Deliverd = false, Customer_Invoiced = false, Current_Payroll = false, Driver_paid = false, Driver = driverID.Value };
             }
             return View(obj);
         }
