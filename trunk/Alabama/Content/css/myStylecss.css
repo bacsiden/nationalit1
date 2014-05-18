@@ -83,16 +83,11 @@ input[type="text"], input[type="password"], input[type="datetime"], input[type="
     height: auto;
     border: 1px solid #ccc;
 }
-.report .btn.btn-info
+.report .btn.btn-primary
 {
-    background-color: #5ab4da;
     margin-bottom: 2px;
     height: 90px;
     font-size: 13px;
-}
-.report .btn.btn-info:hover
-{
-    background-color: #50a1c3;
 }
 
 .modal
