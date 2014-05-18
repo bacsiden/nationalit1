@@ -24,6 +24,22 @@ namespace Alabama.Controllers
         {
             var obj = DB.Entities.Equipment.FirstOrDefault(m => m.ID == id);
             if (obj == null) obj = new Equipment();
+
+
+            string dataDriver = "<option >--Select Driver--</option>";
+            foreach (var item in Alabama.DB.Entities.Driver_Info)
+            {
+                if (obj != null && obj.Driver == item.ID)
+                {
+                    dataDriver += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                }
+                else
+                {
+                    dataDriver += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                }
+            }
+            ViewBag.dataDriver = dataDriver;
+
             return View(obj);
         }
 
@@ -53,6 +69,19 @@ namespace Alabama.Controllers
             }
             catch
             {
+                string dataDriver = "<option >--Select Driver--</option>";
+                foreach (var item in Alabama.DB.Entities.Driver_Info)
+                {
+                    if (model != null && model.Driver == item.ID)
+                    {
+                        dataDriver += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                    }
+                    else
+                    {
+                        dataDriver += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                    }
+                }
+                ViewBag.dataDriver = dataDriver;
                 return View();
             }
         }
