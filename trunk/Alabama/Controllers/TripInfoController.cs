@@ -146,18 +146,14 @@ namespace Alabama.Controllers
         }
 
         [HttpGet]
-        public ActionResult GetCutomerInfoByKey(int?page,string query = "")
+        public ActionResult GetCutomerInfoByKey(int? page, string query = "")
         {
             page = page.HasValue ? page.Value : 1;
+            int id = 0;
+            int.TryParse(query, out id);
             var db = Alabama.DB.Entities;
-            var list = db.Customer_Info.Where(m => 
-                m.Customer_Name.Contains(query) || 
-                m.ZIP_Code.Contains(query) || 
-                m.State.Contains(query) || 
-                m.Phone.Contains(query) || 
-                //SqlFunctions.StringConvert((double)m.Customer_ID).Contains(query)||
-                m.Street.ToString().Contains(query)|| 
-                m.City.ToString().Contains(query));            
+            var list = db.Customer_Info.Where(m =>
+                m.Customer_Name.Contains(query) || (id == 0) ? true : m.Customer_ID == id);
             return PartialView(list.OrderByDescending(m => m.Customer_ID).ToPagedList(page.Value, 5));
         }
     }
