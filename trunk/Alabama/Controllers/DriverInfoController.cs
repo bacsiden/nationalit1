@@ -17,11 +17,12 @@ namespace Alabama.Controllers
         }
 
         public ActionResult NewOrEdit(int? id = 0)
-        {            
+        {
             var obj = DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == id);
             if (obj == null) obj = new Driver_Info();
 
-            string dataOwners = "<option value='0'>--Select Owners--</option>";
+            #region SELECT OPTION
+            string dataOwners = "<option >--Select Owners--</option>";
             foreach (var item in Alabama.DB.Entities.Owners)
             {
                 if (obj != null && obj.Owner_Name == item.OwnerID)
@@ -36,7 +37,7 @@ namespace Alabama.Controllers
             }
             ViewBag.dataOwners = dataOwners;
 
-            string dataDispatchers = "<option value='0'>--Select Dispatcher--</option>";
+            string dataDispatchers = "<option >--Select Dispatcher--</option>";
             foreach (var item in Alabama.DB.Entities.Dispatchers)
             {
                 if (obj != null && obj.Dispatcher == item.ID)
@@ -50,6 +51,36 @@ namespace Alabama.Controllers
                 }
             }
             ViewBag.dataDispatchers = dataDispatchers;
+
+            string dataTruck = "<option >--Select Truck--</option>";
+            foreach (var item in Alabama.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRUCK")))
+            {
+                if (obj != null && (obj.Truck + "").Equals(item.Equipment_number + ""))
+                {
+                    dataTruck += string.Format("<option value='{0}' selected='selected'>{0}</option>",item.Equipment_number);
+                }
+                else
+                {
+                    dataTruck += string.Format("<option value='{0}'>{0}</option>",item.Equipment_number);
+                }
+            }
+            ViewBag.dataTruck = dataTruck;
+
+            string dataTrailer = "<option >--Select Trailer--</option>";
+            foreach (var item in Alabama.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRAILER")))
+            {
+                if (obj != null && (obj.Trailer+"").Equals(item.Equipment_number+""))
+                {
+                    dataTrailer += string.Format("<option value='{0}' selected='selected'>{0}</option>",item.Equipment_number);
+                }
+                else
+                {
+                    dataTrailer += string.Format("<option value='{0}'>{0}</option>",item.Equipment_number);
+                }
+            }
+            ViewBag.dataTrailer = dataTrailer;
+            #endregion
+
             return View(obj);
         }
 
@@ -76,6 +107,65 @@ namespace Alabama.Controllers
             }
             catch
             {
+                #region SELECT OPTION
+                string dataOwners = "<option >--Select Owners--</option>";
+                foreach (var item in Alabama.DB.Entities.Owners)
+                {
+                    if (model != null && model.Owner_Name == item.OwnerID)
+                    {
+                        //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                        dataOwners += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.OwnerID, item.Name);
+                    }
+                    else
+                    {
+                        dataOwners += string.Format("<option value='{0}'>{1}</option>", item.OwnerID, item.Name);
+                    }
+                }
+                ViewBag.dataOwners = dataOwners;
+
+                string dataDispatchers = "<option >--Select Dispatcher--</option>";
+                foreach (var item in Alabama.DB.Entities.Dispatchers)
+                {
+                    if (model != null && model.Dispatcher == item.ID)
+                    {
+                        //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                        dataDispatchers += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                    }
+                    else
+                    {
+                        dataDispatchers += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                    }
+                }
+                ViewBag.dataDispatchers = dataDispatchers;
+
+                string dataTruck = "<option >--Select Truck--</option>";
+                foreach (var item in Alabama.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRUCK")))
+                {
+                    if (model != null && model.ID == item.ID)
+                    {
+                        dataTruck += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.ID, item.Equipment_number);
+                    }
+                    else
+                    {
+                        dataTruck += string.Format("<option value='{0}'>{1}</option>", item.ID, item.Equipment_number);
+                    }
+                }
+                ViewBag.dataTruck = dataTruck;
+
+                string dataTrailer = "<option >--Select Trailer--</option>";
+                foreach (var item in Alabama.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRAILER")))
+                {
+                    if (model != null && model.ID == item.ID)
+                    {
+                        dataTrailer += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.ID, item.Equipment_number);
+                    }
+                    else
+                    {
+                        dataTrailer += string.Format("<option value='{0}'>{1}</option>", item.ID, item.Equipment_number);
+                    }
+                }
+                ViewBag.dataTrailer = dataTrailer;
+                #endregion
                 return View();
             }
         }

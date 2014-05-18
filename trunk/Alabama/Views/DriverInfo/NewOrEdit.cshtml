@@ -19,7 +19,7 @@
             @Html.HiddenFor(model => model.ID)
             <div class="row-fluid">
                 <div class="span12">
-                    <a href="/TripInfo/NewOrEdit?driverID=@(Model.ID)" target="_blank" class="btn btn-info">New Trip info</a> <a href="#" class="btn btn-info">
+                    <a href="/TripInfo/NewOrEdit?driverID=@(Model!=null?Model.ID:0)" target="_blank" class="btn btn-info">New Trip info</a> <a href="#" class="btn btn-info">
                         Equipment</a> <a href="#" class="btn btn-info">Violations</a> <a href="#" class="btn btn-info">
                             Maintenance</a> <a href="#" class="btn btn-info">Pay rolls rollback</a>
                     <a href="#" class="btn btn-info">Pay rolls operations rollback</a> <a href="#" class="btn btn-info">
@@ -76,7 +76,9 @@
                         <label for="Truck">
                             @Html.LabelFor(model => model.Truck)</label>
                         @*@Html.TextBoxFor(model => model.Truck, new { @class = "input-xlarge" })*@
-                        <input type="text" class="input-xlarge" name="Truck" value="@Model.Truck" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[&quot;Alabama&quot;,&quot;Alaska&quot;,&quot;Arizona&quot;,&quot;Arkansas&quot;,&quot;California&quot;,&quot;Colorado&quot;,&quot;Connecticut&quot;,&quot;Delaware&quot;,&quot;Florida&quot;,&quot;Georgia&quot;,&quot;Hawaii&quot;,&quot;Idaho&quot;,&quot;Illinois&quot;,&quot;Indiana&quot;,&quot;Iowa&quot;,&quot;Kansas&quot;,&quot;Kentucky&quot;,&quot;Louisiana&quot;,&quot;Maine&quot;,&quot;Maryland&quot;,&quot;Massachusetts&quot;,&quot;Michigan&quot;,&quot;Minnesota&quot;,&quot;Mississippi&quot;,&quot;Missouri&quot;,&quot;Montana&quot;,&quot;Nebraska&quot;,&quot;Nevada&quot;,&quot;New Hampshire&quot;,&quot;New Jersey&quot;,&quot;New Mexico&quot;,&quot;New York&quot;,&quot;North Dakota&quot;,&quot;North Carolina&quot;,&quot;Ohio&quot;,&quot;Oklahoma&quot;,&quot;Oregon&quot;,&quot;Pennsylvania&quot;,&quot;Rhode Island&quot;,&quot;South Carolina&quot;,&quot;South Dakota&quot;,&quot;Tennessee&quot;,&quot;Texas&quot;,&quot;Utah&quot;,&quot;Vermont&quot;,&quot;Virginia&quot;,&quot;Washington&quot;,&quot;West Virginia&quot;,&quot;Wisconsin&quot;,&quot;Wyoming&quot;]" />
+                        <select data-placeholder="Select Truck" name="Truck" class="chosen-with-diselect input-xlarge">
+                            @Html.Raw(ViewBag.dataTruck)
+                        </select>
                         @Html.ValidationMessageFor(model => model.Truck)
                     </div>
                 </div>
@@ -128,8 +130,7 @@
                         <label for="Dispatcher">
                             @Html.LabelFor(model => model.Dispatcher)</label>
                         @*@Html.TextBoxFor(model => model.Dispatcher, new { @class = "input-xlarge" })*@
-                        @*<input type="text" class="input-xlarge Dispatcher" name="Dispatcher" value="@Model.Dispatcher" style="margin: 0 auto;" data-provide="typeahead" data-items="4"  />*@
-                        <select data-placeholder="Select Dispatcher" name="Dispatcher" class="chosen-with-diselect">
+                        <select data-placeholder="Select Dispatcher" name="Dispatcher" class="chosen-with-diselect input-xlarge">
                             @Html.Raw(ViewBag.dataDispatchers)
                         </select>
                         @Html.ValidationMessageFor(model => model.Dispatcher)
@@ -139,8 +140,9 @@
                     <div class="control-group">
                         <label for="Trailer">
                             @Html.LabelFor(model => model.Trailer)</label>
-                        @*@Html.TextBoxFor(model => model.Trailer, new { @class = "input-xlarge" })*@
-                        <input type="text" class="input-xlarge" name="Trailer" value="@Model.Trailer" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[&quot;Alabama&quot;,&quot;Alaska&quot;,&quot;Arizona&quot;,&quot;Arkansas&quot;,&quot;California&quot;,&quot;Colorado&quot;,&quot;Connecticut&quot;,&quot;Delaware&quot;,&quot;Florida&quot;,&quot;Georgia&quot;,&quot;Hawaii&quot;,&quot;Idaho&quot;,&quot;Illinois&quot;,&quot;Indiana&quot;,&quot;Iowa&quot;,&quot;Kansas&quot;,&quot;Kentucky&quot;,&quot;Louisiana&quot;,&quot;Maine&quot;,&quot;Maryland&quot;,&quot;Massachusetts&quot;,&quot;Michigan&quot;,&quot;Minnesota&quot;,&quot;Mississippi&quot;,&quot;Missouri&quot;,&quot;Montana&quot;,&quot;Nebraska&quot;,&quot;Nevada&quot;,&quot;New Hampshire&quot;,&quot;New Jersey&quot;,&quot;New Mexico&quot;,&quot;New York&quot;,&quot;North Dakota&quot;,&quot;North Carolina&quot;,&quot;Ohio&quot;,&quot;Oklahoma&quot;,&quot;Oregon&quot;,&quot;Pennsylvania&quot;,&quot;Rhode Island&quot;,&quot;South Carolina&quot;,&quot;South Dakota&quot;,&quot;Tennessee&quot;,&quot;Texas&quot;,&quot;Utah&quot;,&quot;Vermont&quot;,&quot;Virginia&quot;,&quot;Washington&quot;,&quot;West Virginia&quot;,&quot;Wisconsin&quot;,&quot;Wyoming&quot;]" />
+                        <select data-placeholder="Select Trailer" name="Trailer" class="chosen-with-diselect input-xlarge">
+                            @Html.Raw(ViewBag.dataTrailer)
+                        </select>
                         @Html.ValidationMessageFor(model => model.Trailer)
                     </div>
                     <div class="control-group">
@@ -161,7 +163,7 @@
                             @Html.LabelFor(model => model.Owner_Name)</label>
                         @*@Html.TextBoxFor(model => model.Owner_Name, new { @class = "input-xlarge" })*@                        
                         @*<input type="text" class="input-xlarge Owner_Name" name="Owner_Name" value="@Model.Owner_Name" style="margin: 0 auto;" data-provide="typeahead" data-items="4" />*@
-                        <select data-placeholder="Select Owners" name="Owner_Name" class="chosen-with-diselect">
+                        <select data-placeholder="Select Owners" name="Owner_Name" class="chosen-with-diselect input-xlarge">
                             @Html.Raw(ViewBag.dataOwners)
                         </select>
                         @Html.ValidationMessageFor(model => model.Owner_Name)
@@ -192,8 +194,13 @@
                    int page = (!string.IsNullOrEmpty(Request.Params["page"]) ? int.Parse(Request.Params["page"]) : 1);
                    int pageIndex = (!string.IsNullOrEmpty(Request.Params["pageIndex"]) ? int.Parse(Request.Params["pageIndex"]) : 1);
                    int pageSize = (!string.IsNullOrEmpty(Request.Params["pageSize"]) ? int.Parse(Request.Params["pageSize"]) : 20);
-                   var lst = Alabama.DB.Entities.Fuel___Expenses.Where(m => m.Driver_Info.ID == Model.ID).ToList();
-                   var lst1 = Alabama.DB.Entities.Operating_Expenses.Where(m => m.Driver_Info.ID == Model.ID).ToList();
+                   var lst = new List<Alabama.Fuel___Expenses>();
+                   var lst1 = new List<Alabama.Operating_Expenses>();
+                   if (Model!=null)
+                   {
+                       lst = Alabama.DB.Entities.Fuel___Expenses.Where(m => m.Driver_Info.ID == Model.ID).ToList();
+                       lst1 = Alabama.DB.Entities.Operating_Expenses.Where(m => m.Driver_Info.ID == Model.ID).ToList();
+                   }                   
                     }
                     @Html.Partial("_Fuel_ExpensesPartial", new PagedList<Alabama.Fuel___Expenses>(lst, page, pageSize))
                 </div>
