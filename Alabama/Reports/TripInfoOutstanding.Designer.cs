@@ -301,6 +301,16 @@ namespace Alabama.Reports {
             
             private global::System.Data.DataColumn columnTotalCharges;
             
+            private global::System.Data.DataColumn columnComfirmedRate1;
+            
+            private global::System.Data.DataColumn columnLumperExtra1;
+            
+            private global::System.Data.DataColumn columnDetentionPay1;
+            
+            private global::System.Data.DataColumn columnChargesBack1;
+            
+            private global::System.Data.DataColumn columnTotalCharges1;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable() {
@@ -424,6 +434,46 @@ namespace Alabama.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ComfirmedRate1Column {
+                get {
+                    return this.columnComfirmedRate1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LumperExtra1Column {
+                get {
+                    return this.columnLumperExtra1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DetentionPay1Column {
+                get {
+                    return this.columnDetentionPay1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ChargesBack1Column {
+                get {
+                    return this.columnChargesBack1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TotalCharges1Column {
+                get {
+                    return this.columnTotalCharges1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -459,7 +509,23 @@ namespace Alabama.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string DriverName, string OrderDate, string PickupDate, string DeliveryDate, string CustomerName, string DeliveryLocation, string ComfirmedRate, string LumperExtra, string DetentionPay, string ChargesBack, string TotalCharges) {
+            public DataTable1Row AddDataTable1Row(
+                        string DriverName, 
+                        string OrderDate, 
+                        string PickupDate, 
+                        string DeliveryDate, 
+                        string CustomerName, 
+                        string DeliveryLocation, 
+                        string ComfirmedRate, 
+                        string LumperExtra, 
+                        string DetentionPay, 
+                        string ChargesBack, 
+                        string TotalCharges, 
+                        string ComfirmedRate1, 
+                        string LumperExtra1, 
+                        string DetentionPay1, 
+                        string ChargesBack1, 
+                        string TotalCharges1) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DriverName,
@@ -472,7 +538,12 @@ namespace Alabama.Reports {
                         LumperExtra,
                         DetentionPay,
                         ChargesBack,
-                        TotalCharges};
+                        TotalCharges,
+                        ComfirmedRate1,
+                        LumperExtra1,
+                        DetentionPay1,
+                        ChargesBack1,
+                        TotalCharges1};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -506,6 +577,11 @@ namespace Alabama.Reports {
                 this.columnDetentionPay = base.Columns["DetentionPay"];
                 this.columnChargesBack = base.Columns["ChargesBack"];
                 this.columnTotalCharges = base.Columns["TotalCharges"];
+                this.columnComfirmedRate1 = base.Columns["ComfirmedRate1"];
+                this.columnLumperExtra1 = base.Columns["LumperExtra1"];
+                this.columnDetentionPay1 = base.Columns["DetentionPay1"];
+                this.columnChargesBack1 = base.Columns["ChargesBack1"];
+                this.columnTotalCharges1 = base.Columns["TotalCharges1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -533,6 +609,16 @@ namespace Alabama.Reports {
                 base.Columns.Add(this.columnChargesBack);
                 this.columnTotalCharges = new global::System.Data.DataColumn("TotalCharges", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalCharges);
+                this.columnComfirmedRate1 = new global::System.Data.DataColumn("ComfirmedRate1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnComfirmedRate1);
+                this.columnLumperExtra1 = new global::System.Data.DataColumn("LumperExtra1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLumperExtra1);
+                this.columnDetentionPay1 = new global::System.Data.DataColumn("DetentionPay1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDetentionPay1);
+                this.columnChargesBack1 = new global::System.Data.DataColumn("ChargesBack1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnChargesBack1);
+                this.columnTotalCharges1 = new global::System.Data.DataColumn("TotalCharges1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalCharges1);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -851,6 +937,86 @@ namespace Alabama.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ComfirmedRate1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.ComfirmedRate1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ComfirmedRate1\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.ComfirmedRate1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string LumperExtra1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.LumperExtra1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LumperExtra1\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.LumperExtra1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DetentionPay1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.DetentionPay1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DetentionPay1\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.DetentionPay1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ChargesBack1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.ChargesBack1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ChargesBack1\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.ChargesBack1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TotalCharges1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.TotalCharges1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalCharges1\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.TotalCharges1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsDriverNameNull() {
                 return this.IsNull(this.tableDataTable1.DriverNameColumn);
             }
@@ -979,6 +1145,66 @@ namespace Alabama.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTotalChargesNull() {
                 this[this.tableDataTable1.TotalChargesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsComfirmedRate1Null() {
+                return this.IsNull(this.tableDataTable1.ComfirmedRate1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetComfirmedRate1Null() {
+                this[this.tableDataTable1.ComfirmedRate1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLumperExtra1Null() {
+                return this.IsNull(this.tableDataTable1.LumperExtra1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLumperExtra1Null() {
+                this[this.tableDataTable1.LumperExtra1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDetentionPay1Null() {
+                return this.IsNull(this.tableDataTable1.DetentionPay1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDetentionPay1Null() {
+                this[this.tableDataTable1.DetentionPay1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsChargesBack1Null() {
+                return this.IsNull(this.tableDataTable1.ChargesBack1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetChargesBack1Null() {
+                this[this.tableDataTable1.ChargesBack1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTotalCharges1Null() {
+                return this.IsNull(this.tableDataTable1.TotalCharges1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTotalCharges1Null() {
+                this[this.tableDataTable1.TotalCharges1Column] = global::System.Convert.DBNull;
             }
         }
         
