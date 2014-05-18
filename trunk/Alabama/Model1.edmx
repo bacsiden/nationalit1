@@ -10,23 +10,7 @@
           <EntitySet Name="Customer Info" EntityType="vpss1Model.Store.Customer Info" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Dispatchers" EntityType="vpss1Model.Store.Dispatchers" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Driver Info" EntityType="vpss1Model.Store.Driver Info" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Equipment" EntityType="vpss1Model.Store.Equipment" store:Type="Tables" store:Schema="dbo" store:Name="Equipment">
-            <DefiningQuery>SELECT 
-      [Equipment].[ID] AS [ID], 
-      [Equipment].[Equipment Type] AS [Equipment Type], 
-      [Equipment].[Equipment number] AS [Equipment number], 
-      [Equipment].[Driver] AS [Driver], 
-      [Equipment].[Owner] AS [Owner], 
-      [Equipment].[VIN] AS [VIN], 
-      [Equipment].[Registration Expiration] AS [Registration Expiration], 
-      [Equipment].[Inspection Expiration] AS [Inspection Expiration], 
-      [Equipment].[DATE LEASED] AS [DATE LEASED], 
-      [Equipment].[EQUIPMENT VALUE] AS [EQUIPMENT VALUE], 
-      [Equipment].[EQUIPMENT DESCRIPTION] AS [EQUIPMENT DESCRIPTION], 
-      [Equipment].[MODEL YEAR] AS [MODEL YEAR], 
-      [Equipment].[MAKE] AS [MAKE]
-      FROM [dbo].[Equipment] AS [Equipment]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Equipment" EntityType="vpss1Model.Store.Equipment" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="fixed charges" EntityType="vpss1Model.Store.fixed charges" store:Type="Tables" store:Schema="dbo" store:Name="fixed charges">
             <DefiningQuery>SELECT 
       [fixed charges].[Id] AS [Id], 
@@ -338,16 +322,20 @@
             <End Role="Driver Info" EntitySet="Driver Info" />
             <End Role="Operating Expenses" EntitySet="Operating Expenses" />
           </AssociationSet>
-          <AssociationSet Name="FK_Trip Info_Customer Info" Association="vpss1Model.Store.FK_Trip Info_Customer Info">
+          <AssociationSet Name="FK_Trip Info_Customer Info1" Association="vpss1Model.Store.FK_Trip Info_Customer Info1">
             <End Role="Customer Info" EntitySet="Customer Info" />
             <End Role="Trip Info" EntitySet="Trip Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Trip Info_Dispatchers" Association="vpss1Model.Store.FK_Trip Info_Dispatchers">
+          <AssociationSet Name="FK_Trip Info_Dispatchers1" Association="vpss1Model.Store.FK_Trip Info_Dispatchers1">
             <End Role="Dispatchers" EntitySet="Dispatchers" />
             <End Role="Trip Info" EntitySet="Trip Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Trip Info_Driver Info" Association="vpss1Model.Store.FK_Trip Info_Driver Info">
+          <AssociationSet Name="FK_Trip Info_Driver Info1" Association="vpss1Model.Store.FK_Trip Info_Driver Info1">
             <End Role="Driver Info" EntitySet="Driver Info" />
+            <End Role="Trip Info" EntitySet="Trip Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trip Info_Equipment1" Association="vpss1Model.Store.FK_Trip Info_Equipment1">
+            <End Role="Equipment" EntitySet="Equipment" />
             <End Role="Trip Info" EntitySet="Trip Info" />
           </AssociationSet>
         </EntityContainer>
@@ -417,14 +405,11 @@
           <Property Name="Owner Pay Rate" Type="real" />
           <Property Name="Owner Name" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.Equipment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="Equipment">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Equipment Type" Type="nvarchar" MaxLength="32" />
           <Property Name="Equipment number" Type="nvarchar" MaxLength="32" />
           <Property Name="Driver" Type="int" />
@@ -968,7 +953,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Trip Info_Customer Info">
+        <Association Name="FK_Trip Info_Customer Info1">
           <End Role="Customer Info" Type="vpss1Model.Store.Customer Info" Multiplicity="0..1" />
           <End Role="Trip Info" Type="vpss1Model.Store.Trip Info" Multiplicity="*" />
           <ReferentialConstraint>
@@ -980,7 +965,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Trip Info_Dispatchers">
+        <Association Name="FK_Trip Info_Dispatchers1">
           <End Role="Dispatchers" Type="vpss1Model.Store.Dispatchers" Multiplicity="0..1" />
           <End Role="Trip Info" Type="vpss1Model.Store.Trip Info" Multiplicity="*" />
           <ReferentialConstraint>
@@ -992,7 +977,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Trip Info_Driver Info">
+        <Association Name="FK_Trip Info_Driver Info1">
           <End Role="Driver Info" Type="vpss1Model.Store.Driver Info" Multiplicity="0..1" />
           <End Role="Trip Info" Type="vpss1Model.Store.Trip Info" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1004,14 +989,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-      warning 6013: The table/view 'VPSS1.dbo.Trailers1_ImportErrors' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-      
-      <EntityType Name="Trailers1_ImportErrors">
-        <Property Name="Error" Type="nvarchar" MaxLength="255" />
-        <Property Name="Field" Type="nvarchar" MaxLength="255" />
-        <Property Name="Row" Type="int" />
-      </EntityType>-->
+        <Association Name="FK_Trip Info_Equipment1">
+          <End Role="Equipment" Type="vpss1Model.Store.Equipment" Multiplicity="0..1" />
+          <End Role="Trip Info" Type="vpss1Model.Store.Trip Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Trip Info">
+              <PropertyRef Name="Equipment ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -1021,7 +1010,6 @@
           <EntitySet Name="Customer_Info" EntityType="vpss1Model.Customer_Info" />
           <EntitySet Name="Dispatchers" EntityType="vpss1Model.Dispatchers" />
           <EntitySet Name="Driver_Info" EntityType="vpss1Model.Driver_Info" />
-          <EntitySet Name="Equipment" EntityType="vpss1Model.Equipment" />
           <EntitySet Name="fixed_charges" EntityType="vpss1Model.fixed_charges" />
           <EntitySet Name="Fuel___Expenses" EntityType="vpss1Model.Fuel___Expenses" />
           <EntitySet Name="Income" EntityType="vpss1Model.Income" />
@@ -1042,20 +1030,11 @@
           <EntitySet Name="Temp_split_expenses_Driver" EntityType="vpss1Model.Temp_split_expenses_Driver" />
           <EntitySet Name="Temp_split_expenses_owner" EntityType="vpss1Model.Temp_split_expenses_owner" />
           <EntitySet Name="Temp_Trip_Info" EntityType="vpss1Model.Temp_Trip_Info" />
-          <EntitySet Name="Trip_Info" EntityType="vpss1Model.Trip_Info" />
           <EntitySet Name="Trip_Info___old" EntityType="vpss1Model.Trip_Info___old" />
           <EntitySet Name="Violations" EntityType="vpss1Model.Violations" />
-          <AssociationSet Name="FK_Trip_Info_Customer_Info" Association="vpss1Model.FK_Trip_Info_Customer_Info">
-            <End Role="Customer_Info" EntitySet="Customer_Info" />
-            <End Role="Trip_Info" EntitySet="Trip_Info" />
-          </AssociationSet>
           <AssociationSet Name="FK_Driver_Info_Dispatchers" Association="vpss1Model.FK_Driver_Info_Dispatchers">
             <End Role="Dispatchers" EntitySet="Dispatchers" />
             <End Role="Driver_Info" EntitySet="Driver_Info" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Trip_Info_Dispatchers" Association="vpss1Model.FK_Trip_Info_Dispatchers">
-            <End Role="Dispatchers" EntitySet="Dispatchers" />
-            <End Role="Trip_Info" EntitySet="Trip_Info" />
           </AssociationSet>
           <AssociationSet Name="FK_Driver_Info_Owners" Association="vpss1Model.FK_Driver_Info_Owners">
             <End Role="Owners" EntitySet="Owners" />
@@ -1069,8 +1048,22 @@
             <End Role="Driver_Info" EntitySet="Driver_Info" />
             <End Role="Operating_Expenses" EntitySet="Operating_Expenses" />
           </AssociationSet>
-          <AssociationSet Name="FK_Trip_Info_Driver_Info" Association="vpss1Model.FK_Trip_Info_Driver_Info">
+          <EntitySet Name="Equipment" EntityType="vpss1Model.Equipment" />
+          <EntitySet Name="Trip_Info" EntityType="vpss1Model.Trip_Info" />
+          <AssociationSet Name="FK_Trip_Info_Customer_Info1" Association="vpss1Model.FK_Trip_Info_Customer_Info1">
+            <End Role="Customer_Info" EntitySet="Customer_Info" />
+            <End Role="Trip_Info" EntitySet="Trip_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trip_Info_Dispatchers1" Association="vpss1Model.FK_Trip_Info_Dispatchers1">
+            <End Role="Dispatchers" EntitySet="Dispatchers" />
+            <End Role="Trip_Info" EntitySet="Trip_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trip_Info_Driver_Info1" Association="vpss1Model.FK_Trip_Info_Driver_Info1">
             <End Role="Driver_Info" EntitySet="Driver_Info" />
+            <End Role="Trip_Info" EntitySet="Trip_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trip_Info_Equipment1" Association="vpss1Model.FK_Trip_Info_Equipment1">
+            <End Role="Equipment" EntitySet="Equipment" />
             <End Role="Trip_Info" EntitySet="Trip_Info" />
           </AssociationSet>
         </EntityContainer>
@@ -1099,7 +1092,7 @@
           <Property Name="Contact" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
           <Property Name="Comments" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="Days_to_pay" Type="Int16" />
-          <NavigationProperty Name="Trip_Info" Relationship="vpss1Model.FK_Trip_Info_Customer_Info" FromRole="Customer_Info" ToRole="Trip_Info" />
+          <NavigationProperty Name="Trip_Info" Relationship="vpss1Model.FK_Trip_Info_Customer_Info1" FromRole="Customer_Info" ToRole="Trip_Info" />
         </EntityType>
         <EntityType Name="Dispatchers">
           <Key>
@@ -1112,7 +1105,7 @@
           <Property Name="DOB" Type="DateTime" />
           <Property Name="Hire_date" Type="DateTime" />
           <NavigationProperty Name="Driver_Info" Relationship="vpss1Model.FK_Driver_Info_Dispatchers" FromRole="Dispatchers" ToRole="Driver_Info" />
-          <NavigationProperty Name="Trip_Info" Relationship="vpss1Model.FK_Trip_Info_Dispatchers" FromRole="Dispatchers" ToRole="Trip_Info" />
+          <NavigationProperty Name="Trip_Info" Relationship="vpss1Model.FK_Trip_Info_Dispatchers1" FromRole="Dispatchers" ToRole="Trip_Info" />
         </EntityType>
         <EntityType Name="Driver_Info">
           <Key>
@@ -1146,25 +1139,7 @@
           <NavigationProperty Name="Owners" Relationship="vpss1Model.FK_Driver_Info_Owners" FromRole="Driver_Info" ToRole="Owners" />
           <NavigationProperty Name="Fuel___Expenses" Relationship="vpss1Model.FK_Fuel___Expenses_Driver_Info" FromRole="Driver_Info" ToRole="Fuel___Expenses" />
           <NavigationProperty Name="Operating_Expenses" Relationship="vpss1Model.FK_Operating_Expenses_Driver_Info" FromRole="Driver_Info" ToRole="Operating_Expenses" />
-          <NavigationProperty Name="Trip_Info" Relationship="vpss1Model.FK_Trip_Info_Driver_Info" FromRole="Driver_Info" ToRole="Trip_Info" />
-        </EntityType>
-        <EntityType Name="Equipment">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Equipment_Type" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="Equipment_number" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="Driver" Type="Int32" />
-          <Property Name="Owner" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="VIN" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="Registration_Expiration" Type="DateTime" />
-          <Property Name="Inspection_Expiration" Type="DateTime" />
-          <Property Name="DATE_LEASED" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="EQUIPMENT_VALUE" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="EQUIPMENT_DESCRIPTION" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="MODEL_YEAR" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="MAKE" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Trip_Info" Relationship="vpss1Model.FK_Trip_Info_Driver_Info1" FromRole="Driver_Info" ToRole="Trip_Info" />
         </EntityType>
         <EntityType Name="fixed_charges">
           <Key>
@@ -1518,43 +1493,6 @@
           <Property Name="Current_Payroll" Type="Boolean" Nullable="false" />
           <Property Name="Driver_paid" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="Trip_Info">
-          <Key>
-            <PropertyRef Name="Trip_ID" />
-          </Key>
-          <Property Name="Trip_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Order_date" Type="DateTime" />
-          <Property Name="Pickup_date" Type="DateTime" />
-          <Property Name="Delivery_date" Type="DateTime" />
-          <Property Name="Pick_up_location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Delivery_location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Extra_stops" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Loaded_miles" Type="Int32" />
-          <Property Name="Dead_head_miles" Type="Int32" />
-          <Property Name="Comfirmed_Rate" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Customer" Type="Int32" />
-          <Property Name="Dispatcher" Type="Int32" />
-          <Property Name="Driver" Type="Int32" />
-          <Property Name="Paid" Type="Boolean" />
-          <Property Name="Extra_charges" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Detention_pay" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Total_charges" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Detention" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Picked" Type="Boolean" />
-          <Property Name="Deliverd" Type="Boolean" />
-          <Property Name="Invoice" Type="Int32" />
-          <Property Name="Customer_Invoiced" Type="Boolean" />
-          <Property Name="Address" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Current_Payroll" Type="Boolean" />
-          <Property Name="Driver_paid" Type="Boolean" />
-          <Property Name="Equipment_ID" Type="Int32" />
-          <Property Name="Comment" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="PO_" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
-          <Property Name="Customer_Invoiced_date" Type="DateTime" />
-          <NavigationProperty Name="Customer_Info" Relationship="vpss1Model.FK_Trip_Info_Customer_Info" FromRole="Trip_Info" ToRole="Customer_Info" />
-          <NavigationProperty Name="Dispatchers" Relationship="vpss1Model.FK_Trip_Info_Dispatchers" FromRole="Trip_Info" ToRole="Dispatchers" />
-          <NavigationProperty Name="Driver_Info" Relationship="vpss1Model.FK_Trip_Info_Driver_Info" FromRole="Trip_Info" ToRole="Driver_Info" />
-        </EntityType>
         <EntityType Name="Trip_Info___old">
           <Key>
             <PropertyRef Name="Trip_ID" />
@@ -1598,18 +1536,6 @@
           <Property Name="Date_resolved" Type="DateTime" />
           <Property Name="Equipment" Type="Int32" />
         </EntityType>
-        <Association Name="FK_Trip_Info_Customer_Info">
-          <End Role="Customer_Info" Type="vpss1Model.Customer_Info" Multiplicity="0..1" />
-          <End Role="Trip_Info" Type="vpss1Model.Trip_Info" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer_Info">
-              <PropertyRef Name="Customer_ID" />
-            </Principal>
-            <Dependent Role="Trip_Info">
-              <PropertyRef Name="Customer" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Driver_Info_Dispatchers">
           <End Role="Dispatchers" Type="vpss1Model.Dispatchers" Multiplicity="0..1" />
           <End Role="Driver_Info" Type="vpss1Model.Driver_Info" Multiplicity="*" />
@@ -1618,18 +1544,6 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Driver_Info">
-              <PropertyRef Name="Dispatcher" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Trip_Info_Dispatchers">
-          <End Role="Dispatchers" Type="vpss1Model.Dispatchers" Multiplicity="0..1" />
-          <End Role="Trip_Info" Type="vpss1Model.Trip_Info" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Dispatchers">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Trip_Info">
               <PropertyRef Name="Dispatcher" />
             </Dependent>
           </ReferentialConstraint>
@@ -1672,15 +1586,108 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Trip_Info_Driver_Info">
-          <End Role="Driver_Info" Type="vpss1Model.Driver_Info" Multiplicity="0..1" />
-          <End Role="Trip_Info" Type="vpss1Model.Trip_Info" Multiplicity="*" />
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Equipment_Type" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Equipment_number" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Driver" />
+          <Property Type="String" Name="Owner" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="VIN" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Registration_Expiration" />
+          <Property Type="DateTime" Name="Inspection_Expiration" />
+          <Property Type="String" Name="DATE_LEASED" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EQUIPMENT_VALUE" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EQUIPMENT_DESCRIPTION" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MODEL_YEAR" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MAKE" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Trip_Info" Relationship="vpss1Model.FK_Trip_Info_Equipment1" FromRole="Equipment" ToRole="Trip_Info" />
+        </EntityType>
+        <EntityType Name="Trip_Info">
+          <Key>
+            <PropertyRef Name="Trip_ID" />
+          </Key>
+          <Property Type="Int32" Name="Trip_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Order_date" />
+          <Property Type="DateTime" Name="Pickup_date" />
+          <Property Type="DateTime" Name="Delivery_date" />
+          <Property Type="String" Name="Pick_up_location" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Delivery_location" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Extra_stops" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Loaded_miles" />
+          <Property Type="Int32" Name="Dead_head_miles" />
+          <Property Type="Decimal" Name="Comfirmed_Rate" Precision="19" Scale="4" />
+          <Property Type="Int32" Name="Customer" />
+          <Property Type="Int32" Name="Dispatcher" />
+          <Property Type="Int32" Name="Driver" />
+          <Property Type="Boolean" Name="Paid" />
+          <Property Type="Decimal" Name="Extra_charges" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="Detention_pay" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="Total_charges" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="Detention" Precision="19" Scale="4" />
+          <Property Type="Boolean" Name="Picked" />
+          <Property Type="Boolean" Name="Deliverd" />
+          <Property Type="Int32" Name="Invoice" />
+          <Property Type="Boolean" Name="Customer_Invoiced" />
+          <Property Type="String" Name="Address" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Current_Payroll" />
+          <Property Type="Boolean" Name="Driver_paid" />
+          <Property Type="Int32" Name="Equipment_ID" />
+          <Property Type="String" Name="Comment" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PO_" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Customer_Invoiced_date" />
+          <NavigationProperty Name="Customer_Info" Relationship="vpss1Model.FK_Trip_Info_Customer_Info1" FromRole="Trip_Info" ToRole="Customer_Info" />
+          <NavigationProperty Name="Dispatchers" Relationship="vpss1Model.FK_Trip_Info_Dispatchers1" FromRole="Trip_Info" ToRole="Dispatchers" />
+          <NavigationProperty Name="Driver_Info" Relationship="vpss1Model.FK_Trip_Info_Driver_Info1" FromRole="Trip_Info" ToRole="Driver_Info" />
+          <NavigationProperty Name="Equipment" Relationship="vpss1Model.FK_Trip_Info_Equipment1" FromRole="Trip_Info" ToRole="Equipment" />
+        </EntityType>
+        <Association Name="FK_Trip_Info_Customer_Info1">
+          <End Type="vpss1Model.Customer_Info" Role="Customer_Info" Multiplicity="0..1" />
+          <End Type="vpss1Model.Trip_Info" Role="Trip_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer_Info">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="Trip_Info">
+              <PropertyRef Name="Customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trip_Info_Dispatchers1">
+          <End Type="vpss1Model.Dispatchers" Role="Dispatchers" Multiplicity="0..1" />
+          <End Type="vpss1Model.Trip_Info" Role="Trip_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dispatchers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Trip_Info">
+              <PropertyRef Name="Dispatcher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trip_Info_Driver_Info1">
+          <End Type="vpss1Model.Driver_Info" Role="Driver_Info" Multiplicity="0..1" />
+          <End Type="vpss1Model.Trip_Info" Role="Trip_Info" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Driver_Info">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Trip_Info">
               <PropertyRef Name="Driver" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trip_Info_Equipment1">
+          <End Type="vpss1Model.Equipment" Role="Equipment" Multiplicity="0..1" />
+          <End Type="vpss1Model.Trip_Info" Role="Trip_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Trip_Info">
+              <PropertyRef Name="Equipment_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1757,25 +1764,6 @@
                 <ScalarProperty Name="Owner" ColumnName="Owner" />
                 <ScalarProperty Name="Owner_Pay_Rate" ColumnName="Owner Pay Rate" />
                 <ScalarProperty Name="Owner_Name" ColumnName="Owner Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Equipment">
-            <EntityTypeMapping TypeName="vpss1Model.Equipment">
-              <MappingFragment StoreEntitySet="Equipment">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Equipment_Type" ColumnName="Equipment Type" />
-                <ScalarProperty Name="Equipment_number" ColumnName="Equipment number" />
-                <ScalarProperty Name="Driver" ColumnName="Driver" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="VIN" ColumnName="VIN" />
-                <ScalarProperty Name="Registration_Expiration" ColumnName="Registration Expiration" />
-                <ScalarProperty Name="Inspection_Expiration" ColumnName="Inspection Expiration" />
-                <ScalarProperty Name="DATE_LEASED" ColumnName="DATE LEASED" />
-                <ScalarProperty Name="EQUIPMENT_VALUE" ColumnName="EQUIPMENT VALUE" />
-                <ScalarProperty Name="EQUIPMENT_DESCRIPTION" ColumnName="EQUIPMENT DESCRIPTION" />
-                <ScalarProperty Name="MODEL_YEAR" ColumnName="MODEL YEAR" />
-                <ScalarProperty Name="MAKE" ColumnName="MAKE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2115,41 +2103,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Trip_Info">
-            <EntityTypeMapping TypeName="vpss1Model.Trip_Info">
-              <MappingFragment StoreEntitySet="Trip Info">
-                <ScalarProperty Name="Trip_ID" ColumnName="Trip ID" />
-                <ScalarProperty Name="Order_date" ColumnName="Order date" />
-                <ScalarProperty Name="Pickup_date" ColumnName="Pickup date" />
-                <ScalarProperty Name="Delivery_date" ColumnName="Delivery date" />
-                <ScalarProperty Name="Pick_up_location" ColumnName="Pick up location" />
-                <ScalarProperty Name="Delivery_location" ColumnName="Delivery location" />
-                <ScalarProperty Name="Extra_stops" ColumnName="Extra stops" />
-                <ScalarProperty Name="Loaded_miles" ColumnName="Loaded miles" />
-                <ScalarProperty Name="Dead_head_miles" ColumnName="Dead head miles" />
-                <ScalarProperty Name="Comfirmed_Rate" ColumnName="Comfirmed Rate" />
-                <ScalarProperty Name="Customer" ColumnName="Customer" />
-                <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
-                <ScalarProperty Name="Driver" ColumnName="Driver" />
-                <ScalarProperty Name="Paid" ColumnName="Paid" />
-                <ScalarProperty Name="Extra_charges" ColumnName="Extra charges" />
-                <ScalarProperty Name="Detention_pay" ColumnName="Detention pay" />
-                <ScalarProperty Name="Total_charges" ColumnName="Total charges" />
-                <ScalarProperty Name="Detention" ColumnName="Detention" />
-                <ScalarProperty Name="Picked" ColumnName="Picked" />
-                <ScalarProperty Name="Deliverd" ColumnName="Deliverd" />
-                <ScalarProperty Name="Invoice" ColumnName="Invoice" />
-                <ScalarProperty Name="Customer_Invoiced" ColumnName="Customer Invoiced" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-                <ScalarProperty Name="Driver_paid" ColumnName="Driver paid" />
-                <ScalarProperty Name="Equipment_ID" ColumnName="Equipment ID" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="PO_" ColumnName="PO#" />
-                <ScalarProperty Name="Customer_Invoiced_date" ColumnName="Customer Invoiced date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Trip_Info___old">
             <EntityTypeMapping TypeName="vpss1Model.Trip_Info___old">
               <MappingFragment StoreEntitySet="Trip Info - old">
@@ -2195,6 +2148,60 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Equipment">
+            <EntityTypeMapping TypeName="vpss1Model.Equipment">
+              <MappingFragment StoreEntitySet="Equipment">
+                <ScalarProperty Name="MAKE" ColumnName="MAKE" />
+                <ScalarProperty Name="MODEL_YEAR" ColumnName="MODEL YEAR" />
+                <ScalarProperty Name="EQUIPMENT_DESCRIPTION" ColumnName="EQUIPMENT DESCRIPTION" />
+                <ScalarProperty Name="EQUIPMENT_VALUE" ColumnName="EQUIPMENT VALUE" />
+                <ScalarProperty Name="DATE_LEASED" ColumnName="DATE LEASED" />
+                <ScalarProperty Name="Inspection_Expiration" ColumnName="Inspection Expiration" />
+                <ScalarProperty Name="Registration_Expiration" ColumnName="Registration Expiration" />
+                <ScalarProperty Name="VIN" ColumnName="VIN" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="Driver" ColumnName="Driver" />
+                <ScalarProperty Name="Equipment_number" ColumnName="Equipment number" />
+                <ScalarProperty Name="Equipment_Type" ColumnName="Equipment Type" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trip_Info">
+            <EntityTypeMapping TypeName="vpss1Model.Trip_Info">
+              <MappingFragment StoreEntitySet="Trip Info">
+                <ScalarProperty Name="Customer_Invoiced_date" ColumnName="Customer Invoiced date" />
+                <ScalarProperty Name="PO_" ColumnName="PO#" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Equipment_ID" ColumnName="Equipment ID" />
+                <ScalarProperty Name="Driver_paid" ColumnName="Driver paid" />
+                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Customer_Invoiced" ColumnName="Customer Invoiced" />
+                <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+                <ScalarProperty Name="Deliverd" ColumnName="Deliverd" />
+                <ScalarProperty Name="Picked" ColumnName="Picked" />
+                <ScalarProperty Name="Detention" ColumnName="Detention" />
+                <ScalarProperty Name="Total_charges" ColumnName="Total charges" />
+                <ScalarProperty Name="Detention_pay" ColumnName="Detention pay" />
+                <ScalarProperty Name="Extra_charges" ColumnName="Extra charges" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Driver" ColumnName="Driver" />
+                <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="Comfirmed_Rate" ColumnName="Comfirmed Rate" />
+                <ScalarProperty Name="Dead_head_miles" ColumnName="Dead head miles" />
+                <ScalarProperty Name="Loaded_miles" ColumnName="Loaded miles" />
+                <ScalarProperty Name="Extra_stops" ColumnName="Extra stops" />
+                <ScalarProperty Name="Delivery_location" ColumnName="Delivery location" />
+                <ScalarProperty Name="Pick_up_location" ColumnName="Pick up location" />
+                <ScalarProperty Name="Delivery_date" ColumnName="Delivery date" />
+                <ScalarProperty Name="Pickup_date" ColumnName="Pickup date" />
+                <ScalarProperty Name="Order_date" ColumnName="Order date" />
+                <ScalarProperty Name="Trip_ID" ColumnName="Trip ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2220,7 +2227,6 @@
         <EntityTypeShape EntityType="vpss1Model.Customer_Info" Width="1.5" PointX="6" PointY="0.75" Height="3.3263964843749996" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Dispatchers" Width="1.5" PointX="0.75" PointY="8.125" Height="2.5571907552083353" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Driver_Info" Width="1.5" PointX="3" PointY="6.125" Height="6.5955208333333344" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Equipment" Width="1.5" PointX="2.75" PointY="1" Height="3.5186979166666656" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.fixed_charges" Width="1.5" PointX="8.75" PointY="1" Height="2.9417936197916665" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Fuel___Expenses" Width="1.5" PointX="5.25" PointY="5.75" Height="3.5186979166666674" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Income" Width="1.5" PointX="10.75" PointY="1" Height="2.5571907552083317" IsExpanded="true" />
@@ -2241,24 +2247,11 @@
         <EntityTypeShape EntityType="vpss1Model.Temp_split_expenses_Driver" Width="1.5" PointX="14.75" PointY="9" Height="3.1340950520833246" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Temp_split_expenses_owner" Width="1.5" PointX="14.75" PointY="13" Height="3.1340950520833246" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Temp_Trip_Info" Width="1.5" PointX="16.75" PointY="1" Height="6.0186165364583246" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Trip_Info" Width="1.5" PointX="8.25" PointY="5.875" Height="7.1724251302083246" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Trip_Info___old" Width="1.5" PointX="6.75" PointY="17" Height="6.21091796875001" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Violations" Width="1.5" PointX="16.75" PointY="8" Height="2.1725878906250102" IsExpanded="true" />
-        <AssociationConnector Association="vpss1Model.FK_Trip_Info_Customer_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.15625" PointY="4.076396484375" />
-          <ConnectorPoint PointX="7.15625" PointY="9.6968489583333337" />
-          <ConnectorPoint PointX="8.25" PointY="9.6968489583333337" />
-        </AssociationConnector>
         <AssociationConnector Association="vpss1Model.FK_Driver_Info_Dispatchers" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="9.4035953776041676" />
-          <ConnectorPoint PointX="3" PointY="9.4035953776041676" />
-        </AssociationConnector>
-        <AssociationConnector Association="vpss1Model.FK_Trip_Info_Dispatchers" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.2499999999999996" PointY="10.682190755208335" />
-          <ConnectorPoint PointX="2.625" PointY="11.057190755208335" />
-          <ConnectorPoint PointX="2.625" PointY="13.422425130208325" />
-          <ConnectorPoint PointX="7.875" PointY="13.422425130208325" />
-          <ConnectorPoint PointX="8.25" PointY="13.047425130208325" />
+          <ConnectorPoint PointX="2.25" PointY="9.4035953776041659" />
+          <ConnectorPoint PointX="3" PointY="9.4035953776041659" />
         </AssociationConnector>
         <AssociationConnector Association="vpss1Model.FK_Driver_Info_Owners" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="6.3362939453125016" />
@@ -2269,14 +2262,61 @@
           <ConnectorPoint PointX="5.25" PointY="7.6968489583333337" />
         </AssociationConnector>
         <AssociationConnector Association="vpss1Model.FK_Operating_Expenses_Driver_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="11.422760416666668" />
-          <ConnectorPoint PointX="5.25" PointY="11.422760416666668" />
+          <ConnectorPoint PointX="4.5" PointY="11.422760416666666" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="11.422760416666666" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="11.422760416666666" />
+          <ConnectorPoint PointX="5.25" PointY="11.422760416666666" />
         </AssociationConnector>
-        <AssociationConnector Association="vpss1Model.FK_Trip_Info_Driver_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="9.4515234375" />
-          <ConnectorPoint PointX="7.072916666666667" PointY="9.4515234375" />
-          <ConnectorPoint PointX="7.239583333333333" PointY="9.4515234375" />
-          <ConnectorPoint PointX="8.25" PointY="9.4515234375" />
+        <EntityTypeShape EntityType="vpss1Model.Equipment" Width="1.5" PointX="9.375" PointY="17" Height="3.7109993489583246" />
+        <EntityTypeShape EntityType="vpss1Model.Trip_Info" Width="1.5" PointX="17.625" PointY="11" Height="7.364726562499996" />
+        <AssociationConnector Association="vpss1Model.FK_Trip_Info_Customer_Info1" >
+          <ConnectorPoint PointX="7.5" PointY="0.84375" />
+          <ConnectorPoint PointX="18.71875" PointY="0.84375" />
+          <ConnectorPoint PointX="18.71875" PointY="11" />
+        </AssociationConnector>
+        <AssociationConnector Association="vpss1Model.FK_Trip_Info_Dispatchers1" >
+          <ConnectorPoint PointX="2.25" PointY="10.074145066406249" />
+          <ConnectorPoint PointX="2.75" PointY="10.074145066406249" />
+          <ConnectorPoint PointX="2.75" PointY="12.970520833333332" />
+          <ConnectorPoint PointX="5" PointY="12.970520833333332" />
+          <ConnectorPoint PointX="5" PointY="9.875" />
+          <ConnectorPoint PointX="10.166666666666666" PointY="9.875" />
+          <ConnectorPoint PointX="10.333333333333334" PointY="9.875" />
+          <ConnectorPoint PointX="10.5" PointY="9.875" />
+          <ConnectorPoint PointX="10.5" PointY="10.999492187500003" />
+          <ConnectorPoint PointX="12.5" PointY="10.999492187500003" />
+          <ConnectorPoint PointX="12.5" PointY="9.75" />
+          <ConnectorPoint PointX="12.541666666666666" PointY="9.75" />
+          <ConnectorPoint PointX="12.708333333333334" PointY="9.75" />
+          <ConnectorPoint PointX="14.5" PointY="9.75" />
+          <ConnectorPoint PointX="14.5" PointY="12.384095052083325" />
+          <ConnectorPoint PointX="14.541666666666666" PointY="12.384095052083325" />
+          <ConnectorPoint PointX="14.708333333333334" PointY="12.384095052083325" />
+          <ConnectorPoint PointX="17.041666666666668" PointY="12.384095052083325" />
+          <ConnectorPoint PointX="17.208333333333332" PointY="12.384095052083325" />
+          <ConnectorPoint PointX="17.375" PointY="12.384095052083325" />
+          <ConnectorPoint PointX="17.375" PointY="10.75" />
+          <ConnectorPoint PointX="17.768226166666668" PointY="10.75" />
+          <ConnectorPoint PointX="17.934892833333333" PointY="10.75" />
+          <ConnectorPoint PointX="18.140622999999998" PointY="10.75" />
+          <ConnectorPoint PointX="18.140622999999998" PointY="11" />
+        </AssociationConnector>
+        <AssociationConnector Association="vpss1Model.FK_Trip_Info_Driver_Info1" >
+          <ConnectorPoint PointX="4.5" PointY="9.6030989583333337" />
+          <ConnectorPoint PointX="10.25" PointY="9.6030989583333337" />
+          <ConnectorPoint PointX="10.25" PointY="11.249492187500003" />
+          <ConnectorPoint PointX="12.625" PointY="11.249492187500003" />
+          <ConnectorPoint PointX="12.625" PointY="9.5" />
+          <ConnectorPoint PointX="14.625" PointY="9.5" />
+          <ConnectorPoint PointX="14.625" PointY="12.634095052083325" />
+          <ConnectorPoint PointX="17.125" PointY="12.634095052083325" />
+          <ConnectorPoint PointX="17.125" PointY="10.5" />
+          <ConnectorPoint PointX="17.8515595" PointY="10.5" />
+          <ConnectorPoint PointX="17.8515595" PointY="11" />
+        </AssociationConnector>
+        <AssociationConnector Association="vpss1Model.FK_Trip_Info_Equipment1" >
+          <ConnectorPoint PointX="10.875" PointY="17.682363281249998" />
+          <ConnectorPoint PointX="17.625" PointY="17.682363281249998" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
