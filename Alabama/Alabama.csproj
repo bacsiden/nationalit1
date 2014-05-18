@@ -107,6 +107,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DispatcherTrip.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports\DriverTripFlue.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DriverTripFlue.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\FlueExpenses.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlueExpenses.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PendingTripByDriver.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PendingTripByDriver.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ScheduleOfInvoices.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -118,6 +133,11 @@
     </Compile>
     <Compile Include="Reports\ShowReport.aspx.designer.cs">
       <DependentUpon>ShowReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TripInfoOutstanding.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TripInfoOutstanding.xsd</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -318,6 +338,39 @@
     <None Include="Reports\DispatcherTrip.xss">
       <DependentUpon>DispatcherTrip.xsd</DependentUpon>
     </None>
+    <None Include="Reports\DriverTripFlue.xsc">
+      <DependentUpon>DriverTripFlue.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DriverTripFlue.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DriverTripFlue.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\DriverTripFlue.xss">
+      <DependentUpon>DriverTripFlue.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\FlueExpenses.xsc">
+      <DependentUpon>FlueExpenses.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\FlueExpenses.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FlueExpenses.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\FlueExpenses.xss">
+      <DependentUpon>FlueExpenses.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\PendingTripByDriver.xsc">
+      <DependentUpon>PendingTripByDriver.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\PendingTripByDriver.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PendingTripByDriver.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\PendingTripByDriver.xss">
+      <DependentUpon>PendingTripByDriver.xsd</DependentUpon>
+    </None>
     <None Include="Reports\ScheduleOfInvoices.xsc">
       <DependentUpon>ScheduleOfInvoices.xsd</DependentUpon>
     </None>
@@ -331,9 +384,21 @@
     </None>
     <Content Include="Views\Report\Index.cshtml" />
     <Content Include="Views\TripInfo\GetCutomerInfoByKey.cshtml" />
+    <None Include="Reports\TripInfoOutstanding.xsc">
+      <DependentUpon>TripInfoOutstanding.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\TripInfoOutstanding.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TripInfoOutstanding.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\TripInfoOutstanding.xss">
+      <DependentUpon>TripInfoOutstanding.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\DispatcherTrip.rdlc" />
+    <EmbeddedResource Include="Reports\DriverTripFlue.rdlc" />
     <EmbeddedResource Include="Reports\PlaceHolderReport.rdlc" />
     <EmbeddedResource Include="Reports\ScheduleOfInvoices.rdlc" />
   </ItemGroup>
