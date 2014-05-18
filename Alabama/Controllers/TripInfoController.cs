@@ -59,17 +59,17 @@ namespace Alabama.Controllers
             ViewBag.dataDriver = dataDriver;
             
             string dataEquipment = "<option value='0'>--Select Equiment--</option>";
-            //foreach (var item in Alabama.DB.Entities.Driver_Info)
-            //{
-            //if (obj != null && obj.Equipment_ID == item.ID)
-            //    {
-            //        dataEquipment += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
-            //    }
-            //    else
-            //    {
-            //        dataEquipment += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
-            //    }
-            //}
+            foreach (var item in Alabama.DB.Entities.Equipment)
+            {
+                if (obj != null && obj.Equipment_ID == item.ID)
+                {
+                    dataEquipment += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.ID, item.Equipment_number);
+                }
+                else
+                {
+                    dataEquipment += string.Format("<option value='{0}'>{1}</option>", item.ID, item.Equipment_number);
+                }
+            }
             ViewBag.dataEquipment = dataEquipment;
             return View(obj);
         }
