@@ -109,7 +109,7 @@
                     </div>
                     <div class="control-group">
                         <label for="State">
-                            @Html.LabelFor(model => model.State)</label>
+                            State <span class="requiredStar">(*)</label>
                         @Html.TextBoxFor(model => model.State, new { @class = "input-xlarge" })
                         @Html.ValidationMessageFor(model => model.State)
                     </div>
@@ -133,7 +133,7 @@
                         <select data-placeholder="Select Dispatcher" name="Dispatcher" class="chosen-with-diselect input-xlarge">
                             @Html.Raw(ViewBag.dataDispatchers)
                         </select>
-                        @Html.ValidationMessageFor(model => model.Dispatcher)
+                        @*@Html.ValidationMessageFor(model => model.Dispatcher," ")*@
                     </div>
                 </div>
                 <div class="span4">
@@ -166,7 +166,7 @@
                         <select data-placeholder="Select Owners" name="Owner_Name" class="chosen-with-diselect input-xlarge">
                             @Html.Raw(ViewBag.dataOwners)
                         </select>
-                        @Html.ValidationMessageFor(model => model.Owner_Name)
+                        @*@Html.ValidationMessageFor(model => model.Owner_Name)*@
                     </div>
                     <div class="control-group">
                         <label for="Address">
