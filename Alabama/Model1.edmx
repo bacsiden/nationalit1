@@ -1010,14 +1010,12 @@
           <EntitySet Name="Company_Expanses" EntityType="vpss1Model.Company_Expanses" />
           <EntitySet Name="Customer_Info" EntityType="vpss1Model.Customer_Info" />
           <EntitySet Name="Dispatchers" EntityType="vpss1Model.Dispatchers" />
-          <EntitySet Name="Driver_Info" EntityType="vpss1Model.Driver_Info" />
           <EntitySet Name="fixed_charges" EntityType="vpss1Model.fixed_charges" />
           <EntitySet Name="Fuel___Expenses" EntityType="vpss1Model.Fuel___Expenses" />
           <EntitySet Name="Income" EntityType="vpss1Model.Income" />
           <EntitySet Name="InvoiceA" EntityType="vpss1Model.InvoiceA" />
           <EntitySet Name="Maintenance" EntityType="vpss1Model.Maintenance" />
           <EntitySet Name="Operating_Expenses" EntityType="vpss1Model.Operating_Expenses" />
-          <EntitySet Name="Owners" EntityType="vpss1Model.Owners" />
           <EntitySet Name="Printed_Temp_Fuel___Expenses" EntityType="vpss1Model.Printed_Temp_Fuel___Expenses" />
           <EntitySet Name="Printed_Temp_Operating_Expenses" EntityType="vpss1Model.Printed_Temp_Operating_Expenses" />
           <EntitySet Name="Printed_Temp_Split_Expenses_Driver" EntityType="vpss1Model.Printed_Temp_Split_Expenses_Driver" />
@@ -1033,12 +1031,10 @@
           <EntitySet Name="Temp_Trip_Info" EntityType="vpss1Model.Temp_Trip_Info" />
           <EntitySet Name="Trip_Info___old" EntityType="vpss1Model.Trip_Info___old" />
           <EntitySet Name="Violations" EntityType="vpss1Model.Violations" />
+          <EntitySet Name="Equipment" EntityType="vpss1Model.Equipment" />
+          <EntitySet Name="Driver_Info" EntityType="vpss1Model.Driver_Info" />
           <AssociationSet Name="FK_Driver_Info_Dispatchers" Association="vpss1Model.FK_Driver_Info_Dispatchers">
             <End Role="Dispatchers" EntitySet="Dispatchers" />
-            <End Role="Driver_Info" EntitySet="Driver_Info" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Driver_Info_Owners" Association="vpss1Model.FK_Driver_Info_Owners">
-            <End Role="Owners" EntitySet="Owners" />
             <End Role="Driver_Info" EntitySet="Driver_Info" />
           </AssociationSet>
           <AssociationSet Name="FK_Fuel___Expenses_Driver_Info" Association="vpss1Model.FK_Fuel___Expenses_Driver_Info">
@@ -1049,7 +1045,7 @@
             <End Role="Driver_Info" EntitySet="Driver_Info" />
             <End Role="Operating_Expenses" EntitySet="Operating_Expenses" />
           </AssociationSet>
-          <EntitySet Name="Equipment" EntityType="vpss1Model.Equipment" />
+          <EntitySet Name="Owners" EntityType="vpss1Model.Owners" />
           <EntitySet Name="Trip_Info" EntityType="vpss1Model.Trip_Info" />
           <AssociationSet Name="FK_Trip_Info_Customer_Info1" Association="vpss1Model.FK_Trip_Info_Customer_Info1">
             <End Role="Customer_Info" EntitySet="Customer_Info" />
@@ -1058,6 +1054,10 @@
           <AssociationSet Name="FK_Trip_Info_Dispatchers1" Association="vpss1Model.FK_Trip_Info_Dispatchers1">
             <End Role="Dispatchers" EntitySet="Dispatchers" />
             <End Role="Trip_Info" EntitySet="Trip_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Driver_Info_Owners" Association="vpss1Model.FK_Driver_Info_Owners">
+            <End Role="Owners" EntitySet="Owners" />
+            <End Role="Driver_Info" EntitySet="Driver_Info" />
           </AssociationSet>
           <AssociationSet Name="FK_Trip_Info_Driver_Info1" Association="vpss1Model.FK_Trip_Info_Driver_Info1">
             <End Role="Driver_Info" EntitySet="Driver_Info" />
@@ -1105,43 +1105,9 @@
           <Property Name="SSN" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
           <Property Name="DOB" Type="DateTime" />
           <Property Name="Hire_date" Type="DateTime" />
+          <Property Type="String" Name="Active" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Driver_Info" Relationship="vpss1Model.FK_Driver_Info_Dispatchers" FromRole="Dispatchers" ToRole="Driver_Info" />
           <NavigationProperty Name="Trip_Info" Relationship="vpss1Model.FK_Trip_Info_Dispatchers1" FromRole="Dispatchers" ToRole="Trip_Info" />
-          <Property Type="String" Name="Active" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Driver_Info">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Employee_ID" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="Last_name" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="First_name" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="Middle_in" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="SSN" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
-          <Property Name="Drive_Lic" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
-          <Property Name="State" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="Expiration_Date" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Date_Issued" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="HazMat" Type="Boolean" Nullable="false" />
-          <Property Name="Pay_rate" Type="Single" />
-          <Property Name="Comments" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Truck" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="Trailer" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="Phone" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="Address" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Fuel_Card" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="fuel___advance_Fee_rate" Type="Single" />
-          <Property Name="Dispatcher" Type="Int32" />
-          <Property Name="Active" Type="Boolean" Nullable="false" />
-          <Property Name="Owner" Type="Boolean" Nullable="false" />
-          <Property Name="Owner_Pay_Rate" Type="Single" />
-          <Property Name="Owner_Name" Type="Int32" />
-          <NavigationProperty Name="Dispatchers" Relationship="vpss1Model.FK_Driver_Info_Dispatchers" FromRole="Driver_Info" ToRole="Dispatchers" />
-          <NavigationProperty Name="Owners" Relationship="vpss1Model.FK_Driver_Info_Owners" FromRole="Driver_Info" ToRole="Owners" />
-          <NavigationProperty Name="Fuel___Expenses" Relationship="vpss1Model.FK_Fuel___Expenses_Driver_Info" FromRole="Driver_Info" ToRole="Fuel___Expenses" />
-          <NavigationProperty Name="Operating_Expenses" Relationship="vpss1Model.FK_Operating_Expenses_Driver_Info" FromRole="Driver_Info" ToRole="Operating_Expenses" />
-          <NavigationProperty Name="Trip_Info" Relationship="vpss1Model.FK_Trip_Info_Driver_Info1" FromRole="Driver_Info" ToRole="Trip_Info" />
         </EntityType>
         <EntityType Name="fixed_charges">
           <Key>
@@ -1225,17 +1191,6 @@
           <Property Name="Paid_off" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
           <Property Name="Current_Payroll" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Driver_Info" Relationship="vpss1Model.FK_Operating_Expenses_Driver_Info" FromRole="Operating_Expenses" ToRole="Driver_Info" />
-        </EntityType>
-        <EntityType Name="Owners">
-          <Key>
-            <PropertyRef Name="OwnerID" />
-          </Key>
-          <Property Name="OwnerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="ssn_" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="fee_rate" Type="Single" />
-          <Property Name="pay_rate" Type="Single" />
-          <NavigationProperty Name="Driver_Info" Relationship="vpss1Model.FK_Driver_Info_Owners" FromRole="Owners" ToRole="Driver_Info" />
         </EntityType>
         <EntityType Name="Printed_Temp_Fuel___Expenses">
           <Key>
@@ -1538,56 +1493,6 @@
           <Property Name="Date_resolved" Type="DateTime" />
           <Property Name="Equipment" Type="Int32" />
         </EntityType>
-        <Association Name="FK_Driver_Info_Dispatchers">
-          <End Role="Dispatchers" Type="vpss1Model.Dispatchers" Multiplicity="0..1" />
-          <End Role="Driver_Info" Type="vpss1Model.Driver_Info" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Dispatchers">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Driver_Info">
-              <PropertyRef Name="Dispatcher" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Driver_Info_Owners">
-          <End Role="Owners" Type="vpss1Model.Owners" Multiplicity="0..1" />
-          <End Role="Driver_Info" Type="vpss1Model.Driver_Info" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Owners">
-              <PropertyRef Name="OwnerID" />
-            </Principal>
-            <Dependent Role="Driver_Info">
-              <PropertyRef Name="Owner_Name" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Fuel___Expenses_Driver_Info">
-          <End Role="Driver_Info" Type="vpss1Model.Driver_Info" Multiplicity="0..1" />
-          <End Role="Fuel___Expenses" Type="vpss1Model.Fuel___Expenses" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Driver_Info">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Fuel___Expenses">
-              <PropertyRef Name="Driver" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Operating_Expenses_Driver_Info">
-          <End Role="Driver_Info" Type="vpss1Model.Driver_Info" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Operating_Expenses" Type="vpss1Model.Operating_Expenses" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Driver_Info">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Operating_Expenses">
-              <PropertyRef Name="Driver" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Equipment">
           <Key>
             <PropertyRef Name="ID" />
@@ -1606,6 +1511,87 @@
           <Property Type="String" Name="MODEL_YEAR" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="MAKE" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Trip_Info" Relationship="vpss1Model.FK_Trip_Info_Equipment1" FromRole="Equipment" ToRole="Trip_Info" />
+        </EntityType>
+        <EntityType Name="Driver_Info">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Employee_ID" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Last_name" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="First_name" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Middle_in" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SSN" Nullable="false" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Drive_Lic" Nullable="false" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="State" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Expiration_Date" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Date_Issued" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="HazMat" Nullable="false" />
+          <Property Type="Single" Name="Pay_rate" />
+          <Property Type="String" Name="Comments" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Truck" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Trailer" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Fuel_Card" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="Single" Name="fuel___advance_Fee_rate" />
+          <Property Type="Int32" Name="Dispatcher" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+          <Property Type="Boolean" Name="Owner" Nullable="false" />
+          <Property Type="Single" Name="Owner_Pay_Rate" />
+          <Property Type="Int32" Name="Owner_Name" />
+          <NavigationProperty Name="Dispatchers" Relationship="vpss1Model.FK_Driver_Info_Dispatchers" FromRole="Driver_Info" ToRole="Dispatchers" />
+          <NavigationProperty Name="Fuel___Expenses" Relationship="vpss1Model.FK_Fuel___Expenses_Driver_Info" FromRole="Driver_Info" ToRole="Fuel___Expenses" />
+          <NavigationProperty Name="Operating_Expenses" Relationship="vpss1Model.FK_Operating_Expenses_Driver_Info" FromRole="Driver_Info" ToRole="Operating_Expenses" />
+          <NavigationProperty Name="Owners" Relationship="vpss1Model.FK_Driver_Info_Owners" FromRole="Driver_Info" ToRole="Owners" />
+          <NavigationProperty Name="Trip_Info" Relationship="vpss1Model.FK_Trip_Info_Driver_Info1" FromRole="Driver_Info" ToRole="Trip_Info" />
+        </EntityType>
+        <Association Name="FK_Driver_Info_Dispatchers">
+          <End Type="vpss1Model.Dispatchers" Role="Dispatchers" Multiplicity="0..1" />
+          <End Type="vpss1Model.Driver_Info" Role="Driver_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dispatchers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Driver_Info">
+              <PropertyRef Name="Dispatcher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fuel___Expenses_Driver_Info">
+          <End Type="vpss1Model.Driver_Info" Role="Driver_Info" Multiplicity="0..1" />
+          <End Type="vpss1Model.Fuel___Expenses" Role="Fuel___Expenses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driver_Info">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Fuel___Expenses">
+              <PropertyRef Name="Driver" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operating_Expenses_Driver_Info">
+          <End Type="vpss1Model.Driver_Info" Role="Driver_Info" Multiplicity="0..1" />
+          <End Type="vpss1Model.Operating_Expenses" Role="Operating_Expenses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driver_Info">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Operating_Expenses">
+              <PropertyRef Name="Driver" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Owners">
+          <Key>
+            <PropertyRef Name="OwnerID" />
+          </Key>
+          <Property Type="Int32" Name="OwnerID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ssn_" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Single" Name="fee_rate" />
+          <Property Type="Single" Name="pay_rate" />
+          <NavigationProperty Name="Driver_Info" Relationship="vpss1Model.FK_Driver_Info_Owners" FromRole="Owners" ToRole="Driver_Info" />
         </EntityType>
         <EntityType Name="Trip_Info">
           <Key>
@@ -1631,7 +1617,7 @@
           <Property Type="Decimal" Name="Detention" Precision="19" Scale="4" />
           <Property Type="Boolean" Name="Picked" Nullable="false" />
           <Property Type="Boolean" Name="Deliverd" Nullable="false" />
-          <Property Type="Int32" Name="Invoice" />
+          <Property Type="Int32" Name="Invoice" Nullable="false" />
           <Property Type="Boolean" Name="Customer_Invoiced" Nullable="false" />
           <Property Type="String" Name="Address" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="Current_Payroll" Nullable="false" />
@@ -1639,7 +1625,7 @@
           <Property Type="Int32" Name="Equipment_ID" />
           <Property Type="String" Name="Comment" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="PO_" MaxLength="16" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="Customer_Invoiced_date" />
+          <Property Type="DateTime" Name="Customer_Invoiced_date" Nullable="false" />
           <NavigationProperty Name="Customer_Info" Relationship="vpss1Model.FK_Trip_Info_Customer_Info1" FromRole="Trip_Info" ToRole="Customer_Info" />
           <NavigationProperty Name="Dispatchers" Relationship="vpss1Model.FK_Trip_Info_Dispatchers1" FromRole="Trip_Info" ToRole="Dispatchers" />
           <NavigationProperty Name="Driver_Info" Relationship="vpss1Model.FK_Trip_Info_Driver_Info1" FromRole="Trip_Info" ToRole="Driver_Info" />
@@ -1666,6 +1652,18 @@
             </Principal>
             <Dependent Role="Trip_Info">
               <PropertyRef Name="Dispatcher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Driver_Info_Owners">
+          <End Type="vpss1Model.Owners" Role="Owners" Multiplicity="0..1" />
+          <End Type="vpss1Model.Driver_Info" Role="Driver_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Owners">
+              <PropertyRef Name="OwnerID" />
+            </Principal>
+            <Dependent Role="Driver_Info">
+              <PropertyRef Name="Owner_Name" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1737,36 +1735,6 @@
                 <ScalarProperty Name="SSN" ColumnName="SSN" />
                 <ScalarProperty Name="DOB" ColumnName="DOB" />
                 <ScalarProperty Name="Hire_date" ColumnName="Hire date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Driver_Info">
-            <EntityTypeMapping TypeName="vpss1Model.Driver_Info">
-              <MappingFragment StoreEntitySet="Driver Info">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Employee_ID" ColumnName="Employee ID" />
-                <ScalarProperty Name="Last_name" ColumnName="Last name" />
-                <ScalarProperty Name="First_name" ColumnName="First name" />
-                <ScalarProperty Name="Middle_in" ColumnName="Middle in" />
-                <ScalarProperty Name="SSN" ColumnName="SSN" />
-                <ScalarProperty Name="Drive_Lic" ColumnName="Drive Lic" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Expiration_Date" ColumnName="Expiration Date" />
-                <ScalarProperty Name="Date_Issued" ColumnName="Date Issued" />
-                <ScalarProperty Name="HazMat" ColumnName="HazMat" />
-                <ScalarProperty Name="Pay_rate" ColumnName="Pay rate" />
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="Truck" ColumnName="Truck" />
-                <ScalarProperty Name="Trailer" ColumnName="Trailer" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Fuel_Card" ColumnName="Fuel Card" />
-                <ScalarProperty Name="fuel___advance_Fee_rate" ColumnName="fuel &amp; advance Fee rate" />
-                <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
-                <ScalarProperty Name="Active" ColumnName="Active" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="Owner_Pay_Rate" ColumnName="Owner Pay Rate" />
-                <ScalarProperty Name="Owner_Name" ColumnName="Owner Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1853,17 +1821,6 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Paid_off" ColumnName="Paid off" />
                 <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Owners">
-            <EntityTypeMapping TypeName="vpss1Model.Owners">
-              <MappingFragment StoreEntitySet="Owners">
-                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ssn_" ColumnName="ssn#" />
-                <ScalarProperty Name="fee_rate" ColumnName="fee rate" />
-                <ScalarProperty Name="pay_rate" ColumnName="pay rate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2170,6 +2127,47 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Driver_Info">
+            <EntityTypeMapping TypeName="vpss1Model.Driver_Info">
+              <MappingFragment StoreEntitySet="Driver Info">
+                <ScalarProperty Name="Owner_Name" ColumnName="Owner Name" />
+                <ScalarProperty Name="Owner_Pay_Rate" ColumnName="Owner Pay Rate" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
+                <ScalarProperty Name="fuel___advance_Fee_rate" ColumnName="fuel &amp; advance Fee rate" />
+                <ScalarProperty Name="Fuel_Card" ColumnName="Fuel Card" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Trailer" ColumnName="Trailer" />
+                <ScalarProperty Name="Truck" ColumnName="Truck" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Pay_rate" ColumnName="Pay rate" />
+                <ScalarProperty Name="HazMat" ColumnName="HazMat" />
+                <ScalarProperty Name="Date_Issued" ColumnName="Date Issued" />
+                <ScalarProperty Name="Expiration_Date" ColumnName="Expiration Date" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Drive_Lic" ColumnName="Drive Lic" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="Middle_in" ColumnName="Middle in" />
+                <ScalarProperty Name="First_name" ColumnName="First name" />
+                <ScalarProperty Name="Last_name" ColumnName="Last name" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Owners">
+            <EntityTypeMapping TypeName="vpss1Model.Owners">
+              <MappingFragment StoreEntitySet="Owners">
+                <ScalarProperty Name="pay_rate" ColumnName="pay rate" />
+                <ScalarProperty Name="fee_rate" ColumnName="fee rate" />
+                <ScalarProperty Name="ssn_" ColumnName="ssn#" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Trip_Info">
             <EntityTypeMapping TypeName="vpss1Model.Trip_Info">
               <MappingFragment StoreEntitySet="Trip Info">
@@ -2225,18 +2223,16 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Model1">
+      <Diagram Name="Model1" ZoomLevel="46">
         <EntityTypeShape EntityType="vpss1Model.Company_Expanses" Width="1.5" PointX="0.75" PointY="1" Height="1.9802864583333331" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Customer_Info" Width="1.5" PointX="6" PointY="0.75" Height="3.3263964843749996" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Dispatchers" Width="1.5" PointX="0.75" PointY="8.125" Height="2.5571907552083353" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Driver_Info" Width="1.5" PointX="3" PointY="6.125" Height="6.5955208333333344" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.fixed_charges" Width="1.5" PointX="8.75" PointY="1" Height="2.9417936197916665" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Fuel___Expenses" Width="1.5" PointX="5.25" PointY="5.75" Height="3.5186979166666674" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Income" Width="1.5" PointX="10.75" PointY="1" Height="2.5571907552083317" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.InvoiceA" Width="1.5" PointX="10.75" PointY="5" Height="1.4033821614583317" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Maintenance" Width="1.5" PointX="10.75" PointY="8" Height="2.7494921875000031" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Operating_Expenses" Width="1.5" PointX="5.25" PointY="10.125" Height="2.9417936197916745" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.Owners" Width="1.5" PointX="0.75" PointY="4.375" Height="2.1725878906250031" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Printed_Temp_Fuel___Expenses" Width="1.5" PointX="10.75" PointY="12" Height="3.3263964843750031" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Printed_Temp_Operating_Expenses" Width="1.5" PointX="12.75" PointY="1" Height="3.1340950520833388" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Printed_Temp_Split_Expenses_Driver" Width="1.5" PointX="12.75" PointY="5" Height="3.3263964843750031" IsExpanded="true" />
@@ -2252,25 +2248,25 @@
         <EntityTypeShape EntityType="vpss1Model.Temp_Trip_Info" Width="1.5" PointX="16.75" PointY="1" Height="6.0186165364583246" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Trip_Info___old" Width="1.5" PointX="6.75" PointY="17" Height="6.21091796875001" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Violations" Width="1.5" PointX="16.75" PointY="8" Height="2.1725878906250102" IsExpanded="true" />
-        <AssociationConnector Association="vpss1Model.FK_Driver_Info_Dispatchers" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="9.4035953776041659" />
-          <ConnectorPoint PointX="3" PointY="9.4035953776041659" />
-        </AssociationConnector>
-        <AssociationConnector Association="vpss1Model.FK_Driver_Info_Owners" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="6.3362939453125016" />
-          <ConnectorPoint PointX="3" PointY="6.3362939453125016" />
-        </AssociationConnector>
-        <AssociationConnector Association="vpss1Model.FK_Fuel___Expenses_Driver_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="7.6968489583333337" />
-          <ConnectorPoint PointX="5.25" PointY="7.6968489583333337" />
-        </AssociationConnector>
-        <AssociationConnector Association="vpss1Model.FK_Operating_Expenses_Driver_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="11.422760416666666" />
-          <ConnectorPoint PointX="4.916666666666667" PointY="11.422760416666666" />
-          <ConnectorPoint PointX="5.083333333333333" PointY="11.422760416666666" />
-          <ConnectorPoint PointX="5.25" PointY="11.422760416666666" />
-        </AssociationConnector>
         <EntityTypeShape EntityType="vpss1Model.Equipment" Width="1.5" PointX="9.375" PointY="17" Height="3.7109993489583246" />
+        <EntityTypeShape EntityType="vpss1Model.Driver_Info" Width="1.5" PointX="3" PointY="4.375" Height="6.5955208333333388" />
+        <AssociationConnector Association="vpss1Model.FK_Driver_Info_Dispatchers" >
+          <ConnectorPoint PointX="2.25" PointY="9.49974609375" />
+          <ConnectorPoint PointX="3" PointY="9.49974609375" />
+        </AssociationConnector>
+        <AssociationConnector Association="vpss1Model.FK_Fuel___Expenses_Driver_Info" >
+          <ConnectorPoint PointX="4.5" PointY="7.5093489583333328" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="7.5093489583333319" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="7.5093489583333328" />
+          <ConnectorPoint PointX="5.25" PointY="7.5093489583333328" />
+        </AssociationConnector>
+        <AssociationConnector Association="vpss1Model.FK_Operating_Expenses_Driver_Info" >
+          <ConnectorPoint PointX="4.5" PointY="10.547760416666666" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="10.547760416666666" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="10.547760416666666" />
+          <ConnectorPoint PointX="5.25" PointY="10.547760416666666" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="vpss1Model.Owners" Width="1.5" PointX="0.75" PointY="4.625" Height="2.172587890624996" />
         <EntityTypeShape EntityType="vpss1Model.Trip_Info" Width="1.5" PointX="17.625" PointY="11" Height="7.364726562499996" />
         <AssociationConnector Association="vpss1Model.FK_Trip_Info_Customer_Info1" >
           <ConnectorPoint PointX="7.5" PointY="0.84375" />
@@ -2278,10 +2274,10 @@
           <ConnectorPoint PointX="18.71875" PointY="11" />
         </AssociationConnector>
         <AssociationConnector Association="vpss1Model.FK_Trip_Info_Dispatchers1" >
-          <ConnectorPoint PointX="2.25" PointY="10.074145066406249" />
-          <ConnectorPoint PointX="2.75" PointY="10.074145066406249" />
-          <ConnectorPoint PointX="2.75" PointY="12.970520833333332" />
-          <ConnectorPoint PointX="5" PointY="12.970520833333332" />
+          <ConnectorPoint PointX="2.25" PointY="10.218371140624999" />
+          <ConnectorPoint PointX="2.75" PointY="10.218371140624999" />
+          <ConnectorPoint PointX="2.75" PointY="11.220520833333334" />
+          <ConnectorPoint PointX="5" PointY="11.220520833333334" />
           <ConnectorPoint PointX="5" PointY="9.875" />
           <ConnectorPoint PointX="10.166666666666666" PointY="9.875" />
           <ConnectorPoint PointX="10.333333333333334" PointY="9.875" />
@@ -2304,9 +2300,15 @@
           <ConnectorPoint PointX="18.140622999999998" PointY="10.75" />
           <ConnectorPoint PointX="18.140622999999998" PointY="11" />
         </AssociationConnector>
+        <AssociationConnector Association="vpss1Model.FK_Driver_Info_Owners" >
+          <ConnectorPoint PointX="2.25" PointY="5.711293945312498" />
+          <ConnectorPoint PointX="3" PointY="5.711293945312498" />
+        </AssociationConnector>
         <AssociationConnector Association="vpss1Model.FK_Trip_Info_Driver_Info1" >
-          <ConnectorPoint PointX="4.5" PointY="9.6030989583333337" />
-          <ConnectorPoint PointX="10.25" PointY="9.6030989583333337" />
+          <ConnectorPoint PointX="4.5" PointY="5.9109224791666728" />
+          <ConnectorPoint PointX="5" PointY="5.9109224791666728" />
+          <ConnectorPoint PointX="5" PointY="9.5186979166666656" />
+          <ConnectorPoint PointX="10.25" PointY="9.5186979166666656" />
           <ConnectorPoint PointX="10.25" PointY="11.249492187500003" />
           <ConnectorPoint PointX="12.625" PointY="11.249492187500003" />
           <ConnectorPoint PointX="12.625" PointY="9.5" />
