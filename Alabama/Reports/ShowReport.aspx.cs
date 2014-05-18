@@ -32,6 +32,8 @@ namespace Alabama.Reports
             {
                 case "DispatcherTrip":
                     return LoadDispatcherTrip();
+                case "TripInfoOutstanding":
+                    return TripInfoOutstanding();
                 default:
                     return null;
             }
@@ -45,6 +47,21 @@ namespace Alabama.Reports
             dr["CustomerName"] = "y";
             dr["TripID"] = "zzz";
             dt.Rows.Add(dr);
+            return dt;
+        }
+
+        private DataTable TripInfoOutstanding()
+        {
+            DataTable dt = new TripInfoOutstanding().DataTable1;
+            foreach (var item in DB.Entities.Trip_Info.Take(100))
+            {
+                DataRow dr = dt.NewRow();
+                dr["DriverName"] = item.Driver_Info != null ? item.Driver_Info.First_name + item.Driver_Info.First_name : "";
+                dr["CustomerName"] = item.Customer_Info != null ? item.Customer_Info.Customer_Name : "";
+                dr["TotalCharges"] = item.Total_charges;
+                dt.Rows.Add(dr);
+            }
+
             return dt;
         }
     }
