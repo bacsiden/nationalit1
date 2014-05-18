@@ -68,6 +68,12 @@
                 @Html.TextBoxFor(model => model.Fax, new { @class = "input-xlarge" })
                 @Html.ValidationMessageFor(model => model.Fax)
             </div>
+            <div class="control-group">
+                <label for="Days_to_pay">
+                    Days_to_pay</label>
+                @Html.TextBoxFor(model => model.Days_to_pay, new { @class = "input-xlarge" })
+                @Html.ValidationMessageFor(model => model.Days_to_pay)
+            </div>
         </div>
     </div> 
     <div class="row-fluid">
@@ -78,12 +84,7 @@
                 @Html.TextAreaFor(model => model.Comments, new { @class = "input-xxlarge", rows = "5" })
                 @Html.ValidationMessageFor(model => model.Comments)
             </div>
-            <div class="control-group">
-                <label for="Days_to_pay">
-                    Days_to_pay</label>
-                @Html.TextBoxFor(model => model.Days_to_pay, new { @class = "input-xlarge" })
-                @Html.ValidationMessageFor(model => model.Days_to_pay)
-            </div>
+            
         </div>
     </div>
     <div class="row-fluid">
