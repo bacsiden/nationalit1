@@ -5,10 +5,10 @@
 }
 <script type="text/javascript">
     $(document).ready(function () {
-        $("li a.menu-item-a").each(function () {
+        $(".nav-list li a.menu-item-a").each(function () {
             var $this = $(this);
             if ($this.attr('href').indexOf("@ctrler") > -1) {
-                $("li.active").removeClass();
+                $(".nav-list li.active").removeClass();
                 $this.parent().addClass("active");
             }
         });

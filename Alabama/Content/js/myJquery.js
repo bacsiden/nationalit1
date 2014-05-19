@@ -1,9 +1,6 @@
 ﻿$(document).ready(function () {
-    // thêm thẻ <li> cho phân trang
-    $(".phantrangmvcpager a").wrap("<li></li>");
-    $(".phantrangmvcpager li.active").wrapInner("<a href='#' onclick='return false;'></a>");
-    $(".phantrangmvcpager a[disabled='disabled']").parent().addClass('disabled');
-
+    // thêm thẻ <li> cho phân trang    
+    addClassForPagging();
     $(".confirmDelete").click(function () {
         if (confirm("Are you sure?")) {
             return true;
@@ -134,7 +131,37 @@
     })
     //-----------------------------------------------------------------------
 
-});   //----------------END DOCUMENT READY FUNCTION -------------------------------  
+    // AutoComplete Chosen select item
+    $(".selectTripInfo").chosen({ allow_single_deselect: true }).change(function () {
+        var valueTripInfo =$(this).val();
+        $.ajax({
+            type: "GET",
+            url: '/TripInfo/Index',
+            data:{'tripID':valueTripInfo},
+            async: true,
+            success: function (model) {
+                alert(model);
+                $("#wrap-AjaxPaging").html(model);                
+                addClassForPagging();                
+            }
+        });
+    });
+    $(".selectDriverInfo").chosen({ allow_single_deselect: true }).change(function () {
+        var valueTripInfo =$(this).val();
+        $.ajax({
+            type: "GET",
+            url: '/TripInfo/Index',
+            data:{'driverID':valueDriverInfo},
+            async: true,
+            success: function (model) {
+                $("#wrap-AjaxPaging").html(model);
+                addClassForPagging();                
+            }
+        });
+    });
+    //--------------------------------------------------
+
+});    //----------------END DOCUMENT READY FUNCTION -------------------------------  
 
 
 
@@ -159,3 +186,26 @@ function autoCompleteByClassName(className1, dataJson) {
 }
 
 // ------------------------------------------------------------------
+function addClassForPagging() {
+    $(".phantrangmvcpager a").wrap("<li></li>");
+    $(".phantrangmvcpager li.active").wrapInner("<a href='#' onclick='return false;'></a>");
+    $(".phantrangmvcpager a[disabled='disabled']").parent().addClass('disabled');
+}
+
+function ajaxPagingByID(wrapID) {
+
+    $(".phantrangmvcpager a[data-ajax='true']").click(function () {
+        var url = $(this).attr('href');
+        $.ajax({
+            type: "GET",
+            url: url,
+            async: true,
+            success: function (model) {
+                $("#"+wrapID).html(model);
+                addClassForPagging();
+                return false;
+            }
+        });
+        return false;
+    });
+}

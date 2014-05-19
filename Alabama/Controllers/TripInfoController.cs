@@ -14,9 +14,37 @@ namespace Alabama.Controllers
         //
         // GET: /Owner/
 
-        public ActionResult Index(int? page)
+        public ActionResult Index(int? page, int?driverID,int?tripID)
         {
-            return View(DB.Entities.Trip_Info.OrderByDescending(m => m.Trip_ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
+            var list = DB.Entities.Trip_Info;
+            if (driverID.HasValue)
+            {
+                list.Where(m=>m.Driver.Value == driverID.Value);
+            }
+            if (tripID.HasValue)
+            {
+                list.Where(m => m.Trip_ID == tripID.Value);
+            }
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_IndexPartial",list.OrderByDescending(m => m.Trip_ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
+            }
+            #region SELECT OPTION
+            string dataTripInfo = "<option >--Select Trip_ID--</option>";
+            foreach (var item in Alabama.DB.Entities.Trip_Info)
+            {
+                dataTripInfo += string.Format("<option value='{0}'>{0}</option>", item.Trip_ID);
+            }
+            ViewBag.dataTripInfo = dataTripInfo;
+
+            string dataDriver_Info = "<option >--Select Driver_Info--</option>";
+            foreach (var item in Alabama.DB.Entities.Driver_Info)
+            {
+                dataDriver_Info += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+            }
+            ViewBag.dataDriver_Info = dataDriver_Info;
+            #endregion
+            return View(list.OrderByDescending(m => m.Trip_ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
         }
         //
         // GET: /Owner/Edit/5
@@ -26,17 +54,17 @@ namespace Alabama.Controllers
             var obj = DB.Entities.Trip_Info.FirstOrDefault(m => m.Trip_ID == id);
             if (obj == null)
             {
-                obj = new Trip_Info() {Driver=driverID,Picked=true,Current_Payroll=true,Customer_Invoiced_date=DateTime.Now.Date,Invoice=DB.Entities.Trip_Info.Max(m=>m.Invoice)+1};
+                obj = new Trip_Info() { Driver = driverID, Picked = true, Current_Payroll = true, Customer_Invoiced_date = DateTime.Now.Date, Invoice = DB.Entities.Trip_Info.Max(m => m.Invoice) + 1 };
             }
 
             #region SELECT OPTION
             string dataDispatchers = "<option >--Select Dispatcher--</option>";
             foreach (var item in Alabama.DB.Entities.Dispatchers)
             {
-                if (obj!=null && obj.Dispatcher == item.ID)
+                if (obj != null && obj.Dispatcher == item.ID)
                 {
                     //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
-                    dataDispatchers += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>",item.ID,item.Last_name,item.First_name);
+                    dataDispatchers += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
                 }
                 else
                 {
@@ -58,7 +86,7 @@ namespace Alabama.Controllers
                 }
             }
             ViewBag.dataDriver = dataDriver;
-            
+
             string dataEquipment = "<option >--Select Equiment--</option>";
             foreach (var item in Alabama.DB.Entities.Equipment)
             {
