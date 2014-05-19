@@ -11,11 +11,29 @@ namespace Alabama.Controllers
     {
         int pageSize = 20;
 
-        public ActionResult Index(int? page)
+        public ActionResult Index(int? page, int? driverID)
         {
-            return View(DB.Entities.Driver_Info.OrderByDescending(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
+            var db = DB.Entities;
+            var list = db.Driver_Info.Where(m => (driverID == null ? true : m.ID == driverID.Value))
+                    .OrderByDescending(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize);
+            SelectOption();
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_IndexPartial", list);
+            }
+            return View(list);
         }
-
+        void SelectOption()
+        {
+            #region SELECT OPTION
+            string dataDriver_Info = "<option >--Select Driver_Info--</option>";
+            foreach (var item in Alabama.DB.Entities.Driver_Info)
+            {
+                dataDriver_Info += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+            }
+            ViewBag.dataDriver_Info = dataDriver_Info;
+            #endregion
+        }
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == id);

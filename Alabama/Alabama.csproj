@@ -418,6 +418,9 @@
     <Content Include="Views\Equipment\Index.cshtml" />
     <Content Include="Views\Equipment\NewOrEdit.cshtml" />
     <Content Include="Views\TripInfo\_IndexPartial.cshtml" />
+    <Content Include="Views\DriverInfo\_IndexPartial.cshtml" />
+    <Content Include="Views\CustomerInfo\_IndexPartial.cshtml" />
+    <Content Include="Views\FuelExpenses\_IndexPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\DispatcherTrip.rdlc" />
