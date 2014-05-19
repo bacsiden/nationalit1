@@ -14,26 +14,28 @@ namespace Alabama.Controllers
         //
         // GET: /Owner/
 
-        public ActionResult Index(int? page, int?driverID,int?tripID)
+        public ActionResult Index(int? page, int? driverID, int? tripID)
         {
-            var list = DB.Entities.Trip_Info;
-            if (driverID.HasValue)
-            {
-                list.Where(m=>m.Driver.Value == driverID.Value);
-            }
-            if (tripID.HasValue)
-            {
-                list.Where(m => m.Trip_ID == tripID.Value);
-            }
+            var db = DB.Entities;
+            var list = db.Trip_Info.Where(m => (driverID == null ? true : m.Driver == driverID.Value) && (tripID == null ? true : m.Trip_ID == tripID.Value))
+                    .OrderByDescending(m => m.Trip_ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize);
             if (Request.IsAjaxRequest())
             {
-                return PartialView("_IndexPartial",list.OrderByDescending(m => m.Trip_ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
+                return PartialView("_IndexPartial", list);
             }
+            SelectOption();
+            return View(list);
+        }
+        //
+        // GET: /Owner/Edit/5
+        void SelectOption()
+        {
             #region SELECT OPTION
+            var lst = DB.Entities.Trip_Info.Select(m => m.Trip_ID).ToList();
             string dataTripInfo = "<option >--Select Trip_ID--</option>";
-            foreach (var item in Alabama.DB.Entities.Trip_Info)
+            foreach (var item in lst)
             {
-                dataTripInfo += string.Format("<option value='{0}'>{0}</option>", item.Trip_ID);
+                dataTripInfo += string.Format("<option value='{0}'>{0}</option>", item);
             }
             ViewBag.dataTripInfo = dataTripInfo;
 
@@ -44,11 +46,7 @@ namespace Alabama.Controllers
             }
             ViewBag.dataDriver_Info = dataDriver_Info;
             #endregion
-            return View(list.OrderByDescending(m => m.Trip_ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
         }
-        //
-        // GET: /Owner/Edit/5
-
         public ActionResult NewOrEdit(int? driverID, int? id = 0)
         {
             var obj = DB.Entities.Trip_Info.FirstOrDefault(m => m.Trip_ID == id);

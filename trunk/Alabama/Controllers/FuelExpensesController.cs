@@ -8,13 +8,31 @@ namespace Alabama.Controllers
 {
     public class FuelExpensesController : Controller
     {
-        public ActionResult Index(int? page)
+        int pageSize = 20;
+        public ActionResult Index(int? page, int? driverID)
         {
-            if (page == null) page = 0;
             var db = DB.Entities;
-            return View(db.Fuel___Expenses.OrderBy(m => m.ID).ToPagedList(page.Value, 30));
+            var list = db.Fuel___Expenses.Where(m => ((driverID == null ? true : m.ID == driverID.Value)))
+                    .OrderByDescending(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize);
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_IndexPartial", list);
+            }
+            SelectOption();
+            return View(list);
         }
 
+        void SelectOption()
+        {
+            #region SELECT OPTION
+            string dataFuel_Expenses = "<option >--Select Fuel_Expenses--</option>";
+            foreach (var item in Alabama.DB.Entities.Fuel___Expenses)
+            {
+                dataFuel_Expenses += string.Format("<option value='{0}'>{0}</option>", item.ID);
+            }
+            ViewBag.dataFuel_Expenses = dataFuel_Expenses;
+            #endregion
+        }
         public ActionResult Create()
         {
             var lst1 = new List<string> { "FUEL", "ADVANCE", "REPAIR" };
@@ -84,13 +102,13 @@ namespace Alabama.Controllers
             try
             {
                 // TODO: Add update logic here
-                model.Type=collection["cboType"];
+                model.Type = collection["cboType"];
                 if (collection["Driver_Info.ID"] != null)
                 {
                     model.Driver = int.Parse(collection["Driver_Info.ID"]);
                 }
                 var db = DB.Entities;
-               // db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
+                // db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
                 db.AttachTo("Fuel___Expenses", model);
                 db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
                 db.SaveChanges();

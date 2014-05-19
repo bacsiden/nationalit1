@@ -1,97 +1,30 @@
 ﻿@model Webdiyer.WebControls.Mvc.PagedList<Alabama.Driver_Info>
 @using Webdiyer.WebControls.Mvc;
-<h3>Driver Info</h3>
-<p style="margin-left: 7px;">
-    @Html.ActionLink("Create New", "NewOrEdit", null, new { @class = "btn btn-info addNewItem" })
-    @Html.ActionLink("Edit", "NewOrEdit", null, new { @class = "btn btn-info EditItem" })
-    @Html.ActionLink("Delete", "Delete", null, new { @class = "btn btn-danger DeleteItem confirmDelete" })
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                <input type="checkbox" name="" value="" class="checkAll" />
-            </th>
-            <th>
-                ID
-            </th>
-            <th>
-                First Name
-            </th>
-            <th>
-                Date Issued
-            </th>
-            <th>
-                Active
-            </th>
-            <th>
-                Drive Lic
-            </th>
-            <th>
-                Owner
-            </th>
-            <th>
-                Dispatcher
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    <input type="checkbox" name="checkOwner" value="@item.ID" class="checkitem"/>
-                </td>
-                <td>
-                    <a href="/DriverInfo/NewOrEdit/@item.ID" style="color: #0072BC;">@item.ID</a>
-                </td>
-                <td>
-                    @item.First_name
-                </td>
-                <td>
-                    @item.Date_Issued
-                </td>
-                <td>
-                    @item.Active
-                </td>
-                <td>
-                    @item.Drive_Lic
-                </td>
-                <td>
-                    @item.Owner
-                </td>
-                <td>
-                    @Html.Raw(item.Dispatchers!= null ? item.Dispatchers.First_name : "")
-                </td>
-                @*<td>
-                        <a href="/CreatedCard/Details/@item.CreatedCardID" style="color: #0072BC;">@item.CreatedCard.Note</a>
-                    </td>*@
-            </tr>
-        }
-    </tbody>
-</table>
 <div class="row-fluid">
-    <div class="span4">
-        <div class="dataTables_info">
-            @if (Model.TotalItemCount > 0)
-            {
-                if (Model.TotalItemCount < Model.PageSize)
-                {
-                <span>1 </span>
-                <span>- </span>@Model.TotalItemCount
-                }
-                else
-                {
-                <span></span>@((Model.CurrentPageIndex - 1) * Model.PageSize + 1)
-                <span>- </span>@((Model.CurrentPageIndex != Model.TotalPageCount) ? (Model.CurrentPageIndex * Model.PageSize) : Math.Abs((Model.CurrentPageIndex) * Model.PageSize - (Model.PageSize * Model.TotalPageCount) - Model.TotalItemCount))
-                }
-                <span>of </span>@(Model.TotalItemCount)                            
-            }
+    <div class="span12">
+        <h3>
+            Driver Info</h3>
+        <div class="row-fluid">
+            <div class="span12">
+                @Html.ActionLink("Create New", "NewOrEdit", null, new { @class = "btn btn-info addNewItem" })
+                @Html.ActionLink("Edit", "NewOrEdit", null, new { @class = "btn btn-info EditItem" })
+                @Html.ActionLink("Delete", "Delete", null, new { @class = "btn btn-danger DeleteItem confirmDelete" })
+                <div class="row-fluid">
+                    <div class="wrap-selectTripInfo">
+                        <div class="span12">
+                            Driver info
+                            <select data-placeholder="Select DriverInfo" name="Driver_Info" class="chosen-with-diselect input-xlarge selectDriverInfo">
+                                @Html.Raw(ViewBag.dataDriver_Info)
+                            </select>
+                        </div>
+                        <div class="cleardiv">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="span8">
-        <div class="dataTables_paginate paging_bootstrap pagination phantrangmvcpager">
-            @Html.Pager(Model, new PagerOptions { ContainerTagName = "ul", PageIndexParameterName = "page", CurrentPagerItemWrapperFormatString = "<li class='active'>{0}</li>", CurrentPageNumberFormatString = "{0}", FirstPageText = "&laquo; ", LastPageText = " &raquo;", NextPageText = "Next →", PrevPageText = "← Prev", SeparatorHtml = "" })
+        <div id="wrap-AjaxPaging">
+            @Html.Partial("_IndexPartial", Model)
         </div>
     </div>
 </div>

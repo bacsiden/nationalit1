@@ -133,24 +133,25 @@
 
     // AutoComplete Chosen select item
     $(".selectTripInfo").chosen({ allow_single_deselect: true }).change(function () {
-        var valueTripInfo =$(this).val();
+        var valueTripInfo = $(this).val();
+        var url = $(location).attr('href');
         $.ajax({
             type: "GET",
-            url: '/TripInfo/Index',
+            url: url,
             data:{'tripID':valueTripInfo},
             async: true,
             success: function (model) {
-                alert(model);
-                $("#wrap-AjaxPaging").html(model);                
+                $("#wrap-AjaxPaging").html(model);
                 addClassForPagging();                
             }
         });
     });
     $(".selectDriverInfo").chosen({ allow_single_deselect: true }).change(function () {
-        var valueTripInfo =$(this).val();
+        var valueDriverInfo = $(this).val();
+        var url = $(location).attr('href');
         $.ajax({
             type: "GET",
-            url: '/TripInfo/Index',
+            url: url,
             data:{'driverID':valueDriverInfo},
             async: true,
             success: function (model) {
