@@ -109,3 +109,13 @@ label
 {
     color: Red;
 }
+.wrap-selectTripInfo
+{
+    margin: 10px 0;
+}
+.cleardiv
+{
+    width: 100%;
+    float: left;
+    margin: 5px 0;
+}
