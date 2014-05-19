@@ -52,15 +52,43 @@ namespace Alabama.Reports
 
         private DataTable TripInfoOutstanding()
         {
+            var db = DB.Entities;
+            List<int?> lstDriver = db.Trip_Info.Take(100).Select(m => m.Driver).Distinct().ToList();
+            var lst = db.Trip_Info.Take(100).ToList();
             DataTable dt = new TripInfoOutstanding().DataTable1;
-            foreach (var item in DB.Entities.Trip_Info.Take(100))
+            foreach (int? driverID in lstDriver)
             {
-                DataRow dr = dt.NewRow();
-                dr["DriverName"] = item.Driver_Info != null ? item.Driver_Info.First_name + item.Driver_Info.First_name : "";
-                dr["CustomerName"] = item.Customer_Info != null ? item.Customer_Info.Customer_Name : "";
-                dr["TotalCharges"] = item.Total_charges;
-                dt.Rows.Add(dr);
+                if (driverID != null)
+                {
+                    int totalCharges = 0;
+                    List<DataRow> lstDR = new List<DataRow>();
+                    foreach (var item in lst.Where(m => m.Driver == driverID))
+                    {
+                        DataRow dr = dt.NewRow();
+                        dr["DriverID"] = driverID;
+                        dr["DriverName"] = item.Driver_Info != null ? item.Driver_Info.First_name + item.Driver_Info.First_name : "";
+                        dr["OrderDate"] = String.Format("{0:MM/dd/yyyy}", item.Order_date);
+                        dr["PickupDate"] = String.Format("{0:MM/dd/yyyy}", item.Pickup_date);
+                        dr["DeliveryDate"] = String.Format("{0:MM/dd/yyyy}", item.Delivery_date);
+                        dr["CustomerName"] = item.Customer_Info != null ? item.Customer_Info.Customer_Name : "";
+                        dr["DeliveryLocation"] = item.Delivery_location;
+                        dr["ComfirmedRate1"] = item.Comfirmed_Rate;
+                        dr["LumperExtra1"] = "LumperExtra";
+                        dr["DetentionPay1"] = item.Detention_pay;
+                        dr["ChargesBack1"] = "ChargesBack1";
+                        dr["TotalCharges1"] = item.Total_charges;
+
+                        totalCharges+=(int)item.Total_charges;
+                        lstDR.Add(dr);
+                    }
+                    foreach (var item in lstDR)
+                    {
+                        item["TotalCharges"] = totalCharges;
+                        dt.Rows.Add(item);
+                    }
+                }
             }
+
 
             return dt;
         }

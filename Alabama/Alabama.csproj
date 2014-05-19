@@ -119,6 +119,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FlueExpenses.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports\Invoice.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Invoice.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reports\PendingTripByDriver.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -136,7 +141,7 @@
     <Compile Include="Reports\ShowReport.aspx.designer.cs">
       <DependentUpon>ShowReport.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TripInfoOutstanding.Designer.cs">
+    <Compile Include="Reports\TripInfoOutstanding.Designer.cs">
       <DependentUpon>TripInfoOutstanding.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -364,6 +369,17 @@
     <None Include="Reports\FlueExpenses.xss">
       <DependentUpon>FlueExpenses.xsd</DependentUpon>
     </None>
+    <None Include="Reports\Invoice.xsc">
+      <DependentUpon>Invoice.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Invoice.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Invoice.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Invoice.xss">
+      <DependentUpon>Invoice.xsd</DependentUpon>
+    </None>
     <None Include="Reports\PendingTripByDriver.xsc">
       <DependentUpon>PendingTripByDriver.xsd</DependentUpon>
     </None>
@@ -388,15 +404,15 @@
     </None>
     <Content Include="Views\Report\Index.cshtml" />
     <Content Include="Views\TripInfo\GetCutomerInfoByKey.cshtml" />
-    <None Include="TripInfoOutstanding.xsc">
+    <None Include="Reports\TripInfoOutstanding.xsc">
       <DependentUpon>TripInfoOutstanding.xsd</DependentUpon>
     </None>
-    <None Include="TripInfoOutstanding.xsd">
+    <None Include="Reports\TripInfoOutstanding.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>TripInfoOutstanding.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="TripInfoOutstanding.xss">
+    <None Include="Reports\TripInfoOutstanding.xss">
       <DependentUpon>TripInfoOutstanding.xsd</DependentUpon>
     </None>
     <Content Include="Views\Equipment\Index.cshtml" />
@@ -404,6 +420,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\DispatcherTrip.rdlc" />
+    <EmbeddedResource Include="Reports\Invoice.rdlc" />
     <EmbeddedResource Include="Reports\PendingTripByDriver.rdlc" />
     <EmbeddedResource Include="Reports\TripInfoOutstanding.rdlc" />
     <EmbeddedResource Include="Reports\PlaceHolderReport.rdlc" />

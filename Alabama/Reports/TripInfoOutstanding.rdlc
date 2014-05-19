@@ -76,6 +76,10 @@
           <DataField>TotalCharges1</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="DriverID">
+          <DataField>DriverID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>TripInfoOutstanding</DataSourceName>
@@ -83,7 +87,7 @@
       </Query>
       <rd:DataSetInfo>
         <rd:DataSetName>TripInfoOutstanding</rd:DataSetName>
-        <rd:SchemaPath>D:\Freelancer\NationalIT\nationalit1\Alabama\TripInfoOutstanding.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Recnaleerf\nationalit1\Alabama\Reports\TripInfoOutstanding.xsd</rd:SchemaPath>
         <rd:TableName>DataTable1</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -97,7 +101,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>7.906in</Width>
+              <Width>5.5361in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -115,13 +119,13 @@
                                 <Width>1.16134in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>3.72407in</Width>
+                                <Width>2.22916in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>1.28634in</Width>
+                                <Width>0.98426in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>1.31759in</Width>
+                                <Width>1.16134in</Width>
                               </TablixColumn>
                             </TablixColumns>
                             <TablixRows>
@@ -1131,7 +1135,7 @@
                           <DataSetName>DataSet1</DataSetName>
                           <Top>1.22618cm</Top>
                           <Height>5.03812cm</Height>
-                          <Width>19.02292cm</Width>
+                          <Width>14.06169cm</Width>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -1185,10 +1189,15 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Total charges: </Value>
-                                  <Style />
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Fields!TotalCharges.Value</Value>
+                                  <Value>=First(Fields!TotalCharges.Value)</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -1197,9 +1206,9 @@
                           </Paragraphs>
                           <rd:DefaultName>DriverName</rd:DefaultName>
                           <Top>6.62309cm</Top>
-                          <Left>12.40895cm</Left>
+                          <Left>8.00334cm</Left>
                           <Height>0.6cm</Height>
-                          <Width>6.01896cm</Width>
+                          <Width>6.05836cm</Width>
                           <ZIndex>2</ZIndex>
                           <Style>
                             <Border>
@@ -1245,7 +1254,7 @@
         <Top>0.57362cm</Top>
         <Left>1.12924cm</Left>
         <Height>8.92493cm</Height>
-        <Width>20.08125cm</Width>
+        <Width>14.06169cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1256,7 +1265,7 @@
     <Height>3.875in</Height>
     <Style />
   </Body>
-  <Width>10.95475in</Width>
+  <Width>5.98068in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
