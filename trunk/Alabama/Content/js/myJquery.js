@@ -140,14 +140,13 @@
             data: { 'tripID': valueTripInfo },
             async: true,
             success: function (model) {
-                alert(model);
                 $("#wrap-AjaxPaging").html(model);
                 addClassForPagging();
             }
         });
     });
     $(".selectDriverInfo").chosen({ allow_single_deselect: true }).change(function () {
-        var valueTripInfo = $(this).val();
+        var valueDriverInfo = $(this).val();
         $.ajax({
             type: "GET",
             url: '/TripInfo/Index',
