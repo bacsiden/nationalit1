@@ -181,27 +181,23 @@ namespace Alabama.Reports
             dr["CustomerAddress"] = item.Customer_Info != null ? item.Customer_Info.City + ", " +
                 item.Customer_Info.State + " " + item.Customer_Info.ZIP_Code : "";
             dr["Street"] = item.Customer_Info != null ? item.Customer_Info.Street : "";
-
-            string invoice = item.Invoice.ToString();
-            if (item.Customer_Info != null)
+            //Lấy 2 kí tự đầu của first name, last name dirver info
+            string invoice = item.Invoice + "";
+            if (item.Driver_Info != null)
             {
-                if (!string.IsNullOrEmpty(item.Customer_Info.Customer_Name))
-                {
-                    if (item.Customer_Info.Customer_Name.Length > 2)
-                        invoice = (char)item.Customer_Info.Customer_Name[0] +""+ (char)item.Customer_Info.Customer_Name[1] + invoice;
-                    else
-                        invoice = item.Customer_Info.Customer_Name + invoice;
-                }
+                string char1 = string.IsNullOrEmpty(item.Driver_Info.First_name) ? null : item.Driver_Info.First_name[0] + "";
+                string char2 = string.IsNullOrEmpty(item.Driver_Info.Last_name) ? null : item.Driver_Info.Last_name[0] + "";
+                invoice = char1 + char2 + invoice;
             }
             dr["Invoice"] = invoice;
             dr["Load_"] = item.Loaded_miles;
             dr["PO_"] = item.PO_;
             dr["PickupLocation"] = item.Pick_up_location;
             dr["DeliveryLocation"] = item.Delivery_location;
-            dr["ComfirmedRate"] = item.Comfirmed_Rate;
-            dr["Lumber_ExtraCharges"] = item.Extra_charges;
-            dr["DetentionPay"] = item.Detention_pay;
-            dr["TotalCharges"] = item.Total_charges;
+            dr["ComfirmedRate"] = (int)item.Comfirmed_Rate + ".00";
+            dr["Lumber_ExtraCharges"] = (int)item.Extra_charges + ".00";
+            dr["DetentionPay"] = (int)item.Detention_pay + ".00";
+            dr["TotalCharges"] = (int)item.Total_charges + ".00";
             dr["ExtraStops"] = item.Extra_stops;
             dr["DispatcherName"] = item.Dispatchers != null ? item.Dispatchers.Last_name + " " + item.Dispatchers.Last_name : "";
             dt.Rows.Add(dr);

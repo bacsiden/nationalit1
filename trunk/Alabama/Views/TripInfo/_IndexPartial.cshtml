@@ -40,6 +40,9 @@
                     @Html.ActionLink(item.Invoice + "", "NewOrEdit", new { id = item.Trip_ID })
                 </td>
                 <td>
+                    @string.Format("{0:MM/dd/yyyy}", item.Order_date)
+                </td>
+                <td>
                     @Html.Raw(item.Driver_Info != null ? item.Driver_Info.First_name : "")
                 </td>
                 <td>
