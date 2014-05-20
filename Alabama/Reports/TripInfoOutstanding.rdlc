@@ -101,12 +101,12 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>5.5361in</Width>
+              <Width>5.94235in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>3.51375in</Height>
+              <Height>2.95125in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -122,7 +122,7 @@
                                 <Width>2.22916in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>0.98426in</Width>
+                                <Width>1.39051in</Width>
                               </TablixColumn>
                               <TablixColumn>
                                 <Width>1.16134in</Width>
@@ -171,8 +171,7 @@
                                         <rd:DefaultName>Textbox74</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -215,7 +214,7 @@
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -245,7 +244,7 @@
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -274,8 +273,7 @@
                                         <rd:DefaultName>Textbox19</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -304,8 +302,7 @@
                                         <rd:DefaultName>Textbox47</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -343,8 +340,7 @@
                                         <rd:DefaultName>OrderDate</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -373,8 +369,7 @@
                                         <rd:DefaultName>PickupDate</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -403,8 +398,7 @@
                                         <rd:DefaultName>DeliveryDate</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -433,8 +427,7 @@
                                         <rd:DefaultName>Textbox48</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -474,8 +467,7 @@
                                         <rd:DefaultName>Textbox57</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -504,8 +496,7 @@
                                         <rd:DefaultName>Textbox58</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -538,8 +529,7 @@
                                         <rd:DefaultName>Textbox59</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -568,8 +558,7 @@
                                         <rd:DefaultName>ComfirmedRate1</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -609,8 +598,7 @@
                                         <rd:DefaultName>Textbox61</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -639,8 +627,7 @@
                                         <rd:DefaultName>Textbox62</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -669,8 +656,7 @@
                                         <rd:DefaultName>Textbox63</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -699,8 +685,7 @@
                                         <rd:DefaultName>LumperExtra1</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -740,8 +725,7 @@
                                         <rd:DefaultName>Textbox65</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -770,8 +754,7 @@
                                         <rd:DefaultName>Textbox66</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -800,8 +783,7 @@
                                         <rd:DefaultName>Textbox67</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -830,8 +812,7 @@
                                         <rd:DefaultName>DetentionPay1</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -871,8 +852,7 @@
                                         <rd:DefaultName>Textbox53</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -901,8 +881,7 @@
                                         <rd:DefaultName>Textbox54</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -931,8 +910,7 @@
                                         <rd:DefaultName>Textbox55</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -961,8 +939,7 @@
                                         <rd:DefaultName>ChargesBack1</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -1002,8 +979,7 @@
                                         <rd:DefaultName>Textbox69</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -1032,8 +1008,7 @@
                                         <rd:DefaultName>TotalCharges</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -1062,8 +1037,7 @@
                                         <rd:DefaultName>Textbox71</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -1092,8 +1066,7 @@
                                         <rd:DefaultName>TotalCharges1</rd:DefaultName>
                                         <Style>
                                           <Border>
-                                            <Color>LightGrey</Color>
-                                            <Style>Solid</Style>
+                                            <Style>None</Style>
                                           </Border>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -1135,11 +1108,24 @@
                           <DataSetName>DataSet1</DataSetName>
                           <Top>1.22618cm</Top>
                           <Height>5.03812cm</Height>
-                          <Width>14.06169cm</Width>
+                          <Width>15.09358cm</Width>
                           <Style>
                             <Border>
+                              <Color>White</Color>
                               <Style>None</Style>
                             </Border>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>None</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
                           </Style>
                         </Tablix>
                         <Textbox Name="DriverName">
@@ -1206,9 +1192,9 @@
                           </Paragraphs>
                           <rd:DefaultName>DriverName</rd:DefaultName>
                           <Top>6.62309cm</Top>
-                          <Left>8.00334cm</Left>
+                          <Left>8.61187cm</Left>
                           <Height>0.6cm</Height>
-                          <Width>6.05836cm</Width>
+                          <Width>4.33857cm</Width>
                           <ZIndex>2</ZIndex>
                           <Style>
                             <Border>
@@ -1251,21 +1237,54 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.57362cm</Top>
-        <Left>1.12924cm</Left>
-        <Height>8.92493cm</Height>
-        <Width>14.06169cm</Width>
+        <Top>2.11975cm</Top>
+        <Left>0.00004cm</Left>
+        <Height>7.49617cm</Height>
+        <Width>15.09358cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
+      <Textbox Name="DriverName3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>TRIP INFO OUTSTANDING</Value>
+                <Style>
+                  <FontSize>18pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>DriverName</rd:DefaultName>
+        <Top>0.54236cm</Top>
+        <Left>1.16136in</Left>
+        <Height>0.99687cm</Height>
+        <Width>8.61188cm</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>3.875in</Height>
+    <Height>3.7858in</Height>
     <Style />
   </Body>
-  <Width>5.98068in</Width>
+  <Width>5.94237in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
