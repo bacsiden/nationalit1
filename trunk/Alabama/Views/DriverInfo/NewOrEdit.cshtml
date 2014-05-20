@@ -4,9 +4,9 @@
     ViewBag.Title = "NewOrEdit";
 }
 <script type="text/javascript">
-    $(document).ready(function () {        
-//        autoCompleteByClassName($(":input.Dispatcher"),@Html.Raw(ViewBag.dataDispatchers));
-//        autoCompleteByClassName($(":input.Owner_Name"),@Html.Raw(ViewBag.dataOwners));
+    $(document).ready(function () {
+        //        autoCompleteByClassName($(":input.Dispatcher"),@Html.Raw(ViewBag.dataDispatchers));
+        //        autoCompleteByClassName($(":input.Owner_Name"),@Html.Raw(ViewBag.dataOwners));
     });    
 </script>
 <div class="row-fluid">
@@ -19,12 +19,12 @@
             @Html.HiddenFor(model => model.ID)
             <div class="row-fluid">
                 <div class="span12">
-                    <a href="/TripInfo/NewOrEdit?driverID=@(Model!=null?Model.ID:0)" class="btn btn-info">New Trip info</a>
-                    <a href="/Equipment" class="btn btn-info">
-                        Equipment</a> <a href="#" class="btn btn-info">Violations</a> <a href="#" class="btn btn-info">
-                            Maintenance</a> <a href="#" class="btn btn-info">Pay rolls rollback</a>
-                    <a href="#" class="btn btn-info">Pay rolls operations rollback</a> <a href="#" class="btn btn-info">
-                        Driver payroll & expanses</a>
+                    <a href="/TripInfo/NewOrEdit?driverID=@(Model != null ? Model.ID : 0)" class="btn btn-info">
+                        New Trip info</a> <a href="/Equipment" class="btn btn-info">Equipment</a> <a href="#"
+                            class="btn btn-info">Violations</a> <a href="#" class="btn btn-info">Maintenance</a>
+                    <a href="#" class="btn btn-info">Pay rolls rollback</a> <a href="#" class="btn btn-info">
+                        Pay rolls operations rollback</a> <a href="#" class="btn btn-info">Driver payroll &
+                            expanses</a>
                 </div>
                 <div class="span12">
                 </div>
@@ -39,7 +39,7 @@
                     </div>
                     <div class="control-group">
                         <label for="First_name">
-                            First name   <span class="requiredStar">(*)</span></label>
+                            First name <span class="requiredStar">(*)</span></label>
                         @Html.TextBoxFor(model => model.First_name, new { @class = "input-xlarge" })
                         @Html.ValidationMessageFor(model => model.First_name)
                     </div>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="control-group">
                         <label for="Expiration_Date">
-                            Expiration Date  <span class="requiredStar">(*)</span></label>
+                            Expiration Date <span class="requiredStar">(*)</span></label>
                         @Html.TextBoxFor(model => model.Expiration_Date, new { @class = "input-xlarge date-picker" })
                         @Html.ValidationMessageFor(model => model.Expiration_Date)
                     </div>
@@ -92,19 +92,19 @@
                     </div>
                     <div class="control-group">
                         <label for="Last_name">
-                            Last Name  <span class="requiredStar">(*)</span></label>
+                            Last Name <span class="requiredStar">(*)</span></label>
                         @Html.TextBoxFor(model => model.Last_name, new { @class = "input-xlarge" })
                         @Html.ValidationMessageFor(model => model.Last_name)
                     </div>
                     <div class="control-group">
                         <label for="SSN">
-                            SSN  <span class="requiredStar">(*)</span></label>
+                            SSN <span class="requiredStar">(*)</span></label>
                         @Html.TextBoxFor(model => model.SSN, new { @class = "input-xlarge" })
                         @Html.ValidationMessageFor(model => model.SSN)
                     </div>
                     <div class="control-group">
                         <label for="Drive_Lic">
-                            Driver license  <span class="requiredStar">(*)</span></label>
+                            Driver license <span class="requiredStar">(*)</span></label>
                         @Html.TextBoxFor(model => model.Drive_Lic, new { @class = "input-xlarge" })
                         @Html.ValidationMessageFor(model => model.Drive_Lic)
                     </div>
@@ -162,7 +162,7 @@
                     <div class="control-group">
                         <label for="Owner_Name">
                             @Html.LabelFor(model => model.Owner_Name)</label>
-                        @*@Html.TextBoxFor(model => model.Owner_Name, new { @class = "input-xlarge" })*@                        
+                        @*@Html.TextBoxFor(model => model.Owner_Name, new { @class = "input-xlarge" })*@
                         @*<input type="text" class="input-xlarge Owner_Name" name="Owner_Name" value="@Model.Owner_Name" style="margin: 0 auto;" data-provide="typeahead" data-items="4" />*@
                         <select data-placeholder="Select Owners" name="Owner_Name" class="chosen-with-diselect input-xlarge">
                             @Html.Raw(ViewBag.dataOwners)
@@ -171,13 +171,13 @@
                     </div>
                     <div class="control-group">
                         <label for="Address">
-                            Address  <span class="requiredStar">(*)</span></label>
+                            Address <span class="requiredStar">(*)</span></label>
                         @Html.TextBoxFor(model => model.Address, new { @class = "input-xlarge" })
                         @Html.ValidationMessageFor(model => model.Address)
                     </div>
                     <div class="control-group">
                         <label for="Phone">
-                            Phone  <span class="requiredStar">(*)</span></label>
+                            Phone <span class="requiredStar">(*)</span></label>
                         @Html.TextBoxFor(model => model.Phone, new { @class = "input-xlarge" })
                         @Html.ValidationMessageFor(model => model.Phone)
                     </div>
@@ -197,10 +197,10 @@
                    int pageSize = (!string.IsNullOrEmpty(Request.Params["pageSize"]) ? int.Parse(Request.Params["pageSize"]) : 20);
                    var lst = new List<Alabama.Fuel___Expenses>();
                    var lst1 = new List<Alabama.Operating_Expenses>();
-                   if (Model!=null)
+                   if (Model != null)
                    {
-                       lst = Alabama.DB.Entities.Fuel___Expenses.Where(m => m.Driver_Info.ID == Model.ID).ToList();
-                       lst1 = Alabama.DB.Entities.Operating_Expenses.Where(m => m.Driver_Info.ID == Model.ID).ToList();
+                       lst = Alabama.DB.Entities.Fuel___Expenses.Where(m => m.Driver_Info.ID == Model.ID && m.Current_Payroll.Equals("YES") && m.Paid_off.Equals("NO")).ToList();
+                       lst1 = Alabama.DB.Entities.Operating_Expenses.Where(m => m.Driver_Info.ID == Model.ID && m.Current_Payroll.Equals("YES") && m.Paid_off.Equals("NO")).ToList();
                    }                   
                     }
                     @Html.Partial("_Fuel_ExpensesPartial", new PagedList<Alabama.Fuel___Expenses>(lst, page, pageSize))

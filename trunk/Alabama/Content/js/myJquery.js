@@ -158,7 +158,7 @@
             $(".EndDate").removeAttr('Disabled');
         }
     });
-    $(".report a").click(function () {
+    $(".report a:not(.report-fieldset)").click(function () {
         var isAllDate = $(".AllDate").is(":checked");
         var startDate = $(".StartDate").val();
         var endDate = $(".EndDate").val();
