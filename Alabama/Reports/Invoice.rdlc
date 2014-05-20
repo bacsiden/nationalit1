@@ -575,7 +575,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>Comfirmed rate: </Value>
+                        <Value>Comfirmed rate: $</Value>
                         <Style />
                       </TextRun>
                       <TextRun>
@@ -583,12 +583,14 @@
                         <Style />
                       </TextRun>
                     </TextRuns>
-                    <Style />
+                    <Style>
+                      <TextAlign>Left</TextAlign>
+                    </Style>
                   </Paragraph>
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>Lumber &amp; Extra charges: </Value>
+                        <Value>Lumber &amp; Extra charges: $</Value>
                         <Style />
                       </TextRun>
                       <TextRun>
@@ -596,12 +598,14 @@
                         <Style />
                       </TextRun>
                     </TextRuns>
-                    <Style />
+                    <Style>
+                      <TextAlign>Left</TextAlign>
+                    </Style>
                   </Paragraph>
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>Detention pay: </Value>
+                        <Value>Detention pay: $</Value>
                         <Style />
                       </TextRun>
                       <TextRun>
@@ -609,14 +613,16 @@
                         <Style />
                       </TextRun>
                     </TextRuns>
-                    <Style />
+                    <Style>
+                      <TextAlign>Left</TextAlign>
+                    </Style>
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox2</rd:DefaultName>
                 <Top>0.27083in</Top>
-                <Left>0.10209in</Left>
+                <Left>0.28959in</Left>
                 <Height>0.59375in</Height>
-                <Width>3.04499in</Width>
+                <Width>2.71249in</Width>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -629,9 +635,9 @@
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Left>3.255in</Left>
+            <Left>3.26542in</Left>
             <Height>1.20833in</Height>
-            <Width>3.21875in</Width>
+            <Width>3.20833in</Width>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -645,7 +651,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Total charges: </Value>
+                    <Value>Total charges: $</Value>
                     <Style />
                   </TextRun>
                   <TextRun>
@@ -675,7 +681,6 @@
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>4.38208in</Top>
-        <Left>0in</Left>
         <Height>1.88208in</Height>
         <Width>6.47375in</Width>
         <ZIndex>5</ZIndex>
@@ -938,7 +943,7 @@
     <Height>8.7675in</Height>
     <Style />
   </Body>
-  <Width>6.5in</Width>
+  <Width>6.47375in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
