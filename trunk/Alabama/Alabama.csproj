@@ -251,10 +251,7 @@
     <Content Include="Content\js\flaty.js" />
     <Content Include="Content\js\myJquery.js" />
     <Content Include="Global.asax" />
-    <Content Include="Report Buttons.png" />
     <Content Include="Reports\ShowReport.aspx" />
-    <Content Include="Untitled.png" />
-    <Content Include="Untitled1.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
