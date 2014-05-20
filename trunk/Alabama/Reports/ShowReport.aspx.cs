@@ -171,7 +171,7 @@ namespace Alabama.Reports
 
         private DataTable Invoice()
         {
-            DataTable dt = new DispatcherTrip().DataTable1;
+            DataTable dt = new Invoice().DataTable1;
             var db = DB.Entities;
             int id = int.Parse(Request.QueryString["tripID"]);
             var item = db.Trip_Info.FirstOrDefault(m => m.Trip_ID == id);
