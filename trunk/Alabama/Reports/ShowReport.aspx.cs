@@ -44,7 +44,9 @@ namespace Alabama.Reports
         private DataTable TripInfoOutstanding()
         {
             var db = DB.Entities;
-            List<int?> lstDriver = db.Trip_Info.Take(100).Select(m => m.Driver).Distinct().ToList();
+            DateTime fromdate = DateTime.Parse(Request.QueryString["startdate"]);
+            DateTime todate = DateTime.Parse(Request.QueryString["enddate"]);
+            List<int?> lstDriver = db.Trip_Info.Where(m => m.Order_date >= fromdate && m.Order_date <= todate).Select(m => m.Driver).Distinct().ToList();
             var lst = db.Trip_Info.Take(100).ToList();
             DataTable dt = new TripInfoOutstanding().DataTable1;
             foreach (int? driverID in lstDriver)
@@ -87,33 +89,35 @@ namespace Alabama.Reports
         private DataTable ScheduleOfInvoices()
         {
             var db = DB.Entities;
+            DateTime fromdate = DateTime.Parse(Request.QueryString["startdate"]);
+            DateTime todate = DateTime.Parse(Request.QueryString["enddate"]);
             //List<int?> lstDriver = db.Trip_Info.Take(100).Select(m => m.Driver).Distinct().ToList();
-            var lst = db.Trip_Info.Take(100).ToList();
-            DataTable dt = new TripInfoOutstanding().DataTable1;
+            var lst = db.Trip_Info.Where(m => m.Order_date >= fromdate && m.Order_date <= todate).ToList();
+            DataTable dt = new ScheduleOfInvoices().DataTable1;
             //foreach (int? driverID in lstDriver)
             //{
-                //if (driverID != null)
-                //{
-                    //int totalCharges = 0;
-                    //List<DataRow> lstDR = new List<DataRow>();
-                    foreach (var item in lst)
-                    {
-                        DataRow dr = dt.NewRow();
-                        dr["Name"] = item.Driver_Info != null ? item.Driver_Info.First_name + item.Driver_Info.First_name : "";
-                        dr["Date"] = String.Format("{0:MM/dd/yyyy}", item.Order_date);
-                        dr["Invoice"] = item.Invoice;
-                        dr["PO"] = item.PO_;
-                        dr["Amount"] = 100;
+            //if (driverID != null)
+            //{
+            //int totalCharges = 0;
+            //List<DataRow> lstDR = new List<DataRow>();
+            foreach (var item in lst)
+            {
+                DataRow dr = dt.NewRow();
+                dr["Name"] = item.Customer_Info != null ? "" : item.Customer_Info.Customer_Name;
+                dr["Date"] = String.Format("{0:MM/dd/yyyy}", item.Order_date);
+                dr["Invoice"] = item.Invoice;
+                dr["PO"] = item.PO_;
+                dr["Amount"] = 100;
 
-                        //totalCharges += (int)item.Total_charges;
-                        dt.Rows.Add(dr);
-                    }
-                    //foreach (var item in lstDR)
-                    //{
-                    //    item["TotalCharges"] = totalCharges;
-                    //    dt.Rows.Add(item);
-                    //}
-                //}
+                //totalCharges += (int)item.Total_charges;
+                dt.Rows.Add(dr);
+            }
+            //foreach (var item in lstDR)
+            //{
+            //    item["TotalCharges"] = totalCharges;
+            //    dt.Rows.Add(item);
+            //}
+            //}
             //}
 
 

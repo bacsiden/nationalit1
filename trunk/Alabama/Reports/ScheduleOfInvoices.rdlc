@@ -501,10 +501,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>3.94458in</Top>
-        <Left>0.27792in</Left>
+        <Top>3.75708in</Top>
+        <Left>0.2675in</Left>
         <Height>0.42708in</Height>
-        <Width>2.58333in</Width>
+        <Width>3.04083in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -545,7 +545,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>3.94458in</Top>
+        <Top>3.76958in</Top>
         <Left>4.26458in</Left>
         <Height>0.42708in</Height>
         <Width>1.82292in</Width>
@@ -581,7 +581,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>4.48625in</Top>
+        <Top>4.36819in</Top>
         <Left>0.3925in</Left>
         <Height>0.25in</Height>
         <Width>2.33333in</Width>
@@ -597,10 +597,10 @@
         </Style>
       </Textbox>
       <Line Name="Line1">
-        <Top>4.44111in</Top>
+        <Top>4.22861in</Top>
         <Left>0.2675in</Left>
         <Height>0in</Height>
-        <Width>2.58333in</Width>
+        <Width>3.05125in</Width>
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
@@ -609,7 +609,7 @@
         </Style>
       </Line>
       <Line Name="Line2">
-        <Top>4.44271in</Top>
+        <Top>4.24271in</Top>
         <Left>4.26458in</Left>
         <Height>0in</Height>
         <Width>1.82292in</Width>
@@ -635,7 +635,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox16</rd:DefaultName>
-        <Top>4.80569in</Top>
+        <Top>4.61819in</Top>
         <Left>0.3925in</Left>
         <Height>0.25in</Height>
         <Width>2.33333in</Width>
@@ -657,10 +657,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ADVANCE
-	BUSINESS	
-	CAPITAL
-</Value>
+                <Value>ADVANCE BUSINESS CAPITAL</Value>
                 <Style>
                   <FontSize>18pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -720,7 +717,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>5.08333in</Height>
+    <Height>4.86819in</Height>
     <Style />
   </Body>
   <Width>7.2375in</Width>
