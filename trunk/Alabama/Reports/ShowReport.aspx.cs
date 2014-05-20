@@ -178,15 +178,28 @@ namespace Alabama.Reports
             DataRow dr = dt.NewRow();
             dr["Date"] = String.Format("{0:MM/dd/yyyy}", item.Order_date);
             dr["CustomerName"] = item.Customer_Info != null ? item.Customer_Info.Customer_Name : "";
-            dr["CustomerAddress"] = item.Customer_Info != null ? item.Customer_Info.Contact : "";
+            dr["CustomerAddress"] = item.Customer_Info != null ? item.Customer_Info.City + ", " +
+                item.Customer_Info.State + " " + item.Customer_Info.ZIP_Code : "";
             dr["Street"] = item.Customer_Info != null ? item.Customer_Info.Street : "";
-            dr["Invoice"] = item.Invoice;
+
+            string invoice = item.Invoice.ToString();
+            if (item.Customer_Info != null)
+            {
+                if (!string.IsNullOrEmpty(item.Customer_Info.Customer_Name))
+                {
+                    if (item.Customer_Info.Customer_Name.Length > 2)
+                        invoice = (char)item.Customer_Info.Customer_Name[0] +""+ (char)item.Customer_Info.Customer_Name[1] + invoice;
+                    else
+                        invoice = item.Customer_Info.Customer_Name + invoice;
+                }
+            }
+            dr["Invoice"] = invoice;
             dr["Load_"] = item.Loaded_miles;
             dr["PO_"] = item.PO_;
             dr["PickupLocation"] = item.Pick_up_location;
             dr["DeliveryLocation"] = item.Delivery_location;
             dr["ComfirmedRate"] = item.Comfirmed_Rate;
-            dr["Lumber_ExtraCharges"] = "Lumber_ExtraCharges";
+            dr["Lumber_ExtraCharges"] = item.Extra_charges;
             dr["DetentionPay"] = item.Detention_pay;
             dr["TotalCharges"] = item.Total_charges;
             dr["ExtraStops"] = item.Extra_stops;
