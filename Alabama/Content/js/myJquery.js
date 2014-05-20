@@ -162,21 +162,34 @@
     //--------------------------------------------------
 
     // Report--------------------------
+    $(".ReportMenu .AllDate").click(function () {
+        if ($(this).is(":checked")) {
+            $(".StartDate").attr('Disabled', 'true');
+            $(".EndDate").attr('Disabled', 'true');
+        } else {
+            $(".StartDate").attr('Disabled', 'false');
+            $(".EndDate").attr('Disabled', 'false');
+        }
+    });
     $(".report a").click(function () {
+        var isAllDate = $(".AllDate").is(":checked");        
         var startDate = $(".StartDate").val();
         var endDate = $(".EndDate").val();
         var selectDispatcher = $(".SelectDispatcher").val();
         var selectDriver = $(".SelectDriver").val();
         var url = $(this).attr('href');
-        newurl = addParam(addParam(addParam(addParam(url, "startDate", startDate), "endDate", endDate), "selectDriver", selectDriver), "selectDispatcher", selectDispatcher);
-        location.href = newurl;
+        var newurl = addParam(addParam(addParam(addParam(url, "startDate", startDate), "endDate", endDate), "selectDriver", selectDriver), "selectDispatcher", selectDispatcher);
+        if (isAllDate) {
+            newurl = addParam(addParam(addParam(url, "allDate", true), "selectDriver", selectDriver), "selectDispatcher", selectDispatcher);
+        }
+        window.open(newurl, '_blank');        
         return false;
     });
 
     //--------------------------------
 
 
-});          //----------------END DOCUMENT READY FUNCTION -------------------------------  
+});             //----------------END DOCUMENT READY FUNCTION -------------------------------  
 
 
 

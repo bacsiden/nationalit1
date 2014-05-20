@@ -2,16 +2,21 @@
     ViewBag.Title = "Reports";
 }
 
-<div class="row-fluid">
-    <div class="span3">
+<div class="row-fluid ReportMenu">
+    <div class="span1">
+        <label for="AllDate">
+            All Date</label>
+        <input type="checkbox" name="AllDate" value=" " class="AllDate" />
+    </div>
+    <div class="span2">
         <label for="StartDate">
             StartDate</label>
-        <input type="text" name="StartDate" value=" " class="span12 date-picker StartDate" />
+        <input type="text" name="StartDate" value="@DateTime.Now.AddDays(1 - Convert.ToDouble(DateTime.Now.DayOfWeek)).ToString("MM/dd/yyyy")" class="span12 date-picker StartDate" />
     </div>
-    <div class="span3">
+    <div class="span2">
         <label for="EndDate">
             EndDate</label>
-        <input type="text" name="EndDate" value=" " class="span12 date-picker EndDate" />
+        <input type="text" name="EndDate" value="@DateTime.Now.ToString("MM/dd/yyyy")" class="span12 date-picker EndDate" />
     </div>
     <div class="span3">
         <label for="EndDate">
