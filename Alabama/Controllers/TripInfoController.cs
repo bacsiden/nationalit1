@@ -17,7 +17,7 @@ namespace Alabama.Controllers
         public ActionResult Index(int? page, int? driverID, int? tripID)
         {
             var db = DB.Entities;
-            var list = db.Trip_Info.Where(m => (driverID == null ? true : m.Driver == driverID.Value) && (tripID == null ? true : m.Trip_ID == tripID.Value))
+            var list = db.Trip_Info.Where(m => (driverID == null ? true : m.Driver == driverID.Value) && (tripID == null ? true : m.Invoice == tripID.Value))
                     .OrderByDescending(m => m.Trip_ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize);
             if (Request.IsAjaxRequest())
             {
@@ -31,8 +31,8 @@ namespace Alabama.Controllers
         void SelectOption()
         {
             #region SELECT OPTION
-            var lst = DB.Entities.Trip_Info.Select(m => m.Trip_ID).ToList();
-            string dataTripInfo = "<option >--Select Trip_ID--</option>";
+            var lst = DB.Entities.Trip_Info.Select(m => m.Invoice).ToList();
+            string dataTripInfo = "<option >--Select Invoice_ID--</option>";
             foreach (var item in lst)
             {
                 dataTripInfo += string.Format("<option value='{0}'>{0}</option>", item);
