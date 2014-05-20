@@ -305,6 +305,10 @@ namespace Alabama.Reports {
             
             private global::System.Data.DataColumn columnStreet;
             
+            private global::System.Data.DataColumn columnExtraStops;
+            
+            private global::System.Data.DataColumn columnDispatcherName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable() {
@@ -444,6 +448,22 @@ namespace Alabama.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ExtraStopsColumn {
+                get {
+                    return this.columnExtraStops;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DispatcherNameColumn {
+                get {
+                    return this.columnDispatcherName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -479,7 +499,7 @@ namespace Alabama.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string Date, string CustomerName, string CustomerAddress, string Invoice, string Load_, string PO_, string PickupLocation, string DeliveryLocation, string ComfirmedRate, string Lumber_ExtraCharges, string DetentionPay, string TotalCharges, string Street) {
+            public DataTable1Row AddDataTable1Row(string Date, string CustomerName, string CustomerAddress, string Invoice, string Load_, string PO_, string PickupLocation, string DeliveryLocation, string ComfirmedRate, string Lumber_ExtraCharges, string DetentionPay, string TotalCharges, string Street, string ExtraStops, string DispatcherName) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Date,
@@ -494,7 +514,9 @@ namespace Alabama.Reports {
                         Lumber_ExtraCharges,
                         DetentionPay,
                         TotalCharges,
-                        Street};
+                        Street,
+                        ExtraStops,
+                        DispatcherName};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -530,6 +552,8 @@ namespace Alabama.Reports {
                 this.columnDetentionPay = base.Columns["DetentionPay"];
                 this.columnTotalCharges = base.Columns["TotalCharges"];
                 this.columnStreet = base.Columns["Street"];
+                this.columnExtraStops = base.Columns["ExtraStops"];
+                this.columnDispatcherName = base.Columns["DispatcherName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -561,6 +585,10 @@ namespace Alabama.Reports {
                 base.Columns.Add(this.columnTotalCharges);
                 this.columnStreet = new global::System.Data.DataColumn("Street", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStreet);
+                this.columnExtraStops = new global::System.Data.DataColumn("ExtraStops", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnExtraStops);
+                this.columnDispatcherName = new global::System.Data.DataColumn("DispatcherName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDispatcherName);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -911,6 +939,38 @@ namespace Alabama.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ExtraStops {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.ExtraStopsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ExtraStops\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.ExtraStopsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DispatcherName {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.DispatcherNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DispatcherName\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.DispatcherNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsDateNull() {
                 return this.IsNull(this.tableDataTable1.DateColumn);
             }
@@ -1063,6 +1123,30 @@ namespace Alabama.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetStreetNull() {
                 this[this.tableDataTable1.StreetColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsExtraStopsNull() {
+                return this.IsNull(this.tableDataTable1.ExtraStopsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetExtraStopsNull() {
+                this[this.tableDataTable1.ExtraStopsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDispatcherNameNull() {
+                return this.IsNull(this.tableDataTable1.DispatcherNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDispatcherNameNull() {
+                this[this.tableDataTable1.DispatcherNameColumn] = global::System.Convert.DBNull;
             }
         }
         
