@@ -64,6 +64,14 @@
           <DataField>Street</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="ExtraStops">
+          <DataField>ExtraStops</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DispatcherName">
+          <DataField>DispatcherName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>Invoice</DataSourceName>
@@ -459,6 +467,10 @@
                 <Value>Invoice: </Value>
                 <Style />
               </TextRun>
+              <TextRun>
+                <Value>=Fields!Invoice.Value</Value>
+                <Style />
+              </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
@@ -486,7 +498,11 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>LOAD #:</Value>
+                <Value>LOAD #: </Value>
+                <Style />
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!Load_.Value</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -496,6 +512,10 @@
             <TextRuns>
               <TextRun>
                 <Value>PO #: </Value>
+                <Style />
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!PO_.Value</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -518,96 +538,6 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox10">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Order date: </Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>3.47917in</Top>
-        <Left>0.00208in</Left>
-        <Height>0.51042in</Height>
-        <Width>1.21875in</Width>
-        <ZIndex>19</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox11">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Pickup date: </Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>3.47917in</Top>
-        <Left>1.29028in</Left>
-        <Height>0.51042in</Height>
-        <Width>1.21875in</Width>
-        <ZIndex>20</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox12">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Delivery date: </Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>3.47917in</Top>
-        <Left>2.56458in</Left>
-        <Height>0.51042in</Height>
-        <Width>1.21875in</Width>
-        <ZIndex>21</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Textbox Name="Textbox13">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -616,6 +546,10 @@
             <TextRuns>
               <TextRun>
                 <Value>Pick up location: </Value>
+                <Style />
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!PickupLocation.Value</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -627,6 +561,10 @@
                 <Value>Delivery location: </Value>
                 <Style />
               </TextRun>
+              <TextRun>
+                <Value>=Fields!DeliveryLocation.Value</Value>
+                <Style />
+              </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
@@ -636,13 +574,21 @@
                 <Value>Extra stops: </Value>
                 <Style />
               </TextRun>
+              <TextRun>
+                <Value>=Fields!ExtraStops.Value</Value>
+                <Style />
+              </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Dispatcher name:</Value>
+                <Value>Dispatcher name: </Value>
+                <Style />
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!DispatcherName.Value</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -654,6 +600,10 @@
                 <Value>Loaded miles: </Value>
                 <Style />
               </TextRun>
+              <TextRun>
+                <Value>=Fields!Load_.Value</Value>
+                <Style />
+              </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
@@ -662,7 +612,7 @@
         <Top>4.50521in</Top>
         <Height>0.90625in</Height>
         <Width>6.2675in</Width>
-        <ZIndex>22</ZIndex>
+        <ZIndex>19</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -694,7 +644,7 @@
         <Left>4.50744cm</Left>
         <Height>1.1875in</Height>
         <Width>3.62001in</Width>
-        <ZIndex>23</ZIndex>
+        <ZIndex>20</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>

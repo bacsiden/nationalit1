@@ -28,6 +28,8 @@
               <xs:element name="DetentionPay" msprop:Generator_ColumnVarNameInTable="columnDetentionPay" msprop:Generator_ColumnPropNameInRow="DetentionPay" msprop:Generator_ColumnPropNameInTable="DetentionPayColumn" msprop:Generator_UserColumnName="DetentionPay" type="xs:string" minOccurs="0" />
               <xs:element name="TotalCharges" msprop:Generator_ColumnVarNameInTable="columnTotalCharges" msprop:Generator_ColumnPropNameInRow="TotalCharges" msprop:Generator_ColumnPropNameInTable="TotalChargesColumn" msprop:Generator_UserColumnName="TotalCharges" type="xs:string" minOccurs="0" />
               <xs:element name="Street" msprop:Generator_ColumnVarNameInTable="columnStreet" msprop:Generator_ColumnPropNameInRow="Street" msprop:Generator_ColumnPropNameInTable="StreetColumn" msprop:Generator_UserColumnName="Street" type="xs:string" minOccurs="0" />
+              <xs:element name="ExtraStops" msprop:Generator_ColumnVarNameInTable="columnExtraStops" msprop:Generator_ColumnPropNameInRow="ExtraStops" msprop:Generator_ColumnPropNameInTable="ExtraStopsColumn" msprop:Generator_UserColumnName="ExtraStops" type="xs:string" minOccurs="0" />
+              <xs:element name="DispatcherName" msprop:Generator_ColumnVarNameInTable="columnDispatcherName" msprop:Generator_ColumnPropNameInRow="DispatcherName" msprop:Generator_ColumnPropNameInTable="DispatcherNameColumn" msprop:Generator_UserColumnName="DispatcherName" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -36,6 +36,8 @@ namespace Alabama.Reports
                     return ScheduleOfInvoices();
                 case "DispatcherTrip":
                     return DispatcherTrip();
+                case "Invoice":
+                    return Invoice();
                 default:
                     return null;
             }
@@ -103,7 +105,7 @@ namespace Alabama.Reports
             foreach (var item in lst)
             {
                 DataRow dr = dt.NewRow();
-                dr["Name"] = item.Customer_Info != null ? "" : item.Customer_Info.Customer_Name;
+                dr["Name"] = item.Customer_Info != null ? item.Customer_Info.Customer_Name : "";
                 dr["Date"] = String.Format("{0:MM/dd/yyyy}", item.Order_date);
                 dr["Invoice"] = item.Invoice;
                 dr["PO"] = item.PO_;
@@ -162,6 +164,33 @@ namespace Alabama.Reports
                     }
                 }
             }
+
+
+            return dt;
+        }
+
+        private DataTable Invoice()
+        {
+            DataTable dt = new DispatcherTrip().DataTable1;
+            var db = DB.Entities;
+            int id = int.Parse(Request.QueryString["tripID"]);
+            var item = db.Trip_Info.FirstOrDefault(m => m.Trip_ID == id);
+            DataRow dr = dt.NewRow();
+            dr["Date"] = String.Format("{0:MM/dd/yyyy}", item.Order_date);
+            dr["CustomerName"] = item.Customer_Info != null ? item.Customer_Info.Customer_Name : "";
+            dr["CustomerAddress"] = item.Customer_Info != null ? item.Customer_Info.Contact : "";
+            dr["Street"] = item.Customer_Info != null ? item.Customer_Info.Street : "";
+            dr["Invoice"] = item.Invoice;
+            dr["Load_"] = item.Loaded_miles;
+            dr["PO_"] = item.PO_;
+            dr["PickupLocation"] = item.Pick_up_location;
+            dr["DeliveryLocation"] = item.Delivery_location;
+            dr["ComfirmedRate"] = item.Comfirmed_Rate;
+            dr["Lumber_ExtraCharges"] = "Lumber_ExtraCharges";
+            dr["DetentionPay"] = item.Detention_pay;
+            dr["TotalCharges"] = item.Total_charges;
+            dr["ExtraStops"] = item.Extra_stops;
+            dr["DispatcherName"] = item.Dispatchers != null ? item.Dispatchers.Last_name + " " + item.Dispatchers.Last_name : "";
 
 
             return dt;
