@@ -167,8 +167,8 @@
             $(".StartDate").attr('Disabled', 'true');
             $(".EndDate").attr('Disabled', 'true');
         } else {
-            $(".StartDate").attr('Disabled', 'false');
-            $(".EndDate").attr('Disabled', 'false');
+            $(".StartDate").removeAttr('Disabled');
+            $(".EndDate").removeAttr('Disabled');
         }
     });
     $(".report a").click(function () {
