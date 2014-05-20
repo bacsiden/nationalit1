@@ -132,32 +132,20 @@
     //-----------------------------------------------------------------------
 
     // AutoComplete Chosen select item
-    $(".selectTripInfo").chosen({ allow_single_deselect: true }).change(function () {
-        var valueTripInfo = $(this).val();
+    $(".chosen-with-diselect-trip").chosen({ allow_single_deselect: true }).change(function () {
+        var valueTripInfo = $(".selectTripInfo").val();
+        var valueDriverInfo = $(".selectDriverInfo").val();
         $.ajax({
             type: "GET",
             url: '/TripInfo/Index',
-            data: { 'tripID': valueTripInfo },
+            data: { 'tripID': valueTripInfo, 'driverID': valueDriverInfo },
             async: true,
             success: function (model) {
                 $("#wrap-AjaxPaging").html(model);
                 addClassForPagging();
             }
         });
-    });
-    $(".selectDriverInfo").chosen({ allow_single_deselect: true }).change(function () {
-        var valueDriverInfo = $(this).val();
-        $.ajax({
-            type: "GET",
-            url: '/TripInfo/Index',
-            data: { 'driverID': valueDriverInfo },
-            async: true,
-            success: function (model) {
-                $("#wrap-AjaxPaging").html(model);
-                addClassForPagging();
-            }
-        });
-    });
+    });  
     //--------------------------------------------------
 
     // Report--------------------------
@@ -171,7 +159,7 @@
         }
     });
     $(".report a").click(function () {
-        var isAllDate = $(".AllDate").is(":checked");        
+        var isAllDate = $(".AllDate").is(":checked");
         var startDate = $(".StartDate").val();
         var endDate = $(".EndDate").val();
         var selectDispatcher = $(".SelectDispatcher").val();
@@ -181,14 +169,14 @@
         if (isAllDate) {
             newurl = addParam(addParam(addParam(url, "allDate", true), "selectDriver", selectDriver), "selectDispatcher", selectDispatcher);
         }
-        window.open(newurl, '_blank');        
+        window.open(newurl, '_blank');
         return false;
     });
 
     //--------------------------------
 
 
-});             //----------------END DOCUMENT READY FUNCTION -------------------------------  
+});              //----------------END DOCUMENT READY FUNCTION -------------------------------  
 
 
 
