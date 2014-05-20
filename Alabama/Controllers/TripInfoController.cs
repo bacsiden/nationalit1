@@ -32,14 +32,14 @@ namespace Alabama.Controllers
         {
             #region SELECT OPTION
             var lst = DB.Entities.Trip_Info.Select(m => m.Invoice).ToList();
-            string dataTripInfo = "<option >--Select Invoice_ID--</option>";
+            string dataTripInfo = "<option >- All Invoice_ID -</option>";
             foreach (var item in lst)
             {
                 dataTripInfo += string.Format("<option value='{0}'>{0}</option>", item);
             }
             ViewBag.dataTripInfo = dataTripInfo;
 
-            string dataDriver_Info = "<option >--Select Driver_Info--</option>";
+            string dataDriver_Info = "<option >- All Driver_Info -</option>";
             foreach (var item in Alabama.DB.Entities.Driver_Info)
             {
                 dataDriver_Info += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
