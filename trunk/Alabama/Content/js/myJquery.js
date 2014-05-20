@@ -134,35 +134,49 @@
     // AutoComplete Chosen select item
     $(".selectTripInfo").chosen({ allow_single_deselect: true }).change(function () {
         var valueTripInfo = $(this).val();
-        var url = $(location).attr('href');
         $.ajax({
             type: "GET",
-            url: url,
-            data:{'tripID':valueTripInfo},
+            url: '/TripInfo/Index',
+            data: { 'tripID': valueTripInfo },
             async: true,
             success: function (model) {
+                alert(model);
                 $("#wrap-AjaxPaging").html(model);
-                addClassForPagging();                
+                addClassForPagging();
             }
         });
     });
     $(".selectDriverInfo").chosen({ allow_single_deselect: true }).change(function () {
-        var valueDriverInfo = $(this).val();
-        var url = $(location).attr('href');
+        var valueTripInfo = $(this).val();
         $.ajax({
             type: "GET",
-            url: url,
-            data:{'driverID':valueDriverInfo},
+            url: '/TripInfo/Index',
+            data: { 'driverID': valueDriverInfo },
             async: true,
             success: function (model) {
                 $("#wrap-AjaxPaging").html(model);
-                addClassForPagging();                
+                addClassForPagging();
             }
         });
     });
     //--------------------------------------------------
 
-});    //----------------END DOCUMENT READY FUNCTION -------------------------------  
+    // Report--------------------------
+    $(".report a").click(function () {
+        var startDate = $(".StartDate").val();
+        var endDate = $(".EndDate").val();
+        var selectDispatcher = $(".SelectDispatcher").val();
+        var selectDriver = $(".SelectDriver").val();
+        var url = $(this).attr('href');
+        newurl = addParam(addParam(addParam(addParam(url, "startDate", startDate), "endDate", endDate), "selectDriver", selectDriver), "selectDispatcher", selectDispatcher);
+        location.href = newurl;
+        return false;
+    });
+
+    //--------------------------------
+
+
+});          //----------------END DOCUMENT READY FUNCTION -------------------------------  
 
 
 
@@ -209,4 +223,14 @@ function ajaxPagingByID(wrapID) {
         });
         return false;
     });
+}
+
+function addParam(url, param, value) {
+    var a = document.createElement('a'), regex = /[?&]([^=]+)=([^&]*)/g;
+    var match, str = []; a.href = url; value = value || "";
+    while (match = regex.exec(a.search))
+        if (encodeURIComponent(param) != match[1]) str.push(match[1] + "=" + match[2]);
+    str.push(encodeURIComponent(param) + "=" + encodeURIComponent(value));
+    a.search = (a.search.substring(0, 1) == "?" ? "" : "?") + str.join("&");
+    return a.href;
 }
