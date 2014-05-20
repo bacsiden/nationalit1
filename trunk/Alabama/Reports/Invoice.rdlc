@@ -91,18 +91,163 @@
     <ReportItems>
       <Rectangle Name="Rectangle1">
         <ReportItems>
-          <Textbox Name="Textbox2">
+          <Rectangle Name="Rectangle3">
+            <ReportItems>
+              <Textbox Name="Textbox2">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Invoice: </Value>
+                        <Style />
+                      </TextRun>
+                      <TextRun>
+                        <Value>=Fields!Invoice.Value</Value>
+                        <Style />
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox2</rd:DefaultName>
+                <Top>0.04944in</Top>
+                <Left>0.12in</Left>
+                <Height>0.25in</Height>
+                <Width>1.56041in</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox9">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>LOAD #: </Value>
+                        <Style />
+                      </TextRun>
+                      <TextRun>
+                        <Value>=Fields!Load_.Value</Value>
+                        <Style />
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>PO #: </Value>
+                        <Style />
+                      </TextRun>
+                      <TextRun>
+                        <Value>=Fields!PO_.Value</Value>
+                        <Style />
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox2</rd:DefaultName>
+                <Top>0.36458in</Top>
+                <Left>0.1375in</Left>
+                <Height>0.38542in</Height>
+                <Width>1.53263in</Width>
+                <ZIndex>1</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Left>4.67167in</Left>
+            <Height>0.80208in</Height>
+            <Width>1.80208in</Width>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Rectangle>
+          <Textbox Name="Textbox13">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Invoice: </Value>
+                    <Value>Pick up location: </Value>
                     <Style />
                   </TextRun>
                   <TextRun>
-                    <Value>=Fields!Invoice.Value</Value>
+                    <Value>=Fields!PickupLocation.Value</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Delivery location: </Value>
+                    <Style />
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!DeliveryLocation.Value</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Extra stops: </Value>
+                    <Style />
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!ExtraStops.Value</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Dispatcher name: </Value>
+                    <Style />
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!DispatcherName.Value</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Loaded miles: </Value>
+                    <Style />
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!Load_.Value</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -110,10 +255,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>0.23278in</Top>
-            <Left>4.35292in</Left>
-            <Height>0.25in</Height>
-            <Width>1.56041in</Width>
+            <Top>0.62153in</Top>
+            <Left>0.25in</Left>
+            <Height>0.90625in</Height>
+            <Width>3.91333in</Width>
+            <ZIndex>1</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -124,25 +270,11 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Rectangle Name="Rectangle2">
-            <KeepTogether>true</KeepTogether>
-            <Top>0.3925in</Top>
-            <Left>0.69458in</Left>
-            <Height>0.0001in</Height>
-            <Width>2in</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-              <BackgroundColor>Black</BackgroundColor>
-            </Style>
-          </Rectangle>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>2.5in</Top>
-        <Height>3.15292in</Height>
-        <Width>6.49854in</Width>
+        <Height>1.88208in</Height>
+        <Width>6.47375in</Width>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -433,139 +565,6 @@
           </Border>
         </Style>
       </Line>
-      <Textbox Name="Textbox9">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>LOAD #: </Value>
-                <Style />
-              </TextRun>
-              <TextRun>
-                <Value>=Fields!Load_.Value</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>PO #: </Value>
-                <Style />
-              </TextRun>
-              <TextRun>
-                <Value>=Fields!PO_.Value</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>3.75625in</Top>
-        <Left>4.3807in</Left>
-        <Height>0.38542in</Height>
-        <Width>1.53263in</Width>
-        <ZIndex>11</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox13">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Pick up location: </Value>
-                <Style />
-              </TextRun>
-              <TextRun>
-                <Value>=Fields!PickupLocation.Value</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Delivery location: </Value>
-                <Style />
-              </TextRun>
-              <TextRun>
-                <Value>=Fields!DeliveryLocation.Value</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Extra stops: </Value>
-                <Style />
-              </TextRun>
-              <TextRun>
-                <Value>=Fields!ExtraStops.Value</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Dispatcher name: </Value>
-                <Style />
-              </TextRun>
-              <TextRun>
-                <Value>=Fields!DispatcherName.Value</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Loaded miles: </Value>
-                <Style />
-              </TextRun>
-              <TextRun>
-                <Value>=Fields!Load_.Value</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>4.50521in</Top>
-        <Left>0.125in</Left>
-        <Height>0.90625in</Height>
-        <Width>5.78833in</Width>
-        <ZIndex>12</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Textbox Name="Textbox14">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -587,7 +586,7 @@
         <Left>4.50744cm</Left>
         <Height>1.1875in</Height>
         <Width>3.62001in</Width>
-        <ZIndex>13</ZIndex>
+        <ZIndex>11</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -598,16 +597,138 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Rectangle Name="Rectangle2">
+        <ReportItems>
+          <Rectangle Name="Rectangle6">
+            <ReportItems>
+              <Textbox Name="Textbox15">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Comfirmed rate: </Value>
+                        <Style />
+                      </TextRun>
+                      <TextRun>
+                        <Value>=Fields!ComfirmedRate.Value</Value>
+                        <Style />
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Lumber &amp; Extra charges: </Value>
+                        <Style />
+                      </TextRun>
+                      <TextRun>
+                        <Value>=Fields!Lumber_ExtraCharges.Value</Value>
+                        <Style />
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Detention pay: </Value>
+                        <Style />
+                      </TextRun>
+                      <TextRun>
+                        <Value>=Fields!DetentionPay.Value</Value>
+                        <Style />
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox2</rd:DefaultName>
+                <Top>0.27083in</Top>
+                <Left>0.10209in</Left>
+                <Height>0.59375in</Height>
+                <Width>3.04499in</Width>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+            </ReportItems>
+            <KeepTogether>true</KeepTogether>
+            <Left>3.255in</Left>
+            <Height>1.20833in</Height>
+            <Width>3.21875in</Width>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Rectangle>
+          <Textbox Name="Textbox10">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Total charges: </Value>
+                    <Style />
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!TotalCharges.Value</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox2</rd:DefaultName>
+            <Top>1.40979in</Top>
+            <Left>4.13in</Left>
+            <Height>0.25in</Height>
+            <Width>2.16666in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Top>4.38208in</Top>
+        <Left>0in</Left>
+        <Height>1.88208in</Height>
+        <Width>6.47375in</Width>
+        <ZIndex>12</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+            <Width>2pt</Width>
+          </Border>
+        </Style>
+      </Rectangle>
     </ReportItems>
     <Height>9.05208in</Height>
     <Style />
   </Body>
-  <Width>7.72583in</Width>
+  <Width>6.5in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
-    <TopMargin>1in</TopMargin>
-    <BottomMargin>1in</BottomMargin>
+    <TopMargin>0.5in</TopMargin>
+    <BottomMargin>0.5in</BottomMargin>
     <Style />
   </Page>
   <rd:ReportID>86332a05-d26f-4870-ab88-16bf0a47c374</rd:ReportID>

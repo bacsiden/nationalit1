@@ -191,7 +191,7 @@ namespace Alabama.Reports
             dr["TotalCharges"] = item.Total_charges;
             dr["ExtraStops"] = item.Extra_stops;
             dr["DispatcherName"] = item.Dispatchers != null ? item.Dispatchers.Last_name + " " + item.Dispatchers.Last_name : "";
-
+            dt.Rows.Add(dr);
 
             return dt;
         }
