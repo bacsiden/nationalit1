@@ -69,7 +69,6 @@
             alert('Warring!');
             return false;
         }
-
     });
 
     $(".EditItem").click(function () {
@@ -249,4 +248,11 @@ function addParam(url, param, value) {
     str.push(encodeURIComponent(param) + "=" + encodeURIComponent(value));
     a.search = (a.search.substring(0, 1) == "?" ? "" : "?") + str.join("&");
     return a.href;
+}
+function getListIDCheckBoxByClassName(classWrapper,classItem) {
+    var listID = "";    
+    $('.'+classWrapper+' input.'+classItem+':checkbox:checked').each(function () {
+        listID += "," + $(this).val();
+    });
+    return listID;
 }

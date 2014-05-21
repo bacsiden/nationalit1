@@ -119,3 +119,10 @@ label
     float: left;
     margin: 5px 0;
 }
+.boxScroll
+{
+    max-height: 400px;
+    overflow-y: scroll;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid #ccc;
+}
