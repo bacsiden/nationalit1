@@ -5,8 +5,13 @@
 }
 <script type="text/javascript">
     $(document).ready(function () {
-        //        autoCompleteByClassName($(":input.Dispatcher"),@Html.Raw(ViewBag.dataDispatchers));
-        //        autoCompleteByClassName($(":input.Owner_Name"),@Html.Raw(ViewBag.dataOwners));
+        //        autoCompleteByClassName($(":input.Dispatcher"),Html.Raw(ViewBag.dataDispatchers));
+        //        autoCompleteByClassName($(":input.Owner_Name"),Html.Raw(ViewBag.dataOwners));
+
+        $(".DriverPayrollExpanses").click(function () {
+            $(".DriverPayRollList").fadeIn();
+            $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+        });
     });    
 </script>
 <div class="row-fluid">
@@ -23,7 +28,8 @@
                         New Trip info</a> <a href="/Equipment" class="btn btn-info">Equipment</a> <a href="#"
                             class="btn btn-info">Violations</a> <a href="#" class="btn btn-info">Maintenance</a>
                     <a href="#" class="btn btn-info">Pay rolls rollback</a> <a href="#" class="btn btn-info">
-                        Pay rolls operations rollback</a> <a href="#" class="btn btn-info">Driver payroll &
+                        Pay rolls operations rollback</a> 
+                        <a href="#" class="btn btn-info DriverPayrollExpanses">Driver payroll &
                             expanses</a>
                 </div>
                 <div class="span12">
@@ -228,33 +234,35 @@
                     <input type="submit" value="Save" class="btn btn-info" />
                     @Html.ActionLink("Cancel", "Index", null, new { @class = "btn" })
                 </div>
-            </div>
-                        <h3 style="margin:15px 0 0 0;">
-            Driver PayRoll List:</h3>
-            <div style="border-top: 1px solid #5ab4da; border-bottom: 1px solid #5ab4da;">
-                <div class="row-fluid">
-                    <div class="span12">
-                        <div id="wrap-AjaxPaging">
-                            <h3>
-                                Trip Driver Selection</h3>
-                            @Html.Partial("_IndexPartialTripInfo", new PagedList<Alabama.Trip_Info>(listTripInfoConditon, pageInfo, pageSize))
+            </div> 
+            <div class="DriverPayRollList" style="display:none;">
+                <h3 style="margin: 15px 0 0 0;">
+                    Driver PayRoll List:</h3>
+                <div style="border-top: 1px solid #5ab4da; border-bottom: 1px solid #5ab4da;">
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div id="wrap-AjaxPaging">
+                                <h3>
+                                    Trip Driver Selection</h3>
+                                @Html.Partial("_IndexPartialTripInfo", new PagedList<Alabama.Trip_Info>(listTripInfoConditon, pageInfo, pageSize))
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row-fluid">
-                    <div class="span12">
-                        @Html.Partial("_Fuel_ExpensesPartial", new PagedList<Alabama.Fuel___Expenses>(lst, page, pageSize))
+                    <div class="row-fluid">
+                        <div class="span12">
+                            @Html.Partial("_Fuel_ExpensesPartial", new PagedList<Alabama.Fuel___Expenses>(lst, page, pageSize))
+                        </div>
                     </div>
-                </div>
-                <div class="row-fluid">
-                    <div class="span12">
-                        @Html.Partial("_Operating_ExpensesPartial", new PagedList<Alabama.Operating_Expenses>(lst1, pageIndex, pageSize))
+                    <div class="row-fluid">
+                        <div class="span12">
+                            @Html.Partial("_Operating_ExpensesPartial", new PagedList<Alabama.Operating_Expenses>(lst1, pageIndex, pageSize))
+                        </div>
                     </div>
-                </div>
-                <div class="row-fluid">
-                    <div class="span12">
-                        @Html.ActionLink("Print report", "Print", null, new { @class = "btn btn-info" })
-                        @Html.ActionLink("PDF report", "Print", null, new { @class = "btn btn-info" })
+                    <div class="row-fluid">
+                        <div class="span12">
+                            @Html.ActionLink("Print report", "Print", null, new { @class = "btn btn-info" })
+                            @Html.ActionLink("PDF report", "Print", null, new { @class = "btn btn-info" })
+                        </div>
                     </div>
                 </div>
             </div>
