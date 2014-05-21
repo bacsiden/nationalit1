@@ -84,6 +84,7 @@
   <ItemGroup>
     <Compile Include="Controllers\CompanyExpansesController.cs" />
     <Compile Include="Controllers\EquipmentController.cs" />
+    <Compile Include="Controllers\MaintenanceController.cs" />
     <Compile Include="Controllers\OperatingExpensesController.cs" />
     <Compile Include="Controllers\DriverInfoController.cs" />
     <Compile Include="Controllers\CustomerInfoController.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Controllers\OwnerController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\TripInfoController.cs" />
+    <Compile Include="Controllers\ViolationsController.cs" />
     <Compile Include="DB.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -423,6 +425,10 @@
     <Content Include="Views\DriverInfo\_Operating_ExpensesPartial1.cshtml" />
     <Content Include="Views\DriverInfo\_IndexPartialTripInfo1.cshtml" />
     <Content Include="Views\DriverInfo\_Fuel_ExpensesPartial1.cshtml" />
+    <Content Include="Views\Maintenance\Index.cshtml" />
+    <Content Include="Views\Maintenance\NewOrEdit.cshtml" />
+    <Content Include="Views\Violations\Index.cshtml" />
+    <Content Include="Views\Violations\NewOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\DispatcherTrip.rdlc" />

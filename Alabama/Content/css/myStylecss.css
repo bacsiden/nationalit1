@@ -105,6 +105,10 @@ label
     color: red;
     float: left;
 }
+.Maintenance .field-validation-error
+{
+    float: none;
+}
 .requiredStar
 {
     color: Red;
