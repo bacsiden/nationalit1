@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using Microsoft.Reporting.WebForms;
 
 namespace Alabama.Reports
 {
@@ -18,22 +19,26 @@ namespace Alabama.Reports
                 ReportViewer1.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
                 ReportViewer1.LocalReport.ReportPath = Server.MapPath("/Reports/" + reportName + ".rdlc");
                 ReportViewer1.LocalReport.DataSources.Clear();
-                DataTable dt = LoadReportData(reportName);
+                ReportParameter[] parameters = null;
+                DataTable dt = LoadReportData(reportName, out parameters);
                 ReportViewer1.LocalReport.DataSources.Add(
                 new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", dt));
+                if(parameters!=null)
+                    this.ReportViewer1.LocalReport.SetParameters(parameters);
 
                 ReportViewer1.LocalReport.Refresh();
             }
         }
 
-        private DataTable LoadReportData(string reportName)
+        private DataTable LoadReportData(string reportName, out ReportParameter[] rparam)
         {
+            rparam = null;
             switch (reportName)
             {
                 case "TripInfoOutstanding":
                     return TripInfoOutstanding();
                 case "ScheduleOfInvoices":
-                    return ScheduleOfInvoices();
+                    return ScheduleOfInvoices(out rparam);
                 case "DispatcherTrip":
                     return DispatcherTrip();
                 case "Invoice":
@@ -88,60 +93,61 @@ namespace Alabama.Reports
             return dt;
         }
 
-        private DataTable ScheduleOfInvoices()
+        private DataTable ScheduleOfInvoices(out ReportParameter[] rparam)
         {
             var db = DB.Entities;
             DateTime fromdate = DateTime.Parse(Request.QueryString["startdate"]);
             DateTime todate = DateTime.Parse(Request.QueryString["enddate"]);
-            //List<int?> lstDriver = db.Trip_Info.Take(100).Select(m => m.Driver).Distinct().ToList();
-            var lst = db.Trip_Info.Where(m => m.Order_date >= fromdate && m.Order_date <= todate).ToList();
+            var lst = db.Trip_Info.Where(m =>m.Picked && m.Deliverd && m.Customer_Invoiced &&
+                m.Order_date >= fromdate && m.Order_date <= todate).ToList();
             DataTable dt = new ScheduleOfInvoices().DataTable1;
-            //foreach (int? driverID in lstDriver)
-            //{
-            //if (driverID != null)
-            //{
-            //int totalCharges = 0;
-            //List<DataRow> lstDR = new List<DataRow>();
+            long totals = 0;
             foreach (var item in lst)
             {
                 DataRow dr = dt.NewRow();
                 dr["Name"] = item.Customer_Info != null ? item.Customer_Info.Customer_Name : "";
                 dr["Date"] = String.Format("{0:MM/dd/yyyy}", item.Order_date);
-                dr["Invoice"] = item.Invoice;
+                //Lấy 2 kí tự đầu của first name, last name dirver info
+                string invoice = item.Invoice + "";
+                if (item.Driver_Info != null)
+                {
+                    string char1 = string.IsNullOrEmpty(item.Driver_Info.First_name) ? null : item.Driver_Info.First_name[0] + "";
+                    string char2 = string.IsNullOrEmpty(item.Driver_Info.Last_name) ? null : item.Driver_Info.Last_name[0] + "";
+                    invoice = char1 + char2 + invoice;
+                }
+                dr["Invoice"] = invoice;
                 dr["PO"] = item.PO_;
-                dr["Amount"] = 100;
-
+                dr["Amount"] = (int)item.Total_charges + ".00";
+                int total = 0;
+                if(item.Total_charges.HasValue)
+                    total = (int)item.Total_charges;
+                totals += total;
                 //totalCharges += (int)item.Total_charges;
                 dt.Rows.Add(dr);
             }
-            //foreach (var item in lstDR)
-            //{
-            //    item["TotalCharges"] = totalCharges;
-            //    dt.Rows.Add(item);
-            //}
-            //}
-            //}
-
-
+            rparam = new ReportParameter[3];
+            rparam[0] = new ReportParameter("DateOfAssignment", string.Format("{0:MM/dd/yyyy}", DateTime.Now));
+            rparam[1] = new ReportParameter("Count", lst.Count.ToString());
+            rparam[2] = new ReportParameter("Total", totals.ToString());
             return dt;
         }
 
         private DataTable DispatcherTrip()
         {
             var db = DB.Entities;
-            List<int?> lstDriver = db.Trip_Info.Take(100).Select(m => m.Driver).Distinct().ToList();
+            List<int?> lstDis = db.Trip_Info.Take(100).Select(m => m.Dispatcher).Distinct().ToList();
             var lst = db.Trip_Info.Take(100).ToList();
             DataTable dt = new DispatcherTrip().DataTable1;
-            foreach (int? driverID in lstDriver)
+            foreach (int? dispatherID in lstDis)
             {
-                if (driverID != null)
+                if (dispatherID != null)
                 {
                     int totalCharges = 0;
                     List<DataRow> lstDR = new List<DataRow>();
-                    foreach (var item in lst.Where(m => m.Driver == driverID))
+                    foreach (var item in lst.Where(m => m.Driver == dispatherID))
                     {
                         DataRow dr = dt.NewRow();
-                        dr["DriverID"] = driverID;
+                        dr["DriverID"] = dispatherID;
                         dr["DriverName"] = item.Driver_Info != null ? item.Driver_Info.First_name + item.Driver_Info.First_name : "";
                         dr["OrderDate"] = String.Format("{0:MM/dd/yyyy}", item.Order_date);
                         dr["PickupDate"] = String.Format("{0:MM/dd/yyyy}", item.Pickup_date);
