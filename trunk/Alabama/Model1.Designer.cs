@@ -20,13 +20,16 @@ using System.Xml.Serialization;
 #region EDM Relationship Metadata
 
 [assembly: EdmRelationshipAttribute("vpss1Model", "FK_Trip_Info_Customer_Info1", "Customer_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Customer_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Trip_Info), true)]
-[assembly: EdmRelationshipAttribute("vpss1Model", "FK_Trip_Info_Equipment1", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Equipment), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("vpss1Model", "FK_Trip_Info_Dispatchers1", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Dispatchers), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("vpss1Model", "FK_Driver_Info_Dispatchers", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Dispatchers), "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Driver_Info), true)]
 [assembly: EdmRelationshipAttribute("vpss1Model", "FK_Driver_Info_Owners", "Owners", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Owners), "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Driver_Info), true)]
 [assembly: EdmRelationshipAttribute("vpss1Model", "FK_Fuel___Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Driver_Info), "Fuel___Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Fuel___Expenses), true)]
 [assembly: EdmRelationshipAttribute("vpss1Model", "FK_Operating_Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Driver_Info), "Operating_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Operating_Expenses), true)]
 [assembly: EdmRelationshipAttribute("vpss1Model", "FK_Trip_Info_Driver_Info1", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Driver_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Trip_Info), true)]
-[assembly: EdmRelationshipAttribute("vpss1Model", "FK_Driver_Info_Dispatchers", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Dispatchers), "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Driver_Info), true)]
-[assembly: EdmRelationshipAttribute("vpss1Model", "FK_Trip_Info_Dispatchers1", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Dispatchers), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("vpss1Model", "FK_Violations_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Driver_Info), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Violations), true)]
+[assembly: EdmRelationshipAttribute("vpss1Model", "FK_Maintenance_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Equipment), "Maintenance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Maintenance), true)]
+[assembly: EdmRelationshipAttribute("vpss1Model", "FK_Trip_Info_Equipment1", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Equipment), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("vpss1Model", "FK_Violations_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Alabama.Equipment), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Alabama.Violations), true)]
 
 #endregion
 
@@ -257,22 +260,6 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Equipment> Equipment
-        {
-            get
-            {
-                if ((_Equipment == null))
-                {
-                    _Equipment = base.CreateObjectSet<Equipment>("Equipment");
-                }
-                return _Equipment;
-            }
-        }
-        private ObjectSet<Equipment> _Equipment;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Owners> Owners
         {
             get
@@ -305,6 +292,22 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<Dispatchers> Dispatchers
+        {
+            get
+            {
+                if ((_Dispatchers == null))
+                {
+                    _Dispatchers = base.CreateObjectSet<Dispatchers>("Dispatchers");
+                }
+                return _Dispatchers;
+            }
+        }
+        private ObjectSet<Dispatchers> _Dispatchers;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<Driver_Info> Driver_Info
         {
             get
@@ -321,18 +324,18 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Dispatchers> Dispatchers
+        public ObjectSet<Equipment> Equipment
         {
             get
             {
-                if ((_Dispatchers == null))
+                if ((_Equipment == null))
                 {
-                    _Dispatchers = base.CreateObjectSet<Dispatchers>("Dispatchers");
+                    _Equipment = base.CreateObjectSet<Equipment>("Equipment");
                 }
-                return _Dispatchers;
+                return _Equipment;
             }
         }
-        private ObjectSet<Dispatchers> _Dispatchers;
+        private ObjectSet<Equipment> _Equipment;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -459,14 +462,6 @@ namespace Alabama
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Equipment EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToEquipment(Equipment equipment)
-        {
-            base.AddObject("Equipment", equipment);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the Owners EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToOwners(Owners owners)
@@ -483,6 +478,14 @@ namespace Alabama
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the Dispatchers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToDispatchers(Dispatchers dispatchers)
+        {
+            base.AddObject("Dispatchers", dispatchers);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the Driver_Info EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToDriver_Info(Driver_Info driver_Info)
@@ -491,11 +494,11 @@ namespace Alabama
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Dispatchers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Equipment EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToDispatchers(Dispatchers dispatchers)
+        public void AddToEquipment(Equipment equipment)
         {
-            base.AddObject("Dispatchers", dispatchers);
+            base.AddObject("Equipment", equipment);
         }
     
         /// <summary>
@@ -1211,28 +1214,6 @@ namespace Alabama
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("vpss1Model", "FK_Driver_Info_Dispatchers", "Driver_Info")]
-        public EntityCollection<Driver_Info> Driver_Info
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Driver_Info>("vpss1Model.FK_Driver_Info_Dispatchers", "Driver_Info");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Driver_Info>("vpss1Model.FK_Driver_Info_Dispatchers", "Driver_Info", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("vpss1Model", "FK_Trip_Info_Dispatchers1", "Trip_Info")]
         public EntityCollection<Trip_Info> Trip_Info
         {
@@ -1245,6 +1226,28 @@ namespace Alabama
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("vpss1Model.FK_Trip_Info_Dispatchers1", "Trip_Info", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("vpss1Model", "FK_Driver_Info_Dispatchers", "Driver_Info")]
+        public EntityCollection<Driver_Info> Driver_Info
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Driver_Info>("vpss1Model.FK_Driver_Info_Dispatchers", "Driver_Info");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Driver_Info>("vpss1Model.FK_Driver_Info_Dispatchers", "Driver_Info", value);
                 }
             }
         }
@@ -1890,6 +1893,44 @@ namespace Alabama
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("vpss1Model", "FK_Driver_Info_Dispatchers", "Dispatchers")]
+        public Dispatchers Dispatchers
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("vpss1Model.FK_Driver_Info_Dispatchers", "Dispatchers").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("vpss1Model.FK_Driver_Info_Dispatchers", "Dispatchers").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Dispatchers> DispatchersReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("vpss1Model.FK_Driver_Info_Dispatchers", "Dispatchers");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Dispatchers>("vpss1Model.FK_Driver_Info_Dispatchers", "Dispatchers", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("vpss1Model", "FK_Driver_Info_Owners", "Owners")]
         public Owners Owners
         {
@@ -1994,34 +2035,18 @@ namespace Alabama
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("vpss1Model", "FK_Driver_Info_Dispatchers", "Dispatchers")]
-        public Dispatchers Dispatchers
+        [EdmRelationshipNavigationPropertyAttribute("vpss1Model", "FK_Violations_Driver_Info", "Violations")]
+        public EntityCollection<Violations> Violations
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("vpss1Model.FK_Driver_Info_Dispatchers", "Dispatchers").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("vpss1Model.FK_Driver_Info_Dispatchers", "Dispatchers").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Dispatchers> DispatchersReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("vpss1Model.FK_Driver_Info_Dispatchers", "Dispatchers");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Violations>("vpss1Model.FK_Violations_Driver_Info", "Violations");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Dispatchers>("vpss1Model.FK_Driver_Info_Dispatchers", "Dispatchers", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Violations>("vpss1Model.FK_Violations_Driver_Info", "Violations", value);
                 }
             }
         }
@@ -2381,6 +2406,28 @@ namespace Alabama
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("vpss1Model", "FK_Maintenance_Equipment", "Maintenance")]
+        public EntityCollection<Maintenance> Maintenance
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Maintenance>("vpss1Model.FK_Maintenance_Equipment", "Maintenance");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Maintenance>("vpss1Model.FK_Maintenance_Equipment", "Maintenance", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("vpss1Model", "FK_Trip_Info_Equipment1", "Trip_Info")]
         public EntityCollection<Trip_Info> Trip_Info
         {
@@ -2393,6 +2440,28 @@ namespace Alabama
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("vpss1Model.FK_Trip_Info_Equipment1", "Trip_Info", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("vpss1Model", "FK_Violations_Equipment", "Violations")]
+        public EntityCollection<Violations> Violations
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Violations>("vpss1Model.FK_Violations_Equipment", "Violations");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Violations>("vpss1Model.FK_Violations_Equipment", "Violations", value);
                 }
             }
         }
@@ -3595,6 +3664,48 @@ namespace Alabama
         #endregion
 
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("vpss1Model", "FK_Maintenance_Equipment", "Equipment")]
+        public Equipment Equipment
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("vpss1Model.FK_Maintenance_Equipment", "Equipment").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("vpss1Model.FK_Maintenance_Equipment", "Equipment").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Equipment> EquipmentReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("vpss1Model.FK_Maintenance_Equipment", "Equipment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Equipment>("vpss1Model.FK_Maintenance_Equipment", "Equipment", value);
+                }
+            }
+        }
+
+        #endregion
+
     }
     
     /// <summary>
@@ -5962,16 +6073,16 @@ namespace Alabama
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("vpss1Model", "FK_Trip_Info_Equipment1", "Equipment")]
-        public Equipment Equipment
+        [EdmRelationshipNavigationPropertyAttribute("vpss1Model", "FK_Trip_Info_Dispatchers1", "Dispatchers")]
+        public Dispatchers Dispatchers
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("vpss1Model.FK_Trip_Info_Equipment1", "Equipment").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("vpss1Model.FK_Trip_Info_Dispatchers1", "Dispatchers").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("vpss1Model.FK_Trip_Info_Equipment1", "Equipment").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("vpss1Model.FK_Trip_Info_Dispatchers1", "Dispatchers").Value = value;
             }
         }
         /// <summary>
@@ -5979,17 +6090,17 @@ namespace Alabama
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Equipment> EquipmentReference
+        public EntityReference<Dispatchers> DispatchersReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("vpss1Model.FK_Trip_Info_Equipment1", "Equipment");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("vpss1Model.FK_Trip_Info_Dispatchers1", "Dispatchers");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Equipment>("vpss1Model.FK_Trip_Info_Equipment1", "Equipment", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Dispatchers>("vpss1Model.FK_Trip_Info_Dispatchers1", "Dispatchers", value);
                 }
             }
         }
@@ -6038,16 +6149,16 @@ namespace Alabama
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("vpss1Model", "FK_Trip_Info_Dispatchers1", "Dispatchers")]
-        public Dispatchers Dispatchers
+        [EdmRelationshipNavigationPropertyAttribute("vpss1Model", "FK_Trip_Info_Equipment1", "Equipment")]
+        public Equipment Equipment
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("vpss1Model.FK_Trip_Info_Dispatchers1", "Dispatchers").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("vpss1Model.FK_Trip_Info_Equipment1", "Equipment").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("vpss1Model.FK_Trip_Info_Dispatchers1", "Dispatchers").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("vpss1Model.FK_Trip_Info_Equipment1", "Equipment").Value = value;
             }
         }
         /// <summary>
@@ -6055,17 +6166,17 @@ namespace Alabama
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Dispatchers> DispatchersReference
+        public EntityReference<Equipment> EquipmentReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("vpss1Model.FK_Trip_Info_Dispatchers1", "Dispatchers");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("vpss1Model.FK_Trip_Info_Equipment1", "Equipment");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Dispatchers>("vpss1Model.FK_Trip_Info_Dispatchers1", "Dispatchers", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Equipment>("vpss1Model.FK_Trip_Info_Equipment1", "Equipment", value);
                 }
             }
         }
@@ -6930,6 +7041,86 @@ namespace Alabama
         #endregion
 
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("vpss1Model", "FK_Violations_Driver_Info", "Driver_Info")]
+        public Driver_Info Driver_Info
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("vpss1Model.FK_Violations_Driver_Info", "Driver_Info").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("vpss1Model.FK_Violations_Driver_Info", "Driver_Info").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Driver_Info> Driver_InfoReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("vpss1Model.FK_Violations_Driver_Info", "Driver_Info");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Driver_Info>("vpss1Model.FK_Violations_Driver_Info", "Driver_Info", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("vpss1Model", "FK_Violations_Equipment", "Equipment")]
+        public Equipment Equipment1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("vpss1Model.FK_Violations_Equipment", "Equipment").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("vpss1Model.FK_Violations_Equipment", "Equipment").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Equipment> Equipment1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("vpss1Model.FK_Violations_Equipment", "Equipment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Equipment>("vpss1Model.FK_Violations_Equipment", "Equipment", value);
+                }
+            }
+        }
+
+        #endregion
+
     }
 
     #endregion
