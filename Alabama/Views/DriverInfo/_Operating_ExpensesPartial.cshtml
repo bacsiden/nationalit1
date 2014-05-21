@@ -6,6 +6,9 @@
     <thead>
         <tr>
             <th>
+                <input type="checkbox" name="DriverOperating_ExpensesAll" value=" " class="DriverOperating_ExpensesAll"/>
+            </th>
+            <th>
                 Date
             </th>
             <th>
@@ -37,6 +40,9 @@
             foreach (var item in Model)
             {
             <tr>
+                <td>
+                    <input type="checkbox" name="DriverOperating_ExpensesItem" value="@item.ID" class="DriverOperating_ExpensesItem" />
+                </td>
                 <td>
                     @String.Format("{0:g}", item.Date)
                 </td>

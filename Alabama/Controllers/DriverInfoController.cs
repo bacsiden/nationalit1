@@ -75,11 +75,11 @@ namespace Alabama.Controllers
             {
                 if (obj != null && (obj.Truck + "").Equals(item.Equipment_number + ""))
                 {
-                    dataTruck += string.Format("<option value='{0}' selected='selected'>{0}</option>",item.Equipment_number);
+                    dataTruck += string.Format("<option value='{0}' selected='selected'>{0}</option>", item.Equipment_number);
                 }
                 else
                 {
-                    dataTruck += string.Format("<option value='{0}'>{0}</option>",item.Equipment_number);
+                    dataTruck += string.Format("<option value='{0}'>{0}</option>", item.Equipment_number);
                 }
             }
             ViewBag.dataTruck = dataTruck;
@@ -87,13 +87,13 @@ namespace Alabama.Controllers
             string dataTrailer = "<option >--Select Trailer--</option>";
             foreach (var item in Alabama.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRAILER")))
             {
-                if (obj != null && (obj.Trailer+"").Equals(item.Equipment_number+""))
+                if (obj != null && (obj.Trailer + "").Equals(item.Equipment_number + ""))
                 {
-                    dataTrailer += string.Format("<option value='{0}' selected='selected'>{0}</option>",item.Equipment_number);
+                    dataTrailer += string.Format("<option value='{0}' selected='selected'>{0}</option>", item.Equipment_number);
                 }
                 else
                 {
-                    dataTrailer += string.Format("<option value='{0}'>{0}</option>",item.Equipment_number);
+                    dataTrailer += string.Format("<option value='{0}'>{0}</option>", item.Equipment_number);
                 }
             }
             ViewBag.dataTrailer = dataTrailer;
@@ -225,5 +225,47 @@ namespace Alabama.Controllers
             var db = DB.Entities;
             return PartialView(db.Operating_Expenses.Where(m => m.Driver_Info.ID == id).OrderByDescending(m => m.ID).ToPagedList(page.Value, pageSize));
         }
+
+        #region Report ----------------------
+        public ActionResult Printreport(string listIDTripInfo = "", string listIDFuelExpenses = "", string listIDOperatingExpenses = "")
+        {
+            try
+            {
+                // TODO: Add delete logic here
+                string[] listTripID = GetArrayByString(listIDTripInfo);
+                string[] listFuelExpensesID = GetArrayByString(listIDFuelExpenses);
+                string[] listOperatingExpensesID = GetArrayByString(listIDOperatingExpenses);
+
+            }
+            catch
+            {
+
+            }
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult PDFreport(string listIDTripInfo = "", string listIDFuelExpenses = "", string listIDOperatingExpenses = "")
+        {
+            try
+            {
+                // TODO: Add delete logic here
+                string[] listTripID = GetArrayByString(listIDTripInfo);
+                string[] listFuelExpensesID = GetArrayByString(listIDFuelExpenses);
+                string[] listOperatingExpensesID = GetArrayByString(listIDOperatingExpenses);
+
+            }
+            catch
+            {
+
+            }
+            return RedirectToAction("Index");
+        }
+
+        public string[] GetArrayByString(string arrayID = "")
+        {
+            return arrayID.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+        }
+
+        #endregion
     }
 }

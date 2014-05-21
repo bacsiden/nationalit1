@@ -1,8 +1,5 @@
-﻿<div id="Fuel_ExpensesPartial">
-    @model Webdiyer.WebControls.Mvc.PagedList<Alabama.Fuel___Expenses>
-@using Webdiyer.WebControls.Mvc;
-    <h3>
-        Fuel Expenses</h3>
+﻿<div id="Fuel_ExpensesPartial" class="boxScroll">
+    @model List<Alabama.Fuel___Expenses>    
     <table class="table">
         <thead>
             <tr>
@@ -60,30 +57,5 @@
                 }
             }
         </tbody>
-    </table>
-    <div class="row-fluid">
-        <div class="span4">
-            <div class="dataTables_info">
-                @if (Model != null && Model.TotalItemCount > 0)
-                {
-                    if (Model.TotalItemCount < Model.PageSize)
-                    {
-                    <span>1 </span>
-                    <span>- </span>@Model.TotalItemCount
-                    }
-                    else
-                    {
-                    <span></span>@((Model.CurrentPageIndex - 1) * Model.PageSize + 1)
-                    <span>- </span>@((Model.CurrentPageIndex != Model.TotalPageCount) ? (Model.CurrentPageIndex * Model.PageSize) : Math.Abs((Model.CurrentPageIndex) * Model.PageSize - (Model.PageSize * Model.TotalPageCount) - Model.TotalItemCount))
-                    }
-                    <span>of </span>@(Model.TotalItemCount)                            
-                }
-            </div>
-        </div>
-        <div class="span8">
-            <div class="dataTables_paginate paging_bootstrap pagination phantrangmvcpager">
-                @Ajax.Pager(Model, new PagerOptions { ContainerTagName = "ul", PageIndexParameterName = "page", CurrentPagerItemWrapperFormatString = "<li class='active'>{0}</li>", CurrentPageNumberFormatString = "{0}", FirstPageText = "«", LastPageText = "»", NextPageText = "Next →", PrevPageText = "← Prev", SeparatorHtml = "" }, new AjaxOptions { UpdateTargetId = "Fuel_ExpensesPartial" })
-            </div>
-        </div>
-    </div>
+    </table>    
 </div>
