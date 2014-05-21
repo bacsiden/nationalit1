@@ -366,6 +366,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
+                              <Value>$</Value>
+                              <Style />
+                            </TextRun>
+                            <TextRun>
                               <Value>=Fields!Amount.Value</Value>
                               <Style />
                             </TextRun>
@@ -457,9 +461,29 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>INVOICES                              THIS SCHEDULE:</Value>
+                <Value>INVOICES: </Value>
                 <Style>
                   <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Parameters!Count.Value</Value>
+                <Style>
+                  <FontSize>16pt</FontSize>
+                  <Format>n0</Format>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>                THIS SCHEDULE: $</Value>
+                <Style>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Parameters!Total.Value</Value>
+                <Style>
+                  <FontSize>16pt</FontSize>
+                  <Format>n2</Format>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -470,7 +494,7 @@
         <Top>3.205in</Top>
         <Left>0.27792in</Left>
         <Height>0.375in</Height>
-        <Width>6.29167in</Width>
+        <Width>6.80209in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -523,7 +547,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>COMPANY NAME:</Value>
+                <Value>DATE OF ASSIGNMENT</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                 </Style>
@@ -533,6 +557,12 @@
           </Paragraph>
           <Paragraph>
             <TextRuns>
+              <TextRun>
+                <Value>=Parameters!DateOfAssignment.Value</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
               <TextRun>
                 <Value xml:space="preserve">
 </Value>
@@ -548,7 +578,7 @@
         <Top>3.76958in</Top>
         <Left>4.26458in</Left>
         <Height>0.42708in</Height>
-        <Width>1.82292in</Width>
+        <Width>1.98959in</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -612,7 +642,7 @@
         <Top>4.24271in</Top>
         <Left>4.26458in</Left>
         <Height>0in</Height>
-        <Width>1.82292in</Width>
+        <Width>1.98959in</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -717,9 +747,23 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>4.86819in</Height>
+    <Height>4.92027in</Height>
     <Style />
   </Body>
+  <ReportParameters>
+    <ReportParameter Name="Total">
+      <DataType>Integer</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Count">
+      <DataType>Integer</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DateOfAssignment">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <Width>7.2375in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
