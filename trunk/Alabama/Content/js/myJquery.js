@@ -134,7 +134,7 @@
     // AutoComplete Chosen select item
     $(".chosen-with-diselect-trip").chosen({ allow_single_deselect: true }).change(function () {
         var valueTripInfo = $(".selectTripInfo").val();
-        var valueDriverInfo = $(".selectDriverInfo").val();
+        var valueDriverInfo = $(".selectDriverInfoTrip").val();
         $.ajax({
             type: "GET",
             url: '/TripInfo/Index',
@@ -145,7 +145,23 @@
                 addClassForPagging();
             }
         });
-    });  
+    });
+
+    // Not EDIT OR DELETE
+    $(".chosen-with-diselect").chosen({ allow_single_deselect: true }).change(function () {
+        var valueDriverInfo = $(this).val();
+        var url = $(location).attr('href');
+        $.ajax({
+            type: "GET",
+            url: url,
+            data: { 'driverID': valueDriverInfo },
+            async: true,
+            success: function (model) {
+                $("#wrap-AjaxPaging").html(model);
+                addClassForPagging();
+            }
+        });
+    });
     //--------------------------------------------------
 
     // Report--------------------------
