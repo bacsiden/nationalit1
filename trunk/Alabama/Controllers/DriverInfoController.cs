@@ -226,6 +226,13 @@ namespace Alabama.Controllers
             return PartialView(db.Operating_Expenses.Where(m => m.Driver_Info.ID == id).OrderByDescending(m => m.ID).ToPagedList(page.Value, pageSize));
         }
 
+
+        public ActionResult PayrollsRollback(int id)
+        {
+            var obj = DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == id);
+            if (obj == null) obj = new Driver_Info();
+            return View(obj);
+        }
         #region Report ----------------------
         public ActionResult Printreport(string listIDTripInfo = "", string listIDFuelExpenses = "", string listIDOperatingExpenses = "")
         {

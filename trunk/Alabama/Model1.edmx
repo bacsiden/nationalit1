@@ -85,20 +85,7 @@
       [ReportIDs].[Date] AS [Date]
       FROM [dbo].[ReportIDs] AS [ReportIDs]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="split expenses" EntityType="vpss1Model.Store.split expenses" store:Type="Tables" store:Schema="dbo" store:Name="split expenses">
-            <DefiningQuery>SELECT 
-      [split expenses].[Id] AS [Id], 
-      [split expenses].[OwnerDriver] AS [OwnerDriver], 
-      [split expenses].[Idndex] AS [Idndex], 
-      [split expenses].[Expenses] AS [Expenses], 
-      [split expenses].[Amount] AS [Amount], 
-      [split expenses].[Details] AS [Details], 
-      [split expenses].[Date] AS [Date], 
-      [split expenses].[Fee Charged] AS [Fee Charged], 
-      [split expenses].[Current Payroll] AS [Current Payroll], 
-      [split expenses].[Paid Off] AS [Paid Off]
-      FROM [dbo].[split expenses] AS [split expenses]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="split expenses" EntityType="vpss1Model.Store.split expenses" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Trip Info" EntityType="vpss1Model.Store.Trip Info" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Trip Info - old" EntityType="vpss1Model.Store.Trip Info - old" store:Type="Tables" store:Schema="dbo" store:Name="Trip Info - old">
             <DefiningQuery>SELECT 
@@ -413,18 +400,11 @@
           <Property Name="DriverID" Type="int" />
           <Property Name="Date" Type="datetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'VPSS1.dbo.split expenses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="split expenses">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Idndex" />
-            <PropertyRef Name="Fee Charged" />
-            <PropertyRef Name="Current Payroll" />
-            <PropertyRef Name="Paid Off" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="OwnerDriver" Type="int" />
           <Property Name="Idndex" Type="int" Nullable="false" />
           <Property Name="Expenses" Type="nvarchar" MaxLength="255" />
@@ -665,7 +645,6 @@
           <EntitySet Name="Operating_Expenses" EntityType="vpss1Model.Operating_Expenses" />
           <EntitySet Name="Printed_Temp_Trip_Info" EntityType="vpss1Model.Printed_Temp_Trip_Info" />
           <EntitySet Name="ReportIDs" EntityType="vpss1Model.ReportIDs" />
-          <EntitySet Name="split_expenses" EntityType="vpss1Model.split_expenses" />
           <EntitySet Name="Trip_Info___old" EntityType="vpss1Model.Trip_Info___old" />
           <EntitySet Name="Owners" EntityType="vpss1Model.Owners" />
           <EntitySet Name="Trip_Info" EntityType="vpss1Model.Trip_Info" />
@@ -718,6 +697,7 @@
             <End Role="Equipment" EntitySet="Equipment" />
             <End Role="Violations" EntitySet="Violations" />
           </AssociationSet>
+          <EntitySet Name="split_expenses" EntityType="vpss1Model.split_expenses" />
           </EntityContainer>
         <EntityType Name="Company_Expanses">
           <Key>
@@ -859,25 +839,6 @@
           <Property Name="ReportID" Type="Int32" Nullable="false" />
           <Property Name="DriverID" Type="Int32" />
           <Property Name="Date" Type="DateTime" />
-        </EntityType>
-        <EntityType Name="split_expenses">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Idndex" />
-            <PropertyRef Name="Fee_Charged" />
-            <PropertyRef Name="Current_Payroll" />
-            <PropertyRef Name="Paid_Off" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="OwnerDriver" Type="Int32" />
-          <Property Name="Idndex" Type="Int32" Nullable="false" />
-          <Property Name="Expenses" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Details" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Date" Type="DateTime" />
-          <Property Name="Fee_Charged" Type="Boolean" Nullable="false" />
-          <Property Name="Current_Payroll" Type="Boolean" Nullable="false" />
-          <Property Name="Paid_Off" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Trip_Info___old">
           <Key>
@@ -1190,6 +1151,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="split_expenses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="OwnerDriver" />
+          <Property Type="Int32" Name="Idndex" Nullable="false" />
+          <Property Type="String" Name="Expenses" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Amount" Precision="19" Scale="4" />
+          <Property Type="String" Name="Details" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Date" />
+          <Property Type="Boolean" Name="Fee_Charged" Nullable="false" />
+          <Property Type="Boolean" Name="Current_Payroll" Nullable="false" />
+          <Property Type="Boolean" Name="Paid_Off" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1334,22 +1310,6 @@
                 <ScalarProperty Name="ReportID" ColumnName="ReportID" />
                 <ScalarProperty Name="DriverID" ColumnName="DriverID" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="split_expenses">
-            <EntityTypeMapping TypeName="vpss1Model.split_expenses">
-              <MappingFragment StoreEntitySet="split expenses">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="OwnerDriver" ColumnName="OwnerDriver" />
-                <ScalarProperty Name="Idndex" ColumnName="Idndex" />
-                <ScalarProperty Name="Expenses" ColumnName="Expenses" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Details" ColumnName="Details" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Fee_Charged" ColumnName="Fee Charged" />
-                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-                <ScalarProperty Name="Paid_Off" ColumnName="Paid Off" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1521,6 +1481,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="split_expenses">
+            <EntityTypeMapping TypeName="vpss1Model.split_expenses">
+              <MappingFragment StoreEntitySet="split expenses">
+                <ScalarProperty Name="Paid_Off" ColumnName="Paid Off" />
+                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
+                <ScalarProperty Name="Fee_Charged" ColumnName="Fee Charged" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Expenses" ColumnName="Expenses" />
+                <ScalarProperty Name="Idndex" ColumnName="Idndex" />
+                <ScalarProperty Name="OwnerDriver" ColumnName="OwnerDriver" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1551,7 +1527,6 @@
         <EntityTypeShape EntityType="vpss1Model.Operating_Expenses" Width="1.5" PointX="5.25" PointY="9.875" Height="2.9417936197916745" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Printed_Temp_Trip_Info" Width="1.5" PointX="10.75" PointY="3.75" Height="6.2109179687500031" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.ReportIDs" Width="1.5" PointX="10.75" PointY="10.75" Height="1.5956835937500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="vpss1Model.split_expenses" Width="1.5" PointX="12.75" PointY="0.75" Height="2.9417936197916674" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Trip_Info___old" Width="1.5" PointX="12.75" PointY="4.75" Height="6.21091796875001" IsExpanded="true" />
         <EntityTypeShape EntityType="vpss1Model.Owners" Width="1.5" PointX="0.75" PointY="4.125" Height="2.172587890624996" />
         <EntityTypeShape EntityType="vpss1Model.Trip_Info" Width="1.5" PointX="8.25" PointY="5.625" Height="7.364726562499996" />
@@ -1626,6 +1601,7 @@
           <ConnectorPoint PointX="7.27344" PointY="13.588610781250008" />
           <ConnectorPoint PointX="7.27344" PointY="13.875" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="vpss1Model.split_expenses" Width="1.5" PointX="13.375" PointY="0.75" Height="2.9417936197916674" />
         </Diagram>
     </Diagrams>
   </Designer>
