@@ -94,6 +94,7 @@
     <Compile Include="Controllers\IncomeController.cs" />
     <Compile Include="Controllers\OwnerController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\SplitExpensesController.cs" />
     <Compile Include="Controllers\TripInfoController.cs" />
     <Compile Include="Controllers\ViolationsController.cs" />
     <Compile Include="DB.cs" />
@@ -477,6 +478,13 @@
     <Content Include="Views\Maintenance\NewOrEdit.cshtml" />
     <Content Include="Views\Violations\Index.cshtml" />
     <Content Include="Views\Violations\NewOrEdit.cshtml" />
+    <Content Include="Views\DriverInfo\_PayrollsRollback.cshtml" />
+    <Content Include="Views\DriverInfo\PayrollsRollback.cshtml" />
+    <Content Include="Views\Partial-Payrolls-RollBack\_IndexPartialTripInfo1.cshtml" />
+    <Content Include="Views\Partial-Payrolls-RollBack\_Fuel_ExpensesPartial1.cshtml" />
+    <Content Include="Views\Partial-Payrolls-RollBack\_Operating_ExpensesPartial1.cshtml" />
+    <Content Include="Views\SplitExpenses\Index.cshtml" />
+    <Content Include="Views\SplitExpenses\NewOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\Report2.rdlc" />

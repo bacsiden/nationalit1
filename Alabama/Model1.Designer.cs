@@ -228,22 +228,6 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<split_expenses> split_expenses
-        {
-            get
-            {
-                if ((_split_expenses == null))
-                {
-                    _split_expenses = base.CreateObjectSet<split_expenses>("split_expenses");
-                }
-                return _split_expenses;
-            }
-        }
-        private ObjectSet<split_expenses> _split_expenses;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Trip_Info___old> Trip_Info___old
         {
             get
@@ -368,6 +352,22 @@ namespace Alabama
             }
         }
         private ObjectSet<Violations> _Violations;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<split_expenses> split_expenses
+        {
+            get
+            {
+                if ((_split_expenses == null))
+                {
+                    _split_expenses = base.CreateObjectSet<split_expenses>("split_expenses");
+                }
+                return _split_expenses;
+            }
+        }
+        private ObjectSet<split_expenses> _split_expenses;
 
         #endregion
 
@@ -446,14 +446,6 @@ namespace Alabama
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the split_expenses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTosplit_expenses(split_expenses split_expenses)
-        {
-            base.AddObject("split_expenses", split_expenses);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the Trip_Info___old EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToTrip_Info___old(Trip_Info___old trip_Info___old)
@@ -515,6 +507,14 @@ namespace Alabama
         public void AddToViolations(Violations violations)
         {
             base.AddObject("Violations", violations);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the split_expenses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTosplit_expenses(split_expenses split_expenses)
+        {
+            base.AddObject("split_expenses", split_expenses);
         }
 
         #endregion
@@ -5078,7 +5078,7 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Idndex
         {
@@ -5088,14 +5088,11 @@ namespace Alabama
             }
             set
             {
-                if (_Idndex != value)
-                {
-                    OnIdndexChanging(value);
-                    ReportPropertyChanging("Idndex");
-                    _Idndex = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Idndex");
-                    OnIdndexChanged();
-                }
+                OnIdndexChanging(value);
+                ReportPropertyChanging("Idndex");
+                _Idndex = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Idndex");
+                OnIdndexChanged();
             }
         }
         private global::System.Int32 _Idndex;
@@ -5201,7 +5198,7 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean Fee_Charged
         {
@@ -5211,14 +5208,11 @@ namespace Alabama
             }
             set
             {
-                if (_Fee_Charged != value)
-                {
-                    OnFee_ChargedChanging(value);
-                    ReportPropertyChanging("Fee_Charged");
-                    _Fee_Charged = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Fee_Charged");
-                    OnFee_ChargedChanged();
-                }
+                OnFee_ChargedChanging(value);
+                ReportPropertyChanging("Fee_Charged");
+                _Fee_Charged = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Fee_Charged");
+                OnFee_ChargedChanged();
             }
         }
         private global::System.Boolean _Fee_Charged;
@@ -5228,7 +5222,7 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean Current_Payroll
         {
@@ -5238,14 +5232,11 @@ namespace Alabama
             }
             set
             {
-                if (_Current_Payroll != value)
-                {
-                    OnCurrent_PayrollChanging(value);
-                    ReportPropertyChanging("Current_Payroll");
-                    _Current_Payroll = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Current_Payroll");
-                    OnCurrent_PayrollChanged();
-                }
+                OnCurrent_PayrollChanging(value);
+                ReportPropertyChanging("Current_Payroll");
+                _Current_Payroll = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Current_Payroll");
+                OnCurrent_PayrollChanged();
             }
         }
         private global::System.Boolean _Current_Payroll;
@@ -5255,7 +5246,7 @@ namespace Alabama
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean Paid_Off
         {
@@ -5265,14 +5256,11 @@ namespace Alabama
             }
             set
             {
-                if (_Paid_Off != value)
-                {
-                    OnPaid_OffChanging(value);
-                    ReportPropertyChanging("Paid_Off");
-                    _Paid_Off = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Paid_Off");
-                    OnPaid_OffChanged();
-                }
+                OnPaid_OffChanging(value);
+                ReportPropertyChanging("Paid_Off");
+                _Paid_Off = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Paid_Off");
+                OnPaid_OffChanged();
             }
         }
         private global::System.Boolean _Paid_Off;

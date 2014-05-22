@@ -45,14 +45,13 @@
             @Html.HiddenFor(model => model.ID)
             <div class="row-fluid">
                 <div class="span12">
-                    <a href="/TripInfo/NewOrEdit?driverID=@(Model != null ? Model.ID : 0)" class="btn btn-info">
-                        New Trip info</a> <a href="/Equipment" class="btn btn-info">Equipment</a> <a href="/Violations"
-                            class="btn btn-info">Violations</a> <a href="/Maintenance" class="btn btn-info">Maintenance</a>
-                    <a href="#" class="btn btn-info">Pay rolls rollback</a> 
-                    <a href="#" class="btn btn-info">
-                        Pay rolls operations rollback</a>
-                         <a href="#" class="btn btn-info DriverPayrollExpanses">
-                            Driver payroll & expanses</a>
+                    <a href="/TripInfo/NewOrEdit?driverID=@(Model != null ? Model.ID : 0)" class="btn btn-info"> New Trip info</a> 
+                    <a href="/Equipment" class="btn btn-info">Equipment</a> 
+                    <a href="/Violations" class="btn btn-info">Violations</a> 
+                    <a href="/Maintenance" class="btn btn-info">Maintenance</a>
+                    <a href="/DriverInfo/PayrollsRollback/@Model.ID" class="btn btn-info">Pay rolls rollback</a> 
+                    <a href="#" class="btn btn-info">Pay rolls operations rollback</a>
+                    <a href="#" class="btn btn-info DriverPayrollExpanses">Driver payroll & expanses</a>
                 </div>
                 <div class="span11">
                 </div>
