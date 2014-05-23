@@ -1,6 +1,6 @@
 ﻿@model Webdiyer.WebControls.Mvc.PagedList<Alabama.Operating_Expenses>
 @using Webdiyer.WebControls.Mvc;
-<h3>Driver Info</h3>
+<h3>Operating Expenses</h3>
 <p style="margin-left: 7px;">
     @Html.ActionLink("Create New", "NewOrEdit", null, new { @class = "btn btn-info addNewItem" })
     @Html.ActionLink("Edit", "NewOrEdit", null, new { @class = "btn btn-info EditItem" })
@@ -43,7 +43,7 @@
                     <input type="checkbox" name="checkOwner" value="@item.ID" class="checkitem"/>
                 </td>
                 <td>
-                    <a href="/DriverInfo/NewOrEdit/@item.ID" style="color: #0072BC;">@item.ID</a>
+                    <a href="/OperatingExpenses/NewOrEdit/@item.ID" style="color: #0072BC;">@item.ID</a>
                 </td>
                 <td>
                     @Html.Raw(item.Driver_Info != null ? item.Driver_Info.First_name : "")

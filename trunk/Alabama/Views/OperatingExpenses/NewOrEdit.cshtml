@@ -1,4 +1,4 @@
-﻿@model Alabama.Driver_Info
+﻿@model Alabama.Operating_Expenses
 @{
     ViewBag.Title = "NewOrEdit";
 }
@@ -13,11 +13,11 @@
             @Html.HiddenFor(model => model.ID)
                     
             <div class="control-group">
-                <label class="control-label" for="Order_date">@Html.LabelFor(model => model.First_name)</label>
+                <label class="control-label" for="Order_date">@Html.LabelFor(model => model.Current_Payroll)</label>
                 <div class="controls">
                     <div class="span12">
-                        @Html.TextBoxFor(model => model.First_name, new { @class = "input-xlarge" })
-                        @Html.ValidationMessageFor(model => model.First_name)
+                        @Html.TextBoxFor(model => model.Current_Payroll, new { @class = "input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.Current_Payroll)
                     </div>
                 </div>
             </div>
