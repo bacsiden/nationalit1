@@ -10,6 +10,10 @@
         ListenerCheckBox($("#Fuel_ExpensesAmount .DriverFuel___ExpensesAll"), $("#Fuel_ExpensesAmount .DriverFuel___ExpensesItem"), $("#FuelAmount"));
         //operating expenses
         ListenerCheckBox($("#Operating_ExpensesAmount .DriverOperating_ExpensesAll"), $("#Operating_ExpensesAmount .DriverOperating_ExpensesItem"), $("#OperatingAmount"));
+        //Driver split expenses
+        ListenerCheckBox($("#DriverExpensesSplit .SplitcheckAll"), $("#DriverExpensesSplit .Splitcheckitem"), $("#DriversAmount"));
+        //Owner split expenses
+        ListenerCheckBox($("#OwnerExpensesSplit .SplitcheckAll"), $("#OwnerExpensesSplit .Splitcheckitem"), $("#OwnersAmount"));
     });
     function ListenerCheckBox(objCheckAll, objCheckItem, TotalAmount) {
         objCheckAll.click(function () {
@@ -42,7 +46,8 @@
     var lstFuel_Expenses = Model.Fuel___Expenses.Where(m => m.Current_Payroll.Equals("YES") && m.Paid_off.Equals("NO")).ToList();
     var lstOperating_Expenses = Model.Operating_Expenses.Where(m => m.Current_Payroll.Equals("YES") && m.Paid_off.Equals("NO")).ToList();
     var listTripInfoConditon = Model.Trip_Info.Where(m => m.Picked == true && m.Deliverd == true && m.Current_Payroll == true && m.Customer_Invoiced == true && m.Driver_paid == false).ToList();
-    //var driverExpenses = Alabama.DB.Entities.split_expenses.Where(m=>m.dr);
+    var driverExpenses = Alabama.DB.Entities.split_expenses.Where(m=>m.Idndex==Model.ID && m.OwnerDriver==2).ToList();
+    var OwnerExpenses = Alabama.DB.Entities.split_expenses.Where(m => m.Idndex == Model.Owner_Name && m.OwnerDriver == 1).ToList();
 }
 <div class="row-fluid">
     <div class="span8">
@@ -72,10 +77,10 @@
                         <div class="box-content">
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tab-1-4-1">
-                                    xxxxxx
-                                </div>
+                                    @Html.Partial("/Views/Partial-Payrolls-RollBack/_DriverExpenses.cshtml", driverExpenses)
+                                </div>                                                                                    
                                 <div class="tab-pane" id="tab-1-4-2">
-                                    yyyyyyyyyyy
+                                     @Html.Partial("/Views/Partial-Payrolls-RollBack/_OwnerExpenses.cshtml", OwnerExpenses)
                                 </div>
                             </div>
                         </div>

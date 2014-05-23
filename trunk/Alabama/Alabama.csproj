@@ -485,6 +485,8 @@
     <Content Include="Views\Partial-Payrolls-RollBack\_Operating_ExpensesPartial1.cshtml" />
     <Content Include="Views\SplitExpenses\Index.cshtml" />
     <Content Include="Views\SplitExpenses\NewOrEdit.cshtml" />
+    <Content Include="Views\Partial-Payrolls-RollBack\_OwnerExpenses.cshtml" />
+    <Content Include="Views\Partial-Payrolls-RollBack\_DriverExpenses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\Report2.rdlc" />
