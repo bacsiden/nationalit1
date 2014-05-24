@@ -107,10 +107,10 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reports\DataSet1.Designer.cs">
+    <Compile Include="Reports\CurrentPayroll.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+      <DependentUpon>CurrentPayroll.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reports\DataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -352,16 +352,16 @@
     <Content Include="Views\DriverInfo\_Operating_ExpensesPartial.cshtml" />
     <Content Include="Views\CustomerInfo\_Trip_Info_Partial.cshtml" />
     <None Include="Content\assets\jquery\jquery-1.10.1.min.map" />
-    <None Include="Reports\DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+    <None Include="Reports\CurrentPayroll.xsc">
+      <DependentUpon>CurrentPayroll.xsd</DependentUpon>
     </None>
-    <None Include="Reports\DataSet1.xsd">
+    <None Include="Reports\CurrentPayroll.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>CurrentPayroll.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Reports\DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+    <None Include="Reports\CurrentPayroll.xss">
+      <DependentUpon>CurrentPayroll.xsd</DependentUpon>
     </None>
     <None Include="Reports\DataSet2.xsc">
       <DependentUpon>DataSet2.xsd</DependentUpon>
@@ -498,7 +498,7 @@
     <EmbeddedResource Include="Reports\DispatcherTrip.rdlc" />
     <EmbeddedResource Include="Reports\Invoice.rdlc" />
     <EmbeddedResource Include="Reports\PendingTripByDriver.rdlc" />
-    <EmbeddedResource Include="Reports\Report1.rdlc" />
+    <EmbeddedResource Include="Reports\CurrentPayroll.rdlc" />
     <EmbeddedResource Include="Reports\TripInfoOutstanding.rdlc" />
     <EmbeddedResource Include="Reports\PlaceHolderReport.rdlc" />
     <EmbeddedResource Include="Reports\ScheduleOfInvoices.rdlc" />
