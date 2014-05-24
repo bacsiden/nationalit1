@@ -112,16 +112,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CurrentPayroll.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reports\DataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\DataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet3.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Reports\DispatcherTrip.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -363,28 +353,6 @@
     <None Include="Reports\CurrentPayroll.xss">
       <DependentUpon>CurrentPayroll.xsd</DependentUpon>
     </None>
-    <None Include="Reports\DataSet2.xsc">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="Reports\DataSet2.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet2.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Reports\DataSet2.xss">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="Reports\DataSet3.xsc">
-      <DependentUpon>DataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="Reports\DataSet3.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet3.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Reports\DataSet3.xss">
-      <DependentUpon>DataSet3.xsd</DependentUpon>
-    </None>
     <None Include="Reports\DispatcherTrip.xsc">
       <DependentUpon>DispatcherTrip.xsd</DependentUpon>
     </None>
@@ -489,12 +457,6 @@
     <Content Include="Views\Partial-Payrolls-RollBack\_DriverExpenses.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reports\Report2.rdlc" />
-    <EmbeddedResource Include="Reports\Report3.rdlc" />
-    <EmbeddedResource Include="Reports\Report4.rdlc" />
-    <EmbeddedResource Include="Reports\Report5.rdlc" />
-    <EmbeddedResource Include="Reports\Report6.rdlc" />
-    <EmbeddedResource Include="Reports\Report7.rdlc" />
     <EmbeddedResource Include="Reports\DispatcherTrip.rdlc" />
     <EmbeddedResource Include="Reports\Invoice.rdlc" />
     <EmbeddedResource Include="Reports\PendingTripByDriver.rdlc" />
