@@ -21,9 +21,30 @@ namespace Alabama.Reports
                 var parameters = new List<ReportParameter>();
                 var ds = new CurrentPayroll();
                 DataTable trip = ds.Trips;
+                for (int i = 0; i < 3; i++)
+                {
+                    var dr = trip.NewRow();
+                    dr["PickupDate"] = "xxx";
+                    dr["DeliveryDate"] = "xxx";
+                    dr["Charges"] = "xxx";
+                    trip.Rows.Add(dr);
+                }
+                ReportParameter driverName = new ReportParameter("DriverName", "xxx");
+                ReportParameter tripfee = new ReportParameter("TripTotalFee", "xxx");
+                ReportParameter tripTotal = new ReportParameter("TripTotal", "xxx");
+                parameters.Add(driverName);
+                parameters.Add(tripfee);
+                parameters.Add(tripTotal);
                 ReportViewer1.LocalReport.DataSources.Add(
                 new Microsoft.Reporting.WebForms.ReportDataSource("Trips", trip));
-
+                ReportViewer1.LocalReport.DataSources.Add(
+                new Microsoft.Reporting.WebForms.ReportDataSource("FuelExpenses", (DataTable)ds.FuelExpenses));
+                ReportViewer1.LocalReport.DataSources.Add(
+                new Microsoft.Reporting.WebForms.ReportDataSource("OperatingExpenses", (DataTable)ds.OperatingExpenses));
+                ReportViewer1.LocalReport.DataSources.Add(
+                new Microsoft.Reporting.WebForms.ReportDataSource("OwnerExpenses", (DataTable)ds.OwnerExpenses));
+                ReportViewer1.LocalReport.DataSources.Add(
+                new Microsoft.Reporting.WebForms.ReportDataSource("DriverExpenses", (DataTable)ds.DriverExpenses));
 
                 this.ReportViewer1.LocalReport.SetParameters(parameters);
                 ReportViewer1.LocalReport.Refresh();
