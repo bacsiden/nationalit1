@@ -112,6 +112,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CurrentPayroll.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports\Payroll.aspx.cs">
+      <DependentUpon>Payroll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Payroll.aspx.designer.cs">
+      <DependentUpon>Payroll.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reports\DispatcherTrip.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -259,6 +266,7 @@
     <Content Include="Content\js\flaty.js" />
     <Content Include="Content\js\myJquery.js" />
     <Content Include="Global.asax" />
+    <Content Include="Reports\Payroll.aspx" />
     <Content Include="Reports\ShowReport.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
