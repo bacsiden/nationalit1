@@ -256,3 +256,10 @@ function getListIDCheckBoxByClassName(classWrapper,classItem) {
     });
     return listID;
 }
+function getListIDCheckBoxByIDClassName(classWrapper,classItem) {
+    var listID = "";    
+    $('#'+classWrapper+' input.'+classItem+':checkbox:checked').each(function () {
+        listID += "-" + $(this).attr('getID');
+    });
+    return listID;
+}

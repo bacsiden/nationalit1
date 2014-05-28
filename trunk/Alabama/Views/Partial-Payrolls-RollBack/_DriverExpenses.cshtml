@@ -40,7 +40,7 @@
         {
             <tr>
                 <td>
-                    <input type="checkbox" name="checkOwner" value="@item.Amount" class="Splitcheckitem"/>
+                    <input type="checkbox" name="checkOwner" value="@item.Amount" getID="@item.Id" class="Splitcheckitem"/>
                 </td>
                 <td>
                     @Html.ActionLink(item.Id.ToString(), "NewOrEdit", new { id = item.Id })
