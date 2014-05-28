@@ -464,6 +464,7 @@
     <Content Include="Views\Partial-Payrolls-RollBack\_OwnerExpenses.cshtml" />
     <Content Include="Views\Partial-Payrolls-RollBack\_DriverExpenses.cshtml" />
     <Content Include="Views\SplitExpenses\_IndexPartial.cshtml" />
+    <Content Include="Views\OperatingExpenses\_IndexPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\DispatcherTrip.rdlc" />
