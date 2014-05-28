@@ -10,12 +10,28 @@ namespace Alabama.Controllers
     public class OperatingExpensesController : Controller
     {
         int pageSize = 20;
-
-        public ActionResult Index(int? page)
+        public ActionResult Index(int? page, int? driverID)
         {
-            return View(DB.Entities.Operating_Expenses.OrderByDescending(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
+            var list = DB.Entities.Operating_Expenses.Where(m => (driverID == null ? true : m.ID == driverID.Value)).OrderByDescending(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize);
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_IndexPartial", list);
+            }
+            SelectOption();
+            return View(list);
         }
 
+        void SelectOption()
+        {
+            #region SELECT OPTION
+            string dataOperating_Expenses = "<option >--Select Operating_Expenses--</option>";
+            foreach (var item in Alabama.DB.Entities.Operating_Expenses)
+            {
+                dataOperating_Expenses += string.Format("<option value='{0}'>{0}</option>", item.ID);
+            }
+            ViewBag.dataOperating_Expenses = dataOperating_Expenses;
+            #endregion
+        }
         public ActionResult NewOrEdit(int? id = 0)
         {
             if (id == 0) return View(new Operating_Expenses());
