@@ -12,15 +12,17 @@
         ListenerCheckBox($("#Operating_ExpensesAmount .DriverOperating_ExpensesAll"), $("#Operating_ExpensesAmount .DriverOperating_ExpensesItem"), $("#OperatingAmount"));
         //Driver split expenses
         ListenerCheckBox($("#DriverExpensesSplit .SplitcheckAll"), $("#DriverExpensesSplit .Splitcheckitem"), $("#DriversAmount"));
+        ListenerCheckAll($("#DriverExpensesSplit .SplitcheckAll"), $("#DriverExpensesSplit .Splitcheckitem"));
         //Owner split expenses
         ListenerCheckBox($("#OwnerExpensesSplit .SplitcheckAll"), $("#OwnerExpensesSplit .Splitcheckitem"), $("#OwnersAmount"));
+        ListenerCheckAll($("#OwnerExpensesSplit .SplitcheckAll"), $("#OwnerExpensesSplit .Splitcheckitem"));
         $(".PrintPayroll1").click(function () {
             var Trips = getListIDCheckBoxByIDClassName("TripAmountTable", "DriverTripCheckItem");
             var Fuel = getListIDCheckBoxByIDClassName("Fuel_ExpensesAmount", "DriverFuel___ExpensesItem");
             var operating = getListIDCheckBoxByIDClassName("Operating_ExpensesAmount", "DriverOperating_ExpensesItem");
             var splitdriver = getListIDCheckBoxByIDClassName("DriverExpensesSplit", "Splitcheckitem");
             var splitowner = getListIDCheckBoxByIDClassName("OwnerExpensesSplit", "Splitcheckitem");
-            var driverid = '@Model.ID';            
+            var driverid = '@Model.ID';
             var url = $(this).attr('href');
             var newurl = addParam(addParam(addParam(addParam(addParam(addParam(url, "driverid", driverid), "Trips", Trips), "Fuel", Fuel), "operating", operating), "splitdriver", splitdriver), "splitowner", splitowner);
             window.open(newurl, '_blank');
@@ -49,6 +51,15 @@
                 tripAmount = eval(tripAmount) - eval(value);
             }
             TotalAmount.val(tripAmount);
+        });
+    }
+    function ListenerCheckAll(checkAll,checkItem) {
+        checkAll.click(function () {            
+            if ($(this).is(':checked')) {
+                checkItem.prop('checked', true);
+            } else {
+                checkItem.prop('checked', false);
+            }
         });
     }
 </script>
