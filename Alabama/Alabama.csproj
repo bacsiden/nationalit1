@@ -455,7 +455,7 @@
     <Content Include="Views\Violations\Index.cshtml" />
     <Content Include="Views\Violations\NewOrEdit.cshtml" />
     <Content Include="Views\DriverInfo\_PayrollsRollback.cshtml" />
-    <Content Include="Views\DriverInfo\PayrollsRollback.cshtml" />
+    <Content Include="Views\DriverInfo\DriverPayroll.cshtml" />
     <Content Include="Views\Partial-Payrolls-RollBack\_IndexPartialTripInfo1.cshtml" />
     <Content Include="Views\Partial-Payrolls-RollBack\_Fuel_ExpensesPartial1.cshtml" />
     <Content Include="Views\Partial-Payrolls-RollBack\_Operating_ExpensesPartial1.cshtml" />

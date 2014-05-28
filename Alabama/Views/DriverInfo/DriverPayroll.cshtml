@@ -1,6 +1,6 @@
 ﻿@model Alabama.Driver_Info
 @{
-    ViewBag.Title = "PayrollsRollback";
+    ViewBag.Title = "Driver Payroll & Expenses";
 }
 <script type="text/javascript">
     $(document).ready(function () {
@@ -40,8 +40,7 @@
         });
     }
 </script>
-<h2>
-    Payrolls Rollback</h2>
+<h3>Driver Payroll & Expenses</h3>
 @{
     var lstFuel_Expenses = Model.Fuel___Expenses.Where(m => m.Current_Payroll.Equals("YES") && m.Paid_off.Equals("NO")).ToList();
     var lstOperating_Expenses = Model.Operating_Expenses.Where(m => m.Current_Payroll.Equals("YES") && m.Paid_off.Equals("NO")).ToList();
