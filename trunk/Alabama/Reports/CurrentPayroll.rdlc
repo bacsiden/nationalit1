@@ -429,6 +429,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
+                              <Value>$</Value>
+                              <Style />
+                            </TextRun>
+                            <TextRun>
                               <Value>=Fields!Charges.Value</Value>
                               <Style />
                             </TextRun>
@@ -728,6 +732,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
+                              <Value>$</Value>
+                              <Style />
+                            </TextRun>
+                            <TextRun>
                               <Value>=Fields!Amount.Value</Value>
                               <Style />
                             </TextRun>
@@ -992,6 +1000,10 @@
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
+                            <TextRun>
+                              <Value>$</Value>
+                              <Style />
+                            </TextRun>
                             <TextRun>
                               <Value>=Fields!Amount.Value</Value>
                               <Style />
@@ -1484,6 +1496,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
+                                  <Value>$</Value>
+                                  <Style />
+                                </TextRun>
+                                <TextRun>
                                   <Value>=Fields!Amount.Value</Value>
                                   <Style />
                                 </TextRun>
@@ -1846,6 +1862,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
+                                  <Value>$</Value>
+                                  <Style />
+                                </TextRun>
+                                <TextRun>
                                   <Value>=Fields!Amount.Value</Value>
                                   <Style />
                                 </TextRun>
@@ -2029,6 +2049,7 @@
         <ZIndex>16</ZIndex>
         <Style>
           <Border>
+            <Color>DimGray</Color>
             <Style>Solid</Style>
           </Border>
         </Style>
@@ -2041,6 +2062,7 @@
         <ZIndex>17</ZIndex>
         <Style>
           <Border>
+            <Color>DimGray</Color>
             <Style>Solid</Style>
           </Border>
         </Style>
@@ -2069,9 +2091,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>5.61979in</Top>
-        <Left>3.5in</Left>
+        <Left>4.375in</Left>
         <Height>0.22917in</Height>
-        <Width>3.33438in</Width>
+        <Width>2.52188in</Width>
         <ZIndex>18</ZIndex>
         <Style>
           <Border>
@@ -2107,9 +2129,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>5.90452in</Top>
-        <Left>3.5in</Left>
+        <Left>4.375in</Left>
         <Height>0.22917in</Height>
-        <Width>3.33438in</Width>
+        <Width>2.52188in</Width>
         <ZIndex>19</ZIndex>
         <Style>
           <Border>
@@ -2145,9 +2167,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>6.19063in</Top>
-        <Left>3.5in</Left>
+        <Left>4.375in</Left>
         <Height>0.22917in</Height>
-        <Width>3.33438in</Width>
+        <Width>2.52188in</Width>
         <ZIndex>20</ZIndex>
         <Style>
           <Border>
@@ -2160,7 +2182,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>7.03125in</Height>
+    <Height>6.57292in</Height>
     <Style />
   </Body>
   <ReportParameters>

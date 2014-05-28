@@ -41,7 +41,8 @@ namespace Alabama.Reports
                         var dr = trip.NewRow();
                         dr["PickupDate"] = string.Format("{0:MM/dd/yyyy}", item.Order_date);
                         dr["DeliveryDate"] = string.Format("{0:MM/dd/yyyy}", item.Delivery_date);
-                        dr["Charges"] = item.Total_charges;
+                        if (item.Total_charges != null)
+                            dr["Charges"] = ((double)item.Total_charges).ToString("N2");
                         if (item.Total_charges != null)
                             total1 += (double)item.Total_charges;
                         trip.Rows.Add(dr);
@@ -77,7 +78,8 @@ namespace Alabama.Reports
                         var dr1 = fuel.NewRow();
                         dr1["Date"] = String.Format("{0:MM/dd/yyyy}", item.Date);
                         dr1["Type"] = item.Type;
-                        dr1["Amount"] = item.Amount;
+                        if (item.Amount != null)
+                            dr1["Amount"] = ((double)item.Amount).ToString("N2");
                         dr1["Gallons"] = "0";
                         if (item.Amount != null)
                             total2 += (double)item.Amount;
@@ -111,7 +113,8 @@ namespace Alabama.Reports
                         var dr2 = opera.NewRow();
                         dr2["Date"] = string.Format("{0:MM/dd/yyyy}", item.Date);
                         dr2["Type"] = item.Type;
-                        dr2["Amount"] = item.Amount;
+                        if (item.Amount != null)
+                            dr2["Amount"] = ((double)item.Amount).ToString("N2");
                         if (item.Amount != null)
                             total3 += (double)item.Amount;
                         opera.Rows.Add(dr2);
@@ -139,7 +142,8 @@ namespace Alabama.Reports
                         var dr3 = osplit.NewRow();
                         dr3["Date"] = string.Format("{0:MM/dd/yyyy}", item.Date);
                         dr3["Expenses"] = item.Expenses;
-                        dr3["Amount"] = item.Amount;
+                        if (item.Amount != null)
+                            dr3["Amount"] = ((double)item.Amount).ToString("N2");
                         if (item.Amount != null)
                             total4 += (double)item.Amount;
                         osplit.Rows.Add(dr3);
@@ -173,7 +177,8 @@ namespace Alabama.Reports
                         var dr4 = dsplit.NewRow();
                         dr4["Date"] = string.Format("{0:MM/dd/yyyy}", item.Date);
                         dr4["Expenses"] = item.Expenses;
-                        dr4["Amount"] = item.Amount;
+                        if (item.Amount != null)
+                            dr4["Amount"] = ((double)item.Amount).ToString("N2");
                         if (item.Amount != null)
                             total5 += (double)item.Amount;
                         dsplit.Rows.Add(dr4);
