@@ -13,6 +13,7 @@ namespace Alabama.Reports
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Trips=1-2-3&Fuel=3-4-6&operating=3-4-5&splitdriver=2-3$splitowner=3-4
             if (!Page.IsPostBack)
             {
                 ReportViewer1.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
@@ -20,16 +21,27 @@ namespace Alabama.Reports
                 ReportViewer1.LocalReport.DataSources.Clear();
                 var parameters = new List<ReportParameter>();
                 var ds = new CurrentPayroll();
+                var db = DB.Entities;
+                #region Trips
                 DataTable trip = ds.Trips;
-                for (int i = 0; i < 3; i++)
+                int driverid = int.Parse(Request.QueryString["driverid"]);
+                var driverinfo = db.Driver_Info.FirstOrDefault(m => m.ID == driverid);
+                string para = Request.QueryString["trips"];
+                if (!string.IsNullOrEmpty(para))
                 {
-                    var dr = trip.NewRow();
-                    dr["PickupDate"] = "xxx";
-                    dr["DeliveryDate"] = "xxx";
-                    dr["Charges"] = "xxx";
-                    trip.Rows.Add(dr);
+                    string[] lstID = para.Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
+                    var lstTrip = db.Trip_Info.Where(m => lstID.Contains(m.Trip_ID + ""));
+                    foreach (var item in lstTrip)
+                    {
+                        var dr = trip.NewRow();
+                        dr["PickupDate"] = string.Format("{0:MM/dd/yyyy}", item.Order_date);
+                        dr["DeliveryDate"] = string.Format("{0:MM/dd/yyyy}", item.Delivery_date);
+                        dr["Charges"] = item.Total_charges;
+                        trip.Rows.Add(dr);
+                    }
                 }
-                ReportParameter driverName = new ReportParameter("DriverName", "xxx");
+                #endregion
+                ReportParameter driverName = new ReportParameter("DriverName", driverinfo.First_name + " " + driverinfo.Last_name);
                 ReportParameter tripfee = new ReportParameter("TripTotalFee", "xxx");
                 ReportParameter tripTotal = new ReportParameter("TripTotal", "xxx");
                 parameters.Add(driverName);
