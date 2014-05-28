@@ -14,6 +14,18 @@
         ListenerCheckBox($("#DriverExpensesSplit .SplitcheckAll"), $("#DriverExpensesSplit .Splitcheckitem"), $("#DriversAmount"));
         //Owner split expenses
         ListenerCheckBox($("#OwnerExpensesSplit .SplitcheckAll"), $("#OwnerExpensesSplit .Splitcheckitem"), $("#OwnersAmount"));
+        $(".PrintPayroll1").click(function () {
+            var Trips = getListIDCheckBoxByIDClassName("TripAmountTable", "DriverTripCheckItem");
+            var Fuel = getListIDCheckBoxByIDClassName("Fuel_ExpensesAmount", "DriverFuel___ExpensesItem");
+            var operating = getListIDCheckBoxByIDClassName("Operating_ExpensesAmount", "DriverOperating_ExpensesItem");
+            var splitdriver = getListIDCheckBoxByIDClassName("DriverExpensesSplit", "Splitcheckitem");
+            var splitowner = getListIDCheckBoxByIDClassName("OwnerExpensesSplit", "Splitcheckitem");
+            var driverid = '@Model.ID';            
+            var url = $(this).attr('href');
+            var newurl = addParam(addParam(addParam(addParam(addParam(addParam(url, "driverid", driverid), "Trips", Trips), "Fuel", Fuel), "operating", operating), "splitdriver", splitdriver), "splitowner", splitowner);
+            window.open(newurl, '_blank');
+            return false;
+        });
     });
     function ListenerCheckBox(objCheckAll, objCheckItem, TotalAmount) {
         objCheckAll.click(function () {
@@ -151,7 +163,7 @@
                     </div>
                 </div>
                 <div class="form-actions">
-                    <input type="submit" class="btn btn-primary" value="Print Payroll">
+                    <a href="/Report/Test" class="btn btn-primary PrintPayroll1" >Print Payroll</a>
                     <input type="submit" class="btn btn-primary" value="PDF Payroll">
                 </div>
             </div>

@@ -37,7 +37,7 @@
             {
                 <tr>
                     <td>
-                        <input type="checkbox" name="DriverTripCheckItem" value="@item.Total_charges" class="DriverTripCheckItem"/>
+                        <input type="checkbox" name="DriverTripCheckItem" value="@item.Total_charges" getID="@item.Trip_ID" class="DriverTripCheckItem"/>
                     </td>
                     <td>
                         @Html.ActionLink(item.Trip_ID.ToString(), "NewOrEdit", new { id = item.Trip_ID })
