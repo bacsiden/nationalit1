@@ -13,9 +13,27 @@ namespace Alabama.Controllers
         //
         // GET: /Owner/
 
-        public ActionResult Index(int? page)
+        public ActionResult Index(int? page, int? driverID)
         {
-            return View(DB.Entities.split_expenses.OrderByDescending(m => m.Id).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
+            var list = DB.Entities.split_expenses.Where(m=>(driverID == null ? true : m.Id == driverID.Value)).OrderByDescending(m => m.Id).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize);
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_IndexPartial", list);
+            }
+            SelectOption();
+            return View(list);
+        }
+
+        void SelectOption()
+        {
+            #region SELECT OPTION
+            string dataSplit_Expenses = "<option >--Select Split_Expenses--</option>";            
+            foreach (var item in Alabama.DB.Entities.split_expenses)
+            {
+                dataSplit_Expenses += string.Format("<option value='{0}'>{0}</option>", item.Id);
+            }
+            ViewBag.dataSplit_Expenses = dataSplit_Expenses;
+            #endregion
         }
         //
         // GET: /Owner/Edit/5
