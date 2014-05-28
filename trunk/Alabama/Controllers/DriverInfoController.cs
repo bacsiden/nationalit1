@@ -227,7 +227,7 @@ namespace Alabama.Controllers
         }
 
 
-        public ActionResult PayrollsRollback(int id)
+        public ActionResult DriverPayroll(int id)
         {
             var obj = DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == id);
             if (obj == null) obj = new Driver_Info();
