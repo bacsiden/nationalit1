@@ -50,7 +50,8 @@ namespace Alabama.Reports
                 }
                 if (driverinfo.Pay_rate != null)
                 {
-                    fee1 = total1 - (total1 * driverinfo.Pay_rate.Value);
+                    fee1 = total1 * driverinfo.Pay_rate.Value;
+                    total1 += fee1;
                 }
                 ReportParameter driverName = new ReportParameter("DriverName", driverinfo.First_name + " " + driverinfo.Last_name);
                 ReportParameter tripfee = new ReportParameter("TripTotalFee", fee1.ToString("N2"));
@@ -88,7 +89,8 @@ namespace Alabama.Reports
                 }
                 if (driverinfo.fuel___advance_Fee_rate != null)
                 {
-                    fee2 = total2 + (total2 * driverinfo.fuel___advance_Fee_rate.Value);
+                    fee2 = total2 * driverinfo.fuel___advance_Fee_rate.Value;
+                    total2 += fee2;
                 }
                 ReportParameter fuelFee = new ReportParameter("FuelFee", total2.ToString("N2"));
                 ReportParameter fuelAmount = new ReportParameter("FuelAmount", fee2.ToString("N2"));
@@ -151,7 +153,8 @@ namespace Alabama.Reports
                 }
                 if (driverinfo.fuel___advance_Fee_rate != null)
                 {
-                    fee4 = total4 + (total4 * driverinfo.fuel___advance_Fee_rate.Value);
+                    fee4 = total4 * driverinfo.fuel___advance_Fee_rate.Value;
+                    total4 += fee4;
                 }
                 ReportParameter oExFee = new ReportParameter("OExFee", total4.ToString("N2"));
                 ReportParameter oExTotal = new ReportParameter("OExTotal", fee4.ToString("N2"));
@@ -186,7 +189,8 @@ namespace Alabama.Reports
                 }
                 if (driverinfo.fuel___advance_Fee_rate != null)
                 {
-                    fee5 = total5 + (total5 * driverinfo.fuel___advance_Fee_rate.Value);
+                    fee5 = total5 * driverinfo.fuel___advance_Fee_rate.Value;
+                    total5 += fee5;
                 }
                 ReportParameter dExFee = new ReportParameter("DExFee", total5.ToString("N2"));
                 ReportParameter dExTotal = new ReportParameter("DExTotal", fee5.ToString("N2"));
@@ -200,7 +204,7 @@ namespace Alabama.Reports
                 double payrollAmount = total1 - sum;
                 double ownerPayment = 0;
                 if (driverinfo.Owner_Pay_Rate != null)
-                    ownerPayment = payrollAmount + (double)driverinfo.Owner_Pay_Rate*payrollAmount;
+                    ownerPayment = (double)driverinfo.Owner_Pay_Rate * payrollAmount;
                 double driverPayment = payrollAmount - ownerPayment;
 
                 ReportParameter PayrollAmount = new ReportParameter("PayrollAmount", payrollAmount.ToString("N2"));
