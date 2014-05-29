@@ -200,7 +200,7 @@ namespace Alabama.Reports
                 double payrollAmount = total1 - sum;
                 double ownerPayment = 0;
                 if (driverinfo.Owner_Pay_Rate != null)
-                    ownerPayment = payrollAmount + (double)driverinfo.Owner_Pay_Rate;
+                    ownerPayment = payrollAmount + (double)driverinfo.Owner_Pay_Rate*payrollAmount;
                 double driverPayment = payrollAmount - ownerPayment;
 
                 ReportParameter PayrollAmount = new ReportParameter("PayrollAmount", payrollAmount.ToString("N2"));
