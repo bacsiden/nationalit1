@@ -9,20 +9,20 @@ namespace Alabama
 {
     public class DB
     {
-        public static vpss1Entities Entities
+        public static nationalitEntities Entities
         {
             get
             {
-                return new vpss1Entities();
+                return new nationalitEntities();
             }
         }
         public class BaseClass<T> where T : EntityObject
         {
-            vpss1Entities _db;
+            nationalitEntities _db;
 
             public BaseClass()
             {
-                _db = new vpss1Entities();
+                _db = new nationalitEntities();
             }
 
             public T GetByID(int id)

@@ -342,14 +342,14 @@
     <Content Include="Views\DriverInfo\NewOrEdit.cshtml" />
     <Content Include="Views\OperatingExpenses\Index.cshtml" />
     <Content Include="Views\OperatingExpenses\NewOrEdit.cshtml" />
-    <EntityDeploy Include="Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <Content Include="Views\DriverInfo\_Fuel_ExpensesPartial.cshtml" />
     <Content Include="Views\DriverInfo\_Operating_ExpensesPartial.cshtml" />
     <Content Include="Views\CustomerInfo\_Trip_Info_Partial.cshtml" />
     <None Include="Content\assets\jquery\jquery-1.10.1.min.map" />
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="Reports\CurrentPayroll.xsc">
       <DependentUpon>CurrentPayroll.xsd</DependentUpon>
     </None>
