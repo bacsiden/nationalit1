@@ -7,7 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Alabama.Reports {
+namespace NationalIT.Reports
+{
     
     
     public partial class ShowReport {

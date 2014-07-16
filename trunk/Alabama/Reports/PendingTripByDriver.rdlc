@@ -23,7 +23,7 @@
       </Query>
       <rd:DataSetInfo>
         <rd:DataSetName>PendingTripByDriver</rd:DataSetName>
-        <rd:SchemaPath>D:\Recnaleerf\nationalit1\Alabama\Reports\PendingTripByDriver.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Recnaleerf\nationalit1\NationalIT\Reports\PendingTripByDriver.xsd</rd:SchemaPath>
         <rd:TableName>DataTable1</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

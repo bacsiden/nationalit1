@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using Microsoft.Reporting.WebForms;
 
-namespace Alabama.Reports
+namespace NationalIT.Reports
 {
     public partial class ShowReport : System.Web.UI.Page
     {

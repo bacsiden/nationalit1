@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Alabama.Reports {
+namespace NationalIT.Reports {
     
     
     /// <summary>
@@ -277,7 +277,7 @@ namespace Alabama.Reports {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class DispatcherTrip1DataTable : global::System.Data.TypedTableBase<DispatcherTrip1Row> {
+        public partial class DispatcherTrip1DataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
             
             private global::System.Data.DataColumn columnDispatcherName;
             
@@ -465,6 +465,12 @@ namespace Alabama.Reports {
                 rowDispatcherTrip1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDispatcherTrip1Row);
                 return rowDispatcherTrip1Row;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public virtual global::System.Collections.IEnumerator GetEnumerator() {
+                return this.Rows.GetEnumerator();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

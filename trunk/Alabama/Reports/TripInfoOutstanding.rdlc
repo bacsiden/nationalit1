@@ -87,7 +87,7 @@
       </Query>
       <rd:DataSetInfo>
         <rd:DataSetName>TripInfoOutstanding</rd:DataSetName>
-        <rd:SchemaPath>D:\Recnaleerf\nationalit1\Alabama\Reports\TripInfoOutstanding.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Recnaleerf\nationalit1\NationalIT\Reports\TripInfoOutstanding.xsd</rd:SchemaPath>
         <rd:TableName>DataTable1</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
