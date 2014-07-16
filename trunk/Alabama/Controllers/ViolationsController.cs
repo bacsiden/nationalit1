@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Webdiyer.WebControls.Mvc;
 
-namespace Alabama.Controllers
+namespace NationalIT.Controllers
 {
     public class ViolationsController : Controller
     {
@@ -25,7 +25,7 @@ namespace Alabama.Controllers
             var obj = DB.Entities.Violations.FirstOrDefault(m => m.ID == id);
             #region SELECT OPTION
             string dataDriver_Info = "<option >--Select Driver_Info--</option>";
-            foreach (var item in Alabama.DB.Entities.Driver_Info)
+            foreach (var item in NationalIT.DB.Entities.Driver_Info)
             {
                 if (obj != null && obj.Driver == item.ID)
                 {
@@ -39,7 +39,7 @@ namespace Alabama.Controllers
             ViewBag.dataDriver_Info = dataDriver_Info;
 
             string dataEquipment = "<option >--Select Equiment--</option>";
-            foreach (var item in Alabama.DB.Entities.Equipment)
+            foreach (var item in NationalIT.DB.Entities.Equipment)
             {
                 if (obj != null && obj.Equipment == item.ID)
                 {
@@ -83,7 +83,7 @@ namespace Alabama.Controllers
             {
                 #region SELECT OPTION
                 string dataDriver_Info = "<option >--Select Driver_Info--</option>";
-                foreach (var item in Alabama.DB.Entities.Driver_Info)
+                foreach (var item in NationalIT.DB.Entities.Driver_Info)
                 {
                     if (model != null && model.Driver == item.ID)
                     {
@@ -97,7 +97,7 @@ namespace Alabama.Controllers
                 ViewBag.dataDriver_Info = dataDriver_Info;
 
                 string dataEquipment = "<option >--Select Equiment--</option>";
-                foreach (var item in Alabama.DB.Entities.Equipment)
+                foreach (var item in NationalIT.DB.Entities.Equipment)
                 {
                     if (model != null && model.Equipment == item.ID)
                     {

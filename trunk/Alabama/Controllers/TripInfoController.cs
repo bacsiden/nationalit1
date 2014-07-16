@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Webdiyer.WebControls.Mvc;
 using System.Data.Objects.SqlClient;
 
-namespace Alabama.Controllers
+namespace NationalIT.Controllers
 {
     public class TripInfoController : Controller
     {
@@ -40,7 +40,7 @@ namespace Alabama.Controllers
             ViewBag.dataTripInfo = dataTripInfo;
 
             string dataDriver_Info = "<option >- All Driver_Info -</option>";
-            foreach (var item in Alabama.DB.Entities.Driver_Info)
+            foreach (var item in NationalIT.DB.Entities.Driver_Info)
             {
                 dataDriver_Info += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
             }
@@ -57,7 +57,7 @@ namespace Alabama.Controllers
 
             #region SELECT OPTION
             string dataDispatchers = "<option >--Select Dispatcher--</option>";
-            foreach (var item in Alabama.DB.Entities.Dispatchers)
+            foreach (var item in NationalIT.DB.Entities.Dispatchers)
             {
                 if (obj != null && obj.Dispatcher == item.ID)
                 {
@@ -72,7 +72,7 @@ namespace Alabama.Controllers
             ViewBag.dataDispatchers = dataDispatchers;
 
             string dataDriver = "<option >--Select Driver--</option>";
-            foreach (var item in Alabama.DB.Entities.Driver_Info)
+            foreach (var item in NationalIT.DB.Entities.Driver_Info)
             {
                 if (obj != null && obj.Driver == item.ID)
                 {
@@ -86,7 +86,7 @@ namespace Alabama.Controllers
             ViewBag.dataDriver = dataDriver;
 
             string dataEquipment = "<option >--Select Equiment--</option>";
-            foreach (var item in Alabama.DB.Entities.Equipment)
+            foreach (var item in NationalIT.DB.Entities.Equipment)
             {
                 if (obj != null && obj.Equipment_ID == item.ID)
                 {
@@ -132,7 +132,7 @@ namespace Alabama.Controllers
 
                 #region SELECT OPTION
                 string dataDispatchers = "<option >--Select Dispatcher--</option>";
-                foreach (var item in Alabama.DB.Entities.Dispatchers)
+                foreach (var item in NationalIT.DB.Entities.Dispatchers)
                 {
                     if (model != null && model.Dispatcher == item.ID)
                     {
@@ -147,7 +147,7 @@ namespace Alabama.Controllers
                 ViewBag.dataDispatchers = dataDispatchers;
 
                 string dataDriver = "<option >--Select Driver--</option>";
-                foreach (var item in Alabama.DB.Entities.Driver_Info)
+                foreach (var item in NationalIT.DB.Entities.Driver_Info)
                 {
                     if (model != null && model.Driver == item.ID)
                     {
@@ -161,7 +161,7 @@ namespace Alabama.Controllers
                 ViewBag.dataDriver = dataDriver;
 
                 string dataEquipment = "<option >--Select Equiment--</option>";
-                foreach (var item in Alabama.DB.Entities.Equipment)
+                foreach (var item in NationalIT.DB.Entities.Equipment)
                 {
                     if (model != null && model.Equipment_ID == item.ID)
                     {
@@ -212,7 +212,7 @@ namespace Alabama.Controllers
             page = page.HasValue ? page.Value : 1;
             int id = 0;
             int.TryParse(query, out id);
-            var db = Alabama.DB.Entities;
+            var db = NationalIT.DB.Entities;
             var list = db.Customer_Info.Where(m =>
                 m.Customer_Name.Contains(query) || (id == 0) ? true : m.Customer_ID == id);
             return PartialView(list.OrderByDescending(m => m.Customer_ID).ToPagedList(page.Value, 5));

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Webdiyer.WebControls.Mvc;
 
-namespace Alabama.Controllers
+namespace NationalIT.Controllers
 {
     public class EquipmentController : Controller
     {
@@ -27,7 +27,7 @@ namespace Alabama.Controllers
 
 
             string dataDriver = "<option >--Select Driver--</option>";
-            foreach (var item in Alabama.DB.Entities.Driver_Info)
+            foreach (var item in NationalIT.DB.Entities.Driver_Info)
             {
                 if (obj != null && obj.Driver == item.ID)
                 {
@@ -70,7 +70,7 @@ namespace Alabama.Controllers
             catch
             {
                 string dataDriver = "<option >--Select Driver--</option>";
-                foreach (var item in Alabama.DB.Entities.Driver_Info)
+                foreach (var item in NationalIT.DB.Entities.Driver_Info)
                 {
                     if (model != null && model.Driver == item.ID)
                     {
