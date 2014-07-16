@@ -1,4 +1,4 @@
-﻿@model Alabama.Driver_Info
+﻿@model NationalIT.Driver_Info
 @using Webdiyer.WebControls.Mvc;
 @{
     ViewBag.Title = "NewOrEdit";
@@ -234,12 +234,12 @@
             var listTripInfoConditon = listTripInfo.Where(m => m.Picked == true && m.Deliverd == true && m.Current_Payroll == true && m.Customer_Invoiced == true && m.Driver_paid == false).ToList();
                                     
                     }
-                    @Html.Partial("_Fuel_ExpensesPartial", new PagedList<Alabama.Fuel___Expenses>(lstFuel_Expenses, page, pageSize))
+                    @Html.Partial("_Fuel_ExpensesPartial", new PagedList<NationalIT.Fuel___Expenses>(lstFuel_Expenses, page, pageSize))
                 </div>
             </div>
             <div class="row-fluid">
                 <div class="span12">
-                    @Html.Partial("_Operating_ExpensesPartial", new PagedList<Alabama.Operating_Expenses>(lstOperating_Expenses, pageIndex, pageSize))
+                    @Html.Partial("_Operating_ExpensesPartial", new PagedList<NationalIT.Operating_Expenses>(lstOperating_Expenses, pageIndex, pageSize))
                 </div>
             </div>
             <div class="row-fluid">
@@ -247,7 +247,7 @@
                     <div id="wrap-AjaxPaging">
                         <h3>
                             Trip Driver</h3>
-                        @Html.Partial("_IndexPartialTripInfo", new PagedList<Alabama.Trip_Info>(listTripInfo, pageInfo, pageSize))
+                        @Html.Partial("_IndexPartialTripInfo", new PagedList<NationalIT.Trip_Info>(listTripInfo, pageInfo, pageSize))
                     </div>
                 </div>
             </div>
