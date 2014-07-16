@@ -67,21 +67,52 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\CompanyExpansesController.cs" />
-    <Compile Include="Controllers\CustomerInfoController.cs" />
-    <Compile Include="Controllers\DispatchersController.cs" />
-    <Compile Include="Controllers\DriverInfoController.cs" />
-    <Compile Include="Controllers\EquipmentController.cs" />
-    <Compile Include="Controllers\FuelExpensesController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\IncomeController.cs" />
-    <Compile Include="Controllers\MaintenanceController.cs" />
-    <Compile Include="Controllers\OperatingExpensesController.cs" />
-    <Compile Include="Controllers\OwnerController.cs" />
-    <Compile Include="Controllers\ReportController.cs" />
-    <Compile Include="Controllers\SplitExpensesController.cs" />
-    <Compile Include="Controllers\TripInfoController.cs" />
-    <Compile Include="Controllers\ViolationsController.cs" />
+    <Compile Include="Controllers\CompanyExpansesController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\CustomerInfoController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\Customer_InfoController.cs" />
+    <Compile Include="Controllers\DispatchersController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\DriverInfoController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\EquipmentController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\FuelExpensesController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\HomeController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\IncomeController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\MaintenanceController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\OperatingExpensesController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\OwnerController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\ReportController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\SplitExpensesController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\TripInfoController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\ViolationsController.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DB.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -94,28 +125,28 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\CurrentPayroll.Designer.cs">
       <DependentUpon>CurrentPayroll.xsd</DependentUpon>
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Reports\DispatcherTrip.Designer.cs">
       <DependentUpon>DispatcherTrip.xsd</DependentUpon>
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Reports\DriverTripFlue.Designer.cs">
       <DependentUpon>DriverTripFlue.xsd</DependentUpon>
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Reports\FlueExpenses.Designer.cs">
       <DependentUpon>FlueExpenses.xsd</DependentUpon>
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Reports\Invoice.Designer.cs">
       <DependentUpon>Invoice.xsd</DependentUpon>
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Reports\Payroll.aspx.cs">
       <DependentUpon>Payroll.aspx</DependentUpon>
@@ -126,13 +157,13 @@
     </Compile>
     <Compile Include="Reports\PendingTripByDriver.Designer.cs">
       <DependentUpon>PendingTripByDriver.xsd</DependentUpon>
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Reports\ScheduleOfInvoices.Designer.cs">
       <DependentUpon>ScheduleOfInvoices.xsd</DependentUpon>
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Reports\ShowReport.aspx.cs">
       <DependentUpon>ShowReport.aspx</DependentUpon>
@@ -143,8 +174,8 @@
     </Compile>
     <Compile Include="Reports\TripInfoOutstanding.Designer.cs">
       <DependentUpon>TripInfoOutstanding.xsd</DependentUpon>
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -192,6 +223,24 @@
     <Content Include="Content\assets\flot\jquery.flot.stack.js" />
     <Content Include="Content\assets\flot\jquery.flot.tooltip.min.js" />
     <Content Include="Content\assets\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Scripts\jquery-1.4.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.4.js" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <None Include="Content\assets\font-awesome\font\fontawesome-webfont.svg" />
     <Content Include="Content\assets\gritter\css\jquery.gritter.css" />
     <Content Include="Content\assets\gritter\images\ie-spacer.gif" />
@@ -254,33 +303,8 @@
     <Content Include="Global.asax" />
     <Content Include="Reports\Payroll.aspx" />
     <Content Include="Reports\ShowReport.aspx" />
-    <Content Include="Scripts\jquery-1.4.4-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.4.4.js" />
-    <Content Include="Scripts\jquery-1.4.4.min.js" />
-    <Content Include="Scripts\jquery-ui.js" />
-    <Content Include="Scripts\jquery-ui.min.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\MicrosoftAjax.debug.js" />
-    <Content Include="Scripts\MicrosoftAjax.js" />
-    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
-    <Content Include="Scripts\MicrosoftMvcAjax.js" />
-    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
-    <Content Include="Scripts\MicrosoftMvcValidation.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
+    <None Include="Content\assets\font-awesome\font\fontawesome-webfont.eot%40" />
+    <None Include="Content\assets\font-awesome\font\fontawesome-webfont.eot%40v=3.2.1" />
     <None Include="Content\assets\font-awesome\font\fontawesome-webfont.ttf%40v=3.2.1" />
     <None Include="Content\assets\font-awesome\font\fontawesome-webfont.woff%40v=3.2.1" />
     <None Include="Content\assets\jquery\jquery-1.10.1.min.map" />
@@ -292,9 +316,9 @@
       <DependentUpon>CurrentPayroll.xsd</DependentUpon>
     </None>
     <None Include="Reports\CurrentPayroll.xsd">
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>CurrentPayroll.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
     <None Include="Reports\CurrentPayroll.xss">
       <DependentUpon>CurrentPayroll.xsd</DependentUpon>
@@ -303,9 +327,9 @@
       <DependentUpon>DispatcherTrip.xsd</DependentUpon>
     </None>
     <None Include="Reports\DispatcherTrip.xsd">
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DispatcherTrip.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
     <None Include="Reports\DispatcherTrip.xss">
       <DependentUpon>DispatcherTrip.xsd</DependentUpon>
@@ -314,9 +338,9 @@
       <DependentUpon>DriverTripFlue.xsd</DependentUpon>
     </None>
     <None Include="Reports\DriverTripFlue.xsd">
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DriverTripFlue.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
     <None Include="Reports\DriverTripFlue.xss">
       <DependentUpon>DriverTripFlue.xsd</DependentUpon>
@@ -325,9 +349,9 @@
       <DependentUpon>FlueExpenses.xsd</DependentUpon>
     </None>
     <None Include="Reports\FlueExpenses.xsd">
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>FlueExpenses.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
     <None Include="Reports\FlueExpenses.xss">
       <DependentUpon>FlueExpenses.xsd</DependentUpon>
@@ -336,9 +360,9 @@
       <DependentUpon>Invoice.xsd</DependentUpon>
     </None>
     <None Include="Reports\Invoice.xsd">
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Invoice.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
     <None Include="Reports\Invoice.xss">
       <DependentUpon>Invoice.xsd</DependentUpon>
@@ -347,9 +371,9 @@
       <DependentUpon>PendingTripByDriver.xsd</DependentUpon>
     </None>
     <None Include="Reports\PendingTripByDriver.xsd">
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>PendingTripByDriver.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
     <None Include="Reports\PendingTripByDriver.xss">
       <DependentUpon>PendingTripByDriver.xsd</DependentUpon>
@@ -358,9 +382,9 @@
       <DependentUpon>ScheduleOfInvoices.xsd</DependentUpon>
     </None>
     <None Include="Reports\ScheduleOfInvoices.xsd">
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>ScheduleOfInvoices.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
     <None Include="Reports\ScheduleOfInvoices.xss">
       <DependentUpon>ScheduleOfInvoices.xsd</DependentUpon>
@@ -369,9 +393,9 @@
       <DependentUpon>TripInfoOutstanding.xsd</DependentUpon>
     </None>
     <None Include="Reports\TripInfoOutstanding.xsd">
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>TripInfoOutstanding.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
     <None Include="Reports\TripInfoOutstanding.xss">
       <DependentUpon>TripInfoOutstanding.xsd</DependentUpon>
@@ -442,11 +466,17 @@
     <Content Include="Views\Violations\Index.cshtml" />
     <Content Include="Views\Violations\NewOrEdit.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Content\assets\font-awesome\font\fontawesome-webfont.eot%40" />
-    <None Include="Content\assets\font-awesome\font\fontawesome-webfont.eot%40v=3.2.1" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Reports\CurrentPayroll.rdlc" />
     <EmbeddedResource Include="Reports\DispatcherTrip.rdlc" />
@@ -456,9 +486,6 @@
     <EmbeddedResource Include="Reports\PlaceHolderReport.rdlc" />
     <EmbeddedResource Include="Reports\ScheduleOfInvoices.rdlc" />
     <EmbeddedResource Include="Reports\TripInfoOutstanding.rdlc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

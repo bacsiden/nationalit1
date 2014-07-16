@@ -4,67 +4,67 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="nationalitModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="nationalitModelStoreContainer">
-          <EntitySet Name="Company_Expanses" EntityType="nationalitModel.Store.Company_Expanses" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Customer_Info" EntityType="nationalitModel.Store.Customer_Info" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Dispatchers" EntityType="nationalitModel.Store.Dispatchers" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Driver_Info" EntityType="nationalitModel.Store.Driver_Info" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Equipment" EntityType="nationalitModel.Store.Equipment" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="fixed_charges" EntityType="nationalitModel.Store.fixed_charges" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Fuel___Expenses" EntityType="nationalitModel.Store.Fuel___Expenses" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Income" EntityType="nationalitModel.Store.Income" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="InvoiceA" EntityType="nationalitModel.Store.InvoiceA" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Maintenance" EntityType="nationalitModel.Store.Maintenance" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Operating_Expenses" EntityType="nationalitModel.Store.Operating_Expenses" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Owners" EntityType="nationalitModel.Store.Owners" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Printed_Temp_Trip_Info" EntityType="nationalitModel.Store.Printed_Temp_Trip_Info" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ReportIDs" EntityType="nationalitModel.Store.ReportIDs" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="split_expenses" EntityType="nationalitModel.Store.split_expenses" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Trip_Info" EntityType="nationalitModel.Store.Trip_Info" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Trip_Info___old" EntityType="nationalitModel.Store.Trip_Info___old" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Violations" EntityType="nationalitModel.Store.Violations" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_Driver_Info_Dispatchers" Association="nationalitModel.Store.FK_Driver_Info_Dispatchers">
+      <Schema Namespace="NationalITModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="NationalITModelStoreContainer">
+          <EntitySet Name="Company_Expanses" EntityType="NationalITModel.Store.Company_Expanses" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Customer_Info" EntityType="NationalITModel.Store.Customer_Info" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Dispatchers" EntityType="NationalITModel.Store.Dispatchers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Driver_Info" EntityType="NationalITModel.Store.Driver_Info" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Equipment" EntityType="NationalITModel.Store.Equipment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="fixed_charges" EntityType="NationalITModel.Store.fixed_charges" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Fuel___Expenses" EntityType="NationalITModel.Store.Fuel___Expenses" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Income" EntityType="NationalITModel.Store.Income" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InvoiceA" EntityType="NationalITModel.Store.InvoiceA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Maintenance" EntityType="NationalITModel.Store.Maintenance" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Operating_Expenses" EntityType="NationalITModel.Store.Operating_Expenses" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Owners" EntityType="NationalITModel.Store.Owners" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Printed_Temp_Trip_Info" EntityType="NationalITModel.Store.Printed_Temp_Trip_Info" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ReportIDs" EntityType="NationalITModel.Store.ReportIDs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="split_expenses" EntityType="NationalITModel.Store.split_expenses" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Trip_Info" EntityType="NationalITModel.Store.Trip_Info" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Trip_Info___old" EntityType="NationalITModel.Store.Trip_Info___old" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Violations" EntityType="NationalITModel.Store.Violations" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Driver_Info_Dispatchers" Association="NationalITModel.Store.FK_Driver_Info_Dispatchers">
             <End Role="Dispatchers" EntitySet="Dispatchers" />
             <End Role="Driver_Info" EntitySet="Driver_Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Driver_Info_Owners" Association="nationalitModel.Store.FK_Driver_Info_Owners">
+          <AssociationSet Name="FK_Driver_Info_Owners" Association="NationalITModel.Store.FK_Driver_Info_Owners">
             <End Role="Owners" EntitySet="Owners" />
             <End Role="Driver_Info" EntitySet="Driver_Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Fuel___Expenses_Driver_Info" Association="nationalitModel.Store.FK_Fuel___Expenses_Driver_Info">
+          <AssociationSet Name="FK_Fuel___Expenses_Driver_Info" Association="NationalITModel.Store.FK_Fuel___Expenses_Driver_Info">
             <End Role="Driver_Info" EntitySet="Driver_Info" />
             <End Role="Fuel___Expenses" EntitySet="Fuel___Expenses" />
           </AssociationSet>
-          <AssociationSet Name="FK_Maintenance_Equipment" Association="nationalitModel.Store.FK_Maintenance_Equipment">
+          <AssociationSet Name="FK_Maintenance_Equipment" Association="NationalITModel.Store.FK_Maintenance_Equipment">
             <End Role="Equipment" EntitySet="Equipment" />
             <End Role="Maintenance" EntitySet="Maintenance" />
           </AssociationSet>
-          <AssociationSet Name="FK_Operating_Expenses_Driver_Info" Association="nationalitModel.Store.FK_Operating_Expenses_Driver_Info">
+          <AssociationSet Name="FK_Operating_Expenses_Driver_Info" Association="NationalITModel.Store.FK_Operating_Expenses_Driver_Info">
             <End Role="Driver_Info" EntitySet="Driver_Info" />
             <End Role="Operating_Expenses" EntitySet="Operating_Expenses" />
           </AssociationSet>
-          <AssociationSet Name="FK_Trip_Info_Customer_Info1" Association="nationalitModel.Store.FK_Trip_Info_Customer_Info1">
+          <AssociationSet Name="FK_Trip_Info_Customer_Info1" Association="NationalITModel.Store.FK_Trip_Info_Customer_Info1">
             <End Role="Customer_Info" EntitySet="Customer_Info" />
             <End Role="Trip_Info" EntitySet="Trip_Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Trip_Info_Dispatchers1" Association="nationalitModel.Store.FK_Trip_Info_Dispatchers1">
+          <AssociationSet Name="FK_Trip_Info_Dispatchers1" Association="NationalITModel.Store.FK_Trip_Info_Dispatchers1">
             <End Role="Dispatchers" EntitySet="Dispatchers" />
             <End Role="Trip_Info" EntitySet="Trip_Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Trip_Info_Driver_Info1" Association="nationalitModel.Store.FK_Trip_Info_Driver_Info1">
+          <AssociationSet Name="FK_Trip_Info_Driver_Info1" Association="NationalITModel.Store.FK_Trip_Info_Driver_Info1">
             <End Role="Driver_Info" EntitySet="Driver_Info" />
             <End Role="Trip_Info" EntitySet="Trip_Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Trip_Info_Equipment1" Association="nationalitModel.Store.FK_Trip_Info_Equipment1">
+          <AssociationSet Name="FK_Trip_Info_Equipment1" Association="NationalITModel.Store.FK_Trip_Info_Equipment1">
             <End Role="Equipment" EntitySet="Equipment" />
             <End Role="Trip_Info" EntitySet="Trip_Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Violations_Driver_Info" Association="nationalitModel.Store.FK_Violations_Driver_Info">
+          <AssociationSet Name="FK_Violations_Driver_Info" Association="NationalITModel.Store.FK_Violations_Driver_Info">
             <End Role="Driver_Info" EntitySet="Driver_Info" />
             <End Role="Violations" EntitySet="Violations" />
           </AssociationSet>
-          <AssociationSet Name="FK_Violations_Equipment" Association="nationalitModel.Store.FK_Violations_Equipment">
+          <AssociationSet Name="FK_Violations_Equipment" Association="NationalITModel.Store.FK_Violations_Equipment">
             <End Role="Equipment" EntitySet="Equipment" />
             <End Role="Violations" EntitySet="Violations" />
           </AssociationSet>
@@ -383,8 +383,8 @@
           <Property Name="Equipment" Type="int" />
         </EntityType>
         <Association Name="FK_Driver_Info_Dispatchers">
-          <End Role="Dispatchers" Type="nationalitModel.Store.Dispatchers" Multiplicity="0..1" />
-          <End Role="Driver_Info" Type="nationalitModel.Store.Driver_Info" Multiplicity="*" />
+          <End Role="Dispatchers" Type="NationalITModel.Store.Dispatchers" Multiplicity="0..1" />
+          <End Role="Driver_Info" Type="NationalITModel.Store.Driver_Info" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Dispatchers">
               <PropertyRef Name="ID" />
@@ -395,8 +395,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Driver_Info_Owners">
-          <End Role="Owners" Type="nationalitModel.Store.Owners" Multiplicity="0..1" />
-          <End Role="Driver_Info" Type="nationalitModel.Store.Driver_Info" Multiplicity="*" />
+          <End Role="Owners" Type="NationalITModel.Store.Owners" Multiplicity="0..1" />
+          <End Role="Driver_Info" Type="NationalITModel.Store.Driver_Info" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Owners">
               <PropertyRef Name="OwnerID" />
@@ -407,8 +407,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Fuel___Expenses_Driver_Info">
-          <End Role="Driver_Info" Type="nationalitModel.Store.Driver_Info" Multiplicity="0..1" />
-          <End Role="Fuel___Expenses" Type="nationalitModel.Store.Fuel___Expenses" Multiplicity="*" />
+          <End Role="Driver_Info" Type="NationalITModel.Store.Driver_Info" Multiplicity="0..1" />
+          <End Role="Fuel___Expenses" Type="NationalITModel.Store.Fuel___Expenses" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Driver_Info">
               <PropertyRef Name="ID" />
@@ -419,8 +419,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Maintenance_Equipment">
-          <End Role="Equipment" Type="nationalitModel.Store.Equipment" Multiplicity="0..1" />
-          <End Role="Maintenance" Type="nationalitModel.Store.Maintenance" Multiplicity="*" />
+          <End Role="Equipment" Type="NationalITModel.Store.Equipment" Multiplicity="0..1" />
+          <End Role="Maintenance" Type="NationalITModel.Store.Maintenance" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Equipment">
               <PropertyRef Name="ID" />
@@ -431,8 +431,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Operating_Expenses_Driver_Info">
-          <End Role="Driver_Info" Type="nationalitModel.Store.Driver_Info" Multiplicity="0..1" />
-          <End Role="Operating_Expenses" Type="nationalitModel.Store.Operating_Expenses" Multiplicity="*" />
+          <End Role="Driver_Info" Type="NationalITModel.Store.Driver_Info" Multiplicity="0..1" />
+          <End Role="Operating_Expenses" Type="NationalITModel.Store.Operating_Expenses" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Driver_Info">
               <PropertyRef Name="ID" />
@@ -443,8 +443,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Trip_Info_Customer_Info1">
-          <End Role="Customer_Info" Type="nationalitModel.Store.Customer_Info" Multiplicity="0..1" />
-          <End Role="Trip_Info" Type="nationalitModel.Store.Trip_Info" Multiplicity="*" />
+          <End Role="Customer_Info" Type="NationalITModel.Store.Customer_Info" Multiplicity="0..1" />
+          <End Role="Trip_Info" Type="NationalITModel.Store.Trip_Info" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer_Info">
               <PropertyRef Name="Customer_ID" />
@@ -455,8 +455,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Trip_Info_Dispatchers1">
-          <End Role="Dispatchers" Type="nationalitModel.Store.Dispatchers" Multiplicity="0..1" />
-          <End Role="Trip_Info" Type="nationalitModel.Store.Trip_Info" Multiplicity="*" />
+          <End Role="Dispatchers" Type="NationalITModel.Store.Dispatchers" Multiplicity="0..1" />
+          <End Role="Trip_Info" Type="NationalITModel.Store.Trip_Info" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Dispatchers">
               <PropertyRef Name="ID" />
@@ -467,8 +467,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Trip_Info_Driver_Info1">
-          <End Role="Driver_Info" Type="nationalitModel.Store.Driver_Info" Multiplicity="0..1" />
-          <End Role="Trip_Info" Type="nationalitModel.Store.Trip_Info" Multiplicity="*" />
+          <End Role="Driver_Info" Type="NationalITModel.Store.Driver_Info" Multiplicity="0..1" />
+          <End Role="Trip_Info" Type="NationalITModel.Store.Trip_Info" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Driver_Info">
               <PropertyRef Name="ID" />
@@ -479,8 +479,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Trip_Info_Equipment1">
-          <End Role="Equipment" Type="nationalitModel.Store.Equipment" Multiplicity="0..1" />
-          <End Role="Trip_Info" Type="nationalitModel.Store.Trip_Info" Multiplicity="*" />
+          <End Role="Equipment" Type="NationalITModel.Store.Equipment" Multiplicity="0..1" />
+          <End Role="Trip_Info" Type="NationalITModel.Store.Trip_Info" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Equipment">
               <PropertyRef Name="ID" />
@@ -491,8 +491,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Violations_Driver_Info">
-          <End Role="Driver_Info" Type="nationalitModel.Store.Driver_Info" Multiplicity="0..1" />
-          <End Role="Violations" Type="nationalitModel.Store.Violations" Multiplicity="*" />
+          <End Role="Driver_Info" Type="NationalITModel.Store.Driver_Info" Multiplicity="0..1" />
+          <End Role="Violations" Type="NationalITModel.Store.Violations" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Driver_Info">
               <PropertyRef Name="ID" />
@@ -503,8 +503,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Violations_Equipment">
-          <End Role="Equipment" Type="nationalitModel.Store.Equipment" Multiplicity="0..1" />
-          <End Role="Violations" Type="nationalitModel.Store.Violations" Multiplicity="*" />
+          <End Role="Equipment" Type="NationalITModel.Store.Equipment" Multiplicity="0..1" />
+          <End Role="Violations" Type="NationalITModel.Store.Violations" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Equipment">
               <PropertyRef Name="ID" />
@@ -518,67 +518,67 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="nationalitModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="nationalitEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Company_Expanses" EntityType="nationalitModel.Company_Expanses" />
-          <EntitySet Name="Customer_Info" EntityType="nationalitModel.Customer_Info" />
-          <EntitySet Name="Dispatchers" EntityType="nationalitModel.Dispatchers" />
-          <EntitySet Name="Driver_Info" EntityType="nationalitModel.Driver_Info" />
-          <EntitySet Name="Equipment" EntityType="nationalitModel.Equipment" />
-          <EntitySet Name="fixed_charges" EntityType="nationalitModel.fixed_charges" />
-          <EntitySet Name="Fuel___Expenses" EntityType="nationalitModel.Fuel___Expenses" />
-          <EntitySet Name="Income" EntityType="nationalitModel.Income" />
-          <EntitySet Name="InvoiceA" EntityType="nationalitModel.InvoiceA" />
-          <EntitySet Name="Maintenance" EntityType="nationalitModel.Maintenance" />
-          <EntitySet Name="Operating_Expenses" EntityType="nationalitModel.Operating_Expenses" />
-          <EntitySet Name="Owners" EntityType="nationalitModel.Owners" />
-          <EntitySet Name="Printed_Temp_Trip_Info" EntityType="nationalitModel.Printed_Temp_Trip_Info" />
-          <EntitySet Name="ReportIDs" EntityType="nationalitModel.ReportIDs" />
-          <EntitySet Name="split_expenses" EntityType="nationalitModel.split_expenses" />
-          <EntitySet Name="Trip_Info" EntityType="nationalitModel.Trip_Info" />
-          <EntitySet Name="Trip_Info___old" EntityType="nationalitModel.Trip_Info___old" />
-          <EntitySet Name="Violations" EntityType="nationalitModel.Violations" />
-          <AssociationSet Name="FK_Trip_Info_Customer_Info1" Association="nationalitModel.FK_Trip_Info_Customer_Info1">
+      <Schema Namespace="NationalITModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="NationalITEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Company_Expanses" EntityType="NationalITModel.Company_Expanses" />
+          <EntitySet Name="Customer_Info" EntityType="NationalITModel.Customer_Info" />
+          <EntitySet Name="Dispatchers" EntityType="NationalITModel.Dispatchers" />
+          <EntitySet Name="Driver_Info" EntityType="NationalITModel.Driver_Info" />
+          <EntitySet Name="Equipment" EntityType="NationalITModel.Equipment" />
+          <EntitySet Name="fixed_charges" EntityType="NationalITModel.fixed_charges" />
+          <EntitySet Name="Fuel___Expenses" EntityType="NationalITModel.Fuel___Expenses" />
+          <EntitySet Name="Income" EntityType="NationalITModel.Income" />
+          <EntitySet Name="InvoiceA" EntityType="NationalITModel.InvoiceA" />
+          <EntitySet Name="Maintenance" EntityType="NationalITModel.Maintenance" />
+          <EntitySet Name="Operating_Expenses" EntityType="NationalITModel.Operating_Expenses" />
+          <EntitySet Name="Owners" EntityType="NationalITModel.Owners" />
+          <EntitySet Name="Printed_Temp_Trip_Info" EntityType="NationalITModel.Printed_Temp_Trip_Info" />
+          <EntitySet Name="ReportIDs" EntityType="NationalITModel.ReportIDs" />
+          <EntitySet Name="split_expenses" EntityType="NationalITModel.split_expenses" />
+          <EntitySet Name="Trip_Info" EntityType="NationalITModel.Trip_Info" />
+          <EntitySet Name="Trip_Info___old" EntityType="NationalITModel.Trip_Info___old" />
+          <EntitySet Name="Violations" EntityType="NationalITModel.Violations" />
+          <AssociationSet Name="FK_Trip_Info_Customer_Info1" Association="NationalITModel.FK_Trip_Info_Customer_Info1">
             <End Role="Customer_Info" EntitySet="Customer_Info" />
             <End Role="Trip_Info" EntitySet="Trip_Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Driver_Info_Dispatchers" Association="nationalitModel.FK_Driver_Info_Dispatchers">
+          <AssociationSet Name="FK_Driver_Info_Dispatchers" Association="NationalITModel.FK_Driver_Info_Dispatchers">
             <End Role="Dispatchers" EntitySet="Dispatchers" />
             <End Role="Driver_Info" EntitySet="Driver_Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Trip_Info_Dispatchers1" Association="nationalitModel.FK_Trip_Info_Dispatchers1">
+          <AssociationSet Name="FK_Trip_Info_Dispatchers1" Association="NationalITModel.FK_Trip_Info_Dispatchers1">
             <End Role="Dispatchers" EntitySet="Dispatchers" />
             <End Role="Trip_Info" EntitySet="Trip_Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Driver_Info_Owners" Association="nationalitModel.FK_Driver_Info_Owners">
+          <AssociationSet Name="FK_Driver_Info_Owners" Association="NationalITModel.FK_Driver_Info_Owners">
             <End Role="Owners" EntitySet="Owners" />
             <End Role="Driver_Info" EntitySet="Driver_Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Fuel___Expenses_Driver_Info" Association="nationalitModel.FK_Fuel___Expenses_Driver_Info">
+          <AssociationSet Name="FK_Fuel___Expenses_Driver_Info" Association="NationalITModel.FK_Fuel___Expenses_Driver_Info">
             <End Role="Driver_Info" EntitySet="Driver_Info" />
             <End Role="Fuel___Expenses" EntitySet="Fuel___Expenses" />
           </AssociationSet>
-          <AssociationSet Name="FK_Operating_Expenses_Driver_Info" Association="nationalitModel.FK_Operating_Expenses_Driver_Info">
+          <AssociationSet Name="FK_Operating_Expenses_Driver_Info" Association="NationalITModel.FK_Operating_Expenses_Driver_Info">
             <End Role="Driver_Info" EntitySet="Driver_Info" />
             <End Role="Operating_Expenses" EntitySet="Operating_Expenses" />
           </AssociationSet>
-          <AssociationSet Name="FK_Trip_Info_Driver_Info1" Association="nationalitModel.FK_Trip_Info_Driver_Info1">
+          <AssociationSet Name="FK_Trip_Info_Driver_Info1" Association="NationalITModel.FK_Trip_Info_Driver_Info1">
             <End Role="Driver_Info" EntitySet="Driver_Info" />
             <End Role="Trip_Info" EntitySet="Trip_Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Violations_Driver_Info" Association="nationalitModel.FK_Violations_Driver_Info">
+          <AssociationSet Name="FK_Violations_Driver_Info" Association="NationalITModel.FK_Violations_Driver_Info">
             <End Role="Driver_Info" EntitySet="Driver_Info" />
             <End Role="Violations" EntitySet="Violations" />
           </AssociationSet>
-          <AssociationSet Name="FK_Maintenance_Equipment" Association="nationalitModel.FK_Maintenance_Equipment">
+          <AssociationSet Name="FK_Maintenance_Equipment" Association="NationalITModel.FK_Maintenance_Equipment">
             <End Role="Equipment" EntitySet="Equipment" />
             <End Role="Maintenance" EntitySet="Maintenance" />
           </AssociationSet>
-          <AssociationSet Name="FK_Trip_Info_Equipment1" Association="nationalitModel.FK_Trip_Info_Equipment1">
+          <AssociationSet Name="FK_Trip_Info_Equipment1" Association="NationalITModel.FK_Trip_Info_Equipment1">
             <End Role="Equipment" EntitySet="Equipment" />
             <End Role="Trip_Info" EntitySet="Trip_Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Violations_Equipment" Association="nationalitModel.FK_Violations_Equipment">
+          <AssociationSet Name="FK_Violations_Equipment" Association="NationalITModel.FK_Violations_Equipment">
             <End Role="Equipment" EntitySet="Equipment" />
             <End Role="Violations" EntitySet="Violations" />
           </AssociationSet>
@@ -608,7 +608,7 @@
           <Property Name="Contact" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
           <Property Name="Comments" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="Days_to_pay" Type="Int16" />
-          <NavigationProperty Name="Trip_Info" Relationship="nationalitModel.FK_Trip_Info_Customer_Info1" FromRole="Customer_Info" ToRole="Trip_Info" />
+          <NavigationProperty Name="Trip_Info" Relationship="NationalITModel.FK_Trip_Info_Customer_Info1" FromRole="Customer_Info" ToRole="Trip_Info" />
         </EntityType>
         <EntityType Name="Dispatchers">
           <Key>
@@ -621,8 +621,8 @@
           <Property Name="DOB" Type="DateTime" />
           <Property Name="Hire_date" Type="DateTime" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Driver_Info" Relationship="nationalitModel.FK_Driver_Info_Dispatchers" FromRole="Dispatchers" ToRole="Driver_Info" />
-          <NavigationProperty Name="Trip_Info" Relationship="nationalitModel.FK_Trip_Info_Dispatchers1" FromRole="Dispatchers" ToRole="Trip_Info" />
+          <NavigationProperty Name="Driver_Info" Relationship="NationalITModel.FK_Driver_Info_Dispatchers" FromRole="Dispatchers" ToRole="Driver_Info" />
+          <NavigationProperty Name="Trip_Info" Relationship="NationalITModel.FK_Trip_Info_Dispatchers1" FromRole="Dispatchers" ToRole="Trip_Info" />
         </EntityType>
         <EntityType Name="Driver_Info">
           <Key>
@@ -652,12 +652,12 @@
           <Property Name="Owner" Type="Boolean" Nullable="false" />
           <Property Name="Owner_Pay_Rate" Type="Single" />
           <Property Name="Owner_Name" Type="Int32" />
-          <NavigationProperty Name="Dispatchers" Relationship="nationalitModel.FK_Driver_Info_Dispatchers" FromRole="Driver_Info" ToRole="Dispatchers" />
-          <NavigationProperty Name="Owners" Relationship="nationalitModel.FK_Driver_Info_Owners" FromRole="Driver_Info" ToRole="Owners" />
-          <NavigationProperty Name="Fuel___Expenses" Relationship="nationalitModel.FK_Fuel___Expenses_Driver_Info" FromRole="Driver_Info" ToRole="Fuel___Expenses" />
-          <NavigationProperty Name="Operating_Expenses" Relationship="nationalitModel.FK_Operating_Expenses_Driver_Info" FromRole="Driver_Info" ToRole="Operating_Expenses" />
-          <NavigationProperty Name="Trip_Info" Relationship="nationalitModel.FK_Trip_Info_Driver_Info1" FromRole="Driver_Info" ToRole="Trip_Info" />
-          <NavigationProperty Name="Violations" Relationship="nationalitModel.FK_Violations_Driver_Info" FromRole="Driver_Info" ToRole="Violations" />
+          <NavigationProperty Name="Dispatchers" Relationship="NationalITModel.FK_Driver_Info_Dispatchers" FromRole="Driver_Info" ToRole="Dispatchers" />
+          <NavigationProperty Name="Owners" Relationship="NationalITModel.FK_Driver_Info_Owners" FromRole="Driver_Info" ToRole="Owners" />
+          <NavigationProperty Name="Fuel___Expenses" Relationship="NationalITModel.FK_Fuel___Expenses_Driver_Info" FromRole="Driver_Info" ToRole="Fuel___Expenses" />
+          <NavigationProperty Name="Operating_Expenses" Relationship="NationalITModel.FK_Operating_Expenses_Driver_Info" FromRole="Driver_Info" ToRole="Operating_Expenses" />
+          <NavigationProperty Name="Trip_Info" Relationship="NationalITModel.FK_Trip_Info_Driver_Info1" FromRole="Driver_Info" ToRole="Trip_Info" />
+          <NavigationProperty Name="Violations" Relationship="NationalITModel.FK_Violations_Driver_Info" FromRole="Driver_Info" ToRole="Violations" />
         </EntityType>
         <EntityType Name="Equipment">
           <Key>
@@ -676,9 +676,9 @@
           <Property Name="EQUIPMENT_DESCRIPTION" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="MODEL_YEAR" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="MAKE" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Maintenance" Relationship="nationalitModel.FK_Maintenance_Equipment" FromRole="Equipment" ToRole="Maintenance" />
-          <NavigationProperty Name="Trip_Info" Relationship="nationalitModel.FK_Trip_Info_Equipment1" FromRole="Equipment" ToRole="Trip_Info" />
-          <NavigationProperty Name="Violations" Relationship="nationalitModel.FK_Violations_Equipment" FromRole="Equipment" ToRole="Violations" />
+          <NavigationProperty Name="Maintenance" Relationship="NationalITModel.FK_Maintenance_Equipment" FromRole="Equipment" ToRole="Maintenance" />
+          <NavigationProperty Name="Trip_Info" Relationship="NationalITModel.FK_Trip_Info_Equipment1" FromRole="Equipment" ToRole="Trip_Info" />
+          <NavigationProperty Name="Violations" Relationship="NationalITModel.FK_Violations_Equipment" FromRole="Equipment" ToRole="Violations" />
         </EntityType>
         <EntityType Name="fixed_charges">
           <Key>
@@ -712,7 +712,7 @@
           <Property Name="Current_Payroll" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
           <Property Name="fee_charged" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
           <Property Name="Fuel_Card" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Driver_Info" Relationship="nationalitModel.FK_Fuel___Expenses_Driver_Info" FromRole="Fuel___Expenses" ToRole="Driver_Info" />
+          <NavigationProperty Name="Driver_Info" Relationship="NationalITModel.FK_Fuel___Expenses_Driver_Info" FromRole="Fuel___Expenses" ToRole="Driver_Info" />
         </EntityType>
         <EntityType Name="Income">
           <Key>
@@ -747,7 +747,7 @@
           <Property Name="ApprovedAmount" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="SpentAmount" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="ApprovedBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Equipment" Relationship="nationalitModel.FK_Maintenance_Equipment" FromRole="Maintenance" ToRole="Equipment" />
+          <NavigationProperty Name="Equipment" Relationship="NationalITModel.FK_Maintenance_Equipment" FromRole="Maintenance" ToRole="Equipment" />
         </EntityType>
         <EntityType Name="Operating_Expenses">
           <Key>
@@ -762,7 +762,7 @@
           <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="Paid_off" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
           <Property Name="Current_Payroll" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Driver_Info" Relationship="nationalitModel.FK_Operating_Expenses_Driver_Info" FromRole="Operating_Expenses" ToRole="Driver_Info" />
+          <NavigationProperty Name="Driver_Info" Relationship="NationalITModel.FK_Operating_Expenses_Driver_Info" FromRole="Operating_Expenses" ToRole="Driver_Info" />
         </EntityType>
         <EntityType Name="Owners">
           <Key>
@@ -773,7 +773,7 @@
           <Property Name="ssn_" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="fee_rate" Type="Single" />
           <Property Name="pay_rate" Type="Single" />
-          <NavigationProperty Name="Driver_Info" Relationship="nationalitModel.FK_Driver_Info_Owners" FromRole="Owners" ToRole="Driver_Info" />
+          <NavigationProperty Name="Driver_Info" Relationship="NationalITModel.FK_Driver_Info_Owners" FromRole="Owners" ToRole="Driver_Info" />
         </EntityType>
         <EntityType Name="Printed_Temp_Trip_Info">
           <Key>
@@ -868,10 +868,10 @@
           <Property Name="Comment" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="PO_" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
           <Property Name="Customer_Invoiced_date" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="Customer_Info" Relationship="nationalitModel.FK_Trip_Info_Customer_Info1" FromRole="Trip_Info" ToRole="Customer_Info" />
-          <NavigationProperty Name="Dispatchers" Relationship="nationalitModel.FK_Trip_Info_Dispatchers1" FromRole="Trip_Info" ToRole="Dispatchers" />
-          <NavigationProperty Name="Driver_Info" Relationship="nationalitModel.FK_Trip_Info_Driver_Info1" FromRole="Trip_Info" ToRole="Driver_Info" />
-          <NavigationProperty Name="Equipment" Relationship="nationalitModel.FK_Trip_Info_Equipment1" FromRole="Trip_Info" ToRole="Equipment" />
+          <NavigationProperty Name="Customer_Info" Relationship="NationalITModel.FK_Trip_Info_Customer_Info1" FromRole="Trip_Info" ToRole="Customer_Info" />
+          <NavigationProperty Name="Dispatchers" Relationship="NationalITModel.FK_Trip_Info_Dispatchers1" FromRole="Trip_Info" ToRole="Dispatchers" />
+          <NavigationProperty Name="Driver_Info" Relationship="NationalITModel.FK_Trip_Info_Driver_Info1" FromRole="Trip_Info" ToRole="Driver_Info" />
+          <NavigationProperty Name="Equipment" Relationship="NationalITModel.FK_Trip_Info_Equipment1" FromRole="Trip_Info" ToRole="Equipment" />
         </EntityType>
         <EntityType Name="Trip_Info___old">
           <Key>
@@ -915,12 +915,12 @@
           <Property Name="Date_occurred" Type="DateTime" />
           <Property Name="Date_resolved" Type="DateTime" />
           <Property Name="Equipment" Type="Int32" />
-          <NavigationProperty Name="Driver_Info" Relationship="nationalitModel.FK_Violations_Driver_Info" FromRole="Violations" ToRole="Driver_Info" />
-          <NavigationProperty Name="Equipment1" Relationship="nationalitModel.FK_Violations_Equipment" FromRole="Violations" ToRole="Equipment" />
+          <NavigationProperty Name="Driver_Info" Relationship="NationalITModel.FK_Violations_Driver_Info" FromRole="Violations" ToRole="Driver_Info" />
+          <NavigationProperty Name="Equipment1" Relationship="NationalITModel.FK_Violations_Equipment" FromRole="Violations" ToRole="Equipment" />
         </EntityType>
         <Association Name="FK_Trip_Info_Customer_Info1">
-          <End Role="Customer_Info" Type="nationalitModel.Customer_Info" Multiplicity="0..1" />
-          <End Role="Trip_Info" Type="nationalitModel.Trip_Info" Multiplicity="*" />
+          <End Role="Customer_Info" Type="NationalITModel.Customer_Info" Multiplicity="0..1" />
+          <End Role="Trip_Info" Type="NationalITModel.Trip_Info" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer_Info">
               <PropertyRef Name="Customer_ID" />
@@ -931,8 +931,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Driver_Info_Dispatchers">
-          <End Role="Dispatchers" Type="nationalitModel.Dispatchers" Multiplicity="0..1" />
-          <End Role="Driver_Info" Type="nationalitModel.Driver_Info" Multiplicity="*" />
+          <End Role="Dispatchers" Type="NationalITModel.Dispatchers" Multiplicity="0..1" />
+          <End Role="Driver_Info" Type="NationalITModel.Driver_Info" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Dispatchers">
               <PropertyRef Name="ID" />
@@ -943,8 +943,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Trip_Info_Dispatchers1">
-          <End Role="Dispatchers" Type="nationalitModel.Dispatchers" Multiplicity="0..1" />
-          <End Role="Trip_Info" Type="nationalitModel.Trip_Info" Multiplicity="*" />
+          <End Role="Dispatchers" Type="NationalITModel.Dispatchers" Multiplicity="0..1" />
+          <End Role="Trip_Info" Type="NationalITModel.Trip_Info" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Dispatchers">
               <PropertyRef Name="ID" />
@@ -955,8 +955,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Driver_Info_Owners">
-          <End Role="Owners" Type="nationalitModel.Owners" Multiplicity="0..1" />
-          <End Role="Driver_Info" Type="nationalitModel.Driver_Info" Multiplicity="*" />
+          <End Role="Owners" Type="NationalITModel.Owners" Multiplicity="0..1" />
+          <End Role="Driver_Info" Type="NationalITModel.Driver_Info" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Owners">
               <PropertyRef Name="OwnerID" />
@@ -967,8 +967,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Fuel___Expenses_Driver_Info">
-          <End Role="Driver_Info" Type="nationalitModel.Driver_Info" Multiplicity="0..1" />
-          <End Role="Fuel___Expenses" Type="nationalitModel.Fuel___Expenses" Multiplicity="*" />
+          <End Role="Driver_Info" Type="NationalITModel.Driver_Info" Multiplicity="0..1" />
+          <End Role="Fuel___Expenses" Type="NationalITModel.Fuel___Expenses" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Driver_Info">
               <PropertyRef Name="ID" />
@@ -979,8 +979,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Operating_Expenses_Driver_Info">
-          <End Role="Driver_Info" Type="nationalitModel.Driver_Info" Multiplicity="0..1" />
-          <End Role="Operating_Expenses" Type="nationalitModel.Operating_Expenses" Multiplicity="*" />
+          <End Role="Driver_Info" Type="NationalITModel.Driver_Info" Multiplicity="0..1" />
+          <End Role="Operating_Expenses" Type="NationalITModel.Operating_Expenses" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Driver_Info">
               <PropertyRef Name="ID" />
@@ -991,8 +991,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Trip_Info_Driver_Info1">
-          <End Role="Driver_Info" Type="nationalitModel.Driver_Info" Multiplicity="0..1" />
-          <End Role="Trip_Info" Type="nationalitModel.Trip_Info" Multiplicity="*" />
+          <End Role="Driver_Info" Type="NationalITModel.Driver_Info" Multiplicity="0..1" />
+          <End Role="Trip_Info" Type="NationalITModel.Trip_Info" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Driver_Info">
               <PropertyRef Name="ID" />
@@ -1003,8 +1003,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Violations_Driver_Info">
-          <End Role="Driver_Info" Type="nationalitModel.Driver_Info" Multiplicity="0..1" />
-          <End Role="Violations" Type="nationalitModel.Violations" Multiplicity="*" />
+          <End Role="Driver_Info" Type="NationalITModel.Driver_Info" Multiplicity="0..1" />
+          <End Role="Violations" Type="NationalITModel.Violations" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Driver_Info">
               <PropertyRef Name="ID" />
@@ -1015,8 +1015,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Maintenance_Equipment">
-          <End Role="Equipment" Type="nationalitModel.Equipment" Multiplicity="0..1" />
-          <End Role="Maintenance" Type="nationalitModel.Maintenance" Multiplicity="*" />
+          <End Role="Equipment" Type="NationalITModel.Equipment" Multiplicity="0..1" />
+          <End Role="Maintenance" Type="NationalITModel.Maintenance" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Equipment">
               <PropertyRef Name="ID" />
@@ -1027,8 +1027,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Trip_Info_Equipment1">
-          <End Role="Equipment" Type="nationalitModel.Equipment" Multiplicity="0..1" />
-          <End Role="Trip_Info" Type="nationalitModel.Trip_Info" Multiplicity="*" />
+          <End Role="Equipment" Type="NationalITModel.Equipment" Multiplicity="0..1" />
+          <End Role="Trip_Info" Type="NationalITModel.Trip_Info" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Equipment">
               <PropertyRef Name="ID" />
@@ -1039,8 +1039,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Violations_Equipment">
-          <End Role="Equipment" Type="nationalitModel.Equipment" Multiplicity="0..1" />
-          <End Role="Violations" Type="nationalitModel.Violations" Multiplicity="*" />
+          <End Role="Equipment" Type="NationalITModel.Equipment" Multiplicity="0..1" />
+          <End Role="Violations" Type="NationalITModel.Violations" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Equipment">
               <PropertyRef Name="ID" />
@@ -1055,9 +1055,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="nationalitModelStoreContainer" CdmEntityContainer="nationalitEntities">
+        <EntityContainerMapping StorageEntityContainer="NationalITModelStoreContainer" CdmEntityContainer="NationalITEntities">
           <EntitySetMapping Name="Company_Expanses">
-            <EntityTypeMapping TypeName="nationalitModel.Company_Expanses">
+            <EntityTypeMapping TypeName="NationalITModel.Company_Expanses">
               <MappingFragment StoreEntitySet="Company_Expanses">
                 <ScalarProperty Name="CompanyExpansesID" ColumnName="CompanyExpansesID" />
                 <ScalarProperty Name="Expanses" ColumnName="Expanses" />
@@ -1068,7 +1068,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customer_Info">
-            <EntityTypeMapping TypeName="nationalitModel.Customer_Info">
+            <EntityTypeMapping TypeName="NationalITModel.Customer_Info">
               <MappingFragment StoreEntitySet="Customer_Info">
                 <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
                 <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
@@ -1085,7 +1085,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Dispatchers">
-            <EntityTypeMapping TypeName="nationalitModel.Dispatchers">
+            <EntityTypeMapping TypeName="NationalITModel.Dispatchers">
               <MappingFragment StoreEntitySet="Dispatchers">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Last_name" ColumnName="Last_name" />
@@ -1098,7 +1098,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Driver_Info">
-            <EntityTypeMapping TypeName="nationalitModel.Driver_Info">
+            <EntityTypeMapping TypeName="NationalITModel.Driver_Info">
               <MappingFragment StoreEntitySet="Driver_Info">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
@@ -1128,7 +1128,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Equipment">
-            <EntityTypeMapping TypeName="nationalitModel.Equipment">
+            <EntityTypeMapping TypeName="NationalITModel.Equipment">
               <MappingFragment StoreEntitySet="Equipment">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Equipment_Type" ColumnName="Equipment_Type" />
@@ -1147,7 +1147,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="fixed_charges">
-            <EntityTypeMapping TypeName="nationalitModel.fixed_charges">
+            <EntityTypeMapping TypeName="NationalITModel.fixed_charges">
               <MappingFragment StoreEntitySet="fixed_charges">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="DriverId" ColumnName="DriverId" />
@@ -1163,7 +1163,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Fuel___Expenses">
-            <EntityTypeMapping TypeName="nationalitModel.Fuel___Expenses">
+            <EntityTypeMapping TypeName="NationalITModel.Fuel___Expenses">
               <MappingFragment StoreEntitySet="Fuel___Expenses">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
@@ -1181,7 +1181,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Income">
-            <EntityTypeMapping TypeName="nationalitModel.Income">
+            <EntityTypeMapping TypeName="NationalITModel.Income">
               <MappingFragment StoreEntitySet="Income">
                 <ScalarProperty Name="IncomeID" ColumnName="IncomeID" />
                 <ScalarProperty Name="IncomeDate" ColumnName="IncomeDate" />
@@ -1195,7 +1195,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="InvoiceA">
-            <EntityTypeMapping TypeName="nationalitModel.InvoiceA">
+            <EntityTypeMapping TypeName="NationalITModel.InvoiceA">
               <MappingFragment StoreEntitySet="InvoiceA">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Invoice" ColumnName="Invoice" />
@@ -1203,7 +1203,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Maintenance">
-            <EntityTypeMapping TypeName="nationalitModel.Maintenance">
+            <EntityTypeMapping TypeName="NationalITModel.Maintenance">
               <MappingFragment StoreEntitySet="Maintenance">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Track_Trailer_Number" ColumnName="Track_Trailer_Number" />
@@ -1218,7 +1218,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Operating_Expenses">
-            <EntityTypeMapping TypeName="nationalitModel.Operating_Expenses">
+            <EntityTypeMapping TypeName="NationalITModel.Operating_Expenses">
               <MappingFragment StoreEntitySet="Operating_Expenses">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
@@ -1233,7 +1233,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Owners">
-            <EntityTypeMapping TypeName="nationalitModel.Owners">
+            <EntityTypeMapping TypeName="NationalITModel.Owners">
               <MappingFragment StoreEntitySet="Owners">
                 <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1244,7 +1244,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Printed_Temp_Trip_Info">
-            <EntityTypeMapping TypeName="nationalitModel.Printed_Temp_Trip_Info">
+            <EntityTypeMapping TypeName="NationalITModel.Printed_Temp_Trip_Info">
               <MappingFragment StoreEntitySet="Printed_Temp_Trip_Info">
                 <ScalarProperty Name="Selection" ColumnName="Selection" />
                 <ScalarProperty Name="Trip_ID" ColumnName="Trip_ID" />
@@ -1277,7 +1277,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ReportIDs">
-            <EntityTypeMapping TypeName="nationalitModel.ReportIDs">
+            <EntityTypeMapping TypeName="NationalITModel.ReportIDs">
               <MappingFragment StoreEntitySet="ReportIDs">
                 <ScalarProperty Name="ReportID" ColumnName="ReportID" />
                 <ScalarProperty Name="DriverID" ColumnName="DriverID" />
@@ -1286,7 +1286,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="split_expenses">
-            <EntityTypeMapping TypeName="nationalitModel.split_expenses">
+            <EntityTypeMapping TypeName="NationalITModel.split_expenses">
               <MappingFragment StoreEntitySet="split_expenses">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="OwnerDriver" ColumnName="OwnerDriver" />
@@ -1302,7 +1302,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Trip_Info">
-            <EntityTypeMapping TypeName="nationalitModel.Trip_Info">
+            <EntityTypeMapping TypeName="NationalITModel.Trip_Info">
               <MappingFragment StoreEntitySet="Trip_Info">
                 <ScalarProperty Name="Trip_ID" ColumnName="Trip_ID" />
                 <ScalarProperty Name="Order_date" ColumnName="Order_date" />
@@ -1337,7 +1337,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Trip_Info___old">
-            <EntityTypeMapping TypeName="nationalitModel.Trip_Info___old">
+            <EntityTypeMapping TypeName="NationalITModel.Trip_Info___old">
               <MappingFragment StoreEntitySet="Trip_Info___old">
                 <ScalarProperty Name="Trip_ID" ColumnName="Trip_ID" />
                 <ScalarProperty Name="Order_date" ColumnName="Order_date" />
@@ -1370,7 +1370,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Violations">
-            <EntityTypeMapping TypeName="nationalitModel.Violations">
+            <EntityTypeMapping TypeName="NationalITModel.Violations">
               <MappingFragment StoreEntitySet="Violations">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Driver" ColumnName="Driver" />
@@ -1402,90 +1402,76 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Model1">
-        <EntityTypeShape EntityType="nationalitModel.Company_Expanses" Width="1.5" PointX="7.75" PointY="0.75" Height="1.7566536458333333" IsExpanded="true" />
-        <EntityTypeShape EntityType="nationalitModel.Customer_Info" Width="1.5" PointX="6" PointY="14.5" Height="2.9070849609375014" IsExpanded="true" />
-        <EntityTypeShape EntityType="nationalitModel.Dispatchers" Width="1.5" PointX="0.75" PointY="8.75" Height="2.4140429687499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="nationalitModel.Driver_Info" Width="1.5" PointX="3" PointY="7" Height="5.8653369140625" IsExpanded="true" />
-        <EntityTypeShape EntityType="nationalitModel.Equipment" Width="1.5" PointX="3" PointY="2.125" Height="3.5644742838541656" IsExpanded="true" />
-        <EntityTypeShape EntityType="nationalitModel.fixed_charges" Width="1.5" PointX="9.75" PointY="0.75" Height="2.5783902994791665" IsExpanded="true" />
-        <EntityTypeShape EntityType="nationalitModel.Fuel___Expenses" Width="1.5" PointX="5.25" PointY="6.75" Height="3.0714322916666674" IsExpanded="true" />
-        <EntityTypeShape EntityType="nationalitModel.Income" Width="1.5" PointX="10.75" PointY="4.75" Height="2.2496956380208317" IsExpanded="true" />
-        <EntityTypeShape EntityType="nationalitModel.InvoiceA" Width="1.5" PointX="10.75" PointY="7.75" Height="1.2636116536458317" IsExpanded="true" />
-        <EntityTypeShape EntityType="nationalitModel.Maintenance" Width="1.5" PointX="5.25" PointY="18.625" Height="2.5783902994791674" IsExpanded="true" />
-        <EntityTypeShape EntityType="nationalitModel.Operating_Expenses" Width="1.5" PointX="5.25" PointY="10.5" Height="2.5783902994791745" IsExpanded="true" />
-        <EntityTypeShape EntityType="nationalitModel.Owners" Width="1.5" PointX="0.75" PointY="6" Height="1.9210009765625031" IsExpanded="true" />
-        <EntityTypeShape EntityType="nationalitModel.Printed_Temp_Trip_Info" Width="1.5" PointX="10.75" PointY="10.75" Height="5.3722949218750031" IsExpanded="true" />
-        <EntityTypeShape EntityType="nationalitModel.ReportIDs" Width="1.5" PointX="11.75" PointY="0.75" Height="1.4279589843750031" IsExpanded="true" />
-        <EntityTypeShape EntityType="nationalitModel.split_expenses" Width="1.5" PointX="12.75" PointY="3.75" Height="2.5783902994791674" IsExpanded="true" />
-        <EntityTypeShape EntityType="nationalitModel.Trip_Info" Width="1.5" PointX="8.25" PointY="6.75" Height="6.3583789062500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="nationalitModel.Trip_Info___old" Width="1.5" PointX="12.75" PointY="7.75" Height="5.3722949218750031" IsExpanded="true" />
-        <EntityTypeShape EntityType="nationalitModel.Violations" Width="1.5" PointX="5.25" PointY="2.75" Height="2.2496956380208388" IsExpanded="true" />
-        <AssociationConnector Association="nationalitModel.FK_Trip_Info_Customer_Info1" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.15625" PointY="14.5" />
-          <ConnectorPoint PointX="7.15625" PointY="10.160716145833334" />
-          <ConnectorPoint PointX="8.25" PointY="10.160716145833334" />
+        <EntityTypeShape EntityType="NationalITModel.Company_Expanses" Width="1.5" PointX="7.75" PointY="1.875" Height="1.9802864583333333" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Customer_Info" Width="1.5" PointX="6" PointY="17.5" Height="3.3263964843750031" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Dispatchers" Width="1.5" PointX="0.75" PointY="10.875" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Driver_Info" Width="1.5" PointX="3" PointY="8.875" Height="6.787822265625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Equipment" Width="1.5" PointX="3" PointY="3.125" Height="4.0956022135416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.fixed_charges" Width="1.5" PointX="9.75" PointY="1.875" Height="2.941793619791667" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Fuel___Expenses" Width="1.5" PointX="5.25" PointY="8.625" Height="3.5186979166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Income" Width="1.5" PointX="10.75" PointY="5.875" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.InvoiceA" Width="1.5" PointX="7.75" PointY="5.875" Height="1.4033821614583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Maintenance" Width="1.5" PointX="5.25" PointY="0.75" Height="2.9417936197916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Operating_Expenses" Width="1.5" PointX="5.25" PointY="12.875" Height="2.9417936197916745" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Owners" Width="1.5" PointX="0.75" PointY="7.125" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Printed_Temp_Trip_Info" Width="1.5" PointX="10.75" PointY="9.875" Height="6.2109179687500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.ReportIDs" Width="1.5" PointX="11.75" PointY="1.875" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.split_expenses" Width="1.5" PointX="12.75" PointY="4.875" Height="2.9417936197916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Trip_Info" Width="1.5" PointX="8.25" PointY="8.5" Height="7.3647265625000031" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Trip_Info___old" Width="1.5" PointX="12.75" PointY="8.875" Height="6.2109179687500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Violations" Width="1.5" PointX="5.25" PointY="5" Height="2.5571907552083388" IsExpanded="true" />
+        <AssociationConnector Association="NationalITModel.FK_Trip_Info_Customer_Info1" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.15625" PointY="17.5" />
+          <ConnectorPoint PointX="7.15625" PointY="12.509348958333334" />
+          <ConnectorPoint PointX="8.25" PointY="12.509348958333334" />
         </AssociationConnector>
-        <AssociationConnector Association="nationalitModel.FK_Driver_Info_Dispatchers" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="9.957021484375" />
-          <ConnectorPoint PointX="3" PointY="9.957021484375" />
+        <AssociationConnector Association="NationalITModel.FK_Driver_Info_Dispatchers" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="12.24974609375" />
+          <ConnectorPoint PointX="3" PointY="12.24974609375" />
         </AssociationConnector>
-        <AssociationConnector Association="nationalitModel.FK_Trip_Info_Dispatchers1" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.2499999999999996" PointY="11.16404296875" />
-          <ConnectorPoint PointX="2.625" PointY="11.53904296875" />
-          <ConnectorPoint PointX="2.625" PointY="13.483378906250003" />
-          <ConnectorPoint PointX="4.979166666666667" PointY="13.483378906250003" />
-          <ConnectorPoint PointX="5.145833333333333" PointY="13.483378906250003" />
-          <ConnectorPoint PointX="7.072916666666667" PointY="13.483378906250003" />
-          <ConnectorPoint PointX="7.239583333333333" PointY="13.483378906250003" />
-          <ConnectorPoint PointX="7.875" PointY="13.483378906250003" />
-          <ConnectorPoint PointX="8.25" PointY="13.108378906250003" />
+        <AssociationConnector Association="NationalITModel.FK_Trip_Info_Dispatchers1" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.2499999999999996" PointY="13.6244921875" />
+          <ConnectorPoint PointX="2.625" PointY="13.9994921875" />
+          <ConnectorPoint PointX="2.625" PointY="16.239726562500003" />
+          <ConnectorPoint PointX="7.072916666666667" PointY="16.239726562500003" />
+          <ConnectorPoint PointX="7.239583333333333" PointY="16.239726562500003" />
+          <ConnectorPoint PointX="7.875" PointY="16.239726562500003" />
+          <ConnectorPoint PointX="8.25" PointY="15.864726562500003" />
         </AssociationConnector>
-        <AssociationConnector Association="nationalitModel.FK_Driver_Info_Owners" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="7.4605004882812516" />
-          <ConnectorPoint PointX="3" PointY="7.4605004882812516" />
+        <AssociationConnector Association="NationalITModel.FK_Driver_Info_Owners" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="9.0862939453125016" />
+          <ConnectorPoint PointX="3" PointY="9.0862939453125016" />
         </AssociationConnector>
-        <AssociationConnector Association="nationalitModel.FK_Fuel___Expenses_Driver_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="8.4107161458333337" />
-          <ConnectorPoint PointX="4.979166666666667" PointY="8.4107161458333337" />
-          <ConnectorPoint PointX="5.145833333333333" PointY="8.4107161458333337" />
-          <ConnectorPoint PointX="5.25" PointY="8.4107161458333337" />
+        <AssociationConnector Association="NationalITModel.FK_Fuel___Expenses_Driver_Info" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="10.509348958333334" />
+          <ConnectorPoint PointX="5.25" PointY="10.509348958333334" />
         </AssociationConnector>
-        <AssociationConnector Association="nationalitModel.FK_Operating_Expenses_Driver_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="11.68266845703125" />
-          <ConnectorPoint PointX="4.979166666666667" PointY="11.68266845703125" />
-          <ConnectorPoint PointX="5.145833333333333" PointY="11.68266845703125" />
-          <ConnectorPoint PointX="5.25" PointY="11.68266845703125" />
+        <AssociationConnector Association="NationalITModel.FK_Operating_Expenses_Driver_Info" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="14.2689111328125" />
+          <ConnectorPoint PointX="5.25" PointY="14.2689111328125" />
         </AssociationConnector>
-        <AssociationConnector Association="nationalitModel.FK_Trip_Info_Driver_Info1" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="9.95982421875" />
-          <ConnectorPoint PointX="4.979166666666667" PointY="9.95982421875" />
-          <ConnectorPoint PointX="5.145833333333333" PointY="9.95982421875" />
-          <ConnectorPoint PointX="8.25" PointY="9.95982421875" />
+        <AssociationConnector Association="NationalITModel.FK_Trip_Info_Driver_Info1" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="12.2952734375" />
+          <ConnectorPoint PointX="8.25" PointY="12.2952734375" />
         </AssociationConnector>
-        <AssociationConnector Association="nationalitModel.FK_Violations_Driver_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="7" />
-          <ConnectorPoint PointX="4.875" PointY="6.625" />
-          <ConnectorPoint PointX="4.875" PointY="3.8748478190104194" />
-          <ConnectorPoint PointX="5.25" PointY="3.8748478190104194" />
+        <AssociationConnector Association="NationalITModel.FK_Violations_Driver_Info" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="8.8761528461538468" />
+          <ConnectorPoint PointX="4.875" PointY="8.5011528461538468" />
+          <ConnectorPoint PointX="4.875" PointY="6.2785953776041694" />
+          <ConnectorPoint PointX="5.25" PointY="6.2785953776041694" />
         </AssociationConnector>
-        <AssociationConnector Association="nationalitModel.FK_Maintenance_Equipment" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="5.6271655915464729" />
-          <ConnectorPoint PointX="4.8160744349011217" PointY="5.9432400264475937" />
-          <ConnectorPoint PointX="4.9339255650988791" PointY="6.061091156645352" />
-          <ConnectorPoint PointX="5.0625" PointY="6.1896655915464729" />
-          <ConnectorPoint PointX="5.0625" PointY="19.914195149739584" />
-          <ConnectorPoint PointX="5.25" PointY="19.914195149739584" />
+        <AssociationConnector Association="NationalITModel.FK_Maintenance_Equipment" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="3.4083968098958337" />
+          <ConnectorPoint PointX="5.25" PointY="3.4083968098958337" />
         </AssociationConnector>
-        <AssociationConnector Association="nationalitModel.FK_Trip_Info_Equipment1" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="5.3134281147836546" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="5.3134281147836537" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="5.3134281147836546" />
-          <ConnectorPoint PointX="9.5" PointY="5.3134281147836546" />
-          <ConnectorPoint PointX="9.5" PointY="6.75" />
+        <AssociationConnector Association="NationalITModel.FK_Trip_Info_Equipment1" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="4.4276432291666667" />
+          <ConnectorPoint PointX="9.5" PointY="4.4276432291666667" />
+          <ConnectorPoint PointX="9.5" PointY="8.5" />
         </AssociationConnector>
-        <AssociationConnector Association="nationalitModel.FK_Violations_Equipment" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="3.2499239095052097" />
-          <ConnectorPoint PointX="5.25" PointY="3.2499239095052097" />
+        <AssociationConnector Association="NationalITModel.FK_Violations_Equipment" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="5.5767976888020847" />
+          <ConnectorPoint PointX="5.25" PointY="5.5767976888020847" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

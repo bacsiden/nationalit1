@@ -1,0 +1,30 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<NationalIT.split_expenses>
+<div class="row-fluid">
+    <div class="span12">
+        <h3>
+            Split Expenses</h3>
+        <div class="row-fluid">
+            <div class="span12">
+                @Html.ActionLink("Create New", "NewOrEdit", null, new { @class = "btn btn-info addNewItem" })
+                @Html.ActionLink("Edit", "NewOrEdit", null, new { @class = "btn btn-info EditItem" })
+                @Html.ActionLink("Delete", "Delete", null, new { @class = "btn btn-danger DeleteItem confirmDelete" })
+                <div class="row-fluid">
+                    <div class="wrap-selectTripInfo">
+                        <div class="span12">
+                            Split Expenses
+                            <select data-placeholder="Select Split Expenses" name="Split_Expenses" class="chosen-with-diselect input-xlarge selectDriverInfo">
+                                @Html.Raw(ViewBag.dataSplit_Expenses)
+                            </select>
+                        </div>
+                        <div class="cleardiv">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div id="wrap-AjaxPaging">
+            @Html.Partial("_IndexPartial", Model)
+        </div>        
+    </div>
+</div>
