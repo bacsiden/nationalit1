@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Webdiyer.WebControls.Mvc;
 
-namespace Alabama.Controllers
+namespace NationalIT.Controllers
 {
     public class CustomerInfoController : Controller
     {
@@ -30,7 +30,7 @@ namespace Alabama.Controllers
         {
             #region SELECT OPTION            
             string dataCustomer_Info = "<option >--Select Customer_Info--</option>";
-            foreach (var item in Alabama.DB.Entities.Customer_Info)
+            foreach (var item in NationalIT.DB.Entities.Customer_Info)
             {
                 dataCustomer_Info += string.Format("<option value='{0}'>{1}</option>", item.Customer_ID, item.Customer_Name);
             }

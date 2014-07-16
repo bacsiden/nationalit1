@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Webdiyer.WebControls.Mvc;
-namespace Alabama.Controllers
+namespace NationalIT.Controllers
 {
     public class HomeController : Controller
     {

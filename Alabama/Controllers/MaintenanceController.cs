@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Webdiyer.WebControls.Mvc;
 
-namespace Alabama.Controllers
+namespace NationalIT.Controllers
 {
     public class MaintenanceController : Controller
     {
@@ -24,7 +24,7 @@ namespace Alabama.Controllers
         {
             var obj = DB.Entities.Maintenance.FirstOrDefault(m => m.Id == id);
             string dataEquipment = "<option >--Select Equiment--</option>";
-            foreach (var item in Alabama.DB.Entities.Equipment)
+            foreach (var item in NationalIT.DB.Entities.Equipment)
             {
                 if (obj != null && obj.Track_Trailer_Number == item.ID)
                 {
@@ -66,7 +66,7 @@ namespace Alabama.Controllers
             catch
             {
                 string dataEquipment = "<option >--Select Equiment--</option>";
-                foreach (var item in Alabama.DB.Entities.Equipment)
+                foreach (var item in NationalIT.DB.Entities.Equipment)
                 {
                     if (model != null && model.Track_Trailer_Number == item.ID)
                     {

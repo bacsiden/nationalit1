@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Webdiyer.WebControls.Mvc;
-namespace Alabama.Controllers
+namespace NationalIT.Controllers
 {
     public class FuelExpensesController : Controller
     {
@@ -26,7 +26,7 @@ namespace Alabama.Controllers
         {
             #region SELECT OPTION
             string dataFuel_Expenses = "<option >--Select Fuel_Expenses--</option>";
-            foreach (var item in Alabama.DB.Entities.Fuel___Expenses)
+            foreach (var item in NationalIT.DB.Entities.Fuel___Expenses)
             {
                 dataFuel_Expenses += string.Format("<option value='{0}'>{0}</option>", item.ID);
             }

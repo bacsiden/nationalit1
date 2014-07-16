@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Webdiyer.WebControls.Mvc;
 
-namespace Alabama.Controllers
+namespace NationalIT.Controllers
 {
     public class DriverInfoController : Controller
     {
@@ -27,7 +27,7 @@ namespace Alabama.Controllers
         {
             #region SELECT OPTION
             string dataDriver_Info = "<option >--Select Driver_Info--</option>";
-            foreach (var item in Alabama.DB.Entities.Driver_Info)
+            foreach (var item in NationalIT.DB.Entities.Driver_Info)
             {
                 dataDriver_Info += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
             }
@@ -41,7 +41,7 @@ namespace Alabama.Controllers
 
             #region SELECT OPTION
             string dataOwners = "<option >--Select Owners--</option>";
-            foreach (var item in Alabama.DB.Entities.Owners)
+            foreach (var item in NationalIT.DB.Entities.Owners)
             {
                 if (obj != null && obj.Owner_Name == item.OwnerID)
                 {
@@ -56,7 +56,7 @@ namespace Alabama.Controllers
             ViewBag.dataOwners = dataOwners;
 
             string dataDispatchers = "<option >--Select Dispatcher--</option>";
-            foreach (var item in Alabama.DB.Entities.Dispatchers)
+            foreach (var item in NationalIT.DB.Entities.Dispatchers)
             {
                 if (obj != null && obj.Dispatcher == item.ID)
                 {
@@ -71,7 +71,7 @@ namespace Alabama.Controllers
             ViewBag.dataDispatchers = dataDispatchers;
 
             string dataTruck = "<option >--Select Truck--</option>";
-            foreach (var item in Alabama.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRUCK")))
+            foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRUCK")))
             {
                 if (obj != null && (obj.Truck + "").Equals(item.Equipment_number + ""))
                 {
@@ -85,7 +85,7 @@ namespace Alabama.Controllers
             ViewBag.dataTruck = dataTruck;
 
             string dataTrailer = "<option >--Select Trailer--</option>";
-            foreach (var item in Alabama.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRAILER")))
+            foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRAILER")))
             {
                 if (obj != null && (obj.Trailer + "").Equals(item.Equipment_number + ""))
                 {
@@ -127,7 +127,7 @@ namespace Alabama.Controllers
             {
                 #region SELECT OPTION
                 string dataOwners = "<option >--Select Owners--</option>";
-                foreach (var item in Alabama.DB.Entities.Owners)
+                foreach (var item in NationalIT.DB.Entities.Owners)
                 {
                     if (model != null && model.Owner_Name == item.OwnerID)
                     {
@@ -142,7 +142,7 @@ namespace Alabama.Controllers
                 ViewBag.dataOwners = dataOwners;
 
                 string dataDispatchers = "<option >--Select Dispatcher--</option>";
-                foreach (var item in Alabama.DB.Entities.Dispatchers)
+                foreach (var item in NationalIT.DB.Entities.Dispatchers)
                 {
                     if (model != null && model.Dispatcher == item.ID)
                     {
@@ -157,7 +157,7 @@ namespace Alabama.Controllers
                 ViewBag.dataDispatchers = dataDispatchers;
 
                 string dataTruck = "<option >--Select Truck--</option>";
-                foreach (var item in Alabama.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRUCK")))
+                foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRUCK")))
                 {
                     if (model != null && model.ID == item.ID)
                     {
@@ -171,7 +171,7 @@ namespace Alabama.Controllers
                 ViewBag.dataTruck = dataTruck;
 
                 string dataTrailer = "<option >--Select Trailer--</option>";
-                foreach (var item in Alabama.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRAILER")))
+                foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRAILER")))
                 {
                     if (model != null && model.ID == item.ID)
                     {
