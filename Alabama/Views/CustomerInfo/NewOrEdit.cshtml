@@ -1,4 +1,4 @@
-﻿@model Alabama.Customer_Info
+﻿@model NationalIT.Customer_Info
 @using Webdiyer.WebControls.Mvc;
 @{
     ViewBag.Title = "NewOrEdit";
@@ -92,9 +92,9 @@
             @{
                 int page = (!string.IsNullOrEmpty(Request.Params["page"])?int.Parse(Request.Params["page"]):1);
                 int pageSize = (!string.IsNullOrEmpty(Request.Params["pageSize"]) ? int.Parse(Request.Params["pageSize"]) : 20);
-                var lst = Alabama.DB.Entities.Trip_Info.Where(m => m.Customer_Info.Customer_ID == Model.Customer_ID).ToList();
+                var lst = NationalIT.DB.Entities.Trip_Info.Where(m => m.Customer_Info.Customer_ID == Model.Customer_ID).ToList();
             }
-            @Html.Partial("_Trip_Info_Partial", new PagedList<Alabama.Trip_Info>(lst,page,pageSize))
+            @Html.Partial("_Trip_Info_Partial", new PagedList<NationalIT.Trip_Info>(lst,page,pageSize))
         </div>
     </div>
     <div class="row-fluid">
