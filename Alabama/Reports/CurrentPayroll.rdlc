@@ -31,7 +31,7 @@
       </Query>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>D:\Recnaleerf\nationalit1\Alabama\Reports\CurrentPayroll.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Recnaleerf\nationalit1\NationalIT\Reports\CurrentPayroll.xsd</rd:SchemaPath>
         <rd:TableName>Trips</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -63,7 +63,7 @@
       </Query>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>D:\Recnaleerf\nationalit1\Alabama\Reports\CurrentPayroll.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Recnaleerf\nationalit1\NationalIT\Reports\CurrentPayroll.xsd</rd:SchemaPath>
         <rd:TableName>FuelExpenses</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -91,7 +91,7 @@
       </Query>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>D:\Recnaleerf\nationalit1\Alabama\Reports\CurrentPayroll.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Recnaleerf\nationalit1\NationalIT\Reports\CurrentPayroll.xsd</rd:SchemaPath>
         <rd:TableName>OperatingExpenses</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -119,7 +119,7 @@
       </Query>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>D:\Recnaleerf\nationalit1\Alabama\Reports\CurrentPayroll.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Recnaleerf\nationalit1\NationalIT\Reports\CurrentPayroll.xsd</rd:SchemaPath>
         <rd:TableName>OwnerExpenses</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -147,7 +147,7 @@
       </Query>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>D:\Recnaleerf\nationalit1\Alabama\Reports\CurrentPayroll.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Recnaleerf\nationalit1\NationalIT\Reports\CurrentPayroll.xsd</rd:SchemaPath>
         <rd:TableName>DriverExpenses</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
