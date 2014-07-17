@@ -147,7 +147,7 @@
     });
 
     // Not EDIT OR DELETE
-    $(".chosen-with-diselect").chosen({ allow_single_deselect: true }).change(function () {
+    $(".selectDriverInfo").chosen({ allow_single_deselect: true }).change(function () {
         var valueDriverInfo = $(this).val();
         var url = $(location).attr('href');
         $.ajax({
