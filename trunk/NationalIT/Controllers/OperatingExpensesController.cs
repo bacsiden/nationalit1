@@ -31,12 +31,23 @@ namespace NationalIT.Controllers
             }
             ViewBag.dataOperating_Expenses = dataOperating_Expenses;
             #endregion
+
+            #region SELECT Driver info
+            string dataDriver_Info = "<option >--Select Driver_Info--</option>";
+            foreach (var item in NationalIT.DB.Entities.Driver_Info)
+            {
+                dataDriver_Info += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+            }
+            ViewBag.dataDriver = dataDriver_Info;
+            #endregion
         }
         public ActionResult NewOrEdit(int? id = 0)
         {
+            SelectOption();
             if (id == 0) return View(new Operating_Expenses());
 
             var obj = DB.Entities.Operating_Expenses.FirstOrDefault(m => m.ID == id);
+            
             return View(obj);
         }
 
@@ -63,6 +74,7 @@ namespace NationalIT.Controllers
             }
             catch
             {
+                SelectOption();
                 return View();
             }
         }
