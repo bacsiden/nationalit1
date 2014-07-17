@@ -8,14 +8,14 @@
         //        autoCompleteByClassName($(":input.Dispatcher"),Html.Raw(ViewBag.dataDispatchers));
         //        autoCompleteByClassName($(":input.Owner_Name"),Html.Raw(ViewBag.dataOwners));
 
-        $(".DriverPayrollExpanses").click(function () {
-            $(".DriverPayRollList").fadeIn();
-            $("html, body").animate({ scrollTop: $(document).height() }, 1000);
-        });
+//        $(".DriverPayrollExpanses").click(function () {
+//            $(".DriverPayRollList").fadeIn();
+//            $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+//        });
 
         // show/hide input checkbox
-        $('input[type=checkbox]').parent().hide();
-        $('.DriverPayRollList input[type=checkbox]').parent().show();
+//        $('input[type=checkbox]').parent().hide();
+//        $('.DriverPayRollList input[type=checkbox]').parent().show();
 
         // Add parameter for 2 button report
         clickFunctionByClassName('Printreport');
@@ -257,7 +257,7 @@
                     @Html.ActionLink("Cancel", "Index", null, new { @class = "btn" })
                 </div>
             </div> 
-            <div class="DriverPayRollList" style="display: none; margin: 50px 0 0 0;">
+            @*<div class="DriverPayRollList" style="display: none; margin: 50px 0 0 0;">
                 <div class="row-fluid">
                     <div class="span12" style="background: #5ab4da; text-align: center;">
                         <h3 style="margin: 0; color: White; text-transform: uppercase;">
@@ -293,7 +293,7 @@
                         @Html.ActionLink("PDF report", "PDFreport", null, new { @class = "btn btn-info PDFreport" })
                     </div>
                 </div>
-            </div>
+            </div>*@
             
         }
     </div>
