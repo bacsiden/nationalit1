@@ -19,11 +19,13 @@
                     @Html.HiddenFor(model => model.Id)
                     
                     <div class="control-group">
-                        <label class="control-label" for="OwnerDriver">@Html.LabelFor(model => model.OwnerDriver)</label>
+                        <label class="control-label" for="Driver">
+                            OwnerDriver</label>
                         <div class="controls">
                             <div class="span12">
-                                @*date-picker*@ @*<input type="text" name="username" id="username" class="input-xlarge" data-rule-required="true" data-rule-minlength="3" />*@
-                                @Html.TextBoxFor(model => model.OwnerDriver, new { @class = "input-xlarge" })
+                                <select data-placeholder="Select OwnerDriver" name="OwnerDriver" class="chosen-with-diselect input-xlarge">
+                                    @Html.Raw(ViewBag.dataDriver)
+                                </select>
                                 @Html.ValidationMessageFor(model => model.OwnerDriver)
                             </div>
                         </div>

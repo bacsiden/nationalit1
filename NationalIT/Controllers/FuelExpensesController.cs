@@ -32,6 +32,24 @@ namespace NationalIT.Controllers
             }
             ViewBag.dataFuel_Expenses = dataFuel_Expenses;
             #endregion
+
+
+            var lst1 = new List<string> { "FUEL", "ADVANCE", "REPAIR" };
+            string type = "";
+            foreach (var item in lst1)
+            {
+                type += "<option value='" + item + "'>" + item + "</option>";
+            }
+            ViewBag.Type = type;
+
+            #region SELECT Driver info
+            string dataDriver_Info = "<option >--Select Driver_Info--</option>";
+            foreach (var item in NationalIT.DB.Entities.Driver_Info)
+            {
+                dataDriver_Info += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+            }
+            ViewBag.dataDriver = dataDriver_Info;
+            #endregion
         }
         public ActionResult Create()
         {
@@ -72,7 +90,43 @@ namespace NationalIT.Controllers
                 return View();
             }
         }
+        public ActionResult NewOrEdit(int? id = 0)
+        {
+            var obj = DB.Entities.Fuel___Expenses.FirstOrDefault(m => m.ID == id);
+            SelectOption();
+            return View(obj);
+        }
 
+        //
+        // POST: /Owner/Edit/5
+
+        [HttpPost]
+        public ActionResult NewOrEdit(Fuel___Expenses model)
+        {
+            try
+            {
+                var db = DB.Entities;
+
+                if (model.ID == 0)
+                {
+                    // Edit                    
+                    db.Fuel___Expenses.AddObject(model);
+                }
+                else
+                {
+                    // Add new      
+                    db.AttachTo("Fuel___Expenses", model);
+                    db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
+                }
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                SelectOption();
+                return View(model);
+            }
+        }
         public ActionResult Edit(int id)
         {
             var db = DB.Entities;
