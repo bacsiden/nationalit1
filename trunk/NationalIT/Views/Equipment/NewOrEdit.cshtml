@@ -78,7 +78,7 @@
                             Inspection Expiration</label>
                         <div class="controls">
                             <div class="span12">
-                                @Html.TextBoxFor(model => model.Inspection_Expiration, new { @class = "input-xlarge date-picker" })
+                                @Html.TextBoxFor(model => model.Inspection_Expiration, new { Value = Model != null && Model.Inspection_Expiration.HasValue ? Model.Inspection_Expiration.Value.ToShortDateString() : "", @class = "input-xlarge date-picker" })
                                 @Html.ValidationMessageFor(model => model.Inspection_Expiration)
                             </div>
                         </div>
@@ -116,7 +116,7 @@
                             Registration Expiration</label>
                         <div class="controls">
                             <div class="span12">
-                                @Html.TextBoxFor(model => model.Registration_Expiration, new { @class = "input-xlarge date-picker" })
+                                @Html.TextBoxFor(model => model.Registration_Expiration, new { Value = Model != null && Model.Registration_Expiration.HasValue ? Model.Registration_Expiration.Value.ToShortDateString() : "", @class = "input-xlarge date-picker" })
                                 @Html.ValidationMessageFor(model => model.Registration_Expiration)
                             </div>
                         </div>
