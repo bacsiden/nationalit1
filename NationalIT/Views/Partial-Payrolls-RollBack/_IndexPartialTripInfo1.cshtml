@@ -40,19 +40,19 @@
                         <input type="checkbox" name="DriverTripCheckItem" value="@item.Total_charges" getID="@item.Trip_ID" class="DriverTripCheckItem"/>
                     </td>
                     <td>
-                        @Html.ActionLink(item.Trip_ID.ToString(), "NewOrEdit", new { id = item.Trip_ID })
+                        @Html.ActionLink(item.Trip_ID.ToString(), "NewOrEdit", "TripInfo", new { id = item.Trip_ID },null)
                     </td>
                     <td>
                         @item.Address
                     </td>
                     <td>
-                        @String.Format("{0:MM/dd/yyyy}", item.Order_date)
+                        @(item.Order_date.HasValue ? item.Order_date.Value.ToShortDateString() : "")
                     </td>
                     @*<td>
                         @String.Format("{0:MM/dd/yyyy}", item.Pickup_date)
                     </td>*@
                     <td>
-                        @String.Format("{0:MM/dd/yyyy}", item.Delivery_date)
+                        @(item.Delivery_date.HasValue ? item.Delivery_date.Value.ToShortDateString() : "")
                     </td>                    
                     <td>
                         @item.Total_charges

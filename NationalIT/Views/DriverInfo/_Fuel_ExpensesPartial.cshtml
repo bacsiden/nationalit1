@@ -39,7 +39,7 @@
                         <input type="checkbox" name="DriverFuel___ExpensesItem" value="@item.ID" class="DriverFuel___ExpensesItem" />
                     </td>
                     <td>
-                        @item.Date
+                        @(item.Date.HasValue?item.Date.Value.ToShortDateString():"")
                     </td>
                     <td>
                         @item.Type

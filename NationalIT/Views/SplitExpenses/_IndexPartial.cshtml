@@ -69,16 +69,16 @@
                     @item.Details
                 </td>
                 <td>
-                    @String.Format("{0:g}", item.Date)
+                    @(item.Date.HasValue?item.Date.Value.ToShortDateString():"")
                 </td>
                 <td>
-                    @item.Fee_Charged
+                    @NationalIT.CommonFunction.getYesNO(item.Fee_Charged)
                 </td>
                 <td>
-                    @item.Current_Payroll
+                    @NationalIT.CommonFunction.getYesNO(item.Current_Payroll)
                 </td>
                 <td>
-                    @item.Paid_Off
+                    @NationalIT.CommonFunction.getYesNO(item.Paid_Off)
                 </td>
             </tr>
             }

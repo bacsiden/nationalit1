@@ -42,7 +42,7 @@
                         <input type="checkbox" name="DriverOperating_ExpensesItem" value="@item.ID" class="DriverOperating_ExpensesItem" />
                     </td>
                     <td>
-                        @String.Format("{0:g}", item.Date)
+                         @(item.Date.HasValue?item.Date.Value.ToShortDateString():"")
                     </td>
                     <td>
                         @item.Type
@@ -60,11 +60,12 @@
                         @item.Description
                     </td>
                     <td>
-                        @item.Paid_off
+                         @(item.Paid_off.HasValue ? NationalIT.CommonFunction.getYesNO(item.Paid_off.Value) : "")
                     </td>
                     <td>
-                        @item.Current_Payroll
+                        @(item.Current_Payroll.HasValue?NationalIT.CommonFunction.getYesNO(item.Current_Payroll.Value):"")
                     </td>
+                    
                 </tr>
                 }
             }
