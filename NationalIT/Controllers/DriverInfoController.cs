@@ -73,7 +73,7 @@ namespace NationalIT.Controllers
             string dataTruck = "<option >--Select Truck--</option>";
             foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRUCK")))
             {
-                if (obj != null && (obj.Truck + "").Equals(item.Equipment_number + ""))
+                if (obj != null && obj.Truck.Equals(item.ID.ToString()))
                 {
                     dataTruck += string.Format("<option value='{0}' selected='selected'>{0}</option>", item.Equipment_number);
                 }
@@ -87,7 +87,7 @@ namespace NationalIT.Controllers
             string dataTrailer = "<option >--Select Trailer--</option>";
             foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRAILER")))
             {
-                if (obj != null && (obj.Trailer + "").Equals(item.Equipment_number + ""))
+                if (obj != null && obj.Trailer.Equals(item.ID.ToString()))
                 {
                     dataTrailer += string.Format("<option value='{0}' selected='selected'>{0}</option>", item.Equipment_number);
                 }
@@ -159,7 +159,7 @@ namespace NationalIT.Controllers
                 string dataTruck = "<option >--Select Truck--</option>";
                 foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRUCK")))
                 {
-                    if (model != null && model.ID == item.ID)
+                    if (model != null && model.Truck == item.ID.ToString())
                     {
                         dataTruck += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.ID, item.Equipment_number);
                     }
@@ -173,7 +173,7 @@ namespace NationalIT.Controllers
                 string dataTrailer = "<option >--Select Trailer--</option>";
                 foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRAILER")))
                 {
-                    if (model != null && model.ID == item.ID)
+                    if (model != null && model.Trailer == item.ID.ToString())
                     {
                         dataTrailer += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.ID, item.Equipment_number);
                     }
@@ -184,7 +184,7 @@ namespace NationalIT.Controllers
                 }
                 ViewBag.dataTrailer = dataTrailer;
                 #endregion
-                return View();
+                return View(model);
             }
         }
 
