@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="vpss1ModelStoreContainer" CdmEntityContainer="vpss1Entities">
+  <EntityContainerMapping StorageEntityContainer="nationalitModelStoreContainer" CdmEntityContainer="nationalitEntities">
     <EntitySetMapping Name="Company_Expanses">
-      <EntityTypeMapping TypeName="vpss1Model.Company_Expanses">
-        <MappingFragment StoreEntitySet="Company Expanses">
+      <EntityTypeMapping TypeName="nationalitModel.Company_Expanses">
+        <MappingFragment StoreEntitySet="Company_Expanses">
           <ScalarProperty Name="CompanyExpansesID" ColumnName="CompanyExpansesID" />
           <ScalarProperty Name="Expanses" ColumnName="Expanses" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
@@ -13,41 +13,103 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Customer_Info">
-      <EntityTypeMapping TypeName="vpss1Model.Customer_Info">
-        <MappingFragment StoreEntitySet="Customer Info">
-          <ScalarProperty Name="Customer_ID" ColumnName="Customer ID" />
-          <ScalarProperty Name="Customer_Name" ColumnName="Customer Name" />
+      <EntityTypeMapping TypeName="nationalitModel.Customer_Info">
+        <MappingFragment StoreEntitySet="Customer_Info">
+          <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+          <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
           <ScalarProperty Name="Street" ColumnName="Street" />
           <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="ZIP_Code" ColumnName="ZIP Code" />
+          <ScalarProperty Name="ZIP_Code" ColumnName="ZIP_Code" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="Fax" ColumnName="Fax" />
           <ScalarProperty Name="Contact" ColumnName="Contact" />
           <ScalarProperty Name="Comments" ColumnName="Comments" />
-          <ScalarProperty Name="Days_to_pay" ColumnName="Days to pay" />
+          <ScalarProperty Name="Days_to_pay" ColumnName="Days_to_pay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dispatchers">
+      <EntityTypeMapping TypeName="nationalitModel.Dispatchers">
+        <MappingFragment StoreEntitySet="Dispatchers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Last_name" ColumnName="Last_name" />
+          <ScalarProperty Name="First_name" ColumnName="First_name" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Hire_date" ColumnName="Hire_date" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Driver_Info">
+      <EntityTypeMapping TypeName="nationalitModel.Driver_Info">
+        <MappingFragment StoreEntitySet="Driver_Info">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+          <ScalarProperty Name="Last_name" ColumnName="Last_name" />
+          <ScalarProperty Name="First_name" ColumnName="First_name" />
+          <ScalarProperty Name="Middle_in" ColumnName="Middle_in" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="Drive_Lic" ColumnName="Drive_Lic" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Expiration_Date" ColumnName="Expiration_Date" />
+          <ScalarProperty Name="Date_Issued" ColumnName="Date_Issued" />
+          <ScalarProperty Name="HazMat" ColumnName="HazMat" />
+          <ScalarProperty Name="Pay_rate" ColumnName="Pay_rate" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Truck" ColumnName="Truck" />
+          <ScalarProperty Name="Trailer" ColumnName="Trailer" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Fuel_Card" ColumnName="Fuel_Card" />
+          <ScalarProperty Name="fuel___advance_Fee_rate" ColumnName="fuel___advance_Fee_rate" />
+          <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="Owner_Pay_Rate" ColumnName="Owner_Pay_Rate" />
+          <ScalarProperty Name="Owner_Name" ColumnName="Owner_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Equipment">
+      <EntityTypeMapping TypeName="nationalitModel.Equipment">
+        <MappingFragment StoreEntitySet="Equipment">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Equipment_Type" ColumnName="Equipment_Type" />
+          <ScalarProperty Name="Equipment_number" ColumnName="Equipment_number" />
+          <ScalarProperty Name="Driver" ColumnName="Driver" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="VIN" ColumnName="VIN" />
+          <ScalarProperty Name="Registration_Expiration" ColumnName="Registration_Expiration" />
+          <ScalarProperty Name="Inspection_Expiration" ColumnName="Inspection_Expiration" />
+          <ScalarProperty Name="DATE_LEASED" ColumnName="DATE_LEASED" />
+          <ScalarProperty Name="EQUIPMENT_VALUE" ColumnName="EQUIPMENT_VALUE" />
+          <ScalarProperty Name="EQUIPMENT_DESCRIPTION" ColumnName="EQUIPMENT_DESCRIPTION" />
+          <ScalarProperty Name="MODEL_YEAR" ColumnName="MODEL_YEAR" />
+          <ScalarProperty Name="MAKE" ColumnName="MAKE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="fixed_charges">
-      <EntityTypeMapping TypeName="vpss1Model.fixed_charges">
-        <MappingFragment StoreEntitySet="fixed charges">
+      <EntityTypeMapping TypeName="nationalitModel.fixed_charges">
+        <MappingFragment StoreEntitySet="fixed_charges">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="DriverId" ColumnName="DriverId" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Frequency" ColumnName="Frequency" />
           <ScalarProperty Name="Beginning" ColumnName="Beginning" />
-          <ScalarProperty Name="Fee_Charged" ColumnName="Fee Charged" />
-          <ScalarProperty Name="Next_Date" ColumnName="Next Date" />
-          <ScalarProperty Name="Prv_Date" ColumnName="Prv Date" />
-          <ScalarProperty Name="Amount_To_Date" ColumnName="Amount To Date" />
+          <ScalarProperty Name="Fee_Charged" ColumnName="Fee_Charged" />
+          <ScalarProperty Name="Next_Date" ColumnName="Next_Date" />
+          <ScalarProperty Name="Prv_Date" ColumnName="Prv_Date" />
+          <ScalarProperty Name="Amount_To_Date" ColumnName="Amount_To_Date" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Fuel___Expenses">
-      <EntityTypeMapping TypeName="vpss1Model.Fuel___Expenses">
-        <MappingFragment StoreEntitySet="Fuel &amp; Expenses">
+      <EntityTypeMapping TypeName="nationalitModel.Fuel___Expenses">
+        <MappingFragment StoreEntitySet="Fuel___Expenses">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Type" ColumnName="Type" />
@@ -56,15 +118,15 @@
           <ScalarProperty Name="Location" ColumnName="Location" />
           <ScalarProperty Name="Driver" ColumnName="Driver" />
           <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Paid_off" ColumnName="Paid off" />
-          <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-          <ScalarProperty Name="fee_charged" ColumnName="fee charged" />
-          <ScalarProperty Name="Fuel_Card" ColumnName="Fuel Card" />
+          <ScalarProperty Name="Paid_off" ColumnName="Paid_off" />
+          <ScalarProperty Name="Current_Payroll" ColumnName="Current_Payroll" />
+          <ScalarProperty Name="fee_charged" ColumnName="fee_charged" />
+          <ScalarProperty Name="Fuel_Card" ColumnName="Fuel_Card" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Income">
-      <EntityTypeMapping TypeName="vpss1Model.Income">
+      <EntityTypeMapping TypeName="nationalitModel.Income">
         <MappingFragment StoreEntitySet="Income">
           <ScalarProperty Name="IncomeID" ColumnName="IncomeID" />
           <ScalarProperty Name="IncomeDate" ColumnName="IncomeDate" />
@@ -78,7 +140,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="InvoiceA">
-      <EntityTypeMapping TypeName="vpss1Model.InvoiceA">
+      <EntityTypeMapping TypeName="nationalitModel.InvoiceA">
         <MappingFragment StoreEntitySet="InvoiceA">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Invoice" ColumnName="Invoice" />
@@ -86,14 +148,14 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Maintenance">
-      <EntityTypeMapping TypeName="vpss1Model.Maintenance">
+      <EntityTypeMapping TypeName="nationalitModel.Maintenance">
         <MappingFragment StoreEntitySet="Maintenance">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Track_Trailer_Number" ColumnName="Track/Trailer Number" />
-          <ScalarProperty Name="Maintenance_performed" ColumnName="Maintenance performed" />
-          <ScalarProperty Name="Performed_date" ColumnName="Performed date" />
+          <ScalarProperty Name="Track_Trailer_Number" ColumnName="Track_Trailer_Number" />
+          <ScalarProperty Name="Maintenance_performed" ColumnName="Maintenance_performed" />
+          <ScalarProperty Name="Performed_date" ColumnName="Performed_date" />
           <ScalarProperty Name="Location" ColumnName="Location" />
-          <ScalarProperty Name="PO_" ColumnName="PO#" />
+          <ScalarProperty Name="PO_" ColumnName="PO_" />
           <ScalarProperty Name="ApprovedAmount" ColumnName="ApprovedAmount" />
           <ScalarProperty Name="SpentAmount" ColumnName="SpentAmount" />
           <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
@@ -101,8 +163,8 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Operating_Expenses">
-      <EntityTypeMapping TypeName="vpss1Model.Operating_Expenses">
-        <MappingFragment StoreEntitySet="Operating Expenses">
+      <EntityTypeMapping TypeName="nationalitModel.Operating_Expenses">
+        <MappingFragment StoreEntitySet="Operating_Expenses">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Type" ColumnName="Type" />
@@ -110,117 +172,57 @@
           <ScalarProperty Name="Location" ColumnName="Location" />
           <ScalarProperty Name="Driver" ColumnName="Driver" />
           <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Paid_off" ColumnName="Paid off" />
-          <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
+          <ScalarProperty Name="Paid_off" ColumnName="Paid_off" />
+          <ScalarProperty Name="Current_Payroll" ColumnName="Current_Payroll" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Printed_Temp_Fuel___Expenses">
-      <EntityTypeMapping TypeName="vpss1Model.Printed_Temp_Fuel___Expenses">
-        <MappingFragment StoreEntitySet="Printed Temp Fuel &amp; Expenses">
-          <ScalarProperty Name="Selection" ColumnName="Selection" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="Location" ColumnName="Location" />
-          <ScalarProperty Name="Driver" ColumnName="Driver" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Paid_off" ColumnName="Paid off" />
-          <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-          <ScalarProperty Name="ReportID" ColumnName="ReportID" />
-          <ScalarProperty Name="AmountN" ColumnName="AmountN" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Printed_Temp_Operating_Expenses">
-      <EntityTypeMapping TypeName="vpss1Model.Printed_Temp_Operating_Expenses">
-        <MappingFragment StoreEntitySet="Printed Temp Operating Expenses">
-          <ScalarProperty Name="Selection" ColumnName="Selection" />
-          <ScalarProperty Name="OperatingID" ColumnName="OperatingID" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="Location" ColumnName="Location" />
-          <ScalarProperty Name="Driver" ColumnName="Driver" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Paid_Off" ColumnName="Paid Off" />
-          <ScalarProperty Name="Current_payroll" ColumnName="Current payroll" />
-          <ScalarProperty Name="ReportID" ColumnName="ReportID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Printed_Temp_Split_Expenses_Driver">
-      <EntityTypeMapping TypeName="vpss1Model.Printed_Temp_Split_Expenses_Driver">
-        <MappingFragment StoreEntitySet="Printed Temp Split Expenses Driver">
-          <ScalarProperty Name="Selection" ColumnName="Selection" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="OwnerDriver" ColumnName="OwnerDriver" />
-          <ScalarProperty Name="Index" ColumnName="Index" />
-          <ScalarProperty Name="Expenses" ColumnName="Expenses" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="Details" ColumnName="Details" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Fee_Charged" ColumnName="Fee Charged" />
-          <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-          <ScalarProperty Name="Paid_Off" ColumnName="Paid Off" />
-          <ScalarProperty Name="ReportID" ColumnName="ReportID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Printed_Temp_Split_Expenses_Owner">
-      <EntityTypeMapping TypeName="vpss1Model.Printed_Temp_Split_Expenses_Owner">
-        <MappingFragment StoreEntitySet="Printed Temp Split Expenses Owner">
-          <ScalarProperty Name="Selection" ColumnName="Selection" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="OwnerDriver" ColumnName="OwnerDriver" />
-          <ScalarProperty Name="Index" ColumnName="Index" />
-          <ScalarProperty Name="Expenses" ColumnName="Expenses" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="Details" ColumnName="Details" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Fee_Charged" ColumnName="Fee Charged" />
-          <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-          <ScalarProperty Name="Paid_Off" ColumnName="Paid Off" />
-          <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+    <EntitySetMapping Name="Owners">
+      <EntityTypeMapping TypeName="nationalitModel.Owners">
+        <MappingFragment StoreEntitySet="Owners">
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ssn_" ColumnName="ssn_" />
+          <ScalarProperty Name="fee_rate" ColumnName="fee_rate" />
+          <ScalarProperty Name="pay_rate" ColumnName="pay_rate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Printed_Temp_Trip_Info">
-      <EntityTypeMapping TypeName="vpss1Model.Printed_Temp_Trip_Info">
-        <MappingFragment StoreEntitySet="Printed Temp Trip Info">
+      <EntityTypeMapping TypeName="nationalitModel.Printed_Temp_Trip_Info">
+        <MappingFragment StoreEntitySet="Printed_Temp_Trip_Info">
           <ScalarProperty Name="Selection" ColumnName="Selection" />
-          <ScalarProperty Name="Trip_ID" ColumnName="Trip ID" />
-          <ScalarProperty Name="Order_Date" ColumnName="Order Date" />
-          <ScalarProperty Name="Pickup_Date" ColumnName="Pickup Date" />
-          <ScalarProperty Name="Delivery_Date" ColumnName="Delivery Date" />
-          <ScalarProperty Name="Pickup_Location" ColumnName="Pickup Location" />
-          <ScalarProperty Name="Delivery_Location" ColumnName="Delivery Location" />
-          <ScalarProperty Name="Extra_stops" ColumnName="Extra stops" />
-          <ScalarProperty Name="Loaded_miles" ColumnName="Loaded miles" />
-          <ScalarProperty Name="Dead_head_miles" ColumnName="Dead head miles" />
-          <ScalarProperty Name="Comfirmed_Rate" ColumnName="Comfirmed Rate" />
+          <ScalarProperty Name="Trip_ID" ColumnName="Trip_ID" />
+          <ScalarProperty Name="Order_Date" ColumnName="Order_Date" />
+          <ScalarProperty Name="Pickup_Date" ColumnName="Pickup_Date" />
+          <ScalarProperty Name="Delivery_Date" ColumnName="Delivery_Date" />
+          <ScalarProperty Name="Pickup_Location" ColumnName="Pickup_Location" />
+          <ScalarProperty Name="Delivery_Location" ColumnName="Delivery_Location" />
+          <ScalarProperty Name="Extra_stops" ColumnName="Extra_stops" />
+          <ScalarProperty Name="Loaded_miles" ColumnName="Loaded_miles" />
+          <ScalarProperty Name="Dead_head_miles" ColumnName="Dead_head_miles" />
+          <ScalarProperty Name="Comfirmed_Rate" ColumnName="Comfirmed_Rate" />
           <ScalarProperty Name="Customer" ColumnName="Customer" />
           <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
           <ScalarProperty Name="Driver" ColumnName="Driver" />
           <ScalarProperty Name="Paid" ColumnName="Paid" />
-          <ScalarProperty Name="Extra_Charges" ColumnName="Extra Charges" />
-          <ScalarProperty Name="Detention_pay" ColumnName="Detention pay" />
-          <ScalarProperty Name="Total_charges" ColumnName="Total charges" />
+          <ScalarProperty Name="Extra_Charges" ColumnName="Extra_Charges" />
+          <ScalarProperty Name="Detention_pay" ColumnName="Detention_pay" />
+          <ScalarProperty Name="Total_charges" ColumnName="Total_charges" />
           <ScalarProperty Name="Detention" ColumnName="Detention" />
           <ScalarProperty Name="Picked" ColumnName="Picked" />
           <ScalarProperty Name="Deliverd" ColumnName="Deliverd" />
           <ScalarProperty Name="Invoice" ColumnName="Invoice" />
-          <ScalarProperty Name="Customer_Invoiced" ColumnName="Customer Invoiced" />
+          <ScalarProperty Name="Customer_Invoiced" ColumnName="Customer_Invoiced" />
           <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-          <ScalarProperty Name="Driver_paid" ColumnName="Driver paid" />
+          <ScalarProperty Name="Current_Payroll" ColumnName="Current_Payroll" />
+          <ScalarProperty Name="Driver_paid" ColumnName="Driver_paid" />
           <ScalarProperty Name="ReportId" ColumnName="ReportId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ReportIDs">
-      <EntityTypeMapping TypeName="vpss1Model.ReportIDs">
+      <EntityTypeMapping TypeName="nationalitModel.ReportIDs">
         <MappingFragment StoreEntitySet="ReportIDs">
           <ScalarProperty Name="ReportID" ColumnName="ReportID" />
           <ScalarProperty Name="DriverID" ColumnName="DriverID" />
@@ -229,8 +231,8 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="split_expenses">
-      <EntityTypeMapping TypeName="vpss1Model.split_expenses">
-        <MappingFragment StoreEntitySet="split expenses">
+      <EntityTypeMapping TypeName="nationalitModel.split_expenses">
+        <MappingFragment StoreEntitySet="split_expenses">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="OwnerDriver" ColumnName="OwnerDriver" />
           <ScalarProperty Name="Idndex" ColumnName="Idndex" />
@@ -238,14 +240,14 @@
           <ScalarProperty Name="Amount" ColumnName="Amount" />
           <ScalarProperty Name="Details" ColumnName="Details" />
           <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Fee_Charged" ColumnName="Fee Charged" />
-          <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-          <ScalarProperty Name="Paid_Off" ColumnName="Paid Off" />
+          <ScalarProperty Name="Fee_Charged" ColumnName="Fee_Charged" />
+          <ScalarProperty Name="Current_Payroll" ColumnName="Current_Payroll" />
+          <ScalarProperty Name="Paid_Off" ColumnName="Paid_Off" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="vpss1Model.sysdiagrams">
+      <EntityTypeMapping TypeName="nationalitModel.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -255,255 +257,83 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Temp_Fuel___Expenses">
-      <EntityTypeMapping TypeName="vpss1Model.Temp_Fuel___Expenses">
-        <MappingFragment StoreEntitySet="Temp Fuel &amp; Expenses">
-          <ScalarProperty Name="Selection" ColumnName="Selection" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="Location" ColumnName="Location" />
-          <ScalarProperty Name="Driver" ColumnName="Driver" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Paid_off" ColumnName="Paid off" />
-          <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-          <ScalarProperty Name="AmountN" ColumnName="AmountN" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Temp_Operating_Expenses">
-      <EntityTypeMapping TypeName="vpss1Model.Temp_Operating_Expenses">
-        <MappingFragment StoreEntitySet="Temp Operating Expenses">
-          <ScalarProperty Name="Selection" ColumnName="Selection" />
-          <ScalarProperty Name="OperatingID" ColumnName="OperatingID" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="Location" ColumnName="Location" />
-          <ScalarProperty Name="Driver" ColumnName="Driver" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Paid_Off" ColumnName="Paid Off" />
-          <ScalarProperty Name="Current_payroll" ColumnName="Current payroll" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Temp_split_expenses_Driver">
-      <EntityTypeMapping TypeName="vpss1Model.Temp_split_expenses_Driver">
-        <MappingFragment StoreEntitySet="Temp split expenses Driver">
-          <ScalarProperty Name="Selection" ColumnName="Selection" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="OwnerDriver" ColumnName="OwnerDriver" />
-          <ScalarProperty Name="Index" ColumnName="Index" />
-          <ScalarProperty Name="Expenses" ColumnName="Expenses" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="Details" ColumnName="Details" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Fee_Charged" ColumnName="Fee Charged" />
-          <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-          <ScalarProperty Name="Paid_Off" ColumnName="Paid Off" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Temp_split_expenses_owner">
-      <EntityTypeMapping TypeName="vpss1Model.Temp_split_expenses_owner">
-        <MappingFragment StoreEntitySet="Temp split expenses owner">
-          <ScalarProperty Name="Selection" ColumnName="Selection" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="OwnerDriver" ColumnName="OwnerDriver" />
-          <ScalarProperty Name="Index" ColumnName="Index" />
-          <ScalarProperty Name="Expenses" ColumnName="Expenses" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="Details" ColumnName="Details" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Fee_Charged" ColumnName="Fee Charged" />
-          <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-          <ScalarProperty Name="Paid_Off" ColumnName="Paid Off" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Temp_Trip_Info">
-      <EntityTypeMapping TypeName="vpss1Model.Temp_Trip_Info">
-        <MappingFragment StoreEntitySet="Temp Trip Info">
-          <ScalarProperty Name="Selection" ColumnName="Selection" />
-          <ScalarProperty Name="Trip_ID" ColumnName="Trip ID" />
-          <ScalarProperty Name="Order_Date" ColumnName="Order Date" />
-          <ScalarProperty Name="Pickup_Date" ColumnName="Pickup Date" />
-          <ScalarProperty Name="Delivery_Date" ColumnName="Delivery Date" />
-          <ScalarProperty Name="Pickup_Location" ColumnName="Pickup Location" />
-          <ScalarProperty Name="Delivery_Location" ColumnName="Delivery Location" />
-          <ScalarProperty Name="Extra_stops" ColumnName="Extra stops" />
-          <ScalarProperty Name="Loaded_miles" ColumnName="Loaded miles" />
-          <ScalarProperty Name="Dead_head_miles" ColumnName="Dead head miles" />
-          <ScalarProperty Name="Comfirmed_Rate" ColumnName="Comfirmed Rate" />
+    <EntitySetMapping Name="Trip_Info">
+      <EntityTypeMapping TypeName="nationalitModel.Trip_Info">
+        <MappingFragment StoreEntitySet="Trip_Info">
+          <ScalarProperty Name="Trip_ID" ColumnName="Trip_ID" />
+          <ScalarProperty Name="Order_date" ColumnName="Order_date" />
+          <ScalarProperty Name="Pickup_date" ColumnName="Pickup_date" />
+          <ScalarProperty Name="Delivery_date" ColumnName="Delivery_date" />
+          <ScalarProperty Name="Pick_up_location" ColumnName="Pick_up_location" />
+          <ScalarProperty Name="Delivery_location" ColumnName="Delivery_location" />
+          <ScalarProperty Name="Extra_stops" ColumnName="Extra_stops" />
+          <ScalarProperty Name="Loaded_miles" ColumnName="Loaded_miles" />
+          <ScalarProperty Name="Dead_head_miles" ColumnName="Dead_head_miles" />
+          <ScalarProperty Name="Comfirmed_Rate" ColumnName="Comfirmed_Rate" />
           <ScalarProperty Name="Customer" ColumnName="Customer" />
           <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
           <ScalarProperty Name="Driver" ColumnName="Driver" />
           <ScalarProperty Name="Paid" ColumnName="Paid" />
-          <ScalarProperty Name="Extra_Charges" ColumnName="Extra Charges" />
-          <ScalarProperty Name="Detention_pay" ColumnName="Detention pay" />
-          <ScalarProperty Name="Total_charges" ColumnName="Total charges" />
+          <ScalarProperty Name="Extra_charges" ColumnName="Extra_charges" />
+          <ScalarProperty Name="Detention_pay" ColumnName="Detention_pay" />
+          <ScalarProperty Name="Total_charges" ColumnName="Total_charges" />
           <ScalarProperty Name="Detention" ColumnName="Detention" />
           <ScalarProperty Name="Picked" ColumnName="Picked" />
           <ScalarProperty Name="Deliverd" ColumnName="Deliverd" />
           <ScalarProperty Name="Invoice" ColumnName="Invoice" />
-          <ScalarProperty Name="Customer_Invoiced" ColumnName="Customer Invoiced" />
+          <ScalarProperty Name="Customer_Invoiced" ColumnName="Customer_Invoiced" />
           <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-          <ScalarProperty Name="Driver_paid" ColumnName="Driver paid" />
+          <ScalarProperty Name="Current_Payroll" ColumnName="Current_Payroll" />
+          <ScalarProperty Name="Driver_paid" ColumnName="Driver_paid" />
+          <ScalarProperty Name="Equipment_ID" ColumnName="Equipment_ID" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="PO_" ColumnName="PO_" />
+          <ScalarProperty Name="Customer_Invoiced_date" ColumnName="Customer_Invoiced_date" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Trip_Info___old">
-      <EntityTypeMapping TypeName="vpss1Model.Trip_Info___old">
-        <MappingFragment StoreEntitySet="Trip Info - old">
-          <ScalarProperty Name="Trip_ID" ColumnName="Trip ID" />
-          <ScalarProperty Name="Order_date" ColumnName="Order date" />
-          <ScalarProperty Name="Pickup_date" ColumnName="Pickup date" />
-          <ScalarProperty Name="Delivery_date" ColumnName="Delivery date" />
-          <ScalarProperty Name="Pick_up_location" ColumnName="Pick up location" />
-          <ScalarProperty Name="Delivery_location" ColumnName="Delivery location" />
-          <ScalarProperty Name="Extra_stops" ColumnName="Extra stops" />
-          <ScalarProperty Name="Loaded_miles" ColumnName="Loaded miles" />
-          <ScalarProperty Name="Dead_head_miles" ColumnName="Dead head miles" />
-          <ScalarProperty Name="Comfirmed_Rate" ColumnName="Comfirmed Rate" />
+      <EntityTypeMapping TypeName="nationalitModel.Trip_Info___old">
+        <MappingFragment StoreEntitySet="Trip_Info___old">
+          <ScalarProperty Name="Trip_ID" ColumnName="Trip_ID" />
+          <ScalarProperty Name="Order_date" ColumnName="Order_date" />
+          <ScalarProperty Name="Pickup_date" ColumnName="Pickup_date" />
+          <ScalarProperty Name="Delivery_date" ColumnName="Delivery_date" />
+          <ScalarProperty Name="Pick_up_location" ColumnName="Pick_up_location" />
+          <ScalarProperty Name="Delivery_location" ColumnName="Delivery_location" />
+          <ScalarProperty Name="Extra_stops" ColumnName="Extra_stops" />
+          <ScalarProperty Name="Loaded_miles" ColumnName="Loaded_miles" />
+          <ScalarProperty Name="Dead_head_miles" ColumnName="Dead_head_miles" />
+          <ScalarProperty Name="Comfirmed_Rate" ColumnName="Comfirmed_Rate" />
           <ScalarProperty Name="Customer" ColumnName="Customer" />
           <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
           <ScalarProperty Name="Driver" ColumnName="Driver" />
           <ScalarProperty Name="Paid" ColumnName="Paid" />
-          <ScalarProperty Name="Extra_charges" ColumnName="Extra charges" />
-          <ScalarProperty Name="Detention_pay" ColumnName="Detention pay" />
-          <ScalarProperty Name="Total_charges" ColumnName="Total charges" />
+          <ScalarProperty Name="Extra_charges" ColumnName="Extra_charges" />
+          <ScalarProperty Name="Detention_pay" ColumnName="Detention_pay" />
+          <ScalarProperty Name="Total_charges" ColumnName="Total_charges" />
           <ScalarProperty Name="Detention" ColumnName="Detention" />
           <ScalarProperty Name="Picked" ColumnName="Picked" />
           <ScalarProperty Name="Deliverd" ColumnName="Deliverd" />
           <ScalarProperty Name="Invoice" ColumnName="Invoice" />
-          <ScalarProperty Name="Customer_Invoiced" ColumnName="Customer Invoiced" />
+          <ScalarProperty Name="Customer_Invoiced" ColumnName="Customer_Invoiced" />
           <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-          <ScalarProperty Name="Driver_paid" ColumnName="Driver paid" />
-          <ScalarProperty Name="PO_" ColumnName="PO#" />
-          <ScalarProperty Name="Customer_Invoiced_date" ColumnName="Customer Invoiced date" />
+          <ScalarProperty Name="Current_Payroll" ColumnName="Current_Payroll" />
+          <ScalarProperty Name="Driver_paid" ColumnName="Driver_paid" />
+          <ScalarProperty Name="PO_" ColumnName="PO_" />
+          <ScalarProperty Name="Customer_Invoiced_date" ColumnName="Customer_Invoiced_date" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Violations">
-      <EntityTypeMapping TypeName="vpss1Model.Violations">
+      <EntityTypeMapping TypeName="nationalitModel.Violations">
         <MappingFragment StoreEntitySet="Violations">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Driver" ColumnName="Driver" />
           <ScalarProperty Name="Location" ColumnName="Location" />
-          <ScalarProperty Name="Date_occurred" ColumnName="Date occurred" />
-          <ScalarProperty Name="Date_resolved" ColumnName="Date resolved" />
+          <ScalarProperty Name="Date_occurred" ColumnName="Date_occurred" />
+          <ScalarProperty Name="Date_resolved" ColumnName="Date_resolved" />
           <ScalarProperty Name="Equipment" ColumnName="Equipment" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Equipment">
-      <EntityTypeMapping TypeName="vpss1Model.Equipment">
-        <MappingFragment StoreEntitySet="Equipment">
-          <ScalarProperty Name="MAKE" ColumnName="MAKE" />
-          <ScalarProperty Name="MODEL_YEAR" ColumnName="MODEL YEAR" />
-          <ScalarProperty Name="EQUIPMENT_DESCRIPTION" ColumnName="EQUIPMENT DESCRIPTION" />
-          <ScalarProperty Name="EQUIPMENT_VALUE" ColumnName="EQUIPMENT VALUE" />
-          <ScalarProperty Name="DATE_LEASED" ColumnName="DATE LEASED" />
-          <ScalarProperty Name="Inspection_Expiration" ColumnName="Inspection Expiration" />
-          <ScalarProperty Name="Registration_Expiration" ColumnName="Registration Expiration" />
-          <ScalarProperty Name="VIN" ColumnName="VIN" />
-          <ScalarProperty Name="Owner" ColumnName="Owner" />
-          <ScalarProperty Name="Driver" ColumnName="Driver" />
-          <ScalarProperty Name="Equipment_number" ColumnName="Equipment number" />
-          <ScalarProperty Name="Equipment_Type" ColumnName="Equipment Type" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Owners">
-      <EntityTypeMapping TypeName="vpss1Model.Owners">
-        <MappingFragment StoreEntitySet="Owners">
-          <ScalarProperty Name="pay_rate" ColumnName="pay rate" />
-          <ScalarProperty Name="fee_rate" ColumnName="fee rate" />
-          <ScalarProperty Name="ssn_" ColumnName="ssn#" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Trip_Info">
-      <EntityTypeMapping TypeName="vpss1Model.Trip_Info">
-        <MappingFragment StoreEntitySet="Trip Info">
-          <ScalarProperty Name="Customer_Invoiced_date" ColumnName="Customer Invoiced date" />
-          <ScalarProperty Name="PO_" ColumnName="PO#" />
-          <ScalarProperty Name="Comment" ColumnName="Comment" />
-          <ScalarProperty Name="Equipment_ID" ColumnName="Equipment ID" />
-          <ScalarProperty Name="Driver_paid" ColumnName="Driver paid" />
-          <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Customer_Invoiced" ColumnName="Customer Invoiced" />
-          <ScalarProperty Name="Invoice" ColumnName="Invoice" />
-          <ScalarProperty Name="Deliverd" ColumnName="Deliverd" />
-          <ScalarProperty Name="Picked" ColumnName="Picked" />
-          <ScalarProperty Name="Detention" ColumnName="Detention" />
-          <ScalarProperty Name="Total_charges" ColumnName="Total charges" />
-          <ScalarProperty Name="Detention_pay" ColumnName="Detention pay" />
-          <ScalarProperty Name="Extra_charges" ColumnName="Extra charges" />
-          <ScalarProperty Name="Paid" ColumnName="Paid" />
-          <ScalarProperty Name="Driver" ColumnName="Driver" />
-          <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
-          <ScalarProperty Name="Customer" ColumnName="Customer" />
-          <ScalarProperty Name="Comfirmed_Rate" ColumnName="Comfirmed Rate" />
-          <ScalarProperty Name="Dead_head_miles" ColumnName="Dead head miles" />
-          <ScalarProperty Name="Loaded_miles" ColumnName="Loaded miles" />
-          <ScalarProperty Name="Extra_stops" ColumnName="Extra stops" />
-          <ScalarProperty Name="Delivery_location" ColumnName="Delivery location" />
-          <ScalarProperty Name="Pick_up_location" ColumnName="Pick up location" />
-          <ScalarProperty Name="Delivery_date" ColumnName="Delivery date" />
-          <ScalarProperty Name="Pickup_date" ColumnName="Pickup date" />
-          <ScalarProperty Name="Order_date" ColumnName="Order date" />
-          <ScalarProperty Name="Trip_ID" ColumnName="Trip ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Driver_Info">
-      <EntityTypeMapping TypeName="vpss1Model.Driver_Info">
-        <MappingFragment StoreEntitySet="Driver Info">
-          <ScalarProperty Name="Owner_Name" ColumnName="Owner Name" />
-          <ScalarProperty Name="Owner_Pay_Rate" ColumnName="Owner Pay Rate" />
-          <ScalarProperty Name="Owner" ColumnName="Owner" />
-          <ScalarProperty Name="Active" ColumnName="Active" />
-          <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
-          <ScalarProperty Name="fuel___advance_Fee_rate" ColumnName="fuel &amp; advance Fee rate" />
-          <ScalarProperty Name="Fuel_Card" ColumnName="Fuel Card" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Trailer" ColumnName="Trailer" />
-          <ScalarProperty Name="Truck" ColumnName="Truck" />
-          <ScalarProperty Name="Comments" ColumnName="Comments" />
-          <ScalarProperty Name="Pay_rate" ColumnName="Pay rate" />
-          <ScalarProperty Name="HazMat" ColumnName="HazMat" />
-          <ScalarProperty Name="Date_Issued" ColumnName="Date Issued" />
-          <ScalarProperty Name="Expiration_Date" ColumnName="Expiration Date" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Drive_Lic" ColumnName="Drive Lic" />
-          <ScalarProperty Name="SSN" ColumnName="SSN" />
-          <ScalarProperty Name="Middle_in" ColumnName="Middle in" />
-          <ScalarProperty Name="First_name" ColumnName="First name" />
-          <ScalarProperty Name="Last_name" ColumnName="Last name" />
-          <ScalarProperty Name="Employee_ID" ColumnName="Employee ID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Dispatchers">
-      <EntityTypeMapping TypeName="vpss1Model.Dispatchers">
-        <MappingFragment StoreEntitySet="Dispatchers">
-          <ScalarProperty Name="Active" ColumnName="Active" />
-          <ScalarProperty Name="Hire_date" ColumnName="Hire date" />
-          <ScalarProperty Name="DOB" ColumnName="DOB" />
-          <ScalarProperty Name="SSN" ColumnName="SSN" />
-          <ScalarProperty Name="First_name" ColumnName="First name" />
-          <ScalarProperty Name="Last_name" ColumnName="Last name" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
