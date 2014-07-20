@@ -73,7 +73,7 @@ namespace NationalIT.Controllers
             string dataTruck = "<option >--Select Truck--</option>";
             foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRUCK")))
             {
-                if (obj != null && obj.Truck.Equals(item.ID.ToString()))
+                if (obj != null && obj.Truck==item.ID.ToString())
                 {
                     dataTruck += string.Format("<option value='{0}' selected='selected'>{0}</option>", item.Equipment_number);
                 }
@@ -87,7 +87,7 @@ namespace NationalIT.Controllers
             string dataTrailer = "<option >--Select Trailer--</option>";
             foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRAILER")))
             {
-                if (obj != null && obj.Trailer.Equals(item.ID.ToString()))
+                if (obj != null && obj.Trailer==(item.ID.ToString()))
                 {
                     dataTrailer += string.Format("<option value='{0}' selected='selected'>{0}</option>", item.Equipment_number);
                 }
