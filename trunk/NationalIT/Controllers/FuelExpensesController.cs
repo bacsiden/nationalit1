@@ -18,11 +18,11 @@ namespace NationalIT.Controllers
             {
                 return PartialView("_IndexPartial", list);
             }
-            SelectOption();
+            SelectOption(new Fuel___Expenses());
             return View(list);
         }
 
-        void SelectOption()
+        void SelectOption(Fuel___Expenses obj)
         {
             #region SELECT OPTION
             string dataFuel_Expenses = "<option >--Select Fuel_Expenses--</option>";
@@ -46,7 +46,14 @@ namespace NationalIT.Controllers
             string dataDriver_Info = "<option >--Select Driver_Info--</option>";
             foreach (var item in NationalIT.DB.Entities.Driver_Info)
             {
-                dataDriver_Info += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                if (obj != null && obj.Driver == item.ID)
+                {
+                    dataDriver_Info += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                }
+                else
+                {
+                    dataDriver_Info += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                }
             }
             ViewBag.dataDriver = dataDriver_Info;
             #endregion
@@ -93,7 +100,7 @@ namespace NationalIT.Controllers
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.Fuel___Expenses.FirstOrDefault(m => m.ID == id);
-            SelectOption();
+            SelectOption(obj);
             return View(obj);
         }
 
@@ -123,7 +130,7 @@ namespace NationalIT.Controllers
             }
             catch
             {
-                SelectOption();
+                SelectOption(model);
                 return View(model);
             }
         }

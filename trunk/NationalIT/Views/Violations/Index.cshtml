@@ -50,11 +50,12 @@
                         @item.Location
                     </td>
                     <td>
-                        @String.Format("{0:g}", item.Date_occurred)
+                        @(item.Date_occurred.HasValue ? item.Date_occurred.Value.ToShortDateString() : "")
                     </td>
                     <td>
-                        @String.Format("{0:g}", item.Date_resolved)
+                        @(item.Date_resolved.HasValue ? item.Date_resolved.Value.ToShortDateString() : "")
                     </td>
+
                     <td>
                         @(item.Equipment1 != null ? item.Equipment1.Equipment_number : null)
                     </td>

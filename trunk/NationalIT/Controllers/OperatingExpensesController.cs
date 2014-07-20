@@ -17,11 +17,11 @@ namespace NationalIT.Controllers
             {
                 return PartialView("_IndexPartial", list);
             }
-            SelectOption();
+            SelectOption(new Operating_Expenses());
             return View(list);
         }
 
-        void SelectOption()
+        void SelectOption(Operating_Expenses obj)
         {
             #region SELECT OPTION
             string dataOperating_Expenses = "<option >--Select Operating_Expenses--</option>";
@@ -36,18 +36,23 @@ namespace NationalIT.Controllers
             string dataDriver_Info = "<option >--Select Driver_Info--</option>";
             foreach (var item in NationalIT.DB.Entities.Driver_Info)
             {
-                dataDriver_Info += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                if (obj != null && obj.Driver == item.ID)
+                {
+                    dataDriver_Info += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                }
+                else
+                {
+                    dataDriver_Info += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                }
             }
             ViewBag.dataDriver = dataDriver_Info;
             #endregion
         }
         public ActionResult NewOrEdit(int? id = 0)
         {
-            SelectOption();
-            if (id == 0) return View(new Operating_Expenses());
-
-            var obj = DB.Entities.Operating_Expenses.FirstOrDefault(m => m.ID == id);
-            
+            var obj = new Operating_Expenses();
+            if (id != 0) obj = DB.Entities.Operating_Expenses.FirstOrDefault(m => m.ID == id);
+            SelectOption(obj);
             return View(obj);
         }
 
@@ -74,8 +79,8 @@ namespace NationalIT.Controllers
             }
             catch
             {
-                SelectOption();
-                return View();
+                SelectOption(model);
+                return View(model);
             }
         }
 
