@@ -43,13 +43,13 @@
                     @item.Trip_ID
                 </td>
                 <td>
-                    @item.Order_date
+                     @(item.Order_date.HasValue ? item.Order_date.Value.ToShortDateString() : "")
                 </td>
                 <td>
-                    @item.Pickup_date
+                     @(item.Pickup_date.HasValue ? item.Pickup_date.Value.ToShortDateString() : "")
                 </td>
                 <td>
-                    @item.Delivery_date
+                     @(item.Delivery_date.HasValue ? item.Delivery_date.Value.ToShortDateString() : "")
                 </td>
                 <td>
                     @(item.Driver != null ? item.Driver_Info.First_name : null)

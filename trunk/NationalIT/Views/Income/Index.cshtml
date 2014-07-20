@@ -55,7 +55,7 @@
                                 @Html.ActionLink(item.IncomeID.ToString(), "NewOrEdit", new { id = item.IncomeID })
                             </td>
                             <td>
-                                @String.Format("{0:g}", item.IncomeDate)
+                                 @(item.IncomeDate.HasValue?item.IncomeDate.Value.ToShortDateString():"")
                             </td>
                             <td>
                                 @String.Format("{0:F}", item.AmountInvoiced)

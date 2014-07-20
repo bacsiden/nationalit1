@@ -1,6 +1,7 @@
 ﻿@model Webdiyer.WebControls.Mvc.PagedList<NationalIT.Trip_Info>
 @using Webdiyer.WebControls.Mvc;
-<h3>Trip Info</h3>
+<h3>
+    Trip Info</h3>
 <table class="table">
     <thead>
         <tr>
@@ -28,13 +29,13 @@
             {
             <tr>
                 <td>
-                    @String.Format("{0:g}", item.Order_date)
+                    @(item.Order_date.HasValue ? item.Order_date.Value.ToShortDateString() : "")
                 </td>
                 <td>
-                    @String.Format("{0:g}", item.Pickup_date)
+                    @(item.Pickup_date.HasValue ? item.Pickup_date.Value.ToShortDateString() : "")
                 </td>
                 <td>
-                    @String.Format("{0:F}", item.Delivery_date)
+                    @(item.Delivery_date.HasValue ? item.Delivery_date.Value.ToShortDateString() : "")
                 </td>
                 <td>
                     @item.Pick_up_location

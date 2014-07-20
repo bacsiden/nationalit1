@@ -56,13 +56,13 @@
                         @item.SSN
                     </td>
                     <td>
-                        @String.Format("{0:g}", item.DOB)
+                        @(item.DOB.HasValue ? item.DOB.Value.ToShortDateString() : "")
                     </td>
                     <td>
-                        @item.Active
+                        @NationalIT.CommonFunction.getYesNO(item.Active)
                     </td>
                     <td>
-                        @String.Format("{0:g}", item.Hire_date)
+                        @(item.Hire_date.HasValue ? item.Hire_date.Value.ToShortDateString() : "")
                     </td>
                 </tr>
             }

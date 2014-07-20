@@ -49,7 +49,7 @@
                     <a href="/FuelExpenses/NewOrEdit/@item.ID" style="color: #0072BC;">@item.ID</a>
                 </td>
                 <td>
-                    @item.Date
+                     @(item.Date.HasValue?item.Date.Value.ToShortDateString():"")
                 </td>
                 <td>
                     @item.Type

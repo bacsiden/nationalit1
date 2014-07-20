@@ -49,16 +49,16 @@
                         @item.First_name
                     </td>
                     <td>
-                        @item.Expiration_Date
+                        @item.Expiration_Date.ToShortDateString()
                     </td>
                     <td>
-                        @item.Active
+                        @NationalIT.CommonFunction.getYesNO(item.Active)
                     </td>
                     <td>
                         @item.Drive_Lic
                     </td>
                     <td>
-                        @item.Owner
+                         @NationalIT.CommonFunction.getYesNO(item.Owner)
                     </td>
                     <td>
                         @Html.Raw(item.Dispatchers != null ? item.Dispatchers.First_name : "")

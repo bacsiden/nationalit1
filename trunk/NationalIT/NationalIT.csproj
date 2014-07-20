@@ -67,6 +67,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonFunction.cs" />
     <Compile Include="Controllers\CompanyExpansesController.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -59,7 +59,7 @@
                         @item.Maintenance_performed
                     </td>
                     <td>
-                        @String.Format("{0:g}", item.Performed_date)
+                        @(item.Performed_date.HasValue?item.Performed_date.Value.ToShortDateString():"")
                     </td>
                     <td>
                         @item.Location
