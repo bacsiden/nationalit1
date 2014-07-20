@@ -6,62 +6,106 @@
     <edmx:StorageModels>
       <Schema Namespace="NationalITModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="NationalITModelStoreContainer">
-          <EntitySet Name="Company_Expanses" EntityType="NationalITModel.Store.Company_Expanses" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Customer_Info" EntityType="NationalITModel.Store.Customer_Info" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Company Expanses" EntityType="NationalITModel.Store.Company Expanses" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Customer Info" EntityType="NationalITModel.Store.Customer Info" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Dispatchers" EntityType="NationalITModel.Store.Dispatchers" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Driver_Info" EntityType="NationalITModel.Store.Driver_Info" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Driver Info" EntityType="NationalITModel.Store.Driver Info" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Equipment" EntityType="NationalITModel.Store.Equipment" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="fixed_charges" EntityType="NationalITModel.Store.fixed_charges" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Fuel___Expenses" EntityType="NationalITModel.Store.Fuel___Expenses" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="fixed charges" EntityType="NationalITModel.Store.fixed charges" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Fuel &amp; Expenses" EntityType="NationalITModel.Store.Fuel &amp; Expenses" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Income" EntityType="NationalITModel.Store.Income" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="InvoiceA" EntityType="NationalITModel.Store.InvoiceA" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Maintenance" EntityType="NationalITModel.Store.Maintenance" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Operating_Expenses" EntityType="NationalITModel.Store.Operating_Expenses" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Operating Expenses" EntityType="NationalITModel.Store.Operating Expenses" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Owners" EntityType="NationalITModel.Store.Owners" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Printed_Temp_Trip_Info" EntityType="NationalITModel.Store.Printed_Temp_Trip_Info" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Printed Temp Trip Info" EntityType="NationalITModel.Store.Printed Temp Trip Info" store:Type="Tables" store:Schema="dbo" store:Name="Printed Temp Trip Info">
+            <DefiningQuery>SELECT 
+      [Printed Temp Trip Info].[Selection] AS [Selection], 
+      [Printed Temp Trip Info].[Trip ID] AS [Trip ID], 
+      [Printed Temp Trip Info].[Order Date] AS [Order Date], 
+      [Printed Temp Trip Info].[Pickup Date] AS [Pickup Date], 
+      [Printed Temp Trip Info].[Delivery Date] AS [Delivery Date], 
+      [Printed Temp Trip Info].[Pickup Location] AS [Pickup Location], 
+      [Printed Temp Trip Info].[Delivery Location] AS [Delivery Location], 
+      [Printed Temp Trip Info].[Extra stops] AS [Extra stops], 
+      [Printed Temp Trip Info].[Loaded miles] AS [Loaded miles], 
+      [Printed Temp Trip Info].[Dead head miles] AS [Dead head miles], 
+      [Printed Temp Trip Info].[Comfirmed Rate] AS [Comfirmed Rate], 
+      [Printed Temp Trip Info].[Customer] AS [Customer], 
+      [Printed Temp Trip Info].[Dispatcher] AS [Dispatcher], 
+      [Printed Temp Trip Info].[Driver] AS [Driver], 
+      [Printed Temp Trip Info].[Paid] AS [Paid], 
+      [Printed Temp Trip Info].[Extra Charges] AS [Extra Charges], 
+      [Printed Temp Trip Info].[Detention pay] AS [Detention pay], 
+      [Printed Temp Trip Info].[Total charges] AS [Total charges], 
+      [Printed Temp Trip Info].[Detention] AS [Detention], 
+      [Printed Temp Trip Info].[Picked] AS [Picked], 
+      [Printed Temp Trip Info].[Deliverd] AS [Deliverd], 
+      [Printed Temp Trip Info].[Invoice] AS [Invoice], 
+      [Printed Temp Trip Info].[Customer Invoiced] AS [Customer Invoiced], 
+      [Printed Temp Trip Info].[Address] AS [Address], 
+      [Printed Temp Trip Info].[Current Payroll] AS [Current Payroll], 
+      [Printed Temp Trip Info].[Driver paid] AS [Driver paid], 
+      [Printed Temp Trip Info].[ReportId] AS [ReportId]
+      FROM [dbo].[Printed Temp Trip Info] AS [Printed Temp Trip Info]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="ReportIDs" EntityType="NationalITModel.Store.ReportIDs" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="split_expenses" EntityType="NationalITModel.Store.split_expenses" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Trip_Info" EntityType="NationalITModel.Store.Trip_Info" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Trip_Info___old" EntityType="NationalITModel.Store.Trip_Info___old" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="split expenses" EntityType="NationalITModel.Store.split expenses" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Temp Fuel &amp; Expenses" EntityType="NationalITModel.Store.Temp Fuel &amp; Expenses" store:Type="Tables" store:Schema="dbo" store:Name="Temp Fuel &amp; Expenses">
+            <DefiningQuery>SELECT 
+      [Temp Fuel &amp; Expenses].[Selection] AS [Selection], 
+      [Temp Fuel &amp; Expenses].[ID] AS [ID], 
+      [Temp Fuel &amp; Expenses].[Date] AS [Date], 
+      [Temp Fuel &amp; Expenses].[Type] AS [Type], 
+      [Temp Fuel &amp; Expenses].[Amount] AS [Amount], 
+      [Temp Fuel &amp; Expenses].[Location] AS [Location], 
+      [Temp Fuel &amp; Expenses].[Driver] AS [Driver], 
+      [Temp Fuel &amp; Expenses].[Description] AS [Description], 
+      [Temp Fuel &amp; Expenses].[Paid off] AS [Paid off], 
+      [Temp Fuel &amp; Expenses].[Current Payroll] AS [Current Payroll], 
+      [Temp Fuel &amp; Expenses].[AmountN] AS [AmountN]
+      FROM [dbo].[Temp Fuel &amp; Expenses] AS [Temp Fuel &amp; Expenses]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Trip Info" EntityType="NationalITModel.Store.Trip Info" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Violations" EntityType="NationalITModel.Store.Violations" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_Driver_Info_Dispatchers" Association="NationalITModel.Store.FK_Driver_Info_Dispatchers">
+          <AssociationSet Name="FK_Driver Info_Dispatchers" Association="NationalITModel.Store.FK_Driver Info_Dispatchers">
             <End Role="Dispatchers" EntitySet="Dispatchers" />
-            <End Role="Driver_Info" EntitySet="Driver_Info" />
+            <End Role="Driver Info" EntitySet="Driver Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Driver_Info_Owners" Association="NationalITModel.Store.FK_Driver_Info_Owners">
+          <AssociationSet Name="FK_Driver Info_Owners" Association="NationalITModel.Store.FK_Driver Info_Owners">
             <End Role="Owners" EntitySet="Owners" />
-            <End Role="Driver_Info" EntitySet="Driver_Info" />
+            <End Role="Driver Info" EntitySet="Driver Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Fuel___Expenses_Driver_Info" Association="NationalITModel.Store.FK_Fuel___Expenses_Driver_Info">
-            <End Role="Driver_Info" EntitySet="Driver_Info" />
-            <End Role="Fuel___Expenses" EntitySet="Fuel___Expenses" />
+          <AssociationSet Name="FK_Fuel &amp; Expenses_Driver Info" Association="NationalITModel.Store.FK_Fuel &amp; Expenses_Driver Info">
+            <End Role="Driver Info" EntitySet="Driver Info" />
+            <End Role="Fuel &amp; Expenses" EntitySet="Fuel &amp; Expenses" />
           </AssociationSet>
           <AssociationSet Name="FK_Maintenance_Equipment" Association="NationalITModel.Store.FK_Maintenance_Equipment">
             <End Role="Equipment" EntitySet="Equipment" />
             <End Role="Maintenance" EntitySet="Maintenance" />
           </AssociationSet>
-          <AssociationSet Name="FK_Operating_Expenses_Driver_Info" Association="NationalITModel.Store.FK_Operating_Expenses_Driver_Info">
-            <End Role="Driver_Info" EntitySet="Driver_Info" />
-            <End Role="Operating_Expenses" EntitySet="Operating_Expenses" />
+          <AssociationSet Name="FK_Operating Expenses_Driver Info" Association="NationalITModel.Store.FK_Operating Expenses_Driver Info">
+            <End Role="Driver Info" EntitySet="Driver Info" />
+            <End Role="Operating Expenses" EntitySet="Operating Expenses" />
           </AssociationSet>
-          <AssociationSet Name="FK_Trip_Info_Customer_Info1" Association="NationalITModel.Store.FK_Trip_Info_Customer_Info1">
-            <End Role="Customer_Info" EntitySet="Customer_Info" />
-            <End Role="Trip_Info" EntitySet="Trip_Info" />
+          <AssociationSet Name="FK_Trip Info_Customer Info" Association="NationalITModel.Store.FK_Trip Info_Customer Info">
+            <End Role="Customer Info" EntitySet="Customer Info" />
+            <End Role="Trip Info" EntitySet="Trip Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Trip_Info_Dispatchers1" Association="NationalITModel.Store.FK_Trip_Info_Dispatchers1">
+          <AssociationSet Name="FK_Trip Info_Dispatchers" Association="NationalITModel.Store.FK_Trip Info_Dispatchers">
             <End Role="Dispatchers" EntitySet="Dispatchers" />
-            <End Role="Trip_Info" EntitySet="Trip_Info" />
+            <End Role="Trip Info" EntitySet="Trip Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Trip_Info_Driver_Info1" Association="NationalITModel.Store.FK_Trip_Info_Driver_Info1">
-            <End Role="Driver_Info" EntitySet="Driver_Info" />
-            <End Role="Trip_Info" EntitySet="Trip_Info" />
+          <AssociationSet Name="FK_Trip Info_Driver Info" Association="NationalITModel.Store.FK_Trip Info_Driver Info">
+            <End Role="Driver Info" EntitySet="Driver Info" />
+            <End Role="Trip Info" EntitySet="Trip Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Trip_Info_Equipment1" Association="NationalITModel.Store.FK_Trip_Info_Equipment1">
+          <AssociationSet Name="FK_Trip Info_Equipment" Association="NationalITModel.Store.FK_Trip Info_Equipment">
             <End Role="Equipment" EntitySet="Equipment" />
-            <End Role="Trip_Info" EntitySet="Trip_Info" />
+            <End Role="Trip Info" EntitySet="Trip Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Violations_Driver_Info" Association="NationalITModel.Store.FK_Violations_Driver_Info">
-            <End Role="Driver_Info" EntitySet="Driver_Info" />
+          <AssociationSet Name="FK_Violations_Driver Info" Association="NationalITModel.Store.FK_Violations_Driver Info">
+            <End Role="Driver Info" EntitySet="Driver Info" />
             <End Role="Violations" EntitySet="Violations" />
           </AssociationSet>
           <AssociationSet Name="FK_Violations_Equipment" Association="NationalITModel.Store.FK_Violations_Equipment">
@@ -69,142 +113,141 @@
             <End Role="Violations" EntitySet="Violations" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Company_Expanses">
+        <EntityType Name="Company Expanses">
           <Key>
             <PropertyRef Name="CompanyExpansesID" />
           </Key>
           <Property Name="CompanyExpansesID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Expanses" Type="nvarchar" MaxLength="50" />
-          <Property Name="Amount" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="Amount" Type="money" />
           <Property Name="Date" Type="datetime" />
           <Property Name="Comment" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="Customer_Info">
+        <EntityType Name="Customer Info">
           <Key>
-            <PropertyRef Name="Customer_ID" />
+            <PropertyRef Name="Customer ID" />
           </Key>
-          <Property Name="Customer_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Customer_Name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="Customer ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Customer Name" Type="nvarchar" Nullable="false" MaxLength="128" />
           <Property Name="Street" Type="nvarchar" Nullable="false" MaxLength="64" />
           <Property Name="City" Type="nvarchar" MaxLength="64" />
           <Property Name="State" Type="nvarchar" MaxLength="64" />
-          <Property Name="ZIP_Code" Type="nvarchar" MaxLength="24" />
+          <Property Name="ZIP Code" Type="nvarchar" MaxLength="24" />
           <Property Name="Phone" Type="nvarchar" MaxLength="24" />
           <Property Name="Fax" Type="nvarchar" MaxLength="24" />
           <Property Name="Contact" Type="nvarchar" MaxLength="128" />
           <Property Name="Comments" Type="nvarchar" MaxLength="255" />
-          <Property Name="Days_to_pay" Type="smallint" />
+          <Property Name="Days to pay" Type="smallint" />
         </EntityType>
         <EntityType Name="Dispatchers">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Last_name" Type="nvarchar" MaxLength="32" />
-          <Property Name="First_name" Type="nvarchar" MaxLength="32" />
+          <Property Name="Last name" Type="nvarchar" MaxLength="32" />
+          <Property Name="First name" Type="nvarchar" MaxLength="32" />
           <Property Name="SSN" Type="nvarchar" MaxLength="12" />
           <Property Name="DOB" Type="datetime" />
-          <Property Name="Hire_date" Type="datetime" />
+          <Property Name="Hire date" Type="datetime" />
           <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="Driver_Info">
+        <EntityType Name="Driver Info">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Employee_ID" Type="nvarchar" MaxLength="32" />
-          <Property Name="Last_name" Type="nvarchar" Nullable="false" MaxLength="32" />
-          <Property Name="First_name" Type="nvarchar" Nullable="false" MaxLength="32" />
-          <Property Name="Middle_in" Type="nvarchar" MaxLength="32" />
+          <Property Name="Employee ID" Type="nvarchar" MaxLength="32" />
+          <Property Name="Last name" Type="nvarchar" Nullable="false" MaxLength="32" />
+          <Property Name="First name" Type="nvarchar" Nullable="false" MaxLength="32" />
+          <Property Name="Middle in" Type="nvarchar" MaxLength="32" />
           <Property Name="SSN" Type="nvarchar" Nullable="false" MaxLength="24" />
-          <Property Name="Drive_Lic" Type="nvarchar" Nullable="false" MaxLength="24" />
+          <Property Name="Drive Lic" Type="nvarchar" Nullable="false" MaxLength="24" />
           <Property Name="State" Type="nvarchar" Nullable="false" MaxLength="32" />
-          <Property Name="Expiration_Date" Type="nvarchar" Nullable="false" MaxLength="255" />
-          <Property Name="Date_Issued" Type="nvarchar" MaxLength="255" />
+          <Property Name="Expiration Date" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Date Issued" Type="nvarchar" MaxLength="255" />
           <Property Name="HazMat" Type="bit" Nullable="false" />
-          <Property Name="Pay_rate" Type="real" />
+          <Property Name="Pay rate" Type="real" />
           <Property Name="Comments" Type="nvarchar" MaxLength="255" />
           <Property Name="Truck" Type="nvarchar" MaxLength="32" />
           <Property Name="Trailer" Type="nvarchar" MaxLength="32" />
           <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="32" />
           <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="128" />
-          <Property Name="Fuel_Card" Type="nvarchar" MaxLength="32" />
-          <Property Name="fuel___advance_Fee_rate" Type="real" />
+          <Property Name="Fuel Card" Type="nvarchar" MaxLength="32" />
+          <Property Name="fuel &amp; advance Fee rate" Type="real" />
           <Property Name="Dispatcher" Type="int" />
           <Property Name="Active" Type="bit" Nullable="false" />
           <Property Name="Owner" Type="bit" Nullable="false" />
-          <Property Name="Owner_Pay_Rate" Type="real" />
-          <Property Name="Owner_Name" Type="int" />
+          <Property Name="Owner Pay Rate" Type="real" />
+          <Property Name="Owner Name" Type="int" />
         </EntityType>
         <EntityType Name="Equipment">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Equipment_Type" Type="nvarchar" MaxLength="32" />
-          <Property Name="Equipment_number" Type="nvarchar" MaxLength="32" />
+          <Property Name="Equipment Type" Type="nvarchar" MaxLength="32" />
+          <Property Name="Equipment number" Type="nvarchar" MaxLength="32" />
           <Property Name="Driver" Type="int" />
           <Property Name="Owner" Type="nvarchar" MaxLength="128" />
           <Property Name="VIN" Type="nvarchar" MaxLength="32" />
-          <Property Name="Registration_Expiration" Type="datetime" />
-          <Property Name="Inspection_Expiration" Type="datetime" />
-          <Property Name="DATE_LEASED" Type="nvarchar" MaxLength="255" />
-          <Property Name="EQUIPMENT_VALUE" Type="nvarchar" MaxLength="255" />
-          <Property Name="EQUIPMENT_DESCRIPTION" Type="nvarchar" MaxLength="255" />
-          <Property Name="MODEL_YEAR" Type="nvarchar" MaxLength="255" />
+          <Property Name="Registration Expiration" Type="datetime" />
+          <Property Name="Inspection Expiration" Type="datetime" />
+          <Property Name="DATE LEASED" Type="nvarchar" MaxLength="255" />
+          <Property Name="EQUIPMENT VALUE" Type="nvarchar" MaxLength="255" />
+          <Property Name="EQUIPMENT DESCRIPTION" Type="nvarchar" MaxLength="255" />
+          <Property Name="MODEL YEAR" Type="nvarchar" MaxLength="255" />
           <Property Name="MAKE" Type="nvarchar" MaxLength="255" />
         </EntityType>
-        <EntityType Name="fixed_charges">
+        <EntityType Name="fixed charges">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Fee_Charged" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="DriverId" Type="int" />
-          <Property Name="Amount" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="Amount" Type="money" />
           <Property Name="Type" Type="nvarchar" MaxLength="50" />
           <Property Name="Frequency" Type="int" />
           <Property Name="Beginning" Type="datetime" />
-          <Property Name="Fee_Charged" Type="bit" Nullable="false" />
-          <Property Name="Next_Date" Type="datetime" />
-          <Property Name="Prv_Date" Type="datetime" />
-          <Property Name="Amount_To_Date" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="Fee Charged" Type="bit" Nullable="false" />
+          <Property Name="Next Date" Type="datetime" />
+          <Property Name="Prv Date" Type="datetime" />
+          <Property Name="Amount To Date" Type="money" />
         </EntityType>
-        <EntityType Name="Fuel___Expenses">
+        <EntityType Name="Fuel &amp; Expenses">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="datetime" />
           <Property Name="Type" Type="nvarchar" MaxLength="24" />
-          <Property Name="Amount" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="AmountN" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="AmountN" Type="money" />
           <Property Name="Location" Type="nvarchar" MaxLength="64" />
           <Property Name="Driver" Type="int" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
-          <Property Name="Paid_off" Type="nvarchar" MaxLength="8" />
-          <Property Name="Current_Payroll" Type="nvarchar" MaxLength="8" />
-          <Property Name="fee_charged" Type="nvarchar" MaxLength="8" />
-          <Property Name="Fuel_Card" Type="nvarchar" MaxLength="32" />
+          <Property Name="Paid off" Type="nvarchar" MaxLength="8" />
+          <Property Name="Current Payroll" Type="nvarchar" MaxLength="8" />
+          <Property Name="fee charged" Type="nvarchar" MaxLength="8" />
+          <Property Name="Fuel Card" Type="nvarchar" MaxLength="32" />
         </EntityType>
         <EntityType Name="Income">
           <Key>
             <PropertyRef Name="IncomeID" />
           </Key>
-          <Property Name="IncomeID" Type="int" Nullable="false" />
+          <Property Name="IncomeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="IncomeDate" Type="datetime" />
-          <Property Name="AmountInvoiced" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="FundedAmount" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="ReserveAmount" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="AdvanceFee" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="ChargeBacks" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="AmountInvoiced" Type="money" />
+          <Property Name="FundedAmount" Type="money" />
+          <Property Name="ReserveAmount" Type="money" />
+          <Property Name="AdvanceFee" Type="money" />
+          <Property Name="ChargeBacks" Type="money" />
           <Property Name="Comments" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="InvoiceA">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Invoice" Type="int" />
         </EntityType>
         <EntityType Name="Maintenance">
@@ -212,28 +255,28 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Track_Trailer_Number" Type="int" />
-          <Property Name="Maintenance_performed" Type="nvarchar" MaxLength="255" />
-          <Property Name="Performed_date" Type="datetime" />
+          <Property Name="Track/Trailer Number" Type="int" />
+          <Property Name="Maintenance performed" Type="nvarchar" MaxLength="255" />
+          <Property Name="Performed date" Type="datetime" />
           <Property Name="Location" Type="nvarchar" MaxLength="128" />
-          <Property Name="PO_" Type="nvarchar" MaxLength="50" />
-          <Property Name="ApprovedAmount" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="SpentAmount" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="PO#" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApprovedAmount" Type="money" />
+          <Property Name="SpentAmount" Type="money" />
           <Property Name="ApprovedBy" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="Operating_Expenses">
+        <EntityType Name="Operating Expenses">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="datetime" />
           <Property Name="Type" Type="nvarchar" MaxLength="24" />
-          <Property Name="Amount" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="Amount" Type="money" />
           <Property Name="Location" Type="nvarchar" MaxLength="64" />
           <Property Name="Driver" Type="int" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
-          <Property Name="Paid_off" Type="nvarchar" MaxLength="8" />
-          <Property Name="Current_Payroll" Type="nvarchar" MaxLength="8" />
+          <Property Name="Paid off" Type="nvarchar" MaxLength="8" />
+          <Property Name="Current Payroll" Type="nvarchar" MaxLength="8" />
         </EntityType>
         <EntityType Name="Owners">
           <Key>
@@ -241,56 +284,59 @@
           </Key>
           <Property Name="OwnerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="ssn_" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="fee_rate" Type="real" />
-          <Property Name="pay_rate" Type="real" />
+          <Property Name="ssn#" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="fee rate" Type="real" />
+          <Property Name="pay rate" Type="real" />
         </EntityType>
-        <EntityType Name="Printed_Temp_Trip_Info">
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'NationalIT_Access.dbo.Printed Temp Trip Info' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Printed Temp Trip Info">
           <Key>
             <PropertyRef Name="Selection" />
             <PropertyRef Name="Paid" />
             <PropertyRef Name="Deliverd" />
-            <PropertyRef Name="Customer_Invoiced" />
-            <PropertyRef Name="Current_Payroll" />
-            <PropertyRef Name="Driver_paid" />
+            <PropertyRef Name="Customer Invoiced" />
+            <PropertyRef Name="Current Payroll" />
+            <PropertyRef Name="Driver paid" />
           </Key>
           <Property Name="Selection" Type="bit" Nullable="false" />
-          <Property Name="Trip_ID" Type="int" />
-          <Property Name="Order_Date" Type="datetime" />
-          <Property Name="Pickup_Date" Type="datetime" />
-          <Property Name="Delivery_Date" Type="datetime" />
-          <Property Name="Pickup_Location" Type="nvarchar" MaxLength="128" />
-          <Property Name="Delivery_Location" Type="nvarchar" MaxLength="128" />
-          <Property Name="Extra_stops" Type="nvarchar" MaxLength="128" />
-          <Property Name="Loaded_miles" Type="int" />
-          <Property Name="Dead_head_miles" Type="int" />
-          <Property Name="Comfirmed_Rate" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="Trip ID" Type="int" />
+          <Property Name="Order Date" Type="datetime" />
+          <Property Name="Pickup Date" Type="datetime" />
+          <Property Name="Delivery Date" Type="datetime" />
+          <Property Name="Pickup Location" Type="nvarchar" MaxLength="128" />
+          <Property Name="Delivery Location" Type="nvarchar" MaxLength="128" />
+          <Property Name="Extra stops" Type="nvarchar" MaxLength="128" />
+          <Property Name="Loaded miles" Type="int" />
+          <Property Name="Dead head miles" Type="int" />
+          <Property Name="Comfirmed Rate" Type="money" />
           <Property Name="Customer" Type="int" />
           <Property Name="Dispatcher" Type="int" />
           <Property Name="Driver" Type="int" />
           <Property Name="Paid" Type="bit" Nullable="false" />
-          <Property Name="Extra_Charges" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="Detention_pay" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="Total_charges" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="Detention" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="Picked" Type="varbinary(max)" />
+          <Property Name="Extra Charges" Type="money" />
+          <Property Name="Detention pay" Type="money" />
+          <Property Name="Total charges" Type="money" />
+          <Property Name="Detention" Type="money" />
+          <Property Name="Picked" Type="image" />
           <Property Name="Deliverd" Type="bit" Nullable="false" />
           <Property Name="Invoice" Type="int" />
-          <Property Name="Customer_Invoiced" Type="bit" Nullable="false" />
+          <Property Name="Customer Invoiced" Type="bit" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="128" />
-          <Property Name="Current_Payroll" Type="bit" Nullable="false" />
-          <Property Name="Driver_paid" Type="bit" Nullable="false" />
+          <Property Name="Current Payroll" Type="bit" Nullable="false" />
+          <Property Name="Driver paid" Type="bit" Nullable="false" />
           <Property Name="ReportId" Type="int" />
         </EntityType>
         <EntityType Name="ReportIDs">
           <Key>
             <PropertyRef Name="ReportID" />
           </Key>
-          <Property Name="ReportID" Type="int" Nullable="false" />
+          <Property Name="ReportID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="DriverID" Type="int" />
           <Property Name="Date" Type="datetime" />
         </EntityType>
-        <EntityType Name="split_expenses">
+        <EntityType Name="split expenses">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -298,122 +344,109 @@
           <Property Name="OwnerDriver" Type="int" />
           <Property Name="Idndex" Type="int" Nullable="false" />
           <Property Name="Expenses" Type="nvarchar" MaxLength="255" />
-          <Property Name="Amount" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="Amount" Type="money" />
           <Property Name="Details" Type="nvarchar(max)" />
           <Property Name="Date" Type="datetime" />
-          <Property Name="Fee_Charged" Type="bit" Nullable="false" />
-          <Property Name="Current_Payroll" Type="bit" Nullable="false" />
-          <Property Name="Paid_Off" Type="bit" Nullable="false" />
+          <Property Name="Fee Charged" Type="bit" Nullable="false" />
+          <Property Name="Current Payroll" Type="bit" Nullable="false" />
+          <Property Name="Paid Off" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="Trip_Info">
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'NationalIT_Access.dbo.Temp Fuel & Expenses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Temp Fuel &amp; Expenses">
           <Key>
-            <PropertyRef Name="Trip_ID" />
+            <PropertyRef Name="Selection" />
           </Key>
-          <Property Name="Trip_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Order_date" Type="datetime" />
-          <Property Name="Pickup_date" Type="datetime" />
-          <Property Name="Delivery_date" Type="datetime" />
-          <Property Name="Pick_up_location" Type="nvarchar" MaxLength="128" />
-          <Property Name="Delivery_location" Type="nvarchar" MaxLength="128" />
-          <Property Name="Extra_stops" Type="nvarchar" MaxLength="128" />
-          <Property Name="Loaded_miles" Type="int" />
-          <Property Name="Dead_head_miles" Type="int" />
-          <Property Name="Comfirmed_Rate" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="Selection" Type="bit" Nullable="false" />
+          <Property Name="ID" Type="int" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="Location" Type="nvarchar" MaxLength="128" />
+          <Property Name="Driver" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Paid off" Type="bit" />
+          <Property Name="Current Payroll" Type="nvarchar" MaxLength="50" />
+          <Property Name="AmountN" Type="money" />
+        </EntityType>
+        <EntityType Name="Trip Info">
+          <Key>
+            <PropertyRef Name="Trip ID" />
+          </Key>
+          <Property Name="Trip ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Order date" Type="datetime" />
+          <Property Name="Pickup date" Type="datetime" />
+          <Property Name="Delivery date" Type="datetime" />
+          <Property Name="Pick up location" Type="nvarchar" MaxLength="128" />
+          <Property Name="Delivery location" Type="nvarchar" MaxLength="128" />
+          <Property Name="Extra stops" Type="nvarchar" MaxLength="128" />
+          <Property Name="Loaded miles" Type="int" />
+          <Property Name="Dead head miles" Type="int" />
+          <Property Name="Comfirmed Rate" Type="money" />
           <Property Name="Customer" Type="int" />
           <Property Name="Dispatcher" Type="int" />
           <Property Name="Driver" Type="int" />
           <Property Name="Paid" Type="bit" Nullable="false" />
-          <Property Name="Extra_charges" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="Detention_pay" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="Total_charges" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="Detention" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="Extra charges" Type="money" />
+          <Property Name="Detention pay" Type="money" />
+          <Property Name="Total charges" Type="money" />
+          <Property Name="Detention" Type="money" />
           <Property Name="Picked" Type="bit" Nullable="false" />
           <Property Name="Deliverd" Type="bit" Nullable="false" />
           <Property Name="Invoice" Type="int" Nullable="false" />
-          <Property Name="Customer_Invoiced" Type="bit" Nullable="false" />
+          <Property Name="Customer Invoiced" Type="bit" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="128" />
-          <Property Name="Current_Payroll" Type="bit" Nullable="false" />
-          <Property Name="Driver_paid" Type="bit" Nullable="false" />
-          <Property Name="Equipment_ID" Type="int" />
+          <Property Name="Current Payroll" Type="bit" Nullable="false" />
+          <Property Name="Driver paid" Type="bit" Nullable="false" />
+          <Property Name="Equipment ID" Type="int" />
           <Property Name="Comment" Type="nvarchar" MaxLength="255" />
-          <Property Name="PO_" Type="nvarchar" MaxLength="16" />
-          <Property Name="Customer_Invoiced_date" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Trip_Info___old">
-          <Key>
-            <PropertyRef Name="Trip_ID" />
-          </Key>
-          <Property Name="Trip_ID" Type="int" Nullable="false" />
-          <Property Name="Order_date" Type="datetime" />
-          <Property Name="Pickup_date" Type="datetime" />
-          <Property Name="Delivery_date" Type="datetime" />
-          <Property Name="Pick_up_location" Type="nvarchar" MaxLength="128" />
-          <Property Name="Delivery_location" Type="nvarchar" MaxLength="128" />
-          <Property Name="Extra_stops" Type="nvarchar" MaxLength="128" />
-          <Property Name="Loaded_miles" Type="int" />
-          <Property Name="Dead_head_miles" Type="int" />
-          <Property Name="Comfirmed_Rate" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="Customer" Type="int" />
-          <Property Name="Dispatcher" Type="int" />
-          <Property Name="Driver" Type="int" />
-          <Property Name="Paid" Type="nvarchar" MaxLength="12" />
-          <Property Name="Extra_charges" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="Detention_pay" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="Total_charges" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="Detention" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="Picked" Type="nvarchar" MaxLength="50" />
-          <Property Name="Deliverd" Type="nvarchar" MaxLength="8" />
-          <Property Name="Invoice" Type="int" />
-          <Property Name="Customer_Invoiced" Type="nvarchar" MaxLength="8" />
-          <Property Name="Address" Type="nvarchar" MaxLength="128" />
-          <Property Name="Current_Payroll" Type="nvarchar" MaxLength="50" />
-          <Property Name="Driver_paid" Type="nvarchar" MaxLength="8" />
-          <Property Name="PO_" Type="nvarchar" MaxLength="16" />
-          <Property Name="Customer_Invoiced_date" Type="datetime" />
+          <Property Name="PO#" Type="nvarchar" MaxLength="16" />
+          <Property Name="Customer Invoiced date" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Violations">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Driver" Type="int" />
           <Property Name="Location" Type="nvarchar" MaxLength="128" />
-          <Property Name="Date_occurred" Type="datetime" />
-          <Property Name="Date_resolved" Type="datetime" />
+          <Property Name="Date occurred" Type="datetime" />
+          <Property Name="Date resolved" Type="datetime" />
           <Property Name="Equipment" Type="int" />
         </EntityType>
-        <Association Name="FK_Driver_Info_Dispatchers">
+        <Association Name="FK_Driver Info_Dispatchers">
           <End Role="Dispatchers" Type="NationalITModel.Store.Dispatchers" Multiplicity="0..1" />
-          <End Role="Driver_Info" Type="NationalITModel.Store.Driver_Info" Multiplicity="*" />
+          <End Role="Driver Info" Type="NationalITModel.Store.Driver Info" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Dispatchers">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Driver_Info">
+            <Dependent Role="Driver Info">
               <PropertyRef Name="Dispatcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Driver_Info_Owners">
+        <Association Name="FK_Driver Info_Owners">
           <End Role="Owners" Type="NationalITModel.Store.Owners" Multiplicity="0..1" />
-          <End Role="Driver_Info" Type="NationalITModel.Store.Driver_Info" Multiplicity="*" />
+          <End Role="Driver Info" Type="NationalITModel.Store.Driver Info" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Owners">
               <PropertyRef Name="OwnerID" />
             </Principal>
-            <Dependent Role="Driver_Info">
-              <PropertyRef Name="Owner_Name" />
+            <Dependent Role="Driver Info">
+              <PropertyRef Name="Owner Name" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Fuel___Expenses_Driver_Info">
-          <End Role="Driver_Info" Type="NationalITModel.Store.Driver_Info" Multiplicity="0..1" />
-          <End Role="Fuel___Expenses" Type="NationalITModel.Store.Fuel___Expenses" Multiplicity="*" />
+        <Association Name="FK_Fuel &amp; Expenses_Driver Info">
+          <End Role="Driver Info" Type="NationalITModel.Store.Driver Info" Multiplicity="0..1" />
+          <End Role="Fuel &amp; Expenses" Type="NationalITModel.Store.Fuel &amp; Expenses" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Driver_Info">
+            <Principal Role="Driver Info">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Fuel___Expenses">
+            <Dependent Role="Fuel &amp; Expenses">
               <PropertyRef Name="Driver" />
             </Dependent>
           </ReferentialConstraint>
@@ -426,75 +459,75 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Maintenance">
-              <PropertyRef Name="Track_Trailer_Number" />
+              <PropertyRef Name="Track/Trailer Number" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Operating_Expenses_Driver_Info">
-          <End Role="Driver_Info" Type="NationalITModel.Store.Driver_Info" Multiplicity="0..1" />
-          <End Role="Operating_Expenses" Type="NationalITModel.Store.Operating_Expenses" Multiplicity="*" />
+        <Association Name="FK_Operating Expenses_Driver Info">
+          <End Role="Driver Info" Type="NationalITModel.Store.Driver Info" Multiplicity="0..1" />
+          <End Role="Operating Expenses" Type="NationalITModel.Store.Operating Expenses" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Driver_Info">
+            <Principal Role="Driver Info">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Operating_Expenses">
+            <Dependent Role="Operating Expenses">
               <PropertyRef Name="Driver" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Trip_Info_Customer_Info1">
-          <End Role="Customer_Info" Type="NationalITModel.Store.Customer_Info" Multiplicity="0..1" />
-          <End Role="Trip_Info" Type="NationalITModel.Store.Trip_Info" Multiplicity="*" />
+        <Association Name="FK_Trip Info_Customer Info">
+          <End Role="Customer Info" Type="NationalITModel.Store.Customer Info" Multiplicity="0..1" />
+          <End Role="Trip Info" Type="NationalITModel.Store.Trip Info" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Customer_Info">
-              <PropertyRef Name="Customer_ID" />
+            <Principal Role="Customer Info">
+              <PropertyRef Name="Customer ID" />
             </Principal>
-            <Dependent Role="Trip_Info">
+            <Dependent Role="Trip Info">
               <PropertyRef Name="Customer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Trip_Info_Dispatchers1">
+        <Association Name="FK_Trip Info_Dispatchers">
           <End Role="Dispatchers" Type="NationalITModel.Store.Dispatchers" Multiplicity="0..1" />
-          <End Role="Trip_Info" Type="NationalITModel.Store.Trip_Info" Multiplicity="*" />
+          <End Role="Trip Info" Type="NationalITModel.Store.Trip Info" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Dispatchers">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Trip_Info">
+            <Dependent Role="Trip Info">
               <PropertyRef Name="Dispatcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Trip_Info_Driver_Info1">
-          <End Role="Driver_Info" Type="NationalITModel.Store.Driver_Info" Multiplicity="0..1" />
-          <End Role="Trip_Info" Type="NationalITModel.Store.Trip_Info" Multiplicity="*" />
+        <Association Name="FK_Trip Info_Driver Info">
+          <End Role="Driver Info" Type="NationalITModel.Store.Driver Info" Multiplicity="0..1" />
+          <End Role="Trip Info" Type="NationalITModel.Store.Trip Info" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Driver_Info">
+            <Principal Role="Driver Info">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Trip_Info">
+            <Dependent Role="Trip Info">
               <PropertyRef Name="Driver" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Trip_Info_Equipment1">
+        <Association Name="FK_Trip Info_Equipment">
           <End Role="Equipment" Type="NationalITModel.Store.Equipment" Multiplicity="0..1" />
-          <End Role="Trip_Info" Type="NationalITModel.Store.Trip_Info" Multiplicity="*" />
+          <End Role="Trip Info" Type="NationalITModel.Store.Trip Info" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Equipment">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Trip_Info">
-              <PropertyRef Name="Equipment_ID" />
+            <Dependent Role="Trip Info">
+              <PropertyRef Name="Equipment ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Violations_Driver_Info">
-          <End Role="Driver_Info" Type="NationalITModel.Store.Driver_Info" Multiplicity="0..1" />
+        <Association Name="FK_Violations_Driver Info">
+          <End Role="Driver Info" Type="NationalITModel.Store.Driver Info" Multiplicity="0..1" />
           <End Role="Violations" Type="NationalITModel.Store.Violations" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Driver_Info">
+            <Principal Role="Driver Info">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Violations">
@@ -535,10 +568,10 @@
           <EntitySet Name="Printed_Temp_Trip_Info" EntityType="NationalITModel.Printed_Temp_Trip_Info" />
           <EntitySet Name="ReportIDs" EntityType="NationalITModel.ReportIDs" />
           <EntitySet Name="split_expenses" EntityType="NationalITModel.split_expenses" />
+          <EntitySet Name="Temp_Fuel___Expenses" EntityType="NationalITModel.Temp_Fuel___Expenses" />
           <EntitySet Name="Trip_Info" EntityType="NationalITModel.Trip_Info" />
-          <EntitySet Name="Trip_Info___old" EntityType="NationalITModel.Trip_Info___old" />
           <EntitySet Name="Violations" EntityType="NationalITModel.Violations" />
-          <AssociationSet Name="FK_Trip_Info_Customer_Info1" Association="NationalITModel.FK_Trip_Info_Customer_Info1">
+          <AssociationSet Name="FK_Trip_Info_Customer_Info" Association="NationalITModel.FK_Trip_Info_Customer_Info">
             <End Role="Customer_Info" EntitySet="Customer_Info" />
             <End Role="Trip_Info" EntitySet="Trip_Info" />
           </AssociationSet>
@@ -546,7 +579,7 @@
             <End Role="Dispatchers" EntitySet="Dispatchers" />
             <End Role="Driver_Info" EntitySet="Driver_Info" />
           </AssociationSet>
-          <AssociationSet Name="FK_Trip_Info_Dispatchers1" Association="NationalITModel.FK_Trip_Info_Dispatchers1">
+          <AssociationSet Name="FK_Trip_Info_Dispatchers" Association="NationalITModel.FK_Trip_Info_Dispatchers">
             <End Role="Dispatchers" EntitySet="Dispatchers" />
             <End Role="Trip_Info" EntitySet="Trip_Info" />
           </AssociationSet>
@@ -562,7 +595,7 @@
             <End Role="Driver_Info" EntitySet="Driver_Info" />
             <End Role="Operating_Expenses" EntitySet="Operating_Expenses" />
           </AssociationSet>
-          <AssociationSet Name="FK_Trip_Info_Driver_Info1" Association="NationalITModel.FK_Trip_Info_Driver_Info1">
+          <AssociationSet Name="FK_Trip_Info_Driver_Info" Association="NationalITModel.FK_Trip_Info_Driver_Info">
             <End Role="Driver_Info" EntitySet="Driver_Info" />
             <End Role="Trip_Info" EntitySet="Trip_Info" />
           </AssociationSet>
@@ -574,7 +607,7 @@
             <End Role="Equipment" EntitySet="Equipment" />
             <End Role="Maintenance" EntitySet="Maintenance" />
           </AssociationSet>
-          <AssociationSet Name="FK_Trip_Info_Equipment1" Association="NationalITModel.FK_Trip_Info_Equipment1">
+          <AssociationSet Name="FK_Trip_Info_Equipment" Association="NationalITModel.FK_Trip_Info_Equipment">
             <End Role="Equipment" EntitySet="Equipment" />
             <End Role="Trip_Info" EntitySet="Trip_Info" />
           </AssociationSet>
@@ -608,7 +641,7 @@
           <Property Name="Contact" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
           <Property Name="Comments" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="Days_to_pay" Type="Int16" />
-          <NavigationProperty Name="Trip_Info" Relationship="NationalITModel.FK_Trip_Info_Customer_Info1" FromRole="Customer_Info" ToRole="Trip_Info" />
+          <NavigationProperty Name="Trip_Info" Relationship="NationalITModel.FK_Trip_Info_Customer_Info" FromRole="Customer_Info" ToRole="Trip_Info" />
         </EntityType>
         <EntityType Name="Dispatchers">
           <Key>
@@ -622,7 +655,7 @@
           <Property Name="Hire_date" Type="DateTime" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Driver_Info" Relationship="NationalITModel.FK_Driver_Info_Dispatchers" FromRole="Dispatchers" ToRole="Driver_Info" />
-          <NavigationProperty Name="Trip_Info" Relationship="NationalITModel.FK_Trip_Info_Dispatchers1" FromRole="Dispatchers" ToRole="Trip_Info" />
+          <NavigationProperty Name="Trip_Info" Relationship="NationalITModel.FK_Trip_Info_Dispatchers" FromRole="Dispatchers" ToRole="Trip_Info" />
         </EntityType>
         <EntityType Name="Driver_Info">
           <Key>
@@ -656,7 +689,7 @@
           <NavigationProperty Name="Owners" Relationship="NationalITModel.FK_Driver_Info_Owners" FromRole="Driver_Info" ToRole="Owners" />
           <NavigationProperty Name="Fuel___Expenses" Relationship="NationalITModel.FK_Fuel___Expenses_Driver_Info" FromRole="Driver_Info" ToRole="Fuel___Expenses" />
           <NavigationProperty Name="Operating_Expenses" Relationship="NationalITModel.FK_Operating_Expenses_Driver_Info" FromRole="Driver_Info" ToRole="Operating_Expenses" />
-          <NavigationProperty Name="Trip_Info" Relationship="NationalITModel.FK_Trip_Info_Driver_Info1" FromRole="Driver_Info" ToRole="Trip_Info" />
+          <NavigationProperty Name="Trip_Info" Relationship="NationalITModel.FK_Trip_Info_Driver_Info" FromRole="Driver_Info" ToRole="Trip_Info" />
           <NavigationProperty Name="Violations" Relationship="NationalITModel.FK_Violations_Driver_Info" FromRole="Driver_Info" ToRole="Violations" />
         </EntityType>
         <EntityType Name="Equipment">
@@ -677,15 +710,14 @@
           <Property Name="MODEL_YEAR" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="MAKE" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Maintenance" Relationship="NationalITModel.FK_Maintenance_Equipment" FromRole="Equipment" ToRole="Maintenance" />
-          <NavigationProperty Name="Trip_Info" Relationship="NationalITModel.FK_Trip_Info_Equipment1" FromRole="Equipment" ToRole="Trip_Info" />
+          <NavigationProperty Name="Trip_Info" Relationship="NationalITModel.FK_Trip_Info_Equipment" FromRole="Equipment" ToRole="Trip_Info" />
           <NavigationProperty Name="Violations" Relationship="NationalITModel.FK_Violations_Equipment" FromRole="Equipment" ToRole="Violations" />
         </EntityType>
         <EntityType Name="fixed_charges">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Fee_Charged" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DriverId" Type="Int32" />
           <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
@@ -718,7 +750,7 @@
           <Key>
             <PropertyRef Name="IncomeID" />
           </Key>
-          <Property Name="IncomeID" Type="Int32" Nullable="false" />
+          <Property Name="IncomeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IncomeDate" Type="DateTime" />
           <Property Name="AmountInvoiced" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="FundedAmount" Type="Decimal" Precision="19" Scale="4" />
@@ -731,7 +763,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Invoice" Type="Int32" />
         </EntityType>
         <EntityType Name="Maintenance">
@@ -816,7 +848,7 @@
           <Key>
             <PropertyRef Name="ReportID" />
           </Key>
-          <Property Name="ReportID" Type="Int32" Nullable="false" />
+          <Property Name="ReportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DriverID" Type="Int32" />
           <Property Name="Date" Type="DateTime" />
         </EntityType>
@@ -834,6 +866,22 @@
           <Property Name="Fee_Charged" Type="Boolean" Nullable="false" />
           <Property Name="Current_Payroll" Type="Boolean" Nullable="false" />
           <Property Name="Paid_Off" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Temp_Fuel___Expenses">
+          <Key>
+            <PropertyRef Name="Selection" />
+          </Key>
+          <Property Name="Selection" Type="Boolean" Nullable="false" />
+          <Property Name="ID" Type="Int32" />
+          <Property Name="Date" Type="DateTime" />
+          <Property Name="Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="Driver" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Paid_off" Type="Boolean" />
+          <Property Name="Current_Payroll" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AmountN" Type="Decimal" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="Trip_Info">
           <Key>
@@ -868,48 +916,16 @@
           <Property Name="Comment" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="PO_" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
           <Property Name="Customer_Invoiced_date" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="Customer_Info" Relationship="NationalITModel.FK_Trip_Info_Customer_Info1" FromRole="Trip_Info" ToRole="Customer_Info" />
-          <NavigationProperty Name="Dispatchers" Relationship="NationalITModel.FK_Trip_Info_Dispatchers1" FromRole="Trip_Info" ToRole="Dispatchers" />
-          <NavigationProperty Name="Driver_Info" Relationship="NationalITModel.FK_Trip_Info_Driver_Info1" FromRole="Trip_Info" ToRole="Driver_Info" />
-          <NavigationProperty Name="Equipment" Relationship="NationalITModel.FK_Trip_Info_Equipment1" FromRole="Trip_Info" ToRole="Equipment" />
-        </EntityType>
-        <EntityType Name="Trip_Info___old">
-          <Key>
-            <PropertyRef Name="Trip_ID" />
-          </Key>
-          <Property Name="Trip_ID" Type="Int32" Nullable="false" />
-          <Property Name="Order_date" Type="DateTime" />
-          <Property Name="Pickup_date" Type="DateTime" />
-          <Property Name="Delivery_date" Type="DateTime" />
-          <Property Name="Pick_up_location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Delivery_location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Extra_stops" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Loaded_miles" Type="Int32" />
-          <Property Name="Dead_head_miles" Type="Int32" />
-          <Property Name="Comfirmed_Rate" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Customer" Type="Int32" />
-          <Property Name="Dispatcher" Type="Int32" />
-          <Property Name="Driver" Type="Int32" />
-          <Property Name="Paid" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
-          <Property Name="Extra_charges" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Detention_pay" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Total_charges" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Detention" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Picked" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Deliverd" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
-          <Property Name="Invoice" Type="Int32" />
-          <Property Name="Customer_Invoiced" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
-          <Property Name="Address" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="Current_Payroll" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Driver_paid" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
-          <Property Name="PO_" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
-          <Property Name="Customer_Invoiced_date" Type="DateTime" />
+          <NavigationProperty Name="Customer_Info" Relationship="NationalITModel.FK_Trip_Info_Customer_Info" FromRole="Trip_Info" ToRole="Customer_Info" />
+          <NavigationProperty Name="Dispatchers" Relationship="NationalITModel.FK_Trip_Info_Dispatchers" FromRole="Trip_Info" ToRole="Dispatchers" />
+          <NavigationProperty Name="Driver_Info" Relationship="NationalITModel.FK_Trip_Info_Driver_Info" FromRole="Trip_Info" ToRole="Driver_Info" />
+          <NavigationProperty Name="Equipment" Relationship="NationalITModel.FK_Trip_Info_Equipment" FromRole="Trip_Info" ToRole="Equipment" />
         </EntityType>
         <EntityType Name="Violations">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Driver" Type="Int32" />
           <Property Name="Location" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
           <Property Name="Date_occurred" Type="DateTime" />
@@ -918,7 +934,7 @@
           <NavigationProperty Name="Driver_Info" Relationship="NationalITModel.FK_Violations_Driver_Info" FromRole="Violations" ToRole="Driver_Info" />
           <NavigationProperty Name="Equipment1" Relationship="NationalITModel.FK_Violations_Equipment" FromRole="Violations" ToRole="Equipment" />
         </EntityType>
-        <Association Name="FK_Trip_Info_Customer_Info1">
+        <Association Name="FK_Trip_Info_Customer_Info">
           <End Role="Customer_Info" Type="NationalITModel.Customer_Info" Multiplicity="0..1" />
           <End Role="Trip_Info" Type="NationalITModel.Trip_Info" Multiplicity="*" />
           <ReferentialConstraint>
@@ -942,7 +958,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Trip_Info_Dispatchers1">
+        <Association Name="FK_Trip_Info_Dispatchers">
           <End Role="Dispatchers" Type="NationalITModel.Dispatchers" Multiplicity="0..1" />
           <End Role="Trip_Info" Type="NationalITModel.Trip_Info" Multiplicity="*" />
           <ReferentialConstraint>
@@ -990,7 +1006,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Trip_Info_Driver_Info1">
+        <Association Name="FK_Trip_Info_Driver_Info">
           <End Role="Driver_Info" Type="NationalITModel.Driver_Info" Multiplicity="0..1" />
           <End Role="Trip_Info" Type="NationalITModel.Trip_Info" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1026,7 +1042,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Trip_Info_Equipment1">
+        <Association Name="FK_Trip_Info_Equipment">
           <End Role="Equipment" Type="NationalITModel.Equipment" Multiplicity="0..1" />
           <End Role="Trip_Info" Type="NationalITModel.Trip_Info" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1058,7 +1074,7 @@
         <EntityContainerMapping StorageEntityContainer="NationalITModelStoreContainer" CdmEntityContainer="NationalITEntities">
           <EntitySetMapping Name="Company_Expanses">
             <EntityTypeMapping TypeName="NationalITModel.Company_Expanses">
-              <MappingFragment StoreEntitySet="Company_Expanses">
+              <MappingFragment StoreEntitySet="Company Expanses">
                 <ScalarProperty Name="CompanyExpansesID" ColumnName="CompanyExpansesID" />
                 <ScalarProperty Name="Expanses" ColumnName="Expanses" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
@@ -1069,18 +1085,18 @@
           </EntitySetMapping>
           <EntitySetMapping Name="Customer_Info">
             <EntityTypeMapping TypeName="NationalITModel.Customer_Info">
-              <MappingFragment StoreEntitySet="Customer_Info">
-                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
-                <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+              <MappingFragment StoreEntitySet="Customer Info">
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer ID" />
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer Name" />
                 <ScalarProperty Name="Street" ColumnName="Street" />
                 <ScalarProperty Name="City" ColumnName="City" />
                 <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="ZIP_Code" ColumnName="ZIP_Code" />
+                <ScalarProperty Name="ZIP_Code" ColumnName="ZIP Code" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Fax" ColumnName="Fax" />
                 <ScalarProperty Name="Contact" ColumnName="Contact" />
                 <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="Days_to_pay" ColumnName="Days_to_pay" />
+                <ScalarProperty Name="Days_to_pay" ColumnName="Days to pay" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1088,42 +1104,42 @@
             <EntityTypeMapping TypeName="NationalITModel.Dispatchers">
               <MappingFragment StoreEntitySet="Dispatchers">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Last_name" ColumnName="Last_name" />
-                <ScalarProperty Name="First_name" ColumnName="First_name" />
+                <ScalarProperty Name="Last_name" ColumnName="Last name" />
+                <ScalarProperty Name="First_name" ColumnName="First name" />
                 <ScalarProperty Name="SSN" ColumnName="SSN" />
                 <ScalarProperty Name="DOB" ColumnName="DOB" />
-                <ScalarProperty Name="Hire_date" ColumnName="Hire_date" />
+                <ScalarProperty Name="Hire_date" ColumnName="Hire date" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Driver_Info">
             <EntityTypeMapping TypeName="NationalITModel.Driver_Info">
-              <MappingFragment StoreEntitySet="Driver_Info">
+              <MappingFragment StoreEntitySet="Driver Info">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
-                <ScalarProperty Name="Last_name" ColumnName="Last_name" />
-                <ScalarProperty Name="First_name" ColumnName="First_name" />
-                <ScalarProperty Name="Middle_in" ColumnName="Middle_in" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee ID" />
+                <ScalarProperty Name="Last_name" ColumnName="Last name" />
+                <ScalarProperty Name="First_name" ColumnName="First name" />
+                <ScalarProperty Name="Middle_in" ColumnName="Middle in" />
                 <ScalarProperty Name="SSN" ColumnName="SSN" />
-                <ScalarProperty Name="Drive_Lic" ColumnName="Drive_Lic" />
+                <ScalarProperty Name="Drive_Lic" ColumnName="Drive Lic" />
                 <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Expiration_Date" ColumnName="Expiration_Date" />
-                <ScalarProperty Name="Date_Issued" ColumnName="Date_Issued" />
+                <ScalarProperty Name="Expiration_Date" ColumnName="Expiration Date" />
+                <ScalarProperty Name="Date_Issued" ColumnName="Date Issued" />
                 <ScalarProperty Name="HazMat" ColumnName="HazMat" />
-                <ScalarProperty Name="Pay_rate" ColumnName="Pay_rate" />
+                <ScalarProperty Name="Pay_rate" ColumnName="Pay rate" />
                 <ScalarProperty Name="Comments" ColumnName="Comments" />
                 <ScalarProperty Name="Truck" ColumnName="Truck" />
                 <ScalarProperty Name="Trailer" ColumnName="Trailer" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Fuel_Card" ColumnName="Fuel_Card" />
-                <ScalarProperty Name="fuel___advance_Fee_rate" ColumnName="fuel___advance_Fee_rate" />
+                <ScalarProperty Name="Fuel_Card" ColumnName="Fuel Card" />
+                <ScalarProperty Name="fuel___advance_Fee_rate" ColumnName="fuel &amp; advance Fee rate" />
                 <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="Owner_Pay_Rate" ColumnName="Owner_Pay_Rate" />
-                <ScalarProperty Name="Owner_Name" ColumnName="Owner_Name" />
+                <ScalarProperty Name="Owner_Pay_Rate" ColumnName="Owner Pay Rate" />
+                <ScalarProperty Name="Owner_Name" ColumnName="Owner Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1131,40 +1147,40 @@
             <EntityTypeMapping TypeName="NationalITModel.Equipment">
               <MappingFragment StoreEntitySet="Equipment">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Equipment_Type" ColumnName="Equipment_Type" />
-                <ScalarProperty Name="Equipment_number" ColumnName="Equipment_number" />
+                <ScalarProperty Name="Equipment_Type" ColumnName="Equipment Type" />
+                <ScalarProperty Name="Equipment_number" ColumnName="Equipment number" />
                 <ScalarProperty Name="Driver" ColumnName="Driver" />
                 <ScalarProperty Name="Owner" ColumnName="Owner" />
                 <ScalarProperty Name="VIN" ColumnName="VIN" />
-                <ScalarProperty Name="Registration_Expiration" ColumnName="Registration_Expiration" />
-                <ScalarProperty Name="Inspection_Expiration" ColumnName="Inspection_Expiration" />
-                <ScalarProperty Name="DATE_LEASED" ColumnName="DATE_LEASED" />
-                <ScalarProperty Name="EQUIPMENT_VALUE" ColumnName="EQUIPMENT_VALUE" />
-                <ScalarProperty Name="EQUIPMENT_DESCRIPTION" ColumnName="EQUIPMENT_DESCRIPTION" />
-                <ScalarProperty Name="MODEL_YEAR" ColumnName="MODEL_YEAR" />
+                <ScalarProperty Name="Registration_Expiration" ColumnName="Registration Expiration" />
+                <ScalarProperty Name="Inspection_Expiration" ColumnName="Inspection Expiration" />
+                <ScalarProperty Name="DATE_LEASED" ColumnName="DATE LEASED" />
+                <ScalarProperty Name="EQUIPMENT_VALUE" ColumnName="EQUIPMENT VALUE" />
+                <ScalarProperty Name="EQUIPMENT_DESCRIPTION" ColumnName="EQUIPMENT DESCRIPTION" />
+                <ScalarProperty Name="MODEL_YEAR" ColumnName="MODEL YEAR" />
                 <ScalarProperty Name="MAKE" ColumnName="MAKE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="fixed_charges">
             <EntityTypeMapping TypeName="NationalITModel.fixed_charges">
-              <MappingFragment StoreEntitySet="fixed_charges">
+              <MappingFragment StoreEntitySet="fixed charges">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="DriverId" ColumnName="DriverId" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Frequency" ColumnName="Frequency" />
                 <ScalarProperty Name="Beginning" ColumnName="Beginning" />
-                <ScalarProperty Name="Fee_Charged" ColumnName="Fee_Charged" />
-                <ScalarProperty Name="Next_Date" ColumnName="Next_Date" />
-                <ScalarProperty Name="Prv_Date" ColumnName="Prv_Date" />
-                <ScalarProperty Name="Amount_To_Date" ColumnName="Amount_To_Date" />
+                <ScalarProperty Name="Fee_Charged" ColumnName="Fee Charged" />
+                <ScalarProperty Name="Next_Date" ColumnName="Next Date" />
+                <ScalarProperty Name="Prv_Date" ColumnName="Prv Date" />
+                <ScalarProperty Name="Amount_To_Date" ColumnName="Amount To Date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Fuel___Expenses">
             <EntityTypeMapping TypeName="NationalITModel.Fuel___Expenses">
-              <MappingFragment StoreEntitySet="Fuel___Expenses">
+              <MappingFragment StoreEntitySet="Fuel &amp; Expenses">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -1173,10 +1189,10 @@
                 <ScalarProperty Name="Location" ColumnName="Location" />
                 <ScalarProperty Name="Driver" ColumnName="Driver" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Paid_off" ColumnName="Paid_off" />
-                <ScalarProperty Name="Current_Payroll" ColumnName="Current_Payroll" />
-                <ScalarProperty Name="fee_charged" ColumnName="fee_charged" />
-                <ScalarProperty Name="Fuel_Card" ColumnName="Fuel_Card" />
+                <ScalarProperty Name="Paid_off" ColumnName="Paid off" />
+                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
+                <ScalarProperty Name="fee_charged" ColumnName="fee charged" />
+                <ScalarProperty Name="Fuel_Card" ColumnName="Fuel Card" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1206,11 +1222,11 @@
             <EntityTypeMapping TypeName="NationalITModel.Maintenance">
               <MappingFragment StoreEntitySet="Maintenance">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Track_Trailer_Number" ColumnName="Track_Trailer_Number" />
-                <ScalarProperty Name="Maintenance_performed" ColumnName="Maintenance_performed" />
-                <ScalarProperty Name="Performed_date" ColumnName="Performed_date" />
+                <ScalarProperty Name="Track_Trailer_Number" ColumnName="Track/Trailer Number" />
+                <ScalarProperty Name="Maintenance_performed" ColumnName="Maintenance performed" />
+                <ScalarProperty Name="Performed_date" ColumnName="Performed date" />
                 <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="PO_" ColumnName="PO_" />
+                <ScalarProperty Name="PO_" ColumnName="PO#" />
                 <ScalarProperty Name="ApprovedAmount" ColumnName="ApprovedAmount" />
                 <ScalarProperty Name="SpentAmount" ColumnName="SpentAmount" />
                 <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
@@ -1219,7 +1235,7 @@
           </EntitySetMapping>
           <EntitySetMapping Name="Operating_Expenses">
             <EntityTypeMapping TypeName="NationalITModel.Operating_Expenses">
-              <MappingFragment StoreEntitySet="Operating_Expenses">
+              <MappingFragment StoreEntitySet="Operating Expenses">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -1227,8 +1243,8 @@
                 <ScalarProperty Name="Location" ColumnName="Location" />
                 <ScalarProperty Name="Driver" ColumnName="Driver" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Paid_off" ColumnName="Paid_off" />
-                <ScalarProperty Name="Current_Payroll" ColumnName="Current_Payroll" />
+                <ScalarProperty Name="Paid_off" ColumnName="Paid off" />
+                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1237,41 +1253,41 @@
               <MappingFragment StoreEntitySet="Owners">
                 <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ssn_" ColumnName="ssn_" />
-                <ScalarProperty Name="fee_rate" ColumnName="fee_rate" />
-                <ScalarProperty Name="pay_rate" ColumnName="pay_rate" />
+                <ScalarProperty Name="ssn_" ColumnName="ssn#" />
+                <ScalarProperty Name="fee_rate" ColumnName="fee rate" />
+                <ScalarProperty Name="pay_rate" ColumnName="pay rate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Printed_Temp_Trip_Info">
             <EntityTypeMapping TypeName="NationalITModel.Printed_Temp_Trip_Info">
-              <MappingFragment StoreEntitySet="Printed_Temp_Trip_Info">
+              <MappingFragment StoreEntitySet="Printed Temp Trip Info">
                 <ScalarProperty Name="Selection" ColumnName="Selection" />
-                <ScalarProperty Name="Trip_ID" ColumnName="Trip_ID" />
-                <ScalarProperty Name="Order_Date" ColumnName="Order_Date" />
-                <ScalarProperty Name="Pickup_Date" ColumnName="Pickup_Date" />
-                <ScalarProperty Name="Delivery_Date" ColumnName="Delivery_Date" />
-                <ScalarProperty Name="Pickup_Location" ColumnName="Pickup_Location" />
-                <ScalarProperty Name="Delivery_Location" ColumnName="Delivery_Location" />
-                <ScalarProperty Name="Extra_stops" ColumnName="Extra_stops" />
-                <ScalarProperty Name="Loaded_miles" ColumnName="Loaded_miles" />
-                <ScalarProperty Name="Dead_head_miles" ColumnName="Dead_head_miles" />
-                <ScalarProperty Name="Comfirmed_Rate" ColumnName="Comfirmed_Rate" />
+                <ScalarProperty Name="Trip_ID" ColumnName="Trip ID" />
+                <ScalarProperty Name="Order_Date" ColumnName="Order Date" />
+                <ScalarProperty Name="Pickup_Date" ColumnName="Pickup Date" />
+                <ScalarProperty Name="Delivery_Date" ColumnName="Delivery Date" />
+                <ScalarProperty Name="Pickup_Location" ColumnName="Pickup Location" />
+                <ScalarProperty Name="Delivery_Location" ColumnName="Delivery Location" />
+                <ScalarProperty Name="Extra_stops" ColumnName="Extra stops" />
+                <ScalarProperty Name="Loaded_miles" ColumnName="Loaded miles" />
+                <ScalarProperty Name="Dead_head_miles" ColumnName="Dead head miles" />
+                <ScalarProperty Name="Comfirmed_Rate" ColumnName="Comfirmed Rate" />
                 <ScalarProperty Name="Customer" ColumnName="Customer" />
                 <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
                 <ScalarProperty Name="Driver" ColumnName="Driver" />
                 <ScalarProperty Name="Paid" ColumnName="Paid" />
-                <ScalarProperty Name="Extra_Charges" ColumnName="Extra_Charges" />
-                <ScalarProperty Name="Detention_pay" ColumnName="Detention_pay" />
-                <ScalarProperty Name="Total_charges" ColumnName="Total_charges" />
+                <ScalarProperty Name="Extra_Charges" ColumnName="Extra Charges" />
+                <ScalarProperty Name="Detention_pay" ColumnName="Detention pay" />
+                <ScalarProperty Name="Total_charges" ColumnName="Total charges" />
                 <ScalarProperty Name="Detention" ColumnName="Detention" />
                 <ScalarProperty Name="Picked" ColumnName="Picked" />
                 <ScalarProperty Name="Deliverd" ColumnName="Deliverd" />
                 <ScalarProperty Name="Invoice" ColumnName="Invoice" />
-                <ScalarProperty Name="Customer_Invoiced" ColumnName="Customer_Invoiced" />
+                <ScalarProperty Name="Customer_Invoiced" ColumnName="Customer Invoiced" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Current_Payroll" ColumnName="Current_Payroll" />
-                <ScalarProperty Name="Driver_paid" ColumnName="Driver_paid" />
+                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
+                <ScalarProperty Name="Driver_paid" ColumnName="Driver paid" />
                 <ScalarProperty Name="ReportId" ColumnName="ReportId" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1287,7 +1303,7 @@
           </EntitySetMapping>
           <EntitySetMapping Name="split_expenses">
             <EntityTypeMapping TypeName="NationalITModel.split_expenses">
-              <MappingFragment StoreEntitySet="split_expenses">
+              <MappingFragment StoreEntitySet="split expenses">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="OwnerDriver" ColumnName="OwnerDriver" />
                 <ScalarProperty Name="Idndex" ColumnName="Idndex" />
@@ -1295,77 +1311,61 @@
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="Details" ColumnName="Details" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Fee_Charged" ColumnName="Fee_Charged" />
-                <ScalarProperty Name="Current_Payroll" ColumnName="Current_Payroll" />
-                <ScalarProperty Name="Paid_Off" ColumnName="Paid_Off" />
+                <ScalarProperty Name="Fee_Charged" ColumnName="Fee Charged" />
+                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
+                <ScalarProperty Name="Paid_Off" ColumnName="Paid Off" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Temp_Fuel___Expenses">
+            <EntityTypeMapping TypeName="NationalITModel.Temp_Fuel___Expenses">
+              <MappingFragment StoreEntitySet="Temp Fuel &amp; Expenses">
+                <ScalarProperty Name="Selection" ColumnName="Selection" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Driver" ColumnName="Driver" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Paid_off" ColumnName="Paid off" />
+                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
+                <ScalarProperty Name="AmountN" ColumnName="AmountN" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Trip_Info">
             <EntityTypeMapping TypeName="NationalITModel.Trip_Info">
-              <MappingFragment StoreEntitySet="Trip_Info">
-                <ScalarProperty Name="Trip_ID" ColumnName="Trip_ID" />
-                <ScalarProperty Name="Order_date" ColumnName="Order_date" />
-                <ScalarProperty Name="Pickup_date" ColumnName="Pickup_date" />
-                <ScalarProperty Name="Delivery_date" ColumnName="Delivery_date" />
-                <ScalarProperty Name="Pick_up_location" ColumnName="Pick_up_location" />
-                <ScalarProperty Name="Delivery_location" ColumnName="Delivery_location" />
-                <ScalarProperty Name="Extra_stops" ColumnName="Extra_stops" />
-                <ScalarProperty Name="Loaded_miles" ColumnName="Loaded_miles" />
-                <ScalarProperty Name="Dead_head_miles" ColumnName="Dead_head_miles" />
-                <ScalarProperty Name="Comfirmed_Rate" ColumnName="Comfirmed_Rate" />
+              <MappingFragment StoreEntitySet="Trip Info">
+                <ScalarProperty Name="Trip_ID" ColumnName="Trip ID" />
+                <ScalarProperty Name="Order_date" ColumnName="Order date" />
+                <ScalarProperty Name="Pickup_date" ColumnName="Pickup date" />
+                <ScalarProperty Name="Delivery_date" ColumnName="Delivery date" />
+                <ScalarProperty Name="Pick_up_location" ColumnName="Pick up location" />
+                <ScalarProperty Name="Delivery_location" ColumnName="Delivery location" />
+                <ScalarProperty Name="Extra_stops" ColumnName="Extra stops" />
+                <ScalarProperty Name="Loaded_miles" ColumnName="Loaded miles" />
+                <ScalarProperty Name="Dead_head_miles" ColumnName="Dead head miles" />
+                <ScalarProperty Name="Comfirmed_Rate" ColumnName="Comfirmed Rate" />
                 <ScalarProperty Name="Customer" ColumnName="Customer" />
                 <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
                 <ScalarProperty Name="Driver" ColumnName="Driver" />
                 <ScalarProperty Name="Paid" ColumnName="Paid" />
-                <ScalarProperty Name="Extra_charges" ColumnName="Extra_charges" />
-                <ScalarProperty Name="Detention_pay" ColumnName="Detention_pay" />
-                <ScalarProperty Name="Total_charges" ColumnName="Total_charges" />
+                <ScalarProperty Name="Extra_charges" ColumnName="Extra charges" />
+                <ScalarProperty Name="Detention_pay" ColumnName="Detention pay" />
+                <ScalarProperty Name="Total_charges" ColumnName="Total charges" />
                 <ScalarProperty Name="Detention" ColumnName="Detention" />
                 <ScalarProperty Name="Picked" ColumnName="Picked" />
                 <ScalarProperty Name="Deliverd" ColumnName="Deliverd" />
                 <ScalarProperty Name="Invoice" ColumnName="Invoice" />
-                <ScalarProperty Name="Customer_Invoiced" ColumnName="Customer_Invoiced" />
+                <ScalarProperty Name="Customer_Invoiced" ColumnName="Customer Invoiced" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Current_Payroll" ColumnName="Current_Payroll" />
-                <ScalarProperty Name="Driver_paid" ColumnName="Driver_paid" />
-                <ScalarProperty Name="Equipment_ID" ColumnName="Equipment_ID" />
+                <ScalarProperty Name="Current_Payroll" ColumnName="Current Payroll" />
+                <ScalarProperty Name="Driver_paid" ColumnName="Driver paid" />
+                <ScalarProperty Name="Equipment_ID" ColumnName="Equipment ID" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="PO_" ColumnName="PO_" />
-                <ScalarProperty Name="Customer_Invoiced_date" ColumnName="Customer_Invoiced_date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Trip_Info___old">
-            <EntityTypeMapping TypeName="NationalITModel.Trip_Info___old">
-              <MappingFragment StoreEntitySet="Trip_Info___old">
-                <ScalarProperty Name="Trip_ID" ColumnName="Trip_ID" />
-                <ScalarProperty Name="Order_date" ColumnName="Order_date" />
-                <ScalarProperty Name="Pickup_date" ColumnName="Pickup_date" />
-                <ScalarProperty Name="Delivery_date" ColumnName="Delivery_date" />
-                <ScalarProperty Name="Pick_up_location" ColumnName="Pick_up_location" />
-                <ScalarProperty Name="Delivery_location" ColumnName="Delivery_location" />
-                <ScalarProperty Name="Extra_stops" ColumnName="Extra_stops" />
-                <ScalarProperty Name="Loaded_miles" ColumnName="Loaded_miles" />
-                <ScalarProperty Name="Dead_head_miles" ColumnName="Dead_head_miles" />
-                <ScalarProperty Name="Comfirmed_Rate" ColumnName="Comfirmed_Rate" />
-                <ScalarProperty Name="Customer" ColumnName="Customer" />
-                <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
-                <ScalarProperty Name="Driver" ColumnName="Driver" />
-                <ScalarProperty Name="Paid" ColumnName="Paid" />
-                <ScalarProperty Name="Extra_charges" ColumnName="Extra_charges" />
-                <ScalarProperty Name="Detention_pay" ColumnName="Detention_pay" />
-                <ScalarProperty Name="Total_charges" ColumnName="Total_charges" />
-                <ScalarProperty Name="Detention" ColumnName="Detention" />
-                <ScalarProperty Name="Picked" ColumnName="Picked" />
-                <ScalarProperty Name="Deliverd" ColumnName="Deliverd" />
-                <ScalarProperty Name="Invoice" ColumnName="Invoice" />
-                <ScalarProperty Name="Customer_Invoiced" ColumnName="Customer_Invoiced" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Current_Payroll" ColumnName="Current_Payroll" />
-                <ScalarProperty Name="Driver_paid" ColumnName="Driver_paid" />
-                <ScalarProperty Name="PO_" ColumnName="PO_" />
-                <ScalarProperty Name="Customer_Invoiced_date" ColumnName="Customer_Invoiced_date" />
+                <ScalarProperty Name="PO_" ColumnName="PO#" />
+                <ScalarProperty Name="Customer_Invoiced_date" ColumnName="Customer Invoiced date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1375,8 +1375,8 @@
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Driver" ColumnName="Driver" />
                 <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="Date_occurred" ColumnName="Date_occurred" />
-                <ScalarProperty Name="Date_resolved" ColumnName="Date_resolved" />
+                <ScalarProperty Name="Date_occurred" ColumnName="Date occurred" />
+                <ScalarProperty Name="Date_resolved" ColumnName="Date resolved" />
                 <ScalarProperty Name="Equipment" ColumnName="Equipment" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1402,76 +1402,86 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Model1">
-        <EntityTypeShape EntityType="NationalITModel.Company_Expanses" Width="1.5" PointX="7.75" PointY="1.875" Height="1.9802864583333333" IsExpanded="true" />
-        <EntityTypeShape EntityType="NationalITModel.Customer_Info" Width="1.5" PointX="6" PointY="17.5" Height="3.3263964843750031" IsExpanded="true" />
-        <EntityTypeShape EntityType="NationalITModel.Dispatchers" Width="1.5" PointX="0.75" PointY="10.875" Height="2.7494921874999996" IsExpanded="true" />
-        <EntityTypeShape EntityType="NationalITModel.Driver_Info" Width="1.5" PointX="3" PointY="8.875" Height="6.787822265625" IsExpanded="true" />
-        <EntityTypeShape EntityType="NationalITModel.Equipment" Width="1.5" PointX="3" PointY="3.125" Height="4.0956022135416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="NationalITModel.fixed_charges" Width="1.5" PointX="9.75" PointY="1.875" Height="2.941793619791667" IsExpanded="true" />
-        <EntityTypeShape EntityType="NationalITModel.Fuel___Expenses" Width="1.5" PointX="5.25" PointY="8.625" Height="3.5186979166666674" IsExpanded="true" />
-        <EntityTypeShape EntityType="NationalITModel.Income" Width="1.5" PointX="10.75" PointY="5.875" Height="2.5571907552083317" IsExpanded="true" />
-        <EntityTypeShape EntityType="NationalITModel.InvoiceA" Width="1.5" PointX="7.75" PointY="5.875" Height="1.4033821614583317" IsExpanded="true" />
-        <EntityTypeShape EntityType="NationalITModel.Maintenance" Width="1.5" PointX="5.25" PointY="0.75" Height="2.9417936197916674" IsExpanded="true" />
-        <EntityTypeShape EntityType="NationalITModel.Operating_Expenses" Width="1.5" PointX="5.25" PointY="12.875" Height="2.9417936197916745" IsExpanded="true" />
-        <EntityTypeShape EntityType="NationalITModel.Owners" Width="1.5" PointX="0.75" PointY="7.125" Height="2.1725878906250031" IsExpanded="true" />
-        <EntityTypeShape EntityType="NationalITModel.Printed_Temp_Trip_Info" Width="1.5" PointX="10.75" PointY="9.875" Height="6.2109179687500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="NationalITModel.ReportIDs" Width="1.5" PointX="11.75" PointY="1.875" Height="1.5956835937500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="NationalITModel.split_expenses" Width="1.5" PointX="12.75" PointY="4.875" Height="2.9417936197916674" IsExpanded="true" />
-        <EntityTypeShape EntityType="NationalITModel.Trip_Info" Width="1.5" PointX="8.25" PointY="8.5" Height="7.3647265625000031" IsExpanded="true" />
-        <EntityTypeShape EntityType="NationalITModel.Trip_Info___old" Width="1.5" PointX="12.75" PointY="8.875" Height="6.2109179687500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="NationalITModel.Violations" Width="1.5" PointX="5.25" PointY="5" Height="2.5571907552083388" IsExpanded="true" />
-        <AssociationConnector Association="NationalITModel.FK_Trip_Info_Customer_Info1" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.15625" PointY="17.5" />
-          <ConnectorPoint PointX="7.15625" PointY="12.509348958333334" />
-          <ConnectorPoint PointX="8.25" PointY="12.509348958333334" />
+        <EntityTypeShape EntityType="NationalITModel.Company_Expanses" Width="1.5" PointX="0.75" PointY="0.75" Height="1.9802864583333331" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Customer_Info" Width="1.5" PointX="6" PointY="1" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Dispatchers" Width="1.5" PointX="0.75" PointY="9.75" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Driver_Info" Width="1.5" PointX="3" PointY="7.625" Height="6.787822265625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Equipment" Width="1.5" PointX="6" PointY="16.125" Height="4.0956022135416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.fixed_charges" Width="1.5" PointX="2.75" PointY="0.75" Height="2.9417936197916665" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Fuel___Expenses" Width="1.5" PointX="5.25" PointY="7.5" Height="3.5186979166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Income" Width="1.5" PointX="10.75" PointY="0.75" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.InvoiceA" Width="1.5" PointX="2.75" PointY="4.75" Height="1.4033821614583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Maintenance" Width="1.5" PointX="8.25" PointY="16.625" Height="2.9417936197916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Operating_Expenses" Width="1.5" PointX="5.25" PointY="11.75" Height="2.9417936197916745" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Owners" Width="1.5" PointX="0.75" PointY="6" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Printed_Temp_Trip_Info" Width="1.5" PointX="10.75" PointY="4.75" Height="6.2109179687500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.ReportIDs" Width="1.5" PointX="10.75" PointY="11.75" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.split_expenses" Width="1.5" PointX="12.75" PointY="0.75" Height="2.9417936197916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Temp_Fuel___Expenses" Width="1.5" PointX="12.75" PointY="4.75" Height="3.1340950520833388" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Trip_Info" Width="1.5" PointX="8.25" PointY="1.375" Height="7.3647265625000031" IsExpanded="true" />
+        <EntityTypeShape EntityType="NationalITModel.Violations" Width="1.5" PointX="8.25" PointY="9.75" Height="2.5571907552083388" IsExpanded="true" />
+        <AssociationConnector Association="NationalITModel.FK_Trip_Info_Customer_Info" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="2.8506982421875" />
+          <ConnectorPoint PointX="8.25" PointY="2.8506982421875" />
         </AssociationConnector>
         <AssociationConnector Association="NationalITModel.FK_Driver_Info_Dispatchers" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="12.24974609375" />
-          <ConnectorPoint PointX="3" PointY="12.24974609375" />
+          <ConnectorPoint PointX="2.25" PointY="11.12474609375" />
+          <ConnectorPoint PointX="3" PointY="11.12474609375" />
         </AssociationConnector>
-        <AssociationConnector Association="NationalITModel.FK_Trip_Info_Dispatchers1" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.2499999999999996" PointY="13.6244921875" />
-          <ConnectorPoint PointX="2.625" PointY="13.9994921875" />
-          <ConnectorPoint PointX="2.625" PointY="16.239726562500003" />
-          <ConnectorPoint PointX="7.072916666666667" PointY="16.239726562500003" />
-          <ConnectorPoint PointX="7.239583333333333" PointY="16.239726562500003" />
-          <ConnectorPoint PointX="7.875" PointY="16.239726562500003" />
-          <ConnectorPoint PointX="8.25" PointY="15.864726562500003" />
+        <AssociationConnector Association="NationalITModel.FK_Trip_Info_Dispatchers" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="9.75" />
+          <ConnectorPoint PointX="1.5" PointY="8.4225878906250031" />
+          <ConnectorPoint PointX="2.5" PointY="8.4225878906250031" />
+          <ConnectorPoint PointX="2.5" PointY="6.4033821614583317" />
+          <ConnectorPoint PointX="4.5" PointY="6.4033821614583317" />
+          <ConnectorPoint PointX="4.5" PointY="5.9131982421875" />
+          <ConnectorPoint PointX="7.791666666666667" PointY="5.9131982421874989" />
+          <ConnectorPoint PointX="7.958333333333333" PointY="5.9131982421875" />
+          <ConnectorPoint PointX="8.25" PointY="5.9131982421875" />
         </AssociationConnector>
         <AssociationConnector Association="NationalITModel.FK_Driver_Info_Owners" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="9.0862939453125016" />
-          <ConnectorPoint PointX="3" PointY="9.0862939453125016" />
+          <ConnectorPoint PointX="2.25" PointY="7.8987939453125016" />
+          <ConnectorPoint PointX="2.4166666666666665" PointY="7.8987939453125007" />
+          <ConnectorPoint PointX="2.5833333333333335" PointY="7.8987939453125016" />
+          <ConnectorPoint PointX="3" PointY="7.8987939453125016" />
         </AssociationConnector>
         <AssociationConnector Association="NationalITModel.FK_Fuel___Expenses_Driver_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="10.509348958333334" />
-          <ConnectorPoint PointX="5.25" PointY="10.509348958333334" />
+          <ConnectorPoint PointX="4.5" PointY="9.3218489583333337" />
+          <ConnectorPoint PointX="5.25" PointY="9.3218489583333337" />
         </AssociationConnector>
         <AssociationConnector Association="NationalITModel.FK_Operating_Expenses_Driver_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="14.2689111328125" />
-          <ConnectorPoint PointX="5.25" PointY="14.2689111328125" />
+          <ConnectorPoint PointX="4.5" PointY="13.0814111328125" />
+          <ConnectorPoint PointX="5.25" PointY="13.0814111328125" />
         </AssociationConnector>
-        <AssociationConnector Association="NationalITModel.FK_Trip_Info_Driver_Info1" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="12.2952734375" />
-          <ConnectorPoint PointX="8.25" PointY="12.2952734375" />
+        <AssociationConnector Association="NationalITModel.FK_Trip_Info_Driver_Info" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.40625" PointY="7.625" />
+          <ConnectorPoint PointX="4.40625" PointY="6.9204410807291659" />
+          <ConnectorPoint PointX="7.791666666666667" PointY="6.920441080729165" />
+          <ConnectorPoint PointX="7.958333333333333" PointY="6.9204410807291659" />
+          <ConnectorPoint PointX="8.25" PointY="6.9204410807291659" />
         </AssociationConnector>
         <AssociationConnector Association="NationalITModel.FK_Violations_Driver_Info" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="8.8761528461538468" />
-          <ConnectorPoint PointX="4.875" PointY="8.5011528461538468" />
-          <ConnectorPoint PointX="4.875" PointY="6.2785953776041694" />
-          <ConnectorPoint PointX="5.25" PointY="6.2785953776041694" />
+          <ConnectorPoint PointX="4.5" PointY="11.384348958333334" />
+          <ConnectorPoint PointX="7.791666666666667" PointY="11.384348958333334" />
+          <ConnectorPoint PointX="7.958333333333333" PointY="11.384348958333334" />
+          <ConnectorPoint PointX="8.25" PointY="11.384348958333334" />
         </AssociationConnector>
         <AssociationConnector Association="NationalITModel.FK_Maintenance_Equipment" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="3.4083968098958337" />
-          <ConnectorPoint PointX="5.25" PointY="3.4083968098958337" />
+          <ConnectorPoint PointX="7.5" PointY="18.095896809895834" />
+          <ConnectorPoint PointX="8.25" PointY="18.095896809895834" />
         </AssociationConnector>
-        <AssociationConnector Association="NationalITModel.FK_Trip_Info_Equipment1" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="4.4276432291666667" />
-          <ConnectorPoint PointX="9.5" PointY="4.4276432291666667" />
-          <ConnectorPoint PointX="9.5" PointY="8.5" />
+        <AssociationConnector Association="NationalITModel.FK_Trip_Info_Equipment" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="16.126152846153843" />
+          <ConnectorPoint PointX="7.875" PointY="15.751152846153843" />
+          <ConnectorPoint PointX="7.875" PointY="4.3819482421875" />
+          <ConnectorPoint PointX="8.25" PointY="4.3819482421875" />
         </AssociationConnector>
         <AssociationConnector Association="NationalITModel.FK_Violations_Equipment" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="5.5767976888020847" />
-          <ConnectorPoint PointX="5.25" PointY="5.5767976888020847" />
+          <ConnectorPoint PointX="7.15625" PointY="16.125" />
+          <ConnectorPoint PointX="7.15625" PointY="11.567176979166661" />
+          <ConnectorPoint PointX="7.791666666666667" PointY="11.567176979166661" />
+          <ConnectorPoint PointX="7.958333333333333" PointY="11.567176979166661" />
+          <ConnectorPoint PointX="8.25" PointY="11.567176979166661" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

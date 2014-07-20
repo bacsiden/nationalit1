@@ -49,10 +49,10 @@
                     <a href="/Equipment" class="btn btn-info">Equipment</a> 
                     <a href="/Violations" class="btn btn-info">Violations</a> 
                     <a href="/Maintenance" class="btn btn-info">Maintenance</a>
-                    <a href="/DriverInfo/PayrollsRollback/@Model.ID" class="btn btn-info">Pay rolls rollback</a> 
+                    <a href="/DriverInfo/PayrollsRollback/@(Model != null ? Model.ID : 0)" class="btn btn-info">Pay rolls rollback</a> 
                     <a href="#" class="btn btn-info">Pay rolls operations rollback</a>
-                    @*<a href="/DriverInfo/PayrollsRollback/@Model.ID" class="btn btn-info DriverPayrollExpanses">Driver payroll & expanses</a>*@
-                    <a href="/DriverInfo/DriverPayroll/@Model.ID" class="btn btn-info">Driver payroll & expanses</a>
+                    @*<a href="/DriverInfo/PayrollsRollback/@(Model != null ? Model.ID : 0)" class="btn btn-info DriverPayrollExpanses">Driver payroll & expanses</a>*@
+                    <a href="/DriverInfo/DriverPayroll/@(Model != null ? Model.ID : 0)" class="btn btn-info">Driver payroll & expanses</a>
                 </div>
                 <div class="span11">
                 </div>
@@ -145,7 +145,7 @@
                     <div class="control-group">
                         <label for="Date_Issued">
                             Date Issued</label>
-                        @Html.TextBoxFor(model => model.Date_Issued, new { @class = "input-xlarge" })
+                        @Html.TextBoxFor(model => model.Date_Issued, new { @class = "input-xlarge date-picker" })
                         @Html.ValidationMessageFor(model => model.Date_Issued)
                     </div>
                     <div class="control-group">
@@ -225,13 +225,13 @@
             int pageInfo = (!string.IsNullOrEmpty(Request.Params["pageInfo"]) ? int.Parse(Request.Params["pageInfo"]) : 1);
             int pageSize = (!string.IsNullOrEmpty(Request.Params["pageSize"]) ? int.Parse(Request.Params["pageSize"]) : 10);
 
-            var lstFuel_Expenses = Model.Fuel___Expenses.ToList();
-            var lstOperating_Expenses = Model.Operating_Expenses.ToList();
-            var listTripInfo = Model.Trip_Info.ToList();
+            var lstFuel_Expenses = Model != null ? Model.Fuel___Expenses.ToList() : new List<NationalIT.Fuel___Expenses>();
+            var lstOperating_Expenses = Model != null ? Model.Operating_Expenses.ToList() : new List<NationalIT.Operating_Expenses>();
+            var listTripInfo = Model != null ? Model.Trip_Info.ToList() : new List<NationalIT.Trip_Info>();
 
-            var lst = lstFuel_Expenses.Where(m => m.Current_Payroll.Equals("YES") && m.Paid_off.Equals("NO")).ToList();
-            var lst1 = lstOperating_Expenses.Where(m => m.Current_Payroll.Equals("YES") && m.Paid_off.Equals("NO")).ToList();
-            var listTripInfoConditon = listTripInfo.Where(m => m.Picked == true && m.Deliverd == true && m.Current_Payroll == true && m.Customer_Invoiced == true && m.Driver_paid == false).ToList();
+            //var lst = lstFuel_Expenses.Where(m => m.Current_Payroll.Equals("YES") && m.Paid_off.Equals("NO")).ToList();
+            //var lst1 = lstOperating_Expenses.Where(m => m.Current_Payroll.Equals("YES") && m.Paid_off.Equals("NO")).ToList();
+            //var listTripInfoConditon = listTripInfo.Where(m => m.Picked == true && m.Deliverd == true && m.Current_Payroll == true && m.Customer_Invoiced == true && m.Driver_paid == false).ToList();
                                     
                     }
                     @Html.Partial("_Fuel_ExpensesPartial", new PagedList<NationalIT.Fuel___Expenses>(lstFuel_Expenses, page, pageSize))
