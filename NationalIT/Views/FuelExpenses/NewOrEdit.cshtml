@@ -19,7 +19,7 @@
                         @Html.LabelFor(model => model.Date)
                     </div>
                     <div class="editor-field">
-                        @Html.TextBoxFor(model => model.Date, new { Class = "date-picker" })
+                        @Html.TextBoxFor(model => model.Date, new { Value = Model != null && Model.Date.HasValue ? Model.Date.Value.ToShortDateString() : "", Class = "date-picker" })
                         @Html.ValidationMessageFor(model => model.Date)
                     </div>
                     <div class="editor-label">
@@ -71,14 +71,14 @@
                         @Html.LabelFor(model => model.Paid_off)
                     </div>
                     <div class="editor-field">
-                        @Html.EditorFor(model => model.Paid_off)
+                        @Html.CheckBoxFor(model => model.Paid_off.Value)
                         @Html.ValidationMessageFor(model => model.Paid_off)
                     </div>
                     <div class="editor-label">
                         @Html.LabelFor(model => model.Current_Payroll)
                     </div>
                     <div class="editor-field">
-                        @Html.EditorFor(model => model.Current_Payroll)
+                        @Html.CheckBoxFor(model => model.Current_Payroll.Value)
                         @Html.ValidationMessageFor(model => model.Current_Payroll)
                     </div>
                     <div class="editor-label">

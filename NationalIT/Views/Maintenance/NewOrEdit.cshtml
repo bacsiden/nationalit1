@@ -43,7 +43,7 @@
                         <label class="control-label" for="Performed_date">@Html.LabelFor(model => model.Performed_date)</label>
                         <div class="controls">
                             <div class="span12">
-                                @Html.TextBoxFor(model => model.Performed_date, new { @class = "input-xlarge  date-picker" })
+                                @Html.TextBoxFor(model => model.Performed_date, new { Value = Model != null && Model.Performed_date.HasValue ? Model.Performed_date.Value.ToShortDateString() : "", @class = "input-xlarge  date-picker" })
                                 @Html.ValidationMessageFor(model => model.Performed_date)
                             </div>
                         </div>
