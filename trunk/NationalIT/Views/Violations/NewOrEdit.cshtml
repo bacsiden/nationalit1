@@ -42,8 +42,8 @@
                         <label class="control-label" for="Date_occurred">@Html.LabelFor(model => model.Date_occurred)</label>
                         <div class="controls">
                             <div class="span12">
-                                @Html.TextBoxFor(model => model.Date_occurred, new { Value = Model != null && Model.Date_occurred.HasValue ? Model.Date_occurred.Value.ToShortDateString() : "", @class = "input-xlarge date-picker" })
-                                @Html.ValidationMessageFor(model => model.Date_occurred)
+                                @Html.TextBoxFor(model => model.Date_occurred, new { Value = Model != null && Model.Date_occurred.HasValue ? Model.Date_occurred.Value.ToString("MM/dd/yyyy") : "", @class = "input-xlarge date-picker" })
+                                @*@Html.ValidationMessageFor(model => model.Date_occurred)*@
                             </div>
                         </div>
                     </div>
@@ -51,8 +51,8 @@
                         <label class="control-label" for="Date_resolved">@Html.LabelFor(model => model.Date_resolved)</label>
                         <div class="controls">
                             <div class="span12">
-                                @Html.TextBoxFor(model => model.Date_resolved, new { Value = Model != null && Model.Date_resolved.HasValue ? Model.Date_resolved.Value.ToShortDateString() : "", @class = "input-xlarge date-picker" })
-                                @Html.ValidationMessageFor(model => model.Date_resolved)
+                                @Html.TextBoxFor(model => model.Date_resolved, new { Value = Model != null && Model.Date_resolved.HasValue ? Model.Date_resolved.Value.ToString("MM/dd/yyyy") : "", @class = "input-xlarge date-picker" })
+                                @*@Html.ValidationMessageFor(model => model.Date_resolved)*@
                             </div>
                         </div>
                     </div>

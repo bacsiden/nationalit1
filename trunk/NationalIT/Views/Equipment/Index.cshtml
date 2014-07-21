@@ -56,7 +56,7 @@
                         @item.VIN
                     </td>
                     <td>
-                         @(item.Registration_Expiration.HasValue?item.Registration_Expiration.Value.ToShortDateString():"")
+                         @(item.Registration_Expiration.HasValue?item.Registration_Expiration.Value.ToString("MM/dd/yyyy"):"")
                     </td>
                 </tr>
             }

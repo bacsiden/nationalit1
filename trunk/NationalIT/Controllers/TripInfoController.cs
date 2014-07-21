@@ -108,12 +108,15 @@ namespace NationalIT.Controllers
         // POST: /Owner/Edit/5
 
         [HttpPost]
-        public ActionResult NewOrEdit(Trip_Info model)
+        public ActionResult NewOrEdit(Trip_Info model,FormCollection frm)
         {
             try
             {
                 var db = DB.Entities;
-
+                model.Customer_Invoiced_date = CommonFunction.ChangeFormatDate(frm["Customer_Invoiced_date"]).Value;
+                model.Order_date = CommonFunction.ChangeFormatDate(frm["Order_date"]);
+                model.Delivery_date = CommonFunction.ChangeFormatDate(frm["Delivery_date"]);
+                model.Pickup_date = CommonFunction.ChangeFormatDate(frm["Pickup_date"]);
                 if (model.Trip_ID == 0)
                 {
                     // Edit                    

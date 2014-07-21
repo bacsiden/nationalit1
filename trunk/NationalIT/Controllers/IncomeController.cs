@@ -30,12 +30,12 @@ namespace NationalIT.Controllers
         // POST: /Owner/Edit/5
 
         [HttpPost]
-        public ActionResult NewOrEdit(Income model)
+        public ActionResult NewOrEdit(Income model,FormCollection frm)
         {
             try
             {
                 var db = DB.Entities;
-
+                model.IncomeDate = CommonFunction.ChangeFormatDate(frm["IncomeDate"]);
                 if (model.IncomeID == 0)
                 {
                     // Edit                    

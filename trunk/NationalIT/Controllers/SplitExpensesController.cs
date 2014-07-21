@@ -65,12 +65,12 @@ namespace NationalIT.Controllers
         // POST: /Owner/Edit/5
 
         [HttpPost]
-        public ActionResult NewOrEdit(split_expenses model)
+        public ActionResult NewOrEdit(split_expenses model,FormCollection frm)
         {
             try
             {
                 var db = DB.Entities;
-
+                model.Date = CommonFunction.ChangeFormatDate(frm["Date"]);
                 if (model.Id == 0)
                 {
                     // Edit                    

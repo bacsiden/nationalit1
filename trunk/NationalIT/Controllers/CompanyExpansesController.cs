@@ -32,12 +32,12 @@ namespace NationalIT.Controllers
         // POST: /Owner/Edit/5
 
         [HttpPost]
-        public ActionResult NewOrEdit(Company_Expanses model)
+        public ActionResult NewOrEdit(Company_Expanses model,FormCollection frm)
         {
             try
             {
                 var db = DB.Entities;
-
+                model.Date = CommonFunction.ChangeFormatDate(frm["Date"]);
                 if (model.CompanyExpansesID == 0)
                 {
                     // Edit                    

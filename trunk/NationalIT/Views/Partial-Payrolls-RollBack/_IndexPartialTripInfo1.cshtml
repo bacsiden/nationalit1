@@ -46,13 +46,13 @@
                         @item.Address
                     </td>
                     <td>
-                        @(item.Order_date.HasValue ? item.Order_date.Value.ToShortDateString() : "")
+                        @(item.Order_date.HasValue ? item.Order_date.Value.ToString("MM/dd/yyyy") : "")
                     </td>
                     @*<td>
                         @String.Format("{0:MM/dd/yyyy}", item.Pickup_date)
                     </td>*@
                     <td>
-                        @(item.Delivery_date.HasValue ? item.Delivery_date.Value.ToShortDateString() : "")
+                        @(item.Delivery_date.HasValue ? item.Delivery_date.Value.ToString("MM/dd/yyyy") : "")
                     </td>                    
                     <td>
                         @item.Total_charges

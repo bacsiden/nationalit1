@@ -42,7 +42,7 @@
                         <input type="checkbox" name="DriverOperating_ExpensesItem" value="@item.ID" class="DriverOperating_ExpensesItem" />
                     </td>
                     <td>
-                         @(item.Date.HasValue?item.Date.Value.ToShortDateString():"")
+                         @(item.Date.HasValue?item.Date.Value.ToString("MM/dd/yyyy"):"")
                     </td>
                     <td>
                         @item.Type

@@ -50,10 +50,10 @@
                         @item.Location
                     </td>
                     <td>
-                        @(item.Date_occurred.HasValue ? item.Date_occurred.Value.ToShortDateString() : "")
+                        @(item.Date_occurred.HasValue ? item.Date_occurred.Value.ToString("MM/dd/yyyy") : "")
                     </td>
                     <td>
-                        @(item.Date_resolved.HasValue ? item.Date_resolved.Value.ToShortDateString() : "")
+                        @(item.Date_resolved.HasValue ? item.Date_resolved.Value.ToString("MM/dd/yyyy") : "")
                     </td>
 
                     <td>

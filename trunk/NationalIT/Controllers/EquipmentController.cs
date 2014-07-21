@@ -47,12 +47,13 @@ namespace NationalIT.Controllers
         // POST: /Owner/Edit/5
 
         [HttpPost]
-        public ActionResult NewOrEdit(Equipment model)
+        public ActionResult NewOrEdit(Equipment model,FormCollection frm)
         {
             try
             {
                 var db = DB.Entities;
-
+                model.Inspection_Expiration = CommonFunction.ChangeFormatDate(frm["Inspection_Expiration"]);
+                model.Registration_Expiration = CommonFunction.ChangeFormatDate(frm["Registration_Expiration"]);
                 if (model.ID == 0)
                 {
                     // Edit                    

@@ -19,7 +19,7 @@
                         @Html.LabelFor(model => model.Date)
                     </div>
                     <div class="editor-field">
-                        @Html.TextBoxFor(model => model.Date, new { Value = Model != null && Model.Date.HasValue ? Model.Date.Value.ToShortDateString() : "", Class = "date-picker" })
+                        @Html.TextBoxFor(model => model.Date, new { Value = Model != null && Model.Date.HasValue ? Model.Date.Value.ToString("MM/dd/yyyy") : "", Class = "date-picker" })
                         @Html.ValidationMessageFor(model => model.Date)
                     </div>
                     <div class="editor-label">
