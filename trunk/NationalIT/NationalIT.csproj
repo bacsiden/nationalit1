@@ -74,7 +74,6 @@
     <Compile Include="Controllers\CustomerInfoController.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controllers\Customer_InfoController.cs" />
     <Compile Include="Controllers\DispatchersController.cs">
       <SubType>Code</SubType>
     </Compile>
