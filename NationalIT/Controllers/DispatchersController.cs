@@ -31,12 +31,12 @@ namespace NationalIT.Controllers
         // POST: /Owner/Edit/5
 
         [HttpPost]
-        public ActionResult NewOrEdit(Dispatchers model)
+        public ActionResult NewOrEdit(Dispatchers model,FormCollection frm)
         {
             try
             {
                 var db = DB.Entities;
-
+                model.Hire_date = CommonFunction.ChangeFormatDate(frm["Hire_date"]);
                 if (model.ID == 0)
                 {
                     // Edit                    

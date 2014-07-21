@@ -59,15 +59,17 @@ namespace NationalIT.Controllers
         // POST: /Owner/Edit/5
 
         [HttpPost]
-        public ActionResult NewOrEdit(Violations model)
+        public ActionResult NewOrEdit(Violations model, FormCollection frm)
         {
             try
             {
                 var db = DB.Entities;
-
+                model.Date_occurred = CommonFunction.ChangeFormatDate(frm["Date_occurred"]);
+                model.Date_resolved = CommonFunction.ChangeFormatDate(frm["Date_resolved"]);
                 if (model.ID == 0)
                 {
-                    // Edit                    
+                    // Edit    
+
                     db.Violations.AddObject(model);
                 }
                 else
@@ -110,7 +112,7 @@ namespace NationalIT.Controllers
                 }
                 ViewBag.dataEquipment = dataEquipment;
                 #endregion
-                return View();
+                return View(model);
             }
         }
 

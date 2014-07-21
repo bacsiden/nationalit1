@@ -61,7 +61,7 @@
                     @item.Details
                 </td>
                 <td>
-                    @(item.Date.HasValue?item.Date.Value.ToShortDateString():"")
+                    @(item.Date.HasValue?item.Date.Value.ToString("MM/dd/yyyy"):"")
                 </td>
                 <td>
                     @NationalIT.CommonFunction.getYesNO(item.Fee_Charged)

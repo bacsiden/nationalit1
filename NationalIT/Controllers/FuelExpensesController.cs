@@ -108,12 +108,12 @@ namespace NationalIT.Controllers
         // POST: /Owner/Edit/5
 
         [HttpPost]
-        public ActionResult NewOrEdit(Fuel___Expenses model)
+        public ActionResult NewOrEdit(Fuel___Expenses model,FormCollection frm)
         {
             try
             {
                 var db = DB.Entities;
-
+                model.Date = CommonFunction.ChangeFormatDate(frm["Date"]);
                 if (model.ID == 0)
                 {
                     // Edit                    

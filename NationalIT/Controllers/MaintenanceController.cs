@@ -43,12 +43,12 @@ namespace NationalIT.Controllers
         // POST: /Owner/Edit/5
 
         [HttpPost]
-        public ActionResult NewOrEdit(Maintenance model)
+        public ActionResult NewOrEdit(Maintenance model,FormCollection frm)
         {
             try
             {
                 var db = DB.Entities;
-
+                model.Performed_date = CommonFunction.ChangeFormatDate(frm["Performed_date"]);
                 if (model.Id == 0)
                 {
                     // Edit                    

@@ -321,7 +321,7 @@
               </TextRun>
               <TextRun>
                 <Label>DateNow</Label>
-                <Value>=DateTime.Now.ToShortDateString()</Value>
+                <Value>=DateTime.Now.ToString("MM/dd/yyyy")</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Calibri</FontFamily>

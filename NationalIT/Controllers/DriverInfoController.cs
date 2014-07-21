@@ -103,12 +103,13 @@ namespace NationalIT.Controllers
         }
 
         [HttpPost]
-        public ActionResult NewOrEdit(Driver_Info model)
+        public ActionResult NewOrEdit(Driver_Info model,FormCollection frm)
         {
             try
             {
                 var db = DB.Entities;
-
+                model.Expiration_Date = CommonFunction.ChangeFormatDate(frm["Expiration_Date"]).Value;
+                model.Date_Issued = CommonFunction.ChangeFormatDate(frm["Date_Issued"]).Value.ToString();
                 if (model.ID == 0)
                 {
                     // Edit                    

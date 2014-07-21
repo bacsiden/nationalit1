@@ -46,7 +46,7 @@
                         @String.Format("{0:F}", item.Amount)
                     </td>
                     <td>
-                        @(item.Date.HasValue ? item.Date.Value.ToShortDateString() : "")
+                        @(item.Date.HasValue ? item.Date.Value.ToString("MM/dd/yyyy") : "")
                     </td>
                     <td>
                         @item.Comment

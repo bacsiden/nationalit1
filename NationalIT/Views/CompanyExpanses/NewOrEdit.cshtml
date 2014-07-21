@@ -41,7 +41,7 @@
                         <label class="control-label" for="fee_rate">@Html.LabelFor(model => model.Date)</label>
                         <div class="controls">
                             <div class="span12">
-                                @Html.TextBoxFor(model => model.Date, new { Value = Model != null && Model.Date.HasValue ? Model.Date.Value.ToShortDateString() : "", @class = "input-xlarge date-picker" })
+                                @Html.TextBoxFor(model => model.Date, new { Value = Model != null && Model.Date.HasValue ? Model.Date.Value.ToString("MM/dd/yyyy") : "", @class = "input-xlarge date-picker" })
                                 @Html.ValidationMessageFor(model => model.Date)
                             </div>
                         </div>

@@ -29,13 +29,13 @@
             {
             <tr>
                 <td>
-                    @(item.Order_date.HasValue ? item.Order_date.Value.ToShortDateString() : "")
+                    @(item.Order_date.HasValue ? item.Order_date.Value.ToString("MM/dd/yyyy") : "")
                 </td>
                 <td>
-                    @(item.Pickup_date.HasValue ? item.Pickup_date.Value.ToShortDateString() : "")
+                    @(item.Pickup_date.HasValue ? item.Pickup_date.Value.ToString("MM/dd/yyyy") : "")
                 </td>
                 <td>
-                    @(item.Delivery_date.HasValue ? item.Delivery_date.Value.ToShortDateString() : "")
+                    @(item.Delivery_date.HasValue ? item.Delivery_date.Value.ToString("MM/dd/yyyy") : "")
                 </td>
                 <td>
                     @item.Pick_up_location

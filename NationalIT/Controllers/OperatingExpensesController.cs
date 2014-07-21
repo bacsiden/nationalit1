@@ -57,12 +57,12 @@ namespace NationalIT.Controllers
         }
 
         [HttpPost]
-        public ActionResult NewOrEdit(Operating_Expenses model)
+        public ActionResult NewOrEdit(Operating_Expenses model,FormCollection frm)
         {
             try
             {
                 var db = DB.Entities;
-
+                model.Date = CommonFunction.ChangeFormatDate(frm["Date"]);
                 if (model.ID == 0)
                 {
                     // Edit                    

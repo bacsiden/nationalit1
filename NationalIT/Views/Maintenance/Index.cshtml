@@ -59,7 +59,7 @@
                         @item.Maintenance_performed
                     </td>
                     <td>
-                        @(item.Performed_date.HasValue?item.Performed_date.Value.ToShortDateString():"")
+                        @(item.Performed_date.HasValue?item.Performed_date.Value.ToString("MM/dd/yyyy"):"")
                     </td>
                     <td>
                         @item.Location
