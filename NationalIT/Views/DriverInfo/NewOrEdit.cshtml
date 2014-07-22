@@ -80,8 +80,7 @@
                     <div class="control-group">
                         <label for="Expiration_Date">
                             Expiration Date <span class="requiredStar">(*)</span></label>
-                        @Html.TextBoxFor(model => model.Expiration_Date, new { @class = "input-xlarge date-picker" })
-                        @Html.ValidationMessageFor(model => model.Expiration_Date)
+                        @Html.TextBoxFor(model => model.Expiration_Date, new { Value = Model!=null?Model.Expiration_Date.ToString("MM/dd/yyyy"):"" , @class = "input-xlarge date-picker" })
                     </div>
                     <div class="control-group">
                         <label for="Pay_rate">
@@ -93,13 +92,11 @@
                         <label for="fuel___advance_Fee_rate">
                             Fuel Advance Fee Rate</label>
                         @Html.TextBoxFor(model => model.fuel___advance_Fee_rate, new { @class = "input-xlarge" })
-                        @Html.ValidationMessageFor(model => model.fuel___advance_Fee_rate)
                     </div>
                     <div class="control-group">
                         <label for="Fuel_Card">
                             Fuel Card</label>
                         @Html.TextBoxFor(model => model.Fuel_Card, new { @class = "input-xlarge" })
-                        @Html.ValidationMessageFor(model => model.Fuel_Card)
                     </div>
                 </div>
                 <div class="span4">
@@ -136,7 +133,7 @@
                     <div class="control-group">
                         <label for="Date_Issued">
                             Date Issued</label>
-                        @Html.TextBoxFor(model => model.Date_Issued, new { @class = "input-xlarge date-picker" })
+                        @Html.TextBoxFor(model => model.Date_Issued, new {Value=Model!=null&&Model.Date_Issued.HasValue?Model.Date_Issued.Value.ToString("MM/dd/yyyy"):"", @class = "input-xlarge date-picker" })
                         @Html.ValidationMessageFor(model => model.Date_Issued)
                     </div>
                     <div class="control-group">
