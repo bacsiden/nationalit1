@@ -37,7 +37,7 @@ namespace NationalIT.Controllers
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == id);
-            if (obj == null) obj = new Driver_Info();
+            if (obj == null) obj = new Driver_Info() {Expiration_Date=DateTime.Now};
 
             #region SELECT OPTION
             string dataOwners = "<option >--Select Owners--</option>";
@@ -109,7 +109,7 @@ namespace NationalIT.Controllers
             {
                 var db = DB.Entities;
                 model.Expiration_Date = CommonFunction.ChangeFormatDate(frm["Expiration_Date"]).Value;
-                model.Date_Issued = CommonFunction.ChangeFormatDate(frm["Date_Issued"]).Value.ToString();
+                model.Date_Issued = CommonFunction.ChangeFormatDate(frm["Date_Issued"]);
                 if (model.ID == 0)
                 {
                     // Edit                    
