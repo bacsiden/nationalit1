@@ -50,7 +50,7 @@ namespace NationalIT.Reports
                 }
                 if (driverinfo.Pay_rate != null)
                 {
-                    fee1 = total1 * driverinfo.Pay_rate.Value;
+                    fee1 = total1 * driverinfo.Pay_rate;
                     total1 += fee1;
                 }
                 ReportParameter driverName = new ReportParameter("DriverName", driverinfo.First_name + " " + driverinfo.Last_name);
@@ -89,7 +89,7 @@ namespace NationalIT.Reports
                 }
                 if (driverinfo.fuel___advance_Fee_rate != null)
                 {
-                    fee2 = total2 * driverinfo.fuel___advance_Fee_rate.Value;
+                    fee2 = total2 * driverinfo.fuel___advance_Fee_rate;
                     total2 += fee2;
                 }
                 ReportParameter fuelFee = new ReportParameter("FuelFee", total2.ToString("N2"));
@@ -153,7 +153,7 @@ namespace NationalIT.Reports
                 }
                 if (driverinfo.fuel___advance_Fee_rate != null)
                 {
-                    fee4 = total4 * driverinfo.fuel___advance_Fee_rate.Value;
+                    fee4 = total4 * driverinfo.fuel___advance_Fee_rate;
                     total4 += fee4;
                 }
                 ReportParameter oExFee = new ReportParameter("OExFee", total4.ToString("N2"));
@@ -189,7 +189,7 @@ namespace NationalIT.Reports
                 }
                 if (driverinfo.fuel___advance_Fee_rate != null)
                 {
-                    fee5 = total5 * driverinfo.fuel___advance_Fee_rate.Value;
+                    fee5 = total5 * driverinfo.fuel___advance_Fee_rate;
                     total5 += fee5;
                 }
                 ReportParameter dExFee = new ReportParameter("DExFee", total5.ToString("N2"));

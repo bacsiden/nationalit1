@@ -146,6 +146,19 @@
         });
     });
 
+    // AutoComplete Chosen select item for customer
+    $(".chosen-with-diselect-customer").chosen({ allow_single_deselect: true }).change(function () {
+        var value = $(this).val();
+        $.ajax({
+            type: "POST",
+            url: '/TripInfo/GetAdressCustomerInfo',
+            data: { 'id': value },
+            async: true,
+            success: function (model) {
+                $("#Address").val(model);                
+            }
+        });
+    });
     // Not EDIT OR DELETE
     $(".selectDriverInfo").chosen({ allow_single_deselect: true }).change(function () {
         var valueDriverInfo = $(this).val();
@@ -231,7 +244,7 @@ function ajaxPagingByID(wrapID) {
             url: url,
             async: true,
             success: function (model) {
-                $("#"+wrapID).html(model);
+                $("#" + wrapID).html(model);
                 addClassForPagging();
                 return false;
             }
@@ -249,16 +262,16 @@ function addParam(url, param, value) {
     a.search = (a.search.substring(0, 1) == "?" ? "" : "?") + str.join("&");
     return a.href;
 }
-function getListIDCheckBoxByClassName(classWrapper,classItem) {
-    var listID = "";    
-    $('.'+classWrapper+' input.'+classItem+':checkbox:checked').each(function () {
+function getListIDCheckBoxByClassName(classWrapper, classItem) {
+    var listID = "";
+    $('.' + classWrapper + ' input.' + classItem + ':checkbox:checked').each(function () {
         listID += "," + $(this).val();
     });
     return listID;
 }
-function getListIDCheckBoxByIDClassName(classWrapper,classItem) {
-    var listID = "";    
-    $('#'+classWrapper+' input.'+classItem+':checkbox:checked').each(function () {
+function getListIDCheckBoxByIDClassName(classWrapper, classItem) {
+    var listID = "";
+    $('#' + classWrapper + ' input.' + classItem + ':checkbox:checked').each(function () {
         listID += "-" + $(this).attr('getID');
     });
     return listID;

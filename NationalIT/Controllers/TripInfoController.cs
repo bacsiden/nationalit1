@@ -57,6 +57,20 @@ namespace NationalIT.Controllers
             }
 
             #region SELECT OPTION
+            string dataCustomer = "<option >--Select Customer--</option>";
+            foreach (var item in NationalIT.DB.Entities.Customer_Info)
+            {
+                if (obj != null && obj.Trip_ID == item.Customer_ID)
+                {
+                    //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                    dataCustomer += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.Customer_ID, item.Customer_Name);
+                }
+                else
+                {
+                    dataCustomer += string.Format("<option value='{0}'>{1}</option>", item.Customer_ID, item.Customer_Name);
+                }
+            }
+            ViewBag.dataCustomer = dataCustomer;
             string dataDispatchers = "<option >--Select Dispatcher--</option>";
             foreach (var item in NationalIT.DB.Entities.Dispatchers)
             {
@@ -135,6 +149,20 @@ namespace NationalIT.Controllers
             {
 
                 #region SELECT OPTION
+                string dataCustomer = "<option >--Select Customer--</option>";
+                foreach (var item in NationalIT.DB.Entities.Customer_Info)
+                {
+                    if (model != null && model.Trip_ID == item.Customer_ID)
+                    {
+                        //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                        dataCustomer += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.Customer_ID, item.Customer_Name);
+                    }
+                    else
+                    {
+                        dataCustomer += string.Format("<option value='{0}'>{1}</option>", item.Customer_ID, item.Customer_Name);
+                    }
+                }
+                ViewBag.dataCustomer = dataCustomer;
                 string dataDispatchers = "<option >--Select Dispatcher--</option>";
                 foreach (var item in NationalIT.DB.Entities.Dispatchers)
                 {
@@ -220,6 +248,17 @@ namespace NationalIT.Controllers
             var list = db.Customer_Info.Where(m =>
                 m.Customer_Name.Contains(query) || (id == 0) ? true : m.Customer_ID == id);
             return PartialView(list.OrderByDescending(m => m.Customer_ID).ToPagedList(page.Value, 5));
+        }
+        [HttpPost]
+        public string GetAdressCustomerInfo(int id)
+        {
+            string address = "";
+            var obj = DB.Entities.Customer_Info.FirstOrDefault(m => m.Customer_ID == id);
+            if (obj!=null)
+            {
+                address = obj.Street+ ", " + obj.City + ", " + obj.State + " " + obj.ZIP_Code + ", Phone: " + obj.Phone;
+            }
+            return address;
         }
     }
 }

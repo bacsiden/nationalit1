@@ -9,20 +9,20 @@ namespace NationalIT
 {
     public class DB
     {
-        public static NationalITEntities Entities
+        public static nationalitEntities Entities
         {
             get
             {
-                return new NationalITEntities();
+                return new nationalitEntities();
             }
         }
         public class BaseClass<T> where T : EntityObject
         {
-            NationalITEntities _db;
+            nationalitEntities _db;
 
             public BaseClass()
             {
-                _db = new NationalITEntities();
+                _db = new nationalitEntities();
             }
 
             public T GetByID(int id)

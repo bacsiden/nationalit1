@@ -19,17 +19,17 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("NationalITModel", "FK_Trip_Info_Customer_Info", "Customer_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Customer_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
-[assembly: EdmRelationshipAttribute("NationalITModel", "FK_Trip_Info_Dispatchers", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Dispatchers), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
-[assembly: EdmRelationshipAttribute("NationalITModel", "FK_Maintenance_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Maintenance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Maintenance), true)]
-[assembly: EdmRelationshipAttribute("NationalITModel", "FK_Trip_Info_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
-[assembly: EdmRelationshipAttribute("NationalITModel", "FK_Violations_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
-[assembly: EdmRelationshipAttribute("NationalITModel", "FK_Driver_Info_Dispatchers", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Dispatchers), "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Driver_Info), true)]
-[assembly: EdmRelationshipAttribute("NationalITModel", "FK_Driver_Info_Owners", "Owners", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Owners), "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Driver_Info), true)]
-[assembly: EdmRelationshipAttribute("NationalITModel", "FK_Fuel___Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Fuel___Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Fuel___Expenses), true)]
-[assembly: EdmRelationshipAttribute("NationalITModel", "FK_Operating_Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Operating_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Operating_Expenses), true)]
-[assembly: EdmRelationshipAttribute("NationalITModel", "FK_Trip_Info_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
-[assembly: EdmRelationshipAttribute("NationalITModel", "FK_Violations_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
+[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Trip_Info_Customer_Info1", "Customer_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Customer_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Driver_Info_Dispatchers", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Dispatchers), "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Driver_Info), true)]
+[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Trip_Info_Dispatchers1", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Dispatchers), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Driver_Info_Owners", "Owners", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Owners), "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Driver_Info), true)]
+[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Operating_Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Operating_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Operating_Expenses), true)]
+[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Trip_Info_Driver_Info1", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Violations_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
+[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Maintenance_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Maintenance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Maintenance), true)]
+[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Trip_Info_Equipment1", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Violations_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
+[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Fuel___Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Fuel___Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Fuel___Expenses), true)]
 
 #endregion
 
@@ -40,32 +40,32 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class NationalITEntities : ObjectContext
+    public partial class nationalitEntities : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new NationalITEntities object using the connection string found in the 'NationalITEntities' section of the application configuration file.
+        /// Initializes a new nationalitEntities object using the connection string found in the 'nationalitEntities' section of the application configuration file.
         /// </summary>
-        public NationalITEntities() : base("name=NationalITEntities", "NationalITEntities")
+        public nationalitEntities() : base("name=nationalitEntities", "nationalitEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new NationalITEntities object.
+        /// Initialize a new nationalitEntities object.
         /// </summary>
-        public NationalITEntities(string connectionString) : base(connectionString, "NationalITEntities")
+        public nationalitEntities(string connectionString) : base(connectionString, "nationalitEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new NationalITEntities object.
+        /// Initialize a new nationalitEntities object.
         /// </summary>
-        public NationalITEntities(EntityConnection connection) : base(connection, "NationalITEntities")
+        public nationalitEntities(EntityConnection connection) : base(connection, "nationalitEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -132,6 +132,22 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<Driver_Info> Driver_Info
+        {
+            get
+            {
+                if ((_Driver_Info == null))
+                {
+                    _Driver_Info = base.CreateObjectSet<Driver_Info>("Driver_Info");
+                }
+                return _Driver_Info;
+            }
+        }
+        private ObjectSet<Driver_Info> _Driver_Info;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<Equipment> Equipment
         {
             get
@@ -144,22 +160,6 @@ namespace NationalIT
             }
         }
         private ObjectSet<Equipment> _Equipment;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Fuel___Expenses> Fuel___Expenses
-        {
-            get
-            {
-                if ((_Fuel___Expenses == null))
-                {
-                    _Fuel___Expenses = base.CreateObjectSet<Fuel___Expenses>("Fuel___Expenses");
-                }
-                return _Fuel___Expenses;
-            }
-        }
-        private ObjectSet<Fuel___Expenses> _Fuel___Expenses;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -308,18 +308,18 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Driver_Info> Driver_Info
+        public ObjectSet<Fuel___Expenses> Fuel___Expenses
         {
             get
             {
-                if ((_Driver_Info == null))
+                if ((_Fuel___Expenses == null))
                 {
-                    _Driver_Info = base.CreateObjectSet<Driver_Info>("Driver_Info");
+                    _Fuel___Expenses = base.CreateObjectSet<Fuel___Expenses>("Fuel___Expenses");
                 }
-                return _Driver_Info;
+                return _Fuel___Expenses;
             }
         }
-        private ObjectSet<Driver_Info> _Driver_Info;
+        private ObjectSet<Fuel___Expenses> _Fuel___Expenses;
 
         #endregion
 
@@ -350,19 +350,19 @@ namespace NationalIT
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the Driver_Info EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToDriver_Info(Driver_Info driver_Info)
+        {
+            base.AddObject("Driver_Info", driver_Info);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the Equipment EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToEquipment(Equipment equipment)
         {
             base.AddObject("Equipment", equipment);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Fuel___Expenses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToFuel___Expenses(Fuel___Expenses fuel___Expenses)
-        {
-            base.AddObject("Fuel___Expenses", fuel___Expenses);
         }
     
         /// <summary>
@@ -438,11 +438,11 @@ namespace NationalIT
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Driver_Info EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Fuel___Expenses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToDriver_Info(Driver_Info driver_Info)
+        public void AddToFuel___Expenses(Fuel___Expenses fuel___Expenses)
         {
-            base.AddObject("Driver_Info", driver_Info);
+            base.AddObject("Fuel___Expenses", fuel___Expenses);
         }
 
         #endregion
@@ -456,7 +456,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="NationalITModel", Name="Company_Expanses")]
+    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Company_Expanses")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Company_Expanses : EntityObject
@@ -609,7 +609,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="NationalITModel", Name="Customer_Info")]
+    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Customer_Info")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Customer_Info : EntityObject
@@ -913,18 +913,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Trip_Info_Customer_Info", "Trip_Info")]
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Trip_Info_Customer_Info1", "Trip_Info")]
         public EntityCollection<Trip_Info> Trip_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip_Info>("NationalITModel.FK_Trip_Info_Customer_Info", "Trip_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip_Info>("nationalitModel.FK_Trip_Info_Customer_Info1", "Trip_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("NationalITModel.FK_Trip_Info_Customer_Info", "Trip_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("nationalitModel.FK_Trip_Info_Customer_Info1", "Trip_Info", value);
                 }
             }
         }
@@ -936,7 +936,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="NationalITModel", Name="Dispatchers")]
+    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Dispatchers")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Dispatchers : EntityObject
@@ -1142,18 +1142,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Trip_Info_Dispatchers", "Trip_Info")]
-        public EntityCollection<Trip_Info> Trip_Info
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Driver_Info_Dispatchers", "Driver_Info")]
+        public EntityCollection<Driver_Info> Driver_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip_Info>("NationalITModel.FK_Trip_Info_Dispatchers", "Trip_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Driver_Info>("nationalitModel.FK_Driver_Info_Dispatchers", "Driver_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("NationalITModel.FK_Trip_Info_Dispatchers", "Trip_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Driver_Info>("nationalitModel.FK_Driver_Info_Dispatchers", "Driver_Info", value);
                 }
             }
         }
@@ -1164,18 +1164,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Driver_Info_Dispatchers", "Driver_Info")]
-        public EntityCollection<Driver_Info> Driver_Info
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Trip_Info_Dispatchers1", "Trip_Info")]
+        public EntityCollection<Trip_Info> Trip_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Driver_Info>("NationalITModel.FK_Driver_Info_Dispatchers", "Driver_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip_Info>("nationalitModel.FK_Trip_Info_Dispatchers1", "Trip_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Driver_Info>("NationalITModel.FK_Driver_Info_Dispatchers", "Driver_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("nationalitModel.FK_Trip_Info_Dispatchers1", "Trip_Info", value);
                 }
             }
         }
@@ -1187,7 +1187,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="NationalITModel", Name="Driver_Info")]
+    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Driver_Info")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Driver_Info : EntityObject
@@ -1200,30 +1200,32 @@ namespace NationalIT
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="last_name">Initial value of the Last_name property.</param>
         /// <param name="first_name">Initial value of the First_name property.</param>
-        /// <param name="sSN">Initial value of the SSN property.</param>
-        /// <param name="drive_Lic">Initial value of the Drive_Lic property.</param>
-        /// <param name="state">Initial value of the State property.</param>
         /// <param name="expiration_Date">Initial value of the Expiration_Date property.</param>
         /// <param name="hazMat">Initial value of the HazMat property.</param>
+        /// <param name="pay_rate">Initial value of the Pay_rate property.</param>
+        /// <param name="truck">Initial value of the Truck property.</param>
+        /// <param name="trailer">Initial value of the Trailer property.</param>
         /// <param name="phone">Initial value of the Phone property.</param>
-        /// <param name="address">Initial value of the Address property.</param>
+        /// <param name="fuel___advance_Fee_rate">Initial value of the fuel___advance_Fee_rate property.</param>
         /// <param name="active">Initial value of the Active property.</param>
         /// <param name="owner">Initial value of the Owner property.</param>
-        public static Driver_Info CreateDriver_Info(global::System.Int32 id, global::System.String last_name, global::System.String first_name, global::System.String sSN, global::System.String drive_Lic, global::System.String state, global::System.DateTime expiration_Date, global::System.Boolean hazMat, global::System.String phone, global::System.String address, global::System.Boolean active, global::System.Boolean owner)
+        /// <param name="owner_Pay_Rate">Initial value of the Owner_Pay_Rate property.</param>
+        public static Driver_Info CreateDriver_Info(global::System.Int32 id, global::System.String last_name, global::System.String first_name, global::System.DateTime expiration_Date, global::System.Boolean hazMat, global::System.Double pay_rate, global::System.String truck, global::System.String trailer, global::System.String phone, global::System.Double fuel___advance_Fee_rate, global::System.Boolean active, global::System.Boolean owner, global::System.Double owner_Pay_Rate)
         {
             Driver_Info driver_Info = new Driver_Info();
             driver_Info.ID = id;
             driver_Info.Last_name = last_name;
             driver_Info.First_name = first_name;
-            driver_Info.SSN = sSN;
-            driver_Info.Drive_Lic = drive_Lic;
-            driver_Info.State = state;
             driver_Info.Expiration_Date = expiration_Date;
             driver_Info.HazMat = hazMat;
+            driver_Info.Pay_rate = pay_rate;
+            driver_Info.Truck = truck;
+            driver_Info.Trailer = trailer;
             driver_Info.Phone = phone;
-            driver_Info.Address = address;
+            driver_Info.fuel___advance_Fee_rate = fuel___advance_Fee_rate;
             driver_Info.Active = active;
             driver_Info.Owner = owner;
+            driver_Info.Owner_Pay_Rate = owner_Pay_Rate;
             return driver_Info;
         }
 
@@ -1357,7 +1359,7 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String SSN
         {
@@ -1369,7 +1371,7 @@ namespace NationalIT
             {
                 OnSSNChanging(value);
                 ReportPropertyChanging("SSN");
-                _SSN = StructuralObject.SetValidValue(value, false);
+                _SSN = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("SSN");
                 OnSSNChanged();
             }
@@ -1381,7 +1383,7 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Drive_Lic
         {
@@ -1393,7 +1395,7 @@ namespace NationalIT
             {
                 OnDrive_LicChanging(value);
                 ReportPropertyChanging("Drive_Lic");
-                _Drive_Lic = StructuralObject.SetValidValue(value, false);
+                _Drive_Lic = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Drive_Lic");
                 OnDrive_LicChanged();
             }
@@ -1405,7 +1407,7 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String State
         {
@@ -1417,7 +1419,7 @@ namespace NationalIT
             {
                 OnStateChanging(value);
                 ReportPropertyChanging("State");
-                _State = StructuralObject.SetValidValue(value, false);
+                _State = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("State");
                 OnStateChanged();
             }
@@ -1455,7 +1457,7 @@ namespace NationalIT
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String Date_Issued
+        public Nullable<global::System.DateTime> Date_Issued
         {
             get
             {
@@ -1465,13 +1467,13 @@ namespace NationalIT
             {
                 OnDate_IssuedChanging(value);
                 ReportPropertyChanging("Date_Issued");
-                _Date_Issued = StructuralObject.SetValidValue(value, true);
+                _Date_Issued = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Date_Issued");
                 OnDate_IssuedChanged();
             }
         }
-        private global::System.String _Date_Issued;
-        partial void OnDate_IssuedChanging(global::System.String value);
+        private Nullable<global::System.DateTime> _Date_Issued;
+        partial void OnDate_IssuedChanging(Nullable<global::System.DateTime> value);
         partial void OnDate_IssuedChanged();
     
         /// <summary>
@@ -1501,9 +1503,9 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Single> Pay_rate
+        public global::System.Double Pay_rate
         {
             get
             {
@@ -1518,8 +1520,8 @@ namespace NationalIT
                 OnPay_rateChanged();
             }
         }
-        private Nullable<global::System.Single> _Pay_rate;
-        partial void OnPay_rateChanging(Nullable<global::System.Single> value);
+        private global::System.Double _Pay_rate;
+        partial void OnPay_rateChanging(global::System.Double value);
         partial void OnPay_rateChanged();
     
         /// <summary>
@@ -1549,7 +1551,7 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Truck
         {
@@ -1561,7 +1563,7 @@ namespace NationalIT
             {
                 OnTruckChanging(value);
                 ReportPropertyChanging("Truck");
-                _Truck = StructuralObject.SetValidValue(value, true);
+                _Truck = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Truck");
                 OnTruckChanged();
             }
@@ -1573,7 +1575,7 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Trailer
         {
@@ -1585,7 +1587,7 @@ namespace NationalIT
             {
                 OnTrailerChanging(value);
                 ReportPropertyChanging("Trailer");
-                _Trailer = StructuralObject.SetValidValue(value, true);
+                _Trailer = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Trailer");
                 OnTrailerChanged();
             }
@@ -1621,7 +1623,7 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Address
         {
@@ -1633,7 +1635,7 @@ namespace NationalIT
             {
                 OnAddressChanging(value);
                 ReportPropertyChanging("Address");
-                _Address = StructuralObject.SetValidValue(value, false);
+                _Address = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Address");
                 OnAddressChanged();
             }
@@ -1669,9 +1671,9 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Single> fuel___advance_Fee_rate
+        public global::System.Double fuel___advance_Fee_rate
         {
             get
             {
@@ -1686,8 +1688,8 @@ namespace NationalIT
                 Onfuel___advance_Fee_rateChanged();
             }
         }
-        private Nullable<global::System.Single> _fuel___advance_Fee_rate;
-        partial void Onfuel___advance_Fee_rateChanging(Nullable<global::System.Single> value);
+        private global::System.Double _fuel___advance_Fee_rate;
+        partial void Onfuel___advance_Fee_rateChanging(global::System.Double value);
         partial void Onfuel___advance_Fee_rateChanged();
     
         /// <summary>
@@ -1765,9 +1767,9 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Single> Owner_Pay_Rate
+        public global::System.Double Owner_Pay_Rate
         {
             get
             {
@@ -1782,8 +1784,8 @@ namespace NationalIT
                 OnOwner_Pay_RateChanged();
             }
         }
-        private Nullable<global::System.Single> _Owner_Pay_Rate;
-        partial void OnOwner_Pay_RateChanging(Nullable<global::System.Single> value);
+        private global::System.Double _Owner_Pay_Rate;
+        partial void OnOwner_Pay_RateChanging(global::System.Double value);
         partial void OnOwner_Pay_RateChanged();
     
         /// <summary>
@@ -1821,16 +1823,16 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Driver_Info_Dispatchers", "Dispatchers")]
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Driver_Info_Dispatchers", "Dispatchers")]
         public Dispatchers Dispatchers
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("NationalITModel.FK_Driver_Info_Dispatchers", "Dispatchers").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("nationalitModel.FK_Driver_Info_Dispatchers", "Dispatchers").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("NationalITModel.FK_Driver_Info_Dispatchers", "Dispatchers").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("nationalitModel.FK_Driver_Info_Dispatchers", "Dispatchers").Value = value;
             }
         }
         /// <summary>
@@ -1842,13 +1844,13 @@ namespace NationalIT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("NationalITModel.FK_Driver_Info_Dispatchers", "Dispatchers");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("nationalitModel.FK_Driver_Info_Dispatchers", "Dispatchers");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Dispatchers>("NationalITModel.FK_Driver_Info_Dispatchers", "Dispatchers", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Dispatchers>("nationalitModel.FK_Driver_Info_Dispatchers", "Dispatchers", value);
                 }
             }
         }
@@ -1859,16 +1861,16 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Driver_Info_Owners", "Owners")]
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Driver_Info_Owners", "Owners")]
         public Owners Owners
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Owners>("NationalITModel.FK_Driver_Info_Owners", "Owners").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Owners>("nationalitModel.FK_Driver_Info_Owners", "Owners").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Owners>("NationalITModel.FK_Driver_Info_Owners", "Owners").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Owners>("nationalitModel.FK_Driver_Info_Owners", "Owners").Value = value;
             }
         }
         /// <summary>
@@ -1880,13 +1882,13 @@ namespace NationalIT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Owners>("NationalITModel.FK_Driver_Info_Owners", "Owners");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Owners>("nationalitModel.FK_Driver_Info_Owners", "Owners");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Owners>("NationalITModel.FK_Driver_Info_Owners", "Owners", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Owners>("nationalitModel.FK_Driver_Info_Owners", "Owners", value);
                 }
             }
         }
@@ -1897,40 +1899,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Fuel___Expenses_Driver_Info", "Fuel___Expenses")]
-        public EntityCollection<Fuel___Expenses> Fuel___Expenses
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Fuel___Expenses>("NationalITModel.FK_Fuel___Expenses_Driver_Info", "Fuel___Expenses");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Fuel___Expenses>("NationalITModel.FK_Fuel___Expenses_Driver_Info", "Fuel___Expenses", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Operating_Expenses_Driver_Info", "Operating_Expenses")]
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Operating_Expenses_Driver_Info", "Operating_Expenses")]
         public EntityCollection<Operating_Expenses> Operating_Expenses
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Operating_Expenses>("NationalITModel.FK_Operating_Expenses_Driver_Info", "Operating_Expenses");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Operating_Expenses>("nationalitModel.FK_Operating_Expenses_Driver_Info", "Operating_Expenses");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Operating_Expenses>("NationalITModel.FK_Operating_Expenses_Driver_Info", "Operating_Expenses", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Operating_Expenses>("nationalitModel.FK_Operating_Expenses_Driver_Info", "Operating_Expenses", value);
                 }
             }
         }
@@ -1941,18 +1921,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Trip_Info_Driver_Info", "Trip_Info")]
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Trip_Info_Driver_Info1", "Trip_Info")]
         public EntityCollection<Trip_Info> Trip_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip_Info>("NationalITModel.FK_Trip_Info_Driver_Info", "Trip_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip_Info>("nationalitModel.FK_Trip_Info_Driver_Info1", "Trip_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("NationalITModel.FK_Trip_Info_Driver_Info", "Trip_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("nationalitModel.FK_Trip_Info_Driver_Info1", "Trip_Info", value);
                 }
             }
         }
@@ -1963,18 +1943,40 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Violations_Driver_Info", "Violations")]
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Violations_Driver_Info", "Violations")]
         public EntityCollection<Violations> Violations
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Violations>("NationalITModel.FK_Violations_Driver_Info", "Violations");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Violations>("nationalitModel.FK_Violations_Driver_Info", "Violations");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Violations>("NationalITModel.FK_Violations_Driver_Info", "Violations", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Violations>("nationalitModel.FK_Violations_Driver_Info", "Violations", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Fuel___Expenses_Driver_Info", "Fuel___Expenses")]
+        public EntityCollection<Fuel___Expenses> Fuel___Expenses
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Fuel___Expenses>("nationalitModel.FK_Fuel___Expenses_Driver_Info", "Fuel___Expenses");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Fuel___Expenses>("nationalitModel.FK_Fuel___Expenses_Driver_Info", "Fuel___Expenses", value);
                 }
             }
         }
@@ -1986,7 +1988,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="NationalITModel", Name="Equipment")]
+    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Equipment")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Equipment : EntityObject
@@ -2334,18 +2336,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Maintenance_Equipment", "Maintenance")]
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Maintenance_Equipment", "Maintenance")]
         public EntityCollection<Maintenance> Maintenance
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Maintenance>("NationalITModel.FK_Maintenance_Equipment", "Maintenance");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Maintenance>("nationalitModel.FK_Maintenance_Equipment", "Maintenance");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Maintenance>("NationalITModel.FK_Maintenance_Equipment", "Maintenance", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Maintenance>("nationalitModel.FK_Maintenance_Equipment", "Maintenance", value);
                 }
             }
         }
@@ -2356,18 +2358,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Trip_Info_Equipment", "Trip_Info")]
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Trip_Info_Equipment1", "Trip_Info")]
         public EntityCollection<Trip_Info> Trip_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip_Info>("NationalITModel.FK_Trip_Info_Equipment", "Trip_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip_Info>("nationalitModel.FK_Trip_Info_Equipment1", "Trip_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("NationalITModel.FK_Trip_Info_Equipment", "Trip_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("nationalitModel.FK_Trip_Info_Equipment1", "Trip_Info", value);
                 }
             }
         }
@@ -2378,18 +2380,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Violations_Equipment", "Violations")]
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Violations_Equipment", "Violations")]
         public EntityCollection<Violations> Violations
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Violations>("NationalITModel.FK_Violations_Equipment", "Violations");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Violations>("nationalitModel.FK_Violations_Equipment", "Violations");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Violations>("NationalITModel.FK_Violations_Equipment", "Violations", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Violations>("nationalitModel.FK_Violations_Equipment", "Violations", value);
                 }
             }
         }
@@ -2401,7 +2403,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="NationalITModel", Name="Fuel___Expenses")]
+    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Fuel___Expenses")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Fuel___Expenses : EntityObject
@@ -2671,7 +2673,7 @@ namespace NationalIT
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String fee_charged
+        public Nullable<global::System.Boolean> fee_charged
         {
             get
             {
@@ -2681,13 +2683,13 @@ namespace NationalIT
             {
                 Onfee_chargedChanging(value);
                 ReportPropertyChanging("fee_charged");
-                _fee_charged = StructuralObject.SetValidValue(value, true);
+                _fee_charged = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("fee_charged");
                 Onfee_chargedChanged();
             }
         }
-        private global::System.String _fee_charged;
-        partial void Onfee_chargedChanging(global::System.String value);
+        private Nullable<global::System.Boolean> _fee_charged;
+        partial void Onfee_chargedChanging(Nullable<global::System.Boolean> value);
         partial void Onfee_chargedChanged();
     
         /// <summary>
@@ -2725,16 +2727,16 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Fuel___Expenses_Driver_Info", "Driver_Info")]
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Fuel___Expenses_Driver_Info", "Driver_Info")]
         public Driver_Info Driver_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("NationalITModel.FK_Fuel___Expenses_Driver_Info", "Driver_Info").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Fuel___Expenses_Driver_Info", "Driver_Info").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("NationalITModel.FK_Fuel___Expenses_Driver_Info", "Driver_Info").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Fuel___Expenses_Driver_Info", "Driver_Info").Value = value;
             }
         }
         /// <summary>
@@ -2746,13 +2748,13 @@ namespace NationalIT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("NationalITModel.FK_Fuel___Expenses_Driver_Info", "Driver_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Fuel___Expenses_Driver_Info", "Driver_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Driver_Info>("NationalITModel.FK_Fuel___Expenses_Driver_Info", "Driver_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Driver_Info>("nationalitModel.FK_Fuel___Expenses_Driver_Info", "Driver_Info", value);
                 }
             }
         }
@@ -2764,7 +2766,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="NationalITModel", Name="Income")]
+    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Income")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Income : EntityObject
@@ -2989,7 +2991,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="NationalITModel", Name="InvoiceA")]
+    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="InvoiceA")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class InvoiceA : EntityObject
@@ -3070,7 +3072,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="NationalITModel", Name="Maintenance")]
+    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Maintenance")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Maintenance : EntityObject
@@ -3322,16 +3324,16 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Maintenance_Equipment", "Equipment")]
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Maintenance_Equipment", "Equipment")]
         public Equipment Equipment
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("NationalITModel.FK_Maintenance_Equipment", "Equipment").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("nationalitModel.FK_Maintenance_Equipment", "Equipment").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("NationalITModel.FK_Maintenance_Equipment", "Equipment").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("nationalitModel.FK_Maintenance_Equipment", "Equipment").Value = value;
             }
         }
         /// <summary>
@@ -3343,13 +3345,13 @@ namespace NationalIT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("NationalITModel.FK_Maintenance_Equipment", "Equipment");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("nationalitModel.FK_Maintenance_Equipment", "Equipment");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Equipment>("NationalITModel.FK_Maintenance_Equipment", "Equipment", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Equipment>("nationalitModel.FK_Maintenance_Equipment", "Equipment", value);
                 }
             }
         }
@@ -3361,7 +3363,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="NationalITModel", Name="Operating_Expenses")]
+    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Operating_Expenses")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Operating_Expenses : EntityObject
@@ -3613,16 +3615,16 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Operating_Expenses_Driver_Info", "Driver_Info")]
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Operating_Expenses_Driver_Info", "Driver_Info")]
         public Driver_Info Driver_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("NationalITModel.FK_Operating_Expenses_Driver_Info", "Driver_Info").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Operating_Expenses_Driver_Info", "Driver_Info").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("NationalITModel.FK_Operating_Expenses_Driver_Info", "Driver_Info").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Operating_Expenses_Driver_Info", "Driver_Info").Value = value;
             }
         }
         /// <summary>
@@ -3634,13 +3636,13 @@ namespace NationalIT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("NationalITModel.FK_Operating_Expenses_Driver_Info", "Driver_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Operating_Expenses_Driver_Info", "Driver_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Driver_Info>("NationalITModel.FK_Operating_Expenses_Driver_Info", "Driver_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Driver_Info>("nationalitModel.FK_Operating_Expenses_Driver_Info", "Driver_Info", value);
                 }
             }
         }
@@ -3652,7 +3654,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="NationalITModel", Name="Owners")]
+    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Owners")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Owners : EntityObject
@@ -3810,18 +3812,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Driver_Info_Owners", "Driver_Info")]
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Driver_Info_Owners", "Driver_Info")]
         public EntityCollection<Driver_Info> Driver_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Driver_Info>("NationalITModel.FK_Driver_Info_Owners", "Driver_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Driver_Info>("nationalitModel.FK_Driver_Info_Owners", "Driver_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Driver_Info>("NationalITModel.FK_Driver_Info_Owners", "Driver_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Driver_Info>("nationalitModel.FK_Driver_Info_Owners", "Driver_Info", value);
                 }
             }
         }
@@ -3833,7 +3835,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="NationalITModel", Name="ReportIDs")]
+    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="ReportIDs")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ReportIDs : EntityObject
@@ -3938,7 +3940,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="NationalITModel", Name="split_expenses")]
+    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="split_expenses")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class split_expenses : EntityObject
@@ -4219,7 +4221,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="NationalITModel", Name="Trip_Info")]
+    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Trip_Info")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Trip_Info : EntityObject
@@ -4967,16 +4969,16 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Trip_Info_Customer_Info", "Customer_Info")]
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Trip_Info_Customer_Info1", "Customer_Info")]
         public Customer_Info Customer_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Customer_Info>("NationalITModel.FK_Trip_Info_Customer_Info", "Customer_Info").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Customer_Info>("nationalitModel.FK_Trip_Info_Customer_Info1", "Customer_Info").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Customer_Info>("NationalITModel.FK_Trip_Info_Customer_Info", "Customer_Info").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Customer_Info>("nationalitModel.FK_Trip_Info_Customer_Info1", "Customer_Info").Value = value;
             }
         }
         /// <summary>
@@ -4988,13 +4990,13 @@ namespace NationalIT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Customer_Info>("NationalITModel.FK_Trip_Info_Customer_Info", "Customer_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Customer_Info>("nationalitModel.FK_Trip_Info_Customer_Info1", "Customer_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Customer_Info>("NationalITModel.FK_Trip_Info_Customer_Info", "Customer_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Customer_Info>("nationalitModel.FK_Trip_Info_Customer_Info1", "Customer_Info", value);
                 }
             }
         }
@@ -5005,16 +5007,16 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Trip_Info_Dispatchers", "Dispatchers")]
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Trip_Info_Dispatchers1", "Dispatchers")]
         public Dispatchers Dispatchers
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("NationalITModel.FK_Trip_Info_Dispatchers", "Dispatchers").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("nationalitModel.FK_Trip_Info_Dispatchers1", "Dispatchers").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("NationalITModel.FK_Trip_Info_Dispatchers", "Dispatchers").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("nationalitModel.FK_Trip_Info_Dispatchers1", "Dispatchers").Value = value;
             }
         }
         /// <summary>
@@ -5026,13 +5028,13 @@ namespace NationalIT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("NationalITModel.FK_Trip_Info_Dispatchers", "Dispatchers");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("nationalitModel.FK_Trip_Info_Dispatchers1", "Dispatchers");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Dispatchers>("NationalITModel.FK_Trip_Info_Dispatchers", "Dispatchers", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Dispatchers>("nationalitModel.FK_Trip_Info_Dispatchers1", "Dispatchers", value);
                 }
             }
         }
@@ -5043,54 +5045,16 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Trip_Info_Equipment", "Equipment")]
-        public Equipment Equipment
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("NationalITModel.FK_Trip_Info_Equipment", "Equipment").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("NationalITModel.FK_Trip_Info_Equipment", "Equipment").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Equipment> EquipmentReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("NationalITModel.FK_Trip_Info_Equipment", "Equipment");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Equipment>("NationalITModel.FK_Trip_Info_Equipment", "Equipment", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Trip_Info_Driver_Info", "Driver_Info")]
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Trip_Info_Driver_Info1", "Driver_Info")]
         public Driver_Info Driver_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("NationalITModel.FK_Trip_Info_Driver_Info", "Driver_Info").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Trip_Info_Driver_Info1", "Driver_Info").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("NationalITModel.FK_Trip_Info_Driver_Info", "Driver_Info").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Trip_Info_Driver_Info1", "Driver_Info").Value = value;
             }
         }
         /// <summary>
@@ -5102,13 +5066,51 @@ namespace NationalIT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("NationalITModel.FK_Trip_Info_Driver_Info", "Driver_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Trip_Info_Driver_Info1", "Driver_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Driver_Info>("NationalITModel.FK_Trip_Info_Driver_Info", "Driver_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Driver_Info>("nationalitModel.FK_Trip_Info_Driver_Info1", "Driver_Info", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Trip_Info_Equipment1", "Equipment")]
+        public Equipment Equipment
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("nationalitModel.FK_Trip_Info_Equipment1", "Equipment").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("nationalitModel.FK_Trip_Info_Equipment1", "Equipment").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Equipment> EquipmentReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("nationalitModel.FK_Trip_Info_Equipment1", "Equipment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Equipment>("nationalitModel.FK_Trip_Info_Equipment1", "Equipment", value);
                 }
             }
         }
@@ -5120,7 +5122,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="NationalITModel", Name="Violations")]
+    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Violations")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Violations : EntityObject
@@ -5300,54 +5302,16 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Violations_Equipment", "Equipment")]
-        public Equipment Equipment1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("NationalITModel.FK_Violations_Equipment", "Equipment").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("NationalITModel.FK_Violations_Equipment", "Equipment").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Equipment> Equipment1Reference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("NationalITModel.FK_Violations_Equipment", "Equipment");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Equipment>("NationalITModel.FK_Violations_Equipment", "Equipment", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NationalITModel", "FK_Violations_Driver_Info", "Driver_Info")]
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Violations_Driver_Info", "Driver_Info")]
         public Driver_Info Driver_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("NationalITModel.FK_Violations_Driver_Info", "Driver_Info").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Violations_Driver_Info", "Driver_Info").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("NationalITModel.FK_Violations_Driver_Info", "Driver_Info").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Violations_Driver_Info", "Driver_Info").Value = value;
             }
         }
         /// <summary>
@@ -5359,13 +5323,51 @@ namespace NationalIT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("NationalITModel.FK_Violations_Driver_Info", "Driver_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Violations_Driver_Info", "Driver_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Driver_Info>("NationalITModel.FK_Violations_Driver_Info", "Driver_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Driver_Info>("nationalitModel.FK_Violations_Driver_Info", "Driver_Info", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Violations_Equipment", "Equipment")]
+        public Equipment Equipment1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("nationalitModel.FK_Violations_Equipment", "Equipment").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("nationalitModel.FK_Violations_Equipment", "Equipment").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Equipment> Equipment1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("nationalitModel.FK_Violations_Equipment", "Equipment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Equipment>("nationalitModel.FK_Violations_Equipment", "Equipment", value);
                 }
             }
         }
