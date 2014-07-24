@@ -41,11 +41,11 @@ namespace NationalIT.Controllers
             {
                 if (obj != null && obj.OwnerDriver == item.ID)
                 {
-                    dataDriver_Info += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                    dataDriver_Info += string.Format("<option value='{0}' selected='selected'>{1} {2} ({3})</option>", item.ID, item.Last_name, item.First_name,item.Owners!=null?item.Owners.Name:"");
                 }
                 else
                 {
-                    dataDriver_Info += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                    dataDriver_Info += string.Format("<option value='{0}'>{1} {2} ({3})</option>", item.ID, item.Last_name, item.First_name, item.Owners != null ? item.Owners.Name : "");
                 }
             }
             ViewBag.dataDriver = dataDriver_Info;

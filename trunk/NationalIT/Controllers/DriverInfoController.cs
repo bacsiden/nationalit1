@@ -73,7 +73,7 @@ namespace NationalIT.Controllers
             string dataTruck = "<option >--Select Truck--</option>";
             foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRUCK")))
             {
-                if (obj != null && obj.Truck==item.ID.ToString())
+                if (obj != null && obj.Truck == item.Equipment_number)
                 {
                     dataTruck += string.Format("<option value='{0}' selected='selected'>{0}</option>", item.Equipment_number);
                 }
@@ -87,7 +87,7 @@ namespace NationalIT.Controllers
             string dataTrailer = "<option >--Select Trailer--</option>";
             foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRAILER")))
             {
-                if (obj != null && obj.Trailer==(item.ID.ToString()))
+                if (obj != null && obj.Trailer == item.Equipment_number)
                 {
                     dataTrailer += string.Format("<option value='{0}' selected='selected'>{0}</option>", item.Equipment_number);
                 }
@@ -160,7 +160,7 @@ namespace NationalIT.Controllers
                 string dataTruck = "<option >--Select Truck--</option>";
                 foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRUCK")))
                 {
-                    if (model != null && model.Truck == item.ID.ToString())
+                    if (model != null && model.Truck == item.Equipment_number)
                     {
                         dataTruck += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.ID, item.Equipment_number);
                     }
@@ -174,7 +174,7 @@ namespace NationalIT.Controllers
                 string dataTrailer = "<option >--Select Trailer--</option>";
                 foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRAILER")))
                 {
-                    if (model != null && model.Trailer == item.ID.ToString())
+                    if (model != null && model.Trailer == item.Equipment_number)
                     {
                         dataTrailer += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.ID, item.Equipment_number);
                     }

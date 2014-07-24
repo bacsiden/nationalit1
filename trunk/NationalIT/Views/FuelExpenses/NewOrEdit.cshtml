@@ -68,24 +68,18 @@
                         @Html.ValidationMessageFor(model => model.Description)
                     </div>
                     <div class="editor-label">
-                        @Html.LabelFor(model => model.Paid_off)
-                    </div>
-                    <div class="editor-field">
-                        @Html.CheckBoxFor(model => model.Paid_off.Value)
+                        <label>
+                            @Html.CheckBoxFor(model => model.Paid_off.Value) Paid_off</label>
                         @Html.ValidationMessageFor(model => model.Paid_off)
                     </div>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Current_Payroll)
-                    </div>
                     <div class="editor-field">
-                        @Html.CheckBoxFor(model => model.Current_Payroll.Value)
+                        <label>
+                            @Html.CheckBoxFor(model => model.Current_Payroll.Value) Current_Payroll</label>
                         @Html.ValidationMessageFor(model => model.Current_Payroll)
                     </div>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.fee_charged)
-                    </div>
                     <div class="editor-field">
-                        @Html.EditorFor(model => model.fee_charged)
+                        <label>
+                            @Html.CheckBoxFor(model => model.fee_charged.Value) fee_charged</label>
                         @Html.ValidationMessageFor(model => model.fee_charged)
                     </div>
                     <div class="editor-label">
