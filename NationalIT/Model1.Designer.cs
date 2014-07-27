@@ -19,17 +19,17 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Trip_Info_Customer_Info1", "Customer_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Customer_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
-[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Driver_Info_Dispatchers", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Dispatchers), "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Driver_Info), true)]
-[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Trip_Info_Dispatchers1", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Dispatchers), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
-[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Driver_Info_Owners", "Owners", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Owners), "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Driver_Info), true)]
-[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Operating_Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Operating_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Operating_Expenses), true)]
-[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Trip_Info_Driver_Info1", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
-[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Violations_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
-[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Maintenance_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Maintenance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Maintenance), true)]
-[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Trip_Info_Equipment1", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
-[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Violations_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
-[assembly: EdmRelationshipAttribute("nationalitModel", "FK_Fuel___Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Fuel___Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Fuel___Expenses), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Customer_Info1", "Customer_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Customer_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Driver_Info_Dispatchers", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Dispatchers), "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Driver_Info), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Dispatchers1", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Dispatchers), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Driver_Info_Owners", "Owners", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Owners), "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Driver_Info), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Fuel___Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Fuel___Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Fuel___Expenses), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Operating_Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Operating_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Operating_Expenses), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Driver_Info1", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Maintenance_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Maintenance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Maintenance), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Equipment1", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
 
 #endregion
 
@@ -40,32 +40,32 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class nationalitEntities : ObjectContext
+    public partial class DB_9B22F2_nationalitEntities : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new nationalitEntities object using the connection string found in the 'nationalitEntities' section of the application configuration file.
+        /// Initializes a new DB_9B22F2_nationalitEntities object using the connection string found in the 'DB_9B22F2_nationalitEntities' section of the application configuration file.
         /// </summary>
-        public nationalitEntities() : base("name=nationalitEntities", "nationalitEntities")
+        public DB_9B22F2_nationalitEntities() : base("name=DB_9B22F2_nationalitEntities", "DB_9B22F2_nationalitEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new nationalitEntities object.
+        /// Initialize a new DB_9B22F2_nationalitEntities object.
         /// </summary>
-        public nationalitEntities(string connectionString) : base(connectionString, "nationalitEntities")
+        public DB_9B22F2_nationalitEntities(string connectionString) : base(connectionString, "DB_9B22F2_nationalitEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new nationalitEntities object.
+        /// Initialize a new DB_9B22F2_nationalitEntities object.
         /// </summary>
-        public nationalitEntities(EntityConnection connection) : base(connection, "nationalitEntities")
+        public DB_9B22F2_nationalitEntities(EntityConnection connection) : base(connection, "DB_9B22F2_nationalitEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -164,6 +164,38 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<fixed_charges> fixed_charges
+        {
+            get
+            {
+                if ((_fixed_charges == null))
+                {
+                    _fixed_charges = base.CreateObjectSet<fixed_charges>("fixed_charges");
+                }
+                return _fixed_charges;
+            }
+        }
+        private ObjectSet<fixed_charges> _fixed_charges;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Fuel___Expenses> Fuel___Expenses
+        {
+            get
+            {
+                if ((_Fuel___Expenses == null))
+                {
+                    _Fuel___Expenses = base.CreateObjectSet<Fuel___Expenses>("Fuel___Expenses");
+                }
+                return _Fuel___Expenses;
+            }
+        }
+        private ObjectSet<Fuel___Expenses> _Fuel___Expenses;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<Income> Income
         {
             get
@@ -244,6 +276,22 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<Printed_Temp_Trip_Info> Printed_Temp_Trip_Info
+        {
+            get
+            {
+                if ((_Printed_Temp_Trip_Info == null))
+                {
+                    _Printed_Temp_Trip_Info = base.CreateObjectSet<Printed_Temp_Trip_Info>("Printed_Temp_Trip_Info");
+                }
+                return _Printed_Temp_Trip_Info;
+            }
+        }
+        private ObjectSet<Printed_Temp_Trip_Info> _Printed_Temp_Trip_Info;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<ReportIDs> ReportIDs
         {
             get
@@ -304,22 +352,6 @@ namespace NationalIT
             }
         }
         private ObjectSet<Violations> _Violations;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Fuel___Expenses> Fuel___Expenses
-        {
-            get
-            {
-                if ((_Fuel___Expenses == null))
-                {
-                    _Fuel___Expenses = base.CreateObjectSet<Fuel___Expenses>("Fuel___Expenses");
-                }
-                return _Fuel___Expenses;
-            }
-        }
-        private ObjectSet<Fuel___Expenses> _Fuel___Expenses;
 
         #endregion
 
@@ -366,6 +398,22 @@ namespace NationalIT
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the fixed_charges EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTofixed_charges(fixed_charges fixed_charges)
+        {
+            base.AddObject("fixed_charges", fixed_charges);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Fuel___Expenses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToFuel___Expenses(Fuel___Expenses fuel___Expenses)
+        {
+            base.AddObject("Fuel___Expenses", fuel___Expenses);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the Income EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToIncome(Income income)
@@ -406,6 +454,14 @@ namespace NationalIT
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the Printed_Temp_Trip_Info EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPrinted_Temp_Trip_Info(Printed_Temp_Trip_Info printed_Temp_Trip_Info)
+        {
+            base.AddObject("Printed_Temp_Trip_Info", printed_Temp_Trip_Info);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the ReportIDs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToReportIDs(ReportIDs reportIDs)
@@ -436,14 +492,6 @@ namespace NationalIT
         {
             base.AddObject("Violations", violations);
         }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Fuel___Expenses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToFuel___Expenses(Fuel___Expenses fuel___Expenses)
-        {
-            base.AddObject("Fuel___Expenses", fuel___Expenses);
-        }
 
         #endregion
 
@@ -456,7 +504,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Company_Expanses")]
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Company_Expanses")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Company_Expanses : EntityObject
@@ -609,7 +657,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Customer_Info")]
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Customer_Info")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Customer_Info : EntityObject
@@ -913,18 +961,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Trip_Info_Customer_Info1", "Trip_Info")]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Customer_Info1", "Trip_Info")]
         public EntityCollection<Trip_Info> Trip_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip_Info>("nationalitModel.FK_Trip_Info_Customer_Info1", "Trip_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Customer_Info1", "Trip_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("nationalitModel.FK_Trip_Info_Customer_Info1", "Trip_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Customer_Info1", "Trip_Info", value);
                 }
             }
         }
@@ -936,7 +984,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Dispatchers")]
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Dispatchers")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Dispatchers : EntityObject
@@ -1142,18 +1190,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Driver_Info_Dispatchers", "Driver_Info")]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Driver_Info_Dispatchers", "Driver_Info")]
         public EntityCollection<Driver_Info> Driver_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Driver_Info>("nationalitModel.FK_Driver_Info_Dispatchers", "Driver_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Driver_Info>("DB_9B22F2_nationalitModel.FK_Driver_Info_Dispatchers", "Driver_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Driver_Info>("nationalitModel.FK_Driver_Info_Dispatchers", "Driver_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Driver_Info>("DB_9B22F2_nationalitModel.FK_Driver_Info_Dispatchers", "Driver_Info", value);
                 }
             }
         }
@@ -1164,18 +1212,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Trip_Info_Dispatchers1", "Trip_Info")]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Dispatchers1", "Trip_Info")]
         public EntityCollection<Trip_Info> Trip_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip_Info>("nationalitModel.FK_Trip_Info_Dispatchers1", "Trip_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Dispatchers1", "Trip_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("nationalitModel.FK_Trip_Info_Dispatchers1", "Trip_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Dispatchers1", "Trip_Info", value);
                 }
             }
         }
@@ -1187,7 +1235,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Driver_Info")]
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Driver_Info")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Driver_Info : EntityObject
@@ -1823,16 +1871,16 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Driver_Info_Dispatchers", "Dispatchers")]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Driver_Info_Dispatchers", "Dispatchers")]
         public Dispatchers Dispatchers
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("nationalitModel.FK_Driver_Info_Dispatchers", "Dispatchers").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("DB_9B22F2_nationalitModel.FK_Driver_Info_Dispatchers", "Dispatchers").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("nationalitModel.FK_Driver_Info_Dispatchers", "Dispatchers").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("DB_9B22F2_nationalitModel.FK_Driver_Info_Dispatchers", "Dispatchers").Value = value;
             }
         }
         /// <summary>
@@ -1844,13 +1892,13 @@ namespace NationalIT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("nationalitModel.FK_Driver_Info_Dispatchers", "Dispatchers");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("DB_9B22F2_nationalitModel.FK_Driver_Info_Dispatchers", "Dispatchers");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Dispatchers>("nationalitModel.FK_Driver_Info_Dispatchers", "Dispatchers", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Dispatchers>("DB_9B22F2_nationalitModel.FK_Driver_Info_Dispatchers", "Dispatchers", value);
                 }
             }
         }
@@ -1861,16 +1909,16 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Driver_Info_Owners", "Owners")]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Driver_Info_Owners", "Owners")]
         public Owners Owners
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Owners>("nationalitModel.FK_Driver_Info_Owners", "Owners").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Owners>("DB_9B22F2_nationalitModel.FK_Driver_Info_Owners", "Owners").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Owners>("nationalitModel.FK_Driver_Info_Owners", "Owners").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Owners>("DB_9B22F2_nationalitModel.FK_Driver_Info_Owners", "Owners").Value = value;
             }
         }
         /// <summary>
@@ -1882,13 +1930,13 @@ namespace NationalIT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Owners>("nationalitModel.FK_Driver_Info_Owners", "Owners");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Owners>("DB_9B22F2_nationalitModel.FK_Driver_Info_Owners", "Owners");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Owners>("nationalitModel.FK_Driver_Info_Owners", "Owners", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Owners>("DB_9B22F2_nationalitModel.FK_Driver_Info_Owners", "Owners", value);
                 }
             }
         }
@@ -1899,84 +1947,84 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Operating_Expenses_Driver_Info", "Operating_Expenses")]
-        public EntityCollection<Operating_Expenses> Operating_Expenses
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Operating_Expenses>("nationalitModel.FK_Operating_Expenses_Driver_Info", "Operating_Expenses");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Operating_Expenses>("nationalitModel.FK_Operating_Expenses_Driver_Info", "Operating_Expenses", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Trip_Info_Driver_Info1", "Trip_Info")]
-        public EntityCollection<Trip_Info> Trip_Info
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip_Info>("nationalitModel.FK_Trip_Info_Driver_Info1", "Trip_Info");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("nationalitModel.FK_Trip_Info_Driver_Info1", "Trip_Info", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Violations_Driver_Info", "Violations")]
-        public EntityCollection<Violations> Violations
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Violations>("nationalitModel.FK_Violations_Driver_Info", "Violations");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Violations>("nationalitModel.FK_Violations_Driver_Info", "Violations", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Fuel___Expenses_Driver_Info", "Fuel___Expenses")]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Fuel___Expenses_Driver_Info", "Fuel___Expenses")]
         public EntityCollection<Fuel___Expenses> Fuel___Expenses
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Fuel___Expenses>("nationalitModel.FK_Fuel___Expenses_Driver_Info", "Fuel___Expenses");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Fuel___Expenses>("DB_9B22F2_nationalitModel.FK_Fuel___Expenses_Driver_Info", "Fuel___Expenses");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Fuel___Expenses>("nationalitModel.FK_Fuel___Expenses_Driver_Info", "Fuel___Expenses", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Fuel___Expenses>("DB_9B22F2_nationalitModel.FK_Fuel___Expenses_Driver_Info", "Fuel___Expenses", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Operating_Expenses_Driver_Info", "Operating_Expenses")]
+        public EntityCollection<Operating_Expenses> Operating_Expenses
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Operating_Expenses>("DB_9B22F2_nationalitModel.FK_Operating_Expenses_Driver_Info", "Operating_Expenses");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Operating_Expenses>("DB_9B22F2_nationalitModel.FK_Operating_Expenses_Driver_Info", "Operating_Expenses", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Driver_Info1", "Trip_Info")]
+        public EntityCollection<Trip_Info> Trip_Info
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1", "Trip_Info");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1", "Trip_Info", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Driver_Info", "Violations")]
+        public EntityCollection<Violations> Violations
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Violations>("DB_9B22F2_nationalitModel.FK_Violations_Driver_Info", "Violations");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Violations>("DB_9B22F2_nationalitModel.FK_Violations_Driver_Info", "Violations", value);
                 }
             }
         }
@@ -1988,7 +2036,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Equipment")]
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Equipment")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Equipment : EntityObject
@@ -2336,18 +2384,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Maintenance_Equipment", "Maintenance")]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Maintenance_Equipment", "Maintenance")]
         public EntityCollection<Maintenance> Maintenance
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Maintenance>("nationalitModel.FK_Maintenance_Equipment", "Maintenance");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Maintenance>("DB_9B22F2_nationalitModel.FK_Maintenance_Equipment", "Maintenance");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Maintenance>("nationalitModel.FK_Maintenance_Equipment", "Maintenance", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Maintenance>("DB_9B22F2_nationalitModel.FK_Maintenance_Equipment", "Maintenance", value);
                 }
             }
         }
@@ -2358,18 +2406,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Trip_Info_Equipment1", "Trip_Info")]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Equipment1", "Trip_Info")]
         public EntityCollection<Trip_Info> Trip_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip_Info>("nationalitModel.FK_Trip_Info_Equipment1", "Trip_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Equipment1", "Trip_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("nationalitModel.FK_Trip_Info_Equipment1", "Trip_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Equipment1", "Trip_Info", value);
                 }
             }
         }
@@ -2380,18 +2428,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Violations_Equipment", "Violations")]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Equipment", "Violations")]
         public EntityCollection<Violations> Violations
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Violations>("nationalitModel.FK_Violations_Equipment", "Violations");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Violations>("DB_9B22F2_nationalitModel.FK_Violations_Equipment", "Violations");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Violations>("nationalitModel.FK_Violations_Equipment", "Violations", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Violations>("DB_9B22F2_nationalitModel.FK_Violations_Equipment", "Violations", value);
                 }
             }
         }
@@ -2403,7 +2451,285 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Fuel___Expenses")]
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="fixed_charges")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class fixed_charges : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new fixed_charges object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="fee_Charged">Initial value of the Fee_Charged property.</param>
+        public static fixed_charges Createfixed_charges(global::System.Int32 id, global::System.Boolean fee_Charged)
+        {
+            fixed_charges fixed_charges = new fixed_charges();
+            fixed_charges.Id = id;
+            fixed_charges.Fee_Charged = fee_Charged;
+            return fixed_charges;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> DriverId
+        {
+            get
+            {
+                return _DriverId;
+            }
+            set
+            {
+                OnDriverIdChanging(value);
+                ReportPropertyChanging("DriverId");
+                _DriverId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DriverId");
+                OnDriverIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _DriverId;
+        partial void OnDriverIdChanging(Nullable<global::System.Int32> value);
+        partial void OnDriverIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Single> Amount
+        {
+            get
+            {
+                return _Amount;
+            }
+            set
+            {
+                OnAmountChanging(value);
+                ReportPropertyChanging("Amount");
+                _Amount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Amount");
+                OnAmountChanged();
+            }
+        }
+        private Nullable<global::System.Single> _Amount;
+        partial void OnAmountChanging(Nullable<global::System.Single> value);
+        partial void OnAmountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Type
+        {
+            get
+            {
+                return _Type;
+            }
+            set
+            {
+                OnTypeChanging(value);
+                ReportPropertyChanging("Type");
+                _Type = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Type");
+                OnTypeChanged();
+            }
+        }
+        private global::System.String _Type;
+        partial void OnTypeChanging(global::System.String value);
+        partial void OnTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Frequency
+        {
+            get
+            {
+                return _Frequency;
+            }
+            set
+            {
+                OnFrequencyChanging(value);
+                ReportPropertyChanging("Frequency");
+                _Frequency = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Frequency");
+                OnFrequencyChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Frequency;
+        partial void OnFrequencyChanging(Nullable<global::System.Int32> value);
+        partial void OnFrequencyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Beginning
+        {
+            get
+            {
+                return _Beginning;
+            }
+            set
+            {
+                OnBeginningChanging(value);
+                ReportPropertyChanging("Beginning");
+                _Beginning = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Beginning");
+                OnBeginningChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Beginning;
+        partial void OnBeginningChanging(Nullable<global::System.DateTime> value);
+        partial void OnBeginningChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Fee_Charged
+        {
+            get
+            {
+                return _Fee_Charged;
+            }
+            set
+            {
+                if (_Fee_Charged != value)
+                {
+                    OnFee_ChargedChanging(value);
+                    ReportPropertyChanging("Fee_Charged");
+                    _Fee_Charged = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Fee_Charged");
+                    OnFee_ChargedChanged();
+                }
+            }
+        }
+        private global::System.Boolean _Fee_Charged;
+        partial void OnFee_ChargedChanging(global::System.Boolean value);
+        partial void OnFee_ChargedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Next_Date
+        {
+            get
+            {
+                return _Next_Date;
+            }
+            set
+            {
+                OnNext_DateChanging(value);
+                ReportPropertyChanging("Next_Date");
+                _Next_Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Next_Date");
+                OnNext_DateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Next_Date;
+        partial void OnNext_DateChanging(Nullable<global::System.DateTime> value);
+        partial void OnNext_DateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Prv_Date
+        {
+            get
+            {
+                return _Prv_Date;
+            }
+            set
+            {
+                OnPrv_DateChanging(value);
+                ReportPropertyChanging("Prv_Date");
+                _Prv_Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Prv_Date");
+                OnPrv_DateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Prv_Date;
+        partial void OnPrv_DateChanging(Nullable<global::System.DateTime> value);
+        partial void OnPrv_DateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Single> Amount_To_Date
+        {
+            get
+            {
+                return _Amount_To_Date;
+            }
+            set
+            {
+                OnAmount_To_DateChanging(value);
+                ReportPropertyChanging("Amount_To_Date");
+                _Amount_To_Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Amount_To_Date");
+                OnAmount_To_DateChanged();
+            }
+        }
+        private Nullable<global::System.Single> _Amount_To_Date;
+        partial void OnAmount_To_DateChanging(Nullable<global::System.Single> value);
+        partial void OnAmount_To_DateChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Fuel___Expenses")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Fuel___Expenses : EntityObject
@@ -2414,10 +2740,16 @@ namespace NationalIT
         /// Create a new Fuel___Expenses object.
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
-        public static Fuel___Expenses CreateFuel___Expenses(global::System.Int32 id)
+        /// <param name="paid_off">Initial value of the Paid_off property.</param>
+        /// <param name="current_Payroll">Initial value of the Current_Payroll property.</param>
+        /// <param name="fee_charged">Initial value of the fee_charged property.</param>
+        public static Fuel___Expenses CreateFuel___Expenses(global::System.Int32 id, global::System.Boolean paid_off, global::System.Boolean current_Payroll, global::System.Boolean fee_charged)
         {
             Fuel___Expenses fuel___Expenses = new Fuel___Expenses();
             fuel___Expenses.ID = id;
+            fuel___Expenses.Paid_off = paid_off;
+            fuel___Expenses.Current_Payroll = current_Payroll;
+            fuel___Expenses.fee_charged = fee_charged;
             return fuel___Expenses;
         }
 
@@ -2623,9 +2955,9 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> Paid_off
+        public global::System.Boolean Paid_off
         {
             get
             {
@@ -2640,16 +2972,16 @@ namespace NationalIT
                 OnPaid_offChanged();
             }
         }
-        private Nullable<global::System.Boolean> _Paid_off;
-        partial void OnPaid_offChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _Paid_off;
+        partial void OnPaid_offChanging(global::System.Boolean value);
         partial void OnPaid_offChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> Current_Payroll
+        public global::System.Boolean Current_Payroll
         {
             get
             {
@@ -2664,16 +2996,16 @@ namespace NationalIT
                 OnCurrent_PayrollChanged();
             }
         }
-        private Nullable<global::System.Boolean> _Current_Payroll;
-        partial void OnCurrent_PayrollChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _Current_Payroll;
+        partial void OnCurrent_PayrollChanging(global::System.Boolean value);
         partial void OnCurrent_PayrollChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> fee_charged
+        public global::System.Boolean fee_charged
         {
             get
             {
@@ -2688,8 +3020,8 @@ namespace NationalIT
                 Onfee_chargedChanged();
             }
         }
-        private Nullable<global::System.Boolean> _fee_charged;
-        partial void Onfee_chargedChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _fee_charged;
+        partial void Onfee_chargedChanging(global::System.Boolean value);
         partial void Onfee_chargedChanged();
     
         /// <summary>
@@ -2727,16 +3059,16 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Fuel___Expenses_Driver_Info", "Driver_Info")]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Fuel___Expenses_Driver_Info", "Driver_Info")]
         public Driver_Info Driver_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Fuel___Expenses_Driver_Info", "Driver_Info").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("DB_9B22F2_nationalitModel.FK_Fuel___Expenses_Driver_Info", "Driver_Info").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Fuel___Expenses_Driver_Info", "Driver_Info").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("DB_9B22F2_nationalitModel.FK_Fuel___Expenses_Driver_Info", "Driver_Info").Value = value;
             }
         }
         /// <summary>
@@ -2748,13 +3080,13 @@ namespace NationalIT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Fuel___Expenses_Driver_Info", "Driver_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("DB_9B22F2_nationalitModel.FK_Fuel___Expenses_Driver_Info", "Driver_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Driver_Info>("nationalitModel.FK_Fuel___Expenses_Driver_Info", "Driver_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Driver_Info>("DB_9B22F2_nationalitModel.FK_Fuel___Expenses_Driver_Info", "Driver_Info", value);
                 }
             }
         }
@@ -2766,7 +3098,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Income")]
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Income")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Income : EntityObject
@@ -2991,7 +3323,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="InvoiceA")]
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="InvoiceA")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class InvoiceA : EntityObject
@@ -3072,7 +3404,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Maintenance")]
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Maintenance")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Maintenance : EntityObject
@@ -3324,16 +3656,16 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Maintenance_Equipment", "Equipment")]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Maintenance_Equipment", "Equipment")]
         public Equipment Equipment
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("nationalitModel.FK_Maintenance_Equipment", "Equipment").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("DB_9B22F2_nationalitModel.FK_Maintenance_Equipment", "Equipment").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("nationalitModel.FK_Maintenance_Equipment", "Equipment").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("DB_9B22F2_nationalitModel.FK_Maintenance_Equipment", "Equipment").Value = value;
             }
         }
         /// <summary>
@@ -3345,13 +3677,13 @@ namespace NationalIT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("nationalitModel.FK_Maintenance_Equipment", "Equipment");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("DB_9B22F2_nationalitModel.FK_Maintenance_Equipment", "Equipment");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Equipment>("nationalitModel.FK_Maintenance_Equipment", "Equipment", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Equipment>("DB_9B22F2_nationalitModel.FK_Maintenance_Equipment", "Equipment", value);
                 }
             }
         }
@@ -3363,7 +3695,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Operating_Expenses")]
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Operating_Expenses")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Operating_Expenses : EntityObject
@@ -3374,10 +3706,14 @@ namespace NationalIT
         /// Create a new Operating_Expenses object.
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
-        public static Operating_Expenses CreateOperating_Expenses(global::System.Int32 id)
+        /// <param name="paid_off">Initial value of the Paid_off property.</param>
+        /// <param name="current_Payroll">Initial value of the Current_Payroll property.</param>
+        public static Operating_Expenses CreateOperating_Expenses(global::System.Int32 id, global::System.Boolean paid_off, global::System.Boolean current_Payroll)
         {
             Operating_Expenses operating_Expenses = new Operating_Expenses();
             operating_Expenses.ID = id;
+            operating_Expenses.Paid_off = paid_off;
+            operating_Expenses.Current_Payroll = current_Payroll;
             return operating_Expenses;
         }
 
@@ -3559,9 +3895,9 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> Paid_off
+        public global::System.Boolean Paid_off
         {
             get
             {
@@ -3576,16 +3912,16 @@ namespace NationalIT
                 OnPaid_offChanged();
             }
         }
-        private Nullable<global::System.Boolean> _Paid_off;
-        partial void OnPaid_offChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _Paid_off;
+        partial void OnPaid_offChanging(global::System.Boolean value);
         partial void OnPaid_offChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> Current_Payroll
+        public global::System.Boolean Current_Payroll
         {
             get
             {
@@ -3600,8 +3936,8 @@ namespace NationalIT
                 OnCurrent_PayrollChanged();
             }
         }
-        private Nullable<global::System.Boolean> _Current_Payroll;
-        partial void OnCurrent_PayrollChanging(Nullable<global::System.Boolean> value);
+        private global::System.Boolean _Current_Payroll;
+        partial void OnCurrent_PayrollChanging(global::System.Boolean value);
         partial void OnCurrent_PayrollChanged();
 
         #endregion
@@ -3615,16 +3951,16 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Operating_Expenses_Driver_Info", "Driver_Info")]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Operating_Expenses_Driver_Info", "Driver_Info")]
         public Driver_Info Driver_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Operating_Expenses_Driver_Info", "Driver_Info").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("DB_9B22F2_nationalitModel.FK_Operating_Expenses_Driver_Info", "Driver_Info").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Operating_Expenses_Driver_Info", "Driver_Info").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("DB_9B22F2_nationalitModel.FK_Operating_Expenses_Driver_Info", "Driver_Info").Value = value;
             }
         }
         /// <summary>
@@ -3636,13 +3972,13 @@ namespace NationalIT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Operating_Expenses_Driver_Info", "Driver_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("DB_9B22F2_nationalitModel.FK_Operating_Expenses_Driver_Info", "Driver_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Driver_Info>("nationalitModel.FK_Operating_Expenses_Driver_Info", "Driver_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Driver_Info>("DB_9B22F2_nationalitModel.FK_Operating_Expenses_Driver_Info", "Driver_Info", value);
                 }
             }
         }
@@ -3654,7 +3990,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Owners")]
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Owners")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Owners : EntityObject
@@ -3812,18 +4148,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Driver_Info_Owners", "Driver_Info")]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Driver_Info_Owners", "Driver_Info")]
         public EntityCollection<Driver_Info> Driver_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Driver_Info>("nationalitModel.FK_Driver_Info_Owners", "Driver_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Driver_Info>("DB_9B22F2_nationalitModel.FK_Driver_Info_Owners", "Driver_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Driver_Info>("nationalitModel.FK_Driver_Info_Owners", "Driver_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Driver_Info>("DB_9B22F2_nationalitModel.FK_Driver_Info_Owners", "Driver_Info", value);
                 }
             }
         }
@@ -3835,7 +4171,713 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="ReportIDs")]
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Printed_Temp_Trip_Info")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Printed_Temp_Trip_Info : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Printed_Temp_Trip_Info object.
+        /// </summary>
+        /// <param name="selection">Initial value of the Selection property.</param>
+        /// <param name="paid">Initial value of the Paid property.</param>
+        /// <param name="deliverd">Initial value of the Deliverd property.</param>
+        /// <param name="customer_Invoiced">Initial value of the Customer_Invoiced property.</param>
+        /// <param name="current_Payroll">Initial value of the Current_Payroll property.</param>
+        /// <param name="driver_paid">Initial value of the Driver_paid property.</param>
+        public static Printed_Temp_Trip_Info CreatePrinted_Temp_Trip_Info(global::System.Boolean selection, global::System.Boolean paid, global::System.Boolean deliverd, global::System.Boolean customer_Invoiced, global::System.Boolean current_Payroll, global::System.Boolean driver_paid)
+        {
+            Printed_Temp_Trip_Info printed_Temp_Trip_Info = new Printed_Temp_Trip_Info();
+            printed_Temp_Trip_Info.Selection = selection;
+            printed_Temp_Trip_Info.Paid = paid;
+            printed_Temp_Trip_Info.Deliverd = deliverd;
+            printed_Temp_Trip_Info.Customer_Invoiced = customer_Invoiced;
+            printed_Temp_Trip_Info.Current_Payroll = current_Payroll;
+            printed_Temp_Trip_Info.Driver_paid = driver_paid;
+            return printed_Temp_Trip_Info;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Selection
+        {
+            get
+            {
+                return _Selection;
+            }
+            set
+            {
+                if (_Selection != value)
+                {
+                    OnSelectionChanging(value);
+                    ReportPropertyChanging("Selection");
+                    _Selection = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Selection");
+                    OnSelectionChanged();
+                }
+            }
+        }
+        private global::System.Boolean _Selection;
+        partial void OnSelectionChanging(global::System.Boolean value);
+        partial void OnSelectionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Trip_ID
+        {
+            get
+            {
+                return _Trip_ID;
+            }
+            set
+            {
+                OnTrip_IDChanging(value);
+                ReportPropertyChanging("Trip_ID");
+                _Trip_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Trip_ID");
+                OnTrip_IDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Trip_ID;
+        partial void OnTrip_IDChanging(Nullable<global::System.Int32> value);
+        partial void OnTrip_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Order_Date
+        {
+            get
+            {
+                return _Order_Date;
+            }
+            set
+            {
+                OnOrder_DateChanging(value);
+                ReportPropertyChanging("Order_Date");
+                _Order_Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Order_Date");
+                OnOrder_DateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Order_Date;
+        partial void OnOrder_DateChanging(Nullable<global::System.DateTime> value);
+        partial void OnOrder_DateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Pickup_Date
+        {
+            get
+            {
+                return _Pickup_Date;
+            }
+            set
+            {
+                OnPickup_DateChanging(value);
+                ReportPropertyChanging("Pickup_Date");
+                _Pickup_Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Pickup_Date");
+                OnPickup_DateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Pickup_Date;
+        partial void OnPickup_DateChanging(Nullable<global::System.DateTime> value);
+        partial void OnPickup_DateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Delivery_Date
+        {
+            get
+            {
+                return _Delivery_Date;
+            }
+            set
+            {
+                OnDelivery_DateChanging(value);
+                ReportPropertyChanging("Delivery_Date");
+                _Delivery_Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Delivery_Date");
+                OnDelivery_DateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Delivery_Date;
+        partial void OnDelivery_DateChanging(Nullable<global::System.DateTime> value);
+        partial void OnDelivery_DateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Pickup_Location
+        {
+            get
+            {
+                return _Pickup_Location;
+            }
+            set
+            {
+                OnPickup_LocationChanging(value);
+                ReportPropertyChanging("Pickup_Location");
+                _Pickup_Location = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Pickup_Location");
+                OnPickup_LocationChanged();
+            }
+        }
+        private global::System.String _Pickup_Location;
+        partial void OnPickup_LocationChanging(global::System.String value);
+        partial void OnPickup_LocationChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Delivery_Location
+        {
+            get
+            {
+                return _Delivery_Location;
+            }
+            set
+            {
+                OnDelivery_LocationChanging(value);
+                ReportPropertyChanging("Delivery_Location");
+                _Delivery_Location = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Delivery_Location");
+                OnDelivery_LocationChanged();
+            }
+        }
+        private global::System.String _Delivery_Location;
+        partial void OnDelivery_LocationChanging(global::System.String value);
+        partial void OnDelivery_LocationChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Extra_stops
+        {
+            get
+            {
+                return _Extra_stops;
+            }
+            set
+            {
+                OnExtra_stopsChanging(value);
+                ReportPropertyChanging("Extra_stops");
+                _Extra_stops = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Extra_stops");
+                OnExtra_stopsChanged();
+            }
+        }
+        private global::System.String _Extra_stops;
+        partial void OnExtra_stopsChanging(global::System.String value);
+        partial void OnExtra_stopsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Loaded_miles
+        {
+            get
+            {
+                return _Loaded_miles;
+            }
+            set
+            {
+                OnLoaded_milesChanging(value);
+                ReportPropertyChanging("Loaded_miles");
+                _Loaded_miles = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Loaded_miles");
+                OnLoaded_milesChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Loaded_miles;
+        partial void OnLoaded_milesChanging(Nullable<global::System.Int32> value);
+        partial void OnLoaded_milesChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Dead_head_miles
+        {
+            get
+            {
+                return _Dead_head_miles;
+            }
+            set
+            {
+                OnDead_head_milesChanging(value);
+                ReportPropertyChanging("Dead_head_miles");
+                _Dead_head_miles = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Dead_head_miles");
+                OnDead_head_milesChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Dead_head_miles;
+        partial void OnDead_head_milesChanging(Nullable<global::System.Int32> value);
+        partial void OnDead_head_milesChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Single> Comfirmed_Rate
+        {
+            get
+            {
+                return _Comfirmed_Rate;
+            }
+            set
+            {
+                OnComfirmed_RateChanging(value);
+                ReportPropertyChanging("Comfirmed_Rate");
+                _Comfirmed_Rate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Comfirmed_Rate");
+                OnComfirmed_RateChanged();
+            }
+        }
+        private Nullable<global::System.Single> _Comfirmed_Rate;
+        partial void OnComfirmed_RateChanging(Nullable<global::System.Single> value);
+        partial void OnComfirmed_RateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Customer
+        {
+            get
+            {
+                return _Customer;
+            }
+            set
+            {
+                OnCustomerChanging(value);
+                ReportPropertyChanging("Customer");
+                _Customer = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer");
+                OnCustomerChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Customer;
+        partial void OnCustomerChanging(Nullable<global::System.Int32> value);
+        partial void OnCustomerChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Dispatcher
+        {
+            get
+            {
+                return _Dispatcher;
+            }
+            set
+            {
+                OnDispatcherChanging(value);
+                ReportPropertyChanging("Dispatcher");
+                _Dispatcher = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Dispatcher");
+                OnDispatcherChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Dispatcher;
+        partial void OnDispatcherChanging(Nullable<global::System.Int32> value);
+        partial void OnDispatcherChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Driver
+        {
+            get
+            {
+                return _Driver;
+            }
+            set
+            {
+                OnDriverChanging(value);
+                ReportPropertyChanging("Driver");
+                _Driver = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Driver");
+                OnDriverChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Driver;
+        partial void OnDriverChanging(Nullable<global::System.Int32> value);
+        partial void OnDriverChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Paid
+        {
+            get
+            {
+                return _Paid;
+            }
+            set
+            {
+                if (_Paid != value)
+                {
+                    OnPaidChanging(value);
+                    ReportPropertyChanging("Paid");
+                    _Paid = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Paid");
+                    OnPaidChanged();
+                }
+            }
+        }
+        private global::System.Boolean _Paid;
+        partial void OnPaidChanging(global::System.Boolean value);
+        partial void OnPaidChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Single> Extra_Charges
+        {
+            get
+            {
+                return _Extra_Charges;
+            }
+            set
+            {
+                OnExtra_ChargesChanging(value);
+                ReportPropertyChanging("Extra_Charges");
+                _Extra_Charges = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Extra_Charges");
+                OnExtra_ChargesChanged();
+            }
+        }
+        private Nullable<global::System.Single> _Extra_Charges;
+        partial void OnExtra_ChargesChanging(Nullable<global::System.Single> value);
+        partial void OnExtra_ChargesChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Single> Detention_pay
+        {
+            get
+            {
+                return _Detention_pay;
+            }
+            set
+            {
+                OnDetention_payChanging(value);
+                ReportPropertyChanging("Detention_pay");
+                _Detention_pay = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Detention_pay");
+                OnDetention_payChanged();
+            }
+        }
+        private Nullable<global::System.Single> _Detention_pay;
+        partial void OnDetention_payChanging(Nullable<global::System.Single> value);
+        partial void OnDetention_payChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Single> Total_charges
+        {
+            get
+            {
+                return _Total_charges;
+            }
+            set
+            {
+                OnTotal_chargesChanging(value);
+                ReportPropertyChanging("Total_charges");
+                _Total_charges = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Total_charges");
+                OnTotal_chargesChanged();
+            }
+        }
+        private Nullable<global::System.Single> _Total_charges;
+        partial void OnTotal_chargesChanging(Nullable<global::System.Single> value);
+        partial void OnTotal_chargesChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Single> Detention
+        {
+            get
+            {
+                return _Detention;
+            }
+            set
+            {
+                OnDetentionChanging(value);
+                ReportPropertyChanging("Detention");
+                _Detention = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Detention");
+                OnDetentionChanged();
+            }
+        }
+        private Nullable<global::System.Single> _Detention;
+        partial void OnDetentionChanging(Nullable<global::System.Single> value);
+        partial void OnDetentionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] Picked
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_Picked);
+            }
+            set
+            {
+                OnPickedChanging(value);
+                ReportPropertyChanging("Picked");
+                _Picked = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Picked");
+                OnPickedChanged();
+            }
+        }
+        private global::System.Byte[] _Picked;
+        partial void OnPickedChanging(global::System.Byte[] value);
+        partial void OnPickedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Deliverd
+        {
+            get
+            {
+                return _Deliverd;
+            }
+            set
+            {
+                if (_Deliverd != value)
+                {
+                    OnDeliverdChanging(value);
+                    ReportPropertyChanging("Deliverd");
+                    _Deliverd = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Deliverd");
+                    OnDeliverdChanged();
+                }
+            }
+        }
+        private global::System.Boolean _Deliverd;
+        partial void OnDeliverdChanging(global::System.Boolean value);
+        partial void OnDeliverdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Invoice
+        {
+            get
+            {
+                return _Invoice;
+            }
+            set
+            {
+                OnInvoiceChanging(value);
+                ReportPropertyChanging("Invoice");
+                _Invoice = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Invoice");
+                OnInvoiceChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Invoice;
+        partial void OnInvoiceChanging(Nullable<global::System.Int32> value);
+        partial void OnInvoiceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Customer_Invoiced
+        {
+            get
+            {
+                return _Customer_Invoiced;
+            }
+            set
+            {
+                if (_Customer_Invoiced != value)
+                {
+                    OnCustomer_InvoicedChanging(value);
+                    ReportPropertyChanging("Customer_Invoiced");
+                    _Customer_Invoiced = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Customer_Invoiced");
+                    OnCustomer_InvoicedChanged();
+                }
+            }
+        }
+        private global::System.Boolean _Customer_Invoiced;
+        partial void OnCustomer_InvoicedChanging(global::System.Boolean value);
+        partial void OnCustomer_InvoicedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Address
+        {
+            get
+            {
+                return _Address;
+            }
+            set
+            {
+                OnAddressChanging(value);
+                ReportPropertyChanging("Address");
+                _Address = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Address");
+                OnAddressChanged();
+            }
+        }
+        private global::System.String _Address;
+        partial void OnAddressChanging(global::System.String value);
+        partial void OnAddressChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Current_Payroll
+        {
+            get
+            {
+                return _Current_Payroll;
+            }
+            set
+            {
+                if (_Current_Payroll != value)
+                {
+                    OnCurrent_PayrollChanging(value);
+                    ReportPropertyChanging("Current_Payroll");
+                    _Current_Payroll = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Current_Payroll");
+                    OnCurrent_PayrollChanged();
+                }
+            }
+        }
+        private global::System.Boolean _Current_Payroll;
+        partial void OnCurrent_PayrollChanging(global::System.Boolean value);
+        partial void OnCurrent_PayrollChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Driver_paid
+        {
+            get
+            {
+                return _Driver_paid;
+            }
+            set
+            {
+                if (_Driver_paid != value)
+                {
+                    OnDriver_paidChanging(value);
+                    ReportPropertyChanging("Driver_paid");
+                    _Driver_paid = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Driver_paid");
+                    OnDriver_paidChanged();
+                }
+            }
+        }
+        private global::System.Boolean _Driver_paid;
+        partial void OnDriver_paidChanging(global::System.Boolean value);
+        partial void OnDriver_paidChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ReportId
+        {
+            get
+            {
+                return _ReportId;
+            }
+            set
+            {
+                OnReportIdChanging(value);
+                ReportPropertyChanging("ReportId");
+                _ReportId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ReportId");
+                OnReportIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ReportId;
+        partial void OnReportIdChanging(Nullable<global::System.Int32> value);
+        partial void OnReportIdChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="ReportIDs")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ReportIDs : EntityObject
@@ -3940,7 +4982,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="split_expenses")]
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="split_expenses")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class split_expenses : EntityObject
@@ -4221,7 +5263,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Trip_Info")]
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Trip_Info")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Trip_Info : EntityObject
@@ -4969,16 +6011,16 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Trip_Info_Customer_Info1", "Customer_Info")]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Customer_Info1", "Customer_Info")]
         public Customer_Info Customer_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Customer_Info>("nationalitModel.FK_Trip_Info_Customer_Info1", "Customer_Info").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Customer_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Customer_Info1", "Customer_Info").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Customer_Info>("nationalitModel.FK_Trip_Info_Customer_Info1", "Customer_Info").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Customer_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Customer_Info1", "Customer_Info").Value = value;
             }
         }
         /// <summary>
@@ -4990,13 +6032,13 @@ namespace NationalIT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Customer_Info>("nationalitModel.FK_Trip_Info_Customer_Info1", "Customer_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Customer_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Customer_Info1", "Customer_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Customer_Info>("nationalitModel.FK_Trip_Info_Customer_Info1", "Customer_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Customer_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Customer_Info1", "Customer_Info", value);
                 }
             }
         }
@@ -5007,16 +6049,16 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Trip_Info_Dispatchers1", "Dispatchers")]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Dispatchers1", "Dispatchers")]
         public Dispatchers Dispatchers
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("nationalitModel.FK_Trip_Info_Dispatchers1", "Dispatchers").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("DB_9B22F2_nationalitModel.FK_Trip_Info_Dispatchers1", "Dispatchers").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("nationalitModel.FK_Trip_Info_Dispatchers1", "Dispatchers").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("DB_9B22F2_nationalitModel.FK_Trip_Info_Dispatchers1", "Dispatchers").Value = value;
             }
         }
         /// <summary>
@@ -5028,13 +6070,13 @@ namespace NationalIT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("nationalitModel.FK_Trip_Info_Dispatchers1", "Dispatchers");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dispatchers>("DB_9B22F2_nationalitModel.FK_Trip_Info_Dispatchers1", "Dispatchers");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Dispatchers>("nationalitModel.FK_Trip_Info_Dispatchers1", "Dispatchers", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Dispatchers>("DB_9B22F2_nationalitModel.FK_Trip_Info_Dispatchers1", "Dispatchers", value);
                 }
             }
         }
@@ -5045,16 +6087,16 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Trip_Info_Driver_Info1", "Driver_Info")]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Driver_Info1", "Driver_Info")]
         public Driver_Info Driver_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Trip_Info_Driver_Info1", "Driver_Info").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1", "Driver_Info").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Trip_Info_Driver_Info1", "Driver_Info").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1", "Driver_Info").Value = value;
             }
         }
         /// <summary>
@@ -5066,13 +6108,13 @@ namespace NationalIT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Trip_Info_Driver_Info1", "Driver_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1", "Driver_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Driver_Info>("nationalitModel.FK_Trip_Info_Driver_Info1", "Driver_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Driver_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1", "Driver_Info", value);
                 }
             }
         }
@@ -5083,16 +6125,16 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Trip_Info_Equipment1", "Equipment")]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Equipment1", "Equipment")]
         public Equipment Equipment
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("nationalitModel.FK_Trip_Info_Equipment1", "Equipment").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("DB_9B22F2_nationalitModel.FK_Trip_Info_Equipment1", "Equipment").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("nationalitModel.FK_Trip_Info_Equipment1", "Equipment").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("DB_9B22F2_nationalitModel.FK_Trip_Info_Equipment1", "Equipment").Value = value;
             }
         }
         /// <summary>
@@ -5104,13 +6146,13 @@ namespace NationalIT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("nationalitModel.FK_Trip_Info_Equipment1", "Equipment");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("DB_9B22F2_nationalitModel.FK_Trip_Info_Equipment1", "Equipment");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Equipment>("nationalitModel.FK_Trip_Info_Equipment1", "Equipment", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Equipment>("DB_9B22F2_nationalitModel.FK_Trip_Info_Equipment1", "Equipment", value);
                 }
             }
         }
@@ -5122,7 +6164,7 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="nationalitModel", Name="Violations")]
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Violations")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Violations : EntityObject
@@ -5302,16 +6344,16 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Violations_Driver_Info", "Driver_Info")]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Driver_Info", "Driver_Info")]
         public Driver_Info Driver_Info
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Violations_Driver_Info", "Driver_Info").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("DB_9B22F2_nationalitModel.FK_Violations_Driver_Info", "Driver_Info").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Violations_Driver_Info", "Driver_Info").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("DB_9B22F2_nationalitModel.FK_Violations_Driver_Info", "Driver_Info").Value = value;
             }
         }
         /// <summary>
@@ -5323,13 +6365,13 @@ namespace NationalIT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("nationalitModel.FK_Violations_Driver_Info", "Driver_Info");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Driver_Info>("DB_9B22F2_nationalitModel.FK_Violations_Driver_Info", "Driver_Info");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Driver_Info>("nationalitModel.FK_Violations_Driver_Info", "Driver_Info", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Driver_Info>("DB_9B22F2_nationalitModel.FK_Violations_Driver_Info", "Driver_Info", value);
                 }
             }
         }
@@ -5340,16 +6382,16 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("nationalitModel", "FK_Violations_Equipment", "Equipment")]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Equipment", "Equipment")]
         public Equipment Equipment1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("nationalitModel.FK_Violations_Equipment", "Equipment").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("DB_9B22F2_nationalitModel.FK_Violations_Equipment", "Equipment").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("nationalitModel.FK_Violations_Equipment", "Equipment").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("DB_9B22F2_nationalitModel.FK_Violations_Equipment", "Equipment").Value = value;
             }
         }
         /// <summary>
@@ -5361,13 +6403,13 @@ namespace NationalIT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("nationalitModel.FK_Violations_Equipment", "Equipment");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Equipment>("DB_9B22F2_nationalitModel.FK_Violations_Equipment", "Equipment");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Equipment>("nationalitModel.FK_Violations_Equipment", "Equipment", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Equipment>("DB_9B22F2_nationalitModel.FK_Violations_Equipment", "Equipment", value);
                 }
             }
         }

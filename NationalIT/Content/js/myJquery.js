@@ -1,4 +1,8 @@
 ﻿$(document).ready(function () {
+    // Chỉ cho phép nhập số với Class onlyNumber
+    $(".onlyNumber").on("keyup", function () {
+        this.value = this.value.replace(/[^0-9\.]/g, '');
+    });
     // thêm thẻ <li> cho phân trang    
     addClassForPagging();
     $(".confirmDelete").click(function () {
@@ -155,7 +159,7 @@
             data: { 'id': value },
             async: true,
             success: function (model) {
-                $("#Address").val(model);                
+                $("#Address").val(model);
             }
         });
     });
@@ -204,7 +208,7 @@
     //--------------------------------
 
 
-});              //----------------END DOCUMENT READY FUNCTION -------------------------------  
+});               //----------------END DOCUMENT READY FUNCTION -------------------------------  
 
 
 
