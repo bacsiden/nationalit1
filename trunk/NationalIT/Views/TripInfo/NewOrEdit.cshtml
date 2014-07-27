@@ -4,9 +4,26 @@
 }
 <script type="text/javascript">
     $(document).ready(function () {
-        //        autoCompleteByClassName($(":input.Dispatcher"),@Html.Raw(ViewBag.dataDispatchers));
-        //        autoCompleteByClassName($(":input.Driver"),@Html.Raw(ViewBag.dataDriver));         
-    });    
+        //        autoCompleteByClassName($(":input.Dispatcher"),Html.Raw(ViewBag.dataDispatchers));
+        //        autoCompleteByClassName($(":input.Driver"),Html.Raw(ViewBag.dataDriver)); 
+        setValueForTotalCharges();
+        $("#Detention_pay, #Comfirmed_Rate, #Extra_charges").on("keyup", function () {
+            setValueForTotalCharges();
+        }).keyup(function (e) {            
+            if (e.keyCode == 8) {
+                setValueForTotalCharges();
+            }
+        });
+    });
+    function setValueForTotalCharges() {
+        var value = 0;
+        $("#Detention_pay, #Comfirmed_Rate, #Extra_charges").each(function () {
+            var addValue = eval($(this).val());
+            addValue = isNaN(addValue) ? 0 : addValue;
+            value = eval(value + addValue);
+        });
+        $("#Total_charges").val(value);
+    }   
 </script>
 <div class="row-fluid">
     <div class="span12">
@@ -43,7 +60,7 @@
                 </div>
                 <div class="span7">
                     <div class="control-group">
-                        <label for="Customer" style="color:#e9f0f9">
+                        <label for="Customer" style="color: #e9f0f9">
                             x
                         </label>
                         <a href="#" class="btn btn-primary">Select By Invoice</a>
@@ -134,29 +151,26 @@
                     <div class="control-group">
                         <label for="Comfirmed_Rate">
                             Comfirmed_Rate</label>
-                        @Html.TextBoxFor(model => model.Comfirmed_Rate, new { @class = "input-xlarge" })
+                        @Html.TextBoxFor(model => model.Comfirmed_Rate, new { @class = "input-xlarge onlyNumber" })
                         @Html.ValidationMessageFor(model => model.Comfirmed_Rate)
                     </div>
                     <div class="control-group">
                         <label for="Extra_charges">
                             Lumner &Extra charges</label>
-                        @Html.TextBoxFor(model => model.Extra_charges, new { @class = "input-xlarge" })
+                        @Html.TextBoxFor(model => model.Extra_charges, new { @class = "input-xlarge onlyNumber" })
                         @Html.ValidationMessageFor(model => model.Extra_charges)
                     </div>
                     <div class="control-group">
                         <label for="Detention_pay">
                             Detention pay</label>
-                        @Html.TextBoxFor(model => model.Detention_pay, new { @class = "input-xlarge" })
+                        @Html.TextBoxFor(model => model.Detention_pay, new { @class = "input-xlarge onlyNumber" })
                         @Html.ValidationMessageFor(model => model.Detention_pay)
                     </div>
                     <div class="control-group">
-                        <label for="Equipment_ID">
-                            Equipment</label>
-                        @*@Html.TextBoxFor(model => model.Equipment_ID, new { @class = "input-xlarge" })*@
-                        <select data-placeholder="Select Equipment" name="Equipment_ID" class="chosen-with-diselect input-xlarge">
-                            @Html.Raw(ViewBag.dataEquipment)
-                        </select>
-                        @Html.ValidationMessageFor(model => model.Equipment_ID)
+                        <label for="Total_charges">
+                            Total_charges</label>
+                        @Html.TextBoxFor(model => model.Total_charges, new { @class = "input-xlarge onlyNumber", @readonly = "readonly" })
+                        @Html.ValidationMessageFor(model => model.Total_charges)
                     </div>
                 </div>
                 <div class="span4">
@@ -167,10 +181,13 @@
                         @Html.ValidationMessageFor(model => model.Delivery_date)
                     </div>
                     <div class="control-group">
-                        <label for="Total_charges">
-                            Total_charges</label>
-                        @Html.TextBoxFor(model => model.Total_charges, new { @class = "input-xlarge" })
-                        @Html.ValidationMessageFor(model => model.Total_charges)
+                        <label for="Equipment_ID">
+                            Equipment</label>
+                        @*@Html.TextBoxFor(model => model.Equipment_ID, new { @class = "input-xlarge" })*@
+                        <select data-placeholder="Select Equipment" name="Equipment_ID" class="chosen-with-diselect input-xlarge">
+                            @Html.Raw(ViewBag.dataEquipment)
+                        </select>
+                        @Html.ValidationMessageFor(model => model.Equipment_ID)
                     </div>
                     <div class="control-group">
                         <label for="Total_charges">
