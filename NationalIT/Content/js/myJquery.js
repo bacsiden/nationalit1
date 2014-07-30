@@ -36,19 +36,22 @@
     // show hide button Edit & Delete when click checkbox
     $(".checkAll").click(function () {
         $(".EditItem").hide();
-        if ($(this).is(':checked')) {
-            $(".checkitem").prop('checked', true);
-            $(".DeleteItem").text('Delete All');
-            $(".DeleteItem").show();
-        } else {
-            $(".checkitem").prop('checked', false);
-            $(".DeleteItem").text('Delete');
-            $(".DeleteItem").hide();
+        if ($(".checkitem").length > 0) {
+            if ($(this).is(':checked')) {
+                $(".checkitem").prop('checked', true);
+                $(".DeleteItem").text('Delete All');
+                $(".DeleteItem").show();
+            } else {
+                $(".checkitem").prop('checked', false);
+                $(".DeleteItem").text('Delete');
+                $(".DeleteItem").hide();
+            }
         }
     });
     $(".checkitem").click(function () {
         $(".DeleteItem").show();
         var numberOfChecked = $('input:checkbox:checked').length;
+        var numberItem = $('input:checkbox.checkitem').length;
         if (numberOfChecked == 0) {
             $(".DeleteItem").hide();
         }
@@ -56,6 +59,13 @@
             $(".EditItem").show();
         } else {
             $(".EditItem").hide();
+        }
+        if ($(this).is(':checked')) {
+            if (numberItem == numberOfChecked) {
+                $(".checkAll").prop('checked', true);
+            }
+        } else {
+            $(".checkAll").prop('checked', false);
         }
     });
 

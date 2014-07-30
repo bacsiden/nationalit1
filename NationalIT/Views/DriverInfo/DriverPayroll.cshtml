@@ -46,9 +46,19 @@
             var tripAmount = TotalAmount.val();
             var value = $this.val();
             if ($this.is(':checked')) {
+                var countChecked = 0;
+                objCheckItem.each(function () {
+                    if ($(this).is(":checked")) {
+                        countChecked++;
+                    }
+                });
+                if (countChecked == objCheckItem.length) {
+                    objCheckAll.prop('checked', true);
+                }
                 tripAmount = eval(tripAmount) + eval(value);
             } else {
                 tripAmount = eval(tripAmount) - eval(value);
+                objCheckAll.prop('checked', false);
             }
             TotalAmount.val(tripAmount);
         });
