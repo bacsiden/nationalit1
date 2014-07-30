@@ -60,10 +60,10 @@
                         @item.Description
                     </td>
                     <td>
-                         @(item.Paid_off.HasValue ? NationalIT.CommonFunction.getYesNO(item.Paid_off.Value) : "")
+                         @(NationalIT.CommonFunction.getYesNO(item.Paid_off))
                     </td>
                     <td>
-                        @(item.Current_Payroll.HasValue?NationalIT.CommonFunction.getYesNO(item.Current_Payroll.Value):"")
+                        @(NationalIT.CommonFunction.getYesNO(item.Current_Payroll))
                     </td>
                     
                 </tr>

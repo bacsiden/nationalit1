@@ -66,11 +66,11 @@
 <h3>Driver Payroll & Expenses</h3>
 @{
     var db = NationalIT.DB.Entities;
-    var lstFuel_Expenses = Model.Fuel___Expenses.Where(m => m.Current_Payroll.Value==true && m.Paid_off.Value==false).ToList();
-    var lstOperating_Expenses = Model.Operating_Expenses.Where(m => m.Current_Payroll.Value == true && m.Paid_off.Value == false).ToList();
+    var lstFuel_Expenses = Model.Fuel___Expenses.Where(m => m.Current_Payroll==true && m.Paid_off==false).ToList();
+    var lstOperating_Expenses = Model.Operating_Expenses.Where(m => m.Current_Payroll == true && m.Paid_off == false).ToList();
     var listTripInfoConditon = Model.Trip_Info.Where(m => m.Picked == true && m.Deliverd == true && m.Current_Payroll == true && m.Customer_Invoiced == true && m.Driver_paid == false).ToList();
-    var driverExpenses = db.split_expenses.Where(m => m.Idndex == Model.ID && m.OwnerDriver == 2).ToList();
-    var OwnerExpenses = db.split_expenses.Where(m => m.Idndex == Model.Owner_Name && m.OwnerDriver == 1).ToList();
+    var driverExpenses = db.split_expenses.Where(m => m.OwnerDriver == Model.ID).ToList();
+    var OwnerExpenses = db.split_expenses.Where(m => m.OwnerDriver == Model.ID).ToList();
 }
 <div class="row-fluid">
     <div class="span8">
