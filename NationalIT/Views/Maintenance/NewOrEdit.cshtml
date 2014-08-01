@@ -73,7 +73,7 @@
                         <div class="controls">
                             <div class="span12">
                                 @Html.TextBoxFor(model => model.ApprovedAmount, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.ApprovedAmount)
+                                @Html.ValidationMessageFor(model => model.ApprovedAmount) ($)
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                         <div class="controls">
                             <div class="span12">
                                 @Html.TextBoxFor(model => model.SpentAmount, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.SpentAmount)
+                                @Html.ValidationMessageFor(model => model.SpentAmount) ($)
                             </div>
                         </div>
                     </div>

@@ -29,10 +29,10 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="ssn_">@Html.LabelFor(model => model.Amount)</label>
+                        <label class="control-label" for="ssn_">@Html.LabelFor(model => model.Amount) </label>
                         <div class="controls">
                             <div class="span12">
-                                @Html.TextBoxFor(model => model.Amount, new { @class = "input-xlarge" })
+                                @Html.TextBoxFor(model => model.Amount, new { @class = "input-xlarge" }) ($)
                                 @Html.ValidationMessageFor(model => model.Amount)
                             </div>
                         </div>

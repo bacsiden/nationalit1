@@ -43,7 +43,7 @@
                         @item.Expanses
                     </td>
                     <td>
-                        @String.Format("{0:F}", item.Amount)
+                        @String.Format("{0:C}", item.Amount)
                     </td>
                     <td>
                         @(item.Date.HasValue ? item.Date.Value.ToString("MM/dd/yyyy") : "")

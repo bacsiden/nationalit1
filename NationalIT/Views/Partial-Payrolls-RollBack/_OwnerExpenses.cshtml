@@ -10,30 +10,24 @@
             </th>
             <th>
                 OwnerDriver
-            </th>
-            <th>
-                Index
-            </th>
+            </th>            
             <th>
                 Expenses
             </th>
             <th>
                 Amount
-            </th>
-            <th>
-                Details
-            </th>
+            </th>            
             <th>
                 Date
             </th>
             <th>
-                Fee_Charged
+                Fee Charged
             </th>
             <th>
-                Current_Payroll
+                Current Payroll
             </th>
             <th>
-                Paid_Off
+                Paid Off
             </th>
         </tr>
         @foreach (var item in Model)
@@ -47,19 +41,13 @@
                 </td>
                 <td>
                     @item.OwnerDriver
-                </td>
-                <td>
-                    @item.Idndex
-                </td>
+                </td>               
                 <td>
                     @item.Expenses
                 </td>
                 <td>
-                    @String.Format("{0:F}", item.Amount)
-                </td>
-                <td>
-                    @item.Details
-                </td>
+                    @String.Format("{0:C}", item.Amount)
+                </td>                
                 <td>
                     @(item.Date.HasValue?item.Date.Value.ToString("MM/dd/yyyy"):"")
                 </td>

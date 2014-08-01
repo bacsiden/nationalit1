@@ -55,7 +55,7 @@
                         @(item.Date.HasValue?item.Date.Value.ToString("MM/dd/yyyy"):"")
                     </td>
                     <td>
-                        @item.Amount
+                         @String.Format("{0:C}", item.Amount)
                     </td>
                     <td>
                         @(item.Driver_Info!=null?item.Driver_Info.First_name:"")
