@@ -37,10 +37,20 @@
                     <input type="checkbox" name="checkOwner" value="@item.Amount" getID="@item.Id" class="Splitcheckitem"/>
                 </td>
                 <td>
-                    @Html.ActionLink(item.Id.ToString(), "NewOrEdit", new { id = item.Id })
+                    @Html.ActionLink(item.Id.ToString(), "NewOrEdit", "SplitExpenses", new { id = item.Id }, null)
                 </td>
                 <td>
-                    @item.OwnerDriver
+                    
+                     @{
+               if (item.OwnerDriver.HasValue)
+               {
+                   var driver = NationalIT.DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == item.OwnerDriver);
+                   if (driver != null)
+                   {
+                        <span>@driver.Last_name @driver.First_name</span>
+                   }
+               }                        
+                    }
                 </td>               
                 <td>
                     @item.Expenses
@@ -49,7 +59,7 @@
                     @String.Format("{0:C}", item.Amount)
                 </td>                
                 <td>
-                    @(item.Date.HasValue?item.Date.Value.ToString("MM/dd/yyyy"):"")
+                    @(item.Date.HasValue ? item.Date.Value.ToString("MM/dd/yyyy") : "")
                 </td>
                 <td>
                     @NationalIT.CommonFunction.getYesNO(item.Fee_Charged)
