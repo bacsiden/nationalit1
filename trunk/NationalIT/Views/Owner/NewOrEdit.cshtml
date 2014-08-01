@@ -41,7 +41,7 @@
                         <label class="control-label" for="fee_rate">@Html.LabelFor(model => model.fee_rate)</label>
                         <div class="controls">
                             <div class="span12">
-                                @Html.TextBoxFor(model => model.fee_rate, new { @class = "input-xlarge" })
+                                @Html.TextBoxFor(model => model.fee_rate, new { @class = "input-xlarge" }) ($)
                                 @Html.ValidationMessageFor(model => model.fee_rate)
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                         <label class="control-label" for="pay_rate">@Html.LabelFor(model => model.pay_rate)</label>
                         <div class="controls">
                             <div class="span12">
-                                @Html.TextBoxFor(model => model.pay_rate, new { @class = "input-xlarge" })
+                                @Html.TextBoxFor(model => model.pay_rate, new { @class = "input-xlarge" }) ($)
                                 @Html.ValidationMessageFor(model => model.pay_rate)
                             </div>
                         </div>

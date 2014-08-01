@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Globalization;
 
 namespace NationalIT
 {
@@ -25,5 +26,10 @@ namespace NationalIT
 
             return new DateTime(int.Parse(t[2]), int.Parse(t[0]), int.Parse(t[1]));
         }
+    }
+    public static class Cultures
+    {
+        public static readonly CultureInfo UnitedKingdom =
+            CultureInfo.ReadOnly(new CultureInfo("en-US"));
     }
 }

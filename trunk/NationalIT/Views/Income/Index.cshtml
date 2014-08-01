@@ -58,19 +58,19 @@
                                  @(item.IncomeDate.HasValue?item.IncomeDate.Value.ToString("MM/dd/yyyy"):"")
                             </td>
                             <td>
-                                @String.Format("{0:F}", item.AmountInvoiced)
+                                @String.Format("{0:C}", item.AmountInvoiced)
                             </td>
                             <td>
-                                @String.Format("{0:F}", item.FundedAmount)
+                                @String.Format("{0:C}", item.FundedAmount)
                             </td>
                             <td>
-                                @String.Format("{0:F}", item.ReserveAmount)
+                                @String.Format("{0:C}", item.ReserveAmount)
                             </td>
                             <td>
-                                @String.Format("{0:F}", item.AdvanceFee)
+                                @String.Format("{0:C}", item.AdvanceFee)
                             </td>
                             <td>
-                                @String.Format("{0:F}", item.ChargeBacks)
+                                @String.Format("{0:C}", item.ChargeBacks)
                             </td>
                             <td>
                                 @item.Comments

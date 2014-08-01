@@ -47,10 +47,10 @@
                     @item.ssn_
                 </td>
                 <td>
-                    @item.fee_rate
+                    @String.Format("{0:C}", item.fee_rate)
                 </td>
                 <td>
-                    @item.pay_rate
+                    @String.Format("{0:C}", item.pay_rate)
                 </td>
             </tr>
         }

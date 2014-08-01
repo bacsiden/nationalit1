@@ -43,7 +43,7 @@
                 <label class="control-label" for="Amount">@Html.LabelFor(model => model.Amount)</label>
                 <div class="controls">
                     <div class="span12">
-                        @Html.TextBoxFor(model => model.Amount, new { @class = "input-xlarge" })
+                        @Html.TextBoxFor(model => model.Amount, new { @class = "input-xlarge" }) ($)
                         @Html.ValidationMessageFor(model => model.Amount)
                     </div>
                 </div>
@@ -82,12 +82,8 @@
             <div class="control-group">
                 <label class="control-label" for="Paid_off">@Html.LabelFor(model => model.Paid_off)</label>
                 <div class="controls">
-                    <div class="span12">
-                        @{
-                                                       bool paid_off = false;
-                                                       paid_off = Model != null ? Model.Paid_off??false:false;
-                        }
-                        @Html.CheckBoxFor(model => paid_off, new { @class = "input-xlarge" })
+                    <div class="span12">                       
+                        @Html.CheckBoxFor(model => model.Paid_off, new { @class = "input-xlarge" })
                         @Html.ValidationMessageFor(model => model.Paid_off)
                     </div>
                 </div>
@@ -95,12 +91,8 @@
             <div class="control-group">
                 <label class="control-label" for="Current_Payroll">@Html.LabelFor(model => model.Current_Payroll)</label>
                 <div class="controls">
-                    <div class="span12">
-                        @{
-                                                              bool Current_Payroll = false;
-                                                              Current_Payroll = Model != null ? Model.Current_Payroll ?? false : false;
-                        }
-                        @Html.CheckBoxFor(model => Current_Payroll, new { @class = "input-xlarge" })
+                    <div class="span12">                        
+                        @Html.CheckBoxFor(model => model.Current_Payroll, new { @class = "input-xlarge" })
                         @Html.ValidationMessageFor(model => model.Current_Payroll)
                     </div>
                 </div>
