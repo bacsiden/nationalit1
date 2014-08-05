@@ -123,6 +123,15 @@ namespace NationalIT.Reports
                 #endregion
                 double total4 = 0;
                 double fee4 = 0;
+                double ownerFeeRate = 0;
+                if (driverinfo.Owner_Name != null)
+                {
+                    Owners objOwner = db.Owners.FirstOrDefault(m => m.OwnerID == driverinfo.Owner_Name.Value);
+                    if (objOwner != null)
+                        if (objOwner.fee_rate != null)
+                            ownerFeeRate = (double)objOwner.fee_rate;
+                }
+
                 #region Owner Expenses
                 DataTable osplit = ds.OwnerExpenses;
                 para = Request.QueryString["splitowner"];
@@ -145,13 +154,10 @@ namespace NationalIT.Reports
                         osplit.Rows.Add(dr3);
                     }
                 }
-                if (driverinfo.fuel___advance_Fee_rate != null)
-                {
-                    fee4 = total4 * driverinfo.fuel___advance_Fee_rate;
-                    total4 += fee4;
-                }
-                ReportParameter oExFee = new ReportParameter("OExFee", total4.ToString("N2"));
-                ReportParameter oExTotal = new ReportParameter("OExTotal", fee4.ToString("N2"));
+                fee4 = total4 * ownerFeeRate;
+
+                ReportParameter oExFee = new ReportParameter("OExFee", fee4.ToString("N2"));
+                ReportParameter oExTotal = new ReportParameter("OExTotal", total4.ToString("N2"));
                 parameters.Add(oExFee);
                 parameters.Add(oExTotal);
                 ReportViewer1.LocalReport.DataSources.Add(
@@ -181,11 +187,8 @@ namespace NationalIT.Reports
                         dsplit.Rows.Add(dr4);
                     }
                 }
-                if (driverinfo.fuel___advance_Fee_rate != null)
-                {
-                    fee5 = total5 * driverinfo.fuel___advance_Fee_rate;
-                    total5 += fee5;
-                }
+
+                fee5 = total5 * ownerFeeRate;
                 ReportParameter dExFee = new ReportParameter("DExFee", total5.ToString("N2"));
                 ReportParameter dExTotal = new ReportParameter("DExTotal", fee5.ToString("N2"));
                 parameters.Add(dExFee);
@@ -196,7 +199,9 @@ namespace NationalIT.Reports
 
                 double r1 = total1 - total1 * driverinfo.Pay_rate;
                 double r2 = total2 + total2 * driverinfo.fuel___advance_Fee_rate;
-                double r6a = r2 + total3 + total4 + total5;
+                double r4 = total4 * total4 * driverinfo.fuel___advance_Fee_rate;
+                double r5 = total5 * total5 * driverinfo.fuel___advance_Fee_rate;
+                double r6a = r2 + total3 + r4 + r5;
                 double r6b = r1 - r6a;
 
                 double ownerPayment = (double)driverinfo.Owner_Pay_Rate * r6b;
