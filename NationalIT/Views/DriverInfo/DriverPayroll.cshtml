@@ -34,17 +34,16 @@
             if ($(this).is(':checked')) {
                 var checkAll = 0;
                 objCheckItem.each(function () {
-                    checkAll = eval(checkAll) + eval($(this).val());
+                    checkAll = parseFloat(checkAll) + parseFloat($(this).val());
                 });
-                TotalAmount.val(checkAll);
+                TotalAmount.val("$" + formatCurrency(checkAll));
             } else {
-                TotalAmount.val(0);
+                TotalAmount.val("$0.00");
             }
         });
         objCheckItem.click(function () {
             var $this = $(this);
-            var tripAmount = TotalAmount.val();
-            var value = $this.val();
+            var tripAmount = 0;            
             if ($this.is(':checked')) {
                 var countChecked = 0;
                 objCheckItem.each(function () {
@@ -55,12 +54,16 @@
                 if (countChecked == objCheckItem.length) {
                     objCheckAll.prop('checked', true);
                 }
-                tripAmount = eval(tripAmount) + eval(value);
             } else {
-                tripAmount = eval(tripAmount) - eval(value);
                 objCheckAll.prop('checked', false);
             }
-            TotalAmount.val(tripAmount);
+            // Duyệt toàn bộ các checkbox được checked và lấy giá trị cộng dồn lại
+            objCheckItem.each(function () {
+                if ($(this).is(":checked")) {
+                    tripAmount = parseFloat(tripAmount) + parseFloat($(this).val());
+                }
+            });
+            TotalAmount.val("$" +formatCurrency(tripAmount));
         });
     }
     function ListenerCheckAll(checkAll,checkItem) {
@@ -71,6 +74,10 @@
                 checkItem.prop('checked', false);
             }
         });
+    }
+    function formatCurrency(num) {
+        num = isNaN(num) || num === '' || num === null ? 0.00 : num;
+        return parseFloat(num).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
     }
 </script>
 <h3>Driver Payroll & Expenses</h3>
@@ -130,7 +137,7 @@
                         Trips Amount:</label>
                     <div class="controls">
                         <div class="span12">
-                            <input type="text" value="0" name="TripsAmount" id="TripsAmount" class="input-large"
+                            <input type="text" value="$0.00" name="TripsAmount" id="TripsAmount" class="input-large"
                                 data-rule-number="true" />
                         </div>
                     </div>
@@ -140,7 +147,7 @@
                         Fuel Amount:</label>
                     <div class="controls">
                         <div class="span12">
-                            <input type="text" value="0" name="FuelAmount" id="FuelAmount" class="input-large"
+                            <input type="text" value="$0.00" name="FuelAmount" id="FuelAmount" class="input-large"
                                 data-rule-number="true" />
                         </div>
                     </div>
@@ -150,7 +157,7 @@
                         Operating Amount:</label>
                     <div class="controls">
                         <div class="span12">
-                            <input type="text" value="0" name="OperatingAmount" id="OperatingAmount" class="input-large"
+                            <input type="text" value="$0.00" name="OperatingAmount" id="OperatingAmount" class="input-large"
                                 data-rule-number="true" />
                         </div>
                     </div>
@@ -160,7 +167,7 @@
                         Drivers Amount:</label>
                     <div class="controls">
                         <div class="span12">
-                            <input type="text" value="0" name="DriversAmount" id="DriversAmount" class="input-large"
+                            <input type="text" value="$0.00" name="DriversAmount" id="DriversAmount" class="input-large"
                                 data-rule-number="true" />
                         </div>
                     </div>
@@ -170,7 +177,7 @@
                         Owners Amount:</label>
                     <div class="controls">
                         <div class="span12">
-                            <input type="text" value="0" name="OwnersAmount" id="OwnersAmount" class="input-large"
+                            <input type="text" value="$0.00" name="OwnersAmount" id="OwnersAmount" class="input-large"
                                 data-rule-number="true" />
                         </div>
                     </div>
