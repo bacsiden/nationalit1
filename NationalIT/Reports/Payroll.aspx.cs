@@ -48,11 +48,8 @@ namespace NationalIT.Reports
                         trip.Rows.Add(dr);
                     }
                 }
-                if (driverinfo.Pay_rate != null)
-                {
-                    fee1 = total1 * driverinfo.Pay_rate;
-                    total1 += fee1;
-                }
+                //Calculate total fee
+                fee1 = total1 * driverinfo.Pay_rate;
                 ReportParameter driverName = new ReportParameter("DriverName", driverinfo.First_name + " " + driverinfo.Last_name);
                 ReportParameter tripfee = new ReportParameter("TripTotalFee", fee1.ToString("N2"));
                 ReportParameter tripTotal = new ReportParameter("TripTotal", total1.ToString("N2"));
@@ -87,11 +84,8 @@ namespace NationalIT.Reports
                         fuel.Rows.Add(dr1);
                     }
                 }
-                if (driverinfo.fuel___advance_Fee_rate != null)
-                {
-                    fee2 = total2 * driverinfo.fuel___advance_Fee_rate;
-                    total2 += fee2;
-                }
+
+                fee2 = total2 * driverinfo.fuel___advance_Fee_rate;
                 ReportParameter fuelFee = new ReportParameter("FuelFee", total2.ToString("N2"));
                 ReportParameter fuelAmount = new ReportParameter("FuelAmount", fee2.ToString("N2"));
                 parameters.Add(fuelFee);
@@ -200,14 +194,15 @@ namespace NationalIT.Reports
                 new Microsoft.Reporting.WebForms.ReportDataSource("DriverExpenses", dsplit));
                 #endregion
 
-                double sum = total2 + total3 + total4 + total5;
-                double payrollAmount = total1 - sum;
-                double ownerPayment = 0;
-                if (driverinfo.Owner_Pay_Rate != null)
-                    ownerPayment = (double)driverinfo.Owner_Pay_Rate * payrollAmount;
-                double driverPayment = payrollAmount - ownerPayment;
+                double r1 = total1 - total1 * driverinfo.Pay_rate;
+                double r2 = total2 + total2 * driverinfo.fuel___advance_Fee_rate;
+                double r6a = r2 + total3 + total4 + total5;
+                double r6b = r1 - r6a;
 
-                ReportParameter PayrollAmount = new ReportParameter("PayrollAmount", payrollAmount.ToString("N2"));
+                double ownerPayment = (double)driverinfo.Owner_Pay_Rate * r6b;
+                double driverPayment = r6b - ownerPayment;
+
+                ReportParameter PayrollAmount = new ReportParameter("PayrollAmount", r6b.ToString("N2"));
                 ReportParameter OwnerPayment = new ReportParameter("OwnerPayment", ownerPayment.ToString("N2"));
                 ReportParameter DriverPayment = new ReportParameter("DriverPayment", driverPayment.ToString("N2"));
                 parameters.Add(PayrollAmount);
