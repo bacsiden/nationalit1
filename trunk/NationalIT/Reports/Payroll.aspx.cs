@@ -86,8 +86,8 @@ namespace NationalIT.Reports
                 }
 
                 fee2 = total2 * driverinfo.fuel___advance_Fee_rate;
-                ReportParameter fuelFee = new ReportParameter("FuelFee", total2.ToString("N2"));
-                ReportParameter fuelAmount = new ReportParameter("FuelAmount", fee2.ToString("N2"));
+                ReportParameter fuelFee = new ReportParameter("FuelFee", fee2.ToString("N2"));
+                ReportParameter fuelAmount = new ReportParameter("FuelAmount", total2.ToString("N2"));
                 parameters.Add(fuelFee);
                 parameters.Add(fuelAmount);
                 ReportViewer1.LocalReport.DataSources.Add(
