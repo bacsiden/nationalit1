@@ -15,7 +15,7 @@ namespace NationalIT.Controllers
 
         public ActionResult Index(int? page, int? driverID)
         {
-            var list = DB.Entities.split_expenses.Where(m=>(driverID == null ? true : m.Id == driverID.Value)).OrderByDescending(m => m.Id).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize);
+            var list = DB.Entities.split_expenses.Where(m => (driverID == null ? true : m.Id == driverID.Value)).OrderByDescending(m => m.Id).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize);
             if (Request.IsAjaxRequest())
             {
                 return PartialView("_IndexPartial", list);
@@ -27,7 +27,7 @@ namespace NationalIT.Controllers
         void SelectOption(split_expenses obj)
         {
             #region SELECT OPTION
-            string dataSplit_Expenses = "<option >--Select Split_Expenses--</option>";            
+            string dataSplit_Expenses = "<option >--Select Split_Expenses--</option>";
             foreach (var item in NationalIT.DB.Entities.split_expenses)
             {
                 dataSplit_Expenses += string.Format("<option value='{0}'>{0}</option>", item.Id);
@@ -39,16 +39,30 @@ namespace NationalIT.Controllers
             string dataDriver_Info = "<option >--Select Driver_Info--</option>";
             foreach (var item in NationalIT.DB.Entities.Driver_Info)
             {
-                if (obj != null && obj.OwnerDriver == item.ID)
+                if (obj != null && obj.Idndex == 1 && obj.OwnerDriver == item.ID)
                 {
-                    dataDriver_Info += string.Format("<option value='{0}' selected='selected'>{1} {2} ({3})</option>", item.ID, item.Last_name, item.First_name,item.Owners!=null?item.Owners.Name:"");
+                    dataDriver_Info += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
                 }
                 else
                 {
-                    dataDriver_Info += string.Format("<option value='{0}'>{1} {2} ({3})</option>", item.ID, item.Last_name, item.First_name, item.Owners != null ? item.Owners.Name : "");
+                    dataDriver_Info += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
                 }
             }
             ViewBag.dataDriver = dataDriver_Info;
+
+            string dataOwner_Info = "<option >--Select Owner_Info--</option>";
+            foreach (var item in NationalIT.DB.Entities.Owners)
+            {
+                if (obj != null && obj.Idndex == 2 && obj.OwnerDriver == item.OwnerID)
+                {
+                    dataOwner_Info += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.OwnerID, item.Name);
+                }
+                else
+                {
+                    dataOwner_Info += string.Format("<option value='{0}'>{1}</option>", item.OwnerID, item.Name);
+                }
+            }
+            ViewBag.dataOwner = dataOwner_Info;
             #endregion
         }
         //
@@ -65,12 +79,16 @@ namespace NationalIT.Controllers
         // POST: /Owner/Edit/5
 
         [HttpPost]
-        public ActionResult NewOrEdit(split_expenses model,FormCollection frm)
+        public ActionResult NewOrEdit(split_expenses model, FormCollection frm)
         {
             try
             {
                 var db = DB.Entities;
                 model.Date = CommonFunction.ChangeFormatDate(frm["Date"]);
+                if (model.Idndex == 2)
+                {
+                    model.OwnerDriver = int.Parse(frm["OwnerDriver2"]);
+                }
                 if (model.Id == 0)
                 {
                     // Edit                    

@@ -57,11 +57,23 @@
                     @{
                if (item.OwnerDriver.HasValue)
                {
-                   var driver = NationalIT.DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == item.OwnerDriver);
-                   if (driver != null)
+                   if (item.Idndex == 1)
                    {
+                       var driver = NationalIT.DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == item.OwnerDriver);
+                       if (driver != null)
+                       {
                         <span>@driver.Last_name @driver.First_name</span>
+                       }
                    }
+                   else
+                   {
+                       var owner = NationalIT.DB.Entities.Owners.FirstOrDefault(m => m.OwnerID == item.OwnerDriver);
+                       if (owner != null)
+                       {
+                        <span>@owner.Name</span>
+                       }
+                   }
+
                }                        
                     }
                 </td>
