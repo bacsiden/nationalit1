@@ -71,6 +71,10 @@ namespace NationalIT.Controllers
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.split_expenses.FirstOrDefault(m => m.Id == id);
+            if (obj == null)
+            {
+                obj = new split_expenses() { Current_Payroll = true, Fee_Charged = true };
+            }
             SelectOption(obj);
             return View(obj);
         }
