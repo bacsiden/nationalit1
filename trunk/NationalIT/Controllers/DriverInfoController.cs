@@ -37,7 +37,7 @@ namespace NationalIT.Controllers
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == id);
-            if (obj == null) obj = new Driver_Info() {Expiration_Date=DateTime.Now};
+            if (obj == null) obj = new Driver_Info() { Expiration_Date = DateTime.Now };
 
             #region SELECT OPTION
             string dataOwners = "<option >--Select Owners--</option>";
@@ -103,7 +103,7 @@ namespace NationalIT.Controllers
         }
 
         [HttpPost]
-        public ActionResult NewOrEdit(Driver_Info model,FormCollection frm)
+        public ActionResult NewOrEdit(Driver_Info model, FormCollection frm)
         {
             try
             {
@@ -233,6 +233,31 @@ namespace NationalIT.Controllers
             var obj = DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == id);
             if (obj == null) obj = new Driver_Info();
             return View(obj);
+        }
+
+        public ActionResult PayrollsRollBack(int id = 0)
+        {
+           
+            #region SELECT OPTION
+            string dataDate = "<option >--Select Date--</option>";
+            foreach (var item in NationalIT.DB.Entities.TempReport)
+            {
+                //if (obj != null && obj.ID == id)
+                //{
+                //    //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                //    dataDate += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.ID, item.Date);
+                //}
+                //else
+                //{
+                //    dataDate += string.Format("<option value='{0}'>{1}</option>", item.ID, item.Date);
+                //}
+            }
+            ViewBag.dataDate = dataDate;
+            #endregion
+
+            
+           
+            return View();
         }
         #region Report ----------------------
         public ActionResult Printreport(string listIDTripInfo = "", string listIDFuelExpenses = "", string listIDOperatingExpenses = "")

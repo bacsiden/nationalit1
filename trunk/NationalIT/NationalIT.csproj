@@ -476,6 +476,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\FuelExpenses\NewOrEdit.cshtml" />
+    <Content Include="Views\DriverInfo\PayrollsRollBack.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
