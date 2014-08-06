@@ -41,7 +41,7 @@
                     @Html.ActionLink(item.OwnerID.ToString(), "NewOrEdit", new { id = item.OwnerID })
                 </td>
                 <td>
-                    @item.Name
+                    @Html.ActionLink(item.Name, "NewOrEdit", new { id = item.OwnerID })
                 </td>
                 <td>
                     @item.ssn_

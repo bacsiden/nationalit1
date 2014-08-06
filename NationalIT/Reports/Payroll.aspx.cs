@@ -38,6 +38,8 @@ namespace NationalIT.Reports
                     var lstTrip = db.Trip_Info.Where(m => lst.Contains(m.Trip_ID));
                     foreach (var item in lstTrip)
                     {
+                        item.Driver_paid = true;
+                        //db.ObjectStateManager.ChangeObjectState(item, System.Data.EntityState.Modified);
                         var dr = trip.NewRow();
                         dr["PickupDate"] = string.Format("{0:MM/dd/yyyy}", item.Order_date);
                         dr["DeliveryDate"] = string.Format("{0:MM/dd/yyyy}", item.Delivery_date);
@@ -73,6 +75,8 @@ namespace NationalIT.Reports
                     var lstTrip = db.Fuel___Expenses.Where(m => lst.Contains(m.ID));
                     foreach (var item in lstTrip)
                     {
+                        item.Paid_off = true;
+                       // db.ObjectStateManager.ChangeObjectState(item, System.Data.EntityState.Modified);
                         var dr1 = fuel.NewRow();
                         dr1["Date"] = String.Format("{0:MM/dd/yyyy}", item.Date);
                         dr1["Type"] = item.Type;
@@ -106,6 +110,8 @@ namespace NationalIT.Reports
                     var lstTrip = db.Operating_Expenses.Where(m => lst.Contains(m.ID));
                     foreach (var item in lstTrip)
                     {
+                        item.Paid_off = true;
+                        //db.ObjectStateManager.ChangeObjectState(item, System.Data.EntityState.Modified);
                         var dr2 = opera.NewRow();
                         dr2["Date"] = string.Format("{0:MM/dd/yyyy}", item.Date);
                         dr2["Type"] = item.Type;
@@ -144,6 +150,8 @@ namespace NationalIT.Reports
                     var lstTrip = db.split_expenses.Where(m => lst.Contains(m.Id));
                     foreach (var item in lstTrip)
                     {
+                        item.Paid_Off = true;
+                       // db.ObjectStateManager.ChangeObjectState(item, System.Data.EntityState.Modified);
                         var dr3 = osplit.NewRow();
                         dr3["Date"] = string.Format("{0:MM/dd/yyyy}", item.Date);
                         dr3["Expenses"] = item.Expenses;
@@ -177,6 +185,8 @@ namespace NationalIT.Reports
                     var lstTrip = db.split_expenses.Where(m => lst.Contains(m.Id));
                     foreach (var item in lstTrip)
                     {
+                        item.Paid_Off = true;
+                      //  db.ObjectStateManager.ChangeObjectState(item, System.Data.EntityState.Modified);
                         var dr4 = dsplit.NewRow();
                         dr4["Date"] = string.Format("{0:MM/dd/yyyy}", item.Date);
                         dr4["Expenses"] = item.Expenses;
@@ -199,11 +209,12 @@ namespace NationalIT.Reports
 
                 double r1 = total1 - total1 * driverinfo.Pay_rate;
                 double r2 = total2 + total2 * driverinfo.fuel___advance_Fee_rate;
-                double r4 = total4 * total4 * driverinfo.fuel___advance_Fee_rate;
-                double r5 = total5 * total5 * driverinfo.fuel___advance_Fee_rate;
+                double r4 = total4 + total4 * driverinfo.fuel___advance_Fee_rate;
+                double r5 = total5 + total5 * driverinfo.fuel___advance_Fee_rate;
                 double r6a = r2 + total3 + r4 + r5;
                 double r6b = r1 - r6a;
 
+                db.SaveChanges();
                 double ownerPayment = (double)driverinfo.Owner_Pay_Rate * r6b;
                 double driverPayment = r6b - ownerPayment;
 

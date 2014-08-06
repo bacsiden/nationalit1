@@ -100,6 +100,10 @@ namespace NationalIT.Controllers
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.Fuel___Expenses.FirstOrDefault(m => m.ID == id);
+            if (obj==null)
+            {
+                obj = new Fuel___Expenses() {Current_Payroll=true,fee_charged=true};
+            }
             SelectOption(obj);
             return View(obj);
         }

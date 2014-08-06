@@ -17,6 +17,9 @@
         ListenerCheckBox($("#OwnerExpensesSplit .SplitcheckAll"), $("#OwnerExpensesSplit .Splitcheckitem"), $("#OwnersAmount"));
         ListenerCheckAll($("#OwnerExpensesSplit .SplitcheckAll"), $("#OwnerExpensesSplit .Splitcheckitem"));
         $(".PrintPayroll1").click(function () {
+            if (!confirm("Are you sure you want process this Payroll?")) {
+                return false;
+            }
             var Trips = getListIDCheckBoxByIDClassName("TripAmountTable", "DriverTripCheckItem");
             var Fuel = getListIDCheckBoxByIDClassName("Fuel_ExpensesAmount", "DriverFuel___ExpensesItem");
             var operating = getListIDCheckBoxByIDClassName("Operating_ExpensesAmount", "DriverOperating_ExpensesItem");
