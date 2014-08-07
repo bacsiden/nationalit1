@@ -1,4 +1,4 @@
-﻿<h4>@Html.ActionLink("Trips", "Index", "TripInfo")</h4>
+﻿<h5>@Html.ActionLink("Trips", "Index", "TripInfo")</h5>
 <div id="TripAmountTable" class="boxScroll">
     @model List<NationalIT.Temp_Trip_Info>
     <table class="table">
@@ -18,9 +18,6 @@
                 </th>
                 <th>
                     Delivery_date
-                </th>
-                <th>
-                    ID
                 </th>
                 <th>
                     Total_charges
@@ -47,9 +44,6 @@
                     </td>
                     <td>
                         @(item.Delivery_date.HasValue ? item.Delivery_date.Value.ToString("MM/dd/yyyy") : "")
-                    </td>
-                    <td>
-                        @item.ID
                     </td>
                     <td>
                         @item.Total_charges

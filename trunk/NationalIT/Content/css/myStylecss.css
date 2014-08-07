@@ -129,4 +129,5 @@ label
     overflow-y: scroll;
     border-bottom: 2px solid #ccc;
     border-top: 2px solid #ccc;
+    background: none repeat scroll 0 0 white;
 }

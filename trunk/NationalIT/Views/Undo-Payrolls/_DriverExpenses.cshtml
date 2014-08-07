@@ -1,5 +1,5 @@
 ﻿@model List<NationalIT.Temp_Split_Expenses>
-           <h4>@Html.ActionLink("Driver's Expenses", "Index", "SplitExpenses", new {idndex=1},null)</h4>
+           <h5>@Html.ActionLink("Driver's Expenses", "Index", "SplitExpenses", new {idndex=1},null)</h5>
 <div id="DriverExpensesSplit" class="boxScroll">    
     <table class="table">
         <tr>
@@ -40,9 +40,9 @@
                 <td>
                     <input type="checkbox" name="checkOwner" value="@item.Amount" getID="@item.ID" class="Splitcheckitem"/>
                 </td>
-                <td>
+                @*<td>
                     @item.ID
-                </td>
+                </td>*@
                 @*<td>
                      @{
                if (item.OwnerDriver.HasValue)
