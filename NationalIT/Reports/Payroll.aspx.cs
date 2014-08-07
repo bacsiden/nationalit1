@@ -6,11 +6,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using Microsoft.Reporting.WebForms;
+using System.Security;
 
 namespace NationalIT.Reports
 {
     public partial class Payroll : System.Web.UI.Page
     {
+        [System.Web.Mvc.Authorize]
         protected void Page_Load(object sender, EventArgs e)
         {
 
