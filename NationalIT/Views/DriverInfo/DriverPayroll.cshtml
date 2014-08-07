@@ -85,7 +85,7 @@
     }
 </script>
 <h3>
-    Driver Payroll & Expenses: @(Model.Last_name + " " + Model.First_name)</h3>
+    Driver Payroll & Expenses: <a href="/DriverInfo/NewOrEdit/@Model.ID">@(Model.Last_name + " " + Model.First_name)</a></h3>
 @{
     var db = NationalIT.DB.Entities;
     var lstFuel_Expenses = Model.Fuel___Expenses.Where(m => m.Current_Payroll == true && m.Paid_off == false).ToList();
