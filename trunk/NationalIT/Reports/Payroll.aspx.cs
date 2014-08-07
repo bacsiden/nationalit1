@@ -331,13 +331,13 @@ namespace NationalIT.Reports
                 }
 
                 #region Calculate the total
-                double r1 = total1 - total1 * driverinfo.Pay_rate - total2 - fee2 - total3;
-                
-                double ownerPayment = (double)driverinfo.Owner_Pay_Rate * r1;
-                double driverPayment = r1 - ownerPayment;
+                double r1 = Math.Round(total1 - fee1 - total2 - fee2 - total3, 2);
 
-                ownerPayment -= total4 - fee4;
-                driverPayment -= total5 - fee5;
+                double ownerPayment = driverinfo.Owner_Pay_Rate * r1;
+                double driverPayment = Math.Round(r1 - ownerPayment, 2);
+
+                ownerPayment = Math.Round(ownerPayment - total4 - fee4, 2);
+                driverPayment = Math.Round(driverPayment - total5 - fee5, 2);
 
                 ReportParameter PayrollAmount = new ReportParameter("PayrollAmount", r1.ToString("N2"));
                 ReportParameter OwnerPayment = new ReportParameter("OwnerPayment", ownerPayment.ToString("N2"));
