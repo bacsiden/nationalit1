@@ -235,12 +235,14 @@ namespace NationalIT.Controllers
             return View(obj);
         }
 
-        public ActionResult PayrollsRollBack(int id = 0)
+        public ActionResult PayrollsRollBack(int driverID, int id = 0)
         {
             var obj = DB.Entities.TempReport.FirstOrDefault(m => m.ID == id);
+            ViewBag.driverID = driverID;
             #region SELECT OPTION
             string dataDate = "<option >--Select Date--</option>";
-            foreach (var item in NationalIT.DB.Entities.TempReport)
+            var list = DB.Entities.TempReport.Where(m => m.DriverID == driverID).ToList();
+            foreach (var item in list)
             {
                 if (obj != null && obj.ID == id)
                 {
@@ -321,7 +323,7 @@ namespace NationalIT.Controllers
                     }
                     else
                         db.ObjectStateManager.ChangeObjectState(ttrip, System.Data.EntityState.Modified);
-                    
+
                 }
             }
             #endregion
