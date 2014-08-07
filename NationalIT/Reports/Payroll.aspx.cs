@@ -194,6 +194,7 @@ namespace NationalIT.Reports
                             toperating.Driver = item.Driver;
                             toperating.Location = item.Location;
                             toperating.Type = item.Type;
+                            toperating.Paid_off = item.Paid_off;
                             db.Temp_Operating_Expenses.AddObject(toperating);
                             item.Paid_off = true;
                         }
@@ -330,18 +331,15 @@ namespace NationalIT.Reports
                 }
 
                 #region Calculate the total
-                double r1 = total1 - total1 * driverinfo.Pay_rate;
-                double r2 = total2 + total2 * driverinfo.fuel___advance_Fee_rate;
-                double r4 = total4 + total4 * driverinfo.fuel___advance_Fee_rate;
-                double r5 = total5 + total5 * driverinfo.fuel___advance_Fee_rate;
-                double r6a = r2 + total3 + r4 + r5;
-                double r6b = r1 - r6a;
+                double r1 = total1 - total1 * driverinfo.Pay_rate - total2 - fee2 - total3;
+                
+                double ownerPayment = (double)driverinfo.Owner_Pay_Rate * r1;
+                double driverPayment = r1 - ownerPayment;
 
+                ownerPayment -= total4 - fee4;
+                driverPayment -= total5 - fee5;
 
-                double ownerPayment = (double)driverinfo.Owner_Pay_Rate * r6b;
-                double driverPayment = r6b - ownerPayment;
-
-                ReportParameter PayrollAmount = new ReportParameter("PayrollAmount", r6b.ToString("N2"));
+                ReportParameter PayrollAmount = new ReportParameter("PayrollAmount", r1.ToString("N2"));
                 ReportParameter OwnerPayment = new ReportParameter("OwnerPayment", ownerPayment.ToString("N2"));
                 ReportParameter DriverPayment = new ReportParameter("DriverPayment", driverPayment.ToString("N2"));
                 parameters.Add(PayrollAmount);
