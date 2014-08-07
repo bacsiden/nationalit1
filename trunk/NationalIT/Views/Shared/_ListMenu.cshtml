@@ -27,4 +27,8 @@
 <li><a class="menu-item-a" href="/Maintenance"><span>Maintenance</span> </a></li>
 <li><a class="menu-item-a" href="/Violations"><span>Violations</span> </a></li>
 <li><a class="menu-item-a" href="/Report"><span>Report</span> </a></li>
+@if (User.Identity.Name.Equals(NationalIT.Controllers.UserDAL.ADMIN))
+{
+    <li><a class="menu-item-a" href="/Account"><span>User Manager</span> </a></li>
+}
 @*<i class="icon-list"></i>*@

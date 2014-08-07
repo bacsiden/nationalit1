@@ -7,13 +7,14 @@ using Webdiyer.WebControls.Mvc;
 
 namespace NationalIT.Controllers
 {
+    [Authorize]
     public class CustomerInfoController : Controller
     {
         int pageSize = 20;
         //
         // GET: /Owner/
 
-        public ActionResult Index(int? page,int? driverID)
+        public ActionResult Index(int? page, int? driverID)
         {
             var db = DB.Entities;
             var list = db.Customer_Info.Where(m => ((driverID == null ? true : m.Customer_ID == driverID.Value)))
@@ -28,7 +29,7 @@ namespace NationalIT.Controllers
 
         void SelectOption()
         {
-            #region SELECT OPTION            
+            #region SELECT OPTION
             string dataCustomer_Info = "<option >--Select Customer_Info--</option>";
             foreach (var item in NationalIT.DB.Entities.Customer_Info)
             {

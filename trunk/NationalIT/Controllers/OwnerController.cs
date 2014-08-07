@@ -7,22 +7,23 @@ using Webdiyer.WebControls.Mvc;
 
 namespace NationalIT.Controllers
 {
+    [Authorize]
     public class OwnerController : Controller
     {
         int pageSize = 20;
         //
         // GET: /Owner/
 
-        public ActionResult Index(int ?page)
+        public ActionResult Index(int? page)
         {
             return View(DB.Entities.Owners.OrderByDescending(m => m.OwnerID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
         }
         //
         // GET: /Owner/Edit/5
- 
-        public ActionResult NewOrEdit(int ? id=0)
+
+        public ActionResult NewOrEdit(int? id = 0)
         {
-            var obj = DB.Entities.Owners.FirstOrDefault(m=>m.OwnerID==id);
+            var obj = DB.Entities.Owners.FirstOrDefault(m => m.OwnerID == id);
             return View(obj);
         }
 
@@ -36,10 +37,10 @@ namespace NationalIT.Controllers
             {
                 var db = DB.Entities;
 
-                if (model.OwnerID==0)
+                if (model.OwnerID == 0)
                 {
                     // Edit                    
-                    db.Owners.AddObject(model);                    
+                    db.Owners.AddObject(model);
                 }
                 else
                 {
@@ -64,18 +65,18 @@ namespace NationalIT.Controllers
             try
             {
                 // TODO: Add delete logic here
-                var lstID = arrayID.Split(new char[]{','}, StringSplitOptions.RemoveEmptyEntries);
+                var lstID = arrayID.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
                 var db = DB.Entities;
-                if (lstID.Length>0)
+                if (lstID.Length > 0)
                 {
                     foreach (var item in lstID)
                     {
                         int tmpID = int.Parse(item);
                         var obj = db.Owners.FirstOrDefault(m => m.OwnerID == tmpID);
-                        db.Owners.DeleteObject(obj);                        
+                        db.Owners.DeleteObject(obj);
                     }
                     db.SaveChanges();
-                }                
+                }
             }
             catch
             {

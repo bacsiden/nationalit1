@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Webdiyer.WebControls.Mvc;
 namespace NationalIT.Controllers
 {
+    [Authorize]
     public class FuelExpensesController : Controller
     {
         int pageSize = 20;
@@ -100,9 +101,9 @@ namespace NationalIT.Controllers
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.Fuel___Expenses.FirstOrDefault(m => m.ID == id);
-            if (obj==null)
+            if (obj == null)
             {
-                obj = new Fuel___Expenses() {Current_Payroll=true,fee_charged=true};
+                obj = new Fuel___Expenses() { Current_Payroll = true, fee_charged = true };
             }
             SelectOption(obj);
             return View(obj);
@@ -112,7 +113,7 @@ namespace NationalIT.Controllers
         // POST: /Owner/Edit/5
 
         [HttpPost]
-        public ActionResult NewOrEdit(Fuel___Expenses model,FormCollection frm)
+        public ActionResult NewOrEdit(Fuel___Expenses model, FormCollection frm)
         {
             try
             {

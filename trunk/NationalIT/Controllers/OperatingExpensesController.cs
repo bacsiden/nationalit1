@@ -7,6 +7,7 @@ using Webdiyer.WebControls.Mvc;
 
 namespace NationalIT.Controllers
 {
+    [Authorize]
     public class OperatingExpensesController : Controller
     {
         int pageSize = 20;
@@ -50,14 +51,14 @@ namespace NationalIT.Controllers
         }
         public ActionResult NewOrEdit(int? id = 0)
         {
-            var obj = new Operating_Expenses(){ Current_Payroll = true};
-            if (id != 0) obj = DB.Entities.Operating_Expenses.FirstOrDefault(m => m.ID == id);            
+            var obj = new Operating_Expenses() { Current_Payroll = true };
+            if (id != 0) obj = DB.Entities.Operating_Expenses.FirstOrDefault(m => m.ID == id);
             SelectOption(obj);
             return View(obj);
         }
 
         [HttpPost]
-        public ActionResult NewOrEdit(Operating_Expenses model,FormCollection frm)
+        public ActionResult NewOrEdit(Operating_Expenses model, FormCollection frm)
         {
             try
             {

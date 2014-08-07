@@ -68,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonFunction.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CompanyExpansesController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -86,15 +88,14 @@
     <Compile Include="Controllers\FuelExpensesController.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controllers\HomeController.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\IncomeController.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controllers\MaintenanceController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\OperatingExpensesController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -104,6 +105,7 @@
     <Compile Include="Controllers\ReportController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SplitExpensesController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -122,6 +124,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\PassWordModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\CurrentPayroll.Designer.cs">
       <DependentUpon>CurrentPayroll.xsd</DependentUpon>
@@ -223,6 +227,7 @@
     <Content Include="Content\assets\flot\jquery.flot.stack.js" />
     <Content Include="Content\assets\flot\jquery.flot.tooltip.min.js" />
     <Content Include="Content\assets\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\img\avatardefault.jpg" />
     <Content Include="Scripts\jquery-1.4.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.4.js" />
     <Content Include="Scripts\jquery-1.4.4.min.js" />
@@ -270,31 +275,6 @@
     <Content Include="Content\img\4.png" />
     <Content Include="Content\img\admin.png" />
     <Content Include="Content\img\bullet.png" />
-    <Content Include="Content\img\demo\avatar\avatar1.jpg" />
-    <Content Include="Content\img\demo\avatar\avatar2.jpg" />
-    <Content Include="Content\img\demo\avatar\avatar3.jpg" />
-    <Content Include="Content\img\demo\avatar\avatar4.jpg" />
-    <Content Include="Content\img\demo\avatar\avatar5.jpg" />
-    <Content Include="Content\img\demo\gallery\1.jpg" />
-    <Content Include="Content\img\demo\gallery\10.jpg" />
-    <Content Include="Content\img\demo\gallery\10_thumb.jpg" />
-    <Content Include="Content\img\demo\gallery\1_thumb.jpg" />
-    <Content Include="Content\img\demo\gallery\2.jpg" />
-    <Content Include="Content\img\demo\gallery\2_thumb.jpg" />
-    <Content Include="Content\img\demo\gallery\3.jpg" />
-    <Content Include="Content\img\demo\gallery\3_thumb.jpg" />
-    <Content Include="Content\img\demo\gallery\4.jpg" />
-    <Content Include="Content\img\demo\gallery\4_thumb.jpg" />
-    <Content Include="Content\img\demo\gallery\5.jpg" />
-    <Content Include="Content\img\demo\gallery\5_thumb.jpg" />
-    <Content Include="Content\img\demo\gallery\6.jpg" />
-    <Content Include="Content\img\demo\gallery\6_thumb.jpg" />
-    <Content Include="Content\img\demo\gallery\7.jpg" />
-    <Content Include="Content\img\demo\gallery\7_thumb.jpg" />
-    <Content Include="Content\img\demo\gallery\8.jpg" />
-    <Content Include="Content\img\demo\gallery\8_thumb.jpg" />
-    <Content Include="Content\img\demo\gallery\9.jpg" />
-    <Content Include="Content\img\demo\gallery\9_thumb.jpg" />
     <Content Include="Content\img\favicon.html" />
     <Content Include="Content\img\logo-login.jpg" />
     <Content Include="Content\img\null.jpeg" />
@@ -483,6 +463,32 @@
     <Content Include="Views\Undo-Payrolls\_Operating_ExpensesPartial.cshtml" />
     <Content Include="Views\Undo-Payrolls\_OwnerExpenses.cshtml" />
     <Content Include="Views\DriverInfo\_IndexUndoPayrollPartial.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\_ChangePass.cshtml" />
+    <Content Include="Views\Account\AddCard.cshtml" />
+    <Content Include="Views\Account\AddMoney.cshtml" />
+    <Content Include="Views\Account\AddMoney1.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\LogOn2.cshtml" />
+    <Content Include="Views\Account\NewOrEdit.cshtml" />
+    <Content Include="Views\Account\Register1.cshtml" />
+    <Content Include="Views\Group\AddUser.cshtml" />
+    <Content Include="Views\Group\Create.cshtml" />
+    <Content Include="Views\Group\Edit.cshtml" />
+    <Content Include="Views\Group\Index.cshtml" />
+    <Content Include="Views\Group\Menu.cshtml" />
+    <Content Include="Views\Group\Role.cshtml" />
+    <Content Include="Views\Group\UsersInGroup.cshtml" />
+    <Content Include="Views\Menu\Create.cshtml" />
+    <Content Include="Views\Menu\Edit.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\Role\Edit.cshtml" />
+    <Content Include="Views\Role\Function.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

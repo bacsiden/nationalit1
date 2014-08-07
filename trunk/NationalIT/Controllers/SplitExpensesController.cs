@@ -7,6 +7,7 @@ using Webdiyer.WebControls.Mvc;
 
 namespace NationalIT.Controllers
 {
+    [Authorize]
     public class SplitExpensesController : Controller
     {
         int pageSize = 20;

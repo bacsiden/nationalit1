@@ -7,6 +7,7 @@ using Webdiyer.WebControls.Mvc;
 
 namespace NationalIT.Controllers
 {
+    [Authorize]
     public class EquipmentController : Controller
     {
         int pageSize = 20;
@@ -47,7 +48,7 @@ namespace NationalIT.Controllers
         // POST: /Owner/Edit/5
 
         [HttpPost]
-        public ActionResult NewOrEdit(Equipment model,FormCollection frm)
+        public ActionResult NewOrEdit(Equipment model, FormCollection frm)
         {
             try
             {

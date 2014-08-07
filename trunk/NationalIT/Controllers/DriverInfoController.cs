@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 
 namespace NationalIT.Controllers
 {
+    [Authorize]
     public class DriverInfoController : Controller
     {
         int pageSize = 20;

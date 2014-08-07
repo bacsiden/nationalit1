@@ -8,6 +8,7 @@ using System.Data.Objects.SqlClient;
 
 namespace NationalIT.Controllers
 {
+    [Authorize]
     public class TripInfoController : Controller
     {
         int pageSize = 20;
@@ -122,7 +123,7 @@ namespace NationalIT.Controllers
         // POST: /Owner/Edit/5
 
         [HttpPost]
-        public ActionResult NewOrEdit(Trip_Info model,FormCollection frm)
+        public ActionResult NewOrEdit(Trip_Info model, FormCollection frm)
         {
             try
             {
@@ -254,9 +255,9 @@ namespace NationalIT.Controllers
         {
             string address = "";
             var obj = DB.Entities.Customer_Info.FirstOrDefault(m => m.Customer_ID == id);
-            if (obj!=null)
+            if (obj != null)
             {
-                address = obj.Street+ ", " + obj.City + ", " + obj.State + " " + obj.ZIP_Code + ", Phone: " + obj.Phone;
+                address = obj.Street + ", " + obj.City + ", " + obj.State + " " + obj.ZIP_Code + ", Phone: " + obj.Phone;
             }
             return address;
         }
