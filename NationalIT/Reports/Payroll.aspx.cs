@@ -317,8 +317,8 @@ namespace NationalIT.Reports
                 }
 
                 fee5 = total5 * ownerFeeRate;
-                ReportParameter dExFee = new ReportParameter("DExFee", total5.ToString("N2"));
-                ReportParameter dExTotal = new ReportParameter("DExTotal", fee5.ToString("N2"));
+                ReportParameter dExFee = new ReportParameter("DExFee", fee5.ToString("N2"));
+                ReportParameter dExTotal = new ReportParameter("DExTotal", total5.ToString("N2"));
                 parameters.Add(dExFee);
                 parameters.Add(dExTotal);
                 ReportViewer1.LocalReport.DataSources.Add(
