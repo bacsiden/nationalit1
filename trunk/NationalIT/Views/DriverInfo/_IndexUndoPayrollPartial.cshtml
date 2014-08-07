@@ -6,6 +6,73 @@
     var lstDriver_Expenses = Model != null ? Model.Temp_Split_Expenses != null ? Model.Temp_Split_Expenses.Where(m => m.Index == 1).ToList() : new List<NationalIT.Temp_Split_Expenses>() : new List<NationalIT.Temp_Split_Expenses>();
     var lstOwner_Expenses = Model != null ? Model.Temp_Split_Expenses != null ? Model.Temp_Split_Expenses.Where(m => m.Index == 2).ToList() : new List<NationalIT.Temp_Split_Expenses>() : new List<NationalIT.Temp_Split_Expenses>();
 }
+<script type="text/javascript">
+    $(document).ready(function () {
+        // trip
+        ListenerCheckBox($("#TripAmountTable .DriverTripCheckAll"), $("#TripAmountTable .DriverTripCheckItem"));
+        //fuel expenses
+        ListenerCheckBox($("#Fuel_ExpensesAmount .DriverFuel___ExpensesAll"), $("#Fuel_ExpensesAmount .DriverFuel___ExpensesItem"));
+        //operating expenses
+        ListenerCheckBox($("#Operating_ExpensesAmount .DriverOperating_ExpensesAll"), $("#Operating_ExpensesAmount .DriverOperating_ExpensesItem"));
+        //Driver split expenses
+        ListenerCheckBox($("#DriverExpensesSplit .SplitcheckAll"), $("#DriverExpensesSplit .Splitcheckitem"));
+        //Owner split expenses
+        ListenerCheckBox($("#OwnerExpensesSplit .SplitcheckAll"), $("#OwnerExpensesSplit .Splitcheckitem"));
+        $(".btnRollBack").click(function () {
+            if (!confirm("Are you sure you want process this Roll Back?")) {
+                return false;
+            }
+            var Trips = getListIDCheckBoxByIDClassName("TripAmountTable", "DriverTripCheckItem");
+            var Fuel = getListIDCheckBoxByIDClassName("Fuel_ExpensesAmount", "DriverFuel___ExpensesItem");
+            var operating = getListIDCheckBoxByIDClassName("Operating_ExpensesAmount", "DriverOperating_ExpensesItem");
+            var splitdriver = getListIDCheckBoxByIDClassName("DriverExpensesSplit", "Splitcheckitem");
+            var splitowner = getListIDCheckBoxByIDClassName("OwnerExpensesSplit", "Splitcheckitem");
+            var id = '@(Model != null ? Model.ID : 0)';
+            var url = $(this).attr('href');
+            var newurl = addParam(addParam(addParam(addParam(addParam(addParam(url, "id", id), "Trips", Trips), "Fuel", Fuel), "operating", operating), "splitdriver", splitdriver), "splitowner", splitowner);
+            if (isRollBackAll()) {
+                newurl = addParam(newurl, "isRollBackAll", true);
+            }
+            location.href = newurl;
+            return false;
+        });
+    });
+    function ListenerCheckBox(objCheckAll, objCheckItem) {
+        objCheckItem.click(function () {
+            var $this = $(this);
+            if ($this.is(':checked')) {
+                var countChecked = 0;
+                objCheckItem.each(function () {
+                    if ($(this).is(":checked")) {
+                        countChecked++;
+                    }
+                });
+                if (countChecked == objCheckItem.length) {
+                    objCheckAll.prop('checked', true);
+                }
+            } else {
+                objCheckAll.prop('checked', false);
+            }
+        });
+        ListenerCheckAll(objCheckAll, objCheckItem);
+    }
+    function ListenerCheckAll(checkAll, checkItem) {
+        checkAll.click(function () {
+            if ($(this).is(':checked')) {
+                checkItem.prop('checked', true);
+            } else {
+                checkItem.prop('checked', false);
+            }
+        });
+    }
+    function formatCurrency(num) {
+        num = isNaN(num) || num === '' || num === null ? 0.00 : num;
+        return parseFloat(num).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+    }
+    function isRollBackAll() {
+        return $(".DriverTripCheckAll").is(":checked") && $(".DriverFuel___ExpensesAll").is(":checked") && $(".DriverOperating_ExpensesAll").is(":checked") && $("#DriverExpensesSplit .SplitcheckAll").is(":checked") && $("#OwnerExpensesSplit .SplitcheckAll").is(":checked");
+    }
+</script>
 <div id="tab-1-1">
     @Html.Partial("/Views/Undo-Payrolls/_IndexPartialTripInfo.cshtml", lstTripInfo)
 </div>

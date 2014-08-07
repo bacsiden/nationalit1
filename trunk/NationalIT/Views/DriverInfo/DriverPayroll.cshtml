@@ -28,7 +28,8 @@
             var driverid = '@Model.ID';
             var url = $(this).attr('href');
             var newurl = addParam(addParam(addParam(addParam(addParam(addParam(url, "driverid", driverid), "Trips", Trips), "Fuel", Fuel), "operating", operating), "splitdriver", splitdriver), "splitowner", splitowner);
-            window.open(newurl, '_blank');
+            var beforeURL = "@Url.Action("BeforeDriverPayroll", "DriverInfo")?url="+newurl;
+            window.open(beforeURL, '_blank');
             return false;
         });
     });

@@ -16,6 +16,11 @@ namespace NationalIT.Reports
             //Trips=1-2-3&Fuel=3-4-6&operating=3-4-5&splitdriver=2-3$splitowner=3-4
             if (!Page.IsPostBack)
             {
+                bool flag = true;
+                if (Session["Payroll"] == null)
+                {
+                    flag = false;
+                }
                 #region common prepare
                 ReportViewer1.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
                 ReportViewer1.LocalReport.ReportPath = Server.MapPath("/Reports/CurrentPayroll.rdlc");
@@ -27,12 +32,15 @@ namespace NationalIT.Reports
                 var driverinfo = db.Driver_Info.FirstOrDefault(m => m.ID == driverid);
                 //create a temp report
                 TempReport tr = new TempReport();
-                tr.DriverID = driverid;
-                tr.Date = DateTime.Now;
-                tr.Pay_rate = driverinfo.Pay_rate;
-                tr.fuel___advance_Fee_rate = driverinfo.fuel___advance_Fee_rate;
-                db.TempReport.AddObject(tr);
-                db.SaveChanges();
+                if (flag)
+                {
+                    tr.DriverID = driverid;
+                    tr.Date = DateTime.Now;
+                    tr.Pay_rate = driverinfo.Pay_rate;
+                    tr.fuel___advance_Fee_rate = driverinfo.fuel___advance_Fee_rate;
+                    db.TempReport.AddObject(tr);
+                    db.SaveChanges();
+                }
                 #endregion
                 #region Trips
                 double total1 = 0;
@@ -48,39 +56,42 @@ namespace NationalIT.Reports
                     var lstTrip = db.Trip_Info.Where(m => lst.Contains(m.Trip_ID));
                     foreach (var item in lstTrip)
                     {
-                        Temp_Trip_Info ttrip = new Temp_Trip_Info();
-                        ttrip.TripID = item.Trip_ID;
-                        ttrip.TempReportID = tr.ID;
-                        ttrip.Address = item.Address;
-                        ttrip.Comfirmed_Rate = item.Comfirmed_Rate;
-                        ttrip.Comment = item.Comment;
-                        ttrip.Current_Payroll = item.Current_Payroll;
-                        ttrip.Customer = item.Customer;
-                        ttrip.Customer_Invoiced = item.Customer_Invoiced;
-                        ttrip.Customer_Invoiced_date = item.Customer_Invoiced_date;
-                        ttrip.Dead_head_miles = item.Dead_head_miles;
-                        ttrip.Deliverd = item.Deliverd;
-                        ttrip.Delivery_date = item.Delivery_date;
-                        ttrip.Delivery_location = item.Delivery_location;
-                        ttrip.Detention = item.Detention;
-                        ttrip.Detention_pay = item.Detention_pay;
-                        ttrip.Dispatcher = item.Dispatcher;
-                        ttrip.Driver = item.Driver;
-                        ttrip.Driver_paid = item.Driver_paid;
-                        ttrip.Equipment_ID = item.Equipment_ID;
-                        ttrip.Extra_charges = item.Extra_charges;
-                        ttrip.Extra_stops = item.Extra_stops;
-                        ttrip.Invoice = item.Invoice;
-                        ttrip.Loaded_miles = item.Loaded_miles;
-                        ttrip.Order_date = item.Order_date;
-                        ttrip.Paid = item.Paid;
-                        ttrip.Pick_up_location = item.Pick_up_location;
-                        ttrip.Picked = item.Picked;
-                        ttrip.Pickup_date = item.Pickup_date;
-                        ttrip.PO_ = item.PO_;
-                        ttrip.Total_charges = item.Total_charges;
-                        item.Driver_paid = true;
-                        db.Temp_Trip_Info.AddObject(ttrip);
+                        if (flag)
+                        {
+                            Temp_Trip_Info ttrip = new Temp_Trip_Info();
+                            ttrip.TripID = item.Trip_ID;
+                            ttrip.TempReportID = tr.ID;
+                            ttrip.Address = item.Address;
+                            ttrip.Comfirmed_Rate = item.Comfirmed_Rate;
+                            ttrip.Comment = item.Comment;
+                            ttrip.Current_Payroll = item.Current_Payroll;
+                            ttrip.Customer = item.Customer;
+                            ttrip.Customer_Invoiced = item.Customer_Invoiced;
+                            ttrip.Customer_Invoiced_date = item.Customer_Invoiced_date;
+                            ttrip.Dead_head_miles = item.Dead_head_miles;
+                            ttrip.Deliverd = item.Deliverd;
+                            ttrip.Delivery_date = item.Delivery_date;
+                            ttrip.Delivery_location = item.Delivery_location;
+                            ttrip.Detention = item.Detention;
+                            ttrip.Detention_pay = item.Detention_pay;
+                            ttrip.Dispatcher = item.Dispatcher;
+                            ttrip.Driver = item.Driver;
+                            ttrip.Driver_paid = item.Driver_paid;
+                            ttrip.Equipment_ID = item.Equipment_ID;
+                            ttrip.Extra_charges = item.Extra_charges;
+                            ttrip.Extra_stops = item.Extra_stops;
+                            ttrip.Invoice = item.Invoice;
+                            ttrip.Loaded_miles = item.Loaded_miles;
+                            ttrip.Order_date = item.Order_date;
+                            ttrip.Paid = item.Paid;
+                            ttrip.Pick_up_location = item.Pick_up_location;
+                            ttrip.Picked = item.Picked;
+                            ttrip.Pickup_date = item.Pickup_date;
+                            ttrip.PO_ = item.PO_;
+                            ttrip.Total_charges = item.Total_charges;
+                            item.Driver_paid = true;
+                            db.Temp_Trip_Info.AddObject(ttrip);
+                        }
                         //db.ObjectStateManager.ChangeObjectState(item, System.Data.EntityState.Modified);
                         var dr = trip.NewRow();
                         dr["PickupDate"] = string.Format("{0:MM/dd/yyyy}", item.Order_date);
@@ -117,23 +128,27 @@ namespace NationalIT.Reports
                     var lstTrip = db.Fuel___Expenses.Where(m => lst.Contains(m.ID));
                     foreach (var item in lstTrip)
                     {
-                        Temp_Fuel_Expenses tfuel = new Temp_Fuel_Expenses();
-                        tfuel.FuelExpensesID = item.ID;
-                        tfuel.TempReportID = tr.ID;
-                        tfuel.Amount = item.Amount;
-                        tfuel.AmountN = item.AmountN;
-                        tfuel.Current_Payroll = item.Current_Payroll;
-                        tfuel.Date = item.Date;
-                        tfuel.Description = item.Description;
-                        tfuel.Driver = item.Driver;
-                        tfuel.fee_charged = item.fee_charged;
-                        tfuel.Fuel_Card = item.Fuel_Card;
-                        tfuel.Location = item.Location;
-                        tfuel.Paid_off = item.Paid_off;
-                        tfuel.Type = item.Type;
-                        db.Temp_Fuel_Expenses.AddObject(tfuel);
-                        item.Paid_off = true;
-                       // db.ObjectStateManager.ChangeObjectState(item, System.Data.EntityState.Modified);
+                        if (flag)
+                        {
+                            Temp_Fuel_Expenses tfuel = new Temp_Fuel_Expenses();
+                            tfuel.FuelExpensesID = item.ID;
+                            tfuel.TempReportID = tr.ID;
+                            tfuel.Amount = item.Amount;
+                            tfuel.AmountN = item.AmountN;
+                            tfuel.Current_Payroll = item.Current_Payroll;
+                            tfuel.Date = item.Date;
+                            tfuel.Description = item.Description;
+                            tfuel.Driver = item.Driver;
+                            tfuel.fee_charged = item.fee_charged;
+                            tfuel.Fuel_Card = item.Fuel_Card;
+                            tfuel.Location = item.Location;
+                            tfuel.Paid_off = item.Paid_off;
+                            tfuel.Type = item.Type;
+                            db.Temp_Fuel_Expenses.AddObject(tfuel);
+                            item.Paid_off = true;
+                        }
+
+                        // db.ObjectStateManager.ChangeObjectState(item, System.Data.EntityState.Modified);
                         var dr1 = fuel.NewRow();
                         dr1["Date"] = String.Format("{0:MM/dd/yyyy}", item.Date);
                         dr1["Type"] = item.Type;
@@ -167,18 +182,21 @@ namespace NationalIT.Reports
                     var lstTrip = db.Operating_Expenses.Where(m => lst.Contains(m.ID));
                     foreach (var item in lstTrip)
                     {
-                        Temp_Operating_Expenses toperating = new Temp_Operating_Expenses();
-                        toperating.OperatingExpensesID = item.ID;
-                        toperating.TempReportID = tr.ID;
-                        toperating.Amount = item.Amount;
-                        toperating.Current_Payroll = item.Current_Payroll;
-                        toperating.Date = item.Date;
-                        toperating.Description = item.Description;
-                        toperating.Driver = item.Driver;
-                        toperating.Location = item.Location;
-                        toperating.Type = item.Type;
-                        db.Temp_Operating_Expenses.AddObject(toperating);
-                        item.Paid_off = true;
+                        if (flag)
+                        {
+                            Temp_Operating_Expenses toperating = new Temp_Operating_Expenses();
+                            toperating.OperatingExpensesID = item.ID;
+                            toperating.TempReportID = tr.ID;
+                            toperating.Amount = item.Amount;
+                            toperating.Current_Payroll = item.Current_Payroll;
+                            toperating.Date = item.Date;
+                            toperating.Description = item.Description;
+                            toperating.Driver = item.Driver;
+                            toperating.Location = item.Location;
+                            toperating.Type = item.Type;
+                            db.Temp_Operating_Expenses.AddObject(toperating);
+                            item.Paid_off = true;
+                        }
                         //db.ObjectStateManager.ChangeObjectState(item, System.Data.EntityState.Modified);
                         var dr2 = opera.NewRow();
                         dr2["Date"] = string.Format("{0:MM/dd/yyyy}", item.Date);
@@ -206,7 +224,7 @@ namespace NationalIT.Reports
                         if (objOwner.fee_rate != null)
                             ownerFeeRate = (double)objOwner.fee_rate;
                 }
-                
+
                 DataTable osplit = ds.OwnerExpenses;
                 para = Request.QueryString["splitowner"];
                 if (!string.IsNullOrEmpty(para))
@@ -218,21 +236,24 @@ namespace NationalIT.Reports
                     var lstTrip = db.split_expenses.Where(m => lst.Contains(m.Id));
                     foreach (var item in lstTrip)
                     {
-                        Temp_Split_Expenses tsowner = new Temp_Split_Expenses();
-                        tsowner.SplitExpensesID = item.Id;
-                        tsowner.TempReportID = tr.ID;
-                        tsowner.Amount = item.Amount;
-                        tsowner.Current_Payroll = item.Current_Payroll;
-                        tsowner.Date = item.Date;
-                        tsowner.Details = item.Details;
-                        tsowner.Expenses = item.Expenses;
-                        tsowner.Fee_Charged = item.Fee_Charged;
-                        tsowner.Index = item.Idndex;
-                        tsowner.OwnerDriver = item.OwnerDriver;
-                        tsowner.Paid_Off = item.Paid_Off;
-                        db.Temp_Split_Expenses.AddObject(tsowner);
-                        item.Paid_Off = true;
-                       // db.ObjectStateManager.ChangeObjectState(item, System.Data.EntityState.Modified);
+                        if (flag)
+                        {
+                            Temp_Split_Expenses tsowner = new Temp_Split_Expenses();
+                            tsowner.SplitExpensesID = item.Id;
+                            tsowner.TempReportID = tr.ID;
+                            tsowner.Amount = item.Amount;
+                            tsowner.Current_Payroll = item.Current_Payroll;
+                            tsowner.Date = item.Date;
+                            tsowner.Details = item.Details;
+                            tsowner.Expenses = item.Expenses;
+                            tsowner.Fee_Charged = item.Fee_Charged;
+                            tsowner.Index = item.Idndex;
+                            tsowner.OwnerDriver = item.OwnerDriver;
+                            tsowner.Paid_Off = item.Paid_Off;
+                            db.Temp_Split_Expenses.AddObject(tsowner);
+                            item.Paid_Off = true;
+                        }
+                        // db.ObjectStateManager.ChangeObjectState(item, System.Data.EntityState.Modified);
                         var dr3 = osplit.NewRow();
                         dr3["Date"] = string.Format("{0:MM/dd/yyyy}", item.Date);
                         dr3["Expenses"] = item.Expenses;
@@ -266,21 +287,24 @@ namespace NationalIT.Reports
                     var lstTrip = db.split_expenses.Where(m => lst.Contains(m.Id));
                     foreach (var item in lstTrip)
                     {
-                        Temp_Split_Expenses tsowner = new Temp_Split_Expenses();
-                        tsowner.SplitExpensesID = item.Id;
-                        tsowner.TempReportID = tr.ID;
-                        tsowner.Amount = item.Amount;
-                        tsowner.Current_Payroll = item.Current_Payroll;
-                        tsowner.Date = item.Date;
-                        tsowner.Details = item.Details;
-                        tsowner.Expenses = item.Expenses;
-                        tsowner.Fee_Charged = item.Fee_Charged;
-                        tsowner.Index = item.Idndex;
-                        tsowner.OwnerDriver = item.OwnerDriver;
-                        tsowner.Paid_Off = item.Paid_Off;
-                        db.Temp_Split_Expenses.AddObject(tsowner);
-                        item.Paid_Off = true;
-                      //  db.ObjectStateManager.ChangeObjectState(item, System.Data.EntityState.Modified);
+                        if (flag)
+                        {
+                            Temp_Split_Expenses tsowner = new Temp_Split_Expenses();
+                            tsowner.SplitExpensesID = item.Id;
+                            tsowner.TempReportID = tr.ID;
+                            tsowner.Amount = item.Amount;
+                            tsowner.Current_Payroll = item.Current_Payroll;
+                            tsowner.Date = item.Date;
+                            tsowner.Details = item.Details;
+                            tsowner.Expenses = item.Expenses;
+                            tsowner.Fee_Charged = item.Fee_Charged;
+                            tsowner.Index = item.Idndex;
+                            tsowner.OwnerDriver = item.OwnerDriver;
+                            tsowner.Paid_Off = item.Paid_Off;
+                            db.Temp_Split_Expenses.AddObject(tsowner);
+                            item.Paid_Off = true;
+                        }
+                        //  db.ObjectStateManager.ChangeObjectState(item, System.Data.EntityState.Modified);
                         var dr4 = dsplit.NewRow();
                         dr4["Date"] = string.Format("{0:MM/dd/yyyy}", item.Date);
                         dr4["Expenses"] = item.Expenses;
@@ -300,7 +324,10 @@ namespace NationalIT.Reports
                 ReportViewer1.LocalReport.DataSources.Add(
                 new Microsoft.Reporting.WebForms.ReportDataSource("DriverExpenses", dsplit));
                 #endregion
-                db.SaveChanges();
+                if (flag)
+                {
+                    db.SaveChanges();
+                }
 
                 #region Calculate the total
                 double r1 = total1 - total1 * driverinfo.Pay_rate;
@@ -310,7 +337,7 @@ namespace NationalIT.Reports
                 double r6a = r2 + total3 + r4 + r5;
                 double r6b = r1 - r6a;
 
-                
+
                 double ownerPayment = (double)driverinfo.Owner_Pay_Rate * r6b;
                 double driverPayment = r6b - ownerPayment;
 
@@ -324,6 +351,10 @@ namespace NationalIT.Reports
                 this.ReportViewer1.LocalReport.SetParameters(parameters);
                 ReportViewer1.LocalReport.Refresh();
                 #endregion
+                if (Session["Payroll"] != null)
+                {
+                    Session.Remove("Payroll");
+                }
             }
         }
     }
