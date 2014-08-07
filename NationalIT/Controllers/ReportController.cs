@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace NationalIT.Controllers
 {
+    [Authorize]
     public class ReportController : Controller
     {
         //

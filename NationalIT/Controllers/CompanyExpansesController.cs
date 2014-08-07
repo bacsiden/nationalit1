@@ -7,6 +7,7 @@ using Webdiyer.WebControls.Mvc;
 
 namespace NationalIT.Controllers
 {
+    [Authorize]
     public class CompanyExpansesController : Controller
     {
         //
@@ -32,7 +33,7 @@ namespace NationalIT.Controllers
         // POST: /Owner/Edit/5
 
         [HttpPost]
-        public ActionResult NewOrEdit(Company_Expanses model,FormCollection frm)
+        public ActionResult NewOrEdit(Company_Expanses model, FormCollection frm)
         {
             try
             {

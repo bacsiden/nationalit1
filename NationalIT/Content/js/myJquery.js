@@ -96,6 +96,19 @@
             return false;
         }
     });
+    $(".LockUser").click(function () {
+        var listID = "";
+        var url = $(this).attr('href');
+        $('input.checkitem:checkbox:checked').each(function () {
+            listID += "," + $(this).val();
+        });
+        if (listID != "") {
+            $(this).attr('href', url + "?arrayID=" + listID);
+        } else {
+            alert('Warring!');
+            return false;
+        }
+    });
     // ------------------------------------------------------------------
 
     // Enter for Custom info input text

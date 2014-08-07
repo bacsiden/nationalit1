@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Alabama.Role1>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="box">
+            <div class="box-title">
+                <h3>
+                    <i class="icon-table"></i>Danh sách vai trò</h3>
+            </div>
+            <div class="box-content">
+                <p style="margin-left: 7px;">
+                    @Html.ActionLink("Thêm vai trò", "Create", null, new { @class = "btn btn-primary" })
+                </p>
+                <table class="table">
+                    <thead>
+                        <tr class="table-flag-blue">
+                            <th>
+                                Tên vai trò
+                            </th>
+                            <th>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>                                
+                                <td>
+                                    @Html.ActionLink(item.Name, "Edit", new { id = item.ID })
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Phân chức năng", "Function", new { id = item.ID })
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Xóa", "Delete", new { id = item.ID }, new { @class = "confirmDelete" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
