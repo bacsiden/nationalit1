@@ -43,22 +43,22 @@
                         <input type="checkbox" name="checkOwner" value="@item.ID" class="checkitem"/>
                     </td>
                     <td>
-                        <a href="/OperatingExpenses/NewOrEdit/@item.ID" style="color: #0072BC;">@item.ID</a>
+                        <a href="/OperatingExpenses/NewOrEdit/@item.ID" >@item.ID</a>
                     </td>
                     <td>
-                        @Html.Raw(item.Driver_Info != null ? item.Driver_Info.First_name : "")
+                        <a href="/OperatingExpenses/NewOrEdit/@item.ID" >@Html.Raw(item.Driver_Info != null ? item.Driver_Info.Last_name + " " + item.Driver_Info.First_name : "")</a>
                     </td>
                     <td>
                         @item.Current_Payroll
                     </td>
                     <td>
-                        @(item.Date.HasValue?item.Date.Value.ToString("MM/dd/yyyy"):"")
+                        @(item.Date.HasValue ? item.Date.Value.ToString("MM/dd/yyyy") : "")
                     </td>
                     <td>
-                         @String.Format("{0:C}", item.Amount)
+                        @String.Format("{0:C}", item.Amount)
                     </td>
                     <td>
-                        @(item.Driver_Info!=null?item.Driver_Info.First_name:"")
+                        @(item.Driver_Info != null ? item.Driver_Info.First_name : "")
                     </td>
                     <td>
                         @item.Paid_off

@@ -43,7 +43,7 @@
                     @Html.ActionLink(item.Customer_ID.ToString(), "NewOrEdit", new { id = item.Customer_ID })
                 </td>
                 <td>
-                    @item.Customer_Name
+                    @Html.ActionLink(item.Customer_Name, "NewOrEdit", new { id = item.Customer_ID })
                 </td>
                 <td>
                     @item.Street

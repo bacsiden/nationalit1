@@ -18,10 +18,7 @@
                 Order date
             </th>
             <th>
-                First name
-            </th>
-            <th>
-                Last name
+                Driver name
             </th>
             <th>
                 Pick up location
@@ -43,10 +40,10 @@
                     @(item.Order_date.HasValue ? item.Order_date.Value.ToString("MM/dd/yyyy") : "")
                 </td>
                 <td>
-                    @Html.Raw(item.Driver_Info != null ? item.Driver_Info.First_name : "")
-                </td>
-                <td>
-                    @Html.Raw(item.Driver_Info != null ? item.Driver_Info.Last_name : "")
+                    @if (item.Driver_Info != null)
+                    {
+                        @Html.ActionLink(item.Driver_Info.Last_name + " " + item.Driver_Info.First_name, "NewOrEdit", "DriverInfo", new { id = item.Driver }, null)
+                    }
                 </td>
                 <td>
                     @item.Pick_up_location
