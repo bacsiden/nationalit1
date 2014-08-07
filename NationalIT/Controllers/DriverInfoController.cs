@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Webdiyer.WebControls.Mvc;
+using System.Data.SqlClient;
 
 namespace NationalIT.Controllers
 {
@@ -393,9 +394,15 @@ namespace NationalIT.Controllers
                     db.ObjectStateManager.ChangeObjectState(tsowner, System.Data.EntityState.Modified);
             }
             #endregion
-            db.DeleteObject(tempreport);
-            //db.ObjectStateManager.ChangeObjectState(tempreport, System.Data.EntityState.Deleted);
             db.SaveChanges();
+            string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connStr);
+            conn.Open();
+            SqlCommand co = new SqlCommand("delete from TempReport where ID = " + tempReportID, conn);
+            co.ExecuteNonQuery();
+            conn.Close();
+            //db.ObjectStateManager.ChangeObjectState(tempreport, System.Data.EntityState.Deleted);
+
         }
         public ActionResult RollBack(string driverID, int id, string Trips, string Fuel, string operating, string splitdriver, string splitowner, bool isRollBackAll = false)
         {

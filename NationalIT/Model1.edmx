@@ -20,7 +20,6 @@
           <EntitySet Name="Owners" EntityType="DB_9B22F2_nationalitModel.Store.Owners" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ReportIDs" EntityType="DB_9B22F2_nationalitModel.Store.ReportIDs" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="split_expenses" EntityType="DB_9B22F2_nationalitModel.Store.split_expenses" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="sysdiagrams" EntityType="DB_9B22F2_nationalitModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Temp_Fuel_Expenses" EntityType="DB_9B22F2_nationalitModel.Store.Temp_Fuel_Expenses" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Temp_Operating_Expenses" EntityType="DB_9B22F2_nationalitModel.Store.Temp_Operating_Expenses" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Temp_Split_Expenses" EntityType="DB_9B22F2_nationalitModel.Store.Temp_Split_Expenses" store:Type="Tables" Schema="dbo" />
@@ -287,16 +286,6 @@
           <Property Name="Fee_Charged" Type="bit" Nullable="false" />
           <Property Name="Current_Payroll" Type="bit" Nullable="false" />
           <Property Name="Paid_Off" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Temp_Fuel_Expenses">
           <Key>
@@ -648,7 +637,6 @@
           <EntitySet Name="Owners" EntityType="DB_9B22F2_nationalitModel.Owners" />
           <EntitySet Name="ReportIDs" EntityType="DB_9B22F2_nationalitModel.ReportIDs" />
           <EntitySet Name="split_expenses" EntityType="DB_9B22F2_nationalitModel.split_expenses" />
-          <EntitySet Name="sysdiagrams" EntityType="DB_9B22F2_nationalitModel.sysdiagrams" />
           <EntitySet Name="Temp_Fuel_Expenses" EntityType="DB_9B22F2_nationalitModel.Temp_Fuel_Expenses" />
           <EntitySet Name="Temp_Operating_Expenses" EntityType="DB_9B22F2_nationalitModel.Temp_Operating_Expenses" />
           <EntitySet Name="Temp_Split_Expenses" EntityType="DB_9B22F2_nationalitModel.Temp_Split_Expenses" />
@@ -931,16 +919,6 @@
           <Property Type="Boolean" Name="Fee_Charged" Nullable="false" />
           <Property Type="Boolean" Name="Current_Payroll" Nullable="false" />
           <Property Type="Boolean" Name="Paid_Off" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="principal_id" Nullable="false" />
-          <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="version" />
-          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Temp_Fuel_Expenses">
           <Key>
@@ -1497,17 +1475,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Temp_Fuel_Expenses">
             <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.Temp_Fuel_Expenses">
               <MappingFragment StoreEntitySet="Temp_Fuel_Expenses">
@@ -1679,7 +1646,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Model1">
-        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Company_Expanses" Width="1.5" PointX="0.75" PointY="0.75" Height="1.9802864583333282" />
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Company_Expanses" Width="1.5" PointX="0.75" PointY="0.75" Height="1.9802864583333246" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Customer_Info" Width="1.5" PointX="6" PointY="1" Height="3.326396484374996" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Dispatchers" Width="1.5" PointX="0.75" PointY="9.75" Height="2.7494921875000102" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Driver_Info" Width="1.5" PointX="3" PointY="7.625" Height="6.78782226562501" />
@@ -1693,7 +1660,6 @@
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Owners" Width="1.5" PointX="0.75" PointY="6" Height="2.172587890624996" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.ReportIDs" Width="1.5" PointX="0.75" PointY="15.75" Height="1.5956835937500102" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.split_expenses" Width="1.5" PointX="2.75" PointY="15.75" Height="2.9417936197916674" />
-        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.sysdiagrams" Width="1.5" PointX="15.75" PointY="4.75" Height="1.9802864583333246" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Temp_Fuel_Expenses" Width="1.5" PointX="13" PointY="1.875" Height="3.903300781249996" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Temp_Operating_Expenses" Width="1.5" PointX="13" PointY="6.5" Height="3.326396484374996" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Temp_Split_Expenses" Width="1.5" PointX="13" PointY="10.625" Height="3.5186979166666674" />
