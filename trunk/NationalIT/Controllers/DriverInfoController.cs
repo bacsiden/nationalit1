@@ -262,15 +262,149 @@ namespace NationalIT.Controllers
             return View(obj);
         }
 
-        public ActionResult RollBack(int id, string Trips, string Fuel, string operating, string splitdriver, string splitowner, bool isRollBackAll = false)
+        private void RollBackAll(int tempReportID)
+        {
+            var db = DB.Entities;
+            var tempreport = db.TempReport.FirstOrDefault(m => m.ID == tempReportID);
+            #region Trips
+            foreach (var item in tempreport.Temp_Trip_Info)
+            {
+                bool add = false;
+                Trip_Info ttrip = db.Trip_Info.FirstOrDefault(m => m.Trip_ID == item.TripID);
+                if (ttrip == null)
+                {
+                    ttrip = new Trip_Info();
+                    add = true;
+                }
+                ttrip.Address = item.Address;
+                ttrip.Comfirmed_Rate = item.Comfirmed_Rate;
+                ttrip.Comment = item.Comment;
+                ttrip.Current_Payroll = item.Current_Payroll;
+                ttrip.Customer = item.Customer;
+                ttrip.Customer_Invoiced = item.Customer_Invoiced;
+                ttrip.Customer_Invoiced_date = item.Customer_Invoiced_date;
+                ttrip.Dead_head_miles = item.Dead_head_miles;
+                ttrip.Deliverd = item.Deliverd;
+                ttrip.Delivery_date = item.Delivery_date;
+                ttrip.Delivery_location = item.Delivery_location;
+                ttrip.Detention = item.Detention;
+                ttrip.Detention_pay = item.Detention_pay;
+                ttrip.Dispatcher = item.Dispatcher;
+                ttrip.Driver = item.Driver;
+                ttrip.Driver_paid = item.Driver_paid;
+                ttrip.Equipment_ID = item.Equipment_ID;
+                ttrip.Extra_charges = item.Extra_charges;
+                ttrip.Extra_stops = item.Extra_stops;
+                ttrip.Invoice = item.Invoice;
+                ttrip.Loaded_miles = item.Loaded_miles;
+                ttrip.Order_date = item.Order_date;
+                ttrip.Paid = item.Paid;
+                ttrip.Pick_up_location = item.Pick_up_location;
+                ttrip.Picked = item.Picked;
+                ttrip.Pickup_date = item.Pickup_date;
+                ttrip.PO_ = item.PO_;
+                ttrip.Total_charges = item.Total_charges;
+                if (add)
+                {
+                    db.Trip_Info.AddObject(ttrip);
+                }
+                else
+                    db.ObjectStateManager.ChangeObjectState(ttrip, System.Data.EntityState.Modified);
+            }
+            #endregion
+            #region Fuel Expenses
+            foreach (var item in tempreport.Temp_Fuel_Expenses)
+            {
+                bool add = false;
+                Fuel___Expenses tfuel = db.Fuel___Expenses.FirstOrDefault(m => m.ID == item.ID);
+                if (tfuel == null)
+                {
+                    tfuel = new Fuel___Expenses();
+                    add = true;
+                }
+                tfuel.Amount = item.Amount;
+                tfuel.AmountN = item.AmountN;
+                tfuel.Current_Payroll = item.Current_Payroll;
+                tfuel.Date = item.Date;
+                tfuel.Description = item.Description;
+                tfuel.Driver = item.Driver;
+                tfuel.fee_charged = item.fee_charged;
+                tfuel.Fuel_Card = item.Fuel_Card;
+                tfuel.Location = item.Location;
+                tfuel.Paid_off = item.Paid_off;
+                tfuel.Type = item.Type;
+                if (add)
+                {
+                    db.Fuel___Expenses.AddObject(tfuel);
+                }
+                else
+                    db.ObjectStateManager.ChangeObjectState(tfuel, System.Data.EntityState.Modified);
+            }
+            #endregion
+            #region Operating Expenses
+            foreach (var item in tempreport.Temp_Operating_Expenses)
+            {
+                bool add = false;
+                Operating_Expenses toperating = db.Operating_Expenses.FirstOrDefault(m => m.ID == item.ID);
+                if (toperating == null)
+                {
+                    toperating = new Operating_Expenses();
+                    add = true;
+                }
+                toperating.Amount = item.Amount;
+                toperating.Current_Payroll = item.Current_Payroll;
+                toperating.Date = item.Date;
+                toperating.Description = item.Description;
+                toperating.Driver = item.Driver;
+                toperating.Location = item.Location;
+                toperating.Type = item.Type;
+                if (add)
+                {
+                    db.Operating_Expenses.AddObject(toperating);
+                }
+                else
+                    db.ObjectStateManager.ChangeObjectState(toperating, System.Data.EntityState.Modified);
+            }
+            #endregion
+            #region Owner driver Expenses
+            foreach (var item in tempreport.Temp_Split_Expenses)
+            {
+                bool add = false;
+                split_expenses tsowner = db.split_expenses.FirstOrDefault(m => m.Id == item.ID);
+                if (tsowner == null)
+                {
+                    tsowner = new split_expenses();
+                    add = true;
+                }
+                tsowner.Amount = item.Amount;
+                tsowner.Current_Payroll = item.Current_Payroll;
+                tsowner.Date = item.Date;
+                tsowner.Details = item.Details;
+                tsowner.Expenses = item.Expenses;
+                tsowner.Fee_Charged = item.Fee_Charged;
+                tsowner.Idndex = item.Index;
+                tsowner.OwnerDriver = item.OwnerDriver;
+                tsowner.Paid_Off = item.Paid_Off;
+                db.split_expenses.AddObject(tsowner);
+                if (add)
+                {
+                    db.split_expenses.AddObject(tsowner);
+                }
+                else
+                    db.ObjectStateManager.ChangeObjectState(tsowner, System.Data.EntityState.Modified);
+            }
+            #endregion
+
+            db.DeleteObject(tempreport);
+            db.SaveChanges();
+        }
+        public ActionResult RollBack(string driverID, int id, string Trips, string Fuel, string operating, string splitdriver, string splitowner, bool isRollBackAll = false)
         {
             var db = DB.Entities;
             if (isRollBackAll)
             {
-                var tempreport = db.TempReport.FirstOrDefault(m => m.ID == id);
-                db.DeleteObject(tempreport);
-                db.SaveChanges();
-                return RedirectToAction("PayrollsRollBack", new { id = 2 });
+                RollBackAll(id);
+                return RedirectToAction("PayrollsRollBack", new { driverID = driverID });
             }
             #region Trips
             if (!string.IsNullOrEmpty(Trips))
@@ -323,7 +457,12 @@ namespace NationalIT.Controllers
                     }
                     else
                         db.ObjectStateManager.ChangeObjectState(ttrip, System.Data.EntityState.Modified);
-
+                }
+                foreach (var item in lst)
+                {
+                    var xxx = db.Temp_Trip_Info.FirstOrDefault(m => m.ID == item);
+                    if (xxx != null)
+                        db.DeleteObject(xxx);
                 }
             }
             #endregion
@@ -362,6 +501,12 @@ namespace NationalIT.Controllers
                     else
                         db.ObjectStateManager.ChangeObjectState(tfuel, System.Data.EntityState.Modified);
                 }
+                foreach (var item in lst)
+                {
+                    var xxx = db.Temp_Fuel_Expenses.FirstOrDefault(m => m.ID == item);
+                    if (xxx != null)
+                        db.DeleteObject(xxx);
+                }
             }
 
             #endregion
@@ -372,7 +517,7 @@ namespace NationalIT.Controllers
                 List<int> lst = new List<int>();
                 foreach (var item in lstID)
                     lst.Add(int.Parse(item));
-                var lstTrip = db.Operating_Expenses.Where(m => lst.Contains(m.ID));
+                var lstTrip = db.Temp_Operating_Expenses.Where(m => lst.Contains(m.ID));
                 foreach (var item in lstTrip)
                 {
                     bool add = false;
@@ -396,6 +541,12 @@ namespace NationalIT.Controllers
                     else
                         db.ObjectStateManager.ChangeObjectState(toperating, System.Data.EntityState.Modified);
                 }
+                foreach (var item in lst)
+                {
+                    var xxx = db.Temp_Operating_Expenses.FirstOrDefault(m => m.ID == item);
+                    if (xxx != null)
+                        db.DeleteObject(xxx);
+                }
             }
             #endregion
             #region Owner Expenses
@@ -405,11 +556,11 @@ namespace NationalIT.Controllers
                 List<int> lst = new List<int>();
                 foreach (var item in lstID)
                     lst.Add(int.Parse(item));
-                var lstTrip = db.split_expenses.Where(m => lst.Contains(m.Id));
+                var lstTrip = db.Temp_Split_Expenses.Where(m => lst.Contains(m.ID));
                 foreach (var item in lstTrip)
                 {
                     bool add = false;
-                    split_expenses tsowner = db.split_expenses.FirstOrDefault(m => m.Id == item.Id);
+                    split_expenses tsowner = db.split_expenses.FirstOrDefault(m => m.Id == item.ID);
                     if (tsowner == null)
                     {
                         tsowner = new split_expenses();
@@ -421,7 +572,7 @@ namespace NationalIT.Controllers
                     tsowner.Details = item.Details;
                     tsowner.Expenses = item.Expenses;
                     tsowner.Fee_Charged = item.Fee_Charged;
-                    tsowner.Idndex = item.Idndex;
+                    tsowner.Idndex = item.Index;
                     tsowner.OwnerDriver = item.OwnerDriver;
                     tsowner.Paid_Off = item.Paid_Off;
                     db.split_expenses.AddObject(tsowner);
@@ -431,6 +582,12 @@ namespace NationalIT.Controllers
                     }
                     else
                         db.ObjectStateManager.ChangeObjectState(tsowner, System.Data.EntityState.Modified);
+                }
+                foreach (var item in lst)
+                {
+                    var xxx = db.Temp_Split_Expenses.FirstOrDefault(m => m.ID == item);
+                    if (xxx != null)
+                        db.DeleteObject(xxx);
                 }
             }
             #endregion
@@ -441,11 +598,11 @@ namespace NationalIT.Controllers
                 List<int> lst = new List<int>();
                 foreach (var item in lstID)
                     lst.Add(int.Parse(item));
-                var lstTrip = db.split_expenses.Where(m => lst.Contains(m.Id));
+                var lstTrip = db.Temp_Split_Expenses.Where(m => lst.Contains(m.ID));
                 foreach (var item in lstTrip)
                 {
                     bool add = false;
-                    split_expenses tsowner = db.split_expenses.FirstOrDefault(m => m.Id == item.Id);
+                    split_expenses tsowner = db.split_expenses.FirstOrDefault(m => m.Id == item.ID);
                     if (tsowner == null)
                     {
                         tsowner = new split_expenses();
@@ -457,7 +614,7 @@ namespace NationalIT.Controllers
                     tsowner.Details = item.Details;
                     tsowner.Expenses = item.Expenses;
                     tsowner.Fee_Charged = item.Fee_Charged;
-                    tsowner.Idndex = item.Idndex;
+                    tsowner.Idndex = item.Index;
                     tsowner.OwnerDriver = item.OwnerDriver;
                     tsowner.Paid_Off = item.Paid_Off;
                     db.split_expenses.AddObject(tsowner);
@@ -468,11 +625,17 @@ namespace NationalIT.Controllers
                     else
                         db.ObjectStateManager.ChangeObjectState(tsowner, System.Data.EntityState.Modified);
                 }
+                foreach (var item in lst)
+                {
+                    var xxx = db.Temp_Split_Expenses.FirstOrDefault(m => m.ID == item);
+                    if (xxx != null)
+                        db.DeleteObject(xxx);
+                }
             }
             #endregion
             db.SaveChanges();
 
-            return RedirectToAction("PayrollsRollBack", new { id = id });
+            return RedirectToAction("PayrollsRollBack", new { driverID = driverID });
         }
         public ActionResult BeforeDriverPayroll(string url)
         {
