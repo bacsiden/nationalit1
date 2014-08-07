@@ -267,7 +267,8 @@ namespace NationalIT.Controllers
             {
                 var tempreport = db.TempReport.FirstOrDefault(m => m.ID == id);
                 db.DeleteObject(tempreport);
-                return RedirectToAction("PayrollsRollBack", new { id = id });
+                db.SaveChanges();
+                return RedirectToAction("PayrollsRollBack", new { id = 2 });
             }
             #region Trips
             if (!string.IsNullOrEmpty(Trips))
