@@ -49,7 +49,7 @@
                         @(item.Delivery_date.HasValue ? item.Delivery_date.Value.ToString("MM/dd/yyyy") : "")
                     </td>
                     <td>
-                        @Html.ActionLink(item.ID.ToString(), "NewOrEdit", "TripInfo", new { id = item.ID }, null)
+                        @item.ID
                     </td>
                     <td>
                         @item.Total_charges
