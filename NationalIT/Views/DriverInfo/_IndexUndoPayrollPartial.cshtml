@@ -8,6 +8,9 @@
 }
 <script type="text/javascript">
     $(document).ready(function () {
+        // CHeck toàn bộ khi load
+        $("input[type=checkbox]").prop('checked', true);
+
         // trip
         ListenerCheckBox($("#TripAmountTable .DriverTripCheckAll"), $("#TripAmountTable .DriverTripCheckItem"));
         //fuel expenses
