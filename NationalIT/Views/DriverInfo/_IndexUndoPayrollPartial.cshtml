@@ -1,0 +1,23 @@
+﻿@model NationalIT.TempReport
+@{
+    var lstTripInfo = Model != null ? Model.Temp_Trip_Info != null ? Model.Temp_Trip_Info.ToList() : new List<NationalIT.Temp_Trip_Info>() : new List<NationalIT.Temp_Trip_Info>();
+    var lstFuel_Expenses = Model != null ? Model.Temp_Fuel_Expenses != null ? Model.Temp_Fuel_Expenses.ToList() : new List<NationalIT.Temp_Fuel_Expenses>() : new List<NationalIT.Temp_Fuel_Expenses>();
+    var lstOperating_Expenses = Model != null ? Model.Temp_Operating_Expenses != null ? Model.Temp_Operating_Expenses.ToList() : new List<NationalIT.Temp_Operating_Expenses>() : new List<NationalIT.Temp_Operating_Expenses>();
+    var lstDriver_Expenses = Model != null ? Model.Temp_Split_Expenses != null ? Model.Temp_Split_Expenses.Where(m => m.Index == 1).ToList() : new List<NationalIT.Temp_Split_Expenses>() : new List<NationalIT.Temp_Split_Expenses>();
+    var lstOwner_Expenses = Model != null ? Model.Temp_Split_Expenses != null ? Model.Temp_Split_Expenses.Where(m => m.Index == 2).ToList() : new List<NationalIT.Temp_Split_Expenses>() : new List<NationalIT.Temp_Split_Expenses>();
+}
+<div id="tab-1-1">
+    @Html.Partial("/Views/Undo-Payrolls/_IndexPartialTripInfo.cshtml", lstTripInfo)
+</div>
+<div id="tab-1-2">
+    @Html.Partial("/Views/Undo-Payrolls/_Fuel_ExpensesPartial.cshtml", lstFuel_Expenses)
+</div>
+<div id="tab-1-3">
+    @Html.Partial("/Views/Undo-Payrolls/_Operating_ExpensesPartial.cshtml", lstOperating_Expenses)
+</div>
+<div id="tab-1-4-1">
+    @Html.Partial("/Views/Undo-Payrolls/_DriverExpenses.cshtml", lstDriver_Expenses)
+</div>
+<div id="tab-1-4-2">
+    @Html.Partial("/Views/Undo-Payrolls/_OwnerExpenses.cshtml", lstOwner_Expenses)
+</div>
