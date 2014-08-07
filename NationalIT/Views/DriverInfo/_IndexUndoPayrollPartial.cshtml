@@ -21,22 +21,21 @@
         ListenerCheckBox($("#DriverExpensesSplit .SplitcheckAll"), $("#DriverExpensesSplit .Splitcheckitem"));
         //Owner split expenses
         ListenerCheckBox($("#OwnerExpensesSplit .SplitcheckAll"), $("#OwnerExpensesSplit .Splitcheckitem"));
-        $(".btnRollBack").click(function () {
-            if (!confirm("Are you sure you want process this Roll Back?")) {
-                return false;
+        $(".btnRollBack").on("click",function () {
+            if (confirm("Are you sure you want process this Roll Back?")) {
+                var Trips = getListIDCheckBoxByIDClassName("TripAmountTable", "DriverTripCheckItem");
+                var Fuel = getListIDCheckBoxByIDClassName("Fuel_ExpensesAmount", "DriverFuel___ExpensesItem");
+                var operating = getListIDCheckBoxByIDClassName("Operating_ExpensesAmount", "DriverOperating_ExpensesItem");
+                var splitdriver = getListIDCheckBoxByIDClassName("DriverExpensesSplit", "Splitcheckitem");
+                var splitowner = getListIDCheckBoxByIDClassName("OwnerExpensesSplit", "Splitcheckitem");
+                var id = '@(Model != null ? Model.ID : 0)';
+                var url = $(this).attr('href');
+                var newurl = addParam(addParam(addParam(addParam(addParam(addParam(url, "id", id), "Trips", Trips), "Fuel", Fuel), "operating", operating), "splitdriver", splitdriver), "splitowner", splitowner);
+                if (isRollBackAll()) {
+                    newurl = addParam(newurl, "isRollBackAll", true);
+                }
+                location.href = newurl;
             }
-            var Trips = getListIDCheckBoxByIDClassName("TripAmountTable", "DriverTripCheckItem");
-            var Fuel = getListIDCheckBoxByIDClassName("Fuel_ExpensesAmount", "DriverFuel___ExpensesItem");
-            var operating = getListIDCheckBoxByIDClassName("Operating_ExpensesAmount", "DriverOperating_ExpensesItem");
-            var splitdriver = getListIDCheckBoxByIDClassName("DriverExpensesSplit", "Splitcheckitem");
-            var splitowner = getListIDCheckBoxByIDClassName("OwnerExpensesSplit", "Splitcheckitem");
-            var id = '@(Model != null ? Model.ID : 0)';
-            var url = $(this).attr('href');
-            var newurl = addParam(addParam(addParam(addParam(addParam(addParam(url, "id", id), "Trips", Trips), "Fuel", Fuel), "operating", operating), "splitdriver", splitdriver), "splitowner", splitowner);
-            if (isRollBackAll()) {
-                newurl = addParam(newurl, "isRollBackAll", true);
-            }
-            location.href = newurl;
             return false;
         });
     });

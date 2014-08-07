@@ -178,15 +178,7 @@
     $(".chosen-with-diselect-date").chosen({ allow_single_deselect: true }).change(function () {
         var id = $(this).val();
         var driverID = $("#driverID").val();
-        $.ajax({
-            type: "GET",
-            url: '/DriverInfo/PayrollsRollBack',
-            data: { 'id': id, 'driverID': driverID },
-            async: true,
-            success: function (model) {
-                $(".wrap-ALlPartial").html(model);
-            }
-        });
+        location.href = addParam(addParam("/DriverInfo/PayrollsRollBack", 'driverID', driverID), 'id', id);
     });
 
     // Not EDIT OR DELETE
@@ -234,7 +226,7 @@
     //--------------------------------
 
 
-});                //----------------END DOCUMENT READY FUNCTION -------------------------------  
+});                 //----------------END DOCUMENT READY FUNCTION -------------------------------  
 
 
 
