@@ -28,7 +28,7 @@
             var driverid = '@Model.ID';
             var url = $(this).attr('href');
             var newurl = addParam(addParam(addParam(addParam(addParam(addParam(url, "driverid", driverid), "Trips", Trips), "Fuel", Fuel), "operating", operating), "splitdriver", splitdriver), "splitowner", splitowner);
-            var beforeURL = "@Url.Action("BeforeDriverPayroll", "DriverInfo")?url="+newurl;
+            var beforeURL = addParam("@Url.Action("BeforeDriverPayroll", "DriverInfo")","url",newurl);
             window.open(beforeURL, '_blank');
             return false;
         });
@@ -84,14 +84,15 @@
         return parseFloat(num).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
     }
 </script>
-<h3>Driver Payroll & Expenses: @(Model.Last_name +" "+Model.First_name)</h3>
+<h3>
+    Driver Payroll & Expenses: @(Model.Last_name + " " + Model.First_name)</h3>
 @{
     var db = NationalIT.DB.Entities;
-    var lstFuel_Expenses = Model.Fuel___Expenses.Where(m => m.Current_Payroll==true && m.Paid_off==false).ToList();
+    var lstFuel_Expenses = Model.Fuel___Expenses.Where(m => m.Current_Payroll == true && m.Paid_off == false).ToList();
     var lstOperating_Expenses = Model.Operating_Expenses.Where(m => m.Current_Payroll == true && m.Paid_off == false).ToList();
     var listTripInfoConditon = Model.Trip_Info.Where(m => m.Picked == true && m.Deliverd == true && m.Current_Payroll == true && m.Customer_Invoiced == true && m.Driver_paid == false).ToList();
-    var driverExpenses = db.split_expenses.Where(m => m.OwnerDriver == Model.ID && m.Idndex==1).ToList();
-    var OwnerExpenses = db.split_expenses.Where(m => m.OwnerDriver == Model.Owner_Name && m.Idndex == 2).ToList();
+    var driverExpenses = db.split_expenses.Where(m => m.OwnerDriver == Model.ID && m.Idndex == 1 && m.Paid_Off == false).ToList();
+    var OwnerExpenses = db.split_expenses.Where(m => m.OwnerDriver == Model.Owner_Name && m.Idndex == 2 && m.Paid_Off == false).ToList();
 }
 <div class="row-fluid">
     <div class="span8">
@@ -122,9 +123,9 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tab-1-4-1">
                                     @Html.Partial("/Views/Partial-Payrolls-RollBack/_DriverExpenses.cshtml", driverExpenses)
-                                </div>                                                                                    
+                                </div>
                                 <div class="tab-pane" id="tab-1-4-2">
-                                     @Html.Partial("/Views/Partial-Payrolls-RollBack/_OwnerExpenses.cshtml", OwnerExpenses)
+                                    @Html.Partial("/Views/Partial-Payrolls-RollBack/_OwnerExpenses.cshtml", OwnerExpenses)
                                 </div>
                             </div>
                         </div>
@@ -196,7 +197,7 @@
                     </div>
                 </div>
                 <div class="form-actions">
-                    <a href="/Reports/Payroll.aspx" class="btn btn-primary PrintPayroll1" >Print Payroll</a>
+                    <a href="/Reports/Payroll.aspx" class="btn btn-primary PrintPayroll1">Print Payroll</a>
                     <input type="submit" class="btn btn-primary" value="PDF Payroll">
                 </div>
             </div>

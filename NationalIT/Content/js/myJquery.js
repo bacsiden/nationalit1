@@ -177,10 +177,11 @@
     // AutoComplete Chosen select item for Undo Payroll
     $(".chosen-with-diselect-date").chosen({ allow_single_deselect: true }).change(function () {
         var id = $(this).val();
+        var driverID = $("#driverID").val();
         $.ajax({
             type: "GET",
             url: '/DriverInfo/PayrollsRollBack',
-            data: { 'id': id },
+            data: { 'id': id, 'driverID': driverID },
             async: true,
             success: function (model) {
                 $(".wrap-ALlPartial").html(model);
@@ -233,7 +234,7 @@
     //--------------------------------
 
 
-});               //----------------END DOCUMENT READY FUNCTION -------------------------------  
+});                //----------------END DOCUMENT READY FUNCTION -------------------------------  
 
 
 
