@@ -360,6 +360,7 @@ namespace NationalIT.Controllers
                 toperating.Driver = item.Driver;
                 toperating.Location = item.Location;
                 toperating.Type = item.Type;
+                toperating.Paid_off = item.Paid_off;
                 if (add)
                 {
                     db.Operating_Expenses.AddObject(toperating);
