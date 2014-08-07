@@ -1,0 +1,77 @@
+﻿<h3>Operating Expenses</h3>
+<div id="Operating_ExpensesAmount" class="boxScroll">
+    @model List<NationalIT.Temp_Operating_Expenses>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" name="DriverOperating_ExpensesAll" value=" " class="DriverOperating_ExpensesAll" />
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Description
+                </th>
+                @*<th>
+                    Type
+                </th>*@
+                <th>
+                    Location
+                </th>
+                <th>
+                    Amount
+                </th>
+                
+                @*<th>
+                    Driver
+                </th>*@
+                
+                @*<th>
+                    Paid_off
+                </th>*@
+                @*<th>
+                    Current_Payroll
+                </th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        <input type="checkbox" name="DriverOperating_ExpensesItem" value="@item.Amount" getID="@item.ID" class="DriverOperating_ExpensesItem" />
+                    </td>
+                    <td>
+                        @(item.Date.HasValue ? item.Date.Value.ToString("MM/dd/yyyy") : "")
+                    </td>
+                     <td>
+                        @item.Description
+                    </td>                    
+                    <td>
+                        @item.Location
+                    </td>
+                    <td>
+                        @String.Format("{0:C}", item.Amount)
+                    </td>
+                   @* <td>
+                        @item.Type
+                    </td>
+                    <td>
+                        @Html.Raw(item.Driver_Info != null ? item.Driver_Info.First_name : "")
+                    </td>
+                   
+                    <td>
+                        @(NationalIT.CommonFunction.getYesNO(item.Current_Payroll))
+                    </td>
+                    <td>
+                         @(NationalIT.CommonFunction.getYesNO(item.Paid_off))
+                    </td>*@
+                </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

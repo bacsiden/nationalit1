@@ -237,27 +237,27 @@ namespace NationalIT.Controllers
 
         public ActionResult PayrollsRollBack(int id = 0)
         {
-           
+            var obj = DB.Entities.TempReport.FirstOrDefault(m=>m.ID==id);
             #region SELECT OPTION
             string dataDate = "<option >--Select Date--</option>";
             foreach (var item in NationalIT.DB.Entities.TempReport)
             {
-                //if (obj != null && obj.ID == id)
-                //{
-                //    //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
-                //    dataDate += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.ID, item.Date);
-                //}
-                //else
-                //{
-                //    dataDate += string.Format("<option value='{0}'>{1}</option>", item.ID, item.Date);
-                //}
+                if (obj != null && obj.ID == id)
+                {
+                    dataDate += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.ID, item.Date);
+                }
+                else
+                {
+                    dataDate += string.Format("<option value='{0}'>{1}</option>", item.ID, item.Date);
+                }
             }
             ViewBag.dataDate = dataDate;
             #endregion
-
-            
-           
-            return View();
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_IndexUndoPayrollPartial", obj);
+            }
+            return View(obj);
         }
         #region Report ----------------------
         public ActionResult Printreport(string listIDTripInfo = "", string listIDFuelExpenses = "", string listIDOperatingExpenses = "")

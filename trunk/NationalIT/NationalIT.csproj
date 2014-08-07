@@ -477,6 +477,12 @@
     </Content>
     <Content Include="Views\FuelExpenses\NewOrEdit.cshtml" />
     <Content Include="Views\DriverInfo\PayrollsRollBack.cshtml" />
+    <Content Include="Views\Undo-Payrolls\_DriverExpenses.cshtml" />
+    <Content Include="Views\Undo-Payrolls\_Fuel_ExpensesPartial.cshtml" />
+    <Content Include="Views\Undo-Payrolls\_IndexPartialTripInfo.cshtml" />
+    <Content Include="Views\Undo-Payrolls\_Operating_ExpensesPartial.cshtml" />
+    <Content Include="Views\Undo-Payrolls\_OwnerExpenses.cshtml" />
+    <Content Include="Views\DriverInfo\_IndexUndoPayrollPartial.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

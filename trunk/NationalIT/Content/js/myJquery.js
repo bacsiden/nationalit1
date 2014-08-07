@@ -173,6 +173,21 @@
             }
         });
     });
+
+    // AutoComplete Chosen select item for Undo Payroll
+    $(".chosen-with-diselect-date").chosen({ allow_single_deselect: true }).change(function () {
+        var id = $(this).val();
+        $.ajax({
+            type: "GET",
+            url: '/DriverInfo/PayrollsRollBack',
+            data: { 'id': id },
+            async: true,
+            success: function (model) {
+                $(".wrap-ALlPartial").html(model);
+            }
+        });
+    });
+
     // Not EDIT OR DELETE
     $(".selectDriverInfo").chosen({ allow_single_deselect: true }).change(function () {
         var valueDriverInfo = $(this).val();
