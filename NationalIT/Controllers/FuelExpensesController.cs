@@ -118,6 +118,7 @@ namespace NationalIT.Controllers
             {
                 var db = DB.Entities;
                 model.Date = CommonFunction.ChangeFormatDate(frm["Date"]);
+                model.Type = frm["cboType"];
                 if (model.ID == 0)
                 {
                     // Edit                    
