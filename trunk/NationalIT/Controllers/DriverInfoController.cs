@@ -316,7 +316,7 @@ namespace NationalIT.Controllers
             foreach (var item in tempreport.Temp_Fuel_Expenses)
             {
                 bool add = false;
-                Fuel___Expenses tfuel = db.Fuel___Expenses.FirstOrDefault(m => m.ID == item.ID);
+                Fuel___Expenses tfuel = db.Fuel___Expenses.FirstOrDefault(m => m.ID == item.FuelExpensesID);
                 if (tfuel == null)
                 {
                     tfuel = new Fuel___Expenses();
@@ -345,7 +345,7 @@ namespace NationalIT.Controllers
             foreach (var item in tempreport.Temp_Operating_Expenses)
             {
                 bool add = false;
-                Operating_Expenses toperating = db.Operating_Expenses.FirstOrDefault(m => m.ID == item.ID);
+                Operating_Expenses toperating = db.Operating_Expenses.FirstOrDefault(m => m.ID == item.OperatingExpensesID);
                 if (toperating == null)
                 {
                     toperating = new Operating_Expenses();
@@ -370,7 +370,7 @@ namespace NationalIT.Controllers
             foreach (var item in tempreport.Temp_Split_Expenses)
             {
                 bool add = false;
-                split_expenses tsowner = db.split_expenses.FirstOrDefault(m => m.Id == item.ID);
+                split_expenses tsowner = db.split_expenses.FirstOrDefault(m => m.Id == item.SplitExpensesID);
                 if (tsowner == null)
                 {
                     tsowner = new split_expenses();
@@ -385,7 +385,6 @@ namespace NationalIT.Controllers
                 tsowner.Idndex = item.Index;
                 tsowner.OwnerDriver = item.OwnerDriver;
                 tsowner.Paid_Off = item.Paid_Off;
-                db.split_expenses.AddObject(tsowner);
                 if (add)
                 {
                     db.split_expenses.AddObject(tsowner);
@@ -394,8 +393,8 @@ namespace NationalIT.Controllers
                     db.ObjectStateManager.ChangeObjectState(tsowner, System.Data.EntityState.Modified);
             }
             #endregion
-
             db.DeleteObject(tempreport);
+            //db.ObjectStateManager.ChangeObjectState(tempreport, System.Data.EntityState.Deleted);
             db.SaveChanges();
         }
         public ActionResult RollBack(string driverID, int id, string Trips, string Fuel, string operating, string splitdriver, string splitowner, bool isRollBackAll = false)
@@ -477,7 +476,7 @@ namespace NationalIT.Controllers
                 foreach (var item in lstTrip)
                 {
                     bool add = false;
-                    Fuel___Expenses tfuel = db.Fuel___Expenses.FirstOrDefault(m => m.ID == item.ID);
+                    Fuel___Expenses tfuel = db.Fuel___Expenses.FirstOrDefault(m => m.ID == item.FuelExpensesID);
                     if (tfuel == null)
                     {
                         tfuel = new Fuel___Expenses();
@@ -521,7 +520,7 @@ namespace NationalIT.Controllers
                 foreach (var item in lstTrip)
                 {
                     bool add = false;
-                    Operating_Expenses toperating = db.Operating_Expenses.FirstOrDefault(m => m.ID == item.ID);
+                    Operating_Expenses toperating = db.Operating_Expenses.FirstOrDefault(m => m.ID == item.OperatingExpensesID);
                     if (toperating == null)
                     {
                         toperating = new Operating_Expenses();
@@ -560,7 +559,7 @@ namespace NationalIT.Controllers
                 foreach (var item in lstTrip)
                 {
                     bool add = false;
-                    split_expenses tsowner = db.split_expenses.FirstOrDefault(m => m.Id == item.ID);
+                    split_expenses tsowner = db.split_expenses.FirstOrDefault(m => m.Id == item.SplitExpensesID);
                     if (tsowner == null)
                     {
                         tsowner = new split_expenses();
@@ -575,7 +574,6 @@ namespace NationalIT.Controllers
                     tsowner.Idndex = item.Index;
                     tsowner.OwnerDriver = item.OwnerDriver;
                     tsowner.Paid_Off = item.Paid_Off;
-                    db.split_expenses.AddObject(tsowner);
                     if (add)
                     {
                         db.split_expenses.AddObject(tsowner);
@@ -602,7 +600,7 @@ namespace NationalIT.Controllers
                 foreach (var item in lstTrip)
                 {
                     bool add = false;
-                    split_expenses tsowner = db.split_expenses.FirstOrDefault(m => m.Id == item.ID);
+                    split_expenses tsowner = db.split_expenses.FirstOrDefault(m => m.Id == item.SplitExpensesID);
                     if (tsowner == null)
                     {
                         tsowner = new split_expenses();
@@ -617,7 +615,6 @@ namespace NationalIT.Controllers
                     tsowner.Idndex = item.Index;
                     tsowner.OwnerDriver = item.OwnerDriver;
                     tsowner.Paid_Off = item.Paid_Off;
-                    db.split_expenses.AddObject(tsowner);
                     if (add)
                     {
                         db.split_expenses.AddObject(tsowner);
