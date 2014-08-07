@@ -46,7 +46,7 @@
                         @(item.Delivery_date.HasValue ? item.Delivery_date.Value.ToString("MM/dd/yyyy") : "")
                     </td>
                     <td>
-                        @item.Total_charges
+                        @String.Format("{0:C}", item.Total_charges)
                     </td>
                 </tr>
                 }
