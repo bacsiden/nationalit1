@@ -179,6 +179,7 @@ namespace NationalIT.Controllers
 
 
         [Authorize]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Index(int id = 0)
         {
             try
@@ -204,6 +205,7 @@ namespace NationalIT.Controllers
         }
 
         [Authorize]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.mUser.FirstOrDefault(m => m.ID == id);
@@ -218,6 +220,7 @@ namespace NationalIT.Controllers
 
         [HttpPost]
         [Authorize]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult NewOrEdit(mUser model, string password)
         {
             try
@@ -246,6 +249,7 @@ namespace NationalIT.Controllers
         }
 
         [Authorize]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult DeleteByListID(string arrayID = "")
         {
             try
@@ -276,6 +280,7 @@ namespace NationalIT.Controllers
         }
 
         [Authorize]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult LockByListID(string arrayID = "")
         {
             try
