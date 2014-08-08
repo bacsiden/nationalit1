@@ -14,6 +14,9 @@
                                 Function name
                             </th>
                             <th>
+                                List menu
+                            </th>
+                            <th>
                             </th>
                         </tr>
                     </thead>
@@ -23,6 +26,12 @@
                             <tr>
                                 <td>
                                     @item.Title
+                                </td>
+                                <td>
+                                    @foreach (var m in item.mMenu)
+                                    {
+                                        @m.Title <br />
+                                    }
                                 </td>
                                 <td>
                                     @Html.ActionLink("Add menu", "Menu", new { id = item.ID })

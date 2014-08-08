@@ -34,6 +34,9 @@
     // ------------------------------------------------------------------
 
     // show hide button Edit & Delete when click checkbox
+    if ($('input:checkbox:checked').length == $('input:checkbox.checkitem').length) {
+        $(".checkAll").prop('checked', true);
+    }
     $(".checkAll").click(function () {
         $(".EditItem").hide();
         if ($(".checkitem").length > 0) {
