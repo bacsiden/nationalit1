@@ -12,7 +12,7 @@ namespace NationalIT.Controllers
     public class DriverInfoController : BaseController
     {
         int pageSize = 20;
-        [ValidationFunction("/Account/AccessDenied", ActionName.DRIVERINFOMANAGERMENT)]
+        [ValidationFunction(ActionName.ViewListDriver)]
         public ActionResult Index(int? page, int? driverID)
         {
             var db = DB.Entities;
@@ -36,7 +36,7 @@ namespace NationalIT.Controllers
             ViewBag.dataDriver_Info = dataDriver_Info;
             #endregion
         }
-        [ValidationFunction("/Account/AccessDenied", ActionName.DRIVERINFOMANAGERMENT)]
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == id);
@@ -106,7 +106,7 @@ namespace NationalIT.Controllers
         }
 
         [HttpPost]
-        [ValidationFunction("/Account/AccessDenied", ActionName.DRIVERINFOMANAGERMENT)]
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult NewOrEdit(Driver_Info model, FormCollection frm)
         {
             try
@@ -192,7 +192,7 @@ namespace NationalIT.Controllers
                 return View(model);
             }
         }
-        [ValidationFunction("/Account/AccessDenied", ActionName.DRIVERINFOMANAGERMENT)]
+        [ValidationFunction(ActionName.DeleteItem)]
         public ActionResult Delete(string arrayID = "")
         {
             try
@@ -217,13 +217,14 @@ namespace NationalIT.Controllers
             }
             return RedirectToAction("Index");
         }
-        [ValidationFunction("/Account/AccessDenied", ActionName.DRIVERINFOMANAGERMENT)]
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult _Fuel_ExpensesPartial(int id, int? page)
         {
             if (page == null) page = 0;
             var db = DB.Entities;
             return PartialView(db.Fuel___Expenses.Where(m => m.Driver_Info.ID == id).OrderByDescending(m => m.ID).ToPagedList(page.Value, pageSize));
         }
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult _Operating_ExpensesPartial(int id, int? page)
         {
             if (page == null) page = 0;
@@ -231,7 +232,7 @@ namespace NationalIT.Controllers
             return PartialView(db.Operating_Expenses.Where(m => m.Driver_Info.ID == id).OrderByDescending(m => m.ID).ToPagedList(page.Value, pageSize));
         }
 
-
+        [ValidationFunction(ActionName.ProcessPayroll)]
         public ActionResult DriverPayroll(int id)
         {
             var obj = DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == id);
@@ -239,6 +240,7 @@ namespace NationalIT.Controllers
             return View(obj);
         }
 
+        [ValidationFunction(ActionName.ProcessRollBack)]
         public ActionResult PayrollsRollBack(int driverID, int id = 0)
         {
             var obj = DB.Entities.TempReport.FirstOrDefault(m => m.ID == id);
@@ -266,6 +268,7 @@ namespace NationalIT.Controllers
             return View(obj);
         }
 
+        [ValidationFunction(ActionName.ProcessRollBack)]
         private void RollBackAll(int tempReportID)
         {
             var db = DB.Entities;
@@ -408,6 +411,8 @@ namespace NationalIT.Controllers
             //db.ObjectStateManager.ChangeObjectState(tempreport, System.Data.EntityState.Deleted);
 
         }
+
+        [ValidationFunction(ActionName.ProcessRollBack)]
         public ActionResult RollBack(string driverID, int id, string Trips, string Fuel, string operating, string splitdriver, string splitowner, bool isRollBackAll = false)
         {
             var db = DB.Entities;
@@ -645,6 +650,8 @@ namespace NationalIT.Controllers
 
             return RedirectToAction("PayrollsRollBack", new { driverID = driverID });
         }
+
+        [ValidationFunction(ActionName.ProcessPayroll)]
         public ActionResult BeforeDriverPayroll(string url)
         {
             Session["Payroll"] = true;
