@@ -12,7 +12,7 @@ namespace NationalIT.Controllers
         [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Index()
         {
-            return View(DB.Entities.mMenu);
+            return View(DB.Entities.mMenu.OrderBy(m=>m.ParentID));
         }
 
         [Authorize]
@@ -46,6 +46,7 @@ namespace NationalIT.Controllers
                     {
                         model.ParentID = null;
                     }
+                    model.Oder = 100;
                     model.IsActive = true;
                     db.mMenu.AddObject(model);
                     db.SaveChanges();
