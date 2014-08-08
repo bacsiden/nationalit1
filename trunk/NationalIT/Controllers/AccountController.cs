@@ -13,7 +13,7 @@ using System.Data;
 
 namespace NationalIT.Controllers
 {
-    public class UserDAL : DB.BaseClass<User>
+    public class UserDAL : DB.BaseClass<mUser>
     {
         public const string ADMIN = "admin";
         public List<string> GetListFunctionCodeByUsername(string username)
@@ -37,7 +37,7 @@ namespace NationalIT.Controllers
                 //    }
                 //}
                 var db = DB.Entities;
-                var list = db.Function.Where(m => m.Role1.FirstOrDefault(n => n.Group.FirstOrDefault(x => x.User.FirstOrDefault(y => y.UserName == username) != null) != null) != null);
+                var list = db.mFunction.Where(m => m.mRole.FirstOrDefault(n => n.mGroup.FirstOrDefault(x => x.mUser.FirstOrDefault(y => y.UserName == username) != null) != null) != null);
                 if (list != null && list.Count() > 0)
                 {
                     foreach (var item in list)
@@ -58,15 +58,15 @@ namespace NationalIT.Controllers
             List<int> listID = new List<int>();
             try
             {
-                var db = DB.Entities;
-                var list = db.Menu.Where(n => n.Group.FirstOrDefault(x => x.User.FirstOrDefault(y => y.UserName == username) != null) != null).ToList();
-                if (list != null && list.Count() > 0)
-                {
-                    foreach (var item in list)
-                    {
-                        listID.Add(item.ID);
-                    }
-                }
+                //var db = DB.Entities;
+                //var list = db.mMenu.Where(n => n.mGroup.FirstOrDefault(x => x.mUser.FirstOrDefault(y => y.UserName == username) != null) != null).ToList();
+                //if (list != null && list.Count() > 0)
+                //{
+                //    foreach (var item in list)
+                //    {
+                //        listID.Add(item.ID);
+                //    }
+                //}
             }
             catch (Exception ex)
             {
@@ -75,10 +75,10 @@ namespace NationalIT.Controllers
 
             return listID;
         }
-        public User GetUserByUserName(string userName)
+        public mUser GetUserByUserName(string userName)
         {
             var context = DB.Entities;
-            return context.User.FirstOrDefault(m => m.UserName.ToLower() == userName.ToLower());
+            return context.mUser.FirstOrDefault(m => m.UserName.ToLower() == userName.ToLower());
         }
         /// <summary>
         /// Reset password (dành cho Admin muốn reset mật khẩu của member)
@@ -130,11 +130,11 @@ namespace NationalIT.Controllers
                 throw ex;
             }
         }
-        public User GetUserByID(int id)
+        public mUser GetUserByID(int id)
         {
             return GetByID(id);
         }
-        public User GetCurrentUser
+        public mUser GetCurrentUser
         {
             get
             {
@@ -142,7 +142,7 @@ namespace NationalIT.Controllers
                 if (mbsUser != null)
                 {
                     Guid id = (Guid)mbsUser.ProviderUserKey;
-                    return DB.Entities.User.FirstOrDefault(m => m.AspnetUserID == id);
+                    return DB.Entities.mUser.FirstOrDefault(m => m.AspnetUserID == id);
                 }
                 return null;
             }
@@ -186,39 +186,39 @@ namespace NationalIT.Controllers
                 if (id == 0)
                 {
                     @ViewBag.GroupName = "List User";
-                    return View(DB.Entities.User);
+                    return View(DB.Entities.mUser);
                 }
                 else
                 {
                     var db = DB.Entities;
-                    var g = db.Group.First(m => m.ID == id);
+                    var g = db.mGroup.First(m => m.ID == id);
                     //@ViewBag.GroupName = "Tên nhóm: <a href='" + HttpContext.Request.Url + "'>" + g.Title + "</a>";
                     @ViewBag.GroupName = g.Title;
-                    return View(db.User.Where(m => m.Group.FirstOrDefault(x => x.ID == id) != null));
+                    return View(db.mUser.Where(m => m.mGroup.FirstOrDefault(x => x.ID == id) != null));
                 }
             }
             catch (Exception ex)
             {
-                return View(new List<User>());
+                return View(new List<mUser>());
             }
         }
 
         [Authorize]
         public ActionResult NewOrEdit(int? id = 0)
         {
-            var obj = DB.Entities.User.FirstOrDefault(m => m.ID == id);
+            var obj = DB.Entities.mUser.FirstOrDefault(m => m.ID == id);
             ViewBag.Title = "Edit user";
             if (obj == null)
             {
                 ViewBag.Title = "Add user";
-                obj = new User();
+                obj = new mUser();
             }
             return View(obj);
         }
 
         [HttpPost]
         [Authorize]
-        public ActionResult NewOrEdit(User model, string password)
+        public ActionResult NewOrEdit(mUser model, string password)
         {
             try
             {
@@ -228,7 +228,7 @@ namespace NationalIT.Controllers
                     // Add new   
                     var aspNewUserID = new UserDAL().CreateAspnetUser(model.UserName, password);
                     model.AspnetUserID = aspNewUserID;
-                    db.User.AddObject(model);
+                    db.mUser.AddObject(model);
                 }
                 else
                 {
@@ -258,7 +258,7 @@ namespace NationalIT.Controllers
                     foreach (var item in lstID)
                     {
                         int tmpID = int.Parse(item);
-                        var obj = db.User.FirstOrDefault(m => m.ID == tmpID);
+                        var obj = db.mUser.FirstOrDefault(m => m.ID == tmpID);
                         if (UserDAL.ADMIN.Equals(obj.UserName))
                         {
                             continue;
@@ -374,7 +374,7 @@ namespace NationalIT.Controllers
             {
                 var db = DB.Entities;
                 // Attempt to register the user
-                if (db.User.FirstOrDefault(m => m.UserName.Equals(model.UserName)) == null)
+                if (db.mUser.FirstOrDefault(m => m.UserName.Equals(model.UserName)) == null)
                 {
 
 
@@ -383,7 +383,7 @@ namespace NationalIT.Controllers
                     if (userCreated != null)
                     {
 
-                        db.User.AddObject(new User() { UserName = model.UserName, Email = model.Email, PhoneNumber = model.Phone, Address = model.Address, AspnetUserID = userCreated, Name = model.Name });
+                        db.mUser.AddObject(new mUser() { UserName = model.UserName, Email = model.Email, PhoneNumber = model.Phone, Address = model.Address, AspnetUserID = userCreated, Name = model.Name });
                         db.SaveChanges();
                         FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
                         return RedirectToAction("Index", "Home");

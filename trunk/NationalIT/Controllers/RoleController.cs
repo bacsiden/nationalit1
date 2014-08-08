@@ -15,7 +15,7 @@ namespace NationalIT.Controllers
         [ValidationFunction("/Home/index", ActionName.VIEWLISTROLE)]
         public ActionResult Index()
         {
-            return View(DB.Entities.Role1);
+            return View(DB.Entities.mRole);
         }
 
         [Authorize]
@@ -28,14 +28,14 @@ namespace NationalIT.Controllers
         [HttpPost]
         [Authorize]
         [ValidationFunction("/Role/index", ActionName.ADDNEWROLE)]
-        public ActionResult Create(Role1 model)
+        public ActionResult Create(mRole model)
         {
             try
             {
                 // TODO: Add insert logic here
                 var db = DB.Entities;
-                var role = new Role1() { Name = model.Name };
-                db.Role1.AddObject(role);
+                var role = new mRole() { Name = model.Name };
+                db.mRole.AddObject(role);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -49,7 +49,7 @@ namespace NationalIT.Controllers
         [ValidationFunction("/Role/index", ActionName.EDITROLE)]
         public ActionResult Edit(int id = 0)
         {
-            var obj = DB.Entities.Role1.First(m => m.ID == id);
+            var obj = DB.Entities.mRole.First(m => m.ID == id);
             if (obj == null)
                 return RedirectToAction("Index");
             return View(obj);
@@ -58,13 +58,13 @@ namespace NationalIT.Controllers
         [HttpPost]
         [Authorize]
         [ValidationFunction("/Role/index", ActionName.EDITROLE)]
-        public ActionResult Edit(Role1 model)
+        public ActionResult Edit(mRole model)
         {
             try
             {
                 // TODO: Add update logic here
                 var db = DB.Entities;
-                var obj = db.Role1.First(m => m.ID == model.ID);
+                var obj = db.mRole.First(m => m.ID == model.ID);
                 obj.Name = model.Name;
                 db.ObjectStateManager.ChangeObjectState(obj, System.Data.EntityState.Modified);
                 db.SaveChanges();
@@ -83,8 +83,8 @@ namespace NationalIT.Controllers
             try
             {
                 var db = DB.Entities;
-                var obj = db.Role1.First(m => m.ID == id);
-                db.Role1.DeleteObject(obj);
+                var obj = db.mRole.First(m => m.ID == id);
+                db.mRole.DeleteObject(obj);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -101,9 +101,9 @@ namespace NationalIT.Controllers
             try
             {
                 var db = DB.Entities;
-                var lst = db.Function.Where(m => m.Role1.FirstOrDefault(n => n.ID == id) != null);
+                var lst = db.mFunction.Where(m => m.mRole.FirstOrDefault(n => n.ID == id) != null);
                 string s = "";
-                foreach (var item in db.Function)
+                foreach (var item in db.mFunction)
                 {
                     string check = "";
                     if (lst.FirstOrDefault(m => m.ID == item.ID) != null)
@@ -113,7 +113,7 @@ namespace NationalIT.Controllers
                     s += "<label class='checkbox'><input type='checkbox' " + check + " value='" + item.ID + "' />" + item.Title + "</label>";
                 }
                 ViewBag.listFuntion = s;
-                return View(db.Role1.FirstOrDefault(m => m.ID == id));
+                return View(db.mRole.FirstOrDefault(m => m.ID == id));
 
             }
             catch (Exception)
@@ -129,21 +129,21 @@ namespace NationalIT.Controllers
             try
             {
                 var db = DB.Entities;
-                var role = db.Role1.FirstOrDefault(m => m.ID == roleID);
+                var role = db.mRole.FirstOrDefault(m => m.ID == roleID);
                 string[] listChecked = listCheck.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-                foreach (var item in db.Function)
+                foreach (var item in db.mFunction)
                 {
                     if (listChecked.Contains(item.ID.ToString()))
                     {
-                        if (role.Function.FirstOrDefault(m => m.ID == item.ID) == null)
+                        if (role.mFunction.FirstOrDefault(m => m.ID == item.ID) == null)
                         {
-                            role.Function.Add(item);
+                            role.mFunction.Add(item);
                         }
                     }
                     else
-                        if (role.Function.FirstOrDefault(m => m.ID == item.ID) != null)
+                        if (role.mFunction.FirstOrDefault(m => m.ID == item.ID) != null)
                         {
-                            role.Function.Remove(item);
+                            role.mFunction.Remove(item);
                         }
                 }
 
