@@ -10,9 +10,7 @@
             <div class="box-content">
                 <div class="row-fluid">
                     <div class="span12">
-                        @Html.ActionLink("Create New", "NewOrEdit", null, new { @class = "btn btn-info addNewItem" })
-                        @Html.ActionLink("Edit", "NewOrEdit", null, new { @class = "btn btn-info EditItem" })
-                        @Html.ActionLink("Delete", "Delete", null, new { @class = "btn btn-danger DeleteItem confirmDelete" })
+                       @Html.Partial("_MenuButtonNewEditOrDelete")
                     </div>
                 </div>
                 <table class="table table-advance">
@@ -55,7 +53,7 @@
                                 @Html.ActionLink(item.IncomeID.ToString(), "NewOrEdit", new { id = item.IncomeID })
                             </td>
                             <td>
-                                 @(item.IncomeDate.HasValue?item.IncomeDate.Value.ToString("MM/dd/yyyy"):"")
+                                @(item.IncomeDate.HasValue ? item.IncomeDate.Value.ToString("MM/dd/yyyy") : "")
                             </td>
                             <td>
                                 @String.Format("{0:C}", item.AmountInvoiced)

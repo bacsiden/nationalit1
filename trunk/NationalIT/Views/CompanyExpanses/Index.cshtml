@@ -7,9 +7,7 @@
     <div class="span12">
         <div class="row-fluid">
             <div class="span12">
-                @Html.ActionLink("Create New", "NewOrEdit", null, new { @class = "btn btn-info addNewItem" })
-                @Html.ActionLink("Edit", "NewOrEdit", null, new { @class = "btn btn-info EditItem" })
-                @Html.ActionLink("Delete", "Delete", null, new { @class = "btn btn-danger DeleteItem confirmDelete" })
+                @Html.Partial("_MenuButtonNewEditOrDelete")            
             </div>
         </div>
         <table class="table">
