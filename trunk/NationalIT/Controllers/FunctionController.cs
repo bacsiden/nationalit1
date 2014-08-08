@@ -6,11 +6,14 @@ using System.Web.Mvc;
 
 namespace NationalIT.Controllers
 {
+    [Authorize]
     public class FunctionController : BaseController
     {
         //
         // GET: /Function/
 
+        [Authorize]
+        [ValidationFunction("/Group/index", ActionName.VIEWLISTFUNCTION)]
         public ActionResult Index()
         {
             var db = DB.Entities;
@@ -18,7 +21,7 @@ namespace NationalIT.Controllers
             return View(list);
         }
         [Authorize]
-        [ValidationFunction("/Group/index", ActionName.ADDMENUFORGROUP)]
+        [ValidationFunction("/Function/index", ActionName.ADDMENUFORFUNCTION)]
         public ActionResult Menu(int id)
         {
             try
@@ -46,7 +49,7 @@ namespace NationalIT.Controllers
         }
         [Authorize]
         [HttpPost]
-        [ValidationFunction("/Group/index", ActionName.ADDMENUFORGROUP)]
+        [ValidationFunction("/Function/index", ActionName.ADDMENUFORFUNCTION)]
         public ActionResult Menu(int functionID, string listCheck)
         {
             try
