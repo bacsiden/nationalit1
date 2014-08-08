@@ -1,0 +1,5 @@
+﻿@if ((bool)ViewBag.ShowButtonNewOrEdit)
+{
+    <input type="submit" value="Save" class="btn btn-info" />
+}
+@Html.ActionLink("Cancel", "Index", null, new { @class = "btn" })

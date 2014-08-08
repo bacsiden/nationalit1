@@ -36,7 +36,7 @@ namespace NationalIT.Controllers
             ViewBag.dataDriver_Info = dataDriver_Info;
             #endregion
         }
-        [ValidationFunction(ActionName.NewOrEditItem)]
+        [ValidationFunction(ActionName.ViewListDriver)]
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == id);
@@ -217,14 +217,14 @@ namespace NationalIT.Controllers
             }
             return RedirectToAction("Index");
         }
-        [ValidationFunction(ActionName.NewOrEditItem)]
+        [ValidationFunction(ActionName.ViewListDriver)]
         public ActionResult _Fuel_ExpensesPartial(int id, int? page)
         {
             if (page == null) page = 0;
             var db = DB.Entities;
             return PartialView(db.Fuel___Expenses.Where(m => m.Driver_Info.ID == id).OrderByDescending(m => m.ID).ToPagedList(page.Value, pageSize));
         }
-        [ValidationFunction(ActionName.NewOrEditItem)]
+        [ValidationFunction(ActionName.ViewListDriver)]
         public ActionResult _Operating_ExpensesPartial(int id, int? page)
         {
             if (page == null) page = 0;

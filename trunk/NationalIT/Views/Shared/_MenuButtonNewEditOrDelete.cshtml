@@ -1,10 +1,7 @@
-﻿@if ((bool)ViewBag.ShowButtonNewOrEdit)
-{
-    @Html.ActionLink("Create New", "NewOrEdit", null, new { @class = "btn btn-info addNewItem" })
-    <span>&nbsp;</span>
-    @Html.ActionLink("Edit", "NewOrEdit", null, new { @class = "btn btn-info EditItem" })
-    <span>&nbsp;</span>
-}
+﻿@Html.ActionLink("Create New", "NewOrEdit", null, new { @class = "btn btn-info addNewItem" })
+<span>&nbsp;</span>
+@Html.ActionLink("Detail", "NewOrEdit", null, new { @class = "btn btn-info EditItem" })
+<span>&nbsp;</span>
 @if ((bool)ViewBag.ShowButtonDelete)
 {
     @Html.ActionLink("Delete", "Delete", null, new { @class = "btn btn-danger DeleteItem confirmDelete" })

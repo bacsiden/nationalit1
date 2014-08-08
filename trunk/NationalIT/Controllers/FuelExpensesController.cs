@@ -60,7 +60,7 @@ namespace NationalIT.Controllers
             ViewBag.dataDriver = dataDriver_Info;
             #endregion
         }
-        [ValidationFunction(ActionName.NewOrEditItem)]
+        [ValidationFunction(ActionName.ViewListFuelExpenses)]
         public ActionResult Create()
         {
             var lst1 = new List<string> { "FUEL", "ADVANCE", "REPAIR" };
@@ -101,7 +101,7 @@ namespace NationalIT.Controllers
                 return View();
             }
         }
-        [ValidationFunction(ActionName.NewOrEditItem)]
+        [ValidationFunction(ActionName.ViewListFuelExpenses)]
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.Fuel___Expenses.FirstOrDefault(m => m.ID == id);
@@ -145,7 +145,7 @@ namespace NationalIT.Controllers
                 return View(model);
             }
         }
-        [ValidationFunction(ActionName.NewOrEditItem)]
+        [ValidationFunction(ActionName.ViewListFuelExpenses)]
         public ActionResult Edit(int id)
         {
             var db = DB.Entities;

@@ -40,7 +40,7 @@ namespace NationalIT.Controllers
         }
         //
         // GET: /Owner/Edit/5
-        [ValidationFunction(ActionName.NewOrEditItem)]
+        [ValidationFunction(ActionName.ViewListCutomer)]
         public ActionResult NewOrEdit(int? id = 0)
         {
             if (id == 0) return View(new Customer_Info());
@@ -106,7 +106,7 @@ namespace NationalIT.Controllers
             }
             return RedirectToAction("Index");
         }
-        [ValidationFunction(ActionName.NewOrEditItem)]
+        [ValidationFunction(ActionName.ViewListCutomer)]
         public ActionResult _Trip_Info_Partial(int id, int? page)
         {
             if (page == null) page = 0;

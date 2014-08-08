@@ -22,7 +22,7 @@ namespace NationalIT.Controllers
         }
         //
         // GET: /Owner/Edit/5
-        [ValidationFunction(ActionName.NewOrEditItem)]
+        [ValidationFunction(ActionName.ViewListCompanyExpanses)]
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.Company_Expanses.FirstOrDefault(m => m.CompanyExpansesID == id);

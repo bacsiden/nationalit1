@@ -50,7 +50,7 @@ namespace NationalIT.Controllers
             ViewBag.dataDriver = dataDriver_Info;
             #endregion
         }
-        [ValidationFunction(ActionName.NewOrEditItem)]
+        [ValidationFunction(ActionName.ViewListOperatingExpenses)]
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = new Operating_Expenses() { Current_Payroll = true };

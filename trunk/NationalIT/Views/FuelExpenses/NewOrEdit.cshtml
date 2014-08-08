@@ -90,8 +90,7 @@
                         @Html.ValidationMessageFor(model => model.Fuel_Card)
                     </div>
                     <p>
-                        <input type="submit" value="Save" class="btn btn-info" />
-                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn" })
+                        @Html.Partial("_ShowSaveEdit")
                     </p>
                 }
             </div>

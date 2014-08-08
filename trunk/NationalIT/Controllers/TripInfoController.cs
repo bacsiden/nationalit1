@@ -48,7 +48,7 @@ namespace NationalIT.Controllers
             ViewBag.dataDriver_Info = dataDriver_Info;
             #endregion
         }
-        [ValidationFunction(ActionName.NewOrEditItem)]
+        [ValidationFunction(ActionName.ViewListTrip)]
         public ActionResult NewOrEdit(int? driverID, int? id = 0)
         {
             var obj = DB.Entities.Trip_Info.FirstOrDefault(m => m.Trip_ID == id);
