@@ -20,7 +20,7 @@ namespace NationalIT.Controllers
         }
         //
         // GET: /Owner/Edit/5
-        [ValidationFunction(ActionName.NewOrEditItem)]
+        [ValidationFunction(ActionName.ViewListMaintenance)]
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.Maintenance.FirstOrDefault(m => m.Id == id);

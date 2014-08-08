@@ -68,7 +68,7 @@ namespace NationalIT.Controllers
         }
         //
         // GET: /Owner/Edit/5
-        [ValidationFunction(ActionName.NewOrEditItem)]
+        [ValidationFunction(ActionName.ViewListSplitExpenses)]
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.split_expenses.FirstOrDefault(m => m.Id == id);
