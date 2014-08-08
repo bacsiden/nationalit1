@@ -4,7 +4,7 @@
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 @Html.ValidationSummary(true, "Add menu unsuccessfully")
-@using (Html.BeginForm("Menu", "Function", new { groupID = Model.ID }))
+@using (Html.BeginForm("Menu", "Function", new { functionID = Model.ID }))
 {
     <div>
         @Html.Hidden("listCheck", null, new {id="HiddenListRole"})
@@ -12,6 +12,10 @@
             <label class="control-label">
                 List Menu</label>
             <div class="controls" id="ListRoles">
+                <label class="checkbox" style="padding-bottom:5px; width:170px; border-bottom:1px solid #0e6390">
+                    <input type="checkbox" class="checkAll" value="" />
+                    Check All
+                </label>                
                 @Html.Raw(ViewBag.listMenu)
             </div>
             <input type="submit" value="OK" class="btn btn-primary" id="SubmitRole" />

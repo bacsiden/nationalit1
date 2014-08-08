@@ -11,11 +11,15 @@
             <label class="control-label">
                 Username</label>
             <div class="controls">
-                @Html.TextBoxFor(m => m.UserName)
+                <select data-placeholder="Select Driver" name="ID" class="chosen-with-diselect input-xlarge">
+                    @Html.Raw(ViewBag.dataUserName)
+                </select>                
             </div>
-            <input type="submit" value="OK" class="btn btn-primary"/>
-            <button type="button" class="btn" onclick="javascript:window.history.go(-1);">
-                Cancel</button>
+            <div class="clearfix">
+                <input type="submit" value="OK" class="btn btn-primary" />
+                <button type="button" class="btn" onclick="javascript:window.history.go(-1);">
+                    Cancel</button>
+            </div>
         </div>
     </div>
 }

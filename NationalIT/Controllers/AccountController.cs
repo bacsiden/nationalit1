@@ -58,15 +58,15 @@ namespace NationalIT.Controllers
             List<int> listID = new List<int>();
             try
             {
-                //var db = DB.Entities;
-                //var list = db.mMenu.Where(n => n.mGroup.FirstOrDefault(x => x.mUser.FirstOrDefault(y => y.UserName == username) != null) != null).ToList();
-                //if (list != null && list.Count() > 0)
-                //{
-                //    foreach (var item in list)
-                //    {
-                //        listID.Add(item.ID);
-                //    }
-                //}
+                var db = DB.Entities;
+                var list = db.mMenu.Where(n => n.mFunction.FirstOrDefault(x => x.mRole.FirstOrDefault(y => y.mGroup.FirstOrDefault(z=>z.mUser.FirstOrDefault(z1=>z1.UserName == username)!=null)!=null) != null) != null).ToList();
+                if (list != null && list.Count() > 0)
+                {
+                    foreach (var item in list)
+                    {
+                        listID.Add(item.ID);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -494,6 +494,67 @@ namespace NationalIT.Controllers
         public ActionResult AccessDenied()
         {
             return View();
+        }
+
+        public static string temp1 = "<li class='{3}'><a href=\"{1}\" class='menu-item-a {5}'>{2}<span>&nbsp;{0}</span>{4} </a>{6}</li>";
+        public static string temp2 = "<ul class=\"submenu\">{0}</ul>";
+        public static string BuildMenu()
+        {
+            var user = new UserDAL().GetCurrentUser;
+            string s = "";
+            string cls = "dropdown-toggle";
+            string icondrop = "<b class=\"arrow icon-angle-right\"></b>";
+            var lst = user.UserName == UserDAL.ADMIN ? DB.Entities.mMenu.OrderBy(m => m.Oder) :
+                DB.Entities.mMenu.Where(x => x.IsActive.Value).OrderBy(m => m.Oder);
+            foreach (var item in lst)
+            {
+                if (item.ParentID == null || item.ParentID.Value == 0)
+                {
+                    string tmp = "";
+                    if (item.IsActive != true || !(new AccountController().IsMenuInGroup(item.ID)))
+                    {
+                        tmp = "hiddenField";
+                    }
+                    var listChild = lst.Where(m => m.ParentID == item.ID).OrderBy(m => m.Oder).ToList();
+                    if (listChild.Count > 0)
+                    {
+                        string subLI = "";
+                        foreach (var itemSub in listChild)
+                        {
+                            subLI += string.Format("<li><a href=\"{1}\" class='menu-item-a'>{0}</a></li>", itemSub.Title, itemSub.Url);
+                        }
+                        string subMenu = string.Format(temp2, subLI);
+                        s += string.Format(temp1, item.Title, "#", item.Icon, tmp, icondrop, cls, subMenu);
+                    }
+                    else
+                    {
+                        s += string.Format(temp1, item.Title, item.Url, item.Icon, tmp, "", "", "");
+                    }
+
+                }
+            }
+            return s;
+        }
+        public bool IsMenuInGroup(int id)
+        {
+            var menuIDList = new List<int>();
+            if (System.Web.HttpContext.Current.Session["ListMenuID"] != null)
+            {
+                menuIDList = (List<int>)System.Web.HttpContext.Current.Session["ListMenuID"];
+            }
+            else
+            {
+                menuIDList = new UserDAL().GetMenuIDByUsername(System.Web.HttpContext.Current.User.Identity.Name);
+            }
+
+            if (menuIDList != null)
+            {
+                if (menuIDList.Contains(id))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
