@@ -27,6 +27,27 @@ namespace NationalIT
         //    ViewBag.LayoutUrl = _currentLayoutURL;
         //    return base.View(viewName, masterName, model);
         //}
+        protected override void OnActionExecuted(ActionExecutedContext filterContext)
+        {
+            base.OnActionExecuted(filterContext);
+
+            ViewBag.IsLogin = CurrentUser != null;
+
+            if (CurrentUser != null)
+            {
+                #region Quản trị hệ thống
+                bool isAdmin = CurrentUser.UserName.Equals(UserDAL.ADMIN, StringComparison.OrdinalIgnoreCase);
+                ViewBag.ShowButtonNewOrEdit = IsFunctionInRole(ActionName.NewOrEditItem.ToString()) ||
+                    isAdmin;
+                ViewBag.ShowButtonDelete = IsFunctionInRole(ActionName.DeleteItem.ToString()) ||
+                    isAdmin;
+                ViewBag.ShowButtonProcessPayroll = IsFunctionInRole(ActionName.ProcessPayroll.ToString()) ||
+                    isAdmin;
+                ViewBag.ShowButtonProcessRollBack = IsFunctionInRole(ActionName.ProcessRollBack.ToString()) ||
+                    isAdmin;
+                #endregion
+            }
+        }
         public enum ActionName
         {
             // Khai báo các quyền tương ứng với bảng Function            
@@ -202,6 +223,52 @@ namespace NationalIT
                 Session["ListFunctionCode"] = value;
             }
         }
+
+        #region ListCode of User
+
+        public bool IsFunctionInRole(string code)
+        {
+            if (ListFunctionCode != null)
+            {
+                if (ListFunctionCode.Contains(code))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool IsFunctionInRole(string[] codeArr)
+        {
+            if (ListFunctionCode != null)
+            {
+                foreach (var code in codeArr)
+                {
+                    if (ListFunctionCode.Contains(code))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public bool IsOneOfFunctionsInRole(string lstCode)
+        {
+            if (ListFunctionCode != null)
+            {
+                string[] lst = lstCode.Split(',');
+                foreach (string item in lst)
+                {
+                    if (ListFunctionCode.Contains(item))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        #endregion
         public List<int> ListMenuID
         {
             get
