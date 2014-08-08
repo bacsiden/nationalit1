@@ -169,7 +169,7 @@ namespace NationalIT
                 return false;
             }
         }
-        public User CurrentUser
+        public mUser CurrentUser
         {
             get
             {

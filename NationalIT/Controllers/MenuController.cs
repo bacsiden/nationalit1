@@ -12,20 +12,20 @@ namespace NationalIT.Controllers
         [ValidationFunction("/Home/index", ActionName.VIEWLISTMENU)]
         public ActionResult Index()
         {
-            return View(DB.Entities.Menu);
+            return View(DB.Entities.mMenu);
         }
 
         [Authorize]
         [ValidationFunction("/Menu/index", ActionName.ADDNEWMENU)]
         public ActionResult Create()
         {
-            var db = new List<Menu>();
-            var obj = new Menu() { ID = 0, Title = "None" };
+            var db = new List<mMenu>();
+            var obj = new mMenu() { ID = 0, Title = "None" };
             db.Add(obj);
-            db.AddRange(DB.Entities.Menu);
+            db.AddRange(DB.Entities.mMenu);
             SelectList select = new SelectList(db.ToList(), "ID", "Title");
             ViewBag.dropDown = select;
-            return View(new Menu());
+            return View(new mMenu());
         }
 
         //
@@ -34,7 +34,7 @@ namespace NationalIT.Controllers
         [HttpPost]
         [Authorize]
         [ValidationFunction("/Menu/index", ActionName.ADDNEWMENU)]
-        public ActionResult Create(Menu model)
+        public ActionResult Create(mMenu model)
         {
             try
             {
@@ -47,16 +47,16 @@ namespace NationalIT.Controllers
                         model.ParentID = null;
                     }
                     model.IsActive = true;
-                    db.Menu.AddObject(model);
+                    db.mMenu.AddObject(model);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
                 else
                 {
-                    var lst = new List<Menu>();
-                    var obj = new Menu() { ID = 0, Title = "None" };
+                    var lst = new List<mMenu>();
+                    var obj = new mMenu() { ID = 0, Title = "None" };
                     lst.Add(obj);
-                    lst.AddRange(DB.Entities.Menu);
+                    lst.AddRange(DB.Entities.mMenu);
                     SelectList select = new SelectList(lst.ToList(), "ID", "Title");
                     ViewBag.dropDown = select;
                     return View();
@@ -75,12 +75,12 @@ namespace NationalIT.Controllers
         [ValidationFunction("/Menu/index", ActionName.DELETEMENU)]
         public ActionResult Edit(int id)
         {
-            var obj = DB.Entities.Menu.FirstOrDefault(m => m.ID == id);
-            var db = new List<Menu>();
-            var dfobj = new Menu() { ID = 0, Title = "None" };
+            var obj = DB.Entities.mMenu.FirstOrDefault(m => m.ID == id);
+            var db = new List<mMenu>();
+            var dfobj = new mMenu() { ID = 0, Title = "None" };
             db.Add(dfobj);
-            db.AddRange(DB.Entities.Menu);
-            SelectList select = new SelectList(db.ToList(), "ID", "Title", DB.Entities.Menu.FirstOrDefault(m => m.ID == obj.ParentID));
+            db.AddRange(DB.Entities.mMenu);
+            SelectList select = new SelectList(db.ToList(), "ID", "Title", DB.Entities.mMenu.FirstOrDefault(m => m.ID == obj.ParentID));
             ViewBag.dropDown = select;
 
             return View(obj);
@@ -92,7 +92,7 @@ namespace NationalIT.Controllers
         [HttpPost]
         [Authorize]
         [ValidationFunction("/Menu/index", ActionName.EDITMENU)]
-        public ActionResult Edit(Menu model)
+        public ActionResult Edit(mMenu model)
         {
             try
             {
@@ -100,7 +100,7 @@ namespace NationalIT.Controllers
                 {
                     // TODO: Add update logic here
                     var db = DB.Entities;
-                    var obj = db.Menu.FirstOrDefault(m => m.ID == model.ID);
+                    var obj = db.mMenu.FirstOrDefault(m => m.ID == model.ID);
                     obj.Title = model.Title;
                     obj.Oder = model.Oder;
                     if (model.ParentID == 0)
@@ -115,12 +115,12 @@ namespace NationalIT.Controllers
                 }
                 else
                 {
-                    var obj = DB.Entities.Menu.FirstOrDefault(m => m.ID == model.ID);
-                    var db = new List<Menu>();
-                    var dfobj = new Menu() { ID = 0, Title = "None" };
+                    var obj = DB.Entities.mMenu.FirstOrDefault(m => m.ID == model.ID);
+                    var db = new List<mMenu>();
+                    var dfobj = new mMenu() { ID = 0, Title = "None" };
                     db.Add(dfobj);
-                    db.AddRange(DB.Entities.Menu);
-                    SelectList select = new SelectList(db.ToList(), "ID", "Title", DB.Entities.Menu.FirstOrDefault(m => m.ID == obj.ParentID));
+                    db.AddRange(DB.Entities.mMenu);
+                    SelectList select = new SelectList(db.ToList(), "ID", "Title", DB.Entities.mMenu.FirstOrDefault(m => m.ID == obj.ParentID));
                     ViewBag.dropDown = select;
                     return View(model);
                 }
@@ -144,7 +144,7 @@ namespace NationalIT.Controllers
             try
             {
                 var db = DB.Entities;
-                var obj = db.Menu.FirstOrDefault(m => m.ID == id);
+                var obj = db.mMenu.FirstOrDefault(m => m.ID == id);
                 db.DeleteObject(obj);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -160,7 +160,7 @@ namespace NationalIT.Controllers
             try
             {
                 var db = DB.Entities;
-                var obj = db.Menu.FirstOrDefault(m => m.ID == id);
+                var obj = db.mMenu.FirstOrDefault(m => m.ID == id);
                 obj.IsActive = !obj.IsActive;
                 db.ObjectStateManager.ChangeObjectState(obj, System.Data.EntityState.Modified);
                 db.SaveChanges();
