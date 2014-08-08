@@ -9,10 +9,10 @@ using System.Data.SqlClient;
 namespace NationalIT.Controllers
 {
     [Authorize]
-    public class DriverInfoController : Controller
+    public class DriverInfoController : BaseController
     {
         int pageSize = 20;
-
+        [ValidationFunction("/Account/AccessDenied", ActionName.DRIVERINFOMANAGERMENT)]
         public ActionResult Index(int? page, int? driverID)
         {
             var db = DB.Entities;
@@ -36,6 +36,7 @@ namespace NationalIT.Controllers
             ViewBag.dataDriver_Info = dataDriver_Info;
             #endregion
         }
+        [ValidationFunction("/Account/AccessDenied", ActionName.DRIVERINFOMANAGERMENT)]
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == id);
@@ -105,6 +106,7 @@ namespace NationalIT.Controllers
         }
 
         [HttpPost]
+        [ValidationFunction("/Account/AccessDenied", ActionName.DRIVERINFOMANAGERMENT)]
         public ActionResult NewOrEdit(Driver_Info model, FormCollection frm)
         {
             try
@@ -190,7 +192,7 @@ namespace NationalIT.Controllers
                 return View(model);
             }
         }
-
+        [ValidationFunction("/Account/AccessDenied", ActionName.DRIVERINFOMANAGERMENT)]
         public ActionResult Delete(string arrayID = "")
         {
             try
@@ -215,7 +217,7 @@ namespace NationalIT.Controllers
             }
             return RedirectToAction("Index");
         }
-
+        [ValidationFunction("/Account/AccessDenied", ActionName.DRIVERINFOMANAGERMENT)]
         public ActionResult _Fuel_ExpensesPartial(int id, int? page)
         {
             if (page == null) page = 0;

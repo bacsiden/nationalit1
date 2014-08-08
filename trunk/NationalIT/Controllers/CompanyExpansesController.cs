@@ -8,21 +8,21 @@ using Webdiyer.WebControls.Mvc;
 namespace NationalIT.Controllers
 {
     [Authorize]
-    public class CompanyExpansesController : Controller
+    public class CompanyExpansesController : BaseController
     {
         //
         // GET: /Company_Expanses/
         int pageSize = 20;
         //
         // GET: /Owner/
-
+        [ValidationFunction(ActionName.ViewListCompanyExpanses)]
         public ActionResult Index(int? page)
         {
             return View(DB.Entities.Company_Expanses.OrderByDescending(m => m.CompanyExpansesID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
         }
         //
         // GET: /Owner/Edit/5
-
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.Company_Expanses.FirstOrDefault(m => m.CompanyExpansesID == id);
@@ -33,6 +33,7 @@ namespace NationalIT.Controllers
         // POST: /Owner/Edit/5
 
         [HttpPost]
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult NewOrEdit(Company_Expanses model, FormCollection frm)
         {
             try
@@ -61,7 +62,7 @@ namespace NationalIT.Controllers
 
         //
         // GET: /Owner/Delete/5
-
+        [ValidationFunction(ActionName.DeleteItem)]
         public ActionResult Delete(string arrayID = "")
         {
             try

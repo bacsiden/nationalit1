@@ -6,10 +6,11 @@ using System.Web.Mvc;
 using Webdiyer.WebControls.Mvc;
 namespace NationalIT.Controllers
 {
-    [Authorize]
-    public class FuelExpensesController : Controller
+    [Authorize]    
+    public class FuelExpensesController : BaseController
     {
         int pageSize = 20;
+        [ValidationFunction(ActionName.ViewListFuelExpenses)]
         public ActionResult Index(int? page, int? driverID)
         {
             var db = DB.Entities;
@@ -59,6 +60,7 @@ namespace NationalIT.Controllers
             ViewBag.dataDriver = dataDriver_Info;
             #endregion
         }
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult Create()
         {
             var lst1 = new List<string> { "FUEL", "ADVANCE", "REPAIR" };
@@ -78,6 +80,7 @@ namespace NationalIT.Controllers
         }
 
         [HttpPost]
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult Create(Fuel___Expenses model, FormCollection collection)
         {
             try
@@ -98,6 +101,7 @@ namespace NationalIT.Controllers
                 return View();
             }
         }
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.Fuel___Expenses.FirstOrDefault(m => m.ID == id);
@@ -113,6 +117,7 @@ namespace NationalIT.Controllers
         // POST: /Owner/Edit/5
 
         [HttpPost]
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult NewOrEdit(Fuel___Expenses model, FormCollection frm)
         {
             try
@@ -140,6 +145,7 @@ namespace NationalIT.Controllers
                 return View(model);
             }
         }
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult Edit(int id)
         {
             var db = DB.Entities;
@@ -164,6 +170,7 @@ namespace NationalIT.Controllers
         }
 
         [HttpPost]
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult Edit(Fuel___Expenses model, FormCollection collection)
         {
             try
@@ -186,7 +193,7 @@ namespace NationalIT.Controllers
                 return View();
             }
         }
-
+        [ValidationFunction(ActionName.DeleteItem)]
         public ActionResult Delete(string arrayID = "")
         {
             try

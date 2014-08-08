@@ -9,14 +9,14 @@ namespace NationalIT.Controllers
     public class MenuController : BaseController
     {
         [Authorize]
-        [ValidationFunction("/Home/index", ActionName.VIEWLISTMENU)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Index()
         {
             return View(DB.Entities.mMenu);
         }
 
         [Authorize]
-        [ValidationFunction("/Menu/index", ActionName.ADDNEWMENU)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Create()
         {
             var db = new List<mMenu>();
@@ -33,7 +33,7 @@ namespace NationalIT.Controllers
 
         [HttpPost]
         [Authorize]
-        [ValidationFunction("/Menu/index", ActionName.ADDNEWMENU)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Create(mMenu model)
         {
             try
@@ -72,7 +72,7 @@ namespace NationalIT.Controllers
         // GET: /CuocPhi/Edit/5
 
         [Authorize]
-        [ValidationFunction("/Menu/index", ActionName.DELETEMENU)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Edit(int id)
         {
             var obj = DB.Entities.mMenu.FirstOrDefault(m => m.ID == id);
@@ -91,7 +91,7 @@ namespace NationalIT.Controllers
 
         [HttpPost]
         [Authorize]
-        [ValidationFunction("/Menu/index", ActionName.EDITMENU)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Edit(mMenu model)
         {
             try
@@ -138,7 +138,7 @@ namespace NationalIT.Controllers
 
 
         [Authorize]
-        [ValidationFunction("/Menu/index", ActionName.EDITMENU)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Delete(int id)
         {
             try
@@ -154,7 +154,7 @@ namespace NationalIT.Controllers
                 return View();
             }
         }
-        [ValidationFunction("/Menu/index", ActionName.VIEWLISTMENU)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public string DoActive(int id)
         {
             try

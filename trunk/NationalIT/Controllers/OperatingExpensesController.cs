@@ -7,10 +7,11 @@ using Webdiyer.WebControls.Mvc;
 
 namespace NationalIT.Controllers
 {
-    [Authorize]
-    public class OperatingExpensesController : Controller
+    [Authorize]    
+    public class OperatingExpensesController : BaseController
     {
         int pageSize = 20;
+        [ValidationFunction(ActionName.ViewListOperatingExpenses)]
         public ActionResult Index(int? page, int? driverID)
         {
             var list = DB.Entities.Operating_Expenses.Where(m => (driverID == null ? true : m.ID == driverID.Value)).OrderByDescending(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize);
@@ -49,6 +50,7 @@ namespace NationalIT.Controllers
             ViewBag.dataDriver = dataDriver_Info;
             #endregion
         }
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = new Operating_Expenses() { Current_Payroll = true };
@@ -58,6 +60,7 @@ namespace NationalIT.Controllers
         }
 
         [HttpPost]
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult NewOrEdit(Operating_Expenses model, FormCollection frm)
         {
             try
@@ -84,7 +87,7 @@ namespace NationalIT.Controllers
                 return View(model);
             }
         }
-
+        [ValidationFunction(ActionName.DeleteItem)]
         public ActionResult Delete(string arrayID = "")
         {
             try

@@ -9,14 +9,14 @@ namespace NationalIT.Controllers
     public class GroupController : BaseController
     {
         [Authorize]
-        [ValidationFunction("/Home/index", ActionName.VIEWLISTGROUP)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Index()
         {
             return View(DB.Entities.mGroup);
         }
 
         [Authorize]
-        [ValidationFunction("/Group/index", ActionName.ADDUSERFORGROUP)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult UsersInGroup(int id = 0)
         {
             var db = DB.Entities;
@@ -30,7 +30,7 @@ namespace NationalIT.Controllers
         }
 
         [Authorize]
-        [ValidationFunction("/Group/index", ActionName.ADDUSERFORGROUP)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult RemoveUser(int id, int groupID)
         {
             var db = DB.Entities;
@@ -42,7 +42,7 @@ namespace NationalIT.Controllers
         }
 
         [Authorize]
-        [ValidationFunction("/Group/index", ActionName.ADDUSERFORGROUP)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult AddUser(int id)
         {
             ViewBag.GroupID = id;
@@ -51,7 +51,7 @@ namespace NationalIT.Controllers
         }
 
         [Authorize]
-        [ValidationFunction("/Group/index", ActionName.ADDUSERFORGROUP)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult DoAddUser(mUser objUser, int groupID)
         {
             try
@@ -80,7 +80,7 @@ namespace NationalIT.Controllers
         }
 
         [Authorize]
-        [ValidationFunction("/Group/index", ActionName.ADDNEWGROUP)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Create()
         {
             return View();
@@ -88,7 +88,7 @@ namespace NationalIT.Controllers
 
         [HttpPost]
         [Authorize]
-        [ValidationFunction("/Group/index", ActionName.ADDNEWGROUP)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Create(mGroup model)
         {
             try
@@ -107,7 +107,7 @@ namespace NationalIT.Controllers
         }
 
         [Authorize]
-        [ValidationFunction("/Group/index", ActionName.EDITGROUP)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Edit(int id = 0)
         {
             var obj = DB.Entities.mGroup.First(m => m.ID == id);
@@ -118,7 +118,7 @@ namespace NationalIT.Controllers
 
         [HttpPost]
         [Authorize]
-        [ValidationFunction("/Group/index", ActionName.EDITGROUP)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Edit(mGroup model)
         {
             try
@@ -138,7 +138,7 @@ namespace NationalIT.Controllers
         }
 
         [Authorize]
-        [ValidationFunction("/Group/index", ActionName.DELETEGROUP)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Delete(int id)
         {
             try
@@ -156,7 +156,7 @@ namespace NationalIT.Controllers
         }
 
         [Authorize]
-        [ValidationFunction("/Group/index", ActionName.ADDROLESFORGROUP)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Role(int id)
         {
             try
@@ -184,7 +184,7 @@ namespace NationalIT.Controllers
         }
 
         [Authorize]
-        [ValidationFunction("/Group/index", ActionName.ADDROLESFORGROUP)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult DoRole(int groupID, string listCheck)
         {
             try

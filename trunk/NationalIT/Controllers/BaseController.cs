@@ -29,81 +29,26 @@ namespace NationalIT
         //}
         public enum ActionName
         {
-            // Khai báo các quyền tương ứng với bảng Function
-            [System.ComponentModel.Description("Login")]
-            LOGIN,
-            [System.ComponentModel.Description("Log out")]
-            LOGOUT,
-
-            #region Quản lý menu
-            [System.ComponentModel.Description("Add new menu")]
-            ADDNEWMENU,
-            [System.ComponentModel.Description("View list menu")]
-            VIEWLISTMENU,
-            [System.ComponentModel.Description("Edit menu")]
-            EDITMENU,
-            [System.ComponentModel.Description("Delete menu")]
-            DELETEMENU,
-            #endregion
-
-            #region Quản lý user and group
-            [System.ComponentModel.Description("Add new GROUP")]
-            ADDNEWGROUP,
-            [System.ComponentModel.Description("View list GROUP")]
-            VIEWLISTGROUP,
-            [System.ComponentModel.Description("Edit GROUP")]
-            EDITGROUP,
-            [System.ComponentModel.Description("Add user to GROUP")]
-            ADDUSERFORGROUP,
-            [System.ComponentModel.Description("Add role to GROUP")]
-            ADDROLESFORGROUP,           
-            [System.ComponentModel.Description("Delete GROUP")]
-            DELETEGROUP,
-            #endregion
-
-            #region Quản lý vai trò
-            [System.ComponentModel.Description("Add new ROLE")]
-            ADDNEWROLE,
-            [System.ComponentModel.Description("View list ROLE")]
-            VIEWLISTROLE,
-            [System.ComponentModel.Description("Edit ROLE")]
-            EDITROLE,
-            [System.ComponentModel.Description("Add funtion to ROLE")]
-            ADDFUNCTIONFORROLE,
-            [System.ComponentModel.Description("Delete ROLE")]
-            DELETEROLE,
-            #endregion
-
-            #region Quản lý function
-            [System.ComponentModel.Description("Add menu to FUNCTION")]
-            ADDMENUFORFUNCTION,
-            [System.ComponentModel.Description("View List FUNCTION")]
-            VIEWLISTFUNCTION,
-            #endregion
-
-            #region Nghiệp vụ
-            [System.ComponentModel.Description("Driver info managerment")]
-            DRIVERINFOMANAGERMENT,
-            [System.ComponentModel.Description("Trip info managerment")]
-            TRIPINFOMANAGERMENT,
-            [System.ComponentModel.Description("Owner managerment")]
-            OWNERMANAGERMENT,
-            [System.ComponentModel.Description("Operating expanses managerment")]
-            OPERATINGEXPANSESMANAGERMENT,
-            [System.ComponentModel.Description("Dispatchers managerment")]
-            DISPATCHERSMANAGERMENT,
-            [System.ComponentModel.Description("Equipment managerment")]
-            EQUIPMENTMANAGERMENT,
-            [System.ComponentModel.Description("Fuel Expenses managerment")]
-            FUELEXPENSESMANAGERMENT,
-            [System.ComponentModel.Description("Income managerment")]
-            INCOMEMANAGERMENT,
-            [System.ComponentModel.Description("Maintenance managerment")]
-            MAINTENACEMANAGERMENT,
-            [System.ComponentModel.Description("Violations managerment")]
-            VIOLATIONSMANAGERMENT,
-            #endregion
-
+            // Khai báo các quyền tương ứng với bảng Function            
+            ViewListTrip,
+            ViewListDriver,
+            ViewListCutomer,
+            ViewListFuelExpenses,
+            ViewListSplitExpenses,
+            ViewListOperatingExpenses,
+            ViewListOwners,
+            ViewListCompanyExpanses,
+            ViewListIncome,
+            ViewListEquipment,
+            ViewListMaintenance,
+            ViewListVolations,
+            ViewAllReport,
+            SystemAdmin,
+            NewOrEditItem,
+            DeleteItem,
+            ProcessPayroll,
+            ProcessRollBack,
+            ViewListDispatchers,
         }
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -146,7 +91,7 @@ namespace NationalIT
                 if (user.Locked)
                 {
                     new AccountController().LogOff();
-                    filterContext.Result = new RedirectResult("/BuuKien/Index");
+                    filterContext.Result = new RedirectResult("/Account/AccessDenied");
                 }
                 else
                 {
@@ -162,7 +107,7 @@ namespace NationalIT
                     {
                         if (String.IsNullOrEmpty(UrlRedirect))
                         {
-                            filterContext.Result = new RedirectResult("/BuuKien/Index");
+                            filterContext.Result = new RedirectResult("/Account/AccessDenied");
                         }
                         else
                         {

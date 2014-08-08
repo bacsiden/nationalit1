@@ -7,13 +7,13 @@ using Webdiyer.WebControls.Mvc;
 
 namespace NationalIT.Controllers
 {
-    [Authorize]
-    public class SplitExpensesController : Controller
+    [Authorize]    
+    public class SplitExpensesController : BaseController
     {
         int pageSize = 20;
         //
         // GET: /Owner/
-
+        [ValidationFunction(ActionName.ViewListSplitExpenses)]
         public ActionResult Index(int? page, int? driverID)
         {
             var list = DB.Entities.split_expenses.Where(m => (driverID == null ? true : m.Id == driverID.Value)).OrderByDescending(m => m.Id).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize);
@@ -68,7 +68,7 @@ namespace NationalIT.Controllers
         }
         //
         // GET: /Owner/Edit/5
-
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.split_expenses.FirstOrDefault(m => m.Id == id);
@@ -82,7 +82,7 @@ namespace NationalIT.Controllers
 
         //
         // POST: /Owner/Edit/5
-
+        [ValidationFunction(ActionName.NewOrEditItem)]
         [HttpPost]
         public ActionResult NewOrEdit(split_expenses model, FormCollection frm)
         {
@@ -117,7 +117,7 @@ namespace NationalIT.Controllers
 
         //
         // GET: /Owner/Delete/5
-
+        [ValidationFunction(ActionName.DeleteItem)]
         public ActionResult Delete(string arrayID = "")
         {
             try

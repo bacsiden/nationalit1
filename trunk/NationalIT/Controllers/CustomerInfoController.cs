@@ -7,13 +7,13 @@ using Webdiyer.WebControls.Mvc;
 
 namespace NationalIT.Controllers
 {
-    [Authorize]
-    public class CustomerInfoController : Controller
+    [Authorize]    
+    public class CustomerInfoController : BaseController
     {
         int pageSize = 20;
         //
         // GET: /Owner/
-
+        [ValidationFunction(ActionName.ViewListCutomer)]
         public ActionResult Index(int? page, int? driverID)
         {
             var db = DB.Entities;
@@ -40,7 +40,7 @@ namespace NationalIT.Controllers
         }
         //
         // GET: /Owner/Edit/5
-
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult NewOrEdit(int? id = 0)
         {
             if (id == 0) return View(new Customer_Info());
@@ -52,6 +52,7 @@ namespace NationalIT.Controllers
         // POST: /Owner/Edit/5
 
         [HttpPost]
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult NewOrEdit(Customer_Info model)
         {
             try
@@ -80,7 +81,7 @@ namespace NationalIT.Controllers
 
         //
         // GET: /Owner/Delete/5
-
+        [ValidationFunction(ActionName.DeleteItem)]
         public ActionResult Delete(string arrayID = "")
         {
             try
@@ -105,7 +106,7 @@ namespace NationalIT.Controllers
             }
             return RedirectToAction("Index");
         }
-
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult _Trip_Info_Partial(int id, int? page)
         {
             if (page == null) page = 0;

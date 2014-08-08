@@ -483,6 +483,7 @@
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Function\Index.cshtml" />
     <Content Include="Views\Function\Menu.cshtml" />
+    <Content Include="Views\Account\AccessDenied.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
