@@ -8,13 +8,13 @@ using System.Data.Objects.SqlClient;
 
 namespace NationalIT.Controllers
 {
-    [Authorize]
-    public class TripInfoController : Controller
+    [Authorize]    
+    public class TripInfoController : BaseController
     {
         int pageSize = 20;
         //
         // GET: /Owner/
-
+        [ValidationFunction(ActionName.ViewListTrip)]
         public ActionResult Index(int? page, int? driverID, int? tripID)
         {
             var db = DB.Entities;
@@ -48,6 +48,7 @@ namespace NationalIT.Controllers
             ViewBag.dataDriver_Info = dataDriver_Info;
             #endregion
         }
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult NewOrEdit(int? driverID, int? id = 0)
         {
             var obj = DB.Entities.Trip_Info.FirstOrDefault(m => m.Trip_ID == id);
@@ -123,6 +124,7 @@ namespace NationalIT.Controllers
         // POST: /Owner/Edit/5
 
         [HttpPost]
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult NewOrEdit(Trip_Info model, FormCollection frm)
         {
             try
@@ -213,7 +215,7 @@ namespace NationalIT.Controllers
 
         //
         // GET: /Owner/Delete/5
-
+        [ValidationFunction(ActionName.DeleteItem)]
         public ActionResult Delete(string arrayID = "")
         {
             try
@@ -240,6 +242,7 @@ namespace NationalIT.Controllers
         }
 
         [HttpGet]
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult GetCutomerInfoByKey(int? page, string query = "")
         {
             page = page.HasValue ? page.Value : 1;
@@ -251,6 +254,7 @@ namespace NationalIT.Controllers
             return PartialView(list.OrderByDescending(m => m.Customer_ID).ToPagedList(page.Value, 5));
         }
         [HttpPost]
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public string GetAdressCustomerInfo(int id)
         {
             string address = "";

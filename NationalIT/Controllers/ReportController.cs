@@ -6,12 +6,12 @@ using System.Web.Mvc;
 
 namespace NationalIT.Controllers
 {
-    [Authorize]
-    public class ReportController : Controller
+    [Authorize]    
+    public class ReportController : BaseController
     {
         //
         // GET: /Report/
-
+        [ValidationFunction(ActionName.ViewAllReport)]
         public ActionResult Index()
         {
             SelectOption();

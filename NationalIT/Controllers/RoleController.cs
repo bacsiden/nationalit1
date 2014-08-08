@@ -12,14 +12,14 @@ namespace NationalIT.Controllers
         // GET: /Role/
 
         [Authorize]
-        [ValidationFunction("/Home/index", ActionName.VIEWLISTROLE)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Index()
         {
             return View(DB.Entities.mRole);
         }
 
         [Authorize]
-        [ValidationFunction("/Role/index", ActionName.ADDNEWROLE)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Create()
         {
             return View();
@@ -27,7 +27,7 @@ namespace NationalIT.Controllers
 
         [HttpPost]
         [Authorize]
-        [ValidationFunction("/Role/index", ActionName.ADDNEWROLE)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Create(mRole model)
         {
             try
@@ -46,7 +46,7 @@ namespace NationalIT.Controllers
         }
 
         [Authorize]
-        [ValidationFunction("/Role/index", ActionName.EDITROLE)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Edit(int id = 0)
         {
             var obj = DB.Entities.mRole.First(m => m.ID == id);
@@ -57,7 +57,7 @@ namespace NationalIT.Controllers
 
         [HttpPost]
         [Authorize]
-        [ValidationFunction("/Role/index", ActionName.EDITROLE)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Edit(mRole model)
         {
             try
@@ -77,7 +77,7 @@ namespace NationalIT.Controllers
         }
 
         [Authorize]
-        [ValidationFunction("/Role/index", ActionName.DELETEROLE)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Delete(int id)
         {
             try
@@ -95,7 +95,7 @@ namespace NationalIT.Controllers
         }
 
         [Authorize]
-        [ValidationFunction("/Role/index", ActionName.ADDFUNCTIONFORROLE)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult Function(int id)
         {
             try
@@ -123,7 +123,7 @@ namespace NationalIT.Controllers
         }
 
         [Authorize]
-        [ValidationFunction("/Role/index", ActionName.ADDFUNCTIONFORROLE)]
+        [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult DoFunction(int roleID, string listCheck)
         {
             try

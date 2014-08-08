@@ -7,20 +7,21 @@ using Webdiyer.WebControls.Mvc;
 
 namespace NationalIT.Controllers
 {
-    [Authorize]
-    public class OwnerController : Controller
+    [Authorize]    
+    public class OwnerController : BaseController
     {
         int pageSize = 20;
         //
         // GET: /Owner/
 
+        [ValidationFunction(ActionName.ViewListOwners)]
         public ActionResult Index(int? page)
         {
             return View(DB.Entities.Owners.OrderByDescending(m => m.OwnerID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
         }
         //
         // GET: /Owner/Edit/5
-
+        [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.Owners.FirstOrDefault(m => m.OwnerID == id);
@@ -29,7 +30,7 @@ namespace NationalIT.Controllers
 
         //
         // POST: /Owner/Edit/5
-
+        [ValidationFunction(ActionName.NewOrEditItem)]
         [HttpPost]
         public ActionResult NewOrEdit(Owners model)
         {
@@ -59,7 +60,7 @@ namespace NationalIT.Controllers
 
         //
         // GET: /Owner/Delete/5
-
+        [ValidationFunction(ActionName.DeleteItem)]
         public ActionResult Delete(string arrayID = "")
         {
             try

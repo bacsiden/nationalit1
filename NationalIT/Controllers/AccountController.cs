@@ -485,10 +485,10 @@ namespace NationalIT.Controllers
             return View();
         }
 
-
-
-
-
-
+        [Authorize]
+        public ActionResult AccessDenied()
+        {
+            return View();
+        }
     }
 }
