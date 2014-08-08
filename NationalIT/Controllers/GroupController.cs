@@ -215,67 +215,6 @@ namespace NationalIT.Controllers
             {
                 return View();
             }
-        }
-        //[Authorize]
-        //[ValidationFunction("/Group/index", ActionName.ADDMENUFORGROUP)]
-        //public ActionResult Menu(int id)
-        //{
-        //    try
-        //    {
-        //        var db = DB.Entities;
-        //        var lst = db.mMenu.Where(m => m.mGroup.FirstOrDefault(n => n.ID == id) != null);
-        //        string s = "";
-        //        foreach (var item in db.mMenu)
-        //        {
-        //            string check = "";
-        //            if (lst.FirstOrDefault(m => m.ID == item.ID) != null)
-        //            {
-        //                check = "checked='checked'";
-        //            }
-        //            s += "<label class='checkbox'><input type='checkbox' " + check + " value='" + item.ID + "' />" + item.Title + "</label>";
-        //        }
-        //        ViewBag.listMenu = s;
-        //        return View(db.mGroup.FirstOrDefault(m => m.ID == id));
-
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return View();
-        //    }
-        //}
-        //[Authorize]
-        //[HttpPost]
-        //[ValidationFunction("/Group/index", ActionName.ADDMENUFORGROUP)]
-        //public ActionResult Menu(int groupID, string listCheck)
-        //{
-        //    try
-        //    {
-        //        var db = DB.Entities;
-        //        var group = db.mGroup.FirstOrDefault(m => m.ID == groupID);
-        //        string[] listChecked = listCheck.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-        //        foreach (var item in db.mMenu)
-        //        {
-        //            if (listChecked.Contains(item.ID.ToString()))
-        //            {
-        //                if (group.mMenu.FirstOrDefault(m => m.ID == item.ID) == null)
-        //                {
-        //                    group.mMenu.Add(item);
-        //                }
-        //            }
-        //            else
-        //                if (group.mMenu.FirstOrDefault(m => m.ID == item.ID) != null)
-        //                {
-        //                    group.mMenu.Remove(item);
-        //                }
-        //        }
-
-        //        db.SaveChanges();
-        //        return RedirectToAction("index");
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return View();
-        //    }
-        //}
+        }        
     }
 }

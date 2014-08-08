@@ -88,6 +88,7 @@
     <Compile Include="Controllers\FuelExpensesController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controllers\FunctionController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\IncomeController.cs">
       <SubType>Code</SubType>
@@ -464,22 +465,13 @@
     <Content Include="Views\Undo-Payrolls\_OwnerExpenses.cshtml" />
     <Content Include="Views\DriverInfo\_IndexUndoPayrollPartial.cshtml" />
     <Content Include="Views\Account\LogOn.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Account\_ChangePass.cshtml" />
-    <Content Include="Views\Account\AddCard.cshtml" />
-    <Content Include="Views\Account\AddMoney.cshtml" />
-    <Content Include="Views\Account\AddMoney1.cshtml" />
-    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
-    <Content Include="Views\Account\LogOn2.cshtml" />
     <Content Include="Views\Account\NewOrEdit.cshtml" />
-    <Content Include="Views\Account\Register1.cshtml" />
     <Content Include="Views\Group\AddUser.cshtml" />
     <Content Include="Views\Group\Create.cshtml" />
     <Content Include="Views\Group\Edit.cshtml" />
     <Content Include="Views\Group\Index.cshtml" />
-    <Content Include="Views\Group\Menu.cshtml" />
     <Content Include="Views\Group\Role.cshtml" />
     <Content Include="Views\Group\UsersInGroup.cshtml" />
     <Content Include="Views\Menu\Create.cshtml" />
@@ -489,6 +481,8 @@
     <Content Include="Views\Role\Edit.cshtml" />
     <Content Include="Views\Role\Function.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\Function\Index.cshtml" />
+    <Content Include="Views\Function\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
