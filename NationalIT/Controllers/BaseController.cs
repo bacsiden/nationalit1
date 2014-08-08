@@ -30,52 +30,79 @@ namespace NationalIT
         public enum ActionName
         {
             // Khai báo các quyền tương ứng với bảng Function
-            [System.ComponentModel.Description("Đăng nhập")]
+            [System.ComponentModel.Description("Login")]
             LOGIN,
-            [System.ComponentModel.Description("Đăng xuất")]
+            [System.ComponentModel.Description("Log out")]
             LOGOUT,
 
             #region Quản lý menu
-            [System.ComponentModel.Description("Tạo mới menu")]
+            [System.ComponentModel.Description("Add new menu")]
             ADDNEWMENU,
-            [System.ComponentModel.Description("Xem danh sách menu")]
+            [System.ComponentModel.Description("View list menu")]
             VIEWLISTMENU,
-            [System.ComponentModel.Description("Sửa menu")]
+            [System.ComponentModel.Description("Edit menu")]
             EDITMENU,
-            [System.ComponentModel.Description("Xóa menu")]
+            [System.ComponentModel.Description("Delete menu")]
             DELETEMENU,
             #endregion
 
             #region Quản lý user and group
-            [System.ComponentModel.Description("Tạo mới GROUP")]
+            [System.ComponentModel.Description("Add new GROUP")]
             ADDNEWGROUP,
-            [System.ComponentModel.Description("Xem danh sách GROUP")]
+            [System.ComponentModel.Description("View list GROUP")]
             VIEWLISTGROUP,
-            [System.ComponentModel.Description("Sửa GROUP")]
+            [System.ComponentModel.Description("Edit GROUP")]
             EDITGROUP,
-            [System.ComponentModel.Description("Thêm user cho GROUP")]
+            [System.ComponentModel.Description("Add user to GROUP")]
             ADDUSERFORGROUP,
-            [System.ComponentModel.Description("Thêm vai trò cho GROUP")]
-            ADDROLESFORGROUP,
-            [System.ComponentModel.Description("Thêm menu GROUP")]
-            ADDMENUFORGROUP,
-            [System.ComponentModel.Description("Xóa GROUP")]
+            [System.ComponentModel.Description("Add role to GROUP")]
+            ADDROLESFORGROUP,           
+            [System.ComponentModel.Description("Delete GROUP")]
             DELETEGROUP,
             #endregion
 
             #region Quản lý vai trò
-            [System.ComponentModel.Description("Tạo mới ROLE")]
+            [System.ComponentModel.Description("Add new ROLE")]
             ADDNEWROLE,
-            [System.ComponentModel.Description("Xem danh sách ROLE")]
+            [System.ComponentModel.Description("View list ROLE")]
             VIEWLISTROLE,
-            [System.ComponentModel.Description("Sửa ROLE")]
+            [System.ComponentModel.Description("Edit ROLE")]
             EDITROLE,
-            [System.ComponentModel.Description("Thêm funtion cho ROLE")]
+            [System.ComponentModel.Description("Add funtion to ROLE")]
             ADDFUNCTIONFORROLE,
-            [System.ComponentModel.Description("Xóa ROLE")]
+            [System.ComponentModel.Description("Delete ROLE")]
             DELETEROLE,
             #endregion
 
+            #region Quản lý function
+            [System.ComponentModel.Description("Add menu to FUNCTION")]
+            ADDMENUFORFUNCTION,
+            [System.ComponentModel.Description("View List FUNCTION")]
+            VIEWLISTFUNCTION,
+            #endregion
+
+            #region Nghiệp vụ
+            [System.ComponentModel.Description("Driver info managerment")]
+            DRIVERINFOMANAGERMENT,
+            [System.ComponentModel.Description("Trip info managerment")]
+            TRIPINFOMANAGERMENT,
+            [System.ComponentModel.Description("Owner managerment")]
+            OWNERMANAGERMENT,
+            [System.ComponentModel.Description("Operating expanses managerment")]
+            OPERATINGEXPANSESMANAGERMENT,
+            [System.ComponentModel.Description("Dispatchers managerment")]
+            DISPATCHERSMANAGERMENT,
+            [System.ComponentModel.Description("Equipment managerment")]
+            EQUIPMENTMANAGERMENT,
+            [System.ComponentModel.Description("Fuel Expenses managerment")]
+            FUELEXPENSESMANAGERMENT,
+            [System.ComponentModel.Description("Income managerment")]
+            INCOMEMANAGERMENT,
+            [System.ComponentModel.Description("Maintenance managerment")]
+            MAINTENACEMANAGERMENT,
+            [System.ComponentModel.Description("Violations managerment")]
+            VIOLATIONSMANAGERMENT,
+            #endregion
 
         }
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
