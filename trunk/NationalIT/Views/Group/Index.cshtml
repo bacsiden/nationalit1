@@ -33,7 +33,7 @@
                                     @Html.ActionLink(item.Title, "Edit", new { id = item.ID }, null)
                                 </td>
                                 <td>
-                                    @foreach (var role in item.Role1)
+                                    @foreach (var role in item.mRole)
                                     {
                                         @role.Name <br />
                                     }
