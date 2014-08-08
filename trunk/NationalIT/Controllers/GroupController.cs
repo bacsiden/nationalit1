@@ -45,8 +45,20 @@ namespace NationalIT.Controllers
         [ValidationFunction(ActionName.SystemAdmin)]
         public ActionResult AddUser(int id)
         {
+            var db = DB.Entities;
             ViewBag.GroupID = id;
-            ViewBag.GroupName = DB.Entities.mGroup.First(m => m.ID == id).Title;
+            var obj = db.mGroup.First(m => m.ID == id);
+            ViewBag.GroupName = obj.Title;
+            #region SELECT OPTION
+            List<int> listUserIDinGroup = obj.mUser.Select(m => m.ID).ToList();
+            var listUser = db.mUser.Where(m => !listUserIDinGroup.Contains(m.ID)).ToList();
+            string dataUserName = "<option >--Select User name--</option>";
+            foreach (var item in listUser)
+            {
+                dataUserName += string.Format("<option value='{0}'>{1} ({2})</option>", item.ID, item.Name,item.UserName);
+            }
+            ViewBag.dataUserName = dataUserName;
+            #endregion
             return View(new mUser());
         }
 
@@ -57,7 +69,7 @@ namespace NationalIT.Controllers
             try
             {
                 var db = DB.Entities;
-                var user = db.mUser.FirstOrDefault(m => m.UserName == objUser.UserName);
+                var user = db.mUser.FirstOrDefault(m => m.ID == objUser.ID);
                 var group = db.mGroup.First(m => m.ID == groupID);
                 user.mGroup.Add(group);
                 db.SaveChanges();
@@ -65,7 +77,15 @@ namespace NationalIT.Controllers
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError("", "Tài khoản bạn nhập vào không đúng.");
+                #region SELECT OPTION
+                string dataUserName = "<option >--Select User name--</option>";
+                foreach (var item in NationalIT.DB.Entities.mUser)
+                {
+                    dataUserName += string.Format("<option value='{0}'>{1} ({2})</option>", item.ID, item.Name, item.UserName);
+                }
+                ViewBag.dataUserName = dataUserName;
+                #endregion
+                ModelState.AddModelError("", "Can not add this user to group.");
                 return View("AddUser", objUser);
             }
         }
@@ -215,6 +235,6 @@ namespace NationalIT.Controllers
             {
                 return View();
             }
-        }        
+        }
     }
 }

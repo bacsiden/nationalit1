@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewBag.Menu = NationalIT.Controllers.AccountController.BuildMenu();
+    var ctrler = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+}
+<!DOCTYPE html>
 <html class="no-js">
 <head>
     <meta charset="utf-8">
@@ -9,7 +13,8 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="/Content/assets/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/Content/assets/bootstrap/bootstrap-responsive.min.css">
-    <link href="/Content/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+        type="text/css" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="/Content/assets/normalize/normalize.css">
     <link href="/Content/assets/chosen-bootstrap/chosen.min.css" rel="stylesheet" type="text/css" />
@@ -27,7 +32,23 @@
     <script src="/Content/assets/chosen-bootstrap/chosen.jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="/Content/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="/Content/js/flaty.js"></script>
-    <script src="/Content/js/myJquery.js" type="text/javascript"></script>
+    <script src="/Content/js/myJquery.js" type="text/javascript"></script>    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".nav-list li a.menu-item-a").each(function () {
+                var $this = $(this);
+                var obj = $this.parent().parent();
+                if ($this.attr('href').indexOf("@ctrler") > -1) {
+                    $(".nav-list li.active").removeClass();
+                    $this.parent().addClass("active");
+                    if (obj.is('.submenu')) {
+                        obj.prev().children().next().next().removeClass("icon-angle-right").addClass("icon-angle-down");
+                        obj.prev().parent().addClass("active");
+                    }
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <div id="navbar" class="navbar">
@@ -71,7 +92,7 @@
                 </li>
                 <!-- END Search Form -->
                 @Html.Raw(ViewBag.Menu)
-                @Html.Partial("_ListMenu")
+                @*@Html.Partial("_ListMenu")*@
             </ul>
             <!-- END Navlist -->
             <!-- BEGIN Sidebar Collapse Button -->

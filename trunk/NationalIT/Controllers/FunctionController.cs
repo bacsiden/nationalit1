@@ -36,7 +36,7 @@ namespace NationalIT.Controllers
                     {
                         check = "checked='checked'";
                     }
-                    s += "<label class='checkbox'><input type='checkbox' " + check + " value='" + item.ID + "' />" + item.Title + "</label>";
+                    s += "<label class='checkbox'><input type='checkbox' class='checkitem' " + check + " value='" + item.ID + "' />" + item.Title + "</label>";
                 }
                 ViewBag.listMenu = s;
                 return View(db.mFunction.FirstOrDefault(m => m.ID == id));
