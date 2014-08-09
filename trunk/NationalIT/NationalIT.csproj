@@ -486,6 +486,7 @@
     <Content Include="Views\Account\AccessDenied.cshtml" />
     <Content Include="Views\Shared\_MenuButtonNewEditOrDelete.cshtml" />
     <Content Include="Views\Shared\_ShowSaveEdit.cshtml" />
+    <Content Include="Views\Account\SetPass.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
