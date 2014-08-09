@@ -9,6 +9,7 @@ using System.Web.Security;
 using System.EnterpriseServices;
 using System.ComponentModel;
 using NationalIT.Controllers;
+using System.Data.SqlClient;
 
 namespace NationalIT
 {
@@ -200,7 +201,19 @@ namespace NationalIT
             //    return actionName;
             return "Admin/" + actionName;
         }
-
+        public void DeleteItem(object entity, object id, string idFieldName = "ID")
+        {
+            string s = entity.ToString();
+            int k = s.LastIndexOf('.');
+            string tableName = s.Substring(k + 1, s.Length - k - 2);
+            s = "delete from " + tableName + " where " + idFieldName + "=" + id;
+            string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connStr);
+            conn.Open();
+            SqlCommand co = new SqlCommand(s, conn);
+            co.ExecuteNonQuery();
+            conn.Close();
+        }
         public int PageSize
         {
             get

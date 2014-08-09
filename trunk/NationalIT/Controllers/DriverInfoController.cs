@@ -402,12 +402,7 @@ namespace NationalIT.Controllers
             }
             #endregion
             db.SaveChanges();
-            string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connStr);
-            conn.Open();
-            SqlCommand co = new SqlCommand("delete from TempReport where ID = " + tempReportID, conn);
-            co.ExecuteNonQuery();
-            conn.Close();
+            DeleteItem(db.TempReport, tempreport.ID);
             //db.ObjectStateManager.ChangeObjectState(tempreport, System.Data.EntityState.Deleted);
 
         }

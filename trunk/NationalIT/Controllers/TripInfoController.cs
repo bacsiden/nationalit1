@@ -8,7 +8,7 @@ using System.Data.Objects.SqlClient;
 
 namespace NationalIT.Controllers
 {
-    [Authorize]    
+    [Authorize]
     public class TripInfoController : BaseController
     {
         int pageSize = 20;
@@ -54,8 +54,7 @@ namespace NationalIT.Controllers
             var obj = DB.Entities.Trip_Info.FirstOrDefault(m => m.Trip_ID == id);
             if (obj == null)
             {
-                int invoice = DB.Entities.Trip_Info.Count() > 0 ? DB.Entities.Trip_Info.Max(m => m.Invoice) + 1 : 1;
-                obj = new Trip_Info() { Driver = driverID, Picked = true, Current_Payroll = true, Customer_Invoiced_date = DateTime.Now.Date, Invoice = invoice };
+                obj = new Trip_Info() { Driver = driverID, Picked = true, Current_Payroll = true, Customer_Invoiced_date = DateTime.Now.Date };
             }
 
             #region SELECT OPTION
@@ -136,12 +135,13 @@ namespace NationalIT.Controllers
                 model.Pickup_date = CommonFunction.ChangeFormatDate(frm["Pickup_date"]);
                 if (model.Trip_ID == 0)
                 {
-                    // Edit                    
+                    // New
                     db.Trip_Info.AddObject(model);
+                    db.SaveChanges();
+                    model.Invoice = model.Trip_ID;
                 }
                 else
                 {
-                    // Add new      
                     db.AttachTo("Trip_Info", model);
                     db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
                 }
@@ -223,15 +223,9 @@ namespace NationalIT.Controllers
                 // TODO: Add delete logic here
                 var lstID = arrayID.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
                 var db = DB.Entities;
-                if (lstID.Length > 0)
+                foreach (var item in lstID)
                 {
-                    foreach (var item in lstID)
-                    {
-                        int tmpID = int.Parse(item);
-                        var obj = db.Trip_Info.FirstOrDefault(m => m.Trip_ID == tmpID);
-                        db.Trip_Info.DeleteObject(obj);
-                    }
-                    db.SaveChanges();
+                    DeleteItem(db.Trip_Info, item, "Trip_ID");
                 }
             }
             catch

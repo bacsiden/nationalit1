@@ -9,9 +9,9 @@
             <div class="box-content">
                 <p style="margin-left: 7px;">
                     @Html.ActionLink("Add user", "NewOrEdit", "Account", null, new { @class = "btn btn-primary" })
-                    <a href="/Account/NewOrEdit" class="btn btn-primary EditItem">Edit</a>
-                    <a href="/Account/LockByListID" class="btn btn-primary LockUser">Lock</a> 
-                    <a href="/Account/DeleteByListID" class="btn btn-danger DeleteItem confirmDelete">Delete</a>
+                    <a href="/Account/NewOrEdit" class="btn btn-primary EditItem">Edit</a> <a href="/Account/LockByListID"
+                        class="btn btn-primary LockUser">Lock</a> <a href="/Account/DeleteByListID" class="btn btn-danger DeleteItem confirmDelete">
+                            Delete</a>
                 </p>
                 <table class="table">
                     <thead>
@@ -50,22 +50,24 @@
                                 </td>
                                 <td>
                                     @item.Name
-                                </td>                                
+                                </td>
                                 <td>
-                                    @(item.Locked?"Locked":"Unlock")
+                                    @(item.Locked ? "Locked" : "Unlock")
                                 </td>
                                 <td>
                                     @item.Email
                                 </td>
                                 <td>
-                                @foreach (var g in item.mGroup)
-                                {
-                                    @g.Title
-                                    <br/>
-                                }
+                                    @foreach (var g in item.mGroup)
+                                    {
+                                        @g.Title
+                                        <br />
+                                    }
                                 </td>
                                 <td>
-                                    @Html.ActionLink("Set password", "SetPassword", new { username = item.UserName })
+                                    @if (NationalIT.Controllers.UserDAL.ADMIN != item.UserName && item.UserName != new NationalIT.Controllers.UserDAL().GetCurrentUser.UserName)
+                                    {
+                                        @Html.ActionLink("Set password", "SetPassword", new { username = item.UserName })}
                                 </td>
                             </tr>
                         }

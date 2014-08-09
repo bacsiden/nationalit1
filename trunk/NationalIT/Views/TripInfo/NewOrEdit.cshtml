@@ -9,7 +9,7 @@
         setValueForTotalCharges();
         $("#Detention_pay, #Comfirmed_Rate, #Extra_charges").on("keyup", function () {
             setValueForTotalCharges();
-        }).keyup(function (e) {            
+        }).keyup(function (e) {
             if (e.keyCode == 8) {
                 setValueForTotalCharges();
             }
@@ -206,12 +206,13 @@
                             @Html.CheckBoxFor(model => model.Deliverd, new { @class = "input-xlarge" })</label>
                         @Html.ValidationMessageFor(model => model.Deliverd)
                     </div>
-                    <div class="control-group">
-                        <label for="Invoice">
-                            Invoice</label>
-                        @Html.TextBoxFor(model => model.Invoice, new { @class = "input-xlarge" })
-                        @Html.ValidationMessageFor(model => model.Invoice)
-                    </div>
+                    @Html.HiddenFor(model => model.Invoice)
+                    @if (Model.Invoice != 0)
+                    {
+                        <div class="control-group">
+                                Invoice: <span style="color:Red;">@Model.Invoice</span>
+                        </div>
+                    }
                     <div class="control-group">
                         <label for="Customer_Invoiced" class="checkbox">
                             Customer_Invoiced
