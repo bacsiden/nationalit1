@@ -23,7 +23,7 @@ namespace NationalIT.Reports
                 DataTable dt = LoadReportData(reportName, out parameters);
                 ReportViewer1.LocalReport.DataSources.Add(
                 new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", dt));
-                if(parameters!=null)
+                if (parameters != null)
                     this.ReportViewer1.LocalReport.SetParameters(parameters);
 
                 ReportViewer1.LocalReport.Refresh();
@@ -98,7 +98,7 @@ namespace NationalIT.Reports
             var db = DB.Entities;
             DateTime fromdate = DateTime.Parse(Request.QueryString["startdate"]);
             DateTime todate = DateTime.Parse(Request.QueryString["enddate"]);
-            var lst = db.Trip_Info.Where(m =>m.Picked && m.Deliverd && m.Customer_Invoiced &&
+            var lst = db.Trip_Info.Where(m => m.Picked && m.Deliverd && m.Customer_Invoiced &&
                 m.Order_date >= fromdate && m.Order_date <= todate).ToList();
             DataTable dt = new ScheduleOfInvoices().DataTable1;
             long totals = 0;
@@ -119,7 +119,7 @@ namespace NationalIT.Reports
                 dr["PO"] = item.PO_;
                 dr["Amount"] = (int)item.Total_charges + ".00";
                 int total = 0;
-                if(item.Total_charges.HasValue)
+                if (item.Total_charges.HasValue)
                     total = (int)item.Total_charges;
                 totals += total;
                 //totalCharges += (int)item.Total_charges;
@@ -200,10 +200,10 @@ namespace NationalIT.Reports
             dr["PO_"] = item.PO_;
             dr["PickupLocation"] = item.Pick_up_location;
             dr["DeliveryLocation"] = item.Delivery_location;
-            dr["ComfirmedRate"] = (int)item.Comfirmed_Rate + ".00";
-            dr["Lumber_ExtraCharges"] = (int)item.Extra_charges + ".00";
-            dr["DetentionPay"] = (int)item.Detention_pay + ".00";
-            dr["TotalCharges"] = (int)item.Total_charges + ".00";
+            dr["ComfirmedRate"] = item.Comfirmed_Rate == null ? ".00" : (int)item.Comfirmed_Rate + ".00";
+            dr["Lumber_ExtraCharges"] = item.Extra_charges == null ? ".00" : (int)item.Extra_charges + ".00";
+            dr["DetentionPay"] = item.Detention_pay == null ? ".00" : (int)item.Detention_pay + ".00";
+            dr["TotalCharges"] = item.Total_charges == null ? ".00" : (int)item.Total_charges + ".00";
             dr["ExtraStops"] = item.Extra_stops;
             dr["DispatcherName"] = item.Dispatchers != null ? item.Dispatchers.Last_name + " " + item.Dispatchers.Last_name : "";
             dt.Rows.Add(dr);

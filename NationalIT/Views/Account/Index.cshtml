@@ -31,6 +31,11 @@
                             <th>
                                 Email
                             </th>
+                            <th>
+                                Groups
+                            </th>
+                            <th>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,6 +56,16 @@
                                 </td>
                                 <td>
                                     @item.Email
+                                </td>
+                                <td>
+                                @foreach (var g in item.mGroup)
+                                {
+                                    @g.Title
+                                    <br/>
+                                }
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Set password", "SetPassword", new { username = item.UserName })
                                 </td>
                             </tr>
                         }

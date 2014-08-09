@@ -212,7 +212,7 @@ namespace NationalIT.Controllers
             ViewBag.Title = "Edit user";
             if (obj == null)
             {
-                ViewBag.Title = "Add user";
+                ViewBag.Title = "Add user, default password = 1";
                 obj = new mUser();
             }
             return View(obj);
@@ -221,7 +221,7 @@ namespace NationalIT.Controllers
         [HttpPost]
         [Authorize]
         [ValidationFunction(ActionName.SystemAdmin)]
-        public ActionResult NewOrEdit(mUser model, string password)
+        public ActionResult NewOrEdit(mUser model)
         {
             try
             {
@@ -229,7 +229,7 @@ namespace NationalIT.Controllers
                 if (model.ID == 0)
                 {
                     // Add new   
-                    var aspNewUserID = new UserDAL().CreateAspnetUser(model.UserName, password);
+                    var aspNewUserID = new UserDAL().CreateAspnetUser(model.UserName, "1");
                     model.AspnetUserID = aspNewUserID;
                     db.mUser.AddObject(model);
                 }
@@ -447,9 +447,6 @@ namespace NationalIT.Controllers
             return PartialView("_ChangePass");
         }
 
-        //
-        // POST: /Account/ChangePassword
-
         [Authorize]
         [HttpPost]
         public ActionResult ChangePassword(Models.ChangePasswordModel model)
@@ -483,6 +480,44 @@ namespace NationalIT.Controllers
         // **************************************
         // URL: /Account/ChangePasswordSuccess
         // **************************************
+
+        [Authorize]
+        [ValidationFunction(ActionName.SystemAdmin)]
+        public ActionResult SetPassword(string username)
+        {
+            return View("SetPass");
+        }
+
+        [Authorize]
+        [ValidationFunction(ActionName.SystemAdmin)]
+        [HttpPost]
+        public ActionResult SetPassword(Models.ChangePasswordModel model, string username)
+        {
+            if (model.NewPassword==model.ConfirmPassword)
+            {
+
+                try
+                {
+                    var userDAL = new UserDAL();
+                    bool succeeded = userDAL.ChangePassword(username, model.NewPassword);
+                    if (succeeded)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("NewPassword", "NewPassword is invailid");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("NewPassword", "Set password error");
+                }
+
+            }
+            // If we got this far, something failed, redisplay form
+            return RedirectToAction("SetPassword", new {username = username});
+        }
 
         [Authorize]
         public ActionResult ChangePasswordSuccess()
