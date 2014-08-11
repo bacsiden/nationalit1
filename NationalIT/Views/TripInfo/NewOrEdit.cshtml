@@ -1,6 +1,7 @@
 ﻿@model NationalIT.Trip_Info
 @{
     ViewBag.Title = "Trip Info";
+    var listCompanyExpanses = NationalIT.DB.Entities.Company_Expanses.ToList();
 }
 <script type="text/javascript">
     $(document).ready(function () {
@@ -58,12 +59,17 @@
                             Customer info</a>*@
                     </div>
                 </div>
-                <div class="span7">
+                <div class="span2">
                     <div class="control-group">
                         <label for="Customer" style="color: #e9f0f9">
                             x
                         </label>
                         <a href="#" class="btn btn-primary">Select By Invoice</a>
+                    </div>
+                </div>
+                <div class="span7">
+                    <div class="boxScroll"> 
+                        @Html.Partial("_CompanyExpenses", listCompanyExpanses)
                     </div>
                 </div>
             </div> 
@@ -210,7 +216,7 @@
                     @if (Model.Invoice != 0)
                     {
                         <div class="control-group">
-                                Invoice: <span style="color:Red;">@Model.Invoice</span>
+                            Invoice: <span style="color: Red;">@Model.Invoice</span>
                         </div>
                     }
                     <div class="control-group">
