@@ -82,6 +82,11 @@ namespace NationalIT.Controllers
                     // Tạo một đối tượng TextReader mới
                     var xtr = System.Xml.Linq.XDocument.Load(path);
                     string backupFolder = string.Format(xtr.Element("system.config").Element("path-backup").Value.Trim());   //Vuongj
+                    // tạo folder backup neu chua co
+                    if (!System.IO.Directory.Exists(backupFolder))
+                    {
+                        System.IO.Directory.CreateDirectory(backupFolder);
+                    }
                     string fileName = model.Name;
                     if (fileName.IndexOf(".bak") <= 0)
                     {
@@ -115,7 +120,7 @@ namespace NationalIT.Controllers
 
 
                         ViewBag.Success = "1";
-                        return JavaScript(@"$('#BackupBox').modal('hide');  $.sticky('Backup database successfully.', { autoclose: 5000, position: 'top-center', type: 'st-success' }); setTimeout(function() {location.reload(true);},1500);");
+                        return JavaScript(@"$('#BackupBox').modal('hide');  alert('Backup database successfully.'); setTimeout(function() {location.reload(true);},1500);");
                     }
                 }
                 catch (Exception ex)
@@ -173,16 +178,16 @@ namespace NationalIT.Controllers
                 int isExists = dbBackUp.ExecuteStoreQuery<int>(queryCheck,null).FirstOrDefault();
                 if (isExists != 0)
                 {
-                    string queryStore = "use master ALTER DATABASE NationalIT SET SINGLE_USER With ROLLBACK IMMEDIATE;";
-                    queryStore += "RESTORE DATABASE NationalIT FROM disk = '" + pathFull + "' WITH REPLACE;";
-                    queryStore += "use master ALTER DATABASE NationalIT SET MULTI_USER;";
-                    queryStore += "use master ALTER DATABASE NationalIT SET ONLINE";
+                    string queryStore = "use master ALTER DATABASE DB_9B22F2_nationalit SET SINGLE_USER With ROLLBACK IMMEDIATE;";
+                    queryStore += "RESTORE DATABASE DB_9B22F2_nationalit FROM disk = '" + pathFull + "' WITH REPLACE;";
+                    queryStore += "use master ALTER DATABASE DB_9B22F2_nationalit SET MULTI_USER;";
+                    queryStore += "use master ALTER DATABASE DB_9B22F2_nationalit SET ONLINE";
 
                     int result = dbBackUp.ExecuteStoreCommand(queryStore);
                     if (Convert.ToInt32(result) != 0)
                     {
                         ViewBag.Success = "1";
-                        return JavaScript(@"$.sticky('Restore database successfully.', { autoclose: 5000, position: 'top-center', type: 'st-success' });");
+                        return JavaScript(@"alert('Restore database successfully.');");
                     }
                 }
             }
