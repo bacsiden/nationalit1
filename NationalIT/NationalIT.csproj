@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="CommonFunction.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BackupAndRestoreController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CompanyExpansesController.cs">
       <SubType>Code</SubType>
@@ -110,6 +111,8 @@
     <Compile Include="Controllers\SplitExpensesController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controllers\SystemController.cs" />
+    <Compile Include="Controllers\SystemModel.cs" />
     <Compile Include="Controllers\TripInfoController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -126,6 +129,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\BackupModel.cs" />
     <Compile Include="Models\PassWordModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\CurrentPayroll.Designer.cs">
@@ -184,6 +188,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\config.xml" />
+    <Content Include="App_Data\Data.xml" />
     <Content Include="Content\assets\bootstrap-colorpicker\css\colorpicker.css" />
     <Content Include="Content\assets\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
     <Content Include="Content\assets\bootstrap-datepicker\css\datepicker.css" />
@@ -229,6 +235,7 @@
     <Content Include="Content\assets\flot\jquery.flot.tooltip.min.js" />
     <Content Include="Content\assets\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\img\avatardefault.jpg" />
+    <Content Include="Content\img\loader6.gif" />
     <Content Include="Scripts\jquery-1.4.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.4.js" />
     <Content Include="Scripts\jquery-1.4.4.min.js" />
@@ -488,6 +495,11 @@
     <Content Include="Views\Shared\_ShowSaveEdit.cshtml" />
     <Content Include="Views\Account\SetPass.cshtml" />
     <Content Include="Views\TripInfo\_CompanyExpenses.cshtml" />
+    <Content Include="Views\BackupAndRestore\Backup.cshtml" />
+    <Content Include="Views\BackupAndRestore\Index.cshtml" />
+    <Content Include="Views\BackupAndRestore\Restore.cshtml" />
+    <Content Include="Views\BackupAndRestore\_RestorePartial.cshtml" />
+    <Content Include="Views\System\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
