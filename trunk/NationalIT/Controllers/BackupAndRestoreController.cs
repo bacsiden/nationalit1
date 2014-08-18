@@ -18,7 +18,7 @@ namespace NationalIT.Controllers
         //
         // GET: /BackupAndRestore/
         [Authorize]
-        [ValidationFunction(ConditionValidate.OR, ActionName.BACKUPDATABASE, ActionName.RESTOREDATABASE)]
+        [ValidationFunction(ActionName.BACKUPDATABASE, ActionName.RESTOREDATABASE)]
         public ActionResult Index()
         {
             string FilePathXML = HttpContext.Server.MapPath("~/App_Data/Data.xml");
