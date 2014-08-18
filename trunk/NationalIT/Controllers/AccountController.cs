@@ -70,7 +70,7 @@ namespace NationalIT.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                //throw ex;
             }
 
             return listID;
@@ -138,7 +138,12 @@ namespace NationalIT.Controllers
         {
             get
             {
-                MembershipUser mbsUser = Membership.GetUser();
+                MembershipUser mbsUser = null;
+                try
+                {
+                    mbsUser = Membership.GetUser();
+                }
+                catch { }
                 if (mbsUser != null)
                 {
                     Guid id = (Guid)mbsUser.ProviderUserKey;
