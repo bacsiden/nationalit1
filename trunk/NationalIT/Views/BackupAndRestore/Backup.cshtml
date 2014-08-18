@@ -8,8 +8,7 @@
     });
 </script>
 <div class="modal-header">
-    <button class="close" data-dismiss="modal">
-        x</button>
+    
     <h3>
         @ViewBag.Title</h3>
 </div>
@@ -18,7 +17,7 @@
 <div class="modal-body" style="padding: 20px 15px 0px 15px;">
     <div class="row-fluid">
         <div class="span12">
-            @using (Ajax.BeginForm("Backup", "BackupAndRestore", null, new AjaxOptions() { UpdateTargetId = "BackupBox", InsertionMode = InsertionMode.Replace, HttpMethod = "Post" }, new { Class = "form-horizontal well" }))
+            @using (Html.BeginForm("Backup", "BackupAndRestore", new { Class = "form-horizontal well" }))
             {                    
                 <fieldset>
                     <div class="control-group">
@@ -33,7 +32,7 @@
                         <div class="controls">
                             <button class="btn btn-info" type="submit" onclick="$('#choSaoLuu').html($('#dvloader').html());">
                                 Backup</button>
-                            <a href="javascript:void(0);" class="btn" data-dismiss="modal">Cancel</a> <span id="choSaoLuu">
+                            <a href="@Url.Action("Index")" class="btn" data-dismiss="modal">Cancel</a> <span id="choSaoLuu">
                             </span>
                         </div>
                     </div>

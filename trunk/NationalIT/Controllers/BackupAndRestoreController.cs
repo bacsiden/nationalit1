@@ -21,16 +21,30 @@ namespace NationalIT.Controllers
         [ValidationFunction(ActionName.BACKUPDATABASE, ActionName.RESTOREDATABASE)]
         public ActionResult Index()
         {
-            string FilePathXML = HttpContext.Server.MapPath("~/App_Data/Data.xml");
+            string FilePathXML = HttpContext.Server.MapPath("~/App_Data/config.xml");
             var doc = XDocument.Load(FilePathXML);
             bool isAdmin = CurrentUser.UserName.Equals(UserDAL.ADMIN);
             ViewBag.ShowBackupMenu = IsFunctionInRole(ActionName.BACKUPDATABASE.ToString()) || isAdmin;
             ViewBag.ShowDeleteMenu = ViewBag.ShowRestoreMenu = IsFunctionInRole(ActionName.RESTOREDATABASE.ToString()) || isAdmin;
+            string folderName = doc.Element("system.config").Element("path-backup").Value;
+            string[] files = Directory.GetFiles(folderName, "*.bak");
+            var list = new List<BackupModel>();
+            DirectoryInfo di = new DirectoryInfo(folderName);
+            foreach (FileInfo item in di.GetFiles())
+            {
+                BackupModel tmp = new BackupModel()
+                {
+                    Name = item.Name,
+                    Date = item.LastWriteTime.ToShortDateString(),
+                };
+                list.Add(tmp);
+            }
+            list = list.OrderByDescending(m => m.Date).ToList();
             if (Request.IsAjaxRequest())
             {
-                return PartialView("_RestorePartial", doc.Descendants("Note").OrderByDescending(m => (int)m.Element("ID")).ToList());
+                return PartialView("_RestorePartial", list);
             }
-            return View(doc.Descendants("Note").OrderByDescending(m => (int)m.Element("ID")).ToList());
+            return View(list);
         }
 
         [Authorize]
@@ -39,21 +53,7 @@ namespace NationalIT.Controllers
         {
             DateTime now = DateTime.Now;
             string NameBak = "Backup_" + now.Year + now.Month + now.Day + "_" + now.Hour + "-" + now.Minute + "-" + now.Second + ".bak";
-            try
-            {
-                string FilePathXML = HttpContext.Server.MapPath("~/App_Data/Data.xml");
-                var db = XDocument.Load(FilePathXML).Descendants("Note").Where(m => m.Element("Name").Value == NameBak).FirstOrDefault();
-                int i = 1;
-                while (db != null)
-                {
-                    NameBak = NameBak + "_" + i++;
-                    db = XDocument.Load(FilePathXML).Descendants("Note").Where(m => m.Element("Name").Value == NameBak).FirstOrDefault();
-                }
-            }
-            catch (Exception ex)
-            {
-            }
-            return PartialView(new BackupModel { Name = NameBak });
+            return View(new BackupModel { Name = NameBak });
         }
 
         [HttpPost]
@@ -70,13 +70,6 @@ namespace NationalIT.Controllers
                         ModelState.AddModelError("Name", "File name must not contain one of the following characters /\\:*?\"<>|");
                         return PartialView(model);
                     }
-                    string FilePathXML = HttpContext.Server.MapPath("~/App_Data/Data.xml");
-                    var db = XDocument.Load(FilePathXML).Descendants("Note").Where(m => m.Element("Name").Value == model.Name).FirstOrDefault();
-                    if (db != null)
-                    {
-                        ModelState.AddModelError("", "This file name is exists! Please choose a different file name.");
-                        return PartialView(model);
-                    }
                     // Đường dẫn tới file xml.
                     string path = System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath + "/App_Data/config.xml";
                     // Tạo một đối tượng TextReader mới
@@ -87,6 +80,7 @@ namespace NationalIT.Controllers
                     {
                         System.IO.Directory.CreateDirectory(backupFolder);
                     }
+
                     string fileName = model.Name;
                     if (fileName.IndexOf(".bak") <= 0)
                     {
@@ -116,11 +110,7 @@ namespace NationalIT.Controllers
                         backupObj.Name = model.Name;
                         backupObj.FilePath = filePath;
                         backupObj.Date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                        InsertBackupDatabase(backupObj);
-
-
-                        ViewBag.Success = "1";
-                        return JavaScript(@"$('#BackupBox').modal('hide');  alert('Backup database successfully.'); setTimeout(function() {location.reload(true);},1500);");
+                        return RedirectToAction("Index");
                     }
                 }
                 catch (Exception ex)
@@ -132,12 +122,13 @@ namespace NationalIT.Controllers
                         // Tạo một đối tượng TextReader mới
                         var xtr = System.Xml.Linq.XDocument.Load(path);
                         string backupFolder = string.Format(xtr.Element("system.config").Element("path-backup").Value.Trim());
-                        return Content("<div class='modal-header'><a class='close' data-dismiss='modal'>x</a><h3>Error message</h3></div><div class='modal-body'><p class='field-validation-error'><b>Backup database unsuccessfully.</b></p><p class='field-validation-error'>Folder backup \"" + backupFolder + "\" not found. <br />Please check again system config!</p></div>");
+                        ModelState.AddModelError("", "<p class='field-validation-error'><b>Backup database unsuccessfully.</b></p><p class='field-validation-error'>Folder backup \"" + backupFolder + "\" not found. <br />Please check again system config!</p>");
+                        return View(model);
                     }
-                    return Content("<div class='modal-header'><a class='close' data-dismiss='modal'>x</a><h3>Error message</h3></div><div class='modal-body'><p class='field-validation-error'><b>Backup database unsuccessfully.</b></p><p class='field-validation-error'>Please try again in a few minutes</p></div>");
+                    ModelState.AddModelError("", "<p class='field-validation-error'><b>Backup database unsuccessfully.</b></p><p class='field-validation-error'>Please try again in a few minutes</p>");
                 }
             }
-            return PartialView(model);
+            return View(model);
         }
 
         [Authorize]
@@ -153,138 +144,81 @@ namespace NationalIT.Controllers
         [HttpGet]
         [Authorize]
         [ValidationFunction(ActionName.RESTOREDATABASE)]
-        public ActionResult RestoreByID(string id)
+        public ActionResult RestoreByID(string name)
         {
-            string pathDataXML = HttpContext.Server.MapPath("~/App_Data/Data.xml");
-            // Đường dẫn tới file xml.
+
             string pathConfigXML = System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath + "/App_Data/config.xml";
             // Tạo một đối tượng TextReader mới
             var xtr = System.Xml.Linq.XDocument.Load(pathConfigXML);
             string backupFolder = string.Format(xtr.Element("system.config").Element("path-backup").Value.Trim());
-            var db = XDocument.Load(pathDataXML).Descendants("Note").Where(m => m.Element("ID").Value == id).FirstOrDefault();
             var dbBackUp = DB.Entities;
             string pathFull = "";
             if ((backupFolder.LastIndexOf("\\") != backupFolder.Length - 1))
             {
-                pathFull = backupFolder + "\\" + db.Element("Name").Value;
+                pathFull = backupFolder + "\\" + name;
             }
             else
             {
-                pathFull = backupFolder + db.Element("Name").Value;
+                pathFull = backupFolder + name;
             }
-            try
+            if (System.IO.File.Exists(pathFull))
             {
-                string queryCheck = "DECLARE @result INT EXEC master.dbo.xp_fileexist '"+pathFull+"', @result OUTPUT  Select @result";
-                int isExists = dbBackUp.ExecuteStoreQuery<int>(queryCheck,null).FirstOrDefault();
-                if (isExists != 0)
+                try
                 {
-                    string queryStore = "use master ALTER DATABASE DB_9B22F2_nationalit SET SINGLE_USER With ROLLBACK IMMEDIATE;";
-                    queryStore += "RESTORE DATABASE DB_9B22F2_nationalit FROM disk = '" + pathFull + "' WITH REPLACE;";
-                    queryStore += "use master ALTER DATABASE DB_9B22F2_nationalit SET MULTI_USER;";
-                    queryStore += "use master ALTER DATABASE DB_9B22F2_nationalit SET ONLINE";
-
-                    int result = dbBackUp.ExecuteStoreCommand(queryStore);
-                    if (Convert.ToInt32(result) != 0)
+                    string queryCheck = "DECLARE @result INT EXEC master.dbo.xp_fileexist '" + pathFull + "', @result OUTPUT  Select @result";
+                    int isExists = dbBackUp.ExecuteStoreQuery<int>(queryCheck, null).FirstOrDefault();
+                    if (isExists != 0)
                     {
-                        ViewBag.Success = "1";
-                        return JavaScript(@"alert('Restore database successfully.');");
+                        string queryStore = "use master ALTER DATABASE DB_9B22F2_nationalit SET SINGLE_USER With ROLLBACK IMMEDIATE;";
+                        queryStore += "RESTORE DATABASE DB_9B22F2_nationalit FROM disk = '" + pathFull + "' WITH REPLACE;";
+                        queryStore += "use master ALTER DATABASE DB_9B22F2_nationalit SET MULTI_USER;";
+                        queryStore += "use master ALTER DATABASE DB_9B22F2_nationalit SET ONLINE";
+
+                        int result = dbBackUp.ExecuteStoreCommand(queryStore);
+                        if (Convert.ToInt32(result) != 0)
+                        {
+                            ViewBag.Success = "1";
+                            return JavaScript(@"alert('Restore database successfully.');");
+                        }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
+                catch (Exception ex)
+                {
 
+                }
             }
             string message = "$('#ModalGeneral').empty().html(\"<div class='modal-header'><a class='close' data-dismiss='modal'>x</a><h3>Error message</h3></div><div class='modal-body'><p class='field-validation-error'><b>Restore database unsuccessfully!</b> <br /> - Please check folder restore in system config: &#34;" + pathFull.Replace("\\", "&#92;") + "&#34;.<br />- Or your user sql server have not permisson restore.</p></div>\").modal('show');";
             return JavaScript(message);
         }
 
-        [Authorize]
-        [ValidationFunction(ActionName.BACKUPDATABASE)]
-        public void InsertBackupDatabase(Models.BackupModel note)
-        {
-            string FilePathXML = HttpContext.Server.MapPath("~/App_Data/Data.xml");
-            var doc = XDocument.Load(FilePathXML);
-            var getNote = doc.Descendants("Note");
-            try
-            {
-                if (getNote.Where(c => c.Element("Name").Value == note.Name && c.Element("FilePath").Value == note.FilePath).FirstOrDefault().Elements().Count() != 0)
-                {
-                    return;
-                }
-            }
-            catch (Exception ex)
-            {
-                try
-                {
-                    var lastId = (from c in doc.Descendants("Note")
-                                  select (int)c.Element("ID")
-                                ).OrderBy(x => x).Max();
-
-                    note.ID = lastId + 1;
-
-                }
-                catch (Exception ex1)
-                {
-                    note.ID = 1;
-                }
-
-                var noteNode =
-                          new XElement("Note",
-                          new XElement("ID", note.ID),
-                          new XElement("Name", note.Name),
-                          new XElement("FilePath", note.FilePath),
-                          new XElement("Date", note.Date)
-                      );
-                doc.Element("Notes").Element("BackupDatabase").Add(noteNode);
-                doc.Save(FilePathXML);
-            }
-
-
-        }
-
-        public bool UpdateBackupDatabase(Models.BackupModel note)
-        {
-            try
-            {
-                string FilePathXML = HttpContext.Server.MapPath("~/App_Data/Data.xml");
-                var doc = XDocument.Load(FilePathXML);
-                var noteNode = doc.Elements("Notes").Elements("Note").Where(x => x.Element("ID").Value == note.ID.ToString()).Take(1);
-                noteNode.Elements("Name").SingleOrDefault().Value = note.Name;
-                noteNode.Elements("FilePath").SingleOrDefault().Value = note.FilePath;
-                doc.Save(FilePathXML);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-        }
 
         [Authorize]
         [ValidationFunction(ActionName.RESTOREDATABASE)]
-        public ActionResult DeleteBackupDatabaseByID(int id)
+        public ActionResult DeleteBackupDatabaseByID(string name)
         {
             bool success = true;
             string message = "";
             try
             {
-                string FilePathXML = HttpContext.Server.MapPath("~/App_Data/Data.xml");
-                var doc = XDocument.Load(FilePathXML);
-                var ObjectDelete = doc.Descendants("Note").Where(x => x.Element("ID").Value == id.ToString()).FirstOrDefault();
-                //string ServerDBName = WebConfigurationManager.AppSettings["DBServer"].ToString();
-                string path = ObjectDelete.Element("FilePath").Value;
-                if (System.IO.File.Exists(path))
+
+                string pathConfigXML = System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath + "/App_Data/config.xml";
+                // Tạo một đối tượng TextReader mới
+                var xtr = System.Xml.Linq.XDocument.Load(pathConfigXML);
+                string backupFolder = string.Format(xtr.Element("system.config").Element("path-backup").Value.Trim());
+                string pathFull = "";
+                if ((backupFolder.LastIndexOf("\\") != backupFolder.Length - 1))
                 {
-                    // Use a try block to catch IOExceptions, to 
-                    // handle the case of the file already being 
-                    // opened by another process.
-                    System.IO.File.Delete(path);
+                    pathFull = backupFolder + "\\" + name;
                 }
-                ObjectDelete.RemoveAll();
-                ObjectDelete.Remove();
-                doc.Save(FilePathXML);
-                ViewBag.getLibrary = "1";
+                else
+                {
+                    pathFull = backupFolder + name;
+                }
+
+                if (System.IO.File.Exists(pathFull))
+                {
+                    System.IO.File.Delete(pathFull);
+                }
                 success = true;
                 message = "Delete successfully";
             }
@@ -299,6 +233,81 @@ namespace NationalIT.Controllers
                 message = "Error system. Please try again a few minutes.";
             }
             return Json(new { IsSuccess = success, Message = message }, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
+        [ValidationFunction(ActionName.RESTOREDATABASE)]
+        public ActionResult DownloadFile(string name)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(name))
+                {
+                    string pathConfigXML = System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath + "/App_Data/config.xml";
+                    // Tạo một đối tượng TextReader mới
+                    var xtr = System.Xml.Linq.XDocument.Load(pathConfigXML);
+                    string backupFolder = string.Format(xtr.Element("system.config").Element("path-backup").Value.Trim());
+                    string pathFull = "";
+                    if ((backupFolder.LastIndexOf("\\") != backupFolder.Length - 1))
+                    {
+                        pathFull = backupFolder + "\\" + name;
+                    }
+                    else
+                    {
+                        pathFull = backupFolder + name;
+                    }
+
+                    if (System.IO.File.Exists(pathFull))
+                    {
+                        //lấy loại file
+                        FileStream fs = new FileStream(pathFull, FileMode.Open);
+                        string contentType = "application/" + Path.GetExtension(pathFull).Substring(1);
+                        return File(fs, contentType, name);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("FileNull", "PageError");
+            }
+            return null;
+        }
+
+        [Authorize]
+        [ValidationFunction(ActionName.RESTOREDATABASE)]
+        public ActionResult Upload()
+        {
+            return View();
+        }
+        [Authorize]
+        [ValidationFunction(ActionName.RESTOREDATABASE)]
+        [HttpPost]
+        public ActionResult Upload(HttpPostedFileBase file)
+        {
+            try
+            {
+
+                if (file != null)
+                {
+                    string pathConfigXML = System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath + "/App_Data/config.xml";
+                    // Tạo một đối tượng TextReader mới
+                    var xtr = System.Xml.Linq.XDocument.Load(pathConfigXML);
+                    string backupFolder = string.Format(xtr.Element("system.config").Element("path-backup").Value.Trim());
+                    string fileName = backupFolder + file.FileName;
+                    if (System.IO.File.Exists(fileName))
+                    {
+                        System.IO.File.Delete(fileName);
+                    }
+                    file.SaveAs(fileName);
+                    return RedirectToAction("Index");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("",ex.Message);
+            }
+            return View();
         }
     }
 }
