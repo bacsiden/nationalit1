@@ -504,6 +504,7 @@
     <Content Include="Views\BackupAndRestore\Restore.cshtml" />
     <Content Include="Views\BackupAndRestore\_RestorePartial.cshtml" />
     <Content Include="Views\System\Index.cshtml" />
+    <Content Include="Views\BackupAndRestore\Upload.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
