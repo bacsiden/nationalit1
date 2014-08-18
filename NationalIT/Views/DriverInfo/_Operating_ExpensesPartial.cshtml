@@ -25,12 +25,12 @@
             </th>
             <th>
                 Description
+            </th>            
+            <th>
+                Current_Payroll
             </th>
             <th>
                 Paid_off
-            </th>
-            <th>
-                Current_Payroll
             </th>
         </tr>
     </thead>
@@ -60,12 +60,12 @@
                 </td>
                 <td>
                     @item.Description
+                </td>                
+                <td>
+                    @(NationalIT.CommonFunction.getYesNO(item.Current_Payroll))
                 </td>
                 <td>
                     @(NationalIT.CommonFunction.getYesNO(item.Paid_off))
-                </td>
-                <td>
-                    @(NationalIT.CommonFunction.getYesNO(item.Current_Payroll))
                 </td>
             </tr>
             }

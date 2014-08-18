@@ -15,11 +15,27 @@ namespace NationalIT.Controllers
         //
         // GET: /Owner/
         [ValidationFunction(ActionName.ViewListTrip)]
-        public ActionResult Index(int? page, int? driverID, int? tripID)
+        public ActionResult Index(int? page, int? driverID, int? tripID, int? driverPaid)
         {
             var db = DB.Entities;
-            var list = db.Trip_Info.Where(m => (driverID == null ? true : m.Driver == driverID.Value) && (tripID == null ? true : m.Invoice == tripID.Value))
-                    .OrderByDescending(m => m.Trip_ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize);
+            var lst = db.Trip_Info.Where(m => (driverID == null ? true : m.Driver == driverID.Value) && (tripID == null ? true : m.Invoice == tripID.Value));
+            if (driverPaid.HasValue)
+            {
+                if (driverPaid.Value != 2)
+                {
+                    bool driver_paid = false;
+                    if (driverPaid.Value == 1)
+                    {
+                        driver_paid = true;
+                    }
+                    lst = lst.Where(m => m.Driver_paid == driver_paid);
+                }
+            }
+            else
+            {
+                lst = lst.Where(m => m.Driver_paid == true);
+            }
+            var list = lst.OrderByDescending(m => m.Driver_paid).ThenBy(m => m.Trip_ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize);
             if (Request.IsAjaxRequest())
             {
                 return PartialView("_IndexPartial", list);
@@ -54,7 +70,7 @@ namespace NationalIT.Controllers
             var obj = DB.Entities.Trip_Info.FirstOrDefault(m => m.Trip_ID == id);
             if (obj == null)
             {
-                obj = new Trip_Info() { Driver = driverID, Picked = true, Current_Payroll = true, Customer_Invoiced_date = DateTime.Now.Date };
+                obj = new Trip_Info() { Driver = driverID, Picked = true, Current_Payroll = true, Customer_Invoiced_date = DateTime.Now.Date, Order_date = DateTime.Now, Pickup_date = DateTime.Now };
             }
 
             #region SELECT OPTION
@@ -128,89 +144,96 @@ namespace NationalIT.Controllers
         {
             try
             {
-                var db = DB.Entities;
-                model.Customer_Invoiced_date = CommonFunction.ChangeFormatDate(frm["Customer_Invoiced_date"]).Value;
-                model.Order_date = CommonFunction.ChangeFormatDate(frm["Order_date"]);
-                model.Delivery_date = CommonFunction.ChangeFormatDate(frm["Delivery_date"]);
-                model.Pickup_date = CommonFunction.ChangeFormatDate(frm["Pickup_date"]);
-                if (model.Trip_ID == 0)
+                if (model.Dispatcher.HasValue)
                 {
-                    // New
-                    db.Trip_Info.AddObject(model);
+                    var db = DB.Entities;
+                    model.Customer_Invoiced_date = CommonFunction.ChangeFormatDate(frm["Customer_Invoiced_date"]).Value;
+                    model.Order_date = CommonFunction.ChangeFormatDate(frm["Order_date"]);
+                    model.Delivery_date = CommonFunction.ChangeFormatDate(frm["Delivery_date"]);
+                    model.Pickup_date = CommonFunction.ChangeFormatDate(frm["Pickup_date"]);
+                    if (model.Trip_ID == 0)
+                    {
+                        // New
+                        db.Trip_Info.AddObject(model);
+                        db.SaveChanges();
+                        model.Invoice = model.Trip_ID;
+                    }
+                    else
+                    {
+                        db.AttachTo("Trip_Info", model);
+                        db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
+                    }
                     db.SaveChanges();
-                    model.Invoice = model.Trip_ID;
+                    return RedirectToAction("Index");
                 }
                 else
                 {
-                    db.AttachTo("Trip_Info", model);
-                    db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
+                    ModelState.AddModelError("Dispatcher","This field is required");
                 }
-                db.SaveChanges();
-                return RedirectToAction("Index");
             }
             catch
             {
 
-                #region SELECT OPTION
-                string dataCustomer = "<option >--Select Customer--</option>";
-                foreach (var item in NationalIT.DB.Entities.Customer_Info)
-                {
-                    if (model != null && model.Trip_ID == item.Customer_ID)
-                    {
-                        //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
-                        dataCustomer += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.Customer_ID, item.Customer_Name);
-                    }
-                    else
-                    {
-                        dataCustomer += string.Format("<option value='{0}'>{1}</option>", item.Customer_ID, item.Customer_Name);
-                    }
-                }
-                ViewBag.dataCustomer = dataCustomer;
-                string dataDispatchers = "<option >--Select Dispatcher--</option>";
-                foreach (var item in NationalIT.DB.Entities.Dispatchers)
-                {
-                    if (model != null && model.Dispatcher == item.ID)
-                    {
-                        //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
-                        dataDispatchers += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
-                    }
-                    else
-                    {
-                        dataDispatchers += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
-                    }
-                }
-                ViewBag.dataDispatchers = dataDispatchers;
-
-                string dataDriver = "<option >--Select Driver--</option>";
-                foreach (var item in NationalIT.DB.Entities.Driver_Info)
-                {
-                    if (model != null && model.Driver == item.ID)
-                    {
-                        dataDriver += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
-                    }
-                    else
-                    {
-                        dataDriver += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
-                    }
-                }
-                ViewBag.dataDriver = dataDriver;
-
-                string dataEquipment = "<option >--Select Equiment--</option>";
-                foreach (var item in NationalIT.DB.Entities.Equipment)
-                {
-                    if (model != null && model.Equipment_ID == item.ID)
-                    {
-                        dataEquipment += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.ID, item.Equipment_number);
-                    }
-                    else
-                    {
-                        dataEquipment += string.Format("<option value='{0}'>{1}</option>", item.ID, item.Equipment_number);
-                    }
-                }
-                ViewBag.dataEquipment = dataEquipment;
-                #endregion
-                return View();
             }
+            #region SELECT OPTION
+            string dataCustomer = "<option >--Select Customer--</option>";
+            foreach (var item in NationalIT.DB.Entities.Customer_Info)
+            {
+                if (model != null && model.Trip_ID == item.Customer_ID)
+                {
+                    //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                    dataCustomer += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.Customer_ID, item.Customer_Name);
+                }
+                else
+                {
+                    dataCustomer += string.Format("<option value='{0}'>{1}</option>", item.Customer_ID, item.Customer_Name);
+                }
+            }
+            ViewBag.dataCustomer = dataCustomer;
+            string dataDispatchers = "<option >--Select Dispatcher--</option>";
+            foreach (var item in NationalIT.DB.Entities.Dispatchers)
+            {
+                if (model != null && model.Dispatcher == item.ID)
+                {
+                    //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                    dataDispatchers += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                }
+                else
+                {
+                    dataDispatchers += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                }
+            }
+            ViewBag.dataDispatchers = dataDispatchers;
+
+            string dataDriver = "<option >--Select Driver--</option>";
+            foreach (var item in NationalIT.DB.Entities.Driver_Info)
+            {
+                if (model != null && model.Driver == item.ID)
+                {
+                    dataDriver += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                }
+                else
+                {
+                    dataDriver += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                }
+            }
+            ViewBag.dataDriver = dataDriver;
+
+            string dataEquipment = "<option >--Select Equiment--</option>";
+            foreach (var item in NationalIT.DB.Entities.Equipment)
+            {
+                if (model != null && model.Equipment_ID == item.ID)
+                {
+                    dataEquipment += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.ID, item.Equipment_number);
+                }
+                else
+                {
+                    dataEquipment += string.Format("<option value='{0}'>{1}</option>", item.ID, item.Equipment_number);
+                }
+            }
+            ViewBag.dataEquipment = dataEquipment;
+            #endregion
+            return View(model);
         }
 
         //

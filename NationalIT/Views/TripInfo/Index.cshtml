@@ -9,13 +9,21 @@
                 @Html.Partial("_MenuButtonNewEditOrDelete")
                 <div class="row-fluid">
                     <div class="wrap-selectTripInfo">
-                        <div class="span6">
+                        <div class="span2">
+                            Driver paid<br />
+                            <select class="Driver_paid_selection" style="width:80px">
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                                <option value="2">-All-</option>
+                            </select>
+                        </div>
+                        <div class="span4">
                             Invoice
                             <select data-placeholder="Select Invoice" name="Invoice" class="chosen-with-diselect-trip input-xlarge selectTripInfo">
                                 @Html.Raw(ViewBag.dataTripInfo)
                             </select>
                         </div>
-                        <div class="span6">
+                        <div class="span4">
                             Driver info
                             <select data-placeholder="Select DriverInfo" name="Driver_Info" class="chosen-with-diselect-trip input-xlarge selectDriverInfoTrip">
                                 @Html.Raw(ViewBag.dataDriver_Info)

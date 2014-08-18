@@ -46,9 +46,6 @@ namespace NationalIT
                     isAdmin;
                 ViewBag.ShowButtonProcessRollBack = IsFunctionInRole(ActionName.ProcessRollBack.ToString()) ||
                     isAdmin;
-                ViewBag.ShowBackupMenu = IsFunctionInRole(ActionName.BACKUPDATABASE.ToString()) ||
-                                         IsFunctionInRole(ActionName.RESTOREDATABASE.ToString()) ||
-                                         isAdmin;
                 #endregion
             }
         }
@@ -75,14 +72,6 @@ namespace NationalIT
             ProcessRollBack,
             ViewListDispatchers,
             ViewListFixedCharges,
-            BACKUPDATABASE,
-            RESTOREDATABASE,
-        }
-        public enum ConditionValidate
-        {
-            AND = -1,
-            OR = -2,
-            NULL = -3,
         }
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -102,39 +91,22 @@ namespace NationalIT
             /// <summary>
             /// Quyền được phép truy cập
             /// </summary>
-            public List<string> AllowFunctionCodes { get; set; }
+            public string AllowFunctionCodes { get; set; }
 
             public string UrlRedirect { get; set; }
 
-            /// <summary>
-            /// Điều kiện đối với danh sách các quyền truy cập
-            /// </summary>
-            public ConditionValidate Condition { get; set; }
 
             public ValidationFunctionAttribute(ActionName allowFunctionCode)
             {
-                AllowFunctionCodes = new List<string>();
-                AllowFunctionCodes.Add(allowFunctionCode.ToString());
+                AllowFunctionCodes = allowFunctionCode.ToString();
             }
 
 
             public ValidationFunctionAttribute(string urlRedirect, ActionName allowFunctionCode)
             {
                 UrlRedirect = urlRedirect;
-                AllowFunctionCodes = new List<string>();
-                AllowFunctionCodes.Add(allowFunctionCode.ToString());
+                AllowFunctionCodes = allowFunctionCode.ToString();
             }
-
-            public ValidationFunctionAttribute(ConditionValidate condition, params ActionName[] allowFunctionCodes)
-            {
-                Condition = condition;
-                AllowFunctionCodes = new List<string>();
-                foreach (var item in allowFunctionCodes)
-                {
-                    AllowFunctionCodes.Add(item.ToString());
-                }
-            }
-
             public override void OnActionExecuting(ActionExecutingContext filterContext)
             {
                 bool isValid = true;
@@ -146,31 +118,12 @@ namespace NationalIT
                 }
                 else
                 {
-                    if (!user.UserName.Equals(UserDAL.ADMIN, StringComparison.OrdinalIgnoreCase) && AllowFunctionCodes.Count > 0)
+                    if (!user.UserName.Equals(UserDAL.ADMIN, StringComparison.OrdinalIgnoreCase) && !string.IsNullOrEmpty(AllowFunctionCodes))
                     {
-                        if (Condition == ConditionValidate.NULL || Condition == ConditionValidate.OR)//Trường hợp yêu cầu user có một trong các chức năng đã khai báo
+                        isValid = true;
+                        if (!IsFunctionInRole(AllowFunctionCodes))
                         {
                             isValid = false;
-                            foreach (var code in AllowFunctionCodes)
-                            {
-                                if (IsFunctionInRole(code))
-                                {
-                                    isValid = true;
-                                    break;
-                                }
-                            }
-                        }
-                        else if (Condition == ConditionValidate.AND)//Trường hợp yêu cầu user có tất cả các chức năng đã khai báo
-                        {
-                            isValid = true;
-                            foreach (var code in AllowFunctionCodes)
-                            {
-                                if (!IsFunctionInRole(code))
-                                {
-                                    isValid = false;
-                                    break;
-                                }
-                            }
                         }
                     }
                     if (!isValid)
