@@ -30,6 +30,9 @@
                 <th>
                     Comment
                 </th>
+                <th>
+                    approved by
+                </th>
             </tr>
             @foreach (var item in Model)
             {
@@ -51,6 +54,9 @@
                     </td>
                     <td>
                         @item.Comment
+                    </td>
+                    <td>
+                        approved by
                     </td>
                 </tr>
             }

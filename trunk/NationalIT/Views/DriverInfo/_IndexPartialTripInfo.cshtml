@@ -26,9 +26,9 @@
                 </th>
                 <th>
                     Pick_up_location
-                </th>
+                </th>                
                 <th>
-                    Delivery_location
+                    Driver paid
                 </th>
             </tr>
         </thead>
@@ -57,7 +57,7 @@
                         @item.Pick_up_location
                     </td>
                     <td>
-                        @item.Delivery_location
+                        @(NationalIT.CommonFunction.getYesNO(item.Driver_paid))
                     </td>
                 </tr>
                 }

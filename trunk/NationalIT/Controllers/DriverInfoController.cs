@@ -13,11 +13,30 @@ namespace NationalIT.Controllers
     {
         int pageSize = 20;
         [ValidationFunction(ActionName.ViewListDriver)]
-        public ActionResult Index(int? page, int? driverID)
+        public ActionResult Index(int? page, int? driverID, int? active)
         {
+            // temp 
+
+            //end temp
             var db = DB.Entities;
-            var list = db.Driver_Info.Where(m => (driverID == null ? true : m.ID == driverID.Value))
-                    .OrderByDescending(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize);
+            var lst = db.Driver_Info.Where(m => (driverID == null ? true : m.ID == driverID.Value));
+            if (active.HasValue)
+            {
+                if (active.Value != 2)
+                {
+                    bool driver_active = false;
+                    if (active.Value == 1)
+                    {
+                        driver_active = true;
+                    }
+                    lst = lst.Where(m => m.Active == driver_active);
+                }
+            }
+            else
+            {
+                lst = lst.Where(m => m.Active == true);
+            }
+            var list = lst.OrderByDescending(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize);
             SelectOption();
             if (Request.IsAjaxRequest())
             {
@@ -111,86 +130,106 @@ namespace NationalIT.Controllers
         {
             try
             {
-                var db = DB.Entities;
-                model.Expiration_Date = CommonFunction.ChangeFormatDate(frm["Expiration_Date"]).Value;
-                model.Date_Issued = CommonFunction.ChangeFormatDate(frm["Date_Issued"]);
-                if (model.ID == 0)
+                if (model.Owner)
                 {
-                    // Edit                    
-                    db.Driver_Info.AddObject(model);
+                    if (model.Owner_Pay_Rate > 0)
+                    {
+                        var db = DB.Entities;
+                        model.Expiration_Date = CommonFunction.ChangeFormatDate(frm["Expiration_Date"]).Value;
+                        model.Date_Issued = CommonFunction.ChangeFormatDate(frm["Date_Issued"]);
+                        if (model.ID == 0)
+                        {
+                            // Edit                    
+                            db.Driver_Info.AddObject(model);
+                        }
+                        else
+                        {
+                            // Add new      
+                            db.AttachTo("Driver_Info", model);
+                            db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
+                        }
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("Owner", "The field must be greate than 0");
+                    }                   
                 }
                 else
                 {
-                    // Add new      
-                    db.AttachTo("Driver_Info", model);
-                    db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
+                    if (!(model.Owner_Pay_Rate > 0))
+                    {
+                        ModelState.AddModelError("Owner", "The field must be greate than 0");
+                    }
+                    ModelState.AddModelError("Owner", "The field must be checked");
                 }
-                db.SaveChanges();
-                return RedirectToAction("Index");
+
             }
             catch
             {
-                #region SELECT OPTION
-                string dataOwners = "<option >--Select Owners--</option>";
-                foreach (var item in NationalIT.DB.Entities.Owners)
-                {
-                    if (model != null && model.Owner_Name == item.OwnerID)
-                    {
-                        //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
-                        dataOwners += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.OwnerID, item.Name);
-                    }
-                    else
-                    {
-                        dataOwners += string.Format("<option value='{0}'>{1}</option>", item.OwnerID, item.Name);
-                    }
-                }
-                ViewBag.dataOwners = dataOwners;
 
-                string dataDispatchers = "<option >--Select Dispatcher--</option>";
-                foreach (var item in NationalIT.DB.Entities.Dispatchers)
-                {
-                    if (model != null && model.Dispatcher == item.ID)
-                    {
-                        //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
-                        dataDispatchers += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
-                    }
-                    else
-                    {
-                        dataDispatchers += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
-                    }
-                }
-                ViewBag.dataDispatchers = dataDispatchers;
-
-                string dataTruck = "<option >--Select Truck--</option>";
-                foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRUCK")))
-                {
-                    if (model != null && model.Truck == item.Equipment_number)
-                    {
-                        dataTruck += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.ID, item.Equipment_number);
-                    }
-                    else
-                    {
-                        dataTruck += string.Format("<option value='{0}'>{1}</option>", item.ID, item.Equipment_number);
-                    }
-                }
-                ViewBag.dataTruck = dataTruck;
-
-                string dataTrailer = "<option >--Select Trailer--</option>";
-                foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRAILER")))
-                {
-                    if (model != null && model.Trailer == item.Equipment_number)
-                    {
-                        dataTrailer += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.ID, item.Equipment_number);
-                    }
-                    else
-                    {
-                        dataTrailer += string.Format("<option value='{0}'>{1}</option>", item.ID, item.Equipment_number);
-                    }
-                }
-                ViewBag.dataTrailer = dataTrailer;
-                #endregion
-                return View(model);
             }
+            #region SELECT OPTION
+            string dataOwners = "<option >--Select Owners--</option>";
+            foreach (var item in NationalIT.DB.Entities.Owners)
+            {
+                if (model != null && model.Owner_Name == item.OwnerID)
+                {
+                    //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                    dataOwners += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.OwnerID, item.Name);
+                }
+                else
+                {
+                    dataOwners += string.Format("<option value='{0}'>{1}</option>", item.OwnerID, item.Name);
+                }
+            }
+            ViewBag.dataOwners = dataOwners;
+
+            string dataDispatchers = "<option >--Select Dispatcher--</option>";
+            foreach (var item in NationalIT.DB.Entities.Dispatchers)
+            {
+                if (model != null && model.Dispatcher == item.ID)
+                {
+                    //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                    dataDispatchers += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                }
+                else
+                {
+                    dataDispatchers += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                }
+            }
+            ViewBag.dataDispatchers = dataDispatchers;
+
+            string dataTruck = "<option >--Select Truck--</option>";
+            foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRUCK")))
+            {
+                if (model != null && model.Truck == item.Equipment_number)
+                {
+                    dataTruck += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.ID, item.Equipment_number);
+                }
+                else
+                {
+                    dataTruck += string.Format("<option value='{0}'>{1}</option>", item.ID, item.Equipment_number);
+                }
+            }
+            ViewBag.dataTruck = dataTruck;
+
+            string dataTrailer = "<option >--Select Trailer--</option>";
+            foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRAILER")))
+            {
+                if (model != null && model.Trailer == item.Equipment_number)
+                {
+                    dataTrailer += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.ID, item.Equipment_number);
+                }
+                else
+                {
+                    dataTrailer += string.Format("<option value='{0}'>{1}</option>", item.ID, item.Equipment_number);
+                }
+            }
+            ViewBag.dataTrailer = dataTrailer;
+            #endregion
+            return View(model);
         }
         [ValidationFunction(ActionName.DeleteItem)]
         public ActionResult Delete(string arrayID = "")

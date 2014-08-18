@@ -27,6 +27,9 @@
                 <th>
                     Driver
                 </th>
+                <th>
+                    Paid off
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -55,6 +58,9 @@
                     </td>
                     <td>
                         @Html.Raw(item.Driver_Info != null ? item.Driver_Info.First_name : "")
+                    </td>
+                    <td>
+                        @(NationalIT.CommonFunction.getYesNO(item.Paid_off))
                     </td>
                 </tr>
                 }
