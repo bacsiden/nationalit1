@@ -49,11 +49,9 @@
                     @item.Date
                 </td>
                 <td>
-                 <a href="@Url.Action("PushToOnlineServer", new { name = item.Name })" class="border" title="Push to online server" >
-                            Push to online server</a> |
-                    <a href="javascript:void(0)" class="border" title="Restore database" onclick="Loading('@item.Name');">
-                        Restore</a> | <a href="@Url.Action("DownloadFile", new { name = item.Name})" class="border" title="Download file restore" >
-                            Download</a> | <a href="javascript:void(0)" class="border" title="Delete file restore" onclick="DeleteBackupData('@item.Name');">
+                    <a href="@Url.Action("PushToLocalServer", new { name = item.Name })" class="border" title="Push to local server" >
+                            Push to local server</a> | <a href="@Url.Action("DownloadOnlineFile", new { name = item.Name })" class="border" title="Download file restore" >
+                            Download</a> | <a href="javascript:void(0)" class="border" title="Delete file restore" onclick="DeleteBackupFileOnline('@item.Name');">
                                 Delete</a>
                 </td>
             </tr>
