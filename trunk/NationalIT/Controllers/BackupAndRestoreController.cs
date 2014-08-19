@@ -21,30 +21,34 @@ namespace NationalIT.Controllers
         [ValidationFunction(ActionName.BACKUPDATABASE, ActionName.RESTOREDATABASE)]
         public ActionResult Index()
         {
-            string FilePathXML = HttpContext.Server.MapPath("~/App_Data/config.xml");
-            var doc = XDocument.Load(FilePathXML);
-            bool isAdmin = CurrentUser.UserName.Equals(UserDAL.ADMIN);
-            ViewBag.ShowBackupMenu = IsFunctionInRole(ActionName.BACKUPDATABASE.ToString()) || isAdmin;
-            ViewBag.ShowDeleteMenu = ViewBag.ShowRestoreMenu = IsFunctionInRole(ActionName.RESTOREDATABASE.ToString()) || isAdmin;
-            string folderName = doc.Element("system.config").Element("path-backup").Value;
-            string[] files = Directory.GetFiles(folderName, "*.bak");
-            var list = new List<BackupModel>();
-            DirectoryInfo di = new DirectoryInfo(folderName);
-            foreach (FileInfo item in di.GetFiles())
+            try
             {
-                BackupModel tmp = new BackupModel()
+                string FilePathXML = HttpContext.Server.MapPath("~/App_Data/config.xml");
+                var doc = XDocument.Load(FilePathXML);
+                bool isAdmin = CurrentUser.UserName.Equals(UserDAL.ADMIN);
+                ViewBag.ShowBackupMenu = IsFunctionInRole(ActionName.BACKUPDATABASE.ToString()) || isAdmin;
+                ViewBag.ShowDeleteMenu = ViewBag.ShowRestoreMenu = IsFunctionInRole(ActionName.RESTOREDATABASE.ToString()) || isAdmin;
+                string folderName = doc.Element("system.config").Element("path-backup").Value;
+                string[] files = Directory.GetFiles(folderName);
+                var list = new List<BackupModel>();
+                DirectoryInfo di = new DirectoryInfo(folderName);
+                foreach (FileInfo item in di.GetFiles())
                 {
-                    Name = item.Name,
-                    Date = item.LastWriteTime.ToShortDateString(),
-                };
-                list.Add(tmp);
+                    BackupModel tmp = new BackupModel()
+                    {
+                        Name = item.Name,
+                        Date = item.LastWriteTime.ToShortDateString(),
+                    };
+                    list.Add(tmp);
+                }
+                list = list.OrderByDescending(m => m.Date).ToList();
+                if (Request.IsAjaxRequest())
+                {
+                    return PartialView("_RestorePartial", list);
+                }
+                return View(list);
             }
-            list = list.OrderByDescending(m => m.Date).ToList();
-            if (Request.IsAjaxRequest())
-            {
-                return PartialView("_RestorePartial", list);
-            }
-            return View(list);
+            catch { return View(); }
         }
 
         [Authorize]
@@ -305,9 +309,145 @@ namespace NationalIT.Controllers
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError("",ex.Message);
+                ModelState.AddModelError("", ex.Message);
             }
             return View();
         }
+
+        #region Online Server
+        public static string onlineDBFolder = "/db/";
+        public List<BackupModel> ListRestoreOnline()
+        {
+            try
+            {
+                var ftpFiles = FTPUtilities.GetFiles("/db");
+                var lst = new List<BackupModel>();
+                foreach (var item in ftpFiles)
+                {
+                    var obj = new BackupModel();
+                    obj.Name = item.Name;
+                    if (item.LastWriteTime != null)
+                        obj.Date = item.LastWriteTime.Value.ToShortDateString();
+                    lst.Add(obj);
+                }
+                return lst;
+            }
+            catch { return null; }
+
+        }
+
+        [Authorize]
+        [ValidationFunction(ActionName.RESTOREDATABASE)]
+        public ActionResult DeleteBackupFileOnline(string name)
+        {
+            bool success = true;
+            string message = "";
+            try
+            {
+                FTPUtilities.DeleteFile(onlineDBFolder + name);
+                success = true;
+                message = "Delete successfully";
+            }
+            catch (System.IO.IOException e)
+            {
+                success = false;
+                message = e.Message + ". Error system. File not found or file restore is failed. Please try again";
+            }
+            catch (Exception ex)
+            {
+                success = false;
+                message = ex.Message + ". Error system. Please try again a few minutes.";
+            }
+            return Json(new { IsSuccess = success, Message = message }, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
+        [ValidationFunction(ActionName.RESTOREDATABASE)]
+        public ActionResult DownloadOnlineFile(string name)
+        {
+            try
+            {
+                //System.Net.FtpWebRequest.Create("ftp.Smarterasp.net/db/nationalit.bak");
+                byte[] fs = FTPUtilities.GetByteArray(onlineDBFolder + name);
+                string contentType = "application/" + Path.GetExtension(name).Substring(1);
+                return File(fs, contentType, name);
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("FileNull", "PageError");
+            }
+        }
+
+        [Authorize]
+        [ValidationFunction(ActionName.RESTOREDATABASE)]
+        public ActionResult PushToLocalServer(string name)
+        {
+            try
+            {
+                string FilePathXML = HttpContext.Server.MapPath("~/App_Data/config.xml");
+                var doc = XDocument.Load(FilePathXML);
+                string folderName = doc.Element("system.config").Element("path-backup").Value;
+                if (folderName.Trim().Last() != '\\')
+                    folderName += '\\';
+                string filename = folderName + name;
+                byte[] fs = FTPUtilities.GetByteArray(onlineDBFolder + name);
+                FileStream w = new FileStream(filename, FileMode.Create);
+                w.Write(fs, 0, fs.Length);
+                w.Flush();
+                w.Dispose();
+            }
+            catch { }
+            return RedirectToAction("Index");
+        }
+
+        [Authorize]
+        [ValidationFunction(ActionName.RESTOREDATABASE)]
+        public ActionResult PushToOnlineServer(string name)
+        {
+            try
+            {
+                string FilePathXML = HttpContext.Server.MapPath("~/App_Data/config.xml");
+                var doc = XDocument.Load(FilePathXML);
+                string folderName = doc.Element("system.config").Element("path-backup").Value;
+                if (folderName.Trim().Last() != '\\')
+                    folderName += '\\';
+                string filename = folderName + name;
+
+                StreamReader r = new StreamReader(filename);
+                FTPUtilities.CreateFile(onlineDBFolder + name, r.BaseStream);
+            }
+            catch { }
+            return RedirectToAction("Index");
+        }
+
+
+        [Authorize]
+        [ValidationFunction(ActionName.RESTOREDATABASE)]
+        public ActionResult UploadOnline()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult UploadOnline(HttpPostedFileBase file)
+        {
+            try
+            {
+                if (file != null)
+                {
+                    FTPUtilities.CreateFile(onlineDBFolder
+                        + file.FileName, file.InputStream);
+                    return RedirectToAction("Index");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+            }
+            return View();
+        }
+
+        #endregion
     }
 }

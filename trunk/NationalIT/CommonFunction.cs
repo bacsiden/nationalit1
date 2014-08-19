@@ -81,10 +81,20 @@ namespace NationalIT
             return exists;
         }
         #endregion
-
+        public static FtpFileInfo[] GetFiles(string path)
+        {
+            FtpConnection conn = GetFtpConnection();
+            conn.Open();
+            conn.Login();
+            FtpFileInfo[] files = conn.GetFiles(path);
+            conn.Close();
+            conn.Dispose();
+            return files;
+        }
         public static bool FileExists(string fileName)
         {
             FTPClient ftpClient = new FTPClient(ftpServer, ftpUser, ftpPass);
+            
             return ftpClient.FileExist(fileName);
         }
 

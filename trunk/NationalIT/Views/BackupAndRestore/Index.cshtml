@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Backup and restore database";
 }
-<script type="text/javascript">    
+<script type="text/javascript">
     function Loading(name) {
         if (confirm('Are you sure Restore database?')) {
             $(".row-fluid").css('opacity', '0.4');
@@ -32,9 +32,33 @@
             });
         };
     }
+    function DeleteBackupFileOnline(name) {
+        if (confirm('Are you sure DELETE this file backup database?')) {
+            $.ajax({
+                url: '@Url.Action("DeleteBackupFileOnline", "BackupAndRestore")',
+                data: { 'name': name },
+                dataType: 'json',
+                success: function (data) {
+                    if (data.IsSuccess) {
+                        location.reload(true);
+                    } else {
+                        alert(data.Message);
+                    }
+                }
+            });
+        };
+    }
     function hideLoading() {
         $(".row-fluid").css('opacity', '1');
         $("#dvloader").slideUp();
+    }
+    function reloadTableBackupFileOnline() {
+        $.ajax({
+            url: '@Url.Action("ListRestoreOnline", "BackupAndRestore")',
+            success: function (data) {
+                $('#RestoreOnline').html(data);
+            }
+        });
     }
     function reloadTableBackupFile() {
         $.ajax({
@@ -49,18 +73,49 @@
     <div class="span12">
         <h3 class="heading">
             List file backup database on server local</h3>
-        <div class="SaoLuuHide">
-            @if (ViewBag.ShowBackupMenu != null && (bool)ViewBag.ShowBackupMenu)
-            {
-                <a class="btn btn-info" href="@Url.Action("Backup", "BackupAndRestore")">
-                    <i class="splashy-box_okay"></i>&nbsp;Backup</a>
-                <a class="btn btn-info" href="@Url.Action("Upload", "BackupAndRestore")">
-                    <i class="splashy-box_okay"></i>&nbsp;Upload</a>
-            }
-        </div>
-        <div id="RestoreData">
-            @Html.Partial("_RestorePartial", Model)
-        </div>
+        @if (Model == null)
+        {
+            <h3 class="heading">
+                This feature is no avaiable when system is running on host</h3>
+        }
+        else
+        {
+            <div class="SaoLuuHide">
+                @if (ViewBag.ShowBackupMenu != null && (bool)ViewBag.ShowBackupMenu)
+                { <a class="btn btn-info" href="@Url.Action("Backup", "BackupAndRestore")">
+                    <i class="splashy-box_okay"></i>&nbsp;Backup</a> <a class="btn btn-info" href="@Url.Action("Upload", "BackupAndRestore")">
+                        <i class="splashy-box_okay"></i>&nbsp;Upload</a> 
+                }
+            </div>
+            <div id="RestoreData">
+                @Html.Partial("_RestorePartial", Model)
+            </div>
+        }
+    </div>
+</div>
+@{
+    var bm = new NationalIT.Controllers.BackupAndRestoreController().ListRestoreOnline();
+}
+<div class="row-fluid dataTables_wrapper" style="min-width: 750px;">
+    <div class="span12">
+        @if (bm == null)
+        {
+            <h3 class="heading">
+                Some problem when collect files from host. Check your FTP host, user, pass or internet
+                connection</h3>
+        }
+        else
+        {
+            <h3 class="heading">
+                List files backup on server online</h3>
+            <div class="SaoLuuHide">
+                <a class="btn btn-info" href="@Url.Action("UploadOnline", "BackupAndRestore")"><i class="splashy-box_okay">
+                </i>&nbsp;Upload backup file to host</a>
+            </div>
+            <div id="RestoreOnline">
+                @Html.Partial("_RestoreOnline", bm)
+            </div>
+        }
     </div>
 </div>
 <div style="display: none; text-align: center" id="dvloader">
