@@ -38,9 +38,9 @@ namespace NationalIT
     }
     public class FTPUtilities
     {
-        public static string ftpServer = System.Configuration.ConfigurationManager.AppSettings["FTPServer"];
-        public static string ftpUser = System.Configuration.ConfigurationManager.AppSettings["FTPUser"];
-        public static string ftpPass = System.Configuration.ConfigurationManager.AppSettings["FTPPassword"];
+        public static string ftpServer = DB.Entities.mConfig.FirstOrDefault(m => m.Key == "FTPServer").Title;
+        public static string ftpUser = DB.Entities.mConfig.FirstOrDefault(m => m.Key == "FTPUser").Title;
+        public static string ftpPass = DB.Entities.mConfig.FirstOrDefault(m => m.Key == "FTPPassword").Title;
 
         private static FtpConnection GetFtpConnection()
         {
@@ -94,7 +94,7 @@ namespace NationalIT
         public static bool FileExists(string fileName)
         {
             FTPClient ftpClient = new FTPClient(ftpServer, ftpUser, ftpPass);
-            
+
             return ftpClient.FileExist(fileName);
         }
 
