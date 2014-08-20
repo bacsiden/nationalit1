@@ -77,6 +77,7 @@ namespace NationalIT
             ViewListFixedCharges,
             BACKUPDATABASE,
             RESTOREDATABASE,
+            ViewListCompany,
         }
         public enum ConditionValidate
         {

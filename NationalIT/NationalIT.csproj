@@ -74,6 +74,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BackupAndRestoreController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\CompanyExpansesController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -507,6 +508,8 @@
     <Content Include="Views\BackupAndRestore\Upload.cshtml" />
     <Content Include="Views\BackupAndRestore\_RestoreOnline.cshtml" />
     <Content Include="Views\BackupAndRestore\UploadOnline.cshtml" />
+    <Content Include="Views\Company\Index.cshtml" />
+    <Content Include="Views\Company\NewOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
