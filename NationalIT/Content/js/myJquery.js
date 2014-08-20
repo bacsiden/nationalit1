@@ -183,7 +183,7 @@
         $.ajax({
             type: "GET",
             url: '/TripInfo/Index',
-            data: { 'tripID': valueTripInfo, 'driverID': valueDriverInfo, "driverPaid": driverPaid },
+            data: { 'tripID': valueTripInfo, 'driverID': valueDriverInfo, "driverPaid": valuePaid },
             async: true,
             success: function (model) {
                 $("#wrap-AjaxPaging").html(model);
