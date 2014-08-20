@@ -200,11 +200,27 @@
     // Not EDIT OR DELETE
     $(".selectDriverInfo").chosen({ allow_single_deselect: true }).change(function () {
         var valueDriverInfo = $(this).val();
+        var active = $(".Driver_active_selection").val();
         var url = $(location).attr('href');
         $.ajax({
             type: "GET",
             url: url,
-            data: { 'driverID': valueDriverInfo },
+            data: { 'driverID': valueDriverInfo, "active": active },
+            async: true,
+            success: function (model) {
+                $("#wrap-AjaxPaging").html(model);
+                addClassForPagging();
+            }
+        });
+    });
+    $(".Driver_active_selection").change(function () {
+        var valueDriverInfo = $(".selectDriverInfo").val();
+        var active = $(".Driver_active_selection").val();
+        var url = $(location).attr('href');
+        $.ajax({
+            type: "GET",
+            url: url,
+            data: { 'driverID': valueDriverInfo, "active": active },
             async: true,
             success: function (model) {
                 $("#wrap-AjaxPaging").html(model);
@@ -242,7 +258,7 @@
     //--------------------------------
 
 
-});                 //----------------END DOCUMENT READY FUNCTION -------------------------------  
+});                  //----------------END DOCUMENT READY FUNCTION -------------------------------  
 
 
 
