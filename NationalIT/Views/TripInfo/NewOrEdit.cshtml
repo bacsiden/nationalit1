@@ -1,7 +1,7 @@
 ﻿@model NationalIT.Trip_Info
 @{
     ViewBag.Title = "Trip Info";
-    var listCompanyExpanses = NationalIT.DB.Entities.Company_Expanses.ToList();
+    var listCompany = NationalIT.DB.Entities.Company.Where(m=>m.Actived).ToList();
 }
 <script type="text/javascript">
     $(document).ready(function () {
@@ -14,6 +14,14 @@
             if (e.keyCode == 8) {
                 setValueForTotalCharges();
             }
+        });
+        $(".BeforePrintReport").click(function () {
+            var printUrl = $(this).attr("href");
+            var idlist = "";
+            $("._CompanyExpenses input:checkbox:checked").each(function () {
+                idlist += $(this).val() + "-";
+            });
+            $(this).attr("href", addParam(printUrl, "companyID", idlist));
         });
     });
     function setValueForTotalCharges() {
@@ -39,8 +47,9 @@
             <div class="row-fluid">
                 <div class="span12">
                     <input type="submit" value="Save" class="btn btn-primary" />
-                    <a href="/Reports/ShowReport.aspx?ReportName=Invoice&&tripID=@Model.Trip_ID" target="_blank" class="btn btn-primary">
-                        Print Report</a> @*@Html.ActionLink("Show Report", "index", "Report", new { @tripID=Model.Trip_ID}, new { @class = "btn btn-primary" })*@
+                    <a href="/Reports/ShowReport.aspx?ReportName=Invoice&&tripID=@Model.Trip_ID" target="_blank" class="btn btn-primary BeforePrintReport">
+                        Print Report</a> 
+                        @*@Html.ActionLink("Show Report", "index", "Report", new { @tripID=Model.Trip_ID}, new { @class = "btn btn-primary" })*@
                     @((Model != null && Model.Trip_ID > 0) ? Html.ActionLink("Delete", "Delete", new { arrayID = Model.Trip_ID }, new { @class = "btn btn-danger confirmDelete" }) : new MvcHtmlString(""))
                     @Html.ActionLink("Cancel", "Index", null, new { @class = "btn" })
                 </div>
@@ -68,9 +77,9 @@
                     </div>
                 </div>
                 <div class="span7">
-                    <div class="boxScroll"> 
-                        <h4 class="text-center">Company Expanses</h4>
-                        @Html.Partial("_CompanyExpenses", listCompanyExpanses)
+                    <div class="boxScroll _CompanyExpenses"> 
+                        <h4 class="text-center">Company</h4>
+                        @Html.Partial("_CompanyExpenses", listCompany)
                     </div>
                 </div>
             </div> 
