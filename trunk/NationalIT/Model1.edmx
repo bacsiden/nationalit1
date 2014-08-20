@@ -6,6 +6,7 @@
     <edmx:StorageModels>
     <Schema Namespace="DB_9B22F2_nationalitModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="DB_9B22F2_nationalitModelStoreContainer">
+          <EntitySet Name="Company" EntityType="DB_9B22F2_nationalitModel.Store.Company" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Company_Expanses" EntityType="DB_9B22F2_nationalitModel.Store.Company_Expanses" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Customer_Info" EntityType="DB_9B22F2_nationalitModel.Store.Customer_Info" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Dispatchers" EntityType="DB_9B22F2_nationalitModel.Store.Dispatchers" store:Type="Tables" Schema="dbo" />
@@ -129,6 +130,17 @@
             <End Role="Violations" EntitySet="Violations" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="FaxNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="Actived" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Company_Expanses">
           <Key>
             <PropertyRef Name="CompanyExpansesID" />
@@ -965,6 +977,7 @@
             <End Role="mGroup" EntitySet="mGroup" />
             <End Role="mUser" EntitySet="mUser" />
           </AssociationSet>
+          <EntitySet Name="Company" EntityType="DB_9B22F2_nationalitModel.Company" />
         </EntityContainer>
         <EntityType Name="Company_Expanses">
           <Key>
@@ -1597,6 +1610,17 @@
           <End Type="DB_9B22F2_nationalitModel.mGroup" Role="mGroup" Multiplicity="*" />
           <End Type="DB_9B22F2_nationalitModel.mUser" Role="mUser" Multiplicity="*" />
         </Association>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PhoneNumber" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FaxNumber" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Actived" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2057,6 +2081,18 @@
               <ScalarProperty Name="ID" ColumnName="GroupID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Company">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="Actived" ColumnName="Actived" />
+                <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2207,6 +2243,7 @@
           <ConnectorPoint PointX="20.25" PointY="8.9563983591746741" />
           <ConnectorPoint PointX="21" PointY="8.9563983591746741" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Company" Width="1.5" PointX="15.375" PointY="10.75" Height="2.1725878906250102" />
       </Diagram>
     </Diagrams>
   </Designer>
