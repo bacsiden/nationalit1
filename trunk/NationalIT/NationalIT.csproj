@@ -78,6 +78,7 @@
     <Compile Include="Controllers\CompanyExpansesController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controllers\ConfigController.cs" />
     <Compile Include="Controllers\CustomerInfoController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -510,6 +511,8 @@
     <Content Include="Views\BackupAndRestore\UploadOnline.cshtml" />
     <Content Include="Views\Company\Index.cshtml" />
     <Content Include="Views\Company\NewOrEdit.cshtml" />
+    <Content Include="Views\Config\Index.cshtml" />
+    <Content Include="Views\Config\NewOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

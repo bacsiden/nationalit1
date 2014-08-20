@@ -55,6 +55,7 @@ namespace NationalIT
         public enum ActionName
         {
             // Khai báo các quyền tương ứng với bảng Function            
+            ViewSystemConfig,
             ViewListTrip,
             ViewListDriver,
             ViewListCutomer,
