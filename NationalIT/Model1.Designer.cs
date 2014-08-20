@@ -504,6 +504,22 @@ namespace NationalIT
             }
         }
         private ObjectSet<Violations> _Violations;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Company> Company
+        {
+            get
+            {
+                if ((_Company == null))
+                {
+                    _Company = base.CreateObjectSet<Company>("Company");
+                }
+                return _Company;
+            }
+        }
+        private ObjectSet<Company> _Company;
 
         #endregion
 
@@ -716,6 +732,14 @@ namespace NationalIT
         {
             base.AddObject("Violations", violations);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Company EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCompany(Company company)
+        {
+            base.AddObject("Company", company);
+        }
 
         #endregion
 
@@ -724,6 +748,187 @@ namespace NationalIT
     #endregion
 
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Company")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Company : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Company object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        /// <param name="actived">Initial value of the Actived property.</param>
+        public static Company CreateCompany(global::System.Int32 id, global::System.String name, global::System.Boolean actived)
+        {
+            Company company = new Company();
+            company.ID = id;
+            company.Name = name;
+            company.Actived = actived;
+            return company;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Address
+        {
+            get
+            {
+                return _Address;
+            }
+            set
+            {
+                OnAddressChanging(value);
+                ReportPropertyChanging("Address");
+                _Address = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Address");
+                OnAddressChanged();
+            }
+        }
+        private global::System.String _Address;
+        partial void OnAddressChanging(global::System.String value);
+        partial void OnAddressChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PhoneNumber
+        {
+            get
+            {
+                return _PhoneNumber;
+            }
+            set
+            {
+                OnPhoneNumberChanging(value);
+                ReportPropertyChanging("PhoneNumber");
+                _PhoneNumber = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PhoneNumber");
+                OnPhoneNumberChanged();
+            }
+        }
+        private global::System.String _PhoneNumber;
+        partial void OnPhoneNumberChanging(global::System.String value);
+        partial void OnPhoneNumberChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FaxNumber
+        {
+            get
+            {
+                return _FaxNumber;
+            }
+            set
+            {
+                OnFaxNumberChanging(value);
+                ReportPropertyChanging("FaxNumber");
+                _FaxNumber = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("FaxNumber");
+                OnFaxNumberChanged();
+            }
+        }
+        private global::System.String _FaxNumber;
+        partial void OnFaxNumberChanging(global::System.String value);
+        partial void OnFaxNumberChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Actived
+        {
+            get
+            {
+                return _Actived;
+            }
+            set
+            {
+                OnActivedChanging(value);
+                ReportPropertyChanging("Actived");
+                _Actived = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Actived");
+                OnActivedChanged();
+            }
+        }
+        private global::System.Boolean _Actived;
+        partial void OnActivedChanging(global::System.Boolean value);
+        partial void OnActivedChanged();
+
+        #endregion
+
+    
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
