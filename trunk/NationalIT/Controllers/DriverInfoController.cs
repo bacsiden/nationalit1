@@ -119,6 +119,9 @@ namespace NationalIT.Controllers
                 }
             }
             ViewBag.dataTrailer = dataTrailer;
+            // List payroll roll back
+            var listPayroll = DB.Entities.TempReport.Where(m => m.DriverID == id).ToList();
+            ViewBag.ListPayroll = listPayroll;
             #endregion
 
             return View(obj);
@@ -154,7 +157,7 @@ namespace NationalIT.Controllers
                     else
                     {
                         ModelState.AddModelError("Owner", "The field must be greate than 0");
-                    }                   
+                    }
                 }
                 else
                 {
@@ -229,6 +232,9 @@ namespace NationalIT.Controllers
             }
             ViewBag.dataTrailer = dataTrailer;
             #endregion
+            // List payroll roll back
+            var listPayroll = DB.Entities.TempReport.Where(m => m.DriverID == model.ID).ToList();
+            ViewBag.ListPayroll = listPayroll;
             return View(model);
         }
         [ValidationFunction(ActionName.DeleteItem)]

@@ -2,6 +2,7 @@
 @using Webdiyer.WebControls.Mvc;
 @{
     ViewBag.Title = "Driver Info";
+    var listPayroll = (List<NationalIT.TempReport>)ViewBag.ListPayroll;
 }
 <script type="text/javascript">
     $(document).ready(function () {
@@ -48,9 +49,9 @@
                     <a href="/TripInfo/NewOrEdit?driverID=@(Model != null ? Model.ID : 0)" class="btn btn-info">
                         New Trip info</a> <a href="/Equipment" class="btn btn-info">Equipment</a> <a href="/Violations"
                             class="btn btn-info">Violations</a> <a href="/Maintenance" class="btn btn-info">Maintenance</a>
-                            <a href="/fixed_charges/NewOrEdit?driverID=@(Model != null ? Model.ID : 0)" class="btn btn-info">Fixed charges</a>
-                    <a href="/DriverInfo/PayrollsRollback?driverID=@(Model != null ? Model.ID : 0)" class="btn btn-info">
-                        Pay rolls rollback</a> @*<a href="#" class="btn btn-info">Pay rolls operations rollback</a>*@
+                    <a href="/fixed_charges/NewOrEdit?driverID=@(Model != null ? Model.ID : 0)" class="btn btn-info">
+                        Fixed charges</a> <a href="/DriverInfo/PayrollsRollback?driverID=@(Model != null ? Model.ID : 0)" class="btn btn-info">
+                            Pay rolls rollback</a> @*<a href="#" class="btn btn-info">Pay rolls operations rollback</a>*@
                     @*<a href="/DriverInfo/PayrollsRollback/@(Model != null ? Model.ID : 0)" class="btn btn-info DriverPayrollExpanses">Driver payroll & expanses</a>*@
                     <a href="/DriverInfo/DriverPayroll/@(Model != null ? Model.ID : 0)" class="btn btn-info">
                         Driver payroll & expanses</a>
@@ -81,7 +82,7 @@
                     <div class="control-group">
                         <label for="Expiration_Date">
                             Expiration Date <span class="requiredStar">(*)</span></label>
-                        @Html.TextBoxFor(model => model.Expiration_Date, new { Value = Model!=null?Model.Expiration_Date.ToString("MM/dd/yyyy"):"" , @class = "input-xlarge date-picker" })
+                        @Html.TextBoxFor(model => model.Expiration_Date, new { Value = Model != null ? Model.Expiration_Date.ToString("MM/dd/yyyy") : "", @class = "input-xlarge date-picker" })
                     </div>
                     <div class="control-group">
                         <label for="Pay_rate">
@@ -134,7 +135,7 @@
                     <div class="control-group">
                         <label for="Date_Issued">
                             Date Issued</label>
-                        @Html.TextBoxFor(model => model.Date_Issued, new {Value=Model!=null&&Model.Date_Issued.HasValue?Model.Date_Issued.Value.ToString("MM/dd/yyyy"):"", @class = "input-xlarge date-picker" })
+                        @Html.TextBoxFor(model => model.Date_Issued, new { Value = Model != null && Model.Date_Issued.HasValue ? Model.Date_Issued.Value.ToString("MM/dd/yyyy") : "", @class = "input-xlarge date-picker" })
                         @Html.ValidationMessageFor(model => model.Date_Issued)
                     </div>
                     <div class="control-group">
@@ -218,6 +219,11 @@
             <div class="row-fluid">
                 <div class="span12">
                     @Html.Partial("_ShowSaveEdit")
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    @Html.Partial("_ListPayrollPartial", listPayroll)
                 </div>
             </div>
             <div class="row-fluid">
