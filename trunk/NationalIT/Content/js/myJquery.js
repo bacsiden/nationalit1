@@ -164,10 +164,11 @@
     $(".chosen-with-diselect-trip").chosen({ allow_single_deselect: true }).change(function () {
         var valueTripInfo = $(".selectTripInfo").val();
         var valueDriverInfo = $(".selectDriverInfoTrip").val();
+        var valuePaid = $(".Driver_paid_selection").val();
         $.ajax({
             type: "GET",
             url: '/TripInfo/Index',
-            data: { 'tripID': valueTripInfo, 'driverID': valueDriverInfo },
+            data: { 'tripID': valueTripInfo, 'driverID': valueDriverInfo, "driverPaid": driverPaid },
             async: true,
             success: function (model) {
                 $("#wrap-AjaxPaging").html(model);
@@ -175,7 +176,21 @@
             }
         });
     });
-
+    $(".Driver_paid_selection").change(function () {
+        var valueTripInfo = $(".selectTripInfo").val();
+        var valueDriverInfo = $(".selectDriverInfoTrip").val();
+        var valuePaid = $(".Driver_paid_selection").val();
+        $.ajax({
+            type: "GET",
+            url: '/TripInfo/Index',
+            data: { 'tripID': valueTripInfo, 'driverID': valueDriverInfo, "driverPaid": driverPaid },
+            async: true,
+            success: function (model) {
+                $("#wrap-AjaxPaging").html(model);
+                addClassForPagging();
+            }
+        });
+    });
     // AutoComplete Chosen select item for customer
     $(".chosen-with-diselect-customer").chosen({ allow_single_deselect: true }).change(function () {
         var value = $(this).val();
@@ -258,7 +273,7 @@
     //--------------------------------
 
 
-});                  //----------------END DOCUMENT READY FUNCTION -------------------------------  
+});                   //----------------END DOCUMENT READY FUNCTION -------------------------------  
 
 
 
