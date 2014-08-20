@@ -513,6 +513,7 @@
     <Content Include="Views\Company\NewOrEdit.cshtml" />
     <Content Include="Views\Config\Index.cshtml" />
     <Content Include="Views\Config\NewOrEdit.cshtml" />
+    <Content Include="Views\DriverInfo\_ListPayrollPartial.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
