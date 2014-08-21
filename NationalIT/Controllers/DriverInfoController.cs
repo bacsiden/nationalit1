@@ -295,7 +295,7 @@ namespace NationalIT.Controllers
             var list = DB.Entities.TempReport.Where(m => m.DriverID == driverID).ToList();
             foreach (var item in list)
             {
-                if (obj != null && obj.ID == id)
+                if (obj != null && obj.ID == item.ID)
                 {
                     dataDate += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.ID, item.Date);
                 }
