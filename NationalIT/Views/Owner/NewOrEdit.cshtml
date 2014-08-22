@@ -59,6 +59,9 @@
                         @Html.Partial("_ShowSaveEdit")
                     </div>
                 }
+                <br />
+                <h4>List drivers</h4>
+                @Html.Partial("_ListDriver", NationalIT.DB.Entities.Driver_Info.Where(m => m.Owner_Name == Model.OwnerID).ToList())
             </div>
         </div>
     </div>

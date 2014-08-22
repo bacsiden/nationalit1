@@ -7,37 +7,38 @@ using Webdiyer.WebControls.Mvc;
 
 namespace NationalIT.Controllers
 {
-    public class fixed_expensesController : BaseController
+    public class FixedChargesController : BaseController
     {
-        int pageSize = 20;
+        int pageSize = 50;
         //
         // GET: /Owner/
 
         [ValidationFunction(ActionName.ViewListFixedCharges)]
         public ActionResult Index(int? page)
         {
-            return View(DB.Entities.fixed_charges.OrderByDescending(m => m.Id).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
+            return View(DB.Entities.FixedCharges.OrderByDescending(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
         }
         //
         // GET: /Owner/Edit/5
         [ValidationFunction(ActionName.ViewListFixedCharges)]
         public ActionResult NewOrEdit(int? driverID, int? id = 0)
         {
-            var obj = DB.Entities.fixed_charges.FirstOrDefault(m => m.Id == id);
+            var obj = DB.Entities.FixedCharges.FirstOrDefault(m => m.ID == id);
             if (obj == null)
             {
-                obj = new fixed_charges() { DriverId = driverID.HasValue ? driverID.Value : 0 };
+                obj = new FixedCharges() { DriverID = driverID.HasValue ? driverID.Value : 0 };
             }
             SelectOption(obj);
             return View(obj);
         }
-        void SelectOption(fixed_charges obj)
+        void SelectOption(FixedCharges obj)
         {
+            
             #region SELECT OPTION
             string dataDriver_Info = "<option >--Select Driver_Info--</option>";
             foreach (var item in NationalIT.DB.Entities.Driver_Info)
             {
-                if (obj.DriverId.HasValue && item.ID == obj.DriverId.Value)
+                if (obj.DriverID.HasValue && item.ID == obj.DriverID.Value)
                 {
                     dataDriver_Info += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
                 }
@@ -46,7 +47,9 @@ namespace NationalIT.Controllers
                     dataDriver_Info += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
                 }                
             }
+
             ViewBag.dataDriver_Info = dataDriver_Info;
+           
             #endregion
         }
 
@@ -54,21 +57,21 @@ namespace NationalIT.Controllers
         // POST: /Owner/Edit/5
         [ValidationFunction(ActionName.NewOrEditItem)]
         [HttpPost]
-        public ActionResult NewOrEdit(fixed_charges model)
+        public ActionResult NewOrEdit(FixedCharges model)
         {
             try
             {
                 var db = DB.Entities;
 
-                if (model.Id == 0)
+                if (model.ID == 0)
                 {
                     // Edit                    
-                    db.fixed_charges.AddObject(model);
+                    db.FixedCharges.AddObject(model);
                 }
                 else
                 {
                     // Add new      
-                    db.AttachTo("fixed_charges", model);
+                    db.AttachTo("FixedCharges", model);
                     db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
                 }
                 db.SaveChanges();
@@ -97,8 +100,8 @@ namespace NationalIT.Controllers
                     foreach (var item in lstID)
                     {
                         int tmpID = int.Parse(item);
-                        var obj = db.fixed_charges.FirstOrDefault(m => m.Id == tmpID);
-                        db.fixed_charges.DeleteObject(obj);
+                        var obj = db.FixedCharges.FirstOrDefault(m => m.ID == tmpID);
+                        db.FixedCharges.DeleteObject(obj);
                     }
                     db.SaveChanges();
                 }

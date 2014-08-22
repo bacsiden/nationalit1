@@ -12,7 +12,8 @@
           <EntitySet Name="Dispatchers" EntityType="DB_9B22F2_nationalitModel.Store.Dispatchers" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Driver_Info" EntityType="DB_9B22F2_nationalitModel.Store.Driver_Info" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Equipment" EntityType="DB_9B22F2_nationalitModel.Store.Equipment" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="fixed_charges" EntityType="DB_9B22F2_nationalitModel.Store.fixed_charges" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FixedCharges" EntityType="DB_9B22F2_nationalitModel.Store.FixedCharges" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Frequency" EntityType="DB_9B22F2_nationalitModel.Store.Frequency" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Fuel___Expenses" EntityType="DB_9B22F2_nationalitModel.Store.Fuel___Expenses" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Income" EntityType="DB_9B22F2_nationalitModel.Store.Income" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="InvoiceA" EntityType="DB_9B22F2_nationalitModel.Store.InvoiceA" store:Type="Tables" Schema="dbo" />
@@ -226,21 +227,28 @@
           <Property Name="MODEL_YEAR" Type="nvarchar" MaxLength="255" />
           <Property Name="MAKE" Type="nvarchar" MaxLength="255" />
         </EntityType>
-        <EntityType Name="fixed_charges">
+        <EntityType Name="FixedCharges">
           <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Fee_Charged" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="DriverId" Type="int" />
-          <Property Name="Amount" Type="real" />
-          <Property Name="Type" Type="nvarchar" MaxLength="50" />
-          <Property Name="Frequency" Type="int" />
-          <Property Name="Beginning" Type="datetime" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DriverID" Type="int" />
+          <Property Name="Amount" Type="float" />
+          <Property Name="Type" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Frequency" Type="int" Nullable="false" />
+          <Property Name="Beginning" Type="datetime" Nullable="false" />
           <Property Name="Fee_Charged" Type="bit" Nullable="false" />
           <Property Name="Next_Date" Type="datetime" />
           <Property Name="Prv_Date" Type="datetime" />
-          <Property Name="Amount_To_Date" Type="real" />
+          <Property Name="Amount_To_Date" Type="float" Nullable="false" />
+          <Property Name="Automatic" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Frequency">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="Fuel___Expenses">
           <Key>
@@ -880,7 +888,6 @@
           <EntitySet Name="Dispatchers" EntityType="DB_9B22F2_nationalitModel.Dispatchers" />
           <EntitySet Name="Driver_Info" EntityType="DB_9B22F2_nationalitModel.Driver_Info" />
           <EntitySet Name="Equipment" EntityType="DB_9B22F2_nationalitModel.Equipment" />
-          <EntitySet Name="fixed_charges" EntityType="DB_9B22F2_nationalitModel.fixed_charges" />
           <EntitySet Name="Fuel___Expenses" EntityType="DB_9B22F2_nationalitModel.Fuel___Expenses" />
           <EntitySet Name="Income" EntityType="DB_9B22F2_nationalitModel.Income" />
           <EntitySet Name="InvoiceA" EntityType="DB_9B22F2_nationalitModel.InvoiceA" />
@@ -978,6 +985,8 @@
             <End Role="mUser" EntitySet="mUser" />
           </AssociationSet>
           <EntitySet Name="Company" EntityType="DB_9B22F2_nationalitModel.Company" />
+          <EntitySet Name="FixedCharges" EntityType="DB_9B22F2_nationalitModel.FixedCharges" />
+          <EntitySet Name="Frequency" EntityType="DB_9B22F2_nationalitModel.Frequency" />
         </EntityContainer>
         <EntityType Name="Company_Expanses">
           <Key>
@@ -1075,22 +1084,6 @@
           <NavigationProperty Name="Maintenance" Relationship="DB_9B22F2_nationalitModel.FK_Maintenance_Equipment" FromRole="Equipment" ToRole="Maintenance" />
           <NavigationProperty Name="Trip_Info" Relationship="DB_9B22F2_nationalitModel.FK_Trip_Info_Equipment1" FromRole="Equipment" ToRole="Trip_Info" />
           <NavigationProperty Name="Violations" Relationship="DB_9B22F2_nationalitModel.FK_Violations_Equipment" FromRole="Equipment" ToRole="Violations" />
-        </EntityType>
-        <EntityType Name="fixed_charges">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Fee_Charged" />
-          </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" />
-          <Property Type="Int32" Name="DriverId" />
-          <Property Type="Single" Name="Amount" />
-          <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="Frequency" />
-          <Property Type="DateTime" Name="Beginning" />
-          <Property Type="Boolean" Name="Fee_Charged" Nullable="false" />
-          <Property Type="DateTime" Name="Next_Date" />
-          <Property Type="DateTime" Name="Prv_Date" />
-          <Property Type="Single" Name="Amount_To_Date" />
         </EntityType>
         <EntityType Name="Fuel___Expenses">
           <Key>
@@ -1621,6 +1614,29 @@
           <Property Type="String" Name="FaxNumber" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="Actived" Nullable="false" />
         </EntityType>
+        <EntityType Name="FixedCharges">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="DriverID" />
+          <Property Type="Double" Name="Amount" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Frequency" Nullable="false" />
+          <Property Type="DateTime" Name="Beginning" Nullable="false" />
+          <Property Type="Boolean" Name="Fee_Charged" Nullable="false" />
+          <Property Type="DateTime" Name="Next_Date" />
+          <Property Type="DateTime" Name="Prv_Date" />
+          <Property Type="Double" Name="Amount_To_Date" Nullable="false" />
+          <Property Type="Boolean" Name="Automatic" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Frequency">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1714,22 +1730,6 @@
                 <ScalarProperty Name="Equipment_number" ColumnName="Equipment_number" />
                 <ScalarProperty Name="Equipment_Type" ColumnName="Equipment_Type" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="fixed_charges">
-            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.fixed_charges">
-              <MappingFragment StoreEntitySet="fixed_charges">
-                <ScalarProperty Name="Amount_To_Date" ColumnName="Amount_To_Date" />
-                <ScalarProperty Name="Prv_Date" ColumnName="Prv_Date" />
-                <ScalarProperty Name="Next_Date" ColumnName="Next_Date" />
-                <ScalarProperty Name="Fee_Charged" ColumnName="Fee_Charged" />
-                <ScalarProperty Name="Beginning" ColumnName="Beginning" />
-                <ScalarProperty Name="Frequency" ColumnName="Frequency" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="DriverId" ColumnName="DriverId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2093,6 +2093,31 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="FixedCharges">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.FixedCharges">
+              <MappingFragment StoreEntitySet="FixedCharges">
+                <ScalarProperty Name="Automatic" ColumnName="Automatic" />
+                <ScalarProperty Name="Amount_To_Date" ColumnName="Amount_To_Date" />
+                <ScalarProperty Name="Prv_Date" ColumnName="Prv_Date" />
+                <ScalarProperty Name="Next_Date" ColumnName="Next_Date" />
+                <ScalarProperty Name="Fee_Charged" ColumnName="Fee_Charged" />
+                <ScalarProperty Name="Beginning" ColumnName="Beginning" />
+                <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Frequency">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.Frequency">
+              <MappingFragment StoreEntitySet="Frequency">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2119,7 +2144,6 @@
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Dispatchers" Width="1.5" PointX="0.75" PointY="9.75" Height="2.7494921875000102" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Driver_Info" Width="1.5" PointX="3" PointY="7.625" Height="6.78782226562501" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Equipment" Width="1.5" PointX="6" PointY="16.125" Height="4.0956022135416674" />
-        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.fixed_charges" Width="1.5" PointX="2.75" PointY="0.75" Height="2.9417936197916674" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Fuel___Expenses" Width="1.5" PointX="5.25" PointY="7.5" Height="3.5186979166666674" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Income" Width="1.5" PointX="0.75" PointY="15.75" Height="2.5571907552083246" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.InvoiceA" Width="1.5" PointX="2.75" PointY="4.75" Height="1.4033821614583246" />
@@ -2153,11 +2177,13 @@
           <ConnectorPoint PointX="1.5" PointY="8.4225878906249818" />
           <ConnectorPoint PointX="2.5" PointY="8.4225878906249818" />
           <ConnectorPoint PointX="2.5" PointY="6.4033821614583246" />
+          <ConnectorPoint PointX="4.322916666666667" PointY="6.4033821614583237" />
+          <ConnectorPoint PointX="4.489583333333333" PointY="6.4033821614583246" />
           <ConnectorPoint PointX="4.5" PointY="6.4033821614583246" />
-          <ConnectorPoint PointX="4.5" PointY="5.913198242187498" />
-          <ConnectorPoint PointX="7.791666666666667" PointY="5.9131982421874971" />
-          <ConnectorPoint PointX="7.958333333333333" PointY="5.913198242187498" />
-          <ConnectorPoint PointX="8.25" PointY="5.913198242187498" />
+          <ConnectorPoint PointX="4.5" PointY="6.7066016210937427" />
+          <ConnectorPoint PointX="6.916666666666667" PointY="6.7066016210937418" />
+          <ConnectorPoint PointX="7.083333333333333" PointY="6.7066016210937427" />
+          <ConnectorPoint PointX="8.25" PointY="6.7066016210937427" />
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Driver_Info_Owners" >
           <ConnectorPoint PointX="2.25" PointY="7.8987939453124909" />
@@ -2175,15 +2201,13 @@
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1" >
           <ConnectorPoint PointX="4.40625" PointY="7.625" />
-          <ConnectorPoint PointX="4.40625" PointY="6.9204410807291623" />
-          <ConnectorPoint PointX="7.791666666666667" PointY="6.9204410807291614" />
-          <ConnectorPoint PointX="7.958333333333333" PointY="6.9204410807291623" />
-          <ConnectorPoint PointX="8.25" PointY="6.9204410807291623" />
+          <ConnectorPoint PointX="4.40625" PointY="5.913198242187498" />
+          <ConnectorPoint PointX="8.25" PointY="5.913198242187498" />
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Violations_Driver_Info" >
           <ConnectorPoint PointX="4.5" PointY="11.384348958333334" />
-          <ConnectorPoint PointX="7.791666666666667" PointY="11.384348958333334" />
-          <ConnectorPoint PointX="7.958333333333333" PointY="11.384348958333334" />
+          <ConnectorPoint PointX="6.916666666666667" PointY="11.384348958333334" />
+          <ConnectorPoint PointX="7.083333333333333" PointY="11.384348958333334" />
           <ConnectorPoint PointX="8.25" PointY="11.384348958333334" />
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Maintenance_Equipment" >
@@ -2191,16 +2215,15 @@
           <ConnectorPoint PointX="8.25" PointY="18.095896809895834" />
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Trip_Info_Equipment1" >
-          <ConnectorPoint PointX="7.5" PointY="16.126152846153843" />
-          <ConnectorPoint PointX="7.875" PointY="15.751152846153843" />
-          <ConnectorPoint PointX="7.875" PointY="4.381948242187498" />
-          <ConnectorPoint PointX="8.25" PointY="4.381948242187498" />
+          <ConnectorPoint PointX="6.6874994999999995" PointY="16.125" />
+          <ConnectorPoint PointX="6.6874994999999995" PointY="14.941793619791667" />
+          <ConnectorPoint PointX="7" PointY="14.941793619791667" />
+          <ConnectorPoint PointX="7" PointY="6.5330620234374894" />
+          <ConnectorPoint PointX="8.25" PointY="6.5330620234374894" />
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Violations_Equipment" >
           <ConnectorPoint PointX="7.15625" PointY="16.125" />
           <ConnectorPoint PointX="7.15625" PointY="11.567176979166661" />
-          <ConnectorPoint PointX="7.791666666666667" PointY="11.567176979166661" />
-          <ConnectorPoint PointX="7.958333333333333" PointY="11.567176979166661" />
           <ConnectorPoint PointX="8.25" PointY="11.567176979166661" />
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Temp_Fuel_Expenses_TempReport" >
@@ -2244,6 +2267,8 @@
           <ConnectorPoint PointX="21" PointY="8.9563983591746741" />
         </AssociationConnector>
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Company" Width="1.5" PointX="15.375" PointY="10.75" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.FixedCharges" Width="1.5" PointX="17.375" PointY="10.75" Height="3.1340950520833246" />
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Frequency" Width="1.5" PointX="7.375" PointY="13.75" Height="1.4033821614583246" />
       </Diagram>
     </Diagrams>
   </Designer>

@@ -1,4 +1,4 @@
-﻿@model NationalIT.fixed_charges
+﻿@model NationalIT.FixedCharges
 @{
     ViewBag.Title = "Fixed charges";
 }
@@ -15,7 +15,7 @@
                 @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
                 {
                     @Html.ValidationSummary(true) 
-                    @Html.HiddenFor(model => model.Id)
+                    @Html.HiddenFor(model => model.ID)
                     
                     <div class="control-group">
                         <label class="control-label" for="Frequency">@Html.LabelFor(model => model.Frequency)</label>
@@ -55,13 +55,13 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="DriverId">@Html.LabelFor(model => model.DriverId)</label>
+                        <label class="control-label" for="DriverId">@Html.LabelFor(model => model.DriverID)</label>
                         <div class="controls">
                             <div class="span12">
-                                <select data-placeholder="Select DriverId" name="DriverId" class="chosen-with-diselect input-xlarge">
+                                <select data-placeholder="Select DriverId" name="DriverID" class="chosen-with-diselect input-xlarge">
                                     @Html.Raw(ViewBag.dataDriver_Info)
                                 </select>
-                                @Html.ValidationMessageFor(model => model.DriverId)
+                                @Html.ValidationMessageFor(model => model.DriverID)
                             </div>
                         </div>
                     </div>
