@@ -172,22 +172,6 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<fixed_charges> fixed_charges
-        {
-            get
-            {
-                if ((_fixed_charges == null))
-                {
-                    _fixed_charges = base.CreateObjectSet<fixed_charges>("fixed_charges");
-                }
-                return _fixed_charges;
-            }
-        }
-        private ObjectSet<fixed_charges> _fixed_charges;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Fuel___Expenses> Fuel___Expenses
         {
             get
@@ -520,6 +504,38 @@ namespace NationalIT
             }
         }
         private ObjectSet<Company> _Company;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<FixedCharges> FixedCharges
+        {
+            get
+            {
+                if ((_FixedCharges == null))
+                {
+                    _FixedCharges = base.CreateObjectSet<FixedCharges>("FixedCharges");
+                }
+                return _FixedCharges;
+            }
+        }
+        private ObjectSet<FixedCharges> _FixedCharges;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Frequency> Frequency
+        {
+            get
+            {
+                if ((_Frequency == null))
+                {
+                    _Frequency = base.CreateObjectSet<Frequency>("Frequency");
+                }
+                return _Frequency;
+            }
+        }
+        private ObjectSet<Frequency> _Frequency;
 
         #endregion
 
@@ -563,14 +579,6 @@ namespace NationalIT
         public void AddToEquipment(Equipment equipment)
         {
             base.AddObject("Equipment", equipment);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the fixed_charges EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTofixed_charges(fixed_charges fixed_charges)
-        {
-            base.AddObject("fixed_charges", fixed_charges);
         }
     
         /// <summary>
@@ -739,6 +747,22 @@ namespace NationalIT
         public void AddToCompany(Company company)
         {
             base.AddObject("Company", company);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the FixedCharges EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToFixedCharges(FixedCharges fixedCharges)
+        {
+            base.AddObject("FixedCharges", fixedCharges);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Frequency EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToFrequency(Frequency frequency)
+        {
+            base.AddObject("Frequency", frequency);
         }
 
         #endregion
@@ -2880,24 +2904,34 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="fixed_charges")]
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="FixedCharges")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class fixed_charges : EntityObject
+    public partial class FixedCharges : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new fixed_charges object.
+        /// Create a new FixedCharges object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="type">Initial value of the Type property.</param>
+        /// <param name="frequency">Initial value of the Frequency property.</param>
+        /// <param name="beginning">Initial value of the Beginning property.</param>
         /// <param name="fee_Charged">Initial value of the Fee_Charged property.</param>
-        public static fixed_charges Createfixed_charges(global::System.Int32 id, global::System.Boolean fee_Charged)
+        /// <param name="amount_To_Date">Initial value of the Amount_To_Date property.</param>
+        /// <param name="automatic">Initial value of the Automatic property.</param>
+        public static FixedCharges CreateFixedCharges(global::System.Int32 id, global::System.String type, global::System.Int32 frequency, global::System.DateTime beginning, global::System.Boolean fee_Charged, global::System.Double amount_To_Date, global::System.Boolean automatic)
         {
-            fixed_charges fixed_charges = new fixed_charges();
-            fixed_charges.Id = id;
-            fixed_charges.Fee_Charged = fee_Charged;
-            return fixed_charges;
+            FixedCharges fixedCharges = new FixedCharges();
+            fixedCharges.ID = id;
+            fixedCharges.Type = type;
+            fixedCharges.Frequency = frequency;
+            fixedCharges.Beginning = beginning;
+            fixedCharges.Fee_Charged = fee_Charged;
+            fixedCharges.Amount_To_Date = amount_To_Date;
+            fixedCharges.Automatic = automatic;
+            return fixedCharges;
         }
 
         #endregion
@@ -2909,58 +2943,58 @@ namespace NationalIT
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Int32 ID
         {
             get
             {
-                return _Id;
+                return _ID;
             }
             set
             {
-                if (_Id != value)
+                if (_ID != value)
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> DriverId
+        public Nullable<global::System.Int32> DriverID
         {
             get
             {
-                return _DriverId;
+                return _DriverID;
             }
             set
             {
-                OnDriverIdChanging(value);
-                ReportPropertyChanging("DriverId");
-                _DriverId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("DriverId");
-                OnDriverIdChanged();
+                OnDriverIDChanging(value);
+                ReportPropertyChanging("DriverID");
+                _DriverID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DriverID");
+                OnDriverIDChanged();
             }
         }
-        private Nullable<global::System.Int32> _DriverId;
-        partial void OnDriverIdChanging(Nullable<global::System.Int32> value);
-        partial void OnDriverIdChanged();
+        private Nullable<global::System.Int32> _DriverID;
+        partial void OnDriverIDChanging(Nullable<global::System.Int32> value);
+        partial void OnDriverIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Single> Amount
+        public Nullable<global::System.Double> Amount
         {
             get
             {
@@ -2975,14 +3009,14 @@ namespace NationalIT
                 OnAmountChanged();
             }
         }
-        private Nullable<global::System.Single> _Amount;
-        partial void OnAmountChanging(Nullable<global::System.Single> value);
+        private Nullable<global::System.Double> _Amount;
+        partial void OnAmountChanging(Nullable<global::System.Double> value);
         partial void OnAmountChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Type
         {
@@ -2994,7 +3028,7 @@ namespace NationalIT
             {
                 OnTypeChanging(value);
                 ReportPropertyChanging("Type");
-                _Type = StructuralObject.SetValidValue(value, true);
+                _Type = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Type");
                 OnTypeChanged();
             }
@@ -3006,9 +3040,9 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Frequency
+        public global::System.Int32 Frequency
         {
             get
             {
@@ -3023,16 +3057,16 @@ namespace NationalIT
                 OnFrequencyChanged();
             }
         }
-        private Nullable<global::System.Int32> _Frequency;
-        partial void OnFrequencyChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _Frequency;
+        partial void OnFrequencyChanging(global::System.Int32 value);
         partial void OnFrequencyChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> Beginning
+        public global::System.DateTime Beginning
         {
             get
             {
@@ -3047,14 +3081,14 @@ namespace NationalIT
                 OnBeginningChanged();
             }
         }
-        private Nullable<global::System.DateTime> _Beginning;
-        partial void OnBeginningChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _Beginning;
+        partial void OnBeginningChanging(global::System.DateTime value);
         partial void OnBeginningChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean Fee_Charged
         {
@@ -3064,14 +3098,11 @@ namespace NationalIT
             }
             set
             {
-                if (_Fee_Charged != value)
-                {
-                    OnFee_ChargedChanging(value);
-                    ReportPropertyChanging("Fee_Charged");
-                    _Fee_Charged = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Fee_Charged");
-                    OnFee_ChargedChanged();
-                }
+                OnFee_ChargedChanging(value);
+                ReportPropertyChanging("Fee_Charged");
+                _Fee_Charged = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Fee_Charged");
+                OnFee_ChargedChanged();
             }
         }
         private global::System.Boolean _Fee_Charged;
@@ -3129,9 +3160,9 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Single> Amount_To_Date
+        public global::System.Double Amount_To_Date
         {
             get
             {
@@ -3146,9 +3177,116 @@ namespace NationalIT
                 OnAmount_To_DateChanged();
             }
         }
-        private Nullable<global::System.Single> _Amount_To_Date;
-        partial void OnAmount_To_DateChanging(Nullable<global::System.Single> value);
+        private global::System.Double _Amount_To_Date;
+        partial void OnAmount_To_DateChanging(global::System.Double value);
         partial void OnAmount_To_DateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Automatic
+        {
+            get
+            {
+                return _Automatic;
+            }
+            set
+            {
+                OnAutomaticChanging(value);
+                ReportPropertyChanging("Automatic");
+                _Automatic = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Automatic");
+                OnAutomaticChanged();
+            }
+        }
+        private global::System.Boolean _Automatic;
+        partial void OnAutomaticChanging(global::System.Boolean value);
+        partial void OnAutomaticChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Frequency")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Frequency : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Frequency object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="title">Initial value of the Title property.</param>
+        public static Frequency CreateFrequency(global::System.Int32 id, global::System.String title)
+        {
+            Frequency frequency = new Frequency();
+            frequency.ID = id;
+            frequency.Title = title;
+            return frequency;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Title
+        {
+            get
+            {
+                return _Title;
+            }
+            set
+            {
+                OnTitleChanging(value);
+                ReportPropertyChanging("Title");
+                _Title = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Title");
+                OnTitleChanged();
+            }
+        }
+        private global::System.String _Title;
+        partial void OnTitleChanging(global::System.String value);
+        partial void OnTitleChanged();
 
         #endregion
 

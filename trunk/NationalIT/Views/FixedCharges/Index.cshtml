@@ -1,5 +1,5 @@
 ﻿@using Webdiyer.WebControls.Mvc
-@model PagedList<NationalIT.fixed_charges>
+@model PagedList<NationalIT.FixedCharges>
 <h3>
     Fixed charges</h3>
 <div class="row-fluid">
@@ -36,10 +36,10 @@
         {
             <tr>
                 <td>
-                    <input type="checkbox" name="checkOwner" value="@item.Id" class="checkitem"/>
+                    <input type="checkbox" name="checkOwner" value="@item.ID" class="checkitem"/>
                 </td>
                 <td>
-                    @Html.ActionLink(item.Id.ToString(), "NewOrEdit", new { id = item.Id })
+                    @Html.ActionLink(item.ID.ToString(), "NewOrEdit", new { id = item.ID })
                 </td>
                 <td>
                     expense

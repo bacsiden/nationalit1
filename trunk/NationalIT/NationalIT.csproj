@@ -91,7 +91,7 @@
     <Compile Include="Controllers\EquipmentController.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controllers\fixed_expensesController.cs" />
+    <Compile Include="Controllers\FixedChargesController.cs" />
     <Compile Include="Controllers\FuelExpensesController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -499,8 +499,8 @@
     <Content Include="Views\Shared\_ShowSaveEdit.cshtml" />
     <Content Include="Views\Account\SetPass.cshtml" />
     <Content Include="Views\TripInfo\_CompanyExpenses.cshtml" />
-    <Content Include="Views\fixed_expenses\Index.cshtml" />
-    <Content Include="Views\fixed_expenses\NewOrEdit.cshtml" />
+    <Content Include="Views\FixedCharges\Index.cshtml" />
+    <Content Include="Views\FixedCharges\NewOrEdit.cshtml" />
     <Content Include="Views\BackupAndRestore\Backup.cshtml" />
     <Content Include="Views\BackupAndRestore\Index.cshtml" />
     <Content Include="Views\BackupAndRestore\Restore.cshtml" />
@@ -514,6 +514,7 @@
     <Content Include="Views\Config\Index.cshtml" />
     <Content Include="Views\Config\NewOrEdit.cshtml" />
     <Content Include="Views\DriverInfo\_ListPayrollPartial.cshtml" />
+    <Content Include="Views\Owner\_ListDriver.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
