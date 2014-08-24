@@ -27,9 +27,6 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Operating_Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Operating_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Operating_Expenses), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Driver_Info1", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Maintenance_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Maintenance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Maintenance), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Equipment1", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Fuel_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Fuel_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Fuel_Expenses), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Operating_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Operating_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Operating_Expenses), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Split_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Split_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Split_Expenses), true)]
@@ -38,6 +35,9 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "mMenuInFunction", "mFunction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mFunction), "mMenu", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mMenu))]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "mRoleInGroup", "mGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mGroup), "mRole", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mRole))]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "mUserInGroup", "mGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mGroup), "mUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mUser))]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Maintenance_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Maintenance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Maintenance), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Equipment1", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
 
 #endregion
 
@@ -156,22 +156,6 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Equipment> Equipment
-        {
-            get
-            {
-                if ((_Equipment == null))
-                {
-                    _Equipment = base.CreateObjectSet<Equipment>("Equipment");
-                }
-                return _Equipment;
-            }
-        }
-        private ObjectSet<Equipment> _Equipment;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Fuel___Expenses> Fuel___Expenses
         {
             get
@@ -184,22 +168,6 @@ namespace NationalIT
             }
         }
         private ObjectSet<Fuel___Expenses> _Fuel___Expenses;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Income> Income
-        {
-            get
-            {
-                if ((_Income == null))
-                {
-                    _Income = base.CreateObjectSet<Income>("Income");
-                }
-                return _Income;
-            }
-        }
-        private ObjectSet<Income> _Income;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -536,6 +504,54 @@ namespace NationalIT
             }
         }
         private ObjectSet<Frequency> _Frequency;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Equipment> Equipment
+        {
+            get
+            {
+                if ((_Equipment == null))
+                {
+                    _Equipment = base.CreateObjectSet<Equipment>("Equipment");
+                }
+                return _Equipment;
+            }
+        }
+        private ObjectSet<Equipment> _Equipment;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Income> Income
+        {
+            get
+            {
+                if ((_Income == null))
+                {
+                    _Income = base.CreateObjectSet<Income>("Income");
+                }
+                return _Income;
+            }
+        }
+        private ObjectSet<Income> _Income;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<EscrowLoan> EscrowLoan
+        {
+            get
+            {
+                if ((_EscrowLoan == null))
+                {
+                    _EscrowLoan = base.CreateObjectSet<EscrowLoan>("EscrowLoan");
+                }
+                return _EscrowLoan;
+            }
+        }
+        private ObjectSet<EscrowLoan> _EscrowLoan;
 
         #endregion
 
@@ -574,27 +590,11 @@ namespace NationalIT
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Equipment EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToEquipment(Equipment equipment)
-        {
-            base.AddObject("Equipment", equipment);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the Fuel___Expenses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToFuel___Expenses(Fuel___Expenses fuel___Expenses)
         {
             base.AddObject("Fuel___Expenses", fuel___Expenses);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Income EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToIncome(Income income)
-        {
-            base.AddObject("Income", income);
         }
     
         /// <summary>
@@ -763,6 +763,30 @@ namespace NationalIT
         public void AddToFrequency(Frequency frequency)
         {
             base.AddObject("Frequency", frequency);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Equipment EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEquipment(Equipment equipment)
+        {
+            base.AddObject("Equipment", equipment);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Income EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToIncome(Income income)
+        {
+            base.AddObject("Income", income);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the EscrowLoan EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEscrowLoan(EscrowLoan escrowLoan)
+        {
+            base.AddObject("EscrowLoan", escrowLoan);
         }
 
         #endregion
@@ -968,10 +992,12 @@ namespace NationalIT
         /// Create a new Company_Expanses object.
         /// </summary>
         /// <param name="companyExpansesID">Initial value of the CompanyExpansesID property.</param>
-        public static Company_Expanses CreateCompany_Expanses(global::System.Int32 companyExpansesID)
+        /// <param name="approvedBy">Initial value of the ApprovedBy property.</param>
+        public static Company_Expanses CreateCompany_Expanses(global::System.Int32 companyExpansesID, global::System.Int32 approvedBy)
         {
             Company_Expanses company_Expanses = new Company_Expanses();
             company_Expanses.CompanyExpansesID = companyExpansesID;
+            company_Expanses.ApprovedBy = approvedBy;
             return company_Expanses;
         }
 
@@ -1101,6 +1127,30 @@ namespace NationalIT
         private global::System.String _Comment;
         partial void OnCommentChanging(global::System.String value);
         partial void OnCommentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ApprovedBy
+        {
+            get
+            {
+                return _ApprovedBy;
+            }
+            set
+            {
+                OnApprovedByChanging(value);
+                ReportPropertyChanging("ApprovedBy");
+                _ApprovedBy = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ApprovedBy");
+                OnApprovedByChanged();
+            }
+        }
+        private global::System.Int32 _ApprovedBy;
+        partial void OnApprovedByChanging(global::System.Int32 value);
+        partial void OnApprovedByChanged();
 
         #endregion
 
@@ -2500,10 +2550,12 @@ namespace NationalIT
         /// Create a new Equipment object.
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
-        public static Equipment CreateEquipment(global::System.Int32 id)
+        /// <param name="oOS">Initial value of the OOS property.</param>
+        public static Equipment CreateEquipment(global::System.Int32 id, global::System.Boolean oOS)
         {
             Equipment equipment = new Equipment();
             equipment.ID = id;
+            equipment.OOS = oOS;
             return equipment;
         }
 
@@ -2825,6 +2877,54 @@ namespace NationalIT
         private global::System.String _MAKE;
         partial void OnMAKEChanging(global::System.String value);
         partial void OnMAKEChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LeaseAmount
+        {
+            get
+            {
+                return _LeaseAmount;
+            }
+            set
+            {
+                OnLeaseAmountChanging(value);
+                ReportPropertyChanging("LeaseAmount");
+                _LeaseAmount = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LeaseAmount");
+                OnLeaseAmountChanged();
+            }
+        }
+        private global::System.String _LeaseAmount;
+        partial void OnLeaseAmountChanging(global::System.String value);
+        partial void OnLeaseAmountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean OOS
+        {
+            get
+            {
+                return _OOS;
+            }
+            set
+            {
+                OnOOSChanging(value);
+                ReportPropertyChanging("OOS");
+                _OOS = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("OOS");
+                OnOOSChanged();
+            }
+        }
+        private global::System.Boolean _OOS;
+        partial void OnOOSChanging(global::System.Boolean value);
+        partial void OnOOSChanged();
 
         #endregion
 
@@ -2899,6 +2999,213 @@ namespace NationalIT
 
         #endregion
 
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="EscrowLoan")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class EscrowLoan : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new EscrowLoan object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="totalAmount">Initial value of the TotalAmount property.</param>
+        /// <param name="ownerDriver">Initial value of the OwnerDriver property.</param>
+        /// <param name="owner">Initial value of the Owner property.</param>
+        public static EscrowLoan CreateEscrowLoan(global::System.Int32 id, global::System.Double totalAmount, global::System.Int32 ownerDriver, global::System.Boolean owner)
+        {
+            EscrowLoan escrowLoan = new EscrowLoan();
+            escrowLoan.ID = id;
+            escrowLoan.TotalAmount = totalAmount;
+            escrowLoan.OwnerDriver = ownerDriver;
+            escrowLoan.Owner = owner;
+            return escrowLoan;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Expenses
+        {
+            get
+            {
+                return _Expenses;
+            }
+            set
+            {
+                OnExpensesChanging(value);
+                ReportPropertyChanging("Expenses");
+                _Expenses = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Expenses");
+                OnExpensesChanged();
+            }
+        }
+        private global::System.String _Expenses;
+        partial void OnExpensesChanging(global::System.String value);
+        partial void OnExpensesChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double TotalAmount
+        {
+            get
+            {
+                return _TotalAmount;
+            }
+            set
+            {
+                OnTotalAmountChanging(value);
+                ReportPropertyChanging("TotalAmount");
+                _TotalAmount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TotalAmount");
+                OnTotalAmountChanged();
+            }
+        }
+        private global::System.Double _TotalAmount;
+        partial void OnTotalAmountChanging(global::System.Double value);
+        partial void OnTotalAmountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> AmountPaid
+        {
+            get
+            {
+                return _AmountPaid;
+            }
+            set
+            {
+                OnAmountPaidChanging(value);
+                ReportPropertyChanging("AmountPaid");
+                _AmountPaid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AmountPaid");
+                OnAmountPaidChanged();
+            }
+        }
+        private Nullable<global::System.Double> _AmountPaid;
+        partial void OnAmountPaidChanging(Nullable<global::System.Double> value);
+        partial void OnAmountPaidChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> Balance
+        {
+            get
+            {
+                return _Balance;
+            }
+            set
+            {
+                OnBalanceChanging(value);
+                ReportPropertyChanging("Balance");
+                _Balance = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Balance");
+                OnBalanceChanged();
+            }
+        }
+        private Nullable<global::System.Double> _Balance;
+        partial void OnBalanceChanging(Nullable<global::System.Double> value);
+        partial void OnBalanceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 OwnerDriver
+        {
+            get
+            {
+                return _OwnerDriver;
+            }
+            set
+            {
+                OnOwnerDriverChanging(value);
+                ReportPropertyChanging("OwnerDriver");
+                _OwnerDriver = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("OwnerDriver");
+                OnOwnerDriverChanged();
+            }
+        }
+        private global::System.Int32 _OwnerDriver;
+        partial void OnOwnerDriverChanging(global::System.Int32 value);
+        partial void OnOwnerDriverChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Owner
+        {
+            get
+            {
+                return _Owner;
+            }
+            set
+            {
+                OnOwnerChanging(value);
+                ReportPropertyChanging("Owner");
+                _Owner = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Owner");
+                OnOwnerChanged();
+            }
+        }
+        private global::System.Boolean _Owner;
+        partial void OnOwnerChanging(global::System.Boolean value);
+        partial void OnOwnerChanged();
+
+        #endregion
+
+    
     }
     
     /// <summary>
@@ -3676,10 +3983,14 @@ namespace NationalIT
         /// Create a new Income object.
         /// </summary>
         /// <param name="incomeID">Initial value of the IncomeID property.</param>
-        public static Income CreateIncome(global::System.Int32 incomeID)
+        /// <param name="invoiceNumber">Initial value of the InvoiceNumber property.</param>
+        /// <param name="driver">Initial value of the Driver property.</param>
+        public static Income CreateIncome(global::System.Int32 incomeID, global::System.Int32 invoiceNumber, global::System.String driver)
         {
             Income income = new Income();
             income.IncomeID = incomeID;
+            income.InvoiceNumber = invoiceNumber;
+            income.Driver = driver;
             return income;
         }
 
@@ -3881,6 +4192,54 @@ namespace NationalIT
         private global::System.String _Comments;
         partial void OnCommentsChanging(global::System.String value);
         partial void OnCommentsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 InvoiceNumber
+        {
+            get
+            {
+                return _InvoiceNumber;
+            }
+            set
+            {
+                OnInvoiceNumberChanging(value);
+                ReportPropertyChanging("InvoiceNumber");
+                _InvoiceNumber = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("InvoiceNumber");
+                OnInvoiceNumberChanged();
+            }
+        }
+        private global::System.Int32 _InvoiceNumber;
+        partial void OnInvoiceNumberChanging(global::System.Int32 value);
+        partial void OnInvoiceNumberChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Driver
+        {
+            get
+            {
+                return _Driver;
+            }
+            set
+            {
+                OnDriverChanging(value);
+                ReportPropertyChanging("Driver");
+                _Driver = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Driver");
+                OnDriverChanged();
+            }
+        }
+        private global::System.String _Driver;
+        partial void OnDriverChanging(global::System.String value);
+        partial void OnDriverChanged();
 
         #endregion
 
@@ -9527,6 +9886,30 @@ namespace NationalIT
         private Nullable<global::System.Int32> _Equipment;
         partial void OnEquipmentChanging(Nullable<global::System.Int32> value);
         partial void OnEquipmentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Details
+        {
+            get
+            {
+                return _Details;
+            }
+            set
+            {
+                OnDetailsChanging(value);
+                ReportPropertyChanging("Details");
+                _Details = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Details");
+                OnDetailsChanged();
+            }
+        }
+        private global::System.String _Details;
+        partial void OnDetailsChanging(global::System.String value);
+        partial void OnDetailsChanged();
 
         #endregion
 

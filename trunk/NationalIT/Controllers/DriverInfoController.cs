@@ -124,6 +124,17 @@ namespace NationalIT.Controllers
             ViewBag.ListPayroll = listPayroll;
             #endregion
 
+            // Show/hide button driver payroll & expanses
+            var listEquipment = DB.Entities.Equipment.Where(m => m.Driver == id).ToList();
+            ViewBag.ShowButtonDriverPayrollExpanses = true;
+            foreach (var item in listEquipment)
+            {
+                if (item.OOS || (item.Inspection_Expiration.HasValue && (DateTime.Now - item.Inspection_Expiration.Value).Days > 21))
+                {
+                    ViewBag.ShowButtonDriverPayrollExpanses = false;
+                    break;
+                }
+            }
             return View(obj);
         }
 
@@ -234,6 +245,17 @@ namespace NationalIT.Controllers
             #endregion
             // List payroll roll back
             var listPayroll = DB.Entities.TempReport.Where(m => m.DriverID == model.ID).ToList();
+            // Show/hide button driver payroll & expanses
+            var listEquipment = DB.Entities.Equipment.Where(m => m.Driver == model.ID).ToList();
+            ViewBag.ShowButtonDriverPayrollExpanses = true;
+            foreach (var item in listEquipment)
+            {
+                if (item.OOS || (item.Inspection_Expiration.HasValue && (DateTime.Now - item.Inspection_Expiration.Value).Days > 21))
+                {
+                    ViewBag.ShowButtonDriverPayrollExpanses = false;
+                    break;
+                }
+            }
             ViewBag.ListPayroll = listPayroll;
             return View(model);
         }

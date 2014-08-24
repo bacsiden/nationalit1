@@ -1,0 +1,118 @@
+﻿@model NationalIT.EscrowLoan
+@{
+    ViewBag.Title = "EscrowLoan";
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        //rdoSplitDriver  rdoSplitOwner chonsen-split-expenses
+        var value1 = eval($(".rdoSplitExpenses:checked").val());
+        if (value1 == false) {
+            $(".chonsen-split-expenses-owner").next().hide();
+            $(".chonsen-split-expenses").next().show();
+        } else {
+            $(".chonsen-split-expenses-owner").next().show();
+            $(".chonsen-split-expenses").next().hide();
+        }
+        $(".rdoSplitExpenses").change(function () {
+            var value = eval($(this).val());
+            if (value == false) {
+                $(".chonsen-split-expenses-owner").next().hide();
+                $(".chonsen-split-expenses").next().show();
+            } else {
+                $(".chonsen-split-expenses-owner").next().show();
+                $(".chonsen-split-expenses").next().hide();
+            }
+        });
+    });
+</script>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="box">
+            <div class="box-title">
+                <h3>
+                    <i class="icon-table"></i>EscrowLoan</h3>
+            </div>
+            <div class="box-content">
+                <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+                <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
+                {
+                    @Html.ValidationSummary(true)                    
+
+                    @Html.HiddenFor(model => model.ID)
+                    
+                    <div class="control-group">
+                        <label class="control-label" for="Expenses">@Html.LabelFor(model => model.Expenses)</label>
+                        <div class="controls">
+                            <div class="span12">
+                                @Html.TextBoxFor(model => model.Expenses, new { @class = "input-xlarge" })
+                                @Html.ValidationMessageFor(model => model.Expenses)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="TotalAmount">@Html.LabelFor(model => model.TotalAmount)</label>
+                        <div class="controls">
+                            <div class="span12">
+                                @Html.TextBoxFor(model => model.TotalAmount, new { @class = "input-xlarge" }) ($)
+                                @Html.ValidationMessageFor(model => model.TotalAmount)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="AmountPaid">@Html.LabelFor(model => model.AmountPaid)</label>
+                        <div class="controls">
+                            <div class="span12">
+                                @Html.TextBoxFor(model => model.AmountPaid, new { @class = "input-xlarge" }) ($)
+                                @Html.ValidationMessageFor(model => model.AmountPaid)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="Balance">@Html.LabelFor(model => model.Balance)</label>
+                        <div class="controls">
+                            
+                                @Html.TextBoxFor(model => model.Balance, new { @class = "input-xlarge" }) ($)
+                                @Html.ValidationMessageFor(model => model.Balance)
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="Idndex">
+                            Owner or Driver</label>
+                        <div class="controls">
+                            <div class="span12">
+                                <label class="radio inline">
+                                    <input type="radio" name="Owner" class="rdoSplitExpenses" value="false" @(Model != null && !Model.Owner  ? "checked" : "")>
+                                    Driver's expenses
+                                </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="Owner" class="rdoSplitExpenses" value="true" @(Model != null?( Model.Owner ? "checked" : "") : "checked")>
+                                    Owner's expenses
+                                </label>
+                                @Html.ValidationMessageFor(model => model.Owner)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="Driver">
+                            OwnerDriver</label>
+                        <div class="controls">
+                            <div class="span12">
+                                <select data-placeholder="Select OwnerDriver" name="OwnerDriver" class="chosen-with-diselect input-xxlarge chonsen-split-expenses">
+                                    @Html.Raw(ViewBag.dataDriver)
+                                </select>
+                                <select data-placeholder="Select OwnerDriver" name="OwnerDriver2" class="chosen-with-diselect input-xxlarge chonsen-split-expenses-owner">
+                                    @Html.Raw(ViewBag.dataOwner)
+                                </select>
+                                @Html.ValidationMessageFor(model => model.OwnerDriver)
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="form-actions">
+                        @Html.Partial("_ShowSaveEdit")
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

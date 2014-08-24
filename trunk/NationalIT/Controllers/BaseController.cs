@@ -79,6 +79,7 @@ namespace NationalIT
             BACKUPDATABASE,
             RESTOREDATABASE,
             ViewListCompany,
+            ViewListEscrowLoan,
         }
         public enum ConditionValidate
         {
