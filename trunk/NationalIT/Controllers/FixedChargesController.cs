@@ -49,6 +49,20 @@ namespace NationalIT.Controllers
             }
 
             ViewBag.dataDriver_Info = dataDriver_Info;
+            string dataFrequency = "<option value='0'>-:-</option>";
+            foreach (var item in NationalIT.DB.Entities.Frequency)
+            {
+                if (obj.Frequency != 0)
+                {
+                    dataFrequency += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.ID, item.Title);
+                }
+                else
+                {
+                    dataFrequency += string.Format("<option value='{0}'>{1}</option>", item.ID, item.Title);
+                }                
+            }
+
+            ViewBag.dataFrequency = dataFrequency;
            
             #endregion
         }

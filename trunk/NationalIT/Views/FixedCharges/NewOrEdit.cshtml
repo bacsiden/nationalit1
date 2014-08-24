@@ -16,13 +16,13 @@
                 {
                     @Html.ValidationSummary(true) 
                     @Html.HiddenFor(model => model.ID)
-                    
                     <div class="control-group">
                         <label class="control-label" for="Frequency">@Html.LabelFor(model => model.Frequency)</label>
                         <div class="controls">
                             <div class="span12">
-                                @*<input type="text" name="username" id="username" class="input-xlarge" data-rule-required="true" data-rule-minlength="3" />*@
-                                @Html.TextBoxFor(model => model.Frequency, new { @class = "input-xlarge" })
+                                <select name="Frequency" class="input-xlarge">
+                                    @Html.Raw(ViewBag.dataFrequency)
+                                </select>
                                 @Html.ValidationMessageFor(model => model.Frequency)
                             </div>
                         </div>
