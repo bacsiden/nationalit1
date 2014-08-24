@@ -247,7 +247,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Title" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="Fuel___Expenses">
@@ -1634,7 +1634,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="Title" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
@@ -2179,10 +2179,8 @@
           <ConnectorPoint PointX="2.5" PointY="6.4033821614583246" />
           <ConnectorPoint PointX="4.322916666666667" PointY="6.4033821614583237" />
           <ConnectorPoint PointX="4.489583333333333" PointY="6.4033821614583246" />
-          <ConnectorPoint PointX="4.5" PointY="6.4033821614583246" />
-          <ConnectorPoint PointX="4.5" PointY="6.7066016210937427" />
-          <ConnectorPoint PointX="6.916666666666667" PointY="6.7066016210937418" />
-          <ConnectorPoint PointX="7.083333333333333" PointY="6.7066016210937427" />
+          <ConnectorPoint PointX="4.75" PointY="6.4033821614583246" />
+          <ConnectorPoint PointX="4.75" PointY="6.7066016210937427" />
           <ConnectorPoint PointX="8.25" PointY="6.7066016210937427" />
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Driver_Info_Owners" >
@@ -2218,8 +2216,8 @@
           <ConnectorPoint PointX="6.6874994999999995" PointY="16.125" />
           <ConnectorPoint PointX="6.6874994999999995" PointY="14.941793619791667" />
           <ConnectorPoint PointX="7" PointY="14.941793619791667" />
-          <ConnectorPoint PointX="7" PointY="6.5330620234374894" />
-          <ConnectorPoint PointX="8.25" PointY="6.5330620234374894" />
+          <ConnectorPoint PointX="7" PointY="7.7544160917968563" />
+          <ConnectorPoint PointX="8.25" PointY="7.7544160917968563" />
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Violations_Equipment" >
           <ConnectorPoint PointX="7.15625" PointY="16.125" />
