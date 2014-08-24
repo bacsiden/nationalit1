@@ -91,6 +91,7 @@
     <Compile Include="Controllers\EquipmentController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controllers\EscrowLoanController.cs" />
     <Compile Include="Controllers\FixedChargesController.cs" />
     <Compile Include="Controllers\FuelExpensesController.cs">
       <SubType>Code</SubType>
@@ -519,6 +520,8 @@
     <Content Include="Views\TempReport-Edit\OperatingExpensesNewOrEdit.cshtml" />
     <Content Include="Views\TempReport-Edit\SplitExpensesNewOrEdit.cshtml" />
     <Content Include="Views\TempReport-Edit\TripInfoNewOrEdit.cshtml" />
+    <Content Include="Views\EscrowLoan\Index.cshtml" />
+    <Content Include="Views\EscrowLoan\NewOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
