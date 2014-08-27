@@ -57,6 +57,24 @@
                         </div>
                     </div>
                     <div class="control-group">
+                        <label class="control-label" for="Details">@Html.LabelFor(model => model.Details)</label>
+                        <div class="controls">
+                            <div class="span12">
+                                @Html.TextAreaFor(model => model.Details)
+                                @*@Html.ValidationMessageFor(model => model.Date_resolved)*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="Resolution">@Html.LabelFor(model => model.Resolution)</label>
+                        <div class="controls">
+                            <div class="span12">
+                                @Html.TextBoxFor(model => model.Resolution)
+                                @*@Html.ValidationMessageFor(model => model.Date_resolved)*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
                         <label class="control-label" for="Equipment">@Html.LabelFor(model => model.Equipment)</label>
                         <div class="controls">
                             <div class="span12">
@@ -66,7 +84,18 @@
                                 @Html.ValidationMessageFor(model => model.Equipment)
                             </div>
                         </div>
-                    </div>                    
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="DispatcherID">Employee</label>
+                        <div class="controls">
+                            <div class="span12">
+                                <select data-placeholder="Select Equipment" name="DispatcherID" class="chosen-with-diselect input-xlarge">
+                                    @Html.Raw(ViewBag.dataDispatcher)
+                                </select>
+                                @Html.ValidationMessageFor(model => model.DispatcherID)
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-actions">
                         @Html.Partial("_ShowSaveEdit")
                     </div>
