@@ -52,6 +52,20 @@ namespace NationalIT.Controllers
                 }
             }
             ViewBag.dataEquipment = dataEquipment;
+
+            string dataDispatcher = "<option >--Select Dispatcher--</option>";
+            foreach (var item in NationalIT.DB.Entities.Dispatchers)
+            {
+                if (obj != null && obj.DispatcherID == item.ID)
+                {
+                    dataDispatcher += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                }
+                else
+                {
+                    dataDispatcher += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                }
+            }
+            ViewBag.dataDispatcher = dataDispatcher;
             #endregion
             return View(obj);
         }
@@ -113,6 +127,20 @@ namespace NationalIT.Controllers
                     }
                 }
                 ViewBag.dataEquipment = dataEquipment;
+
+                string dataDispatcher = "<option >--Select Dispatcher--</option>";
+                foreach (var item in NationalIT.DB.Entities.Dispatchers)
+                {
+                    if (model != null && model.DispatcherID == item.ID)
+                    {
+                        dataDispatcher += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                    }
+                    else
+                    {
+                        dataDispatcher += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                    }
+                }
+                ViewBag.dataDispatcher = dataDispatcher;
                 #endregion
                 return View(model);
             }
