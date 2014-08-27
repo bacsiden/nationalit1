@@ -157,6 +157,17 @@ namespace NationalIT.Controllers
                         db.Trip_Info.AddObject(model);
                         db.SaveChanges();
                         model.Invoice = model.Trip_ID;
+
+                        var income = new Income()
+                        {
+                            IncomeDate = DateTime.Now,
+                            AmountInvoiced = model.Total_charges,
+                            Comments = model.Comment,
+                            InvoiceNumber = model.Invoice,
+                            Driver = model.Driver_Info != null ? model.Driver_Info.Last_name + " " + model.Driver_Info.First_name : null,
+                            FundedAmount = model.Total_charges,
+                        };
+                        db.Income.AddObject(income);
                     }
                     else
                     {
@@ -168,7 +179,7 @@ namespace NationalIT.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("Dispatcher","This field is required");
+                    ModelState.AddModelError("Dispatcher", "This field is required");
                 }
             }
             catch

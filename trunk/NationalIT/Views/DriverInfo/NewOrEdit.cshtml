@@ -53,11 +53,8 @@
                         Fixed charges</a> <a href="/DriverInfo/PayrollsRollback?driverID=@(Model != null ? Model.ID : 0)" class="btn btn-info">
                             Pay rolls rollback</a> @*<a href="#" class="btn btn-info">Pay rolls operations rollback</a>*@
                     @*<a href="/DriverInfo/PayrollsRollback/@(Model != null ? Model.ID : 0)" class="btn btn-info DriverPayrollExpanses">Driver payroll & expanses</a>*@
-                    @if (ViewBag.ShowButtonDriverPayrollExpanses != null && (bool)ViewBag.ShowButtonDriverPayrollExpanses)
-                    {
-                        <a href="/DriverInfo/DriverPayroll/@(Model != null ? Model.ID : 0)" class="btn btn-info">
-                            Driver payroll & expanses</a>   
-                    }
+                    <a href="/DriverInfo/DriverPayroll/@(Model != null ? Model.ID : 0)" class="btn btn-info">
+                        Driver payroll & expanses</a>
                 </div>
                 <div class="span11">
                 </div>
