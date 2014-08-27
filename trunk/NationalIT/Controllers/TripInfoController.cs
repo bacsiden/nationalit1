@@ -77,7 +77,7 @@ namespace NationalIT.Controllers
             string dataCustomer = "<option >--Select Customer--</option>";
             foreach (var item in NationalIT.DB.Entities.Customer_Info)
             {
-                if (obj != null && obj.Trip_ID == item.Customer_ID)
+                if (obj != null && obj.Customer == item.Customer_ID)
                 {
                     //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
                     dataCustomer += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.Customer_ID, item.Customer_Name);
@@ -151,6 +151,10 @@ namespace NationalIT.Controllers
                     model.Order_date = CommonFunction.ChangeFormatDate(frm["Order_date"]);
                     model.Delivery_date = CommonFunction.ChangeFormatDate(frm["Delivery_date"]);
                     model.Pickup_date = CommonFunction.ChangeFormatDate(frm["Pickup_date"]);
+                    if (!string.IsNullOrEmpty(frm["Customer"]))
+                    {
+                        model.Customer = int.Parse(frm["Customer"].Replace(",", null));
+                    }
                     if (model.Trip_ID == 0)
                     {
                         // New
@@ -190,7 +194,7 @@ namespace NationalIT.Controllers
             string dataCustomer = "<option >--Select Customer--</option>";
             foreach (var item in NationalIT.DB.Entities.Customer_Info)
             {
-                if (model != null && model.Trip_ID == item.Customer_ID)
+                if (model != null && model.Customer == item.Customer_ID)
                 {
                     //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
                     dataCustomer += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.Customer_ID, item.Customer_Name);
