@@ -123,18 +123,6 @@ namespace NationalIT.Controllers
             var listPayroll = DB.Entities.TempReport.Where(m => m.DriverID == id).ToList();
             ViewBag.ListPayroll = listPayroll;
             #endregion
-
-            // Show/hide button driver payroll & expanses
-            var listEquipment = DB.Entities.Equipment.Where(m => m.Driver == id).ToList();
-            ViewBag.ShowButtonDriverPayrollExpanses = true;
-            foreach (var item in listEquipment)
-            {
-                if (item.OOS || (item.Inspection_Expiration.HasValue && (DateTime.Now - item.Inspection_Expiration.Value).Days > 21))
-                {
-                    ViewBag.ShowButtonDriverPayrollExpanses = false;
-                    break;
-                }
-            }
             return View(obj);
         }
 
@@ -245,17 +233,6 @@ namespace NationalIT.Controllers
             #endregion
             // List payroll roll back
             var listPayroll = DB.Entities.TempReport.Where(m => m.DriverID == model.ID).ToList();
-            // Show/hide button driver payroll & expanses
-            var listEquipment = DB.Entities.Equipment.Where(m => m.Driver == model.ID).ToList();
-            ViewBag.ShowButtonDriverPayrollExpanses = true;
-            foreach (var item in listEquipment)
-            {
-                if (item.OOS || (item.Inspection_Expiration.HasValue && (DateTime.Now - item.Inspection_Expiration.Value).Days > 21))
-                {
-                    ViewBag.ShowButtonDriverPayrollExpanses = false;
-                    break;
-                }
-            }
             ViewBag.ListPayroll = listPayroll;
             return View(model);
         }
@@ -304,6 +281,85 @@ namespace NationalIT.Controllers
         {
             var obj = DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == id);
             if (obj == null) obj = new Driver_Info();
+            // Show/hide button driver payroll & expanses
+            var listEquipment = DB.Entities.Equipment.Where(m => m.Driver == id).ToList();
+            foreach (var equip in listEquipment)
+            {
+                if ((equip.OOS) || (equip.Inspection_Expiration.HasValue && (DateTime.Now - equip.Inspection_Expiration.Value).Days > 21) || listEquipment.Count > 1)
+                {
+                    #region SELECT OPTION
+                    string dataOwners = "<option >--Select Owners--</option>";
+                    foreach (var item in NationalIT.DB.Entities.Owners)
+                    {
+                        if (obj != null && obj.Owner_Name == item.OwnerID)
+                        {
+                            //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                            dataOwners += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.OwnerID, item.Name);
+                        }
+                        else
+                        {
+                            dataOwners += string.Format("<option value='{0}'>{1}</option>", item.OwnerID, item.Name);
+                        }
+                    }
+                    ViewBag.dataOwners = dataOwners;
+
+                    string dataDispatchers = "<option >--Select Dispatcher--</option>";
+                    foreach (var item in NationalIT.DB.Entities.Dispatchers)
+                    {
+                        if (obj != null && obj.Dispatcher == item.ID)
+                        {
+                            //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
+                            dataDispatchers += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                        }
+                        else
+                        {
+                            dataDispatchers += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
+                        }
+                    }
+                    ViewBag.dataDispatchers = dataDispatchers;
+
+                    string dataTruck = "<option >--Select Truck--</option>";
+                    foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRUCK")))
+                    {
+                        if (obj != null && obj.Truck == item.Equipment_number)
+                        {
+                            dataTruck += string.Format("<option value='{0}' selected='selected'>{0}</option>", item.Equipment_number);
+                        }
+                        else
+                        {
+                            dataTruck += string.Format("<option value='{0}'>{0}</option>", item.Equipment_number);
+                        }
+                    }
+                    ViewBag.dataTruck = dataTruck;
+
+                    string dataTrailer = "<option >--Select Trailer--</option>";
+                    foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRAILER")))
+                    {
+                        if (obj != null && obj.Trailer == item.Equipment_number)
+                        {
+                            dataTrailer += string.Format("<option value='{0}' selected='selected'>{0}</option>", item.Equipment_number);
+                        }
+                        else
+                        {
+                            dataTrailer += string.Format("<option value='{0}'>{0}</option>", item.Equipment_number);
+                        }
+                    }
+                    ViewBag.dataTrailer = dataTrailer;
+                    // List payroll roll back
+                    var listPayroll = DB.Entities.TempReport.Where(m => m.DriverID == id).ToList();
+                    ViewBag.ListPayroll = listPayroll;
+                    #endregion
+                    if (equip.OOS || listEquipment.Count > 1)
+                    {
+                        ModelState.AddModelError("", "Out of services");
+                    }
+                    if ((equip.Inspection_Expiration.HasValue && (DateTime.Now - equip.Inspection_Expiration.Value).Days > 21))
+                    {
+                        ModelState.AddModelError("", "Out of date");
+                    }
+                    return View("NewOrEdit", obj);
+                }
+            }
             return View(obj);
         }
 

@@ -269,22 +269,6 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Income> Income
-        {
-            get
-            {
-                if ((_Income == null))
-                {
-                    _Income = base.CreateObjectSet<Income>("Income");
-                }
-                return _Income;
-            }
-        }
-        private ObjectSet<Income> _Income;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<InvoiceA> InvoiceA
         {
             get
@@ -569,6 +553,22 @@ namespace NationalIT
             }
         }
         private ObjectSet<Violations> _Violations;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Income> Income
+        {
+            get
+            {
+                if ((_Income == null))
+                {
+                    _Income = base.CreateObjectSet<Income>("Income");
+                }
+                return _Income;
+            }
+        }
+        private ObjectSet<Income> _Income;
 
         #endregion
 
@@ -660,14 +660,6 @@ namespace NationalIT
         public void AddToFuel___Expenses(Fuel___Expenses fuel___Expenses)
         {
             base.AddObject("Fuel___Expenses", fuel___Expenses);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Income EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToIncome(Income income)
-        {
-            base.AddObject("Income", income);
         }
     
         /// <summary>
@@ -812,6 +804,14 @@ namespace NationalIT
         public void AddToViolations(Violations violations)
         {
             base.AddObject("Violations", violations);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Income EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToIncome(Income income)
+        {
+            base.AddObject("Income", income);
         }
 
         #endregion

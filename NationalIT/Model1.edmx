@@ -304,7 +304,7 @@
           <Key>
             <PropertyRef Name="IncomeID" />
           </Key>
-          <Property Name="IncomeID" Type="int" Nullable="false" />
+          <Property Name="IncomeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="IncomeDate" Type="datetime" />
           <Property Name="AmountInvoiced" Type="real" />
           <Property Name="FundedAmount" Type="real" />
@@ -946,7 +946,6 @@
           <EntitySet Name="FixedCharges" EntityType="DB_9B22F2_nationalitModel.FixedCharges" />
           <EntitySet Name="Frequency" EntityType="DB_9B22F2_nationalitModel.Frequency" />
           <EntitySet Name="Fuel___Expenses" EntityType="DB_9B22F2_nationalitModel.Fuel___Expenses" />
-          <EntitySet Name="Income" EntityType="DB_9B22F2_nationalitModel.Income" />
           <EntitySet Name="InvoiceA" EntityType="DB_9B22F2_nationalitModel.InvoiceA" />
           <EntitySet Name="Maintenance" EntityType="DB_9B22F2_nationalitModel.Maintenance" />
           <EntitySet Name="mConfig" EntityType="DB_9B22F2_nationalitModel.mConfig" />
@@ -1045,6 +1044,7 @@
             <End Role="mGroup" EntitySet="mGroup" />
             <End Role="mUser" EntitySet="mUser" />
           </AssociationSet>
+          <EntitySet Name="Income" EntityType="DB_9B22F2_nationalitModel.Income" />
         </EntityContainer>
         <EntityType Name="aspnet_Users">
           <Key>
@@ -1222,21 +1222,6 @@
           <Property Type="Boolean" Name="fee_charged" Nullable="false" />
           <Property Type="String" Name="Fuel_Card" MaxLength="32" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Driver_Info" Relationship="DB_9B22F2_nationalitModel.FK_Fuel___Expenses_Driver_Info" FromRole="Fuel___Expenses" ToRole="Driver_Info" />
-        </EntityType>
-        <EntityType Name="Income">
-          <Key>
-            <PropertyRef Name="IncomeID" />
-          </Key>
-          <Property Type="Int32" Name="IncomeID" Nullable="false" />
-          <Property Type="DateTime" Name="IncomeDate" />
-          <Property Type="Single" Name="AmountInvoiced" />
-          <Property Type="Single" Name="FundedAmount" />
-          <Property Type="Single" Name="ReserveAmount" />
-          <Property Type="Single" Name="AdvanceFee" />
-          <Property Type="Single" Name="ChargeBacks" />
-          <Property Type="String" Name="Comments" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="InvoiceNumber" Nullable="false" />
-          <Property Type="String" Name="Driver" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="InvoiceA">
           <Key>
@@ -1741,6 +1726,21 @@
           <End Type="DB_9B22F2_nationalitModel.mGroup" Role="mGroup" Multiplicity="*" />
           <End Type="DB_9B22F2_nationalitModel.mUser" Role="mUser" Multiplicity="*" />
         </Association>
+        <EntityType Name="Income">
+          <Key>
+            <PropertyRef Name="IncomeID" />
+          </Key>
+          <Property Type="Int32" Name="IncomeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="IncomeDate" />
+          <Property Type="Single" Name="AmountInvoiced" />
+          <Property Type="Single" Name="FundedAmount" />
+          <Property Type="Single" Name="ReserveAmount" />
+          <Property Type="Single" Name="AdvanceFee" />
+          <Property Type="Single" Name="ChargeBacks" />
+          <Property Type="String" Name="Comments" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="InvoiceNumber" Nullable="false" />
+          <Property Type="String" Name="Driver" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1918,22 +1918,6 @@
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Income">
-            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.Income">
-              <MappingFragment StoreEntitySet="Income">
-                <ScalarProperty Name="Driver" ColumnName="Driver" />
-                <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="ChargeBacks" ColumnName="ChargeBacks" />
-                <ScalarProperty Name="AdvanceFee" ColumnName="AdvanceFee" />
-                <ScalarProperty Name="ReserveAmount" ColumnName="ReserveAmount" />
-                <ScalarProperty Name="FundedAmount" ColumnName="FundedAmount" />
-                <ScalarProperty Name="AmountInvoiced" ColumnName="AmountInvoiced" />
-                <ScalarProperty Name="IncomeDate" ColumnName="IncomeDate" />
-                <ScalarProperty Name="IncomeID" ColumnName="IncomeID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2256,6 +2240,22 @@
               <ScalarProperty Name="ID" ColumnName="GroupID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Income">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.Income">
+              <MappingFragment StoreEntitySet="Income">
+                <ScalarProperty Name="Driver" ColumnName="Driver" />
+                <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="ChargeBacks" ColumnName="ChargeBacks" />
+                <ScalarProperty Name="AdvanceFee" ColumnName="AdvanceFee" />
+                <ScalarProperty Name="ReserveAmount" ColumnName="ReserveAmount" />
+                <ScalarProperty Name="FundedAmount" ColumnName="FundedAmount" />
+                <ScalarProperty Name="AmountInvoiced" ColumnName="AmountInvoiced" />
+                <ScalarProperty Name="IncomeDate" ColumnName="IncomeDate" />
+                <ScalarProperty Name="IncomeID" ColumnName="IncomeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2288,7 +2288,6 @@
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.FixedCharges" Width="1.5" PointX="0.75" PointY="17.375" Height="3.1340950520833246" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Frequency" Width="1.5" PointX="7.75" PointY="15.375" Height="1.4033821614583246" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Fuel___Expenses" Width="1.5" PointX="5.25" PointY="9.5" Height="3.5186979166666674" />
-        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Income" Width="1.5" PointX="2.75" PointY="17.375" Height="2.9417936197916674" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.InvoiceA" Width="1.5" PointX="9.75" PointY="16.375" Height="1.4033821614583246" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Maintenance" Width="1.5" PointX="8.25" PointY="18.625" Height="2.9417936197916674" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.mConfig" Width="1.5" PointX="15.75" PointY="13.375" Height="1.7879850260416674" />
@@ -2413,6 +2412,7 @@
           <ConnectorPoint PointX="17.708333333333332" PointY="7.4393929036458246" />
           <ConnectorPoint PointX="21" PointY="7.4393929036458246" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Income" Width="1.5" PointX="18.375" PointY="12.75" Height="2.9417936197916674" />
       </Diagram>
     </Diagrams>
   </Designer>
