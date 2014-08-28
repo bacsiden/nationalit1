@@ -57,19 +57,10 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="Details">@Html.LabelFor(model => model.Details)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextAreaFor(model => model.Details)
-                                @*@Html.ValidationMessageFor(model => model.Date_resolved)*@
-                            </div>
-                        </div>
-                    </div>
-                    <div class="control-group">
                         <label class="control-label" for="Resolution">@Html.LabelFor(model => model.Resolution)</label>
                         <div class="controls">
                             <div class="span12">
-                                @Html.TextBoxFor(model => model.Resolution)
+                                @Html.TextBoxFor(model => model.Resolution, new { @class = "input-xlarge" })
                                 @*@Html.ValidationMessageFor(model => model.Date_resolved)*@
                             </div>
                         </div>
@@ -93,6 +84,15 @@
                                     @Html.Raw(ViewBag.dataDispatcher)
                                 </select>
                                 @Html.ValidationMessageFor(model => model.DispatcherID)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="Details">@Html.LabelFor(model => model.Details)</label>
+                        <div class="controls">
+                            <div class="span12">
+                                @Html.TextAreaFor(model => model.Details)
+                                @*@Html.ValidationMessageFor(model => model.Date_resolved)*@
                             </div>
                         </div>
                     </div>
