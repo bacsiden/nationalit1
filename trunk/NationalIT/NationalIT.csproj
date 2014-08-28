@@ -505,7 +505,7 @@
     <Content Include="Views\BackupAndRestore\Index.cshtml" />
     <Content Include="Views\BackupAndRestore\Restore.cshtml" />
     <Content Include="Views\BackupAndRestore\_RestorePartial.cshtml" />
-    <Content Include="Views\System\Index.cshtml" />
+    <Content Include="Views\System\SetUpFolderBackUp.cshtml" />
     <Content Include="Views\BackupAndRestore\Upload.cshtml" />
     <Content Include="Views\BackupAndRestore\_RestoreOnline.cshtml" />
     <Content Include="Views\BackupAndRestore\UploadOnline.cshtml" />

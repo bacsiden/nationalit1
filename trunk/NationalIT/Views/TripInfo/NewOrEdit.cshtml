@@ -17,10 +17,10 @@
         });
         $(".BeforePrintReport").click(function () {
             var printUrl = $(this).attr("href");
-            var idlist = "";
-            $("._CompanyExpenses input:checkbox:checked").each(function () {
-                idlist += $(this).val() + "-";
-            });
+            var idlist = $(".chonsen-company").val();
+//            $("._CompanyExpenses input:checkbox:checked").each(function () {
+//                idlist += $(this).val() + "-";
+//            });
             $(this).attr("href", addParam(printUrl, "companyID", idlist));
         });
     });
@@ -76,12 +76,12 @@
                         <a href="#" class="btn btn-primary">Select By Invoice</a>
                     </div>
                 </div>
-                <div class="span7">
+                @*<div class="span7">
                     <div class="boxScroll _CompanyExpenses"> 
                         <h4 class="text-center">Company</h4>
                         @Html.Partial("_CompanyExpenses", listCompany)
                     </div>
-                </div>
+                </div>*@
             </div> 
             <div class="row-fluid">
                 <div class="span12">
@@ -90,6 +90,19 @@
                             Address</label>
                         @Html.TextBoxFor(model => model.Address, new { @class = "input-xxlarge" })
                         @Html.ValidationMessageFor(model => model.Address)
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="control-group">
+                        <label for="Company">
+                            Company</label>
+                        @*@Html.TextBoxFor(model => model.Company, new { @class = "input-xxlarge" })*@
+                        <select data-placeholder="Select Company" name="Company" class="chonsen-company chosen-with-diselect input-xxlarge">
+                            @Html.Raw(ViewBag.dataCompany)
+                        </select>
+                        @Html.ValidationMessageFor(model => model.Company)
                     </div>
                 </div>
             </div>

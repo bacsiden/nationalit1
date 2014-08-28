@@ -20,7 +20,7 @@ namespace NationalIT.Controllers
         [Authorize]
         [ValidationFunction(ActionName.SystemAdmin)]
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult SetUpFolderBackUp()
         {
             // Đường dẫn tới file xml.
             string fileName = HttpContext.Server.MapPath("~/App_Data/config.xml");
@@ -54,7 +54,7 @@ namespace NationalIT.Controllers
         [Authorize]
         [ValidationFunction(ActionName.SystemAdmin)]
         [HttpPost]
-        public ActionResult Index(Models.SystemModel model)
+        public ActionResult SetUpFolderBackUp(Models.SystemModel model)
         {
             if (ModelState.IsValid)
             {
@@ -121,17 +121,6 @@ namespace NationalIT.Controllers
             miXML.Add(systemConfig);
 
             miXML.Save(filePath);
-        }
-        [Authorize]
-        [ValidationFunction(ActionName.SystemAdmin)]
-        [HttpGet]
-        public ActionResult ResetToDefault()
-        {
-            var model = new Models.SystemModel()
-            {
-                PathBackupFolder = "",
-            };
-            return RedirectToAction("Index", "System");
         }
     }
 }

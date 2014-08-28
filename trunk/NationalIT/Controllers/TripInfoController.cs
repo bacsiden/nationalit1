@@ -11,6 +11,7 @@ namespace NationalIT.Controllers
     [Authorize]
     public class TripInfoController : BaseController
     {
+        DB_9B22F2_nationalitEntities db = DB.Entities;
         int pageSize = 20;
         //
         // GET: /Owner/
@@ -130,6 +131,11 @@ namespace NationalIT.Controllers
                 }
             }
             ViewBag.dataEquipment = dataEquipment;
+
+            var lstCompany = db.Company.ToList();
+            ViewBag.dataCompany = CommonFunction.BuildDropdown(lstCompany.Select(m => m.ID.ToString()).ToArray(),
+                lstCompany.Select(m => m.Name+" - "+m.Address+" "+m.FaxNumber).ToArray(), obj.Company, "--Select Company--");
+
             #endregion
 
             return View(obj);
