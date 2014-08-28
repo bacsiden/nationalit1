@@ -18,7 +18,7 @@
         $(".BeforePrintReport").click(function () {
             var printUrl = $(this).attr("href");
             var idlist = $(".chonsen-company").val();
-            if (idlist == null || idlist == '') {
+            if (idlist == null || idlist == '' || isNaN(idlist)) {
                 alert("Please select company!");
                 return false;
             }
