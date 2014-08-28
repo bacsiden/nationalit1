@@ -1,6 +1,7 @@
 ﻿@using Webdiyer.WebControls.Mvc
 @model PagedList<NationalIT.Equipment>
-<h3>Equipment</h3>
+<h3>
+    Equipment</h3>
 <div class="row-fluid">
     <div class="span12">
         <div class="row-fluid">
@@ -26,14 +27,25 @@
                     Owner
                 </th>
                 <th>
+                    Driver
+                </th>
+                <th>
                     VIN
                 </th>
                 <th>
                     Registion Expiration
                 </th>
             </tr>
+            @{
+                var db = NationalIT.DB.Entities;
+                NationalIT.Owners owner = null;
+                NationalIT.Driver_Info driver = null;
+            }
             @foreach (var item in Model)
             {
+                owner = db.Owners.FirstOrDefault(m => m.OwnerID == item.Owner);
+                driver = db.Driver_Info.FirstOrDefault(m => m.ID == item.Driver);
+            
                 <tr>
                     <td>
                         <input type="checkbox" name="checkOwner" value="@item.ID" class="checkitem"/>
@@ -48,13 +60,16 @@
                         @item.Equipment_number
                     </td>
                     <td>
-                        @item.Owner
+                        @(owner != null ? owner.Name : null)
+                    </td>
+                    <td>
+                        @(driver != null ? driver.First_name + " " + driver.Last_name : null)
                     </td>
                     <td>
                         @item.VIN
                     </td>
                     <td>
-                         @(item.Registration_Expiration.HasValue?item.Registration_Expiration.Value.ToString("MM/dd/yyyy"):"")
+                        @(item.Registration_Expiration.HasValue ? item.Registration_Expiration.Value.ToString("MM/dd/yyyy") : "")
                     </td>
                 </tr>
             }

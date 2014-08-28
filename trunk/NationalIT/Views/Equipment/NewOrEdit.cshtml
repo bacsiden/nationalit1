@@ -42,14 +42,24 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="Driver">
-                            Driver</label>
+                        <label class="control-label" for="Driver">Driver</label>
                         <div class="controls">
                             <div class="span12">
-                                <select data-placeholder="Select Driver" name="Driver" class="chosen-with-diselect input-xlarge">
+                                <select data-placeholder="Select Equipment" name="Driver" class="chosen-with-diselect input-xlarge">
                                     @Html.Raw(ViewBag.dataDriver)
                                 </select>
                                 @Html.ValidationMessageFor(model => model.Driver)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="Owner">Owner</label>
+                        <div class="controls">
+                            <div class="span12">
+                                <select data-placeholder="Select Equipment" name="Owner" class="chosen-with-diselect input-xlarge">
+                                    @Html.Raw(ViewBag.dataOwner)
+                                </select>
+                                @Html.ValidationMessageFor(model => model.Owner)
                             </div>
                         </div>
                     </div>
@@ -68,11 +78,11 @@
                             DATE LEASED</label>
                         <div class="controls">
                             <div class="span12">
-                                @Html.TextBoxFor(model => model.DATE_LEASED, new { @class = "input-xlarge" })
-                                @Html.ValidationMessageFor(model => model.DATE_LEASED)
+                                @Html.TextBoxFor(model => model.DATE_LEASED, new { Value = Model != null && Model.DATE_LEASED.HasValue ? Model.DATE_LEASED.Value.ToString("MM/dd/yyyy") : "", @class = "input-xlarge date-picker" })
+                                @Html.ValidationMessageFor(model => model.Inspection_Expiration)
                             </div>
                         </div>
-                    </div>
+                    </div> 
                     <div class="control-group">
                         <label class="control-label" for="Inspection_Expiration">
                             Inspection Expiration</label>
@@ -101,16 +111,7 @@
                                 @Html.ValidationMessageFor(model => model.MODEL_YEAR)
                             </div>
                         </div>
-                    </div>     
-                    <div class="control-group">
-                        <label class="control-label" for="Owner">@Html.LabelFor(model => model.Owner)</label>
-                        <div class="controls">
-                            <div class="span12">
-                                @Html.TextBoxFor(model => model.Owner, new { @class = "input-xlarge " })
-                                @Html.ValidationMessageFor(model => model.Owner)
-                            </div>
-                        </div>
-                    </div>   
+                    </div>
                     <div class="control-group">
                         <label class="control-label" for="Registration_Expiration">
                             Registration Expiration</label>
