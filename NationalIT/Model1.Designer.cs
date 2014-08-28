@@ -20,13 +20,10 @@ using System.Xml.Serialization;
 #region EDM Relationship Metadata
 
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Account_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.aspnet_Users), "mUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mUser), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Customer_Info1", "Customer_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Customer_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Driver_Info_Dispatchers", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Dispatchers), "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Driver_Info), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Dispatchers1", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Dispatchers), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Driver_Info_Owners", "Owners", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Owners), "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Driver_Info), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Fuel___Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Fuel___Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Fuel___Expenses), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Operating_Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Operating_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Operating_Expenses), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Driver_Info1", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Fuel_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Fuel_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Fuel_Expenses), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Operating_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Operating_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Operating_Expenses), true)]
@@ -36,6 +33,9 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "mMenuInFunction", "mFunction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mFunction), "mMenu", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mMenu))]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "mRoleInGroup", "mGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mGroup), "mRole", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mRole))]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "mUserInGroup", "mGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mGroup), "mUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mUser))]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Customer_Info1", "Customer_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Customer_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Dispatchers1", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Dispatchers), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Driver_Info1", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Maintenance_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Maintenance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Maintenance), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Equipment1", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
@@ -509,22 +509,6 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Trip_Info> Trip_Info
-        {
-            get
-            {
-                if ((_Trip_Info == null))
-                {
-                    _Trip_Info = base.CreateObjectSet<Trip_Info>("Trip_Info");
-                }
-                return _Trip_Info;
-            }
-        }
-        private ObjectSet<Trip_Info> _Trip_Info;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Violations> Violations
         {
             get
@@ -569,6 +553,22 @@ namespace NationalIT
             }
         }
         private ObjectSet<Equipment> _Equipment;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Trip_Info> Trip_Info
+        {
+            get
+            {
+                if ((_Trip_Info == null))
+                {
+                    _Trip_Info = base.CreateObjectSet<Trip_Info>("Trip_Info");
+                }
+                return _Trip_Info;
+            }
+        }
+        private ObjectSet<Trip_Info> _Trip_Info;
 
         #endregion
 
@@ -783,14 +783,6 @@ namespace NationalIT
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Trip_Info EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToTrip_Info(Trip_Info trip_Info)
-        {
-            base.AddObject("Trip_Info", trip_Info);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the Violations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToViolations(Violations violations)
@@ -812,6 +804,14 @@ namespace NationalIT
         public void AddToEquipment(Equipment equipment)
         {
             base.AddObject("Equipment", equipment);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Trip_Info EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToTrip_Info(Trip_Info trip_Info)
+        {
+            base.AddObject("Trip_Info", trip_Info);
         }
 
         #endregion
@@ -2756,28 +2756,6 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Driver_Info1", "Trip_Info")]
-        public EntityCollection<Trip_Info> Trip_Info
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1", "Trip_Info");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1", "Trip_Info", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Driver_Info", "Violations")]
         public EntityCollection<Violations> Violations
         {
@@ -2790,6 +2768,28 @@ namespace NationalIT
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Violations>("DB_9B22F2_nationalitModel.FK_Violations_Driver_Info", "Violations", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Driver_Info1", "Trip_Info")]
+        public EntityCollection<Trip_Info> Trip_Info
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Trip_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1", "Trip_Info");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1", "Trip_Info", value);
                 }
             }
         }
@@ -2929,7 +2929,7 @@ namespace NationalIT
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Owner
+        public global::System.String Owner
         {
             get
             {
@@ -2939,13 +2939,13 @@ namespace NationalIT
             {
                 OnOwnerChanging(value);
                 ReportPropertyChanging("Owner");
-                _Owner = StructuralObject.SetValidValue(value);
+                _Owner = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Owner");
                 OnOwnerChanged();
             }
         }
-        private Nullable<global::System.Int32> _Owner;
-        partial void OnOwnerChanging(Nullable<global::System.Int32> value);
+        private global::System.String _Owner;
+        partial void OnOwnerChanging(global::System.String value);
         partial void OnOwnerChanged();
     
         /// <summary>
@@ -3025,7 +3025,7 @@ namespace NationalIT
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> DATE_LEASED
+        public global::System.String DATE_LEASED
         {
             get
             {
@@ -3035,13 +3035,13 @@ namespace NationalIT
             {
                 OnDATE_LEASEDChanging(value);
                 ReportPropertyChanging("DATE_LEASED");
-                _DATE_LEASED = StructuralObject.SetValidValue(value);
+                _DATE_LEASED = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("DATE_LEASED");
                 OnDATE_LEASEDChanged();
             }
         }
-        private Nullable<global::System.DateTime> _DATE_LEASED;
-        partial void OnDATE_LEASEDChanging(Nullable<global::System.DateTime> value);
+        private global::System.String _DATE_LEASED;
+        partial void OnDATE_LEASEDChanging(global::System.String value);
         partial void OnDATE_LEASEDChanged();
     
         /// <summary>
@@ -9853,6 +9853,30 @@ namespace NationalIT
         private global::System.DateTime _Customer_Invoiced_date;
         partial void OnCustomer_Invoiced_dateChanging(global::System.DateTime value);
         partial void OnCustomer_Invoiced_dateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Company
+        {
+            get
+            {
+                return _Company;
+            }
+            set
+            {
+                OnCompanyChanging(value);
+                ReportPropertyChanging("Company");
+                _Company = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Company");
+                OnCompanyChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Company;
+        partial void OnCompanyChanging(Nullable<global::System.Int32> value);
+        partial void OnCompanyChanged();
 
         #endregion
 

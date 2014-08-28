@@ -236,11 +236,11 @@
           <Property Name="Equipment_Type" Type="nvarchar" MaxLength="32" />
           <Property Name="Equipment_number" Type="nvarchar" MaxLength="32" />
           <Property Name="Driver" Type="int" />
-          <Property Name="Owner" Type="int" />
+          <Property Name="Owner" Type="nvarchar" MaxLength="128" />
           <Property Name="VIN" Type="nvarchar" MaxLength="32" />
           <Property Name="Registration_Expiration" Type="datetime" />
           <Property Name="Inspection_Expiration" Type="datetime" />
-          <Property Name="DATE_LEASED" Type="datetime" />
+          <Property Name="DATE_LEASED" Type="nvarchar" MaxLength="255" />
           <Property Name="EQUIPMENT_VALUE" Type="nvarchar" MaxLength="255" />
           <Property Name="EQUIPMENT_DESCRIPTION" Type="nvarchar" MaxLength="255" />
           <Property Name="MODEL_YEAR" Type="nvarchar" MaxLength="255" />
@@ -601,6 +601,7 @@
           <Property Name="Comment" Type="nvarchar" MaxLength="255" />
           <Property Name="PO_" Type="nvarchar" MaxLength="16" />
           <Property Name="Customer_Invoiced_date" Type="datetime" Nullable="false" />
+          <Property Name="Company" Type="int" />
         </EntityType>
         <EntityType Name="Violations">
           <Key>
@@ -961,23 +962,14 @@
           <EntitySet Name="Temp_Split_Expenses" EntityType="DB_9B22F2_nationalitModel.Temp_Split_Expenses" />
           <EntitySet Name="Temp_Trip_Info" EntityType="DB_9B22F2_nationalitModel.Temp_Trip_Info" />
           <EntitySet Name="TempReport" EntityType="DB_9B22F2_nationalitModel.TempReport" />
-          <EntitySet Name="Trip_Info" EntityType="DB_9B22F2_nationalitModel.Trip_Info" />
           <EntitySet Name="Violations" EntityType="DB_9B22F2_nationalitModel.Violations" />
           <AssociationSet Name="FK_Account_aspnet_Users" Association="DB_9B22F2_nationalitModel.FK_Account_aspnet_Users">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="mUser" EntitySet="mUser" />
           </AssociationSet>
-          <AssociationSet Name="FK_Trip_Info_Customer_Info1" Association="DB_9B22F2_nationalitModel.FK_Trip_Info_Customer_Info1">
-            <End Role="Customer_Info" EntitySet="Customer_Info" />
-            <End Role="Trip_Info" EntitySet="Trip_Info" />
-          </AssociationSet>
           <AssociationSet Name="FK_Driver_Info_Dispatchers" Association="DB_9B22F2_nationalitModel.FK_Driver_Info_Dispatchers">
             <End Role="Dispatchers" EntitySet="Dispatchers" />
             <End Role="Driver_Info" EntitySet="Driver_Info" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Trip_Info_Dispatchers1" Association="DB_9B22F2_nationalitModel.FK_Trip_Info_Dispatchers1">
-            <End Role="Dispatchers" EntitySet="Dispatchers" />
-            <End Role="Trip_Info" EntitySet="Trip_Info" />
           </AssociationSet>
           <AssociationSet Name="FK_Driver_Info_Owners" Association="DB_9B22F2_nationalitModel.FK_Driver_Info_Owners">
             <End Role="Owners" EntitySet="Owners" />
@@ -990,10 +982,6 @@
           <AssociationSet Name="FK_Operating_Expenses_Driver_Info" Association="DB_9B22F2_nationalitModel.FK_Operating_Expenses_Driver_Info">
             <End Role="Driver_Info" EntitySet="Driver_Info" />
             <End Role="Operating_Expenses" EntitySet="Operating_Expenses" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Trip_Info_Driver_Info1" Association="DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1">
-            <End Role="Driver_Info" EntitySet="Driver_Info" />
-            <End Role="Trip_Info" EntitySet="Trip_Info" />
           </AssociationSet>
           <AssociationSet Name="FK_Violations_Driver_Info" Association="DB_9B22F2_nationalitModel.FK_Violations_Driver_Info">
             <End Role="Driver_Info" EntitySet="Driver_Info" />
@@ -1033,6 +1021,19 @@
           </AssociationSet>
           <EntitySet Name="Income" EntityType="DB_9B22F2_nationalitModel.Income" />
           <EntitySet Name="Equipment" EntityType="DB_9B22F2_nationalitModel.Equipment" />
+          <EntitySet Name="Trip_Info" EntityType="DB_9B22F2_nationalitModel.Trip_Info" />
+          <AssociationSet Name="FK_Trip_Info_Customer_Info1" Association="DB_9B22F2_nationalitModel.FK_Trip_Info_Customer_Info1">
+            <End Role="Customer_Info" EntitySet="Customer_Info" />
+            <End Role="Trip_Info" EntitySet="Trip_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trip_Info_Dispatchers1" Association="DB_9B22F2_nationalitModel.FK_Trip_Info_Dispatchers1">
+            <End Role="Dispatchers" EntitySet="Dispatchers" />
+            <End Role="Trip_Info" EntitySet="Trip_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trip_Info_Driver_Info1" Association="DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1">
+            <End Role="Driver_Info" EntitySet="Driver_Info" />
+            <End Role="Trip_Info" EntitySet="Trip_Info" />
+          </AssociationSet>
           <AssociationSet Name="FK_Maintenance_Equipment" Association="DB_9B22F2_nationalitModel.FK_Maintenance_Equipment">
             <End Role="Equipment" EntitySet="Equipment" />
             <End Role="Maintenance" EntitySet="Maintenance" />
@@ -1144,8 +1145,8 @@
           <NavigationProperty Name="Owners" Relationship="DB_9B22F2_nationalitModel.FK_Driver_Info_Owners" FromRole="Driver_Info" ToRole="Owners" />
           <NavigationProperty Name="Fuel___Expenses" Relationship="DB_9B22F2_nationalitModel.FK_Fuel___Expenses_Driver_Info" FromRole="Driver_Info" ToRole="Fuel___Expenses" />
           <NavigationProperty Name="Operating_Expenses" Relationship="DB_9B22F2_nationalitModel.FK_Operating_Expenses_Driver_Info" FromRole="Driver_Info" ToRole="Operating_Expenses" />
-          <NavigationProperty Name="Trip_Info" Relationship="DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1" FromRole="Driver_Info" ToRole="Trip_Info" />
           <NavigationProperty Name="Violations" Relationship="DB_9B22F2_nationalitModel.FK_Violations_Driver_Info" FromRole="Driver_Info" ToRole="Violations" />
+          <NavigationProperty Name="Trip_Info" Relationship="DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1" FromRole="Driver_Info" ToRole="Trip_Info" />
         </EntityType>
         <EntityType Name="EscrowLoan">
           <Key>
@@ -1441,44 +1442,6 @@
           <NavigationProperty Name="Temp_Split_Expenses" Relationship="DB_9B22F2_nationalitModel.FK_Temp_Split_Expenses_TempReport" FromRole="TempReport" ToRole="Temp_Split_Expenses" />
           <NavigationProperty Name="Temp_Trip_Info" Relationship="DB_9B22F2_nationalitModel.FK_Temp_Trip_Info_TempReport" FromRole="TempReport" ToRole="Temp_Trip_Info" />
         </EntityType>
-        <EntityType Name="Trip_Info">
-          <Key>
-            <PropertyRef Name="Trip_ID" />
-          </Key>
-          <Property Type="Int32" Name="Trip_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="DateTime" Name="Order_date" />
-          <Property Type="DateTime" Name="Pickup_date" />
-          <Property Type="DateTime" Name="Delivery_date" />
-          <Property Type="String" Name="Pick_up_location" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Delivery_location" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Extra_stops" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="Loaded_miles" />
-          <Property Type="Int32" Name="Dead_head_miles" />
-          <Property Type="Single" Name="Comfirmed_Rate" />
-          <Property Type="Int32" Name="Customer" />
-          <Property Type="Int32" Name="Dispatcher" />
-          <Property Type="Int32" Name="Driver" />
-          <Property Type="Boolean" Name="Paid" Nullable="false" />
-          <Property Type="Single" Name="Extra_charges" />
-          <Property Type="Single" Name="Detention_pay" />
-          <Property Type="Single" Name="Total_charges" />
-          <Property Type="Single" Name="Detention" />
-          <Property Type="Boolean" Name="Picked" Nullable="false" />
-          <Property Type="Boolean" Name="Deliverd" Nullable="false" />
-          <Property Type="Int32" Name="Invoice" Nullable="false" />
-          <Property Type="Boolean" Name="Customer_Invoiced" Nullable="false" />
-          <Property Type="String" Name="Address" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="Current_Payroll" Nullable="false" />
-          <Property Type="Boolean" Name="Driver_paid" Nullable="false" />
-          <Property Type="Int32" Name="Equipment_ID" />
-          <Property Type="String" Name="Comment" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="PO_" MaxLength="16" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="Customer_Invoiced_date" Nullable="false" />
-          <NavigationProperty Name="Customer_Info" Relationship="DB_9B22F2_nationalitModel.FK_Trip_Info_Customer_Info1" FromRole="Trip_Info" ToRole="Customer_Info" />
-          <NavigationProperty Name="Dispatchers" Relationship="DB_9B22F2_nationalitModel.FK_Trip_Info_Dispatchers1" FromRole="Trip_Info" ToRole="Dispatchers" />
-          <NavigationProperty Name="Driver_Info" Relationship="DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1" FromRole="Trip_Info" ToRole="Driver_Info" />
-          <NavigationProperty Name="Equipment" Relationship="DB_9B22F2_nationalitModel.FK_Trip_Info_Equipment1" FromRole="Trip_Info" ToRole="Equipment" />
-        </EntityType>
         <EntityType Name="Violations">
           <Key>
             <PropertyRef Name="ID" />
@@ -1507,18 +1470,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Trip_Info_Customer_Info1">
-          <End Type="DB_9B22F2_nationalitModel.Customer_Info" Role="Customer_Info" Multiplicity="0..1" />
-          <End Type="DB_9B22F2_nationalitModel.Trip_Info" Role="Trip_Info" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer_Info">
-              <PropertyRef Name="Customer_ID" />
-            </Principal>
-            <Dependent Role="Trip_Info">
-              <PropertyRef Name="Customer" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Driver_Info_Dispatchers">
           <End Type="DB_9B22F2_nationalitModel.Dispatchers" Role="Dispatchers" Multiplicity="0..1" />
           <End Type="DB_9B22F2_nationalitModel.Driver_Info" Role="Driver_Info" Multiplicity="*" />
@@ -1527,18 +1478,6 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Driver_Info">
-              <PropertyRef Name="Dispatcher" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Trip_Info_Dispatchers1">
-          <End Type="DB_9B22F2_nationalitModel.Dispatchers" Role="Dispatchers" Multiplicity="0..1" />
-          <End Type="DB_9B22F2_nationalitModel.Trip_Info" Role="Trip_Info" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Dispatchers">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Trip_Info">
               <PropertyRef Name="Dispatcher" />
             </Dependent>
           </ReferentialConstraint>
@@ -1575,18 +1514,6 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Operating_Expenses">
-              <PropertyRef Name="Driver" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Trip_Info_Driver_Info1">
-          <End Type="DB_9B22F2_nationalitModel.Driver_Info" Role="Driver_Info" Multiplicity="0..1" />
-          <End Type="DB_9B22F2_nationalitModel.Trip_Info" Role="Trip_Info" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Driver_Info">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Trip_Info">
               <PropertyRef Name="Driver" />
             </Dependent>
           </ReferentialConstraint>
@@ -1690,11 +1617,11 @@
           <Property Type="String" Name="Equipment_Type" MaxLength="32" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Equipment_number" MaxLength="32" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="Driver" />
-          <Property Type="Int32" Name="Owner" />
+          <Property Type="String" Name="Owner" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="VIN" MaxLength="32" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="Registration_Expiration" />
           <Property Type="DateTime" Name="Inspection_Expiration" />
-          <Property Type="DateTime" Name="DATE_LEASED" />
+          <Property Type="String" Name="DATE_LEASED" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="EQUIPMENT_VALUE" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="EQUIPMENT_DESCRIPTION" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="MODEL_YEAR" MaxLength="255" FixedLength="false" Unicode="true" />
@@ -1705,6 +1632,81 @@
           <NavigationProperty Name="Trip_Info" Relationship="DB_9B22F2_nationalitModel.FK_Trip_Info_Equipment1" FromRole="Equipment" ToRole="Trip_Info" />
           <NavigationProperty Name="Violations" Relationship="DB_9B22F2_nationalitModel.FK_Violations_Equipment" FromRole="Equipment" ToRole="Violations" />
         </EntityType>
+        <EntityType Name="Trip_Info">
+          <Key>
+            <PropertyRef Name="Trip_ID" />
+          </Key>
+          <Property Type="Int32" Name="Trip_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Order_date" />
+          <Property Type="DateTime" Name="Pickup_date" />
+          <Property Type="DateTime" Name="Delivery_date" />
+          <Property Type="String" Name="Pick_up_location" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Delivery_location" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Extra_stops" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Loaded_miles" />
+          <Property Type="Int32" Name="Dead_head_miles" />
+          <Property Type="Single" Name="Comfirmed_Rate" />
+          <Property Type="Int32" Name="Customer" />
+          <Property Type="Int32" Name="Dispatcher" />
+          <Property Type="Int32" Name="Driver" />
+          <Property Type="Boolean" Name="Paid" Nullable="false" />
+          <Property Type="Single" Name="Extra_charges" />
+          <Property Type="Single" Name="Detention_pay" />
+          <Property Type="Single" Name="Total_charges" />
+          <Property Type="Single" Name="Detention" />
+          <Property Type="Boolean" Name="Picked" Nullable="false" />
+          <Property Type="Boolean" Name="Deliverd" Nullable="false" />
+          <Property Type="Int32" Name="Invoice" Nullable="false" />
+          <Property Type="Boolean" Name="Customer_Invoiced" Nullable="false" />
+          <Property Type="String" Name="Address" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Current_Payroll" Nullable="false" />
+          <Property Type="Boolean" Name="Driver_paid" Nullable="false" />
+          <Property Type="Int32" Name="Equipment_ID" />
+          <Property Type="String" Name="Comment" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PO_" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Customer_Invoiced_date" Nullable="false" />
+          <Property Type="Int32" Name="Company" />
+          <NavigationProperty Name="Customer_Info" Relationship="DB_9B22F2_nationalitModel.FK_Trip_Info_Customer_Info1" FromRole="Trip_Info" ToRole="Customer_Info" />
+          <NavigationProperty Name="Dispatchers" Relationship="DB_9B22F2_nationalitModel.FK_Trip_Info_Dispatchers1" FromRole="Trip_Info" ToRole="Dispatchers" />
+          <NavigationProperty Name="Driver_Info" Relationship="DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1" FromRole="Trip_Info" ToRole="Driver_Info" />
+          <NavigationProperty Name="Equipment" Relationship="DB_9B22F2_nationalitModel.FK_Trip_Info_Equipment1" FromRole="Trip_Info" ToRole="Equipment" />
+        </EntityType>
+        <Association Name="FK_Trip_Info_Customer_Info1">
+          <End Type="DB_9B22F2_nationalitModel.Customer_Info" Role="Customer_Info" Multiplicity="0..1" />
+          <End Type="DB_9B22F2_nationalitModel.Trip_Info" Role="Trip_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer_Info">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="Trip_Info">
+              <PropertyRef Name="Customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trip_Info_Dispatchers1">
+          <End Type="DB_9B22F2_nationalitModel.Dispatchers" Role="Dispatchers" Multiplicity="0..1" />
+          <End Type="DB_9B22F2_nationalitModel.Trip_Info" Role="Trip_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dispatchers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Trip_Info">
+              <PropertyRef Name="Dispatcher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trip_Info_Driver_Info1">
+          <End Type="DB_9B22F2_nationalitModel.Driver_Info" Role="Driver_Info" Multiplicity="0..1" />
+          <End Type="DB_9B22F2_nationalitModel.Trip_Info" Role="Trip_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driver_Info">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Trip_Info">
+              <PropertyRef Name="Driver" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Maintenance_Equipment">
           <End Type="DB_9B22F2_nationalitModel.Equipment" Role="Equipment" Multiplicity="0..1" />
           <End Type="DB_9B22F2_nationalitModel.Maintenance" Role="Maintenance" Multiplicity="*" />
@@ -2137,41 +2139,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Trip_Info">
-            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.Trip_Info">
-              <MappingFragment StoreEntitySet="Trip_Info">
-                <ScalarProperty Name="Customer_Invoiced_date" ColumnName="Customer_Invoiced_date" />
-                <ScalarProperty Name="PO_" ColumnName="PO_" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="Equipment_ID" ColumnName="Equipment_ID" />
-                <ScalarProperty Name="Driver_paid" ColumnName="Driver_paid" />
-                <ScalarProperty Name="Current_Payroll" ColumnName="Current_Payroll" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Customer_Invoiced" ColumnName="Customer_Invoiced" />
-                <ScalarProperty Name="Invoice" ColumnName="Invoice" />
-                <ScalarProperty Name="Deliverd" ColumnName="Deliverd" />
-                <ScalarProperty Name="Picked" ColumnName="Picked" />
-                <ScalarProperty Name="Detention" ColumnName="Detention" />
-                <ScalarProperty Name="Total_charges" ColumnName="Total_charges" />
-                <ScalarProperty Name="Detention_pay" ColumnName="Detention_pay" />
-                <ScalarProperty Name="Extra_charges" ColumnName="Extra_charges" />
-                <ScalarProperty Name="Paid" ColumnName="Paid" />
-                <ScalarProperty Name="Driver" ColumnName="Driver" />
-                <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
-                <ScalarProperty Name="Customer" ColumnName="Customer" />
-                <ScalarProperty Name="Comfirmed_Rate" ColumnName="Comfirmed_Rate" />
-                <ScalarProperty Name="Dead_head_miles" ColumnName="Dead_head_miles" />
-                <ScalarProperty Name="Loaded_miles" ColumnName="Loaded_miles" />
-                <ScalarProperty Name="Extra_stops" ColumnName="Extra_stops" />
-                <ScalarProperty Name="Delivery_location" ColumnName="Delivery_location" />
-                <ScalarProperty Name="Pick_up_location" ColumnName="Pick_up_location" />
-                <ScalarProperty Name="Delivery_date" ColumnName="Delivery_date" />
-                <ScalarProperty Name="Pickup_date" ColumnName="Pickup_date" />
-                <ScalarProperty Name="Order_date" ColumnName="Order_date" />
-                <ScalarProperty Name="Trip_ID" ColumnName="Trip_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Violations">
             <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.Violations">
               <MappingFragment StoreEntitySet="Violations">
@@ -2256,6 +2223,42 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Trip_Info">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.Trip_Info">
+              <MappingFragment StoreEntitySet="Trip_Info">
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Customer_Invoiced_date" ColumnName="Customer_Invoiced_date" />
+                <ScalarProperty Name="PO_" ColumnName="PO_" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Equipment_ID" ColumnName="Equipment_ID" />
+                <ScalarProperty Name="Driver_paid" ColumnName="Driver_paid" />
+                <ScalarProperty Name="Current_Payroll" ColumnName="Current_Payroll" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Customer_Invoiced" ColumnName="Customer_Invoiced" />
+                <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+                <ScalarProperty Name="Deliverd" ColumnName="Deliverd" />
+                <ScalarProperty Name="Picked" ColumnName="Picked" />
+                <ScalarProperty Name="Detention" ColumnName="Detention" />
+                <ScalarProperty Name="Total_charges" ColumnName="Total_charges" />
+                <ScalarProperty Name="Detention_pay" ColumnName="Detention_pay" />
+                <ScalarProperty Name="Extra_charges" ColumnName="Extra_charges" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Driver" ColumnName="Driver" />
+                <ScalarProperty Name="Dispatcher" ColumnName="Dispatcher" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="Comfirmed_Rate" ColumnName="Comfirmed_Rate" />
+                <ScalarProperty Name="Dead_head_miles" ColumnName="Dead_head_miles" />
+                <ScalarProperty Name="Loaded_miles" ColumnName="Loaded_miles" />
+                <ScalarProperty Name="Extra_stops" ColumnName="Extra_stops" />
+                <ScalarProperty Name="Delivery_location" ColumnName="Delivery_location" />
+                <ScalarProperty Name="Pick_up_location" ColumnName="Pick_up_location" />
+                <ScalarProperty Name="Delivery_date" ColumnName="Delivery_date" />
+                <ScalarProperty Name="Pickup_date" ColumnName="Pickup_date" />
+                <ScalarProperty Name="Order_date" ColumnName="Order_date" />
+                <ScalarProperty Name="Trip_ID" ColumnName="Trip_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2303,63 +2306,39 @@
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Temp_Split_Expenses" Width="1.5" PointX="13" PointY="12.25" Height="3.5186979166666674" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Temp_Trip_Info" Width="1.5" PointX="13" PointY="16.5" Height="7.172425130208353" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.TempReport" Width="1.5" PointX="10.75" PointY="12.25" Height="2.7494921874999818" />
-        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Trip_Info" Width="1.5" PointX="8.25" PointY="3.375" Height="7.3647265624999818" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Violations" Width="1.5" PointX="8.25" PointY="11.5" Height="3.1340950520833246" />
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Account_aspnet_Users" >
           <ConnectorPoint PointX="19.90625" PointY="3.3071907552083246" />
           <ConnectorPoint PointX="19.90625" PointY="4.53125" />
           <ConnectorPoint PointX="21" PointY="4.53125" />
         </AssociationConnector>
-        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Trip_Info_Customer_Info1" >
-          <ConnectorPoint PointX="7.5" PointY="4.51604248046875" />
-          <ConnectorPoint PointX="8.25" PointY="4.51604248046875" />
-        </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Driver_Info_Dispatchers" >
-          <ConnectorPoint PointX="2.25" PointY="12.999746093750005" />
-          <ConnectorPoint PointX="3" PointY="12.999746093750005" />
-        </AssociationConnector>
-        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Trip_Info_Dispatchers1" >
-          <ConnectorPoint PointX="1.5" PointY="11.625" />
-          <ConnectorPoint PointX="1.5" PointY="10.1710009765625" />
-          <ConnectorPoint PointX="2.5" PointY="10.1710009765625" />
-          <ConnectorPoint PointX="2.5" PointY="7.7103483072916674" />
-          <ConnectorPoint PointX="4.5" PointY="7.7103483072916674" />
-          <ConnectorPoint PointX="4.5" PointY="7.0454853784179692" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="7.0454853784179683" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="7.0454853784179692" />
-          <ConnectorPoint PointX="8.25" PointY="7.0454853784179692" />
+          <ConnectorPoint PointX="2.25" PointY="12.99974609375" />
+          <ConnectorPoint PointX="3" PointY="12.99974609375" />
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Driver_Info_Owners" >
-          <ConnectorPoint PointX="2.25" PointY="9.03242328450521" />
-          <ConnectorPoint PointX="2.4166666666666665" PointY="9.03242328450521" />
-          <ConnectorPoint PointX="2.5833333333333335" PointY="9.03242328450521" />
-          <ConnectorPoint PointX="3.703125" PointY="9.03242328450521" />
-          <ConnectorPoint PointX="3.703125" PointY="9.625" />
+          <ConnectorPoint PointX="2.25" PointY="9.8987939453124909" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="9.8987939453124909" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="9.8987939453124909" />
+          <ConnectorPoint PointX="3" PointY="9.8987939453124909" />
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Fuel___Expenses_Driver_Info" >
-          <ConnectorPoint PointX="4.5" PointY="11.098216145833334" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="11.098216145833334" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="11.098216145833334" />
-          <ConnectorPoint PointX="5.25" PointY="11.098216145833334" />
+          <ConnectorPoint PointX="4.5" PointY="11.321848958333334" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="11.321848958333334" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="11.321848958333334" />
+          <ConnectorPoint PointX="5.25" PointY="11.321848958333334" />
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Operating_Expenses_Driver_Info" >
-          <ConnectorPoint PointX="4.5" PointY="14.62016845703125" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="14.620168457031248" />
-          <ConnectorPoint PointX="5.052083333333333" PointY="14.62016845703125" />
-          <ConnectorPoint PointX="5.25" PointY="14.62016845703125" />
-        </AssociationConnector>
-        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1" >
-          <ConnectorPoint PointX="4.40625" PointY="9.625" />
-          <ConnectorPoint PointX="4.40625" PointY="8.3713857958984388" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="8.3713857958984388" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="8.3713857958984388" />
-          <ConnectorPoint PointX="8.25" PointY="8.3713857958984388" />
+          <ConnectorPoint PointX="4.5" PointY="15.081411132812502" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="15.081411132812502" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="15.081411132812502" />
+          <ConnectorPoint PointX="5.25" PointY="15.081411132812502" />
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Violations_Driver_Info" >
-          <ConnectorPoint PointX="4.5" PointY="13.160716145833334" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="13.160716145833334" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="13.160716145833334" />
-          <ConnectorPoint PointX="8.25" PointY="13.160716145833334" />
+          <ConnectorPoint PointX="4.5" PointY="13.384348958333334" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="13.384348958333334" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="13.384348958333334" />
+          <ConnectorPoint PointX="8.25" PointY="13.384348958333334" />
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Temp_Fuel_Expenses_TempReport" >
           <ConnectorPoint PointX="11.5" PointY="12.25" />
@@ -2405,22 +2384,51 @@
           <ConnectorPoint PointX="21" PointY="7.4393929036458246" />
         </AssociationConnector>
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Income" Width="1.5" PointX="18.375" PointY="12.75" Height="2.9417936197916674" />
-        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Equipment" Width="1.5" PointX="3" PointY="16.375" Height="3.8931689453125102" />
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Equipment" Width="1.5" PointX="3" PointY="17.25" Height="4.48020507812501" />
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Trip_Info" Width="1.5" PointX="8.25" PointY="2.5" Height="7.5570279947916674" />
+        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Trip_Info_Customer_Info1" >
+          <ConnectorPoint PointX="7.5" PointY="4.4131982421875" />
+          <ConnectorPoint PointX="8.25" PointY="4.4131982421875" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Trip_Info_Dispatchers1" >
+          <ConnectorPoint PointX="2.25" PointY="12.281121046874999" />
+          <ConnectorPoint PointX="2.75" PointY="12.281121046874999" />
+          <ConnectorPoint PointX="2.75" PointY="9.25" />
+          <ConnectorPoint PointX="4.322916666666667" PointY="9.25" />
+          <ConnectorPoint PointX="4.489583333333333" PointY="9.25" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="9.25" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="9.25" />
+          <ConnectorPoint PointX="8" PointY="9.25" />
+          <ConnectorPoint PointX="8" PointY="11.25" />
+          <ConnectorPoint PointX="9" PointY="11.25" />
+          <ConnectorPoint PointX="9" PointY="10.057027994791667" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1" >
+          <ConnectorPoint PointX="4.40625" PointY="9.625" />
+          <ConnectorPoint PointX="4.40625" PointY="8.5261946614583337" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="8.5261946614583337" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="8.5261946614583337" />
+          <ConnectorPoint PointX="8.25" PointY="8.5261946614583337" />
+        </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Maintenance_Equipment" >
-          <ConnectorPoint PointX="4.5" PointY="19.446584472656255" />
-          <ConnectorPoint PointX="8.25" PointY="19.446584472656255" />
+          <ConnectorPoint PointX="4.5" PointY="20.095896809895834" />
+          <ConnectorPoint PointX="8.25" PointY="20.095896809895834" />
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Trip_Info_Equipment1" >
-          <ConnectorPoint PointX="4.47576923076923" PointY="16.375" />
-          <ConnectorPoint PointX="4.875" PointY="15.975769230769231" />
-          <ConnectorPoint PointX="4.875" PointY="6.35128266967774" />
-          <ConnectorPoint PointX="8.25" PointY="6.35128266967774" />
+          <ConnectorPoint PointX="3.75" PointY="17.25" />
+          <ConnectorPoint PointX="3.75" PointY="16.662822265625003" />
+          <ConnectorPoint PointX="4.75" PointY="16.662822265625003" />
+          <ConnectorPoint PointX="4.75" PointY="7.301293072916673" />
+          <ConnectorPoint PointX="8.25" PointY="7.301293072916673" />
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Violations_Equipment" >
-          <ConnectorPoint PointX="4.5" PointY="16.432691307692306" />
-          <ConnectorPoint PointX="4.96875" PointY="15.963941307692306" />
-          <ConnectorPoint PointX="4.96875" PointY="13.455360572916661" />
-          <ConnectorPoint PointX="8.25" PointY="13.455360572916661" />
+          <ConnectorPoint PointX="4.5" PointY="18.641696404947922" />
+          <ConnectorPoint PointX="8" PointY="18.641696404947922" />
+          <ConnectorPoint PointX="8" PointY="17.028382161458325" />
+          <ConnectorPoint PointX="9.5" PointY="17.028382161458325" />
+          <ConnectorPoint PointX="9.5" PointY="15.009095052083332" />
+          <ConnectorPoint PointX="9" PointY="15.009095052083332" />
+          <ConnectorPoint PointX="9" PointY="14.634095052083334" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
