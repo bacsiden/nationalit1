@@ -134,7 +134,7 @@ namespace NationalIT.Controllers
 
             var lstCompany = db.Company.ToList();
             ViewBag.dataCompany = CommonFunction.BuildDropdown(lstCompany.Select(m => m.ID.ToString()).ToArray(),
-                lstCompany.Select(m => m.Name+" - "+m.Address+" "+m.FaxNumber).ToArray(), obj.Company, "--Select Company--");
+                lstCompany.Select(m => m.Name+" - "+m.Address+" , "+m.FaxNumber).ToArray(), obj.Company, "--Select Company--");
 
             #endregion
 
