@@ -180,83 +180,45 @@ namespace NationalIT.Reports
             DataTable dt = new Invoice().DataTable1;
             var db = DB.Entities;
             int id = int.Parse(Request.QueryString["tripID"]);
-            var item = db.Trip_Info.FirstOrDefault(m => m.Trip_ID == id);
+            var obj = db.Trip_Info.FirstOrDefault(m => m.Trip_ID == id);
             string s = Request.QueryString["companyID"];
-            var lstCo = new List<int>();
-            if (!string.IsNullOrEmpty(s))
-            {
-                foreach (string itemCo in s.Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    lstCo.Add(int.Parse(itemCo));
-                }
-            }
-            var lstCompany = db.Company.Where(m => lstCo.Contains(m.ID)).ToList();
-            if (lstCompany.Count > 0)
-            {
-                foreach (var co in lstCompany)
-                {
-                    DataRow dr = dt.NewRow();
-                    dr["Date"] = String.Format("{0:MM/dd/yyyy}", item.Order_date);
-                    dr["CustomerName"] = item.Customer_Info != null ? item.Customer_Info.Customer_Name : "";
-                    dr["CustomerAddress"] = item.Customer_Info != null ? item.Customer_Info.City + ", " +
-                        item.Customer_Info.State + " " + item.Customer_Info.ZIP_Code : "";
-                    dr["Street"] = item.Customer_Info != null ? item.Customer_Info.Street : "";
-                    //Lấy 2 kí tự đầu của first name, last name dirver info
-                    string invoice = item.Invoice + "";
-                    if (item.Driver_Info != null)
-                    {
-                        string char1 = string.IsNullOrEmpty(item.Driver_Info.First_name) ? null : item.Driver_Info.First_name[0] + "";
-                        string char2 = string.IsNullOrEmpty(item.Driver_Info.Last_name) ? null : item.Driver_Info.Last_name[0] + "";
-                        invoice = char1 + char2 + invoice;
-                    }
-                    dr["Invoice"] = invoice;
-                    dr["Load_"] = item.Loaded_miles;
-                    dr["PO_"] = item.PO_;
-                    dr["PickupLocation"] = item.Pick_up_location;
-                    dr["DeliveryLocation"] = item.Delivery_location;
-                    dr["ComfirmedRate"] = item.Comfirmed_Rate == null ? ".00" : (int)item.Comfirmed_Rate + ".00";
-                    dr["Lumber_ExtraCharges"] = item.Extra_charges == null ? ".00" : (int)item.Extra_charges + ".00";
-                    dr["DetentionPay"] = item.Detention_pay == null ? ".00" : (int)item.Detention_pay + ".00";
-                    dr["TotalCharges"] = item.Total_charges == null ? ".00" : (int)item.Total_charges + ".00";
-                    dr["ExtraStops"] = item.Extra_stops;
-                    dr["DispatcherName"] = item.Dispatchers != null ? item.Dispatchers.Last_name + " " + item.Dispatchers.Last_name : "";
+            int coID = int.Parse(s);
+            var co = db.Company.First(m => m.ID == coID);
 
-                    dr["CompanyName"] = co.Name;
-                    dr["CompanyAddress"] = co.Address;
-                    dr["CompanyPhone"] = co.PhoneNumber;
-                    dr["CompanyFax"] = co.FaxNumber;
-                    dt.Rows.Add(dr);
-                }
-            }
-            else
+            obj.Company = coID;
+            db.SaveChanges();
+
+            DataRow dr = dt.NewRow();
+            dr["Date"] = String.Format("{0:MM/dd/yyyy}", obj.Order_date);
+            dr["CustomerName"] = obj.Customer_Info != null ? obj.Customer_Info.Customer_Name : "";
+            dr["CustomerAddress"] = obj.Customer_Info != null ? obj.Customer_Info.City + ", " +
+                obj.Customer_Info.State + " " + obj.Customer_Info.ZIP_Code : "";
+            dr["Street"] = obj.Customer_Info != null ? obj.Customer_Info.Street : "";
+            //Lấy 2 kí tự đầu của first name, last name dirver info
+            string invoice = obj.Invoice + "";
+            if (obj.Driver_Info != null)
             {
-                DataRow dr = dt.NewRow();
-                dr["Date"] = String.Format("{0:MM/dd/yyyy}", item.Order_date);
-                dr["CustomerName"] = item.Customer_Info != null ? item.Customer_Info.Customer_Name : "";
-                dr["CustomerAddress"] = item.Customer_Info != null ? item.Customer_Info.City + ", " +
-                    item.Customer_Info.State + " " + item.Customer_Info.ZIP_Code : "";
-                dr["Street"] = item.Customer_Info != null ? item.Customer_Info.Street : "";
-                //Lấy 2 kí tự đầu của first name, last name dirver info
-                string invoice = item.Invoice + "";
-                if (item.Driver_Info != null)
-                {
-                    string char1 = string.IsNullOrEmpty(item.Driver_Info.First_name) ? null : item.Driver_Info.First_name[0] + "";
-                    string char2 = string.IsNullOrEmpty(item.Driver_Info.Last_name) ? null : item.Driver_Info.Last_name[0] + "";
-                    invoice = char1 + char2 + invoice;
-                }
-                dr["Invoice"] = invoice;
-                dr["Load_"] = item.Loaded_miles;
-                dr["PO_"] = item.PO_;
-                dr["PickupLocation"] = item.Pick_up_location;
-                dr["DeliveryLocation"] = item.Delivery_location;
-                dr["ComfirmedRate"] = item.Comfirmed_Rate == null ? ".00" : (int)item.Comfirmed_Rate + ".00";
-                dr["Lumber_ExtraCharges"] = item.Extra_charges == null ? ".00" : (int)item.Extra_charges + ".00";
-                dr["DetentionPay"] = item.Detention_pay == null ? ".00" : (int)item.Detention_pay + ".00";
-                dr["TotalCharges"] = item.Total_charges == null ? ".00" : (int)item.Total_charges + ".00";
-                dr["ExtraStops"] = item.Extra_stops;
-                dr["DispatcherName"] = item.Dispatchers != null ? item.Dispatchers.Last_name + " " + item.Dispatchers.Last_name : "";
-                dt.Rows.Add(dr);
+                string char1 = string.IsNullOrEmpty(obj.Driver_Info.First_name) ? null : obj.Driver_Info.First_name[0] + "";
+                string char2 = string.IsNullOrEmpty(obj.Driver_Info.Last_name) ? null : obj.Driver_Info.Last_name[0] + "";
+                invoice = char1 + char2 + invoice;
             }
+            dr["Invoice"] = invoice;
+            dr["Load_"] = obj.Loaded_miles;
+            dr["PO_"] = obj.PO_;
+            dr["PickupLocation"] = obj.Pick_up_location;
+            dr["DeliveryLocation"] = obj.Delivery_location;
+            dr["ComfirmedRate"] = obj.Comfirmed_Rate == null ? ".00" : (int)obj.Comfirmed_Rate + ".00";
+            dr["Lumber_ExtraCharges"] = obj.Extra_charges == null ? ".00" : (int)obj.Extra_charges + ".00";
+            dr["DetentionPay"] = obj.Detention_pay == null ? ".00" : (int)obj.Detention_pay + ".00";
+            dr["TotalCharges"] = obj.Total_charges == null ? ".00" : (int)obj.Total_charges + ".00";
+            dr["ExtraStops"] = obj.Extra_stops;
+            dr["DispatcherName"] = obj.Dispatchers != null ? obj.Dispatchers.Last_name + " " + obj.Dispatchers.Last_name : "";
+
+            dr["CompanyName"] = co.Name;
+            dr["CompanyAddress"] = co.Address;
+            dr["CompanyPhone"] = co.PhoneNumber;
+            dr["CompanyFax"] = co.FaxNumber;
+            dt.Rows.Add(dr);
 
             return dt;
         }
