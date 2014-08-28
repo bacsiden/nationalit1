@@ -16,7 +16,7 @@ namespace NationalIT.Controllers
         [ValidationFunction(ActionName.ViewListEquipment)]
         public ActionResult Index(int? page)
         {
-            return View(DB.Entities.Equipment.OrderByDescending(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
+            return View(DB.Entities.Equipment.OrderBy(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
         }
         //
         // GET: /Owner/Edit/5

@@ -541,22 +541,6 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Equipment> Equipment
-        {
-            get
-            {
-                if ((_Equipment == null))
-                {
-                    _Equipment = base.CreateObjectSet<Equipment>("Equipment");
-                }
-                return _Equipment;
-            }
-        }
-        private ObjectSet<Equipment> _Equipment;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Trip_Info> Trip_Info
         {
             get
@@ -569,6 +553,22 @@ namespace NationalIT
             }
         }
         private ObjectSet<Trip_Info> _Trip_Info;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Equipment> Equipment
+        {
+            get
+            {
+                if ((_Equipment == null))
+                {
+                    _Equipment = base.CreateObjectSet<Equipment>("Equipment");
+                }
+                return _Equipment;
+            }
+        }
+        private ObjectSet<Equipment> _Equipment;
 
         #endregion
 
@@ -799,19 +799,19 @@ namespace NationalIT
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Equipment EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToEquipment(Equipment equipment)
-        {
-            base.AddObject("Equipment", equipment);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the Trip_Info EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToTrip_Info(Trip_Info trip_Info)
         {
             base.AddObject("Trip_Info", trip_Info);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Equipment EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEquipment(Equipment equipment)
+        {
+            base.AddObject("Equipment", equipment);
         }
 
         #endregion
@@ -2929,7 +2929,7 @@ namespace NationalIT
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String Owner
+        public Nullable<global::System.Int32> Owner
         {
             get
             {
@@ -2939,13 +2939,13 @@ namespace NationalIT
             {
                 OnOwnerChanging(value);
                 ReportPropertyChanging("Owner");
-                _Owner = StructuralObject.SetValidValue(value, true);
+                _Owner = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Owner");
                 OnOwnerChanged();
             }
         }
-        private global::System.String _Owner;
-        partial void OnOwnerChanging(global::System.String value);
+        private Nullable<global::System.Int32> _Owner;
+        partial void OnOwnerChanging(Nullable<global::System.Int32> value);
         partial void OnOwnerChanged();
     
         /// <summary>
@@ -3025,7 +3025,7 @@ namespace NationalIT
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String DATE_LEASED
+        public Nullable<global::System.DateTime> DATE_LEASED
         {
             get
             {
@@ -3035,13 +3035,13 @@ namespace NationalIT
             {
                 OnDATE_LEASEDChanging(value);
                 ReportPropertyChanging("DATE_LEASED");
-                _DATE_LEASED = StructuralObject.SetValidValue(value, true);
+                _DATE_LEASED = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("DATE_LEASED");
                 OnDATE_LEASEDChanged();
             }
         }
-        private global::System.String _DATE_LEASED;
-        partial void OnDATE_LEASEDChanging(global::System.String value);
+        private Nullable<global::System.DateTime> _DATE_LEASED;
+        partial void OnDATE_LEASEDChanging(Nullable<global::System.DateTime> value);
         partial void OnDATE_LEASEDChanged();
     
         /// <summary>
