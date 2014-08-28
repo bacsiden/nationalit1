@@ -18,9 +18,13 @@
         $(".BeforePrintReport").click(function () {
             var printUrl = $(this).attr("href");
             var idlist = $(".chonsen-company").val();
-//            $("._CompanyExpenses input:checkbox:checked").each(function () {
-//                idlist += $(this).val() + "-";
-//            });
+            if (idlist == null || idlist == '') {
+                alert("Please select company!");
+                return false;
+            }
+            //            $("._CompanyExpenses input:checkbox:checked").each(function () {
+            //                idlist += $(this).val() + "-";
+            //            });
             $(this).attr("href", addParam(printUrl, "companyID", idlist));
         });
     });
