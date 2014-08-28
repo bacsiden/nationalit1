@@ -95,6 +95,13 @@ namespace NationalIT.Controllers
                     }
 
                     xtr.Save(fileName);
+
+                    try {
+                        if (!System.IO.Directory.Exists(model.PathBackupFolder))
+                            System.IO.Directory.CreateDirectory(model.PathBackupFolder);
+                    }
+                    catch { }
+
                     return RedirectToAction("Index","Config");
                 }
                 catch (Exception ex)
