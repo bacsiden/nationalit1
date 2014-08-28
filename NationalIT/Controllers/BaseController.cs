@@ -269,7 +269,7 @@ namespace NationalIT
         {
             get
             {
-                return int.Parse(System.Configuration.ConfigurationManager.AppSettings["PageSize"]);
+                return int.Parse(DB.Entities.mConfig.FirstOrDefault(m => m.Key == "PageSize").Title);
             }
         }
         public List<string> ListFunctionCode
