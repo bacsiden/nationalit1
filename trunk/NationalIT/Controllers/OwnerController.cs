@@ -17,7 +17,7 @@ namespace NationalIT.Controllers
         [ValidationFunction(ActionName.ViewListOwners)]
         public ActionResult Index(int? page)
         {
-            return View(DB.Entities.Owners.OrderByDescending(m => m.OwnerID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
+            return View(DB.Entities.Owners.OrderBy(m=>m.OwnerID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
         }
         //
         // GET: /Owner/Edit/5

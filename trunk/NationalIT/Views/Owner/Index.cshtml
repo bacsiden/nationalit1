@@ -48,7 +48,7 @@
                     @String.Format("{0:C}", item.fee_rate)
                 </td>
                 <td>
-                    @String.Format("{0:C}", item.pay_rate)
+                    @String.Format("{0:C}", item.pay_rate).Replace("$",null)
                 </td>
             </tr>
         }
