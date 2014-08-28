@@ -5,13 +5,7 @@
 <div id="ThongBao">
     <h3 class="heading">
         @ViewBag.Title</h3>
-    @using (Ajax.BeginForm("SetUpFolderBackUp", "System", new AjaxOptions()
-    {
-        UpdateTargetId = "ThongBao",
-        InsertionMode = InsertionMode.Replace,
-        HttpMethod = "POST",
-        OnFailure = "alert('Error');"
-    }))
+    @using (Html.BeginForm("SetUpFolderBackUp", "System"))
     {            
         <div class="row-fluid">
             <div class="span12">

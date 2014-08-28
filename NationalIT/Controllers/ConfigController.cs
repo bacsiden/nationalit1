@@ -13,6 +13,28 @@ namespace NationalIT.Controllers
         [ValidationFunction(ActionName.ViewSystemConfig)]
         public ActionResult Index()
         {
+            // Đường dẫn tới file xml.
+            string fileName = HttpContext.Server.MapPath("~/App_Data/config.xml");
+            if (!System.IO.File.Exists(fileName))
+            {
+                CrearDocumentoXML(fileName);
+            }
+            // Tạo một đối tượng TextReader mới
+            var xtr = System.Xml.Linq.XDocument.Load(fileName);
+            string path_backup = "";
+            // string passwordsso = "";
+            //bool useOtherMailServer = false;
+            var config = xtr.Elements("system.config").FirstOrDefault();
+            try
+            {
+                if (config.Descendants("path-backup").Any())
+                    path_backup = config.Element("path-backup").Value.Trim();
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
+            ViewBag.PathBackupFolder = path_backup;
             return View(DB.Entities.mConfig.ToList());
         }
         //
