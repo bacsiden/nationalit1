@@ -50,7 +50,6 @@ namespace NationalIT.Controllers
             return View(model);
         }
 
-
         [Authorize]
         [ValidationFunction(ActionName.SystemAdmin)]
         [HttpPost]
@@ -66,7 +65,6 @@ namespace NationalIT.Controllers
                     {
                         CrearDocumentoXML(fileName);
                     }
-
                     // Tạo một đối tượng TextReader mới
                     var xtr = System.Xml.Linq.XDocument.Load(fileName);
                     if (!xtr.Descendants("system.config").Any())
@@ -97,30 +95,15 @@ namespace NationalIT.Controllers
                     }
 
                     xtr.Save(fileName);
-                    ViewBag.saveSuccess = "1";
-                    return JavaScript(@"alert('Save successfully.');$('#loadingBefore').html('');");
+                    return RedirectToAction("Index","Config");
                 }
                 catch (Exception ex)
                 {
-                    return JavaScript(@"alert('Error system. Please try again a few minutes.');$('#loadingBefore').html('');");
+                    ModelState.AddModelError("", "Error system. Please try again a few minutes.");
                 }
             }
-            return PartialView(model);
+            return View(model);
         }
-        protected void CrearDocumentoXML(string filePath)
-        {
-
-            XDocument miXML = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
-            XElement systemConfig = new XElement("system.config");
-
-            // create note....path-backup,path_backup_image, ....
-            XElement path_backup = new XElement("path-backup");
-
-            systemConfig.Add(path_backup);
-
-            miXML.Add(systemConfig);
-
-            miXML.Save(filePath);
-        }
+        
     }
 }

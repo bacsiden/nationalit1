@@ -10,6 +10,7 @@ using System.EnterpriseServices;
 using System.ComponentModel;
 using NationalIT.Controllers;
 using System.Data.SqlClient;
+using System.Xml.Linq;
 
 namespace NationalIT
 {
@@ -434,5 +435,21 @@ namespace NationalIT
             return result;
         }
         #endregion Render View|PartialView to String
+
+        public void CrearDocumentoXML(string filePath)
+        {
+
+            XDocument miXML = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
+            XElement systemConfig = new XElement("system.config");
+
+            // create note....path-backup,path_backup_image, ....
+            XElement path_backup = new XElement("path-backup");
+
+            systemConfig.Add(path_backup);
+
+            miXML.Add(systemConfig);
+
+            miXML.Save(filePath);
+        }
     }
 }
