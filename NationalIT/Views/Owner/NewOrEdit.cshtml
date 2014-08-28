@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="fee_rate">@Html.LabelFor(model => model.fee_rate)</label>
+                        <label class="control-label" for="fee_rate">Fee rate</label>
                         <div class="controls">
                             <div class="span12">
                                 @Html.TextBoxFor(model => model.fee_rate, new { @class = "input-xlarge" }) ($)
@@ -47,10 +47,10 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="pay_rate">@Html.LabelFor(model => model.pay_rate)</label>
+                        <label class="control-label" for="pay_rate">Pay rate</label>
                         <div class="controls">
                             <div class="span12">
-                                @Html.TextBoxFor(model => model.pay_rate, new { @class = "input-xlarge" }) ($)
+                                @Html.TextBoxFor(model => model.pay_rate, new { @class = "input-xlarge" })
                                 @Html.ValidationMessageFor(model => model.pay_rate)
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                 }
                 <br />
                 <h4>List drivers</h4>
-                @Html.Partial("_ListDriver", NationalIT.DB.Entities.Driver_Info.Where(m => m.Owner_Name == Model.OwnerID).ToList())
+                @Html.Partial("_ListDriver", Model.OwnerID)
             </div>
         </div>
     </div>

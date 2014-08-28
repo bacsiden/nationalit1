@@ -1,33 +1,38 @@
-﻿@model List<NationalIT.Driver_Info>
-@if (Model.Count > 0)
+﻿@model int
+@if (Model > 0)
 {
     <table class="table table-striped table-bordered dTableR">
         <thead>
             <tr>
                 <th>
-                    Driver ID
+                    Driver 
                 </th>
                 <th>
-                    Driver fist name
+                    DATE LEASED
                 </th>
                 <th>
-                    Driver last name
+                    Inspection expiration
                 </th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+        @{
+                var db = NationalIT.DB.Entities;
+                var lst = db.Equipment.Where(m => m.ID == Model && m.Driver!=null);
+                NationalIT.Driver_Info driver = null;
+            }
+            @foreach (var item in lst)
             {
-                
+                driver = db.Driver_Info.FirstOrDefault(m => m.ID == item.Driver);
                 <tr class="rowlink">
                     <td>
-                        @item.ID
+                        @(driver != null ? driver.First_name + " " + driver.Last_name : null)
                     </td>
                     <td>
-                        @item.First_name
+                        @String.Format("{0:MM/dd/yyyy}", item.DATE_LEASED)
                     </td>
                     <td>
-                        @item.Last_name
+                        @String.Format("{0:MM/dd/yyyy}", item.Inspection_Expiration)
                     </td>
                 </tr>
             }

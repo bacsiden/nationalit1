@@ -23,23 +23,17 @@ namespace NationalIT.Controllers
         [ValidationFunction(ActionName.ViewListEquipment)]
         public ActionResult NewOrEdit(int? id = 0)
         {
-            var obj = DB.Entities.Equipment.FirstOrDefault(m => m.ID == id);
+            var db = DB.Entities;
+            var obj = db.Equipment.FirstOrDefault(m => m.ID == id);
             if (obj == null) obj = new Equipment();
-
-
-            string dataDriver = "<option >--Select Driver--</option>";
-            foreach (var item in NationalIT.DB.Entities.Driver_Info)
-            {
-                if (obj != null && obj.Driver == item.ID)
-                {
-                    dataDriver += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
-                }
-                else
-                {
-                    dataDriver += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
-                }
-            }
+            var lstDriver = db.Driver_Info.ToList();
+            string dataDriver = CommonFunction.BuildDropdown(lstDriver.Select(m => m.ID.ToString()).ToArray(),
+                lstDriver.Select(m => m.First_name + " " + m.Last_name).ToArray(), obj.Driver, "--Select Driver--");
             ViewBag.dataDriver = dataDriver;
+
+            var lstOwner = db.Owners.ToList();
+            ViewBag.dataOwner = CommonFunction.BuildDropdown(lstOwner.Select(m => m.OwnerID.ToString()).ToArray(),
+                lstOwner.Select(m => m.Name).ToArray(), obj.Owner, "--Select Owner--");
 
             return View(obj);
         }
@@ -51,9 +45,9 @@ namespace NationalIT.Controllers
         [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult NewOrEdit(Equipment model, FormCollection frm)
         {
+            var db = DB.Entities;
             try
             {
-                var db = DB.Entities;
                 model.Inspection_Expiration = CommonFunction.ChangeFormatDate(frm["Inspection_Expiration"]);
                 model.Registration_Expiration = CommonFunction.ChangeFormatDate(frm["Registration_Expiration"]);
                 if (model.ID == 0)
@@ -72,19 +66,14 @@ namespace NationalIT.Controllers
             }
             catch
             {
-                string dataDriver = "<option >--Select Driver--</option>";
-                foreach (var item in NationalIT.DB.Entities.Driver_Info)
-                {
-                    if (model != null && model.Driver == item.ID)
-                    {
-                        dataDriver += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
-                    }
-                    else
-                    {
-                        dataDriver += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
-                    }
-                }
+                var lstDriver = db.Driver_Info.ToList();
+                string dataDriver = CommonFunction.BuildDropdown(lstDriver.Select(m => m.ID.ToString()).ToArray(),
+                    lstDriver.Select(m => m.First_name + " " + m.Last_name).ToArray(), model.Driver, "--Select Driver--");
                 ViewBag.dataDriver = dataDriver;
+
+                var lstOwner = db.Owners.ToList();
+                ViewBag.dataOwner = CommonFunction.BuildDropdown(lstOwner.Select(m => m.OwnerID.ToString()).ToArray(),
+                    lstOwner.Select(m => m.Name).ToArray(), model.Owner, "--Select Owner--");
                 return View();
             }
         }
