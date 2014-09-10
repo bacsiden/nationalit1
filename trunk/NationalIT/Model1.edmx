@@ -15,6 +15,7 @@
           <EntitySet Name="Equipment" EntityType="DB_9B22F2_nationalitModel.Store.Equipment" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="EscrowLoan" EntityType="DB_9B22F2_nationalitModel.Store.EscrowLoan" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="FixedCharges" EntityType="DB_9B22F2_nationalitModel.Store.FixedCharges" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FixedExpenses" EntityType="DB_9B22F2_nationalitModel.Store.FixedExpenses" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Frequency" EntityType="DB_9B22F2_nationalitModel.Store.Frequency" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Fuel___Expenses" EntityType="DB_9B22F2_nationalitModel.Store.Fuel___Expenses" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Income" EntityType="DB_9B22F2_nationalitModel.Store.Income" store:Type="Tables" Schema="dbo" />
@@ -275,6 +276,17 @@
           <Property Name="Prv_Date" Type="datetime" />
           <Property Name="Amount_To_Date" Type="float" Nullable="false" />
           <Property Name="Automatic" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FixedExpenses">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Expenses" Type="nvarchar" MaxLength="50" />
+          <Property Name="Frequency" Type="varchar" MaxLength="50" />
+          <Property Name="Duration" Type="int" Nullable="false" />
+          <Property Name="Automatic" Type="bit" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Frequency">
           <Key>
@@ -567,6 +579,7 @@
           <Property Name="DriverID" Type="int" Nullable="false" />
           <Property Name="Pay_rate" Type="float" Nullable="false" />
           <Property Name="fuel___advance_Fee_rate" Type="float" Nullable="false" />
+          <Property Name="DriverPayment" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Trip_Info">
           <Key>
@@ -961,7 +974,6 @@
           <EntitySet Name="Temp_Operating_Expenses" EntityType="DB_9B22F2_nationalitModel.Temp_Operating_Expenses" />
           <EntitySet Name="Temp_Split_Expenses" EntityType="DB_9B22F2_nationalitModel.Temp_Split_Expenses" />
           <EntitySet Name="Temp_Trip_Info" EntityType="DB_9B22F2_nationalitModel.Temp_Trip_Info" />
-          <EntitySet Name="TempReport" EntityType="DB_9B22F2_nationalitModel.TempReport" />
           <EntitySet Name="Violations" EntityType="DB_9B22F2_nationalitModel.Violations" />
           <AssociationSet Name="FK_Account_aspnet_Users" Association="DB_9B22F2_nationalitModel.FK_Account_aspnet_Users">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
@@ -986,22 +998,6 @@
           <AssociationSet Name="FK_Violations_Driver_Info" Association="DB_9B22F2_nationalitModel.FK_Violations_Driver_Info">
             <End Role="Driver_Info" EntitySet="Driver_Info" />
             <End Role="Violations" EntitySet="Violations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Temp_Fuel_Expenses_TempReport" Association="DB_9B22F2_nationalitModel.FK_Temp_Fuel_Expenses_TempReport">
-            <End Role="TempReport" EntitySet="TempReport" />
-            <End Role="Temp_Fuel_Expenses" EntitySet="Temp_Fuel_Expenses" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Temp_Operating_Expenses_TempReport" Association="DB_9B22F2_nationalitModel.FK_Temp_Operating_Expenses_TempReport">
-            <End Role="TempReport" EntitySet="TempReport" />
-            <End Role="Temp_Operating_Expenses" EntitySet="Temp_Operating_Expenses" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Temp_Split_Expenses_TempReport" Association="DB_9B22F2_nationalitModel.FK_Temp_Split_Expenses_TempReport">
-            <End Role="TempReport" EntitySet="TempReport" />
-            <End Role="Temp_Split_Expenses" EntitySet="Temp_Split_Expenses" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Temp_Trip_Info_TempReport" Association="DB_9B22F2_nationalitModel.FK_Temp_Trip_Info_TempReport">
-            <End Role="TempReport" EntitySet="TempReport" />
-            <End Role="Temp_Trip_Info" EntitySet="Temp_Trip_Info" />
           </AssociationSet>
           <AssociationSet Name="mFunctionInRole" Association="DB_9B22F2_nationalitModel.mFunctionInRole">
             <End Role="mFunction" EntitySet="mFunction" />
@@ -1045,6 +1041,24 @@
           <AssociationSet Name="FK_Violations_Equipment" Association="DB_9B22F2_nationalitModel.FK_Violations_Equipment">
             <End Role="Equipment" EntitySet="Equipment" />
             <End Role="Violations" EntitySet="Violations" />
+          </AssociationSet>
+          <EntitySet Name="FixedExpenses" EntityType="DB_9B22F2_nationalitModel.FixedExpenses" />
+          <EntitySet Name="TempReport" EntityType="DB_9B22F2_nationalitModel.TempReport" />
+          <AssociationSet Name="FK_Temp_Fuel_Expenses_TempReport" Association="DB_9B22F2_nationalitModel.FK_Temp_Fuel_Expenses_TempReport">
+            <End Role="TempReport" EntitySet="TempReport" />
+            <End Role="Temp_Fuel_Expenses" EntitySet="Temp_Fuel_Expenses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Temp_Operating_Expenses_TempReport" Association="DB_9B22F2_nationalitModel.FK_Temp_Operating_Expenses_TempReport">
+            <End Role="TempReport" EntitySet="TempReport" />
+            <End Role="Temp_Operating_Expenses" EntitySet="Temp_Operating_Expenses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Temp_Split_Expenses_TempReport" Association="DB_9B22F2_nationalitModel.FK_Temp_Split_Expenses_TempReport">
+            <End Role="TempReport" EntitySet="TempReport" />
+            <End Role="Temp_Split_Expenses" EntitySet="Temp_Split_Expenses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Temp_Trip_Info_TempReport" Association="DB_9B22F2_nationalitModel.FK_Temp_Trip_Info_TempReport">
+            <End Role="TempReport" EntitySet="TempReport" />
+            <End Role="Temp_Trip_Info" EntitySet="Temp_Trip_Info" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="aspnet_Users">
@@ -1428,20 +1442,6 @@
           <Property Type="DateTime" Name="Customer_Invoiced_date" Nullable="false" />
           <NavigationProperty Name="TempReport" Relationship="DB_9B22F2_nationalitModel.FK_Temp_Trip_Info_TempReport" FromRole="Temp_Trip_Info" ToRole="TempReport" />
         </EntityType>
-        <EntityType Name="TempReport">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="DateTime" Name="Date" Nullable="false" />
-          <Property Type="Int32" Name="DriverID" Nullable="false" />
-          <Property Type="Double" Name="Pay_rate" Nullable="false" />
-          <Property Type="Double" Name="fuel___advance_Fee_rate" Nullable="false" />
-          <NavigationProperty Name="Temp_Fuel_Expenses" Relationship="DB_9B22F2_nationalitModel.FK_Temp_Fuel_Expenses_TempReport" FromRole="TempReport" ToRole="Temp_Fuel_Expenses" />
-          <NavigationProperty Name="Temp_Operating_Expenses" Relationship="DB_9B22F2_nationalitModel.FK_Temp_Operating_Expenses_TempReport" FromRole="TempReport" ToRole="Temp_Operating_Expenses" />
-          <NavigationProperty Name="Temp_Split_Expenses" Relationship="DB_9B22F2_nationalitModel.FK_Temp_Split_Expenses_TempReport" FromRole="TempReport" ToRole="Temp_Split_Expenses" />
-          <NavigationProperty Name="Temp_Trip_Info" Relationship="DB_9B22F2_nationalitModel.FK_Temp_Trip_Info_TempReport" FromRole="TempReport" ToRole="Temp_Trip_Info" />
-        </EntityType>
         <EntityType Name="Violations">
           <Key>
             <PropertyRef Name="ID" />
@@ -1527,54 +1527,6 @@
             </Principal>
             <Dependent Role="Violations">
               <PropertyRef Name="Driver" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Temp_Fuel_Expenses_TempReport">
-          <End Type="DB_9B22F2_nationalitModel.TempReport" Role="TempReport" Multiplicity="1" />
-          <End Type="DB_9B22F2_nationalitModel.Temp_Fuel_Expenses" Role="Temp_Fuel_Expenses" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TempReport">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Temp_Fuel_Expenses">
-              <PropertyRef Name="TempReportID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Temp_Operating_Expenses_TempReport">
-          <End Type="DB_9B22F2_nationalitModel.TempReport" Role="TempReport" Multiplicity="1" />
-          <End Type="DB_9B22F2_nationalitModel.Temp_Operating_Expenses" Role="Temp_Operating_Expenses" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TempReport">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Temp_Operating_Expenses">
-              <PropertyRef Name="TempReportID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Temp_Split_Expenses_TempReport">
-          <End Type="DB_9B22F2_nationalitModel.TempReport" Role="TempReport" Multiplicity="1" />
-          <End Type="DB_9B22F2_nationalitModel.Temp_Split_Expenses" Role="Temp_Split_Expenses" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TempReport">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Temp_Split_Expenses">
-              <PropertyRef Name="TempReportID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Temp_Trip_Info_TempReport">
-          <End Type="DB_9B22F2_nationalitModel.TempReport" Role="TempReport" Multiplicity="1" />
-          <End Type="DB_9B22F2_nationalitModel.Temp_Trip_Info" Role="Temp_Trip_Info" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TempReport">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Temp_Trip_Info">
-              <PropertyRef Name="TempReportID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1740,6 +1692,80 @@
             </Principal>
             <Dependent Role="Violations">
               <PropertyRef Name="Equipment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="FixedExpenses">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Expenses" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Frequency" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Duration" Nullable="false" />
+          <Property Type="Boolean" Name="Automatic" Nullable="false" />
+          <Property Type="Int32" Name="Amount" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TempReport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <Property Type="Int32" Name="DriverID" Nullable="false" />
+          <Property Type="Double" Name="Pay_rate" Nullable="false" />
+          <Property Type="Double" Name="fuel___advance_Fee_rate" Nullable="false" />
+          <Property Type="Double" Name="DriverPayment" Nullable="false" />
+          <NavigationProperty Name="Temp_Fuel_Expenses" Relationship="DB_9B22F2_nationalitModel.FK_Temp_Fuel_Expenses_TempReport" FromRole="TempReport" ToRole="Temp_Fuel_Expenses" />
+          <NavigationProperty Name="Temp_Operating_Expenses" Relationship="DB_9B22F2_nationalitModel.FK_Temp_Operating_Expenses_TempReport" FromRole="TempReport" ToRole="Temp_Operating_Expenses" />
+          <NavigationProperty Name="Temp_Split_Expenses" Relationship="DB_9B22F2_nationalitModel.FK_Temp_Split_Expenses_TempReport" FromRole="TempReport" ToRole="Temp_Split_Expenses" />
+          <NavigationProperty Name="Temp_Trip_Info" Relationship="DB_9B22F2_nationalitModel.FK_Temp_Trip_Info_TempReport" FromRole="TempReport" ToRole="Temp_Trip_Info" />
+        </EntityType>
+        <Association Name="FK_Temp_Fuel_Expenses_TempReport">
+          <End Type="DB_9B22F2_nationalitModel.TempReport" Role="TempReport" Multiplicity="1" />
+          <End Type="DB_9B22F2_nationalitModel.Temp_Fuel_Expenses" Role="Temp_Fuel_Expenses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TempReport">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Temp_Fuel_Expenses">
+              <PropertyRef Name="TempReportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Temp_Operating_Expenses_TempReport">
+          <End Type="DB_9B22F2_nationalitModel.TempReport" Role="TempReport" Multiplicity="1" />
+          <End Type="DB_9B22F2_nationalitModel.Temp_Operating_Expenses" Role="Temp_Operating_Expenses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TempReport">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Temp_Operating_Expenses">
+              <PropertyRef Name="TempReportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Temp_Split_Expenses_TempReport">
+          <End Type="DB_9B22F2_nationalitModel.TempReport" Role="TempReport" Multiplicity="1" />
+          <End Type="DB_9B22F2_nationalitModel.Temp_Split_Expenses" Role="Temp_Split_Expenses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TempReport">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Temp_Split_Expenses">
+              <PropertyRef Name="TempReportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Temp_Trip_Info_TempReport">
+          <End Type="DB_9B22F2_nationalitModel.TempReport" Role="TempReport" Multiplicity="1" />
+          <End Type="DB_9B22F2_nationalitModel.Temp_Trip_Info" Role="Temp_Trip_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TempReport">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Temp_Trip_Info">
+              <PropertyRef Name="TempReportID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2128,17 +2154,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TempReport">
-            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.TempReport">
-              <MappingFragment StoreEntitySet="TempReport">
-                <ScalarProperty Name="fuel___advance_Fee_rate" ColumnName="fuel___advance_Fee_rate" />
-                <ScalarProperty Name="Pay_rate" ColumnName="Pay_rate" />
-                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Violations">
             <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.Violations">
               <MappingFragment StoreEntitySet="Violations">
@@ -2259,6 +2274,30 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="FixedExpenses">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.FixedExpenses">
+              <MappingFragment StoreEntitySet="FixedExpenses">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Automatic" ColumnName="Automatic" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+                <ScalarProperty Name="Expenses" ColumnName="Expenses" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TempReport">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.TempReport">
+              <MappingFragment StoreEntitySet="TempReport">
+                <ScalarProperty Name="DriverPayment" ColumnName="DriverPayment" />
+                <ScalarProperty Name="fuel___advance_Fee_rate" ColumnName="fuel___advance_Fee_rate" />
+                <ScalarProperty Name="Pay_rate" ColumnName="Pay_rate" />
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2305,7 +2344,6 @@
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Temp_Operating_Expenses" Width="1.5" PointX="13" PointY="8.125" Height="3.3263964843749818" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Temp_Split_Expenses" Width="1.5" PointX="13" PointY="12.25" Height="3.5186979166666674" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Temp_Trip_Info" Width="1.5" PointX="13" PointY="16.5" Height="7.172425130208353" />
-        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.TempReport" Width="1.5" PointX="10.75" PointY="12.25" Height="2.7494921874999818" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Violations" Width="1.5" PointX="8.25" PointY="11.5" Height="3.1340950520833246" />
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Account_aspnet_Users" >
           <ConnectorPoint PointX="19.90625" PointY="3.3071907552083246" />
@@ -2335,25 +2373,6 @@
           <ConnectorPoint PointX="6.916666666666667" PointY="13.384348958333334" />
           <ConnectorPoint PointX="7.083333333333333" PointY="13.384348958333334" />
           <ConnectorPoint PointX="8.25" PointY="13.384348958333334" />
-        </AssociationConnector>
-        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Temp_Fuel_Expenses_TempReport" >
-          <ConnectorPoint PointX="11.5" PointY="12.25" />
-          <ConnectorPoint PointX="11.5" PointY="5.4516503906249909" />
-          <ConnectorPoint PointX="13" PointY="5.4516503906249909" />
-        </AssociationConnector>
-        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Temp_Operating_Expenses_TempReport" >
-          <ConnectorPoint PointX="11.9062525" PointY="12.25" />
-          <ConnectorPoint PointX="11.9062525" PointY="9.7881982421874909" />
-          <ConnectorPoint PointX="13" PointY="9.7881982421874909" />
-        </AssociationConnector>
-        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Temp_Split_Expenses_TempReport" >
-          <ConnectorPoint PointX="12.25" PointY="13.624746093749991" />
-          <ConnectorPoint PointX="13" PointY="13.624746093749991" />
-        </AssociationConnector>
-        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Temp_Trip_Info_TempReport" >
-          <ConnectorPoint PointX="11.78125" PointY="14.999492187499982" />
-          <ConnectorPoint PointX="11.78125" PointY="20.756653645833339" />
-          <ConnectorPoint PointX="13" PointY="20.756653645833339" />
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.mFunctionInRole" >
           <ConnectorPoint PointX="17.25" PointY="3.6749886067708246" />
@@ -2421,6 +2440,27 @@
           <ConnectorPoint PointX="7.25" PointY="17.75" />
           <ConnectorPoint PointX="7.25" PointY="13.567176979166661" />
           <ConnectorPoint PointX="8.25" PointY="13.567176979166661" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.FixedExpenses" Width="1.5" PointX="18.375" PointY="16.75" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.TempReport" Width="1.5" PointX="10.75" PointY="12.125" Height="2.9417936197916674" />
+        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Temp_Fuel_Expenses_TempReport" >
+          <ConnectorPoint PointX="11.5" PointY="12.125" />
+          <ConnectorPoint PointX="11.5" PointY="5.451650390625" />
+          <ConnectorPoint PointX="13" PointY="5.451650390625" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Temp_Operating_Expenses_TempReport" >
+          <ConnectorPoint PointX="11.9062525" PointY="12.125" />
+          <ConnectorPoint PointX="11.9062525" PointY="9.7881982421875" />
+          <ConnectorPoint PointX="13" PointY="9.7881982421875" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Temp_Split_Expenses_TempReport" >
+          <ConnectorPoint PointX="12.25" PointY="13.658396809895834" />
+          <ConnectorPoint PointX="13" PointY="13.658396809895834" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Temp_Trip_Info_TempReport" >
+          <ConnectorPoint PointX="11.78125" PointY="15.066793619791667" />
+          <ConnectorPoint PointX="11.78125" PointY="20.756653645833332" />
+          <ConnectorPoint PointX="13" PointY="20.756653645833332" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

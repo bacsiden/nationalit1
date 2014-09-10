@@ -175,7 +175,11 @@ namespace NationalIT.Reports
                     parameters.Add(PayrollAmount);
                     parameters.Add(OwnerPayment);
                     parameters.Add(DriverPayment);
-
+                    if (objtr.DriverPayment != driverPayment)
+                    {
+                        objtr.DriverPayment = driverPayment;
+                        db.SaveChanges();
+                    }
                     this.ReportViewer1.LocalReport.SetParameters(parameters);
                     ReportViewer1.LocalReport.Refresh();
                     #endregion

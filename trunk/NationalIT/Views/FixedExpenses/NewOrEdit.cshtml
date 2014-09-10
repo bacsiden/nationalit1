@@ -1,0 +1,68 @@
+﻿@model NationalIT.FixedExpenses
+@{
+    ViewBag.Title = "Operating Expenses";
+}
+<div class="row-fluid">
+    <div class="span12">
+    <h4>Fixed Expenses</h4><br />
+        <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.ValidationSummary(true)                    
+
+            @Html.HiddenFor(model => model.ID)
+                    
+            <div class="control-group">
+                <label class="control-label" for="Date">@Html.LabelFor(model => model.Expenses)</label>
+                <div class="controls">
+                    <div class="span12">
+                        @Html.TextBoxFor(model => model.Expenses)
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="Frequency">
+                    Driver</label>
+                <div class="controls">
+                    <div class="span12">
+                        <select data-placeholder="Select Driver" name="Frequency" class="chosen-with-diselect input-xlarge">
+                            @Html.Raw(ViewBag.dataFrequency)
+                        </select>
+                        @Html.ValidationMessageFor(model => model.Frequency)
+                    </div>
+                </div>
+            </div>  
+            <div class="control-group">
+                <label class="control-label" for="Duration">@Html.LabelFor(model => model.Duration)</label>
+                <div class="controls">
+                    <div class="span12">
+                        @Html.TextBoxFor(model => model.Duration, new { @class = "input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.Duration)
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="Amount">@Html.LabelFor(model => model.Amount)</label>
+                <div class="controls">
+                    <div class="span12">
+                        @Html.TextBoxFor(model => model.Amount, new { @class = "input-xlarge" }) ($)
+                        @Html.ValidationMessageFor(model => model.Amount)
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="Automatic">@Html.LabelFor(model => model.Automatic)</label>
+                <div class="controls">
+                    <div class="span12">                        
+                        @Html.CheckBoxFor(model => model.Automatic, new { @class = "input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.Automatic)
+                    </div>
+                </div>
+            </div>    
+            <div class="form-actions">
+                @Html.Partial("_ShowSaveEdit")
+            </div>
+        }
+    </div>
+</div>
