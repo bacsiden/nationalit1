@@ -25,10 +25,6 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Fuel___Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Fuel___Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Fuel___Expenses), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Operating_Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Operating_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Operating_Expenses), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Fuel_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Fuel_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Fuel_Expenses), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Operating_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Operating_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Operating_Expenses), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Split_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Split_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Split_Expenses), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Trip_Info_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Trip_Info), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "mFunctionInRole", "mFunction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mFunction), "mRole", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mRole))]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "mMenuInFunction", "mFunction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mFunction), "mMenu", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mMenu))]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "mRoleInGroup", "mGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mGroup), "mRole", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mRole))]
@@ -39,6 +35,10 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Maintenance_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Maintenance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Maintenance), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Equipment1", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Fuel_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Fuel_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Fuel_Expenses), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Operating_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Operating_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Operating_Expenses), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Split_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Split_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Split_Expenses), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Trip_Info_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Trip_Info), true)]
 
 #endregion
 
@@ -493,22 +493,6 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<TempReport> TempReport
-        {
-            get
-            {
-                if ((_TempReport == null))
-                {
-                    _TempReport = base.CreateObjectSet<TempReport>("TempReport");
-                }
-                return _TempReport;
-            }
-        }
-        private ObjectSet<TempReport> _TempReport;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Violations> Violations
         {
             get
@@ -569,6 +553,38 @@ namespace NationalIT
             }
         }
         private ObjectSet<Equipment> _Equipment;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<FixedExpenses> FixedExpenses
+        {
+            get
+            {
+                if ((_FixedExpenses == null))
+                {
+                    _FixedExpenses = base.CreateObjectSet<FixedExpenses>("FixedExpenses");
+                }
+                return _FixedExpenses;
+            }
+        }
+        private ObjectSet<FixedExpenses> _FixedExpenses;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<TempReport> TempReport
+        {
+            get
+            {
+                if ((_TempReport == null))
+                {
+                    _TempReport = base.CreateObjectSet<TempReport>("TempReport");
+                }
+                return _TempReport;
+            }
+        }
+        private ObjectSet<TempReport> _TempReport;
 
         #endregion
 
@@ -775,14 +791,6 @@ namespace NationalIT
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the TempReport EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToTempReport(TempReport tempReport)
-        {
-            base.AddObject("TempReport", tempReport);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the Violations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToViolations(Violations violations)
@@ -812,6 +820,22 @@ namespace NationalIT
         public void AddToEquipment(Equipment equipment)
         {
             base.AddObject("Equipment", equipment);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the FixedExpenses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToFixedExpenses(FixedExpenses fixedExpenses)
+        {
+            base.AddObject("FixedExpenses", fixedExpenses);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the TempReport EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToTempReport(TempReport tempReport)
+        {
+            base.AddObject("TempReport", tempReport);
         }
 
         #endregion
@@ -3773,6 +3797,189 @@ namespace NationalIT
         private global::System.Boolean _Automatic;
         partial void OnAutomaticChanging(global::System.Boolean value);
         partial void OnAutomaticChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="FixedExpenses")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class FixedExpenses : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new FixedExpenses object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="duration">Initial value of the Duration property.</param>
+        /// <param name="automatic">Initial value of the Automatic property.</param>
+        /// <param name="amount">Initial value of the Amount property.</param>
+        public static FixedExpenses CreateFixedExpenses(global::System.Int32 id, global::System.Int32 duration, global::System.Boolean automatic, global::System.Int32 amount)
+        {
+            FixedExpenses fixedExpenses = new FixedExpenses();
+            fixedExpenses.ID = id;
+            fixedExpenses.Duration = duration;
+            fixedExpenses.Automatic = automatic;
+            fixedExpenses.Amount = amount;
+            return fixedExpenses;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Expenses
+        {
+            get
+            {
+                return _Expenses;
+            }
+            set
+            {
+                OnExpensesChanging(value);
+                ReportPropertyChanging("Expenses");
+                _Expenses = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Expenses");
+                OnExpensesChanged();
+            }
+        }
+        private global::System.String _Expenses;
+        partial void OnExpensesChanging(global::System.String value);
+        partial void OnExpensesChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Frequency
+        {
+            get
+            {
+                return _Frequency;
+            }
+            set
+            {
+                OnFrequencyChanging(value);
+                ReportPropertyChanging("Frequency");
+                _Frequency = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Frequency");
+                OnFrequencyChanged();
+            }
+        }
+        private global::System.String _Frequency;
+        partial void OnFrequencyChanging(global::System.String value);
+        partial void OnFrequencyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Duration
+        {
+            get
+            {
+                return _Duration;
+            }
+            set
+            {
+                OnDurationChanging(value);
+                ReportPropertyChanging("Duration");
+                _Duration = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Duration");
+                OnDurationChanged();
+            }
+        }
+        private global::System.Int32 _Duration;
+        partial void OnDurationChanging(global::System.Int32 value);
+        partial void OnDurationChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Automatic
+        {
+            get
+            {
+                return _Automatic;
+            }
+            set
+            {
+                OnAutomaticChanging(value);
+                ReportPropertyChanging("Automatic");
+                _Automatic = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Automatic");
+                OnAutomaticChanged();
+            }
+        }
+        private global::System.Boolean _Automatic;
+        partial void OnAutomaticChanging(global::System.Boolean value);
+        partial void OnAutomaticChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Amount
+        {
+            get
+            {
+                return _Amount;
+            }
+            set
+            {
+                OnAmountChanging(value);
+                ReportPropertyChanging("Amount");
+                _Amount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Amount");
+                OnAmountChanged();
+            }
+        }
+        private global::System.Int32 _Amount;
+        partial void OnAmountChanging(global::System.Int32 value);
+        partial void OnAmountChanged();
 
         #endregion
 
@@ -8879,7 +9086,8 @@ namespace NationalIT
         /// <param name="driverID">Initial value of the DriverID property.</param>
         /// <param name="pay_rate">Initial value of the Pay_rate property.</param>
         /// <param name="fuel___advance_Fee_rate">Initial value of the fuel___advance_Fee_rate property.</param>
-        public static TempReport CreateTempReport(global::System.Int32 id, global::System.DateTime date, global::System.Int32 driverID, global::System.Double pay_rate, global::System.Double fuel___advance_Fee_rate)
+        /// <param name="driverPayment">Initial value of the DriverPayment property.</param>
+        public static TempReport CreateTempReport(global::System.Int32 id, global::System.DateTime date, global::System.Int32 driverID, global::System.Double pay_rate, global::System.Double fuel___advance_Fee_rate, global::System.Double driverPayment)
         {
             TempReport tempReport = new TempReport();
             tempReport.ID = id;
@@ -8887,6 +9095,7 @@ namespace NationalIT
             tempReport.DriverID = driverID;
             tempReport.Pay_rate = pay_rate;
             tempReport.fuel___advance_Fee_rate = fuel___advance_Fee_rate;
+            tempReport.DriverPayment = driverPayment;
             return tempReport;
         }
 
@@ -9016,6 +9225,30 @@ namespace NationalIT
         private global::System.Double _fuel___advance_Fee_rate;
         partial void Onfuel___advance_Fee_rateChanging(global::System.Double value);
         partial void Onfuel___advance_Fee_rateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double DriverPayment
+        {
+            get
+            {
+                return _DriverPayment;
+            }
+            set
+            {
+                OnDriverPaymentChanging(value);
+                ReportPropertyChanging("DriverPayment");
+                _DriverPayment = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DriverPayment");
+                OnDriverPaymentChanged();
+            }
+        }
+        private global::System.Double _DriverPayment;
+        partial void OnDriverPaymentChanging(global::System.Double value);
+        partial void OnDriverPaymentChanged();
 
         #endregion
 

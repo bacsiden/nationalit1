@@ -1,0 +1,28 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<NationalIT.FixedExpenses>
+<div class="row-fluid">
+    <div class="span12">
+        <h3>
+            Fixed Expenses</h3>
+        <div class="row-fluid">
+            <div class="span12">
+                @Html.Partial("_MenuButtonNewEditOrDelete")
+                <div class="row-fluid">
+                    <div class="wrap-selectTripInfo">
+                        <div class="span12">
+                            Fixed Expenses
+                            <select data-placeholder="Select Split Expenses" name="FixedExpenses" class="chosen-with-diselect input-xlarge selectDriverInfo">
+                                @Html.Raw(ViewBag.dataFilterFixed)
+                            </select>
+                        </div>
+                        <div class="cleardiv">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div id="wrap-AjaxPaging">
+            @Html.Partial("_IndexPartial", Model)
+        </div>        
+    </div>
+</div>
