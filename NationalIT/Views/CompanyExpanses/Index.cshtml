@@ -7,7 +7,7 @@
     <div class="span12">
         <div class="row-fluid">
             <div class="span12">
-                @Html.Partial("_MenuButtonNewEditOrDelete")            
+                @Html.Partial("_MenuButtonNewEditOrDelete")
             </div>
         </div>
         <table class="table">
@@ -31,7 +31,7 @@
                     Comment
                 </th>
                 <th>
-                    approved by
+                    Dispatcher
                 </th>
             </tr>
             @foreach (var item in Model)
@@ -56,7 +56,9 @@
                         @item.Comment
                     </td>
                     <td>
-                        approved by
+                        @{var dis = NationalIT.DB.Entities.Dispatchers.FirstOrDefault(m => m.ID == item.ApprovedBy);
+                        }
+                        @(dis == null ? "" : dis.Last_name + " " + dis.First_name)
                     </td>
                 </tr>
             }
