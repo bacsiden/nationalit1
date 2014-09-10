@@ -14,9 +14,15 @@ namespace NationalIT.Controllers
         // GET: /Owner/
 
         [ValidationFunction(ActionName.ViewListFixedCharges)]
-        public ActionResult Index(int? page)
+        public ActionResult Index(int? page, int driverID = 0)
         {
-            return View(DB.Entities.FixedCharges.OrderByDescending(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
+            var lst = DB.Entities.FixedCharges.Where(m => driverID == 0 ? true : m.DriverID == driverID).OrderBy(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize);
+            if (driverID != 0)
+            {
+                var objDriver = DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == driverID);
+                ViewBag.DriverName = objDriver != null ? objDriver.Last_name + " " + objDriver.First_name : "";
+            }
+            return View(lst);
         }
         //
         // GET: /Owner/Edit/5
@@ -33,7 +39,7 @@ namespace NationalIT.Controllers
         }
         void SelectOption(FixedCharges obj)
         {
-            
+
             #region SELECT OPTION
             string dataDriver_Info = "<option >--Select Driver_Info--</option>";
             foreach (var item in NationalIT.DB.Entities.Driver_Info)
@@ -45,7 +51,7 @@ namespace NationalIT.Controllers
                 else
                 {
                     dataDriver_Info += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
-                }                
+                }
             }
 
             ViewBag.dataDriver_Info = dataDriver_Info;
@@ -59,11 +65,11 @@ namespace NationalIT.Controllers
                 else
                 {
                     dataFrequency += string.Format("<option value='{0}'>{1}</option>", item.ID, item.Title);
-                }                
+                }
             }
 
             ViewBag.dataFrequency = dataFrequency;
-           
+
             #endregion
         }
 

@@ -49,7 +49,7 @@
                     <a href="/TripInfo/NewOrEdit?driverID=@(Model != null ? Model.ID : 0)" class="btn btn-info">
                         New Trip info</a> <a href="/Equipment" class="btn btn-info">Equipment</a> <a href="/Violations"
                             class="btn btn-info">Violations</a> <a href="/Maintenance" class="btn btn-info">Maintenance</a>
-                    <a href="/fixed_charges/NewOrEdit?driverID=@(Model != null ? Model.ID : 0)" class="btn btn-info">
+                    <a href="/fixedcharges/?driverID=@(Model != null ? Model.ID : 0)" class="btn btn-info">
                         Fixed charges</a> <a href="/DriverInfo/PayrollsRollback?driverID=@(Model != null ? Model.ID : 0)" class="btn btn-info">
                             Pay rolls rollback</a> @*<a href="#" class="btn btn-info">Pay rolls operations rollback</a>*@
                     @*<a href="/DriverInfo/PayrollsRollback/@(Model != null ? Model.ID : 0)" class="btn btn-info DriverPayrollExpanses">Driver payroll & expanses</a>*@
@@ -188,9 +188,7 @@
                     </div>
                     <div class="control-group">
                         <label for="Owner_Name">
-                            Owner_Name <span class="requiredStar">(*)</span></label>
-                        @*@Html.TextBoxFor(model => model.Owner_Name, new { @class = "input-xlarge" })*@
-                        @*<input type="text" class="input-xlarge Owner_Name" name="Owner_Name" value="@Model.Owner_Name" style="margin: 0 auto;" data-provide="typeahead" data-items="4" />*@
+                            Owner_Name </label>
                         <select data-placeholder="Select Owners" name="Owner_Name" class="chosen-with-diselect input-xlarge">
                             @Html.Raw(ViewBag.dataOwners)
                         </select>
