@@ -25,7 +25,12 @@ namespace NationalIT.Controllers
         [ValidationFunction(ActionName.ViewListCompanyExpanses)]
         public ActionResult NewOrEdit(int? id = 0)
         {
-            var obj = DB.Entities.Company_Expanses.FirstOrDefault(m => m.CompanyExpansesID == id);
+            var db = DB.Entities;
+            var obj = db.Company_Expanses.FirstOrDefault(m => m.CompanyExpansesID == id);
+            if (obj == null) obj = new Company_Expanses();
+            var lstDis = db.Dispatchers.ToList();
+            ViewBag.dataDispatcher = CommonFunction.BuildDropdown(lstDis.Select(m => m.ID.ToString()).ToArray(),
+                lstDis.Select(m => m.Last_name + " " + m.First_name).ToArray(), obj.ApprovedBy, "--Select dispatcher--");
             return View(obj);
         }
 
@@ -36,9 +41,10 @@ namespace NationalIT.Controllers
         [ValidationFunction(ActionName.NewOrEditItem)]
         public ActionResult NewOrEdit(Company_Expanses model, FormCollection frm)
         {
+            var db = DB.Entities;
             try
             {
-                var db = DB.Entities;
+               
                 model.Date = CommonFunction.ChangeFormatDate(frm["Date"]);
                 if (model.CompanyExpansesID == 0)
                 {
@@ -56,7 +62,10 @@ namespace NationalIT.Controllers
             }
             catch
             {
-                return View();
+                var lstDis = db.Dispatchers.ToList();
+                ViewBag.dataDispatcher = CommonFunction.BuildDropdown(lstDis.Select(m => m.ID.ToString()).ToArray(),
+                    lstDis.Select(m => m.Last_name + " " + m.First_name).ToArray(), model.ApprovedBy, "--Select dispatcher--");
+                return View(model);
             }
         }
 

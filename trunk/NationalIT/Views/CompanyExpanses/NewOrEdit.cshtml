@@ -47,6 +47,17 @@
                         </div>
                     </div>
                     <div class="control-group">
+                        <label class="control-label" for="ApprovedBy">Dispatcher</label>
+                        <div class="controls">
+                            <div class="span12">
+                                <select data-placeholder="Select Equipment" name="ApprovedBy" class="chosen-with-diselect input-xlarge">
+                                    @Html.Raw(ViewBag.dataDispatcher)
+                                </select>
+                                @Html.ValidationMessageFor(model => model.ApprovedBy)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
                         <label class="control-label" for="pay_rate">@Html.LabelFor(model => model.Comment)</label>
                         <div class="controls">
                             <div class="span12">
