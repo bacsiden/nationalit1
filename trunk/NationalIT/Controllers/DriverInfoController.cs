@@ -132,7 +132,7 @@ namespace NationalIT.Controllers
         {
             try
             {
-                if (model.Owner)
+                if (model.Owner || (!model.Owner) && model.Owner_Name.HasValue && model.Owner_Name.Value > 0)
                 {
                     if (model.Owner_Pay_Rate > 0)
                     {
@@ -152,19 +152,21 @@ namespace NationalIT.Controllers
                         }
                         db.SaveChanges();
                         return RedirectToAction("Index");
+
+
                     }
                     else
                     {
-                        ModelState.AddModelError("Owner", "The field must be greate than 0");
+                        ModelState.AddModelError("Owner_Pay_Rate", "The field must be greate than 0");
                     }
                 }
                 else
                 {
+                    ModelState.AddModelError("Owner_Name", "The field is required");
                     if (!(model.Owner_Pay_Rate > 0))
                     {
-                        ModelState.AddModelError("Owner", "The field must be greate than 0");
+                        ModelState.AddModelError("Owner_Pay_Rate", "The field must be greate than 0");
                     }
-                    ModelState.AddModelError("Owner", "The field must be checked");
                 }
 
             }
