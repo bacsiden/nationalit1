@@ -247,6 +247,10 @@
           <Property Name="MODEL_YEAR" Type="nvarchar" MaxLength="255" />
           <Property Name="MAKE" Type="nvarchar" MaxLength="255" />
           <Property Name="LeaseAmount" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="InspectionFrequency" Type="int" Nullable="false" />
+          <Property Name="LastInspected" Type="datetime" />
+          <Property Name="InspectedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="OOS" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="EscrowLoan">
@@ -1029,19 +1033,6 @@
             <End Role="Driver_Info" EntitySet="Driver_Info" />
             <End Role="Trip_Info" EntitySet="Trip_Info" />
           </AssociationSet>
-          <EntitySet Name="Equipment" EntityType="DB_9B22F2_nationalitModel.Equipment" />
-          <AssociationSet Name="FK_Maintenance_Equipment" Association="DB_9B22F2_nationalitModel.FK_Maintenance_Equipment">
-            <End Role="Equipment" EntitySet="Equipment" />
-            <End Role="Maintenance" EntitySet="Maintenance" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Trip_Info_Equipment1" Association="DB_9B22F2_nationalitModel.FK_Trip_Info_Equipment1">
-            <End Role="Equipment" EntitySet="Equipment" />
-            <End Role="Trip_Info" EntitySet="Trip_Info" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Violations_Equipment" Association="DB_9B22F2_nationalitModel.FK_Violations_Equipment">
-            <End Role="Equipment" EntitySet="Equipment" />
-            <End Role="Violations" EntitySet="Violations" />
-          </AssociationSet>
           <EntitySet Name="FixedExpenses" EntityType="DB_9B22F2_nationalitModel.FixedExpenses" />
           <EntitySet Name="TempReport" EntityType="DB_9B22F2_nationalitModel.TempReport" />
           <AssociationSet Name="FK_Temp_Fuel_Expenses_TempReport" Association="DB_9B22F2_nationalitModel.FK_Temp_Fuel_Expenses_TempReport">
@@ -1059,6 +1050,19 @@
           <AssociationSet Name="FK_Temp_Trip_Info_TempReport" Association="DB_9B22F2_nationalitModel.FK_Temp_Trip_Info_TempReport">
             <End Role="TempReport" EntitySet="TempReport" />
             <End Role="Temp_Trip_Info" EntitySet="Temp_Trip_Info" />
+          </AssociationSet>
+          <EntitySet Name="Equipment" EntityType="DB_9B22F2_nationalitModel.Equipment" />
+          <AssociationSet Name="FK_Maintenance_Equipment" Association="DB_9B22F2_nationalitModel.FK_Maintenance_Equipment">
+            <End Role="Equipment" EntitySet="Equipment" />
+            <End Role="Maintenance" EntitySet="Maintenance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trip_Info_Equipment1" Association="DB_9B22F2_nationalitModel.FK_Trip_Info_Equipment1">
+            <End Role="Equipment" EntitySet="Equipment" />
+            <End Role="Trip_Info" EntitySet="Trip_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Violations_Equipment" Association="DB_9B22F2_nationalitModel.FK_Violations_Equipment">
+            <End Role="Equipment" EntitySet="Equipment" />
+            <End Role="Violations" EntitySet="Violations" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="aspnet_Users">
@@ -1636,65 +1640,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Equipment">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Equipment_Type" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Equipment_number" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="Driver" />
-          <Property Type="Int32" Name="Owner" />
-          <Property Type="String" Name="VIN" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="Registration_Expiration" />
-          <Property Type="DateTime" Name="Inspection_Expiration" />
-          <Property Type="DateTime" Name="DATE_LEASED" />
-          <Property Type="String" Name="EQUIPMENT_VALUE" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="EQUIPMENT_DESCRIPTION" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="MODEL_YEAR" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="MAKE" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="LeaseAmount" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="OOS" Nullable="false" />
-          <NavigationProperty Name="Maintenance" Relationship="DB_9B22F2_nationalitModel.FK_Maintenance_Equipment" FromRole="Equipment" ToRole="Maintenance" />
-          <NavigationProperty Name="Trip_Info" Relationship="DB_9B22F2_nationalitModel.FK_Trip_Info_Equipment1" FromRole="Equipment" ToRole="Trip_Info" />
-          <NavigationProperty Name="Violations" Relationship="DB_9B22F2_nationalitModel.FK_Violations_Equipment" FromRole="Equipment" ToRole="Violations" />
-        </EntityType>
-        <Association Name="FK_Maintenance_Equipment">
-          <End Type="DB_9B22F2_nationalitModel.Equipment" Role="Equipment" Multiplicity="0..1" />
-          <End Type="DB_9B22F2_nationalitModel.Maintenance" Role="Maintenance" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Equipment">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Maintenance">
-              <PropertyRef Name="Track_Trailer_Number" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Trip_Info_Equipment1">
-          <End Type="DB_9B22F2_nationalitModel.Equipment" Role="Equipment" Multiplicity="0..1" />
-          <End Type="DB_9B22F2_nationalitModel.Trip_Info" Role="Trip_Info" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Equipment">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Trip_Info">
-              <PropertyRef Name="Equipment_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Violations_Equipment">
-          <End Type="DB_9B22F2_nationalitModel.Equipment" Role="Equipment" Multiplicity="0..1" />
-          <End Type="DB_9B22F2_nationalitModel.Violations" Role="Violations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Equipment">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Violations">
-              <PropertyRef Name="Equipment" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="FixedExpenses">
           <Key>
             <PropertyRef Name="ID" />
@@ -1766,6 +1711,69 @@
             </Principal>
             <Dependent Role="Temp_Trip_Info">
               <PropertyRef Name="TempReportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Equipment_Type" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Equipment_number" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Driver" />
+          <Property Type="Int32" Name="Owner" />
+          <Property Type="String" Name="VIN" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Registration_Expiration" />
+          <Property Type="DateTime" Name="Inspection_Expiration" />
+          <Property Type="DateTime" Name="DATE_LEASED" />
+          <Property Type="String" Name="EQUIPMENT_VALUE" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EQUIPMENT_DESCRIPTION" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MODEL_YEAR" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MAKE" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LeaseAmount" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="InspectionFrequency" Nullable="false" />
+          <Property Type="DateTime" Name="LastInspected" />
+          <Property Type="String" Name="InspectedBy" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="OOS" Nullable="false" />
+          <NavigationProperty Name="Maintenance" Relationship="DB_9B22F2_nationalitModel.FK_Maintenance_Equipment" FromRole="Equipment" ToRole="Maintenance" />
+          <NavigationProperty Name="Trip_Info" Relationship="DB_9B22F2_nationalitModel.FK_Trip_Info_Equipment1" FromRole="Equipment" ToRole="Trip_Info" />
+          <NavigationProperty Name="Violations" Relationship="DB_9B22F2_nationalitModel.FK_Violations_Equipment" FromRole="Equipment" ToRole="Violations" />
+        </EntityType>
+        <Association Name="FK_Maintenance_Equipment">
+          <End Type="DB_9B22F2_nationalitModel.Equipment" Role="Equipment" Multiplicity="0..1" />
+          <End Type="DB_9B22F2_nationalitModel.Maintenance" Role="Maintenance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance">
+              <PropertyRef Name="Track_Trailer_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trip_Info_Equipment1">
+          <End Type="DB_9B22F2_nationalitModel.Equipment" Role="Equipment" Multiplicity="0..1" />
+          <End Type="DB_9B22F2_nationalitModel.Trip_Info" Role="Trip_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Trip_Info">
+              <PropertyRef Name="Equipment_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Violations_Equipment">
+          <End Type="DB_9B22F2_nationalitModel.Equipment" Role="Equipment" Multiplicity="0..1" />
+          <End Type="DB_9B22F2_nationalitModel.Violations" Role="Violations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Violations">
+              <PropertyRef Name="Equipment" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2253,27 +2261,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Equipment">
-            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.Equipment">
-              <MappingFragment StoreEntitySet="Equipment">
-                <ScalarProperty Name="OOS" ColumnName="OOS" />
-                <ScalarProperty Name="LeaseAmount" ColumnName="LeaseAmount" />
-                <ScalarProperty Name="MAKE" ColumnName="MAKE" />
-                <ScalarProperty Name="MODEL_YEAR" ColumnName="MODEL_YEAR" />
-                <ScalarProperty Name="EQUIPMENT_DESCRIPTION" ColumnName="EQUIPMENT_DESCRIPTION" />
-                <ScalarProperty Name="EQUIPMENT_VALUE" ColumnName="EQUIPMENT_VALUE" />
-                <ScalarProperty Name="DATE_LEASED" ColumnName="DATE_LEASED" />
-                <ScalarProperty Name="Inspection_Expiration" ColumnName="Inspection_Expiration" />
-                <ScalarProperty Name="Registration_Expiration" ColumnName="Registration_Expiration" />
-                <ScalarProperty Name="VIN" ColumnName="VIN" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="Driver" ColumnName="Driver" />
-                <ScalarProperty Name="Equipment_number" ColumnName="Equipment_number" />
-                <ScalarProperty Name="Equipment_Type" ColumnName="Equipment_Type" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="FixedExpenses">
             <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.FixedExpenses">
               <MappingFragment StoreEntitySet="FixedExpenses">
@@ -2294,6 +2281,31 @@
                 <ScalarProperty Name="Pay_rate" ColumnName="Pay_rate" />
                 <ScalarProperty Name="DriverID" ColumnName="DriverID" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipment">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.Equipment">
+              <MappingFragment StoreEntitySet="Equipment">
+                <ScalarProperty Name="OOS" ColumnName="OOS" />
+                <ScalarProperty Name="InspectedBy" ColumnName="InspectedBy" />
+                <ScalarProperty Name="LastInspected" ColumnName="LastInspected" />
+                <ScalarProperty Name="InspectionFrequency" ColumnName="InspectionFrequency" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LeaseAmount" ColumnName="LeaseAmount" />
+                <ScalarProperty Name="MAKE" ColumnName="MAKE" />
+                <ScalarProperty Name="MODEL_YEAR" ColumnName="MODEL_YEAR" />
+                <ScalarProperty Name="EQUIPMENT_DESCRIPTION" ColumnName="EQUIPMENT_DESCRIPTION" />
+                <ScalarProperty Name="EQUIPMENT_VALUE" ColumnName="EQUIPMENT_VALUE" />
+                <ScalarProperty Name="DATE_LEASED" ColumnName="DATE_LEASED" />
+                <ScalarProperty Name="Inspection_Expiration" ColumnName="Inspection_Expiration" />
+                <ScalarProperty Name="Registration_Expiration" ColumnName="Registration_Expiration" />
+                <ScalarProperty Name="VIN" ColumnName="VIN" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="Driver" ColumnName="Driver" />
+                <ScalarProperty Name="Equipment_number" ColumnName="Equipment_number" />
+                <ScalarProperty Name="Equipment_Type" ColumnName="Equipment_Type" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2362,16 +2374,20 @@
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Fuel___Expenses_Driver_Info" >
           <ConnectorPoint PointX="4.5" PointY="11.321848958333334" />
+          <ConnectorPoint PointX="5.010416666666667" PointY="11.321848958333334" />
+          <ConnectorPoint PointX="5.177083333333333" PointY="11.321848958333334" />
           <ConnectorPoint PointX="5.25" PointY="11.321848958333334" />
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Operating_Expenses_Driver_Info" >
           <ConnectorPoint PointX="4.5" PointY="15.081411132812502" />
+          <ConnectorPoint PointX="5.010416666666667" PointY="15.081411132812502" />
+          <ConnectorPoint PointX="5.2083358333333338" PointY="15.081411132812502" />
           <ConnectorPoint PointX="5.25" PointY="15.081411132812502" />
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Violations_Driver_Info" >
           <ConnectorPoint PointX="4.5" PointY="13.384348958333334" />
-          <ConnectorPoint PointX="6.916666666666667" PointY="13.384348958333334" />
-          <ConnectorPoint PointX="7.083333333333333" PointY="13.384348958333334" />
+          <ConnectorPoint PointX="5.010416666666667" PointY="13.384348958333334" />
+          <ConnectorPoint PointX="5.177083333333333" PointY="13.384348958333334" />
           <ConnectorPoint PointX="8.25" PointY="13.384348958333334" />
         </AssociationConnector>
         <AssociationConnector Association="DB_9B22F2_nationalitModel.mFunctionInRole" >
@@ -2410,8 +2426,8 @@
           <ConnectorPoint PointX="2.75" PointY="9.25" />
           <ConnectorPoint PointX="4.322916666666667" PointY="9.25" />
           <ConnectorPoint PointX="4.489583333333333" PointY="9.25" />
-          <ConnectorPoint PointX="6.916666666666667" PointY="9.25" />
-          <ConnectorPoint PointX="7.083333333333333" PointY="9.25" />
+          <ConnectorPoint PointX="5.010416666666667" PointY="9.25" />
+          <ConnectorPoint PointX="5.177083333333333" PointY="9.25" />
           <ConnectorPoint PointX="8" PointY="9.25" />
           <ConnectorPoint PointX="8" PointY="11.25" />
           <ConnectorPoint PointX="9" PointY="11.25" />
@@ -2420,26 +2436,9 @@
         <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1" >
           <ConnectorPoint PointX="4.40625" PointY="9.625" />
           <ConnectorPoint PointX="4.40625" PointY="8.5261946614583337" />
-          <ConnectorPoint PointX="6.916666666666667" PointY="8.5261946614583337" />
-          <ConnectorPoint PointX="7.083333333333333" PointY="8.5261946614583337" />
+          <ConnectorPoint PointX="5.010416666666667" PointY="8.5261946614583337" />
+          <ConnectorPoint PointX="5.177083333333333" PointY="8.5261946614583337" />
           <ConnectorPoint PointX="8.25" PointY="8.5261946614583337" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Equipment" Width="1.5" PointX="6" PointY="17.75" Height="4.48020507812501" />
-        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Maintenance_Equipment" >
-          <ConnectorPoint PointX="7.5" PointY="20.095896809895834" />
-          <ConnectorPoint PointX="8.25" PointY="20.095896809895834" />
-        </AssociationConnector>
-        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Trip_Info_Equipment1" >
-          <ConnectorPoint PointX="6.75" PointY="17.75" />
-          <ConnectorPoint PointX="6.75" PointY="16.941793619791667" />
-          <ConnectorPoint PointX="7" PointY="16.941793619791667" />
-          <ConnectorPoint PointX="7" PointY="7.2700440729166713" />
-          <ConnectorPoint PointX="8.25" PointY="7.2700440729166713" />
-        </AssociationConnector>
-        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Violations_Equipment" >
-          <ConnectorPoint PointX="7.25" PointY="17.75" />
-          <ConnectorPoint PointX="7.25" PointY="13.567176979166661" />
-          <ConnectorPoint PointX="8.25" PointY="13.567176979166661" />
         </AssociationConnector>
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.FixedExpenses" Width="1.5" PointX="18.375" PointY="16.75" Height="2.1725878906250102" />
         <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.TempReport" Width="1.5" PointX="10.75" PointY="12.125" Height="2.9417936197916674" />
@@ -2462,7 +2461,22 @@
           <ConnectorPoint PointX="11.78125" PointY="20.756653645833332" />
           <ConnectorPoint PointX="13" PointY="20.756653645833332" />
         </AssociationConnector>
-      </Diagram>
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.Equipment" Width="1.5" PointX="5" PointY="17.375" Height="5.2494108072916674" />
+        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Maintenance_Equipment" >
+          <ConnectorPoint PointX="6.5" PointY="20.095896809895834" />
+          <ConnectorPoint PointX="8.25" PointY="20.095896809895834" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Trip_Info_Equipment1" >
+          <ConnectorPoint PointX="5.09375" PointY="17.375" />
+          <ConnectorPoint PointX="5.09375" PointY="7.3012930729166712" />
+          <ConnectorPoint PointX="8.25" PointY="7.3012930729166712" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_9B22F2_nationalitModel.FK_Violations_Equipment" >
+          <ConnectorPoint PointX="5.1250025" PointY="17.375" />
+          <ConnectorPoint PointX="5.1250025" PointY="13.567176979166661" />
+          <ConnectorPoint PointX="8.25" PointY="13.567176979166661" />
+        </AssociationConnector>
+        </Diagram>
     </Diagrams>
   </Designer>
 </edmx:Edmx>
