@@ -37,40 +37,7 @@
     if ($('input:checkbox:checked').length == $('input:checkbox.checkitem').length) {
         $(".checkAll").prop('checked', true);
     }
-    $(".checkAll").click(function () {
-        $(".EditItem").hide();
-        if ($(".checkitem").length > 0) {
-            if ($(this).is(':checked')) {
-                $(".checkitem").prop('checked', true);
-                $(".DeleteItem").text('Delete All');
-                $(".DeleteItem").show();
-            } else {
-                $(".checkitem").prop('checked', false);
-                $(".DeleteItem").text('Delete');
-                $(".DeleteItem").hide();
-            }
-        }
-    });
-    $(".checkitem").click(function () {
-        $(".DeleteItem").show();
-        var numberOfChecked = $('input:checkbox:checked').length;
-        var numberItem = $('input:checkbox.checkitem').length;
-        if (numberOfChecked == 0) {
-            $(".DeleteItem").hide();
-        }
-        if (numberOfChecked == 1) {
-            $(".EditItem").show();
-        } else {
-            $(".EditItem").hide();
-        }
-        if ($(this).is(':checked')) {
-            if (numberItem == numberOfChecked) {
-                $(".checkAll").prop('checked', true);
-            }
-        } else {
-            $(".checkAll").prop('checked', false);
-        }
-    });
+    
 
 
     // Event click with button Edit & Delete
@@ -168,7 +135,7 @@
         $.ajax({
             type: "GET",
             url: '/TripInfo/Index',
-            data: { 'tripID': valueTripInfo, 'driverID': valueDriverInfo, "driverPaid": driverPaid },
+            data: { 'tripID': valueTripInfo, 'driverID': valueDriverInfo, "driverPaid": valuePaid },
             async: true,
             success: function (model) {
                 $("#wrap-AjaxPaging").html(model);
@@ -276,7 +243,40 @@
 });                   //----------------END DOCUMENT READY FUNCTION -------------------------------  
 
 
-
+$(document).on( "click",".checkAll", function () {
+    $(".EditItem").hide();
+    if ($(".checkitem").length > 0) {
+        if ($(this).is(':checked')) {
+            $(".checkitem").prop('checked', true);
+            $(".DeleteItem").text('Delete All');
+            $(".DeleteItem").show();
+        } else {
+            $(".checkitem").prop('checked', false);
+            $(".DeleteItem").text('Delete');
+            $(".DeleteItem").hide();
+        }
+    }
+});
+$(document).on( "click", ".checkitem",function () {
+    $(".DeleteItem").show();
+    var numberOfChecked = $('input:checkbox:checked').length;
+    var numberItem = $('input:checkbox.checkitem').length;
+    if (numberOfChecked == 0) {
+        $(".DeleteItem").hide();
+    }
+    if (numberOfChecked == 1) {
+        $(".EditItem").show();
+    } else {
+        $(".EditItem").hide();
+    }
+    if ($(this).is(':checked')) {
+        if (numberItem == numberOfChecked) {
+            $(".checkAll").prop('checked', true);
+        }
+    } else {
+        $(".checkAll").prop('checked', false);
+    }
+});
 // autocomplete 
 function autoCompleteByClassName(className1, dataJson) {
     className1.typeahead({
