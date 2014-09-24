@@ -30,7 +30,7 @@ namespace NationalIT.Controllers
         void SelectOption()
         {
             #region SELECT OPTION
-            string dataCustomer_Info = "<option >--Select Customer_Info--</option>";
+            string dataCustomer_Info = "<option value=''>--Select Customer_Info--</option>";
             foreach (var item in NationalIT.DB.Entities.Customer_Info)
             {
                 dataCustomer_Info += string.Format("<option value='{0}'>{1}</option>", item.Customer_ID, item.Customer_Name);

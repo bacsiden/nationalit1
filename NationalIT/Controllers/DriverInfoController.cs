@@ -47,7 +47,7 @@ namespace NationalIT.Controllers
         void SelectOption()
         {
             #region SELECT OPTION
-            string dataDriver_Info = "<option >--Select Driver_Info--</option>";
+            string dataDriver_Info = "<option value=''>--Select Driver_Info--</option>";
             foreach (var item in NationalIT.DB.Entities.Driver_Info)
             {
                 dataDriver_Info += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
@@ -62,7 +62,7 @@ namespace NationalIT.Controllers
             if (obj == null) obj = new Driver_Info() { Expiration_Date = DateTime.Now };
 
             #region SELECT OPTION
-            string dataOwners = "<option >--Select Owners--</option>";
+            string dataOwners = "<option value=''>--Select Owners--</option>";
             foreach (var item in NationalIT.DB.Entities.Owners)
             {
                 if (obj != null && obj.Owner_Name == item.OwnerID)
@@ -77,7 +77,7 @@ namespace NationalIT.Controllers
             }
             ViewBag.dataOwners = dataOwners;
 
-            string dataDispatchers = "<option >--Select Dispatcher--</option>";
+            string dataDispatchers = "<option value=''>--Select Dispatcher--</option>";
             foreach (var item in NationalIT.DB.Entities.Dispatchers)
             {
                 if (obj != null && obj.Dispatcher == item.ID)
@@ -92,7 +92,7 @@ namespace NationalIT.Controllers
             }
             ViewBag.dataDispatchers = dataDispatchers;
 
-            string dataTruck = "<option >--Select Truck--</option>";
+            string dataTruck = "<option value=''>--Select Truck--</option>";
             foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRUCK")))
             {
                 if (obj != null && obj.Truck == item.Equipment_number)
@@ -106,7 +106,7 @@ namespace NationalIT.Controllers
             }
             ViewBag.dataTruck = dataTruck;
 
-            string dataTrailer = "<option >--Select Trailer--</option>";
+            string dataTrailer = "<option value=''>--Select Trailer--</option>";
             foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRAILER")))
             {
                 if (obj != null && obj.Trailer == item.Equipment_number)
@@ -175,7 +175,7 @@ namespace NationalIT.Controllers
 
             }
             #region SELECT OPTION
-            string dataOwners = "<option >--Select Owners--</option>";
+            string dataOwners = "<option value=''>--Select Owners--</option>";
             foreach (var item in NationalIT.DB.Entities.Owners)
             {
                 if (model != null && model.Owner_Name == item.OwnerID)
@@ -190,7 +190,7 @@ namespace NationalIT.Controllers
             }
             ViewBag.dataOwners = dataOwners;
 
-            string dataDispatchers = "<option >--Select Dispatcher--</option>";
+            string dataDispatchers = "<option value=''>--Select Dispatcher--</option>";
             foreach (var item in NationalIT.DB.Entities.Dispatchers)
             {
                 if (model != null && model.Dispatcher == item.ID)
@@ -205,7 +205,7 @@ namespace NationalIT.Controllers
             }
             ViewBag.dataDispatchers = dataDispatchers;
 
-            string dataTruck = "<option >--Select Truck--</option>";
+            string dataTruck = "<option value=''>--Select Truck--</option>";
             foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRUCK")))
             {
                 if (model != null && model.Truck == item.Equipment_number)
@@ -219,7 +219,7 @@ namespace NationalIT.Controllers
             }
             ViewBag.dataTruck = dataTruck;
 
-            string dataTrailer = "<option >--Select Trailer--</option>";
+            string dataTrailer = "<option value=''>--Select Trailer--</option>";
             foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRAILER")))
             {
                 if (model != null && model.Trailer == item.Equipment_number)
@@ -290,7 +290,7 @@ namespace NationalIT.Controllers
                 if ((equip.OOS) || (equip.Inspection_Expiration.HasValue && (DateTime.Now - equip.Inspection_Expiration.Value).Days > 21) || listEquipment.Count > 1)
                 {
                     #region SELECT OPTION
-                    string dataOwners = "<option >--Select Owners--</option>";
+                    string dataOwners = "<option value=''>--Select Owners--</option>";
                     foreach (var item in NationalIT.DB.Entities.Owners)
                     {
                         if (obj != null && obj.Owner_Name == item.OwnerID)
@@ -305,7 +305,7 @@ namespace NationalIT.Controllers
                     }
                     ViewBag.dataOwners = dataOwners;
 
-                    string dataDispatchers = "<option >--Select Dispatcher--</option>";
+                    string dataDispatchers = "<option value=''>--Select Dispatcher--</option>";
                     foreach (var item in NationalIT.DB.Entities.Dispatchers)
                     {
                         if (obj != null && obj.Dispatcher == item.ID)
@@ -320,7 +320,7 @@ namespace NationalIT.Controllers
                     }
                     ViewBag.dataDispatchers = dataDispatchers;
 
-                    string dataTruck = "<option >--Select Truck--</option>";
+                    string dataTruck = "<option value=''>--Select Truck--</option>";
                     foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRUCK")))
                     {
                         if (obj != null && obj.Truck == item.Equipment_number)
@@ -334,7 +334,7 @@ namespace NationalIT.Controllers
                     }
                     ViewBag.dataTruck = dataTruck;
 
-                    string dataTrailer = "<option >--Select Trailer--</option>";
+                    string dataTrailer = "<option value=''>--Select Trailer--</option>";
                     foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRAILER")))
                     {
                         if (obj != null && obj.Trailer == item.Equipment_number)
@@ -371,7 +371,7 @@ namespace NationalIT.Controllers
             var obj = DB.Entities.TempReport.FirstOrDefault(m => m.ID == id);
             ViewBag.driverID = driverID;
             #region SELECT OPTION
-            string dataDate = "<option >--Select Date--</option>";
+            string dataDate = "<option value=''>--Select Date--</option>";
             var list = DB.Entities.TempReport.Where(m => m.DriverID == driverID).ToList();
             foreach (var item in list)
             {

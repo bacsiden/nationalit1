@@ -25,7 +25,7 @@ namespace NationalIT.Controllers
         {
             var obj = DB.Entities.Violations.FirstOrDefault(m => m.ID == id);
             #region SELECT OPTION
-            string dataDriver_Info = "<option >--Select Driver_Info--</option>";
+            string dataDriver_Info = "<option value=''>--Select Driver_Info--</option>";
             foreach (var item in NationalIT.DB.Entities.Driver_Info)
             {
                 if (obj != null && obj.Driver == item.ID)
@@ -39,7 +39,7 @@ namespace NationalIT.Controllers
             }
             ViewBag.dataDriver_Info = dataDriver_Info;
 
-            string dataEquipment = "<option >--Select Equiment--</option>";
+            string dataEquipment = "<option value=''>--Select Equiment--</option>";
             foreach (var item in NationalIT.DB.Entities.Equipment)
             {
                 if (obj != null && obj.Equipment == item.ID)
@@ -53,7 +53,7 @@ namespace NationalIT.Controllers
             }
             ViewBag.dataEquipment = dataEquipment;
 
-            string dataDispatcher = "<option >--Select Dispatcher--</option>";
+            string dataDispatcher = "<option value=''>--Select Dispatcher--</option>";
             foreach (var item in NationalIT.DB.Entities.Dispatchers)
             {
                 if (obj != null && obj.DispatcherID == item.ID)
@@ -100,7 +100,7 @@ namespace NationalIT.Controllers
             catch
             {
                 #region SELECT OPTION
-                string dataDriver_Info = "<option >--Select Driver_Info--</option>";
+                string dataDriver_Info = "<option value=''>--Select Driver_Info--</option>";
                 foreach (var item in NationalIT.DB.Entities.Driver_Info)
                 {
                     if (model != null && model.Driver == item.ID)
@@ -114,7 +114,7 @@ namespace NationalIT.Controllers
                 }
                 ViewBag.dataDriver_Info = dataDriver_Info;
 
-                string dataEquipment = "<option >--Select Equiment--</option>";
+                string dataEquipment = "<option value=''>--Select Equiment--</option>";
                 foreach (var item in NationalIT.DB.Entities.Equipment)
                 {
                     if (model != null && model.Equipment == item.ID)
@@ -128,7 +128,7 @@ namespace NationalIT.Controllers
                 }
                 ViewBag.dataEquipment = dataEquipment;
 
-                string dataDispatcher = "<option >--Select Dispatcher--</option>";
+                string dataDispatcher = "<option value=''>--Select Dispatcher--</option>";
                 foreach (var item in NationalIT.DB.Entities.Dispatchers)
                 {
                     if (model != null && model.DispatcherID == item.ID)

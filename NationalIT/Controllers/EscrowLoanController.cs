@@ -20,7 +20,7 @@ namespace NationalIT.Controllers
         void SelectOption(EscrowLoan obj)
         {            
             #region SELECT Owner or Driver
-            string dataDriver_Info = "<option >--Select Driver_Info--</option>";
+            string dataDriver_Info = "<option value=''>--Select Driver_Info--</option>";
             foreach (var item in NationalIT.DB.Entities.Driver_Info)
             {
                 if (obj != null && !obj.Owner && obj.OwnerDriver == item.ID)
@@ -34,7 +34,7 @@ namespace NationalIT.Controllers
             }
             ViewBag.dataDriver = dataDriver_Info;
 
-            string dataOwner_Info = "<option >--Select Owner_Info--</option>";
+            string dataOwner_Info = "<option value=''>--Select Owner_Info--</option>";
             foreach (var item in NationalIT.DB.Entities.Owners)
             {
                 if (obj != null && obj.Owner && obj.OwnerDriver == item.OwnerID)

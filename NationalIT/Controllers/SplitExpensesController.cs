@@ -28,7 +28,7 @@ namespace NationalIT.Controllers
         void SelectOption(split_expenses obj)
         {
             #region SELECT OPTION
-            string dataSplit_Expenses = "<option >--Select Split_Expenses--</option>";
+            string dataSplit_Expenses = "<option value=''>--Select Split_Expenses--</option>";
             foreach (var item in NationalIT.DB.Entities.split_expenses)
             {
                 dataSplit_Expenses += string.Format("<option value='{0}'>{0}</option>", item.Id);
@@ -37,7 +37,7 @@ namespace NationalIT.Controllers
             #endregion
 
             #region SELECT Driver info
-            string dataDriver_Info = "<option >--Select Driver_Info--</option>";
+            string dataDriver_Info = "<option value=''>--Select Driver_Info--</option>";
             foreach (var item in NationalIT.DB.Entities.Driver_Info)
             {
                 if (obj != null && obj.Idndex == 1 && obj.OwnerDriver == item.ID)
@@ -51,7 +51,7 @@ namespace NationalIT.Controllers
             }
             ViewBag.dataDriver = dataDriver_Info;
 
-            string dataOwner_Info = "<option >--Select Owner_Info--</option>";
+            string dataOwner_Info = "<option value=''>--Select Owner_Info--</option>";
             foreach (var item in NationalIT.DB.Entities.Owners)
             {
                 if (obj != null && obj.Idndex == 2 && obj.OwnerDriver == item.OwnerID)

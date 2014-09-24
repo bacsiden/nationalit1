@@ -50,14 +50,14 @@ namespace NationalIT.Controllers
         {
             #region SELECT OPTION
             var lst = DB.Entities.Trip_Info.Select(m => m.Invoice).ToList();
-            string dataTripInfo = "<option >- All Invoice_ID -</option>";
+            string dataTripInfo = "<option value=''>- All Invoice_ID -</option>";
             foreach (var item in lst)
             {
                 dataTripInfo += string.Format("<option value='{0}'>{0}</option>", item);
             }
             ViewBag.dataTripInfo = dataTripInfo;
 
-            string dataDriver_Info = "<option >- All Driver_Info -</option>";
+            string dataDriver_Info = "<option value=''>- All Driver_Info -</option>";
             foreach (var item in NationalIT.DB.Entities.Driver_Info)
             {
                 dataDriver_Info += string.Format("<option value='{0}'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
@@ -75,12 +75,11 @@ namespace NationalIT.Controllers
             }
 
             #region SELECT OPTION
-            string dataCustomer = "<option >--Select Customer--</option>";
+            string dataCustomer = "<option value='' >--Select Customer--</option>";
             foreach (var item in NationalIT.DB.Entities.Customer_Info)
             {
                 if (obj != null && obj.Customer == item.Customer_ID)
                 {
-                    //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
                     dataCustomer += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.Customer_ID, item.Customer_Name);
                 }
                 else
@@ -89,12 +88,11 @@ namespace NationalIT.Controllers
                 }
             }
             ViewBag.dataCustomer = dataCustomer;
-            string dataDispatchers = "<option >--Select Dispatcher--</option>";
+            string dataDispatchers = "<option value=''>--Select Dispatcher--</option>";
             foreach (var item in NationalIT.DB.Entities.Dispatchers)
             {
                 if (obj != null && obj.Dispatcher == item.ID)
                 {
-                    //dataDispatchers += "{ \"id\": " + item.ID + ", \"label\": \"" + item.Last_name + " " + item.First_name + "\" }";
                     dataDispatchers += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
                 }
                 else
@@ -104,7 +102,7 @@ namespace NationalIT.Controllers
             }
             ViewBag.dataDispatchers = dataDispatchers;
 
-            string dataDriver = "<option >--Select Driver--</option>";
+            string dataDriver = "<option value=''>--Select Driver--</option>";
             foreach (var item in NationalIT.DB.Entities.Driver_Info)
             {
                 if (obj != null && obj.Driver == item.ID)
@@ -118,7 +116,7 @@ namespace NationalIT.Controllers
             }
             ViewBag.dataDriver = dataDriver;
 
-            string dataEquipment = "<option >--Select Equiment--</option>";
+            string dataEquipment = "<option  value='' >--Select Equiment--</option>";
             foreach (var item in NationalIT.DB.Entities.Equipment)
             {
                 if (obj != null && obj.Equipment_ID == item.ID)
@@ -197,7 +195,7 @@ namespace NationalIT.Controllers
 
             }
             #region SELECT OPTION
-            string dataCustomer = "<option >--Select Customer--</option>";
+            string dataCustomer = "<option value=''>--Select Customer--</option>";
             foreach (var item in NationalIT.DB.Entities.Customer_Info)
             {
                 if (model != null && model.Customer == item.Customer_ID)
@@ -211,7 +209,7 @@ namespace NationalIT.Controllers
                 }
             }
             ViewBag.dataCustomer = dataCustomer;
-            string dataDispatchers = "<option >--Select Dispatcher--</option>";
+            string dataDispatchers = "<option value=''>--Select Dispatcher--</option>";
             foreach (var item in NationalIT.DB.Entities.Dispatchers)
             {
                 if (model != null && model.Dispatcher == item.ID)
@@ -226,7 +224,7 @@ namespace NationalIT.Controllers
             }
             ViewBag.dataDispatchers = dataDispatchers;
 
-            string dataDriver = "<option >--Select Driver--</option>";
+            string dataDriver = "<option value=''>--Select Driver--</option>";
             foreach (var item in NationalIT.DB.Entities.Driver_Info)
             {
                 if (model != null && model.Driver == item.ID)
@@ -240,7 +238,7 @@ namespace NationalIT.Controllers
             }
             ViewBag.dataDriver = dataDriver;
 
-            string dataEquipment = "<option >--Select Equiment--</option>";
+            string dataEquipment = "<option value='' >--Select Equiment--</option>";
             foreach (var item in NationalIT.DB.Entities.Equipment)
             {
                 if (model != null && model.Equipment_ID == item.ID)
