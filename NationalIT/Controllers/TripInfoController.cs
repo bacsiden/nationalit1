@@ -253,6 +253,9 @@ namespace NationalIT.Controllers
                 }
             }
             ViewBag.dataEquipment = dataEquipment;
+            var lstCompany = DB.Entities.Company.ToList();
+            ViewBag.dataCompany = CommonFunction.BuildDropdown(lstCompany.Select(m => m.ID.ToString()).ToArray(),
+                lstCompany.Select(m => m.Name + " - " + m.Address + " , " + m.FaxNumber).ToArray(), model.Company, "--Select Company--");
             #endregion
             return View(model);
         }
