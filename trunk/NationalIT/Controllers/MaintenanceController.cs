@@ -24,7 +24,7 @@ namespace NationalIT.Controllers
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.Maintenance.FirstOrDefault(m => m.Id == id);
-            string dataEquipment = "<option >--Select Equiment--</option>";
+            string dataEquipment = "<option value=''>--Select Equiment--</option>";
             foreach (var item in NationalIT.DB.Entities.Equipment)
             {
                 if (obj != null && obj.Track_Trailer_Number == item.ID)
@@ -66,7 +66,7 @@ namespace NationalIT.Controllers
             }
             catch
             {
-                string dataEquipment = "<option >--Select Equiment--</option>";
+                string dataEquipment = "<option value=''>--Select Equiment--</option>";
                 foreach (var item in NationalIT.DB.Entities.Equipment)
                 {
                     if (model != null && model.Track_Trailer_Number == item.ID)

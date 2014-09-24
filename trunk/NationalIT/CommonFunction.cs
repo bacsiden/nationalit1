@@ -34,7 +34,7 @@ namespace NationalIT
         {
             System.Text.StringBuilder st = new StringBuilder();
             if (none != null)
-                st = new StringBuilder("<option >" + none + "</option>");
+                st = new StringBuilder("<option value=''>" + none + "</option>");
             string s = selectedValue + "";
             for (int i = 0; i < values.Length; i++)
             {

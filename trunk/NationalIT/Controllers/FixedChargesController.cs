@@ -41,7 +41,7 @@ namespace NationalIT.Controllers
         {
 
             #region SELECT OPTION
-            string dataDriver_Info = "<option >--Select Driver_Info--</option>";
+            string dataDriver_Info = "<option value=''>--Select Driver_Info--</option>";
             foreach (var item in NationalIT.DB.Entities.Driver_Info)
             {
                 if (obj.DriverID.HasValue && item.ID == obj.DriverID.Value)

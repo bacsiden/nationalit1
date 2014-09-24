@@ -27,7 +27,7 @@ namespace NationalIT.Controllers
         void SelectOption(Fuel___Expenses obj)
         {
             #region SELECT OPTION
-            string dataFuel_Expenses = "<option >--Select Fuel_Expenses--</option>";
+            string dataFuel_Expenses = "<option value=''>--Select Fuel_Expenses--</option>";
             foreach (var item in NationalIT.DB.Entities.Fuel___Expenses)
             {
                 dataFuel_Expenses += string.Format("<option value='{0}'>{0}</option>", item.ID);
@@ -45,7 +45,7 @@ namespace NationalIT.Controllers
             ViewBag.Type = type;
 
             #region SELECT Driver info
-            string dataDriver_Info = "<option >--Select Driver_Info--</option>";
+            string dataDriver_Info = "<option value=''>--Select Driver_Info--</option>";
             foreach (var item in NationalIT.DB.Entities.Driver_Info)
             {
                 if (obj != null && obj.Driver == item.ID)

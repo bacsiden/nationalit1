@@ -52,7 +52,7 @@ namespace NationalIT.Controllers
             #region SELECT OPTION
             List<int> listUserIDinGroup = obj.mUser.Select(m => m.ID).ToList();
             var listUser = db.mUser.Where(m => !listUserIDinGroup.Contains(m.ID)).ToList();
-            string dataUserName = "<option >--Select User name--</option>";
+            string dataUserName = "<option value=''>--Select User name--</option>";
             foreach (var item in listUser)
             {
                 dataUserName += string.Format("<option value='{0}'>{1} ({2})</option>", item.ID, item.Name,item.UserName);
@@ -78,7 +78,7 @@ namespace NationalIT.Controllers
             catch (Exception ex)
             {
                 #region SELECT OPTION
-                string dataUserName = "<option >--Select User name--</option>";
+                string dataUserName = "<option value=''>--Select User name--</option>";
                 foreach (var item in NationalIT.DB.Entities.mUser)
                 {
                     dataUserName += string.Format("<option value='{0}'>{1} ({2})</option>", item.ID, item.Name, item.UserName);

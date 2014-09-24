@@ -26,7 +26,7 @@ namespace NationalIT.Controllers
         void SelectOption(Operating_Expenses obj)
         {
             #region SELECT OPTION
-            string dataOperating_Expenses = "<option >--Select Operating_Expenses--</option>";
+            string dataOperating_Expenses = "<option value=''>--Select Operating_Expenses--</option>";
             foreach (var item in NationalIT.DB.Entities.Operating_Expenses)
             {
                 dataOperating_Expenses += string.Format("<option value='{0}'>{0}</option>", item.ID);
@@ -35,7 +35,7 @@ namespace NationalIT.Controllers
             #endregion
 
             #region SELECT Driver info
-            string dataDriver_Info = "<option >--Select Driver_Info--</option>";
+            string dataDriver_Info = "<option value=''>--Select Driver_Info--</option>";
             foreach (var item in NationalIT.DB.Entities.Driver_Info)
             {
                 if (obj != null && obj.Driver == item.ID)
