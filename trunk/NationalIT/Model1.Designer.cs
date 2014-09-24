@@ -32,13 +32,13 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Customer_Info1", "Customer_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Customer_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Dispatchers1", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Dispatchers), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Driver_Info1", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Maintenance_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Maintenance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Maintenance), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Equipment1", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Fuel_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Fuel_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Fuel_Expenses), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Operating_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Operating_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Operating_Expenses), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Split_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Split_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Split_Expenses), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Trip_Info_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Maintenance_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Maintenance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Maintenance), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Equipment1", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
 
 #endregion
 
@@ -541,22 +541,6 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Equipment> Equipment
-        {
-            get
-            {
-                if ((_Equipment == null))
-                {
-                    _Equipment = base.CreateObjectSet<Equipment>("Equipment");
-                }
-                return _Equipment;
-            }
-        }
-        private ObjectSet<Equipment> _Equipment;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<FixedExpenses> FixedExpenses
         {
             get
@@ -585,6 +569,22 @@ namespace NationalIT
             }
         }
         private ObjectSet<TempReport> _TempReport;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Equipment> Equipment
+        {
+            get
+            {
+                if ((_Equipment == null))
+                {
+                    _Equipment = base.CreateObjectSet<Equipment>("Equipment");
+                }
+                return _Equipment;
+            }
+        }
+        private ObjectSet<Equipment> _Equipment;
 
         #endregion
 
@@ -815,14 +815,6 @@ namespace NationalIT
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Equipment EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToEquipment(Equipment equipment)
-        {
-            base.AddObject("Equipment", equipment);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the FixedExpenses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToFixedExpenses(FixedExpenses fixedExpenses)
@@ -836,6 +828,14 @@ namespace NationalIT
         public void AddToTempReport(TempReport tempReport)
         {
             base.AddObject("TempReport", tempReport);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Equipment EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEquipment(Equipment equipment)
+        {
+            base.AddObject("Equipment", equipment);
         }
 
         #endregion
@@ -2836,11 +2836,13 @@ namespace NationalIT
         /// Create a new Equipment object.
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="inspectionFrequency">Initial value of the InspectionFrequency property.</param>
         /// <param name="oOS">Initial value of the OOS property.</param>
-        public static Equipment CreateEquipment(global::System.Int32 id, global::System.Boolean oOS)
+        public static Equipment CreateEquipment(global::System.Int32 id, global::System.Int32 inspectionFrequency, global::System.Boolean oOS)
         {
             Equipment equipment = new Equipment();
             equipment.ID = id;
+            equipment.InspectionFrequency = inspectionFrequency;
             equipment.OOS = oOS;
             return equipment;
         }
@@ -3187,6 +3189,102 @@ namespace NationalIT
         private global::System.String _LeaseAmount;
         partial void OnLeaseAmountChanging(global::System.String value);
         partial void OnLeaseAmountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Status
+        {
+            get
+            {
+                return _Status;
+            }
+            set
+            {
+                OnStatusChanging(value);
+                ReportPropertyChanging("Status");
+                _Status = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Status");
+                OnStatusChanged();
+            }
+        }
+        private global::System.String _Status;
+        partial void OnStatusChanging(global::System.String value);
+        partial void OnStatusChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 InspectionFrequency
+        {
+            get
+            {
+                return _InspectionFrequency;
+            }
+            set
+            {
+                OnInspectionFrequencyChanging(value);
+                ReportPropertyChanging("InspectionFrequency");
+                _InspectionFrequency = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("InspectionFrequency");
+                OnInspectionFrequencyChanged();
+            }
+        }
+        private global::System.Int32 _InspectionFrequency;
+        partial void OnInspectionFrequencyChanging(global::System.Int32 value);
+        partial void OnInspectionFrequencyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> LastInspected
+        {
+            get
+            {
+                return _LastInspected;
+            }
+            set
+            {
+                OnLastInspectedChanging(value);
+                ReportPropertyChanging("LastInspected");
+                _LastInspected = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LastInspected");
+                OnLastInspectedChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _LastInspected;
+        partial void OnLastInspectedChanging(Nullable<global::System.DateTime> value);
+        partial void OnLastInspectedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String InspectedBy
+        {
+            get
+            {
+                return _InspectedBy;
+            }
+            set
+            {
+                OnInspectedByChanging(value);
+                ReportPropertyChanging("InspectedBy");
+                _InspectedBy = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("InspectedBy");
+                OnInspectedByChanged();
+            }
+        }
+        private global::System.String _InspectedBy;
+        partial void OnInspectedByChanging(global::System.String value);
+        partial void OnInspectedByChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

@@ -22,7 +22,7 @@
                         <label class="control-label" for="Equipment_Type">
                             Equipment Type</label>
                         <div class="controls">
-                            <div class="span12">                                
+                            <div class="span12">
                                 <select data-placeholder="Select Driver" name="Equipment_Type" class="input-xlarge">
                                     <option value="TRUCK">TRUCK</option>
                                     <option value="TRAILER">TRAILER</option>
@@ -42,7 +42,8 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="Driver">Driver</label>
+                        <label class="control-label" for="Driver">
+                            Driver</label>
                         <div class="controls">
                             <div class="span12">
                                 <select data-placeholder="Select Equipment" name="Driver" class="chosen-with-diselect input-xlarge">
@@ -53,7 +54,8 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="Owner">Owner</label>
+                        <label class="control-label" for="Owner">
+                            Owner</label>
                         <div class="controls">
                             <div class="span12">
                                 <select data-placeholder="Select Equipment" name="Owner" class="chosen-with-diselect input-xlarge">
@@ -79,10 +81,10 @@
                         <div class="controls">
                             <div class="span12">
                                 @Html.TextBoxFor(model => model.DATE_LEASED, new { Value = Model != null && Model.DATE_LEASED.HasValue ? Model.DATE_LEASED.Value.ToString("MM/dd/yyyy") : "", @class = "input-xlarge date-picker" })
-                                @Html.ValidationMessageFor(model => model.Inspection_Expiration)
+                                @Html.ValidationMessageFor(model => model.DATE_LEASED)
                             </div>
                         </div>
-                    </div> 
+                    </div>
                     <div class="control-group">
                         <label class="control-label" for="Inspection_Expiration">
                             Inspection Expiration</label>
@@ -130,7 +132,67 @@
                                 @Html.ValidationMessageFor(model => model.VIN)
                             </div>
                         </div>
-                    </div>                    
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="VIN">@Html.LabelFor(model => model.LeaseAmount)</label>
+                        <div class="controls">
+                            <div class="span12">
+                                <select name="LeaseAmount" class="input-xlarge">
+                                    <option value="Daily" @(Model.LeaseAmount == "Daily" ? "Selected" : "")>Daily</option>
+                                    <option value="Weekly" @(Model.LeaseAmount == "Weekly" ? "Selected" : "")>Weekly</option>
+                                    <option value="Monthly" @(Model.LeaseAmount == "Monthly" ? "Selected" : "")>Monthly</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="VIN">@Html.LabelFor(model => model.Status)</label>
+                        <div class="controls">
+                            <div class="span12">
+                                <select name="Status" class="input-xlarge">
+                                    <option value="Available" @(Model.Status == "Available" ? "Selected" : "")>Available</option>
+                                    <option value="Leased" @(Model.Status == "Leased" ? "Selected" : "")>Leased</option>
+                                    <option value="OOS" @(Model.Status == "OOS" ? "Selected" : "")>OOS</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="InspectionFrequency">@Html.LabelFor(model => model.InspectionFrequency)</label>
+                        <div class="controls">
+                            <div class="span12">
+                                @Html.TextBoxFor(model => model.InspectionFrequency, new { @class = "input-xlarge" })
+                                @Html.ValidationMessageFor(model => model.InspectionFrequency)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="LastInspected">
+                            Last inspected</label>
+                        <div class="controls">
+                            <div class="span12">
+                                @Html.TextBoxFor(model => model.LastInspected, new { Value = Model != null && Model.LastInspected.HasValue ? Model.LastInspected.Value.ToString("MM/dd/yyyy") : "", @class = "input-xlarge date-picker" })
+                                @Html.ValidationMessageFor(model => model.LastInspected)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="InspectedBy">@Html.LabelFor(model => model.InspectedBy)</label>
+                        <div class="controls">
+                            <div class="span12">
+                                @Html.TextBoxFor(model => model.InspectedBy, new { @class = "input-xlarge" })
+                                @Html.ValidationMessageFor(model => model.InspectedBy)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="OOS">@Html.LabelFor(model => model.OOS)</label>
+                        <div class="controls">
+                            <div class="span12">
+                                @Html.CheckBoxFor(model => model.OOS)
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-actions">
                         @Html.Partial("_ShowSaveEdit")
                     </div>
