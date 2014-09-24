@@ -155,26 +155,35 @@ namespace NationalIT.Controllers
                     model.Order_date = CommonFunction.ChangeFormatDate(frm["Order_date"]);
                     model.Delivery_date = CommonFunction.ChangeFormatDate(frm["Delivery_date"]);
                     model.Pickup_date = CommonFunction.ChangeFormatDate(frm["Pickup_date"]);
-                    if (model.Trip_ID == 0)
+                    if (model.Trip_ID == 0 || model.Invoice == 0)
                     {
                         // New
                         db.Trip_Info.AddObject(model);
                         db.SaveChanges();
                         model.Invoice = 9999 + model.Trip_ID;
-
                         var income = new Income()
                         {
                             IncomeDate = DateTime.Now,
                             AmountInvoiced = model.Total_charges,
                             Comments = model.Comment,
                             InvoiceNumber = model.Invoice,
-                            Driver = model.Driver_Info != null ? model.Driver_Info.Last_name + " " + model.Driver_Info.First_name : null,
+                            Driver = model.Driver_Info != null ? model.Driver_Info.Last_name + " " + model.Driver_Info.First_name : "",
                             FundedAmount = model.Total_charges,
                         };
                         db.Income.AddObject(income);
                     }
                     else
                     {
+                        var income = db.Income.FirstOrDefault(m => m.InvoiceNumber == model.Invoice);
+                        if (income!=null)
+                        {
+                            income.IncomeDate = DateTime.Now;
+                            income.AmountInvoiced = model.Total_charges;
+                            income.Comments = model.Comment;
+                            income.InvoiceNumber = model.Invoice;
+                            income.Driver = model.Driver_Info != null ? model.Driver_Info.Last_name + " " + model.Driver_Info.First_name : "";
+                            income.FundedAmount = model.Total_charges;
+                        }
                         db.AttachTo("Trip_Info", model);
                         db.ObjectStateManager.ChangeObjectState(model, System.Data.EntityState.Modified);
                     }
