@@ -155,16 +155,12 @@ namespace NationalIT.Controllers
                     model.Order_date = CommonFunction.ChangeFormatDate(frm["Order_date"]);
                     model.Delivery_date = CommonFunction.ChangeFormatDate(frm["Delivery_date"]);
                     model.Pickup_date = CommonFunction.ChangeFormatDate(frm["Pickup_date"]);
-                    if (!string.IsNullOrEmpty(frm["Customer"]))
-                    {
-                        model.Customer = int.Parse(frm["Customer"].Replace(",", null));
-                    }
                     if (model.Trip_ID == 0)
                     {
                         // New
                         db.Trip_Info.AddObject(model);
                         db.SaveChanges();
-                        model.Invoice = model.Trip_ID;
+                        model.Invoice = 9999 + model.Trip_ID;
 
                         var income = new Income()
                         {
