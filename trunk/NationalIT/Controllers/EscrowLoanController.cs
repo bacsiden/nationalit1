@@ -13,12 +13,24 @@ namespace NationalIT.Controllers
         //
         // GET: /Owner/
         [ValidationFunction(ActionName.ViewListEscrowLoan)]
-        public ActionResult Index(int? page)
+        public ActionResult Index(int? page, int? driverID, int? ownerID, string ownerName = "", string driverName = "")
         {
-            return View(DB.Entities.EscrowLoan.OrderByDescending(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
+            var list = DB.Entities.EscrowLoan.Where(m => true);
+            if(driverID!=null)
+                list=list.Where(m => (!m.Owner && m.OwnerDriver == driverID.Value)
+                || (ownerID.HasValue && ownerID.Value != 0 && m.Owner && m.OwnerDriver == ownerID.Value));
+            if (driverID.HasValue && driverID.Value != 0)
+            {
+                ViewBag.ForDriver = "of driver: " + driverName;
+            }
+            if (ownerID.HasValue && ownerID.Value != 0)
+            {
+                ViewBag.ForOwner = ", owner: " + ownerName;
+            }
+            return View(list.OrderByDescending(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
         }
         void SelectOption(EscrowLoan obj)
-        {            
+        {
             #region SELECT Owner or Driver
             string dataDriver_Info = "<option value=''>--Select Driver_Info--</option>";
             foreach (var item in NationalIT.DB.Entities.Driver_Info)
@@ -55,7 +67,7 @@ namespace NationalIT.Controllers
         public ActionResult NewOrEdit(int? id = 0)
         {
             var obj = DB.Entities.EscrowLoan.FirstOrDefault(m => m.ID == id);
-            if (obj==null)
+            if (obj == null)
             {
                 obj = new EscrowLoan();
             }
