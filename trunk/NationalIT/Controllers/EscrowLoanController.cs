@@ -16,8 +16,8 @@ namespace NationalIT.Controllers
         public ActionResult Index(int? page, int? driverID, int? ownerID, string ownerName = "", string driverName = "")
         {
             var list = DB.Entities.EscrowLoan.Where(m => true);
-            if(driverID!=null)
-                list=list.Where(m => (!m.Owner && m.OwnerDriver == driverID.Value)
+            if (driverID != null)
+                list = list.Where(m => (!m.Owner && m.OwnerDriver == driverID.Value)
                 || (ownerID.HasValue && ownerID.Value != 0 && m.Owner && m.OwnerDriver == ownerID.Value));
             if (driverID.HasValue && driverID.Value != 0)
             {
@@ -135,6 +135,19 @@ namespace NationalIT.Controllers
 
             }
             return RedirectToAction("Index");
+        }
+
+        [ValidationFunction(ActionName.ViewListEscrowLoan)]
+        public void UpdateEscrowLoan(double currentCharge = 0, int id = 0)
+        {
+            var db = DB.Entities;
+            var obj = db.EscrowLoan.FirstOrDefault(m => m.ID == id);
+            if (obj != null)
+            {
+                obj.CurrentCharge = currentCharge;
+                db.ObjectStateManager.ChangeObjectState(obj, System.Data.EntityState.Modified);
+                db.SaveChanges();
+            }
         }
 
     }

@@ -3402,13 +3402,15 @@ namespace NationalIT
         /// <param name="totalAmount">Initial value of the TotalAmount property.</param>
         /// <param name="ownerDriver">Initial value of the OwnerDriver property.</param>
         /// <param name="owner">Initial value of the Owner property.</param>
-        public static EscrowLoan CreateEscrowLoan(global::System.Int32 id, global::System.Double totalAmount, global::System.Int32 ownerDriver, global::System.Boolean owner)
+        /// <param name="escrow_Loan">Initial value of the Escrow_Loan property.</param>
+        public static EscrowLoan CreateEscrowLoan(global::System.Int32 id, global::System.Double totalAmount, global::System.Int32 ownerDriver, global::System.Boolean owner, global::System.Boolean escrow_Loan)
         {
             EscrowLoan escrowLoan = new EscrowLoan();
             escrowLoan.ID = id;
             escrowLoan.TotalAmount = totalAmount;
             escrowLoan.OwnerDriver = ownerDriver;
             escrowLoan.Owner = owner;
+            escrowLoan.Escrow_Loan = escrow_Loan;
             return escrowLoan;
         }
 
@@ -3586,6 +3588,54 @@ namespace NationalIT
         private global::System.Boolean _Owner;
         partial void OnOwnerChanging(global::System.Boolean value);
         partial void OnOwnerChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> CurrentCharge
+        {
+            get
+            {
+                return _CurrentCharge;
+            }
+            set
+            {
+                OnCurrentChargeChanging(value);
+                ReportPropertyChanging("CurrentCharge");
+                _CurrentCharge = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CurrentCharge");
+                OnCurrentChargeChanged();
+            }
+        }
+        private Nullable<global::System.Double> _CurrentCharge;
+        partial void OnCurrentChargeChanging(Nullable<global::System.Double> value);
+        partial void OnCurrentChargeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Escrow_Loan
+        {
+            get
+            {
+                return _Escrow_Loan;
+            }
+            set
+            {
+                OnEscrow_LoanChanging(value);
+                ReportPropertyChanging("Escrow_Loan");
+                _Escrow_Loan = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Escrow_Loan");
+                OnEscrow_LoanChanged();
+            }
+        }
+        private global::System.Boolean _Escrow_Loan;
+        partial void OnEscrow_LoanChanging(global::System.Boolean value);
+        partial void OnEscrow_LoanChanged();
 
         #endregion
 

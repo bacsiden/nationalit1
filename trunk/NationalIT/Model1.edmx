@@ -264,6 +264,8 @@
           <Property Name="Balance" Type="float" />
           <Property Name="OwnerDriver" Type="int" Nullable="false" />
           <Property Name="Owner" Type="bit" Nullable="false" />
+          <Property Name="CurrentCharge" Type="float" />
+          <Property Name="Escrow_Loan" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="FixedCharges">
           <Key>
@@ -1177,6 +1179,8 @@
           <Property Type="Double" Name="Balance" />
           <Property Type="Int32" Name="OwnerDriver" Nullable="false" />
           <Property Type="Boolean" Name="Owner" Nullable="false" />
+          <Property Type="Double" Name="CurrentCharge" />
+          <Property Type="Boolean" Name="Escrow_Loan" Nullable="false" />
         </EntityType>
         <EntityType Name="FixedCharges">
           <Key>
@@ -1883,6 +1887,8 @@
           <EntitySetMapping Name="EscrowLoan">
             <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.EscrowLoan">
               <MappingFragment StoreEntitySet="EscrowLoan">
+                <ScalarProperty Name="Escrow_Loan" ColumnName="Escrow_Loan" />
+                <ScalarProperty Name="CurrentCharge" ColumnName="CurrentCharge" />
                 <ScalarProperty Name="Owner" ColumnName="Owner" />
                 <ScalarProperty Name="OwnerDriver" ColumnName="OwnerDriver" />
                 <ScalarProperty Name="Balance" ColumnName="Balance" />
