@@ -40,7 +40,23 @@
                     @Html.ValidationSummary(true)                    
 
                     @Html.HiddenFor(model => model.ID)
-                    
+                    <div class="control-group">
+                        <label class="control-label" for="Idndex">
+                            Escrow / Loan</label>
+                        <div class="controls">
+                            <div class="span12">
+                                <label class="radio inline">
+                                    <input type="radio" name="Escrow_Loan" class="rdoEscrow_Loan" value="true" @(Model != null && !Model.Escrow_Loan ? "checked" : "")>
+                                    Escrow
+                                </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="Escrow_Loan" class="rdoEscrow_Loan" value="false" @(Model != null && !Model.Escrow_Loan ? "checked" : "")>
+                                    Loan
+                                </label>
+                                @Html.ValidationMessageFor(model => model.Escrow_Loan)
+                            </div>
+                        </div>
+                    </div>
                     <div class="control-group">
                         <label class="control-label" for="Expenses">@Html.LabelFor(model => model.Expenses)</label>
                         <div class="controls">
@@ -82,11 +98,11 @@
                         <div class="controls">
                             <div class="span12">
                                 <label class="radio inline">
-                                    <input type="radio" name="Owner" class="rdoSplitExpenses" value="false" @(Model != null && !Model.Owner  ? "checked" : "")>
+                                    <input type="radio" name="Owner" class="rdoSplitExpenses" value="false" @(Model != null && !Model.Owner ? "checked" : "")>
                                     Driver's expenses
                                 </label>
                                 <label class="radio inline">
-                                    <input type="radio" name="Owner" class="rdoSplitExpenses" value="true" @(Model != null?( Model.Owner ? "checked" : "") : "checked")>
+                                    <input type="radio" name="Owner" class="rdoSplitExpenses" value="true" @(Model != null ? (Model.Owner ? "checked" : "") : "checked")>
                                     Owner's expenses
                                 </label>
                                 @Html.ValidationMessageFor(model => model.Owner)

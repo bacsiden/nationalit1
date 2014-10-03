@@ -1,0 +1,89 @@
+﻿@model List<NationalIT.EscrowLoan>
+<div id="Escrow" class="boxScroll">
+    <table class="table">
+        <tr>
+            <th>
+                <input type="checkbox" name="" value="" class="EscrowcheckAll" />
+            </th>
+            <th>
+                ID
+            </th>
+            <th>
+                Driver/Owner
+            </th>
+            <th>
+                Expenses
+            </th>
+            <th>
+                Total amount
+            </th>
+            <th>
+                Amount PAID
+            </th>
+            <th>
+                Balance
+            </th>
+            <th>
+                Current charge
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <input type="checkbox" name="checkOwner" value="@item.TotalAmount" getID="@item.ID" class="Escrowcheckitem EscrowLoanitem"/>
+                </td>
+                <td>
+                    @Html.ActionLink(item.ID.ToString(), "NewOrEdit", "EscrowLoan", new { id = item.ID }, null)
+                </td>
+                <td>
+                    @{
+               
+               if (!item.Owner)
+               {
+                   var driver = NationalIT.DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == item.OwnerDriver);
+                   if (driver != null)
+                   {
+                        <span>@driver.Last_name @driver.First_name</span>
+                   }
+               }
+               else
+               {
+                   var owner = NationalIT.DB.Entities.Owners.FirstOrDefault(m => m.OwnerID == item.OwnerDriver);
+                   if (owner != null)
+                   {
+                        <span>@owner.Name</span>
+                   }
+               }
+                                      
+                    }
+                </td>
+                <td>
+                    @item.Expenses
+                </td>
+                <td>
+                    @String.Format("{0:C}", item.TotalAmount)
+                </td>
+                <td>
+                    @(item.AmountPaid.HasValue ? String.Format("{0:C}", item.AmountPaid.Value) : "$0")
+                </td>
+                <td>
+                    @String.Format("{0:C}", item.Balance)
+                </td>
+                @using (Ajax.BeginForm("UpdateEscrowLoan", "EscrowLoan", new AjaxOptions { 
+                    HttpMethod="Post",
+                    OnSuccess = "Alert('Update successfully!');"
+                }, new { @class = "form-inline" }))
+                {
+                    <td>
+                        <input type="text" name="CurrentCharge" class="onlyNumber currentCharge" value="@item.CurrentCharge" style="width: 50px;" />
+                        ($)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("UpdateEscrowLoan", "EscrowLoan", new {id=item.ID})" class="btn saveCurrentCharge">Save</a>
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+</div>

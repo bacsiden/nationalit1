@@ -13,9 +13,15 @@
         //Driver split expenses
         ListenerCheckBox($("#DriverExpensesSplit .SplitcheckAll"), $("#DriverExpensesSplit .Splitcheckitem"), $("#DriversAmount"));
         ListenerCheckAll($("#DriverExpensesSplit .SplitcheckAll"), $("#DriverExpensesSplit .Splitcheckitem"));
-        //Owner split expenses
+        
+        //Owner split expenses 
         ListenerCheckBox($("#OwnerExpensesSplit .SplitcheckAll"), $("#OwnerExpensesSplit .Splitcheckitem"), $("#OwnersAmount"));
         ListenerCheckAll($("#OwnerExpensesSplit .SplitcheckAll"), $("#OwnerExpensesSplit .Splitcheckitem"));
+        
+        //Escrow EscrowLoanAmount
+        ListenerCheckBox($("#Escrow .EscrowcheckAll"), $("#Escrow .Escrowcheckitem"), $("#EscrowCurrentCharge"));
+        ListenerCheckAll($("#Escrow .EscrowcheckAll"), $("#Escrow .Escrowcheckitem"));
+
         $(".PrintPayroll1").click(function () {
             if (!confirm("Are you sure you want process this Payroll?")) {
                 return false;
@@ -25,9 +31,10 @@
             var operating = getListIDCheckBoxByIDClassName("Operating_ExpensesAmount", "DriverOperating_ExpensesItem");
             var splitdriver = getListIDCheckBoxByIDClassName("DriverExpensesSplit", "Splitcheckitem");
             var splitowner = getListIDCheckBoxByIDClassName("OwnerExpensesSplit", "Splitcheckitem");
+            var escrowLoan = getListIDCheckBoxByIDClassName("Escrow", "Escrowcheckitem");
             var driverid = '@Model.ID';
             var url = $(this).attr('href');
-            var newurl = addParam(addParam(addParam(addParam(addParam(addParam(url, "driverid", driverid), "Trips", Trips), "Fuel", Fuel), "operating", operating), "splitdriver", splitdriver), "splitowner", splitowner);
+            var newurl = addParam(addParam(addParam(addParam(addParam(addParam(addParam(url, "escrowLoan", escrowLoan), "driverid", driverid), "Trips", Trips), "Fuel", Fuel), "operating", operating), "splitdriver", splitdriver), "splitowner", splitowner);
             var beforeURL = addParam("@Url.Action("BeforeDriverPayroll", "DriverInfo")","url",newurl);
             location.href= beforeURL;
             return false;
@@ -64,12 +71,13 @@
             // Duyệt toàn bộ các checkbox được checked và lấy giá trị cộng dồn lại
             objCheckItem.each(function () {
                 if ($(this).is(":checked")) {
-                    tripAmount = parseFloat(tripAmount) + parseFloat($(this).val());
+                    tripAmount = parseFloat(tripAmount) + parseFloat($(this).val());                    
                 }
             });
             TotalAmount.val("$" +formatCurrency(tripAmount));
         });
     }
+   
     function ListenerCheckAll(checkAll,checkItem) {
         checkAll.click(function () {            
             if ($(this).is(':checked')) {
@@ -79,10 +87,42 @@
             }
         });
     }
+    function ListenerCheckItem(checkAll,checkItem) {
+        checkItem.click(function () {            
+            if ($(this).is(':checked')) {
+                var isChecked = true;
+                checkItem.each(function () {
+                    if ($(this).is(":checked")==false) {
+                        isCheck = false;
+                    }
+                });
+                if (isChecked==true) {
+                    checkAll.prop('checked', true);
+                }else {
+                    checkAll.prop('checked', false);
+                }
+            } else {
+                checkAll.prop('checked', false);
+            }
+        });
+    }
     function formatCurrency(num) {
         num = isNaN(num) || num === '' || num === null ? 0.00 : num;
         return parseFloat(num).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
     }
+    $(document).on("click", ".saveCurrentCharge", function () {
+        var url = $(this).attr('href');
+        var currentCharge = $(this).parent().prev().find(".currentCharge").val();
+        var newURL = addParam(url, "currentCharge", currentCharge);
+        $.ajax({
+            type: "GET",
+            url: newURL,
+            success: function (model) {
+                alert('Saved!');
+            }
+        });
+        return false;
+    });
 </script>
 <h3>
     Driver Payroll & Expenses: <a href="/DriverInfo/NewOrEdit/@Model.ID">@(Model.Last_name + " " + Model.First_name)</a></h3>
@@ -93,6 +133,8 @@
     var listTripInfoConditon = Model.Trip_Info.Where(m => m.Picked == true && m.Deliverd == true && m.Current_Payroll == true && m.Customer_Invoiced == true && m.Driver_paid == false).ToList();
     var driverExpenses = db.split_expenses.Where(m => m.OwnerDriver == Model.ID && m.Idndex == 1 && m.Paid_Off == false).ToList();
     var OwnerExpenses = db.split_expenses.Where(m => m.OwnerDriver == Model.Owner_Name && m.Idndex == 2 && m.Paid_Off == false).ToList();
+    var escrowLoan = db.EscrowLoan.Where(m => (!m.Owner && m.OwnerDriver == Model.ID)
+                || (Model.Owner_Name.HasValue && Model.Owner_Name.Value != 0 && m.Owner && m.OwnerDriver == Model.Owner_Name.Value)).ToList();
 }
 <div class="row-fluid">
     <div class="span8">
@@ -102,6 +144,7 @@
                 <li><a href="#tab-1-2" data-toggle="tab">Fuel Expenses</a></li>
                 <li><a href="#tab-1-3" data-toggle="tab">Operating Expenses</a></li>
                 <li><a href="#tab-1-4" data-toggle="tab">Split Expenses</a></li>
+                <li><a href="#tab-1-5" data-toggle="tab">Escrow/loan</a></li>
             </ul>
             <div class="box-content">
                 <div class="tab-content">
@@ -130,6 +173,23 @@
                             </div>
                         </div>
                     </div>
+                    <div class="tab-pane" id="tab-1-5">
+                        @*<ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab-1-5-1" data-toggle="tab">Escrow</a></li>
+                            <li><a href="#tab-1-5-2" data-toggle="tab">Loan</a></li>
+                        </ul>*@
+                        <div class="box-content">
+                            <div class="tab-content">
+                            @Html.Partial("/Views/Partial-Payrolls-RollBack/_EscrowPartial.cshtml", escrowLoan)
+                                @*<div class="tab-pane active" id="tab-1-5-1">
+                                    @Html.Partial("/Views/Partial-Payrolls-RollBack/_EscrowPartial.cshtml", escrowLoan)
+                                </div>@*
+                                <div class="tab-pane" id="tab-1-5-2">
+                                    @Html.Partial("/Views/Partial-Payrolls-RollBack/_LoanPartial.cshtml", loan)
+                                </div>*@
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -143,7 +203,7 @@
                     <div class="controls">
                         <div class="span12">
                             <input type="text" value="$0.00" name="TripsAmount" id="TripsAmount" class="input-large"
-                                data-rule-number="true" />
+                                data-rule-number="true" readonly="readonly" />
                         </div>
                     </div>
                 </div>
@@ -153,7 +213,7 @@
                     <div class="controls">
                         <div class="span12">
                             <input type="text" value="$0.00" name="FuelAmount" id="FuelAmount" class="input-large"
-                                data-rule-number="true" />
+                                data-rule-number="true" readonly="readonly" />
                         </div>
                     </div>
                 </div>
@@ -163,7 +223,7 @@
                     <div class="controls">
                         <div class="span12">
                             <input type="text" value="$0.00" name="OperatingAmount" id="OperatingAmount" class="input-large"
-                                data-rule-number="true" />
+                                data-rule-number="true" readonly="readonly" />
                         </div>
                     </div>
                 </div>
@@ -173,7 +233,7 @@
                     <div class="controls">
                         <div class="span12">
                             <input type="text" value="$0.00" name="DriversAmount" id="DriversAmount" class="input-large"
-                                data-rule-number="true" />
+                                data-rule-number="true" readonly="readonly" />
                         </div>
                     </div>
                 </div>
@@ -183,10 +243,30 @@
                     <div class="controls">
                         <div class="span12">
                             <input type="text" value="$0.00" name="OwnersAmount" id="OwnersAmount" class="input-large"
-                                data-rule-number="true" />
+                                data-rule-number="true" readonly="readonly" />
                         </div>
                     </div>
                 </div>
+                <div class="control-group">
+                    <label class="control-label" for="EscrowCurrentCharge">
+                        Total Escrow / Loan:</label>
+                    <div class="controls">
+                        <div class="span12">
+                            <input type="text" value="$0.00" name="EscrowCurrentCharge" id="EscrowCurrentCharge"
+                                class="input-large" data-rule-number="true" readonly="readonly"  />
+                        </div>
+                    </div>
+                </div>
+                @*<div class="control-group">
+                    <label class="control-label" for="LoanCurrentCharge">
+                        Loan (Current charge):</label>
+                    <div class="controls">
+                        <div class="span12">
+                            <input type="text" value="0" name="LoanCurrentCharge" id="LoanCurrentCharge"
+                                class="input-large" data-rule-number="true" /> ($)
+                        </div>
+                    </div>
+                </div>*@
                 <div class="control-group">
                     <label class="control-label" for="OwnersAmount">
                     </label>

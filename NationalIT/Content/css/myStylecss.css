@@ -131,3 +131,8 @@ label
     border-top: 2px solid #ccc;
     background: none repeat scroll 0 0 white;
 }
+.navbar .btn-navbar
+{
+    position:relative;
+    z-index:10000;
+}
