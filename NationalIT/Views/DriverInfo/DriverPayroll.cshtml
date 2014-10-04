@@ -135,8 +135,8 @@
     var listTripInfoConditon = Model.Trip_Info.Where(m => m.Picked == true && m.Deliverd == true && m.Current_Payroll == true && m.Customer_Invoiced == true && m.Driver_paid == false).ToList();
     var driverExpenses = db.split_expenses.Where(m => m.OwnerDriver == Model.ID && m.Idndex == 1 && m.Paid_Off == false).ToList();
     var OwnerExpenses = db.split_expenses.Where(m => m.OwnerDriver == Model.Owner_Name && m.Idndex == 2 && m.Paid_Off == false).ToList();
-    var escrowLoan = db.EscrowLoan.Where(m => (!m.Owner && m.OwnerDriver == Model.ID)
-                || (Model.Owner_Name.HasValue && Model.Owner_Name.Value != 0 && m.Owner && m.OwnerDriver == Model.Owner_Name.Value)).ToList();
+    var escrowLoan = db.EscrowLoan.Where(m =>m.Balance > 0 &&  ((!m.Owner && m.OwnerDriver == Model.ID)
+                || (Model.Owner_Name.HasValue && Model.Owner_Name.Value != 0 && m.Owner && m.OwnerDriver == Model.Owner_Name.Value))).ToList();
 }
 <div class="row-fluid">
     <div class="span8">
