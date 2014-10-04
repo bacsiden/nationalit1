@@ -90,7 +90,7 @@
                 }, new { @class = "form-inline" }))
                 {
                     <td>
-                        <input type="text" name="CurrentCharge" class="onlyNumber currentCharge" value="@item.CurrentCharge" style="width: 50px;" />
+                        <input type="text" name="CurrentCharge" class="onlyNumber currentCharge" value="@(item.CurrentCharge.HasValue ? item.CurrentCharge.Value : 0)" style="width: 50px;" />
                         ($)
                     </td>
                     <td>

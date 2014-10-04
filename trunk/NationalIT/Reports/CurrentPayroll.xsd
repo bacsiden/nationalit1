@@ -12,7 +12,7 @@
   <xs:element name="CurrentPayroll" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CurrentPayroll" msprop:Generator_UserDSName="CurrentPayroll">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Trips" msprop:Generator_TableClassName="TripsDataTable" msprop:Generator_TableVarName="tableTrips" msprop:Generator_TablePropName="Trips" msprop:Generator_RowDeletingName="TripsRowDeleting" msprop:Generator_UserTableName="Trips" msprop:Generator_RowChangingName="TripsRowChanging" msprop:Generator_RowEvHandlerName="TripsRowChangeEventHandler" msprop:Generator_RowDeletedName="TripsRowDeleted" msprop:Generator_RowEvArgName="TripsRowChangeEvent" msprop:Generator_RowChangedName="TripsRowChanged" msprop:Generator_RowClassName="TripsRow">
+        <xs:element name="Trips" msprop:Generator_TableClassName="TripsDataTable" msprop:Generator_TableVarName="tableTrips" msprop:Generator_RowChangedName="TripsRowChanged" msprop:Generator_TablePropName="Trips" msprop:Generator_RowDeletingName="TripsRowDeleting" msprop:Generator_RowChangingName="TripsRowChanging" msprop:Generator_RowEvHandlerName="TripsRowChangeEventHandler" msprop:Generator_RowDeletedName="TripsRowDeleted" msprop:Generator_RowClassName="TripsRow" msprop:Generator_UserTableName="Trips" msprop:Generator_RowEvArgName="TripsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PickupDate" msprop:Generator_ColumnVarNameInTable="columnPickupDate" msprop:Generator_ColumnPropNameInRow="PickupDate" msprop:Generator_ColumnPropNameInTable="PickupDateColumn" msprop:Generator_UserColumnName="PickupDate" type="xs:string" minOccurs="0" />
@@ -21,7 +21,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="FuelExpenses" msprop:Generator_TableClassName="FuelExpensesDataTable" msprop:Generator_TableVarName="tableFuelExpenses" msprop:Generator_TablePropName="FuelExpenses" msprop:Generator_RowDeletingName="FuelExpensesRowDeleting" msprop:Generator_UserTableName="FuelExpenses" msprop:Generator_RowChangingName="FuelExpensesRowChanging" msprop:Generator_RowEvHandlerName="FuelExpensesRowChangeEventHandler" msprop:Generator_RowDeletedName="FuelExpensesRowDeleted" msprop:Generator_RowEvArgName="FuelExpensesRowChangeEvent" msprop:Generator_RowChangedName="FuelExpensesRowChanged" msprop:Generator_RowClassName="FuelExpensesRow">
+        <xs:element name="FuelExpenses" msprop:Generator_TableClassName="FuelExpensesDataTable" msprop:Generator_TableVarName="tableFuelExpenses" msprop:Generator_RowChangedName="FuelExpensesRowChanged" msprop:Generator_TablePropName="FuelExpenses" msprop:Generator_RowDeletingName="FuelExpensesRowDeleting" msprop:Generator_RowChangingName="FuelExpensesRowChanging" msprop:Generator_RowEvHandlerName="FuelExpensesRowChangeEventHandler" msprop:Generator_RowDeletedName="FuelExpensesRowDeleted" msprop:Generator_RowClassName="FuelExpensesRow" msprop:Generator_UserTableName="FuelExpenses" msprop:Generator_RowEvArgName="FuelExpensesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:string" minOccurs="0" />
@@ -31,7 +31,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="OperatingExpenses" msprop:Generator_TableClassName="OperatingExpensesDataTable" msprop:Generator_TableVarName="tableOperatingExpenses" msprop:Generator_TablePropName="OperatingExpenses" msprop:Generator_RowDeletingName="OperatingExpensesRowDeleting" msprop:Generator_UserTableName="OperatingExpenses" msprop:Generator_RowChangingName="OperatingExpensesRowChanging" msprop:Generator_RowEvHandlerName="OperatingExpensesRowChangeEventHandler" msprop:Generator_RowDeletedName="OperatingExpensesRowDeleted" msprop:Generator_RowEvArgName="OperatingExpensesRowChangeEvent" msprop:Generator_RowChangedName="OperatingExpensesRowChanged" msprop:Generator_RowClassName="OperatingExpensesRow">
+        <xs:element name="OperatingExpenses" msprop:Generator_TableClassName="OperatingExpensesDataTable" msprop:Generator_TableVarName="tableOperatingExpenses" msprop:Generator_RowChangedName="OperatingExpensesRowChanged" msprop:Generator_TablePropName="OperatingExpenses" msprop:Generator_RowDeletingName="OperatingExpensesRowDeleting" msprop:Generator_RowChangingName="OperatingExpensesRowChanging" msprop:Generator_RowEvHandlerName="OperatingExpensesRowChangeEventHandler" msprop:Generator_RowDeletedName="OperatingExpensesRowDeleted" msprop:Generator_RowClassName="OperatingExpensesRow" msprop:Generator_UserTableName="OperatingExpenses" msprop:Generator_RowEvArgName="OperatingExpensesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:string" minOccurs="0" />
@@ -40,7 +40,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="OwnerExpenses" msprop:Generator_TableClassName="OwnerExpensesDataTable" msprop:Generator_TableVarName="tableOwnerExpenses" msprop:Generator_TablePropName="OwnerExpenses" msprop:Generator_RowDeletingName="OwnerExpensesRowDeleting" msprop:Generator_UserTableName="OwnerExpenses" msprop:Generator_RowChangingName="OwnerExpensesRowChanging" msprop:Generator_RowEvHandlerName="OwnerExpensesRowChangeEventHandler" msprop:Generator_RowDeletedName="OwnerExpensesRowDeleted" msprop:Generator_RowEvArgName="OwnerExpensesRowChangeEvent" msprop:Generator_RowChangedName="OwnerExpensesRowChanged" msprop:Generator_RowClassName="OwnerExpensesRow">
+        <xs:element name="OwnerExpenses" msprop:Generator_TableClassName="OwnerExpensesDataTable" msprop:Generator_TableVarName="tableOwnerExpenses" msprop:Generator_RowChangedName="OwnerExpensesRowChanged" msprop:Generator_TablePropName="OwnerExpenses" msprop:Generator_RowDeletingName="OwnerExpensesRowDeleting" msprop:Generator_RowChangingName="OwnerExpensesRowChanging" msprop:Generator_RowEvHandlerName="OwnerExpensesRowChangeEventHandler" msprop:Generator_RowDeletedName="OwnerExpensesRowDeleted" msprop:Generator_RowClassName="OwnerExpensesRow" msprop:Generator_UserTableName="OwnerExpenses" msprop:Generator_RowEvArgName="OwnerExpensesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:string" minOccurs="0" />
@@ -49,12 +49,28 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DriverExpenses" msprop:Generator_TableClassName="DriverExpensesDataTable" msprop:Generator_TableVarName="tableDriverExpenses" msprop:Generator_TablePropName="DriverExpenses" msprop:Generator_RowDeletingName="DriverExpensesRowDeleting" msprop:Generator_UserTableName="DriverExpenses" msprop:Generator_RowChangingName="DriverExpensesRowChanging" msprop:Generator_RowEvHandlerName="DriverExpensesRowChangeEventHandler" msprop:Generator_RowDeletedName="DriverExpensesRowDeleted" msprop:Generator_RowEvArgName="DriverExpensesRowChangeEvent" msprop:Generator_RowChangedName="DriverExpensesRowChanged" msprop:Generator_RowClassName="DriverExpensesRow">
+        <xs:element name="DriverExpenses" msprop:Generator_TableClassName="DriverExpensesDataTable" msprop:Generator_TableVarName="tableDriverExpenses" msprop:Generator_RowChangedName="DriverExpensesRowChanged" msprop:Generator_TablePropName="DriverExpenses" msprop:Generator_RowDeletingName="DriverExpensesRowDeleting" msprop:Generator_RowChangingName="DriverExpensesRowChanging" msprop:Generator_RowEvHandlerName="DriverExpensesRowChangeEventHandler" msprop:Generator_RowDeletedName="DriverExpensesRowDeleted" msprop:Generator_RowClassName="DriverExpensesRow" msprop:Generator_UserTableName="DriverExpenses" msprop:Generator_RowEvArgName="DriverExpensesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:string" minOccurs="0" />
               <xs:element name="Expenses" msprop:Generator_ColumnVarNameInTable="columnExpenses" msprop:Generator_ColumnPropNameInRow="Expenses" msprop:Generator_ColumnPropNameInTable="ExpensesColumn" msprop:Generator_UserColumnName="Expenses" type="xs:string" minOccurs="0" />
               <xs:element name="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_UserColumnName="Amount" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EscrowLoanDriver" msprop:Generator_TableClassName="EscrowLoanDriverDataTable" msprop:Generator_TableVarName="tableEscrowLoanDriver" msprop:Generator_TablePropName="EscrowLoanDriver" msprop:Generator_RowDeletingName="EscrowLoanDriverRowDeleting" msprop:Generator_RowChangingName="EscrowLoanDriverRowChanging" msprop:Generator_RowEvHandlerName="EscrowLoanDriverRowChangeEventHandler" msprop:Generator_RowDeletedName="EscrowLoanDriverRowDeleted" msprop:Generator_UserTableName="EscrowLoanDriver" msprop:Generator_RowChangedName="EscrowLoanDriverRowChanged" msprop:Generator_RowEvArgName="EscrowLoanDriverRowChangeEvent" msprop:Generator_RowClassName="EscrowLoanDriverRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Expenses" msprop:Generator_ColumnVarNameInTable="columnExpenses" msprop:Generator_ColumnPropNameInRow="Expenses" msprop:Generator_ColumnPropNameInTable="ExpensesColumn" msprop:Generator_UserColumnName="Expenses" type="xs:string" minOccurs="0" />
+              <xs:element name="CurrentCharge" msprop:Generator_ColumnVarNameInTable="columnCurrentCharge" msprop:Generator_ColumnPropNameInRow="CurrentCharge" msprop:Generator_ColumnPropNameInTable="CurrentChargeColumn" msprop:Generator_UserColumnName="CurrentCharge" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EscrowLoanOwner" msprop:Generator_TableClassName="EscrowLoanOwnerDataTable" msprop:Generator_TableVarName="tableEscrowLoanOwner" msprop:Generator_TablePropName="EscrowLoanOwner" msprop:Generator_RowDeletingName="EscrowLoanOwnerRowDeleting" msprop:Generator_RowChangingName="EscrowLoanOwnerRowChanging" msprop:Generator_RowEvHandlerName="EscrowLoanOwnerRowChangeEventHandler" msprop:Generator_RowDeletedName="EscrowLoanOwnerRowDeleted" msprop:Generator_UserTableName="EscrowLoanOwner" msprop:Generator_RowChangedName="EscrowLoanOwnerRowChanged" msprop:Generator_RowEvArgName="EscrowLoanOwnerRowChangeEvent" msprop:Generator_RowClassName="EscrowLoanOwnerRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Expenses" msprop:Generator_ColumnVarNameInTable="columnExpenses" msprop:Generator_ColumnPropNameInRow="Expenses" msprop:Generator_ColumnPropNameInTable="ExpensesColumn" msprop:Generator_UserColumnName="Expenses" type="xs:string" minOccurs="0" />
+              <xs:element name="CurrentCharge" msprop:Generator_ColumnVarNameInTable="columnCurrentCharge" msprop:Generator_ColumnPropNameInRow="CurrentCharge" msprop:Generator_ColumnPropNameInTable="CurrentChargeColumn" msprop:Generator_UserColumnName="CurrentCharge" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
