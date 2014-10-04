@@ -39,6 +39,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Maintenance_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Maintenance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Maintenance), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Equipment1", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_EscrowLoan_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_EscrowLoan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_EscrowLoan), true)]
 
 #endregion
 
@@ -185,22 +186,6 @@ namespace NationalIT
             }
         }
         private ObjectSet<Driver_Info> _Driver_Info;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<EscrowLoan> EscrowLoan
-        {
-            get
-            {
-                if ((_EscrowLoan == null))
-                {
-                    _EscrowLoan = base.CreateObjectSet<EscrowLoan>("EscrowLoan");
-                }
-                return _EscrowLoan;
-            }
-        }
-        private ObjectSet<EscrowLoan> _EscrowLoan;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -585,6 +570,38 @@ namespace NationalIT
             }
         }
         private ObjectSet<Equipment> _Equipment;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<EscrowLoan> EscrowLoan
+        {
+            get
+            {
+                if ((_EscrowLoan == null))
+                {
+                    _EscrowLoan = base.CreateObjectSet<EscrowLoan>("EscrowLoan");
+                }
+                return _EscrowLoan;
+            }
+        }
+        private ObjectSet<EscrowLoan> _EscrowLoan;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Temp_EscrowLoan> Temp_EscrowLoan
+        {
+            get
+            {
+                if ((_Temp_EscrowLoan == null))
+                {
+                    _Temp_EscrowLoan = base.CreateObjectSet<Temp_EscrowLoan>("Temp_EscrowLoan");
+                }
+                return _Temp_EscrowLoan;
+            }
+        }
+        private ObjectSet<Temp_EscrowLoan> _Temp_EscrowLoan;
 
         #endregion
 
@@ -636,14 +653,6 @@ namespace NationalIT
         public void AddToDriver_Info(Driver_Info driver_Info)
         {
             base.AddObject("Driver_Info", driver_Info);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the EscrowLoan EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToEscrowLoan(EscrowLoan escrowLoan)
-        {
-            base.AddObject("EscrowLoan", escrowLoan);
         }
     
         /// <summary>
@@ -836,6 +845,22 @@ namespace NationalIT
         public void AddToEquipment(Equipment equipment)
         {
             base.AddObject("Equipment", equipment);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the EscrowLoan EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEscrowLoan(EscrowLoan escrowLoan)
+        {
+            base.AddObject("EscrowLoan", escrowLoan);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Temp_EscrowLoan EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToTemp_EscrowLoan(Temp_EscrowLoan temp_EscrowLoan)
+        {
+            base.AddObject("Temp_EscrowLoan", temp_EscrowLoan);
         }
 
         #endregion
@@ -7237,6 +7262,357 @@ namespace NationalIT
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Temp_EscrowLoan")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Temp_EscrowLoan : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Temp_EscrowLoan object.
+        /// </summary>
+        /// <param name="escrowLoanID">Initial value of the EscrowLoanID property.</param>
+        /// <param name="totalAmount">Initial value of the TotalAmount property.</param>
+        /// <param name="ownerDriver">Initial value of the OwnerDriver property.</param>
+        /// <param name="owner">Initial value of the Owner property.</param>
+        /// <param name="escrow_Loan">Initial value of the Escrow_Loan property.</param>
+        /// <param name="tempReportID">Initial value of the TempReportID property.</param>
+        /// <param name="id">Initial value of the ID property.</param>
+        public static Temp_EscrowLoan CreateTemp_EscrowLoan(global::System.Int32 escrowLoanID, global::System.Double totalAmount, global::System.Int32 ownerDriver, global::System.Boolean owner, global::System.Boolean escrow_Loan, global::System.Int32 tempReportID, global::System.Int32 id)
+        {
+            Temp_EscrowLoan temp_EscrowLoan = new Temp_EscrowLoan();
+            temp_EscrowLoan.EscrowLoanID = escrowLoanID;
+            temp_EscrowLoan.TotalAmount = totalAmount;
+            temp_EscrowLoan.OwnerDriver = ownerDriver;
+            temp_EscrowLoan.Owner = owner;
+            temp_EscrowLoan.Escrow_Loan = escrow_Loan;
+            temp_EscrowLoan.TempReportID = tempReportID;
+            temp_EscrowLoan.ID = id;
+            return temp_EscrowLoan;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 EscrowLoanID
+        {
+            get
+            {
+                return _EscrowLoanID;
+            }
+            set
+            {
+                OnEscrowLoanIDChanging(value);
+                ReportPropertyChanging("EscrowLoanID");
+                _EscrowLoanID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EscrowLoanID");
+                OnEscrowLoanIDChanged();
+            }
+        }
+        private global::System.Int32 _EscrowLoanID;
+        partial void OnEscrowLoanIDChanging(global::System.Int32 value);
+        partial void OnEscrowLoanIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Expenses
+        {
+            get
+            {
+                return _Expenses;
+            }
+            set
+            {
+                OnExpensesChanging(value);
+                ReportPropertyChanging("Expenses");
+                _Expenses = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Expenses");
+                OnExpensesChanged();
+            }
+        }
+        private global::System.String _Expenses;
+        partial void OnExpensesChanging(global::System.String value);
+        partial void OnExpensesChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double TotalAmount
+        {
+            get
+            {
+                return _TotalAmount;
+            }
+            set
+            {
+                OnTotalAmountChanging(value);
+                ReportPropertyChanging("TotalAmount");
+                _TotalAmount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TotalAmount");
+                OnTotalAmountChanged();
+            }
+        }
+        private global::System.Double _TotalAmount;
+        partial void OnTotalAmountChanging(global::System.Double value);
+        partial void OnTotalAmountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> AmountPaid
+        {
+            get
+            {
+                return _AmountPaid;
+            }
+            set
+            {
+                OnAmountPaidChanging(value);
+                ReportPropertyChanging("AmountPaid");
+                _AmountPaid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AmountPaid");
+                OnAmountPaidChanged();
+            }
+        }
+        private Nullable<global::System.Double> _AmountPaid;
+        partial void OnAmountPaidChanging(Nullable<global::System.Double> value);
+        partial void OnAmountPaidChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> Balance
+        {
+            get
+            {
+                return _Balance;
+            }
+            set
+            {
+                OnBalanceChanging(value);
+                ReportPropertyChanging("Balance");
+                _Balance = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Balance");
+                OnBalanceChanged();
+            }
+        }
+        private Nullable<global::System.Double> _Balance;
+        partial void OnBalanceChanging(Nullable<global::System.Double> value);
+        partial void OnBalanceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 OwnerDriver
+        {
+            get
+            {
+                return _OwnerDriver;
+            }
+            set
+            {
+                OnOwnerDriverChanging(value);
+                ReportPropertyChanging("OwnerDriver");
+                _OwnerDriver = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("OwnerDriver");
+                OnOwnerDriverChanged();
+            }
+        }
+        private global::System.Int32 _OwnerDriver;
+        partial void OnOwnerDriverChanging(global::System.Int32 value);
+        partial void OnOwnerDriverChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Owner
+        {
+            get
+            {
+                return _Owner;
+            }
+            set
+            {
+                OnOwnerChanging(value);
+                ReportPropertyChanging("Owner");
+                _Owner = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Owner");
+                OnOwnerChanged();
+            }
+        }
+        private global::System.Boolean _Owner;
+        partial void OnOwnerChanging(global::System.Boolean value);
+        partial void OnOwnerChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> CurrentCharge
+        {
+            get
+            {
+                return _CurrentCharge;
+            }
+            set
+            {
+                OnCurrentChargeChanging(value);
+                ReportPropertyChanging("CurrentCharge");
+                _CurrentCharge = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CurrentCharge");
+                OnCurrentChargeChanged();
+            }
+        }
+        private Nullable<global::System.Double> _CurrentCharge;
+        partial void OnCurrentChargeChanging(Nullable<global::System.Double> value);
+        partial void OnCurrentChargeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Escrow_Loan
+        {
+            get
+            {
+                return _Escrow_Loan;
+            }
+            set
+            {
+                OnEscrow_LoanChanging(value);
+                ReportPropertyChanging("Escrow_Loan");
+                _Escrow_Loan = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Escrow_Loan");
+                OnEscrow_LoanChanged();
+            }
+        }
+        private global::System.Boolean _Escrow_Loan;
+        partial void OnEscrow_LoanChanging(global::System.Boolean value);
+        partial void OnEscrow_LoanChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 TempReportID
+        {
+            get
+            {
+                return _TempReportID;
+            }
+            set
+            {
+                OnTempReportIDChanging(value);
+                ReportPropertyChanging("TempReportID");
+                _TempReportID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TempReportID");
+                OnTempReportIDChanged();
+            }
+        }
+        private global::System.Int32 _TempReportID;
+        partial void OnTempReportIDChanging(global::System.Int32 value);
+        partial void OnTempReportIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Temp_EscrowLoan_TempReport", "TempReport")]
+        public TempReport TempReport
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TempReport>("DB_9B22F2_nationalitModel.FK_Temp_EscrowLoan_TempReport", "TempReport").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TempReport>("DB_9B22F2_nationalitModel.FK_Temp_EscrowLoan_TempReport", "TempReport").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<TempReport> TempReportReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TempReport>("DB_9B22F2_nationalitModel.FK_Temp_EscrowLoan_TempReport", "TempReport");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TempReport>("DB_9B22F2_nationalitModel.FK_Temp_EscrowLoan_TempReport", "TempReport", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="Temp_Fuel_Expenses")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -9487,6 +9863,28 @@ namespace NationalIT
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Temp_Trip_Info>("DB_9B22F2_nationalitModel.FK_Temp_Trip_Info_TempReport", "Temp_Trip_Info", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Temp_EscrowLoan_TempReport", "Temp_EscrowLoan")]
+        public EntityCollection<Temp_EscrowLoan> Temp_EscrowLoan
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Temp_EscrowLoan>("DB_9B22F2_nationalitModel.FK_Temp_EscrowLoan_TempReport", "Temp_EscrowLoan");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Temp_EscrowLoan>("DB_9B22F2_nationalitModel.FK_Temp_EscrowLoan_TempReport", "Temp_EscrowLoan", value);
                 }
             }
         }

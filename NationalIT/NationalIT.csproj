@@ -527,6 +527,7 @@
     <Content Include="Views\FixedExpenses\NewOrEdit.cshtml" />
     <Content Include="Views\Partial-Payrolls-RollBack\_EscrowPartial.cshtml" />
     <Content Include="Views\Partial-Payrolls-RollBack\_LoanPartial.cshtml" />
+    <Content Include="Views\Undo-Payrolls\_EscrowPartial.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

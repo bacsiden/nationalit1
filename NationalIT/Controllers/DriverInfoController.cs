@@ -526,6 +526,35 @@ namespace NationalIT.Controllers
                     db.ObjectStateManager.ChangeObjectState(tsowner, System.Data.EntityState.Modified);
             }
             #endregion
+
+            #region EscrowLoan
+            foreach (var item in tempreport.Temp_EscrowLoan)
+            {
+                bool add = false;
+                EscrowLoan tEscrowLoan = db.EscrowLoan.FirstOrDefault(m => m.ID == item.EscrowLoanID);
+                if (tEscrowLoan == null)
+                {
+                    tEscrowLoan = new EscrowLoan();
+                    add = true;
+                }
+                tEscrowLoan.AmountPaid = item.AmountPaid;
+                tEscrowLoan.TotalAmount = item.TotalAmount;
+                tEscrowLoan.OwnerDriver = item.OwnerDriver;
+                tEscrowLoan.Owner = item.Owner;
+                tEscrowLoan.Expenses = item.Expenses;
+                tEscrowLoan.Balance = item.Balance;
+                tEscrowLoan.CurrentCharge = item.CurrentCharge;
+                tEscrowLoan.OwnerDriver = item.OwnerDriver;
+                tEscrowLoan.Escrow_Loan = item.Escrow_Loan;
+//                db.EscrowLoan.AddObject(tEscrowLoan);
+                if (add)
+                {
+                    db.EscrowLoan.AddObject(tEscrowLoan);
+                }
+                else
+                    db.ObjectStateManager.ChangeObjectState(tEscrowLoan, System.Data.EntityState.Modified);
+            }
+            #endregion
             db.SaveChanges();
             DeleteItem(db.TempReport, tempreport.ID);
             //db.ObjectStateManager.ChangeObjectState(tempreport, System.Data.EntityState.Deleted);
@@ -533,7 +562,7 @@ namespace NationalIT.Controllers
         }
 
         [ValidationFunction(ActionName.ProcessRollBack)]
-        public ActionResult RollBack(string driverID, int id, string Trips, string Fuel, string operating, string splitdriver, string splitowner, bool isRollBackAll = false)
+        public ActionResult RollBack(string driverID, int id, string Trips, string Fuel, string operating, string splitdriver, string escrowLoan, string splitowner, bool isRollBackAll = false)
         {
             var db = DB.Entities;
             if (isRollBackAll)
@@ -757,6 +786,47 @@ namespace NationalIT.Controllers
                     }
                     else
                         db.ObjectStateManager.ChangeObjectState(tsowner, System.Data.EntityState.Modified);
+                }
+                foreach (var item in lst)
+                {
+                    var xxx = db.Temp_Split_Expenses.FirstOrDefault(m => m.ID == item);
+                    if (xxx != null)
+                        db.DeleteObject(xxx);
+                }
+            }
+            #endregion
+            #region Escrow Loan
+            if (!string.IsNullOrEmpty(escrowLoan))
+            {
+                string[] lstID = escrowLoan.Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
+                List<int> lst = new List<int>();
+                foreach (var item in lstID)
+                    lst.Add(int.Parse(item));
+                var lstEscrowLoan = db.Temp_EscrowLoan.Where(m => lst.Contains(m.ID));
+                foreach (var item in lstEscrowLoan)
+                {
+                    bool add = false;
+                    EscrowLoan tEscrowLoan = db.EscrowLoan.FirstOrDefault(m => m.ID == item.EscrowLoanID);
+                    if (tEscrowLoan == null)
+                    {
+                        tEscrowLoan = new EscrowLoan();
+                        add = true;
+                    }
+                    tEscrowLoan.AmountPaid = item.AmountPaid;
+                    tEscrowLoan.TotalAmount = item.TotalAmount;
+                    tEscrowLoan.OwnerDriver = item.OwnerDriver;
+                    tEscrowLoan.Owner = item.Owner;
+                    tEscrowLoan.Expenses = item.Expenses;
+                    tEscrowLoan.Balance = item.Balance;
+                    tEscrowLoan.CurrentCharge = item.CurrentCharge;
+                    tEscrowLoan.OwnerDriver = item.OwnerDriver;
+                    tEscrowLoan.Escrow_Loan = item.Escrow_Loan;
+                    if (add)
+                    {
+                        db.EscrowLoan.AddObject(tEscrowLoan);
+                    }
+                    else
+                        db.ObjectStateManager.ChangeObjectState(tEscrowLoan, System.Data.EntityState.Modified);
                 }
                 foreach (var item in lst)
                 {

@@ -111,14 +111,16 @@
         return parseFloat(num).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
     }
     $(document).on("click", ".saveCurrentCharge", function () {
-        var url = $(this).attr('href');
-        var currentCharge = $(this).parent().prev().find(".currentCharge").val();
+        var $this = $(this);
+        var url = $this.attr('href');
+        var currentCharge = $this.parent().prev().find(".currentCharge").val();
         var newURL = addParam(url, "currentCharge", currentCharge);
         $.ajax({
             type: "GET",
             url: newURL,
             success: function (model) {
                 alert('Saved!');
+                $this.parents("tr").find(".Escrowcheckitem").val(currentCharge);
             }
         });
         return false;

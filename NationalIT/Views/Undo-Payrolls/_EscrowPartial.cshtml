@@ -1,4 +1,5 @@
-﻿@model List<NationalIT.EscrowLoan>
+﻿@model List<NationalIT.Temp_EscrowLoan>
+           <h5>@Html.ActionLink("EscrowLoan", "Index", "EscrowLoan")</h5>
 <div id="Escrow" class="boxScroll">
     <table class="table">
         <tr>
@@ -14,9 +15,9 @@
             <th>
                 Driver / Owner
             </th>
-            <th>
+            @*<th>
                 Expenses
-            </th>
+            </th>*@
             <th>
                 Total amount
             </th>
@@ -71,9 +72,9 @@
                                       
                     }
                 </td>
-                <td>
+                @*<td>
                     @item.Expenses
-                </td>
+                </td>*@
                 <td>
                     @String.Format("{0:C}", item.TotalAmount)
                 </td>
@@ -83,21 +84,22 @@
                 <td>
                     @String.Format("{0:C}", item.Balance)
                 </td>
-                @using (Ajax.BeginForm("UpdateEscrowLoan", "EscrowLoan", new AjaxOptions
+                @*@using (Ajax.BeginForm("UpdateEscrowLoan", "EscrowLoan", new AjaxOptions
                 {
                     HttpMethod = "Post",
                     OnSuccess = "Alert('Update successfully!');"
                 }, new { @class = "form-inline" }))
-                {
+                {*@
                     <td>
-                        <input type="text" name="CurrentCharge" class="onlyNumber currentCharge" value="@item.CurrentCharge" style="width: 50px;" />
-                        ($)
+                        @*<input type="text" name="CurrentCharge" class="onlyNumber currentCharge" value="@item.CurrentCharge" style="width: 50px;" />
+                        ($)*@
+                        @(item.CurrentCharge.HasValue?item.CurrentCharge.Value.ToString("N2"):"$0.00")
                     </td>
-                    <td>
+                    @*<td>
                         <a href="@Url.Action("UpdateEscrowLoan", "EscrowLoan", new { id = item.ID })" class="btn saveCurrentCharge">
                             Save</a>
-                    </td>
-                }
+                    </td>*@
+                @*}*@
             </tr>
         }
     </table>
