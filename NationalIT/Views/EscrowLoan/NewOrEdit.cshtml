@@ -23,6 +23,15 @@
                 $(".chonsen-split-expenses").next().hide();
             }
         });
+        $("#AmountPaid,#TotalAmount").change(function () {
+            var amountPaid = parseFloat($("#AmountPaid").val());
+            var totalAmount = parseFloat($("#TotalAmount").val());
+            if (totalAmount >= amountPaid) {
+                $("#Balance").val(eval(totalAmount - amountPaid));
+            } else {
+                $("#Balance").val(0);
+            }
+        });
     });
 </script>
 <div class="row-fluid">
@@ -70,7 +79,8 @@
                         <label class="control-label" for="TotalAmount">@Html.LabelFor(model => model.TotalAmount)</label>
                         <div class="controls">
                             <div class="span12">
-                                @Html.TextBoxFor(model => model.TotalAmount, new { @class = "input-xlarge" }) ($)
+                                @Html.TextBoxFor(model => model.TotalAmount, new { @class = "input-xlarge onlyNumber" })
+                                ($)
                                 @Html.ValidationMessageFor(model => model.TotalAmount)
                             </div>
                         </div>
@@ -79,7 +89,8 @@
                         <label class="control-label" for="AmountPaid">@Html.LabelFor(model => model.AmountPaid)</label>
                         <div class="controls">
                             <div class="span12">
-                                @Html.TextBoxFor(model => model.AmountPaid, new { @class = "input-xlarge" }) ($)
+                                @Html.TextBoxFor(model => model.AmountPaid, new { Value = Model.AmountPaid.HasValue ? Model.AmountPaid.Value : 0, @class = "input-xlarge onlyNumber" })
+                                ($)
                                 @Html.ValidationMessageFor(model => model.AmountPaid)
                             </div>
                         </div>
@@ -87,9 +98,9 @@
                     <div class="control-group">
                         <label class="control-label" for="Balance">@Html.LabelFor(model => model.Balance)</label>
                         <div class="controls">
-                            
-                                @Html.TextBoxFor(model => model.Balance, new { @class = "input-xlarge" }) ($)
-                                @Html.ValidationMessageFor(model => model.Balance)
+                            @Html.TextBoxFor(model => model.Balance, new { @class = "input-xlarge",@readonly="readonly" })
+                            ($)
+                            @Html.ValidationMessageFor(model => model.Balance)
                         </div>
                     </div>
                     <div class="control-group">

@@ -36,7 +36,8 @@
             var url = $(this).attr('href');
             var newurl = addParam(addParam(addParam(addParam(addParam(addParam(addParam(url, "escrowLoan", escrowLoan), "driverid", driverid), "Trips", Trips), "Fuel", Fuel), "operating", operating), "splitdriver", splitdriver), "splitowner", splitowner);
             var beforeURL = addParam("@Url.Action("BeforeDriverPayroll", "DriverInfo")","url",newurl);
-            location.href= beforeURL;
+            window.open(beforeURL,'_blank');
+            location.reload();
             return false;
         });
     });
