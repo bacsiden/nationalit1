@@ -5,6 +5,7 @@
     var lstOperating_Expenses = Model != null ? Model.Temp_Operating_Expenses != null ? Model.Temp_Operating_Expenses.ToList() : new List<NationalIT.Temp_Operating_Expenses>() : new List<NationalIT.Temp_Operating_Expenses>();
     var lstDriver_Expenses = Model != null ? Model.Temp_Split_Expenses != null ? Model.Temp_Split_Expenses.Where(m => m.Index == 1).ToList() : new List<NationalIT.Temp_Split_Expenses>() : new List<NationalIT.Temp_Split_Expenses>();
     var lstOwner_Expenses = Model != null ? Model.Temp_Split_Expenses != null ? Model.Temp_Split_Expenses.Where(m => m.Index == 2).ToList() : new List<NationalIT.Temp_Split_Expenses>() : new List<NationalIT.Temp_Split_Expenses>();
+    var lstEscrowLoan = Model != null ? Model.Temp_EscrowLoan != null ? Model.Temp_EscrowLoan.ToList() : new List<NationalIT.Temp_EscrowLoan>() : new List<NationalIT.Temp_EscrowLoan>();
 }
 <script type="text/javascript">
     $(document).ready(function () {
@@ -21,6 +22,9 @@
         ListenerCheckBox($("#DriverExpensesSplit .SplitcheckAll"), $("#DriverExpensesSplit .Splitcheckitem"));
         //Owner split expenses
         ListenerCheckBox($("#OwnerExpensesSplit .SplitcheckAll"), $("#OwnerExpensesSplit .Splitcheckitem"));
+        //Escrow Loan
+        ListenerCheckBox($("#Escrow .EscrowcheckAll"), $("#Escrow .Escrowcheckitem"));
+
         $(".btnRollBack").on("click",function () {
             if (confirm("Are you sure you want process this Roll Back?")) {
                 var Trips = getListIDCheckBoxByIDClassName("TripAmountTable", "DriverTripCheckItem");
@@ -28,9 +32,11 @@
                 var operating = getListIDCheckBoxByIDClassName("Operating_ExpensesAmount", "DriverOperating_ExpensesItem");
                 var splitdriver = getListIDCheckBoxByIDClassName("DriverExpensesSplit", "Splitcheckitem");
                 var splitowner = getListIDCheckBoxByIDClassName("OwnerExpensesSplit", "Splitcheckitem");
+                var escrowLoan = getListIDCheckBoxByIDClassName("Escrow", "Escrowcheckitem");
+
                 var id = '@(Model != null ? Model.ID : 0)';
                 var url = $(this).attr('href');
-                var newurl = addParam(addParam(addParam(addParam(addParam(addParam(url, "id", id), "Trips", Trips), "Fuel", Fuel), "operating", operating), "splitdriver", splitdriver), "splitowner", splitowner);
+                var newurl = addParam(addParam(addParam(addParam(addParam(addParam(addParam(url, "escrowLoan", escrowLoan), "id", id), "Trips", Trips), "Fuel", Fuel), "operating", operating), "splitdriver", splitdriver), "splitowner", splitowner);
                 if (isRollBackAll()) {
                     newurl = addParam(newurl, "isRollBackAll", true);
                 }
@@ -89,4 +95,7 @@
 </div>
 <div id="tab-1-4-2">
     @Html.Partial("/Views/Undo-Payrolls/_OwnerExpenses.cshtml", lstOwner_Expenses)
+</div>
+<div id="tab-1-5">
+    @Html.Partial("/Views/Undo-Payrolls/_EscrowPartial.cshtml", lstEscrowLoan)
 </div>

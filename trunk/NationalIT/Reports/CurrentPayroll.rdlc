@@ -1544,7 +1544,7 @@
             <DataSetName>OwnerExpenses</DataSetName>
             <Top>0.34375in</Top>
             <Height>0.5in</Height>
-            <Width>3.44444in</Width>
+            <Width>3.44445in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1911,7 +1911,7 @@
             <Top>0.34375in</Top>
             <Left>0.09722in</Left>
             <Height>0.5in</Height>
-            <Width>3.51181in</Width>
+            <Width>3.5118in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2090,7 +2090,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>5.61979in</Top>
+        <Top>6.24479in</Top>
         <Left>4.375in</Left>
         <Height>0.22917in</Height>
         <Width>2.52188in</Width>
@@ -2128,7 +2128,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>5.90452in</Top>
+        <Top>6.52952in</Top>
         <Left>4.375in</Left>
         <Height>0.22917in</Height>
         <Width>2.52188in</Width>
@@ -2166,7 +2166,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>6.19063in</Top>
+        <Top>6.81563in</Top>
         <Left>4.375in</Left>
         <Height>0.22917in</Height>
         <Width>2.52188in</Width>
@@ -2181,8 +2181,84 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox41">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Loan Amount: $</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Parameters!LoanAmount.Value</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox9</rd:DefaultName>
+        <Top>5.98784in</Top>
+        <Left>4.375in</Left>
+        <Height>0.22917in</Height>
+        <Width>2.52188in</Width>
+        <ZIndex>21</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox42">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Escrow Amount: $</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Parameters!EscrowAmount.Value</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox9</rd:DefaultName>
+        <Top>5.75867in</Top>
+        <Left>4.375in</Left>
+        <Height>0.22917in</Height>
+        <Width>2.52188in</Width>
+        <ZIndex>22</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>6.57292in</Height>
+    <Height>7.18022in</Height>
     <Style />
   </Body>
   <ReportParameters>
@@ -2235,6 +2311,14 @@
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="DriverPayment">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="EscrowAmount">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="LoanAmount">
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
