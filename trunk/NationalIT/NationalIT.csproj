@@ -531,6 +531,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <EmbeddedResource Include="Reports\CurrentPayrollNoEscrowLoan.rdlc" />
     <EmbeddedResource Include="Reports\CurrentPayroll.rdlc" />
     <EmbeddedResource Include="Reports\DispatcherTrip.rdlc" />
     <EmbeddedResource Include="Reports\DriverTripFlue.rdlc" />
