@@ -28,7 +28,15 @@ namespace NationalIT.Reports
                     var objtr = db.TempReport.FirstOrDefault(m => m.ID == trID);
                     #region common prepare
                     ReportViewer1.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
-                    ReportViewer1.LocalReport.ReportPath = Server.MapPath("/Reports/CurrentPayroll.rdlc");
+                    if (objtr.Temp_EscrowLoan != null && objtr.Temp_EscrowLoan.Count > 0)
+                    {
+                        ReportViewer1.LocalReport.ReportPath = Server.MapPath("/Reports/CurrentPayroll.rdlc");
+                    }
+                    else
+                    {
+                        ReportViewer1.LocalReport.ReportPath = Server.MapPath("/Reports/CurrentPayrollNoEscrowLoan.rdlc");
+                    }
+
                     ReportViewer1.LocalReport.DataSources.Clear();
                     var parameters = new List<ReportParameter>();
                     var ds = new CurrentPayroll();
@@ -160,6 +168,46 @@ namespace NationalIT.Reports
                     ReportViewer1.LocalReport.DataSources.Add(
                     new Microsoft.Reporting.WebForms.ReportDataSource("DriverExpenses", dsplit));
                     #endregion
+                    #region EscrowLoan
+                    if (objtr.Temp_EscrowLoan != null && objtr.Temp_EscrowLoan.Count > 0)
+                    {
+                        double totalOwner = 0;
+                        double totalDriver = 0;
+                        DataTable dsEscrowLoanOwner = ds.EscrowLoanOwner;
+                        DataTable dsEscrowLoanDriver = ds.EscrowLoanDriver;
+                        foreach (var item in objtr.Temp_EscrowLoan)
+                        {
+                            if (item.Owner)
+                            {
+                                var dr4 = dsEscrowLoanOwner.NewRow();
+                                dr4["Expenses"] = item.Expenses;
+                                if (item.CurrentCharge.HasValue)
+                                    dr4["CurrentCharge"] = ((double)item.CurrentCharge).ToString("N2");
+                                dsEscrowLoanOwner.Rows.Add(dr4);
+                                totalOwner += item.CurrentCharge.HasValue ? item.CurrentCharge.Value : 0;
+                            }
+                            else
+                            {
+                                var dr4 = dsEscrowLoanDriver.NewRow();
+                                dr4["Expenses"] = item.Expenses;
+                                if (item.CurrentCharge.HasValue)
+                                    dr4["CurrentCharge"] = ((double)item.CurrentCharge).ToString("N2");
+                                dsEscrowLoanDriver.Rows.Add(dr4);
+                                totalDriver += item.CurrentCharge.HasValue ? item.CurrentCharge.Value : 0;
+                            }
+                        }
+                        ReportParameter EscrowPayment = new ReportParameter("EscrowAmount", totalOwner.ToString("N2"));
+                        ReportParameter LoanPayment = new ReportParameter("LoanAmount", totalDriver.ToString("N2"));
+                        parameters.Add(EscrowPayment);
+                        parameters.Add(LoanPayment);
+
+                        ReportViewer1.LocalReport.DataSources.Add(
+                        new Microsoft.Reporting.WebForms.ReportDataSource("EscrowLoanDriver", dsEscrowLoanDriver));
+
+                        ReportViewer1.LocalReport.DataSources.Add(
+                        new Microsoft.Reporting.WebForms.ReportDataSource("EscrowLoanOwner", dsEscrowLoanOwner));
+                    }
+                    #endregion
                     #region Calculate the total
                     double r1 = Math.Round(total1 - fee1 - total2 - fee2 - total3, 2);
 
@@ -194,8 +242,16 @@ namespace NationalIT.Reports
                         flag = false;
                     }
                     #region common prepare
+                    int isescrowloan = int.Parse(Request.QueryString["isescrowloan"]);
                     ReportViewer1.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
-                    ReportViewer1.LocalReport.ReportPath = Server.MapPath("/Reports/CurrentPayroll.rdlc");
+                    if (isescrowloan == 0)
+                    {
+                        ReportViewer1.LocalReport.ReportPath = Server.MapPath("/Reports/CurrentPayrollNoEscrowLoan.rdlc");
+                    }
+                    else
+                    {
+                        ReportViewer1.LocalReport.ReportPath = Server.MapPath("/Reports/CurrentPayroll.rdlc");
+                    }
                     ReportViewer1.LocalReport.DataSources.Clear();
                     var parameters = new List<ReportParameter>();
                     var ds = new CurrentPayroll();
@@ -499,76 +555,79 @@ namespace NationalIT.Reports
                     #endregion
 
                     #region EscrowLoan
-                    double totalOwner = 0;
-                    double totalDriver = 0;
-                    DataTable dsEscrowLoanOwner = ds.EscrowLoanOwner;
-                    DataTable dsEscrowLoanDriver = ds.EscrowLoanDriver;
-                    para = Request.QueryString["escrowLoan"];
-                    if (!string.IsNullOrEmpty(para))
+                    if (isescrowloan == 1)
                     {
-                        string[] lstID = para.Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
-                        List<int> lst = new List<int>();
-                        foreach (var item in lstID)
-                            lst.Add(int.Parse(item));
-                        var lstEscrowloan = db.EscrowLoan.Where(m => lst.Contains(m.ID));
-                        foreach (var item in lstEscrowloan)
+                        double totalOwner = 0;
+                        double totalDriver = 0;
+                        DataTable dsEscrowLoanOwner = ds.EscrowLoanOwner;
+                        DataTable dsEscrowLoanDriver = ds.EscrowLoanDriver;
+                        para = Request.QueryString["escrowLoan"];
+                        if (!string.IsNullOrEmpty(para))
                         {
-                            if (flag)
+                            string[] lstID = para.Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
+                            List<int> lst = new List<int>();
+                            foreach (var item in lstID)
+                                lst.Add(int.Parse(item));
+                            var lstEscrowloan = db.EscrowLoan.Where(m => lst.Contains(m.ID));
+                            foreach (var item in lstEscrowloan)
                             {
-                                Temp_EscrowLoan tEscrowLoan = new Temp_EscrowLoan();
-                                tEscrowLoan.AmountPaid = item.AmountPaid;
-                                tEscrowLoan.TempReportID = tr.ID;
-                                tEscrowLoan.TotalAmount = item.TotalAmount;
-                                tEscrowLoan.OwnerDriver = item.OwnerDriver;
-                                tEscrowLoan.Owner = item.Owner;
-                                tEscrowLoan.EscrowLoanID = item.ID;
-                                tEscrowLoan.Expenses = item.Expenses;
-                                tEscrowLoan.Balance = item.Balance;
-                                tEscrowLoan.CurrentCharge = item.CurrentCharge;
-                                tEscrowLoan.OwnerDriver = item.OwnerDriver;
-                                tEscrowLoan.Escrow_Loan = item.Escrow_Loan;
-                                db.Temp_EscrowLoan.AddObject(tEscrowLoan);
-                            }
-                            //  //db.ObjectStateManager.ChangeObjectState(item, System.Data.EntityState.Modified);
-                            if (item.Owner)
-                            {
-                                var dr4 = dsEscrowLoanOwner.NewRow();
-                                dr4["Expenses"] = item.Expenses;
-                                if (item.CurrentCharge.HasValue)
-                                    dr4["CurrentCharge"] = ((double)item.CurrentCharge).ToString("N2");
-                                dsEscrowLoanOwner.Rows.Add(dr4);
+                                if (flag)
+                                {
+                                    Temp_EscrowLoan tEscrowLoan = new Temp_EscrowLoan();
+                                    tEscrowLoan.AmountPaid = item.AmountPaid;
+                                    tEscrowLoan.TempReportID = tr.ID;
+                                    tEscrowLoan.TotalAmount = item.TotalAmount;
+                                    tEscrowLoan.OwnerDriver = item.OwnerDriver;
+                                    tEscrowLoan.Owner = item.Owner;
+                                    tEscrowLoan.EscrowLoanID = item.ID;
+                                    tEscrowLoan.Expenses = item.Expenses;
+                                    tEscrowLoan.Balance = item.Balance;
+                                    tEscrowLoan.CurrentCharge = item.CurrentCharge;
+                                    tEscrowLoan.OwnerDriver = item.OwnerDriver;
+                                    tEscrowLoan.Escrow_Loan = item.Escrow_Loan;
+                                    db.Temp_EscrowLoan.AddObject(tEscrowLoan);
+                                }
+                                //  //db.ObjectStateManager.ChangeObjectState(item, System.Data.EntityState.Modified);
+                                if (item.Owner)
+                                {
+                                    var dr4 = dsEscrowLoanOwner.NewRow();
+                                    dr4["Expenses"] = item.Expenses;
+                                    if (item.CurrentCharge.HasValue)
+                                        dr4["CurrentCharge"] = ((double)item.CurrentCharge).ToString("N2");
+                                    dsEscrowLoanOwner.Rows.Add(dr4);
 
-                                totalOwner += item.CurrentCharge.HasValue ? item.CurrentCharge.Value : 0;
-                                item.AmountPaid += item.CurrentCharge.HasValue ? item.CurrentCharge.Value : 0;
-                                item.Balance = item.TotalAmount - item.AmountPaid;
-                                item.CurrentCharge = 0;
-                            }
-                            else
-                            {
-                                var dr4 = dsEscrowLoanDriver.NewRow();
-                                dr4["Expenses"] = item.Expenses;
-                                if (item.CurrentCharge.HasValue)
-                                    dr4["CurrentCharge"] = ((double)item.CurrentCharge).ToString("N2");
-                                dsEscrowLoanDriver.Rows.Add(dr4);
+                                    totalOwner += item.CurrentCharge.HasValue ? item.CurrentCharge.Value : 0;
+                                    item.AmountPaid += item.CurrentCharge.HasValue ? item.CurrentCharge.Value : 0;
+                                    item.Balance = item.TotalAmount - item.AmountPaid;
+                                    item.CurrentCharge = 0;
+                                }
+                                else
+                                {
+                                    var dr4 = dsEscrowLoanDriver.NewRow();
+                                    dr4["Expenses"] = item.Expenses;
+                                    if (item.CurrentCharge.HasValue)
+                                        dr4["CurrentCharge"] = ((double)item.CurrentCharge).ToString("N2");
+                                    dsEscrowLoanDriver.Rows.Add(dr4);
 
-                                totalDriver += item.CurrentCharge.HasValue ? item.CurrentCharge.Value : 0;
-                                item.AmountPaid += item.CurrentCharge.HasValue ? item.CurrentCharge.Value : 0;
-                                item.Balance = item.TotalAmount - item.AmountPaid;
-                                item.CurrentCharge = 0;
-                            }
+                                    totalDriver += item.CurrentCharge.HasValue ? item.CurrentCharge.Value : 0;
+                                    item.AmountPaid += item.CurrentCharge.HasValue ? item.CurrentCharge.Value : 0;
+                                    item.Balance = item.TotalAmount - item.AmountPaid;
+                                    item.CurrentCharge = 0;
+                                }
 
+                            }
                         }
-                    }
-                    ReportParameter EscrowPayment = new ReportParameter("EscrowAmount", totalOwner.ToString("N2"));
-                    ReportParameter LoanPayment = new ReportParameter("LoanAmount", totalDriver.ToString("N2"));
-                    parameters.Add(EscrowPayment);
-                    parameters.Add(LoanPayment);
-                    
-                    ReportViewer1.LocalReport.DataSources.Add(
-                    new Microsoft.Reporting.WebForms.ReportDataSource("EscrowLoanDriver", dsEscrowLoanDriver));
+                        ReportParameter EscrowPayment = new ReportParameter("EscrowAmount", totalOwner.ToString("N2"));
+                        ReportParameter LoanPayment = new ReportParameter("LoanAmount", totalDriver.ToString("N2"));
+                        parameters.Add(EscrowPayment);
+                        parameters.Add(LoanPayment);
 
-                    ReportViewer1.LocalReport.DataSources.Add(
-                    new Microsoft.Reporting.WebForms.ReportDataSource("EscrowLoanOwner", dsEscrowLoanOwner));
+                        ReportViewer1.LocalReport.DataSources.Add(
+                        new Microsoft.Reporting.WebForms.ReportDataSource("EscrowLoanDriver", dsEscrowLoanDriver));
+
+                        ReportViewer1.LocalReport.DataSources.Add(
+                        new Microsoft.Reporting.WebForms.ReportDataSource("EscrowLoanOwner", dsEscrowLoanOwner));
+                    }
                     #endregion
                     if (flag)
                     {
