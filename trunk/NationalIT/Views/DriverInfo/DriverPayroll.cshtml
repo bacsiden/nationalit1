@@ -32,9 +32,13 @@
             var splitdriver = getListIDCheckBoxByIDClassName("DriverExpensesSplit", "Splitcheckitem");
             var splitowner = getListIDCheckBoxByIDClassName("OwnerExpensesSplit", "Splitcheckitem");
             var escrowLoan = getListIDCheckBoxByIDClassName("Escrow", "Escrowcheckitem");
+            var isescrowloan = "0";
+            if ($("#EscrowCurrentCharge").val()!='$0.00') {
+                isescrowloan = "1";
+            }
             var driverid = '@Model.ID';
             var url = $(this).attr('href');
-            var newurl = addParam(addParam(addParam(addParam(addParam(addParam(addParam(url, "escrowLoan", escrowLoan), "driverid", driverid), "Trips", Trips), "Fuel", Fuel), "operating", operating), "splitdriver", splitdriver), "splitowner", splitowner);
+            var newurl = addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(url, "isescrowloan", isescrowloan), "escrowLoan", escrowLoan), "driverid", driverid), "Trips", Trips), "Fuel", Fuel), "operating", operating), "splitdriver", splitdriver), "splitowner", splitowner);
             var beforeURL = addParam("@Url.Action("BeforeDriverPayroll", "DriverInfo")","url",newurl);
             window.open(beforeURL,'_blank');
             location.reload();
