@@ -14,8 +14,9 @@ namespace NationalIT.Controllers
         //
         // GET: /Owner/
         [ValidationFunction(ActionName.ViewListEquipment)]
-        public ActionResult Index(int? page)
+        public ActionResult Index(int? page, string message="")
         {
+            ViewBag.Error = message;
             return View(DB.Entities.Equipment.OrderBy(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize));
         }
         //
@@ -25,7 +26,7 @@ namespace NationalIT.Controllers
         {
             var db = DB.Entities;
             var obj = db.Equipment.FirstOrDefault(m => m.ID == id);
-            if (obj == null) obj = new Equipment();
+            if (obj == null) obj = new Equipment() { InspectionFrequency = 30, LastInspected = DateTime.Now};
             var lstDriver = db.Driver_Info.ToList();
             string dataDriver = CommonFunction.BuildDropdown(lstDriver.Select(m => m.ID.ToString()).ToArray(),
                 lstDriver.Select(m => m.First_name + " " + m.Last_name).ToArray(), obj.Driver, "--Select Driver--");
@@ -99,9 +100,9 @@ namespace NationalIT.Controllers
                     db.SaveChanges();
                 }
             }
-            catch
-            {
-
+            catch (Exception ex)
+            {                
+                return RedirectToAction("Index", new {message="Can not delete this equipment because it is related to table: violation, trip_info,..."});
             }
             return RedirectToAction("Index");
         }
