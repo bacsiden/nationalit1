@@ -93,7 +93,8 @@ namespace NationalIT.Controllers
             ViewBag.dataDispatchers = dataDispatchers;
 
             string dataTruck = "<option value=''>--Select Truck--</option>";
-            foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRUCK")))
+            var listTruck = NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRUCK"));
+            foreach (var item in listTruck)
             {
                 if (obj != null && obj.Truck == item.Equipment_number)
                 {
@@ -107,7 +108,8 @@ namespace NationalIT.Controllers
             ViewBag.dataTruck = dataTruck;
 
             string dataTrailer = "<option value=''>--Select Trailer--</option>";
-            foreach (var item in NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRAILER")))
+            var listTrailer = NationalIT.DB.Entities.Equipment.Where(m => m.Equipment_Type.Equals("TRAILER"));
+            foreach (var item in listTrailer)
             {
                 if (obj != null && obj.Trailer == item.Equipment_number)
                 {
@@ -210,11 +212,11 @@ namespace NationalIT.Controllers
             {
                 if (model != null && model.Truck == item.Equipment_number)
                 {
-                    dataTruck += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.ID, item.Equipment_number);
+                    dataTruck += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.Equipment_number, item.Equipment_number);
                 }
                 else
                 {
-                    dataTruck += string.Format("<option value='{0}'>{1}</option>", item.ID, item.Equipment_number);
+                    dataTruck += string.Format("<option value='{0}'>{1}</option>", item.Equipment_number, item.Equipment_number);
                 }
             }
             ViewBag.dataTruck = dataTruck;
@@ -224,11 +226,11 @@ namespace NationalIT.Controllers
             {
                 if (model != null && model.Trailer == item.Equipment_number)
                 {
-                    dataTrailer += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.ID, item.Equipment_number);
+                    dataTrailer += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.Equipment_number, item.Equipment_number);
                 }
                 else
                 {
-                    dataTrailer += string.Format("<option value='{0}'>{1}</option>", item.ID, item.Equipment_number);
+                    dataTrailer += string.Format("<option value='{0}'>{1}</option>", item.Equipment_number, item.Equipment_number);
                 }
             }
             ViewBag.dataTrailer = dataTrailer;
@@ -287,7 +289,7 @@ namespace NationalIT.Controllers
             var listEquipment = DB.Entities.Equipment.Where(m => m.Driver == id).ToList();
             foreach (var equip in listEquipment)
             {
-                if ((equip.OOS) || (equip.Inspection_Expiration.HasValue && (DateTime.Now - equip.Inspection_Expiration.Value).Days > 21) || listEquipment.Count > 1)
+                if ((equip.OOS) || (equip.Inspection_Expiration.HasValue && (DateTime.Now - equip.Inspection_Expiration.Value).Days > 21))
                 {
                     #region SELECT OPTION
                     string dataOwners = "<option value=''>--Select Owners--</option>";
@@ -351,7 +353,7 @@ namespace NationalIT.Controllers
                     var listPayroll = DB.Entities.TempReport.Where(m => m.DriverID == id).ToList();
                     ViewBag.ListPayroll = listPayroll;
                     #endregion
-                    if (equip.OOS || listEquipment.Count > 1)
+                    if (equip.OOS)
                     {
                         ModelState.AddModelError("", "Out of services");
                     }
