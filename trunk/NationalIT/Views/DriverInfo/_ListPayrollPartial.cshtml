@@ -22,7 +22,7 @@
                     @Html.ActionLink(item.Date.ToString(), "PayrollsRollBack", "DriverInfo", new { driverID = item.DriverID, id = item.ID }, null)
                 </td>
                 <td>
-                    @String.Format("{0:C}", item.DriverPayment)
+                    @String.Format("{0:C}", item.TotalAmount)
                 </td>
             </tr>
             }

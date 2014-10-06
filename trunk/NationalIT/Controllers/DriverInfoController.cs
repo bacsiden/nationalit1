@@ -545,7 +545,7 @@ namespace NationalIT.Controllers
                 tEscrowLoan.Owner = item.Owner;
                 tEscrowLoan.Expenses = item.Expenses;
                 tEscrowLoan.Balance = item.Balance;
-                tEscrowLoan.CurrentCharge = item.CurrentCharge;
+                tEscrowLoan.CurrentCharge = 0;
                 tEscrowLoan.OwnerDriver = item.OwnerDriver;
                 tEscrowLoan.Escrow_Loan = item.Escrow_Loan;
 //                db.EscrowLoan.AddObject(tEscrowLoan);
@@ -820,7 +820,7 @@ namespace NationalIT.Controllers
                     tEscrowLoan.Owner = item.Owner;
                     tEscrowLoan.Expenses = item.Expenses;
                     tEscrowLoan.Balance = item.Balance;
-                    tEscrowLoan.CurrentCharge = item.CurrentCharge;
+                    tEscrowLoan.CurrentCharge = 0;
                     tEscrowLoan.OwnerDriver = item.OwnerDriver;
                     tEscrowLoan.Escrow_Loan = item.Escrow_Loan;
                     if (add)

@@ -607,6 +607,7 @@
           <Property Name="Pay_rate" Type="float" Nullable="false" />
           <Property Name="fuel___advance_Fee_rate" Type="float" Nullable="false" />
           <Property Name="DriverPayment" Type="float" Nullable="false" />
+          <Property Name="TotalAmount" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Trip_Info">
           <Key>
@@ -1696,6 +1697,7 @@
           <NavigationProperty Name="Temp_Split_Expenses" Relationship="DB_9B22F2_nationalitModel.FK_Temp_Split_Expenses_TempReport" FromRole="TempReport" ToRole="Temp_Split_Expenses" />
           <NavigationProperty Name="Temp_Trip_Info" Relationship="DB_9B22F2_nationalitModel.FK_Temp_Trip_Info_TempReport" FromRole="TempReport" ToRole="Temp_Trip_Info" />
           <NavigationProperty Name="Temp_EscrowLoan" Relationship="DB_9B22F2_nationalitModel.FK_Temp_EscrowLoan_TempReport" FromRole="TempReport" ToRole="Temp_EscrowLoan" />
+          <Property Type="Double" Name="TotalAmount" Nullable="false" />
         </EntityType>
         <Association Name="FK_Temp_Fuel_Expenses_TempReport">
           <End Type="DB_9B22F2_nationalitModel.TempReport" Role="TempReport" Multiplicity="1" />
@@ -2337,6 +2339,7 @@
           <EntitySetMapping Name="TempReport">
             <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.TempReport">
               <MappingFragment StoreEntitySet="TempReport">
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
                 <ScalarProperty Name="DriverPayment" ColumnName="DriverPayment" />
                 <ScalarProperty Name="fuel___advance_Fee_rate" ColumnName="fuel___advance_Fee_rate" />
                 <ScalarProperty Name="Pay_rate" ColumnName="Pay_rate" />
