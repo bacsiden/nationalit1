@@ -169,10 +169,10 @@ namespace NationalIT.Reports
                     new Microsoft.Reporting.WebForms.ReportDataSource("DriverExpenses", dsplit));
                     #endregion
                     #region EscrowLoan
+                    double totalOwner = 0;
+                    double totalDriver = 0;
                     if (objtr.Temp_EscrowLoan != null && objtr.Temp_EscrowLoan.Count > 0)
-                    {
-                        double totalOwner = 0;
-                        double totalDriver = 0;
+                    {                        
                         DataTable dsEscrowLoanOwner = ds.EscrowLoanOwner;
                         DataTable dsEscrowLoanDriver = ds.EscrowLoanDriver;
                         foreach (var item in objtr.Temp_EscrowLoan)
@@ -212,20 +212,21 @@ namespace NationalIT.Reports
                     double r1 = Math.Round(total1 - fee1 - total2 - fee2 - total3, 2);
 
                     double ownerPayment = driverinfo.Owner_Pay_Rate * r1;
-                    double driverPayment = Math.Round(r1 - ownerPayment, 2);
+                    double driverPayment = r1 - ownerPayment;
 
-                    ownerPayment = Math.Round(ownerPayment - total4 - fee4, 2);
-                    driverPayment = Math.Round(driverPayment - total5 - fee5, 2);
+                    ownerPayment = ownerPayment - total4 - fee4 - totalOwner;
+                    driverPayment = driverPayment - total5 - fee5 - totalDriver;
 
-                    ReportParameter PayrollAmount = new ReportParameter("PayrollAmount", r1.ToString("N2"));
-                    ReportParameter OwnerPayment = new ReportParameter("OwnerPayment", ownerPayment.ToString("N2"));
-                    ReportParameter DriverPayment = new ReportParameter("DriverPayment", driverPayment.ToString("N2"));
+                    ReportParameter PayrollAmount = new ReportParameter("PayrollAmount", Math.Round(r1,2).ToString("N2"));
+                    ReportParameter OwnerPayment = new ReportParameter("OwnerPayment", Math.Round(ownerPayment, 2).ToString("N2"));
+                    ReportParameter DriverPayment = new ReportParameter("DriverPayment", Math.Round(driverPayment, 2).ToString("N2"));
                     parameters.Add(PayrollAmount);
                     parameters.Add(OwnerPayment);
                     parameters.Add(DriverPayment);
                     if (objtr.DriverPayment != driverPayment)
                     {
                         objtr.DriverPayment = driverPayment;
+                        objtr.TotalAmount = r1;
                         db.SaveChanges();
                     }
                     this.ReportViewer1.LocalReport.SetParameters(parameters);
@@ -555,10 +556,10 @@ namespace NationalIT.Reports
                     #endregion
 
                     #region EscrowLoan
+                    double totalOwner = 0;
+                    double totalDriver = 0;
                     if (isescrowloan == 1)
-                    {
-                        double totalOwner = 0;
-                        double totalDriver = 0;
+                    {                        
                         DataTable dsEscrowLoanOwner = ds.EscrowLoanOwner;
                         DataTable dsEscrowLoanDriver = ds.EscrowLoanDriver;
                         para = Request.QueryString["escrowLoan"];
@@ -635,17 +636,19 @@ namespace NationalIT.Reports
                     }
 
                     #region Calculate the total
-                    double r1 = Math.Round(total1 - fee1 - total2 - fee2 - total3, 2);
+                    double r1 = total1 - fee1 - total2 - fee2 - total3;
 
                     double ownerPayment = driverinfo.Owner_Pay_Rate * r1;
-                    double driverPayment = Math.Round(r1 - ownerPayment, 2);
+                    double driverPayment = r1 - ownerPayment;
 
-                    ownerPayment = Math.Round(ownerPayment - total4 - fee4, 2);
-                    driverPayment = Math.Round(driverPayment - total5 - fee5, 2);
-
-                    ReportParameter PayrollAmount = new ReportParameter("PayrollAmount", r1.ToString("N2"));
-                    ReportParameter OwnerPayment = new ReportParameter("OwnerPayment", ownerPayment.ToString("N2"));
-                    ReportParameter DriverPayment = new ReportParameter("DriverPayment", driverPayment.ToString("N2"));
+                    ownerPayment = ownerPayment - total4 - fee4 - totalOwner;
+                    driverPayment = driverPayment - total5 - fee5 - totalDriver;
+                    tr.DriverPayment = driverPayment;
+                    tr.TotalAmount = r1;
+                    db.SaveChanges();
+                    ReportParameter PayrollAmount = new ReportParameter("PayrollAmount", Math.Round(r1,2).ToString("N2"));
+                    ReportParameter OwnerPayment = new ReportParameter("OwnerPayment", Math.Round(ownerPayment, 2).ToString("N2"));
+                    ReportParameter DriverPayment = new ReportParameter("DriverPayment", Math.Round(driverPayment, 2).ToString("N2"));
                     parameters.Add(PayrollAmount);
                     parameters.Add(OwnerPayment);
                     parameters.Add(DriverPayment);

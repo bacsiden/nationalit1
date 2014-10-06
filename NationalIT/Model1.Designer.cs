@@ -9611,7 +9611,8 @@ namespace NationalIT
         /// <param name="pay_rate">Initial value of the Pay_rate property.</param>
         /// <param name="fuel___advance_Fee_rate">Initial value of the fuel___advance_Fee_rate property.</param>
         /// <param name="driverPayment">Initial value of the DriverPayment property.</param>
-        public static TempReport CreateTempReport(global::System.Int32 id, global::System.DateTime date, global::System.Int32 driverID, global::System.Double pay_rate, global::System.Double fuel___advance_Fee_rate, global::System.Double driverPayment)
+        /// <param name="totalAmount">Initial value of the TotalAmount property.</param>
+        public static TempReport CreateTempReport(global::System.Int32 id, global::System.DateTime date, global::System.Int32 driverID, global::System.Double pay_rate, global::System.Double fuel___advance_Fee_rate, global::System.Double driverPayment, global::System.Double totalAmount)
         {
             TempReport tempReport = new TempReport();
             tempReport.ID = id;
@@ -9620,6 +9621,7 @@ namespace NationalIT
             tempReport.Pay_rate = pay_rate;
             tempReport.fuel___advance_Fee_rate = fuel___advance_Fee_rate;
             tempReport.DriverPayment = driverPayment;
+            tempReport.TotalAmount = totalAmount;
             return tempReport;
         }
 
@@ -9773,6 +9775,30 @@ namespace NationalIT
         private global::System.Double _DriverPayment;
         partial void OnDriverPaymentChanging(global::System.Double value);
         partial void OnDriverPaymentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double TotalAmount
+        {
+            get
+            {
+                return _TotalAmount;
+            }
+            set
+            {
+                OnTotalAmountChanging(value);
+                ReportPropertyChanging("TotalAmount");
+                _TotalAmount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TotalAmount");
+                OnTotalAmountChanged();
+            }
+        }
+        private global::System.Double _TotalAmount;
+        partial void OnTotalAmountChanging(global::System.Double value);
+        partial void OnTotalAmountChanged();
 
         #endregion
 
