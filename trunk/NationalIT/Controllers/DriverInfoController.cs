@@ -289,7 +289,7 @@ namespace NationalIT.Controllers
             var listEquipment = DB.Entities.Equipment.Where(m => m.Driver == id).ToList();
             foreach (var equip in listEquipment)
             {
-                if ((equip.OOS) || (equip.Inspection_Expiration.HasValue && (DateTime.Now - equip.Inspection_Expiration.Value).Days > 21))
+                if ((equip.OOS) || (int)(DateTime.Now - equip.LastInspected).TotalDays > equip.InspectionFrequency)
                 {
                     #region SELECT OPTION
                     string dataOwners = "<option value=''>--Select Owners--</option>";
@@ -357,7 +357,7 @@ namespace NationalIT.Controllers
                     {
                         ModelState.AddModelError("", "Out of services");
                     }
-                    if ((equip.Inspection_Expiration.HasValue && (DateTime.Now - equip.Inspection_Expiration.Value).Days > 21))
+                    if ((int)(DateTime.Now - equip.LastInspected).TotalDays > equip.InspectionFrequency)
                     {
                         ModelState.AddModelError("", "Out of date");
                     }

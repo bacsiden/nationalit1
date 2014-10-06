@@ -24,8 +24,10 @@
                         <div class="controls">
                             <div class="span12">
                                 <select data-placeholder="Select Driver" name="Equipment_Type" class="input-xlarge">
-                                    <option value="TRUCK">TRUCK</option>
-                                    <option value="TRAILER">TRAILER</option>
+                                    <option value="TRUCK" @(Model != null && !string.IsNullOrEmpty(Model.Equipment_Type) && Model.Equipment_Type.Equals("TRUCK") ? "selected='selected'" : "")>
+                                        TRUCK</option>
+                                    <option value="TRAILER" @(Model != null && !string.IsNullOrEmpty(Model.Equipment_Type) && Model.Equipment_Type.Equals("TRAILER") ? "selected='selected'" : "")>
+                                        TRAILER</option>
                                 </select>
                                 @Html.ValidationMessageFor(model => model.Equipment_Type)
                             </div>
@@ -171,7 +173,7 @@
                             Last inspected</label>
                         <div class="controls">
                             <div class="span12">
-                                @Html.TextBoxFor(model => model.LastInspected, new { Value = Model != null && Model.LastInspected.HasValue ? Model.LastInspected.Value.ToString("MM/dd/yyyy") : "", @class = "input-xlarge date-picker" })
+                                @Html.TextBoxFor(model => model.LastInspected, new { Value = Model != null ? Model.LastInspected.ToString("MM/dd/yyyy") : "", @class = "input-xlarge date-picker" })
                                 @Html.ValidationMessageFor(model => model.LastInspected)
                             </div>
                         </div>

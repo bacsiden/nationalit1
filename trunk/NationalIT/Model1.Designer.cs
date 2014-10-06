@@ -36,10 +36,10 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Operating_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Operating_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Operating_Expenses), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Split_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Split_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Split_Expenses), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Trip_Info_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_EscrowLoan_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_EscrowLoan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_EscrowLoan), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Maintenance_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Maintenance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Maintenance), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Equipment1", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_EscrowLoan_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_EscrowLoan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_EscrowLoan), true)]
 
 #endregion
 
@@ -558,22 +558,6 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Equipment> Equipment
-        {
-            get
-            {
-                if ((_Equipment == null))
-                {
-                    _Equipment = base.CreateObjectSet<Equipment>("Equipment");
-                }
-                return _Equipment;
-            }
-        }
-        private ObjectSet<Equipment> _Equipment;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<EscrowLoan> EscrowLoan
         {
             get
@@ -602,6 +586,22 @@ namespace NationalIT
             }
         }
         private ObjectSet<Temp_EscrowLoan> _Temp_EscrowLoan;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Equipment> Equipment
+        {
+            get
+            {
+                if ((_Equipment == null))
+                {
+                    _Equipment = base.CreateObjectSet<Equipment>("Equipment");
+                }
+                return _Equipment;
+            }
+        }
+        private ObjectSet<Equipment> _Equipment;
 
         #endregion
 
@@ -840,14 +840,6 @@ namespace NationalIT
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Equipment EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToEquipment(Equipment equipment)
-        {
-            base.AddObject("Equipment", equipment);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the EscrowLoan EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToEscrowLoan(EscrowLoan escrowLoan)
@@ -861,6 +853,14 @@ namespace NationalIT
         public void AddToTemp_EscrowLoan(Temp_EscrowLoan temp_EscrowLoan)
         {
             base.AddObject("Temp_EscrowLoan", temp_EscrowLoan);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Equipment EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEquipment(Equipment equipment)
+        {
+            base.AddObject("Equipment", equipment);
         }
 
         #endregion
@@ -2862,12 +2862,14 @@ namespace NationalIT
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="inspectionFrequency">Initial value of the InspectionFrequency property.</param>
+        /// <param name="lastInspected">Initial value of the LastInspected property.</param>
         /// <param name="oOS">Initial value of the OOS property.</param>
-        public static Equipment CreateEquipment(global::System.Int32 id, global::System.Int32 inspectionFrequency, global::System.Boolean oOS)
+        public static Equipment CreateEquipment(global::System.Int32 id, global::System.Int32 inspectionFrequency, global::System.DateTime lastInspected, global::System.Boolean oOS)
         {
             Equipment equipment = new Equipment();
             equipment.ID = id;
             equipment.InspectionFrequency = inspectionFrequency;
+            equipment.LastInspected = lastInspected;
             equipment.OOS = oOS;
             return equipment;
         }
@@ -3266,9 +3268,9 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> LastInspected
+        public global::System.DateTime LastInspected
         {
             get
             {
@@ -3283,8 +3285,8 @@ namespace NationalIT
                 OnLastInspectedChanged();
             }
         }
-        private Nullable<global::System.DateTime> _LastInspected;
-        partial void OnLastInspectedChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _LastInspected;
+        partial void OnLastInspectedChanging(global::System.DateTime value);
         partial void OnLastInspectedChanged();
     
         /// <summary>

@@ -56,7 +56,7 @@ namespace NationalIT.Controllers
         public ActionResult Backup()
         {
             DateTime now = DateTime.Now;
-            string NameBak = "Backup_" + now.Year + now.Month + now.Day + "_" + now.Hour + "-" + now.Minute + "-" + now.Second + ".bak";
+            string NameBak = "Backup_" + DateTime.Now.ToString("yyyy-MM-dd") + "_" + now.Hour + "-" + now.Minute + "-" + now.Second + ".bak";
             return View(new BackupModel { Name = NameBak });
         }
 
