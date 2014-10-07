@@ -602,6 +602,22 @@ namespace NationalIT
             }
         }
         private ObjectSet<Equipment> _Equipment;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<PayrollProcessingLog> PayrollProcessingLog
+        {
+            get
+            {
+                if ((_PayrollProcessingLog == null))
+                {
+                    _PayrollProcessingLog = base.CreateObjectSet<PayrollProcessingLog>("PayrollProcessingLog");
+                }
+                return _PayrollProcessingLog;
+            }
+        }
+        private ObjectSet<PayrollProcessingLog> _PayrollProcessingLog;
 
         #endregion
 
@@ -861,6 +877,14 @@ namespace NationalIT
         public void AddToEquipment(Equipment equipment)
         {
             base.AddObject("Equipment", equipment);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the PayrollProcessingLog EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPayrollProcessingLog(PayrollProcessingLog payrollProcessingLog)
+        {
+            base.AddObject("PayrollProcessingLog", payrollProcessingLog);
         }
 
         #endregion
@@ -6978,6 +7002,297 @@ namespace NationalIT
 
         #endregion
 
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="PayrollProcessingLog")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class PayrollProcessingLog : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new PayrollProcessingLog object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="userID">Initial value of the UserID property.</param>
+        /// <param name="userName">Initial value of the UserName property.</param>
+        /// <param name="date">Initial value of the Date property.</param>
+        /// <param name="action">Initial value of the Action property.</param>
+        /// <param name="tempReportID">Initial value of the TempReportID property.</param>
+        /// <param name="deleted">Initial value of the Deleted property.</param>
+        /// <param name="driverID">Initial value of the DriverID property.</param>
+        /// <param name="payrollAmount">Initial value of the PayrollAmount property.</param>
+        /// <param name="driverName">Initial value of the DriverName property.</param>
+        public static PayrollProcessingLog CreatePayrollProcessingLog(global::System.Int32 id, global::System.Int32 userID, global::System.String userName, global::System.DateTime date, global::System.String action, global::System.Int32 tempReportID, global::System.Boolean deleted, global::System.Int32 driverID, global::System.Double payrollAmount, global::System.String driverName)
+        {
+            PayrollProcessingLog payrollProcessingLog = new PayrollProcessingLog();
+            payrollProcessingLog.ID = id;
+            payrollProcessingLog.UserID = userID;
+            payrollProcessingLog.UserName = userName;
+            payrollProcessingLog.Date = date;
+            payrollProcessingLog.Action = action;
+            payrollProcessingLog.TempReportID = tempReportID;
+            payrollProcessingLog.Deleted = deleted;
+            payrollProcessingLog.DriverID = driverID;
+            payrollProcessingLog.PayrollAmount = payrollAmount;
+            payrollProcessingLog.DriverName = driverName;
+            return payrollProcessingLog;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 UserID
+        {
+            get
+            {
+                return _UserID;
+            }
+            set
+            {
+                OnUserIDChanging(value);
+                ReportPropertyChanging("UserID");
+                _UserID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserID");
+                OnUserIDChanged();
+            }
+        }
+        private global::System.Int32 _UserID;
+        partial void OnUserIDChanging(global::System.Int32 value);
+        partial void OnUserIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String UserName
+        {
+            get
+            {
+                return _UserName;
+            }
+            set
+            {
+                OnUserNameChanging(value);
+                ReportPropertyChanging("UserName");
+                _UserName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("UserName");
+                OnUserNameChanged();
+            }
+        }
+        private global::System.String _UserName;
+        partial void OnUserNameChanging(global::System.String value);
+        partial void OnUserNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Date
+        {
+            get
+            {
+                return _Date;
+            }
+            set
+            {
+                OnDateChanging(value);
+                ReportPropertyChanging("Date");
+                _Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Date");
+                OnDateChanged();
+            }
+        }
+        private global::System.DateTime _Date;
+        partial void OnDateChanging(global::System.DateTime value);
+        partial void OnDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Action
+        {
+            get
+            {
+                return _Action;
+            }
+            set
+            {
+                OnActionChanging(value);
+                ReportPropertyChanging("Action");
+                _Action = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Action");
+                OnActionChanged();
+            }
+        }
+        private global::System.String _Action;
+        partial void OnActionChanging(global::System.String value);
+        partial void OnActionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 TempReportID
+        {
+            get
+            {
+                return _TempReportID;
+            }
+            set
+            {
+                OnTempReportIDChanging(value);
+                ReportPropertyChanging("TempReportID");
+                _TempReportID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TempReportID");
+                OnTempReportIDChanged();
+            }
+        }
+        private global::System.Int32 _TempReportID;
+        partial void OnTempReportIDChanging(global::System.Int32 value);
+        partial void OnTempReportIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Deleted
+        {
+            get
+            {
+                return _Deleted;
+            }
+            set
+            {
+                OnDeletedChanging(value);
+                ReportPropertyChanging("Deleted");
+                _Deleted = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Deleted");
+                OnDeletedChanged();
+            }
+        }
+        private global::System.Boolean _Deleted;
+        partial void OnDeletedChanging(global::System.Boolean value);
+        partial void OnDeletedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DriverID
+        {
+            get
+            {
+                return _DriverID;
+            }
+            set
+            {
+                OnDriverIDChanging(value);
+                ReportPropertyChanging("DriverID");
+                _DriverID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DriverID");
+                OnDriverIDChanged();
+            }
+        }
+        private global::System.Int32 _DriverID;
+        partial void OnDriverIDChanging(global::System.Int32 value);
+        partial void OnDriverIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double PayrollAmount
+        {
+            get
+            {
+                return _PayrollAmount;
+            }
+            set
+            {
+                OnPayrollAmountChanging(value);
+                ReportPropertyChanging("PayrollAmount");
+                _PayrollAmount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PayrollAmount");
+                OnPayrollAmountChanged();
+            }
+        }
+        private global::System.Double _PayrollAmount;
+        partial void OnPayrollAmountChanging(global::System.Double value);
+        partial void OnPayrollAmountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DriverName
+        {
+            get
+            {
+                return _DriverName;
+            }
+            set
+            {
+                OnDriverNameChanging(value);
+                ReportPropertyChanging("DriverName");
+                _DriverName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DriverName");
+                OnDriverNameChanged();
+            }
+        }
+        private global::System.String _DriverName;
+        partial void OnDriverNameChanging(global::System.String value);
+        partial void OnDriverNameChanged();
+
+        #endregion
+
+    
     }
     
     /// <summary>

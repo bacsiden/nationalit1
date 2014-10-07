@@ -33,6 +33,7 @@
           <EntitySet Name="mUserInGroup" EntityType="DB_9B22F2_nationalitModel.Store.mUserInGroup" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Operating_Expenses" EntityType="DB_9B22F2_nationalitModel.Store.Operating_Expenses" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Owners" EntityType="DB_9B22F2_nationalitModel.Store.Owners" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PayrollProcessingLog" EntityType="DB_9B22F2_nationalitModel.Store.PayrollProcessingLog" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="split_expenses" EntityType="DB_9B22F2_nationalitModel.Store.split_expenses" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Temp_EscrowLoan" EntityType="DB_9B22F2_nationalitModel.Store.Temp_EscrowLoan" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Temp_Fuel_Expenses" EntityType="DB_9B22F2_nationalitModel.Store.Temp_Fuel_Expenses" store:Type="Tables" Schema="dbo" />
@@ -477,6 +478,21 @@
           <Property Name="ssn_" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="fee_rate" Type="real" />
           <Property Name="pay_rate" Type="real" />
+        </EntityType>
+        <EntityType Name="PayrollProcessingLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Action" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="TempReportID" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="DriverID" Type="int" Nullable="false" />
+          <Property Name="PayrollAmount" Type="float" Nullable="false" />
+          <Property Name="DriverName" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="split_expenses">
           <Key>
@@ -1107,6 +1123,7 @@
             <End Role="Equipment" EntitySet="Equipment" />
             <End Role="Violations" EntitySet="Violations" />
           </AssociationSet>
+          <EntitySet Name="PayrollProcessingLog" EntityType="DB_9B22F2_nationalitModel.PayrollProcessingLog" />
           </EntityContainer>
         <EntityType Name="aspnet_Users">
           <Key>
@@ -1853,6 +1870,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="PayrollProcessingLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <Property Type="String" Name="Action" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="TempReportID" Nullable="false" />
+          <Property Type="Boolean" Name="Deleted" Nullable="false" />
+          <Property Type="Int32" Name="DriverID" Nullable="false" />
+          <Property Type="Double" Name="PayrollAmount" Nullable="false" />
+          <Property Type="String" Name="DriverName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2406,6 +2438,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="PayrollProcessingLog">
+            <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.PayrollProcessingLog">
+              <MappingFragment StoreEntitySet="PayrollProcessingLog">
+                <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+                <ScalarProperty Name="PayrollAmount" ColumnName="PayrollAmount" />
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="TempReportID" ColumnName="TempReportID" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2578,6 +2626,7 @@
           <ConnectorPoint PointX="5.1250025" PointY="13.567176979166661" />
           <ConnectorPoint PointX="8.25" PointY="13.567176979166661" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="DB_9B22F2_nationalitModel.PayrollProcessingLog" Width="1.5" PointX="20.375" PointY="8.75" Height="2.3648893229166674" />
         </Diagram>
     </Diagrams>
   </Designer>

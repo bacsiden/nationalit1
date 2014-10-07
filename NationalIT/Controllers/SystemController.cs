@@ -10,6 +10,7 @@ using System.Xml.Linq;
 using System.Data.SqlClient;
 using System.Data;
 using System.Web.Security;
+using Webdiyer.WebControls.Mvc;
 
 namespace NationalIT.Controllers
 {
@@ -96,13 +97,14 @@ namespace NationalIT.Controllers
 
                     xtr.Save(fileName);
 
-                    try {
+                    try
+                    {
                         if (!System.IO.Directory.Exists(model.PathBackupFolder))
                             System.IO.Directory.CreateDirectory(model.PathBackupFolder);
                     }
                     catch { }
 
-                    return RedirectToAction("Index","Config");
+                    return RedirectToAction("Index", "Config");
                 }
                 catch (Exception ex)
                 {
@@ -111,6 +113,40 @@ namespace NationalIT.Controllers
             }
             return View(model);
         }
-        
+
+        [Authorize]
+        [ValidationFunction(ActionName.SystemAdmin)]
+        public ActionResult PayrollLog(int? page)
+        {
+            var list = DB.Entities.PayrollProcessingLog.OrderByDescending(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, 20);
+            return View(list);
+        }
+
+        [ValidationFunction(ActionName.SystemAdmin)]
+        public ActionResult Delete(string arrayID = "")
+        {
+            try
+            {
+                // TODO: Add delete logic here
+                var lstID = arrayID.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                var db = DB.Entities;
+                if (lstID.Length > 0)
+                {
+                    foreach (var item in lstID)
+                    {
+                        int tmpID = int.Parse(item);
+                        var obj = db.PayrollProcessingLog.FirstOrDefault(m => m.ID == tmpID);
+                        db.PayrollProcessingLog.DeleteObject(obj);
+                    }
+                    db.SaveChanges();
+                }
+            }
+            catch
+            {
+
+            }
+            return RedirectToAction("PayrollLog");
+        }
+
     }
 }

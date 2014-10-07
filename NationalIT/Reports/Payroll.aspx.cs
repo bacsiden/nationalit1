@@ -172,7 +172,7 @@ namespace NationalIT.Reports
                     double totalOwner = 0;
                     double totalDriver = 0;
                     if (objtr.Temp_EscrowLoan != null && objtr.Temp_EscrowLoan.Count > 0)
-                    {                        
+                    {
                         DataTable dsEscrowLoanOwner = ds.EscrowLoanOwner;
                         DataTable dsEscrowLoanDriver = ds.EscrowLoanDriver;
                         foreach (var item in objtr.Temp_EscrowLoan)
@@ -217,7 +217,7 @@ namespace NationalIT.Reports
                     ownerPayment = ownerPayment - total4 - fee4 - totalOwner;
                     driverPayment = driverPayment - total5 - fee5 - totalDriver;
 
-                    ReportParameter PayrollAmount = new ReportParameter("PayrollAmount", Math.Round(r1,2).ToString("N2"));
+                    ReportParameter PayrollAmount = new ReportParameter("PayrollAmount", Math.Round(r1, 2).ToString("N2"));
                     ReportParameter OwnerPayment = new ReportParameter("OwnerPayment", Math.Round(ownerPayment, 2).ToString("N2"));
                     ReportParameter DriverPayment = new ReportParameter("DriverPayment", Math.Round(driverPayment, 2).ToString("N2"));
                     parameters.Add(PayrollAmount);
@@ -559,7 +559,7 @@ namespace NationalIT.Reports
                     double totalOwner = 0;
                     double totalDriver = 0;
                     if (isescrowloan == 1)
-                    {                        
+                    {
                         DataTable dsEscrowLoanOwner = ds.EscrowLoanOwner;
                         DataTable dsEscrowLoanDriver = ds.EscrowLoanDriver;
                         para = Request.QueryString["escrowLoan"];
@@ -646,7 +646,10 @@ namespace NationalIT.Reports
                     tr.DriverPayment = driverPayment;
                     tr.TotalAmount = r1;
                     db.SaveChanges();
-                    ReportParameter PayrollAmount = new ReportParameter("PayrollAmount", Math.Round(r1,2).ToString("N2"));
+                    // save payroll log
+                    new BaseController().SavePayrollLog(tr.ID,"Processed payroll", driverid, r1, driverinfo.Last_name + " " + driverinfo.First_name, false);
+
+                    ReportParameter PayrollAmount = new ReportParameter("PayrollAmount", Math.Round(r1, 2).ToString("N2"));
                     ReportParameter OwnerPayment = new ReportParameter("OwnerPayment", Math.Round(ownerPayment, 2).ToString("N2"));
                     ReportParameter DriverPayment = new ReportParameter("DriverPayment", Math.Round(driverPayment, 2).ToString("N2"));
                     parameters.Add(PayrollAmount);
