@@ -44,7 +44,7 @@
                                 <input type="checkbox" name="checkOwner" value="@item.ID" class="checkitem"/>
                             </td>
                             <td>
-                                @Html.ActionLink(item.Expenses, "NewOrEdit", new { id = item.ID })
+                                @Html.ActionLink(item.Expenses+" ", "NewOrEdit", new { id = item.ID })
                             </td>
                             <td>
                                 @String.Format("{0:C}", item.TotalAmount)
