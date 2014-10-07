@@ -359,7 +359,7 @@ namespace NationalIT.Controllers
                     }
                     if ((int)(DateTime.Now - equip.LastInspected).TotalDays > equip.InspectionFrequency)
                     {
-                        ModelState.AddModelError("", "Out of date");
+                        ModelState.AddModelError("", string.Format("Out of date equipment - {0} - {1}", equip.Equipment_Type, equip.Equipment_number));
                     }
                     return View("NewOrEdit", obj);
                 }
@@ -548,7 +548,7 @@ namespace NationalIT.Controllers
                 tEscrowLoan.CurrentCharge = 0;
                 tEscrowLoan.OwnerDriver = item.OwnerDriver;
                 tEscrowLoan.Escrow_Loan = item.Escrow_Loan;
-//                db.EscrowLoan.AddObject(tEscrowLoan);
+                //                db.EscrowLoan.AddObject(tEscrowLoan);
                 if (add)
                 {
                     db.EscrowLoan.AddObject(tEscrowLoan);
@@ -558,6 +558,12 @@ namespace NationalIT.Controllers
             }
             #endregion
             db.SaveChanges();
+            // save payroll log      
+            var driver = db.Driver_Info.FirstOrDefault(m => m.ID == tempreport.DriverID);
+            if (driver != null)
+            {
+                new BaseController().SavePayrollLog(tempreport.ID, "Processed payroll rollback all", tempreport.DriverID, tempreport.TotalAmount, driver.Last_name + " " + driver.First_name, true);
+            }
             DeleteItem(db.TempReport, tempreport.ID);
             //db.ObjectStateManager.ChangeObjectState(tempreport, System.Data.EntityState.Deleted);
 
@@ -839,7 +845,12 @@ namespace NationalIT.Controllers
             }
             #endregion
             db.SaveChanges();
-
+            var driver = db.Driver_Info.FirstOrDefault(m => m.ID == int.Parse(driverID));
+            var tempreport = db.TempReport.FirstOrDefault(m => m.ID == id);
+            if (driver != null && tempreport != null)
+            {
+                new BaseController().SavePayrollLog(id, "Processed payroll rollback a few item", driver.ID, tempreport.TotalAmount, driver.Last_name + " " + driver.First_name, false);
+            }
             return RedirectToAction("PayrollsRollBack", new { driverID = driverID });
         }
 

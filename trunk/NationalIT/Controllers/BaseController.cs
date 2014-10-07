@@ -452,5 +452,23 @@ namespace NationalIT
 
             miXML.Save(filePath);
         }
+
+        public void SavePayrollLog(int tempReportID, string action, int driverID, double payrollAmount, string driverName, bool isDeleted = false)
+        {
+            var db = DB.Entities;
+            PayrollProcessingLog log = new PayrollProcessingLog();
+            log.Date = DateTime.Now;
+            log.Deleted = isDeleted;
+            log.UserID = CurrentUser.ID;
+            log.UserName = CurrentUser.UserName;
+            log.TempReportID = tempReportID;
+            log.Action = action;
+            log.DriverID = driverID;
+            log.DriverName = driverName;
+            log.PayrollAmount = payrollAmount;
+
+            db.PayrollProcessingLog.AddObject(log);
+            db.SaveChanges();
+        }
     }
 }
