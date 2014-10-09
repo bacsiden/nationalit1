@@ -19,27 +19,49 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Me__Appli__3A4CA8FD", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.aspnet_Applications), "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.aspnet_Membership), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Me__Appli__3B40CD36", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.aspnet_Applications), "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.aspnet_Membership), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pa__Appli__3E1D39E1", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.aspnet_Applications), "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.aspnet_Paths), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pa__Appli__3F115E1A", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.aspnet_Applications), "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.aspnet_Paths), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Ro__Appli__47A6A41B", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.aspnet_Applications), "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.aspnet_Roles), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Ro__Appli__489AC854", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.aspnet_Applications), "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.aspnet_Roles), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Us__Appli__498EEC8D", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.aspnet_Applications), "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.aspnet_Users), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Us__Appli__4A8310C6", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.aspnet_Applications), "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.aspnet_Users), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Me__UserI__3C34F16F", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.aspnet_Users), "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.aspnet_Membership), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Me__UserI__3D2915A8", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.aspnet_Users), "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.aspnet_Membership), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pe__PathI__40058253", "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.aspnet_Paths), "aspnet_PersonalizationAllUsers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.aspnet_PersonalizationAllUsers), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pe__PathI__40F9A68C", "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.aspnet_Paths), "aspnet_PersonalizationAllUsers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.aspnet_PersonalizationAllUsers), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pe__PathI__41EDCAC5", "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.aspnet_Paths), "aspnet_PersonalizationPerUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.aspnet_PersonalizationPerUser), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pe__PathI__42E1EEFE", "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.aspnet_Paths), "aspnet_PersonalizationPerUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.aspnet_PersonalizationPerUser), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pe__UserI__43D61337", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.aspnet_Users), "aspnet_PersonalizationPerUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.aspnet_PersonalizationPerUser), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pe__UserI__44CA3770", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.aspnet_Users), "aspnet_PersonalizationPerUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.aspnet_PersonalizationPerUser), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pr__UserI__45BE5BA9", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.aspnet_Users), "aspnet_Profile", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.aspnet_Profile), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pr__UserI__46B27FE2", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.aspnet_Users), "aspnet_Profile", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.aspnet_Profile), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Us__RoleI__4B7734FF", "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.aspnet_Roles), "aspnet_UsersInRoles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.aspnet_UsersInRoles), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Us__RoleI__4C6B5938", "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.aspnet_Roles), "aspnet_UsersInRoles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.aspnet_UsersInRoles), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Us__UserI__4D5F7D71", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.aspnet_Users), "aspnet_UsersInRoles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.aspnet_UsersInRoles), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Us__UserI__4E53A1AA", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.aspnet_Users), "aspnet_UsersInRoles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.aspnet_UsersInRoles), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Account_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.aspnet_Users), "mUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mUser), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Customer_Info1", "Customer_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Customer_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Driver_Info_Dispatchers", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Dispatchers), "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Driver_Info), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Dispatchers1", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Dispatchers), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Driver_Info_Owners", "Owners", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Owners), "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Driver_Info), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Fuel___Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Fuel___Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Fuel___Expenses), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Operating_Expenses_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Operating_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Operating_Expenses), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Driver_Info1", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Driver_Info", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Maintenance_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Maintenance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Maintenance), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Equipment1", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_EscrowLoan_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_EscrowLoan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_EscrowLoan), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Fuel_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Fuel_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Fuel_Expenses), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Operating_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Operating_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Operating_Expenses), true)]
+[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Trip_Info_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Trip_Info), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "mFunctionInRole", "mFunction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mFunction), "mRole", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mRole))]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "mMenuInFunction", "mFunction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mFunction), "mMenu", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mMenu))]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "mRoleInGroup", "mGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mGroup), "mRole", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mRole))]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "mUserInGroup", "mGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mGroup), "mUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.mUser))]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Customer_Info1", "Customer_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Customer_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Dispatchers1", "Dispatchers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Dispatchers), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Driver_Info1", "Driver_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Driver_Info), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Fuel_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Fuel_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Fuel_Expenses), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Operating_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Operating_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Operating_Expenses), true)]
 [assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Split_Expenses_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Split_Expenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Split_Expenses), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Trip_Info_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_Trip_Info), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Temp_EscrowLoan_TempReport", "TempReport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(NationalIT.TempReport), "Temp_EscrowLoan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Temp_EscrowLoan), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Maintenance_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Maintenance", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Maintenance), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Equipment1", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Trip_Info", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Trip_Info), true)]
-[assembly: EdmRelationshipAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Equipment", "Equipment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(NationalIT.Equipment), "Violations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(NationalIT.Violations), true)]
 
 #endregion
 
@@ -94,6 +116,134 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<aspnet_Applications> aspnet_Applications
+        {
+            get
+            {
+                if ((_aspnet_Applications == null))
+                {
+                    _aspnet_Applications = base.CreateObjectSet<aspnet_Applications>("aspnet_Applications");
+                }
+                return _aspnet_Applications;
+            }
+        }
+        private ObjectSet<aspnet_Applications> _aspnet_Applications;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<aspnet_Membership> aspnet_Membership
+        {
+            get
+            {
+                if ((_aspnet_Membership == null))
+                {
+                    _aspnet_Membership = base.CreateObjectSet<aspnet_Membership>("aspnet_Membership");
+                }
+                return _aspnet_Membership;
+            }
+        }
+        private ObjectSet<aspnet_Membership> _aspnet_Membership;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<aspnet_Paths> aspnet_Paths
+        {
+            get
+            {
+                if ((_aspnet_Paths == null))
+                {
+                    _aspnet_Paths = base.CreateObjectSet<aspnet_Paths>("aspnet_Paths");
+                }
+                return _aspnet_Paths;
+            }
+        }
+        private ObjectSet<aspnet_Paths> _aspnet_Paths;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<aspnet_PersonalizationAllUsers> aspnet_PersonalizationAllUsers
+        {
+            get
+            {
+                if ((_aspnet_PersonalizationAllUsers == null))
+                {
+                    _aspnet_PersonalizationAllUsers = base.CreateObjectSet<aspnet_PersonalizationAllUsers>("aspnet_PersonalizationAllUsers");
+                }
+                return _aspnet_PersonalizationAllUsers;
+            }
+        }
+        private ObjectSet<aspnet_PersonalizationAllUsers> _aspnet_PersonalizationAllUsers;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser
+        {
+            get
+            {
+                if ((_aspnet_PersonalizationPerUser == null))
+                {
+                    _aspnet_PersonalizationPerUser = base.CreateObjectSet<aspnet_PersonalizationPerUser>("aspnet_PersonalizationPerUser");
+                }
+                return _aspnet_PersonalizationPerUser;
+            }
+        }
+        private ObjectSet<aspnet_PersonalizationPerUser> _aspnet_PersonalizationPerUser;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<aspnet_Profile> aspnet_Profile
+        {
+            get
+            {
+                if ((_aspnet_Profile == null))
+                {
+                    _aspnet_Profile = base.CreateObjectSet<aspnet_Profile>("aspnet_Profile");
+                }
+                return _aspnet_Profile;
+            }
+        }
+        private ObjectSet<aspnet_Profile> _aspnet_Profile;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<aspnet_Roles> aspnet_Roles
+        {
+            get
+            {
+                if ((_aspnet_Roles == null))
+                {
+                    _aspnet_Roles = base.CreateObjectSet<aspnet_Roles>("aspnet_Roles");
+                }
+                return _aspnet_Roles;
+            }
+        }
+        private ObjectSet<aspnet_Roles> _aspnet_Roles;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<aspnet_SchemaVersions> aspnet_SchemaVersions
+        {
+            get
+            {
+                if ((_aspnet_SchemaVersions == null))
+                {
+                    _aspnet_SchemaVersions = base.CreateObjectSet<aspnet_SchemaVersions>("aspnet_SchemaVersions");
+                }
+                return _aspnet_SchemaVersions;
+            }
+        }
+        private ObjectSet<aspnet_SchemaVersions> _aspnet_SchemaVersions;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<aspnet_Users> aspnet_Users
         {
             get
@@ -106,6 +256,38 @@ namespace NationalIT
             }
         }
         private ObjectSet<aspnet_Users> _aspnet_Users;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<aspnet_UsersInRoles> aspnet_UsersInRoles
+        {
+            get
+            {
+                if ((_aspnet_UsersInRoles == null))
+                {
+                    _aspnet_UsersInRoles = base.CreateObjectSet<aspnet_UsersInRoles>("aspnet_UsersInRoles");
+                }
+                return _aspnet_UsersInRoles;
+            }
+        }
+        private ObjectSet<aspnet_UsersInRoles> _aspnet_UsersInRoles;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<aspnet_WebEvent_Events> aspnet_WebEvent_Events
+        {
+            get
+            {
+                if ((_aspnet_WebEvent_Events == null))
+                {
+                    _aspnet_WebEvent_Events = base.CreateObjectSet<aspnet_WebEvent_Events>("aspnet_WebEvent_Events");
+                }
+                return _aspnet_WebEvent_Events;
+            }
+        }
+        private ObjectSet<aspnet_WebEvent_Events> _aspnet_WebEvent_Events;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -190,6 +372,38 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<Equipment> Equipment
+        {
+            get
+            {
+                if ((_Equipment == null))
+                {
+                    _Equipment = base.CreateObjectSet<Equipment>("Equipment");
+                }
+                return _Equipment;
+            }
+        }
+        private ObjectSet<Equipment> _Equipment;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<EscrowLoan> EscrowLoan
+        {
+            get
+            {
+                if ((_EscrowLoan == null))
+                {
+                    _EscrowLoan = base.CreateObjectSet<EscrowLoan>("EscrowLoan");
+                }
+                return _EscrowLoan;
+            }
+        }
+        private ObjectSet<EscrowLoan> _EscrowLoan;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<FixedCharges> FixedCharges
         {
             get
@@ -202,6 +416,22 @@ namespace NationalIT
             }
         }
         private ObjectSet<FixedCharges> _FixedCharges;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<FixedExpenses> FixedExpenses
+        {
+            get
+            {
+                if ((_FixedExpenses == null))
+                {
+                    _FixedExpenses = base.CreateObjectSet<FixedExpenses>("FixedExpenses");
+                }
+                return _FixedExpenses;
+            }
+        }
+        private ObjectSet<FixedExpenses> _FixedExpenses;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -234,6 +464,22 @@ namespace NationalIT
             }
         }
         private ObjectSet<Fuel___Expenses> _Fuel___Expenses;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Income> Income
+        {
+            get
+            {
+                if ((_Income == null))
+                {
+                    _Income = base.CreateObjectSet<Income>("Income");
+                }
+                return _Income;
+            }
+        }
+        private ObjectSet<Income> _Income;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -398,18 +644,34 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<split_expenses> split_expenses
+        public ObjectSet<PayrollProcessingLog> PayrollProcessingLog
         {
             get
             {
-                if ((_split_expenses == null))
+                if ((_PayrollProcessingLog == null))
                 {
-                    _split_expenses = base.CreateObjectSet<split_expenses>("split_expenses");
+                    _PayrollProcessingLog = base.CreateObjectSet<PayrollProcessingLog>("PayrollProcessingLog");
                 }
-                return _split_expenses;
+                return _PayrollProcessingLog;
             }
         }
-        private ObjectSet<split_expenses> _split_expenses;
+        private ObjectSet<PayrollProcessingLog> _PayrollProcessingLog;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Temp_EscrowLoan> Temp_EscrowLoan
+        {
+            get
+            {
+                if ((_Temp_EscrowLoan == null))
+                {
+                    _Temp_EscrowLoan = base.CreateObjectSet<Temp_EscrowLoan>("Temp_EscrowLoan");
+                }
+                return _Temp_EscrowLoan;
+            }
+        }
+        private ObjectSet<Temp_EscrowLoan> _Temp_EscrowLoan;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -446,22 +708,6 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Temp_Split_Expenses> Temp_Split_Expenses
-        {
-            get
-            {
-                if ((_Temp_Split_Expenses == null))
-                {
-                    _Temp_Split_Expenses = base.CreateObjectSet<Temp_Split_Expenses>("Temp_Split_Expenses");
-                }
-                return _Temp_Split_Expenses;
-            }
-        }
-        private ObjectSet<Temp_Split_Expenses> _Temp_Split_Expenses;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Temp_Trip_Info> Temp_Trip_Info
         {
             get
@@ -474,70 +720,6 @@ namespace NationalIT
             }
         }
         private ObjectSet<Temp_Trip_Info> _Temp_Trip_Info;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Violations> Violations
-        {
-            get
-            {
-                if ((_Violations == null))
-                {
-                    _Violations = base.CreateObjectSet<Violations>("Violations");
-                }
-                return _Violations;
-            }
-        }
-        private ObjectSet<Violations> _Violations;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Income> Income
-        {
-            get
-            {
-                if ((_Income == null))
-                {
-                    _Income = base.CreateObjectSet<Income>("Income");
-                }
-                return _Income;
-            }
-        }
-        private ObjectSet<Income> _Income;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Trip_Info> Trip_Info
-        {
-            get
-            {
-                if ((_Trip_Info == null))
-                {
-                    _Trip_Info = base.CreateObjectSet<Trip_Info>("Trip_Info");
-                }
-                return _Trip_Info;
-            }
-        }
-        private ObjectSet<Trip_Info> _Trip_Info;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<FixedExpenses> FixedExpenses
-        {
-            get
-            {
-                if ((_FixedExpenses == null))
-                {
-                    _FixedExpenses = base.CreateObjectSet<FixedExpenses>("FixedExpenses");
-                }
-                return _FixedExpenses;
-            }
-        }
-        private ObjectSet<FixedExpenses> _FixedExpenses;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -558,70 +740,134 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<EscrowLoan> EscrowLoan
+        public ObjectSet<Trip_Info> Trip_Info
         {
             get
             {
-                if ((_EscrowLoan == null))
+                if ((_Trip_Info == null))
                 {
-                    _EscrowLoan = base.CreateObjectSet<EscrowLoan>("EscrowLoan");
+                    _Trip_Info = base.CreateObjectSet<Trip_Info>("Trip_Info");
                 }
-                return _EscrowLoan;
+                return _Trip_Info;
             }
         }
-        private ObjectSet<EscrowLoan> _EscrowLoan;
+        private ObjectSet<Trip_Info> _Trip_Info;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Temp_EscrowLoan> Temp_EscrowLoan
+        public ObjectSet<Violations> Violations
         {
             get
             {
-                if ((_Temp_EscrowLoan == null))
+                if ((_Violations == null))
                 {
-                    _Temp_EscrowLoan = base.CreateObjectSet<Temp_EscrowLoan>("Temp_EscrowLoan");
+                    _Violations = base.CreateObjectSet<Violations>("Violations");
                 }
-                return _Temp_EscrowLoan;
+                return _Violations;
             }
         }
-        private ObjectSet<Temp_EscrowLoan> _Temp_EscrowLoan;
+        private ObjectSet<Violations> _Violations;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Equipment> Equipment
+        public ObjectSet<split_expenses> split_expenses
         {
             get
             {
-                if ((_Equipment == null))
+                if ((_split_expenses == null))
                 {
-                    _Equipment = base.CreateObjectSet<Equipment>("Equipment");
+                    _split_expenses = base.CreateObjectSet<split_expenses>("split_expenses");
                 }
-                return _Equipment;
+                return _split_expenses;
             }
         }
-        private ObjectSet<Equipment> _Equipment;
+        private ObjectSet<split_expenses> _split_expenses;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<PayrollProcessingLog> PayrollProcessingLog
+        public ObjectSet<Temp_Split_Expenses> Temp_Split_Expenses
         {
             get
             {
-                if ((_PayrollProcessingLog == null))
+                if ((_Temp_Split_Expenses == null))
                 {
-                    _PayrollProcessingLog = base.CreateObjectSet<PayrollProcessingLog>("PayrollProcessingLog");
+                    _Temp_Split_Expenses = base.CreateObjectSet<Temp_Split_Expenses>("Temp_Split_Expenses");
                 }
-                return _PayrollProcessingLog;
+                return _Temp_Split_Expenses;
             }
         }
-        private ObjectSet<PayrollProcessingLog> _PayrollProcessingLog;
+        private ObjectSet<Temp_Split_Expenses> _Temp_Split_Expenses;
 
         #endregion
 
         #region AddTo Methods
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the aspnet_Applications EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToaspnet_Applications(aspnet_Applications aspnet_Applications)
+        {
+            base.AddObject("aspnet_Applications", aspnet_Applications);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the aspnet_Membership EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToaspnet_Membership(aspnet_Membership aspnet_Membership)
+        {
+            base.AddObject("aspnet_Membership", aspnet_Membership);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the aspnet_Paths EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToaspnet_Paths(aspnet_Paths aspnet_Paths)
+        {
+            base.AddObject("aspnet_Paths", aspnet_Paths);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the aspnet_PersonalizationAllUsers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToaspnet_PersonalizationAllUsers(aspnet_PersonalizationAllUsers aspnet_PersonalizationAllUsers)
+        {
+            base.AddObject("aspnet_PersonalizationAllUsers", aspnet_PersonalizationAllUsers);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the aspnet_PersonalizationPerUser EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToaspnet_PersonalizationPerUser(aspnet_PersonalizationPerUser aspnet_PersonalizationPerUser)
+        {
+            base.AddObject("aspnet_PersonalizationPerUser", aspnet_PersonalizationPerUser);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the aspnet_Profile EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToaspnet_Profile(aspnet_Profile aspnet_Profile)
+        {
+            base.AddObject("aspnet_Profile", aspnet_Profile);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the aspnet_Roles EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToaspnet_Roles(aspnet_Roles aspnet_Roles)
+        {
+            base.AddObject("aspnet_Roles", aspnet_Roles);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the aspnet_SchemaVersions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToaspnet_SchemaVersions(aspnet_SchemaVersions aspnet_SchemaVersions)
+        {
+            base.AddObject("aspnet_SchemaVersions", aspnet_SchemaVersions);
+        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the aspnet_Users EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -629,6 +875,22 @@ namespace NationalIT
         public void AddToaspnet_Users(aspnet_Users aspnet_Users)
         {
             base.AddObject("aspnet_Users", aspnet_Users);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the aspnet_UsersInRoles EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToaspnet_UsersInRoles(aspnet_UsersInRoles aspnet_UsersInRoles)
+        {
+            base.AddObject("aspnet_UsersInRoles", aspnet_UsersInRoles);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the aspnet_WebEvent_Events EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToaspnet_WebEvent_Events(aspnet_WebEvent_Events aspnet_WebEvent_Events)
+        {
+            base.AddObject("aspnet_WebEvent_Events", aspnet_WebEvent_Events);
         }
     
         /// <summary>
@@ -672,11 +934,35 @@ namespace NationalIT
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the Equipment EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEquipment(Equipment equipment)
+        {
+            base.AddObject("Equipment", equipment);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the EscrowLoan EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEscrowLoan(EscrowLoan escrowLoan)
+        {
+            base.AddObject("EscrowLoan", escrowLoan);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the FixedCharges EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToFixedCharges(FixedCharges fixedCharges)
         {
             base.AddObject("FixedCharges", fixedCharges);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the FixedExpenses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToFixedExpenses(FixedExpenses fixedExpenses)
+        {
+            base.AddObject("FixedExpenses", fixedExpenses);
         }
     
         /// <summary>
@@ -693,6 +979,14 @@ namespace NationalIT
         public void AddToFuel___Expenses(Fuel___Expenses fuel___Expenses)
         {
             base.AddObject("Fuel___Expenses", fuel___Expenses);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Income EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToIncome(Income income)
+        {
+            base.AddObject("Income", income);
         }
     
         /// <summary>
@@ -776,11 +1070,19 @@ namespace NationalIT
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the split_expenses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the PayrollProcessingLog EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddTosplit_expenses(split_expenses split_expenses)
+        public void AddToPayrollProcessingLog(PayrollProcessingLog payrollProcessingLog)
         {
-            base.AddObject("split_expenses", split_expenses);
+            base.AddObject("PayrollProcessingLog", payrollProcessingLog);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Temp_EscrowLoan EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToTemp_EscrowLoan(Temp_EscrowLoan temp_EscrowLoan)
+        {
+            base.AddObject("Temp_EscrowLoan", temp_EscrowLoan);
         }
     
         /// <summary>
@@ -800,51 +1102,11 @@ namespace NationalIT
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Temp_Split_Expenses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToTemp_Split_Expenses(Temp_Split_Expenses temp_Split_Expenses)
-        {
-            base.AddObject("Temp_Split_Expenses", temp_Split_Expenses);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the Temp_Trip_Info EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToTemp_Trip_Info(Temp_Trip_Info temp_Trip_Info)
         {
             base.AddObject("Temp_Trip_Info", temp_Trip_Info);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Violations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToViolations(Violations violations)
-        {
-            base.AddObject("Violations", violations);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Income EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToIncome(Income income)
-        {
-            base.AddObject("Income", income);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Trip_Info EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToTrip_Info(Trip_Info trip_Info)
-        {
-            base.AddObject("Trip_Info", trip_Info);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the FixedExpenses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToFixedExpenses(FixedExpenses fixedExpenses)
-        {
-            base.AddObject("FixedExpenses", fixedExpenses);
         }
     
         /// <summary>
@@ -856,35 +1118,35 @@ namespace NationalIT
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the EscrowLoan EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Trip_Info EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToEscrowLoan(EscrowLoan escrowLoan)
+        public void AddToTrip_Info(Trip_Info trip_Info)
         {
-            base.AddObject("EscrowLoan", escrowLoan);
+            base.AddObject("Trip_Info", trip_Info);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Temp_EscrowLoan EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Violations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToTemp_EscrowLoan(Temp_EscrowLoan temp_EscrowLoan)
+        public void AddToViolations(Violations violations)
         {
-            base.AddObject("Temp_EscrowLoan", temp_EscrowLoan);
+            base.AddObject("Violations", violations);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Equipment EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the split_expenses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToEquipment(Equipment equipment)
+        public void AddTosplit_expenses(split_expenses split_expenses)
         {
-            base.AddObject("Equipment", equipment);
+            base.AddObject("split_expenses", split_expenses);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the PayrollProcessingLog EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Temp_Split_Expenses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToPayrollProcessingLog(PayrollProcessingLog payrollProcessingLog)
+        public void AddToTemp_Split_Expenses(Temp_Split_Expenses temp_Split_Expenses)
         {
-            base.AddObject("PayrollProcessingLog", payrollProcessingLog);
+            base.AddObject("Temp_Split_Expenses", temp_Split_Expenses);
         }
 
         #endregion
@@ -894,6 +1156,2513 @@ namespace NationalIT
     #endregion
 
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="aspnet_Applications")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class aspnet_Applications : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new aspnet_Applications object.
+        /// </summary>
+        /// <param name="applicationName">Initial value of the ApplicationName property.</param>
+        /// <param name="loweredApplicationName">Initial value of the LoweredApplicationName property.</param>
+        /// <param name="applicationId">Initial value of the ApplicationId property.</param>
+        public static aspnet_Applications Createaspnet_Applications(global::System.String applicationName, global::System.String loweredApplicationName, global::System.Guid applicationId)
+        {
+            aspnet_Applications aspnet_Applications = new aspnet_Applications();
+            aspnet_Applications.ApplicationName = applicationName;
+            aspnet_Applications.LoweredApplicationName = loweredApplicationName;
+            aspnet_Applications.ApplicationId = applicationId;
+            return aspnet_Applications;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ApplicationName
+        {
+            get
+            {
+                return _ApplicationName;
+            }
+            set
+            {
+                OnApplicationNameChanging(value);
+                ReportPropertyChanging("ApplicationName");
+                _ApplicationName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ApplicationName");
+                OnApplicationNameChanged();
+            }
+        }
+        private global::System.String _ApplicationName;
+        partial void OnApplicationNameChanging(global::System.String value);
+        partial void OnApplicationNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String LoweredApplicationName
+        {
+            get
+            {
+                return _LoweredApplicationName;
+            }
+            set
+            {
+                OnLoweredApplicationNameChanging(value);
+                ReportPropertyChanging("LoweredApplicationName");
+                _LoweredApplicationName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("LoweredApplicationName");
+                OnLoweredApplicationNameChanged();
+            }
+        }
+        private global::System.String _LoweredApplicationName;
+        partial void OnLoweredApplicationNameChanging(global::System.String value);
+        partial void OnLoweredApplicationNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid ApplicationId
+        {
+            get
+            {
+                return _ApplicationId;
+            }
+            set
+            {
+                if (_ApplicationId != value)
+                {
+                    OnApplicationIdChanging(value);
+                    ReportPropertyChanging("ApplicationId");
+                    _ApplicationId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ApplicationId");
+                    OnApplicationIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _ApplicationId;
+        partial void OnApplicationIdChanging(global::System.Guid value);
+        partial void OnApplicationIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Me__Appli__3A4CA8FD", "aspnet_Membership")]
+        public EntityCollection<aspnet_Membership> aspnet_Membership
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Membership>("DB_9B22F2_nationalitModel.FK__aspnet_Me__Appli__3A4CA8FD", "aspnet_Membership");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Membership>("DB_9B22F2_nationalitModel.FK__aspnet_Me__Appli__3A4CA8FD", "aspnet_Membership", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Me__Appli__3B40CD36", "aspnet_Membership")]
+        public EntityCollection<aspnet_Membership> aspnet_Membership1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Membership>("DB_9B22F2_nationalitModel.FK__aspnet_Me__Appli__3B40CD36", "aspnet_Membership");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Membership>("DB_9B22F2_nationalitModel.FK__aspnet_Me__Appli__3B40CD36", "aspnet_Membership", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pa__Appli__3E1D39E1", "aspnet_Paths")]
+        public EntityCollection<aspnet_Paths> aspnet_Paths
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Paths>("DB_9B22F2_nationalitModel.FK__aspnet_Pa__Appli__3E1D39E1", "aspnet_Paths");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Paths>("DB_9B22F2_nationalitModel.FK__aspnet_Pa__Appli__3E1D39E1", "aspnet_Paths", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pa__Appli__3F115E1A", "aspnet_Paths")]
+        public EntityCollection<aspnet_Paths> aspnet_Paths1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Paths>("DB_9B22F2_nationalitModel.FK__aspnet_Pa__Appli__3F115E1A", "aspnet_Paths");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Paths>("DB_9B22F2_nationalitModel.FK__aspnet_Pa__Appli__3F115E1A", "aspnet_Paths", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Ro__Appli__47A6A41B", "aspnet_Roles")]
+        public EntityCollection<aspnet_Roles> aspnet_Roles
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Roles>("DB_9B22F2_nationalitModel.FK__aspnet_Ro__Appli__47A6A41B", "aspnet_Roles");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Roles>("DB_9B22F2_nationalitModel.FK__aspnet_Ro__Appli__47A6A41B", "aspnet_Roles", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Ro__Appli__489AC854", "aspnet_Roles")]
+        public EntityCollection<aspnet_Roles> aspnet_Roles1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Roles>("DB_9B22F2_nationalitModel.FK__aspnet_Ro__Appli__489AC854", "aspnet_Roles");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Roles>("DB_9B22F2_nationalitModel.FK__aspnet_Ro__Appli__489AC854", "aspnet_Roles", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Us__Appli__498EEC8D", "aspnet_Users")]
+        public EntityCollection<aspnet_Users> aspnet_Users
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Us__Appli__498EEC8D", "aspnet_Users");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Us__Appli__498EEC8D", "aspnet_Users", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Us__Appli__4A8310C6", "aspnet_Users")]
+        public EntityCollection<aspnet_Users> aspnet_Users1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Us__Appli__4A8310C6", "aspnet_Users");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Us__Appli__4A8310C6", "aspnet_Users", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="aspnet_Membership")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class aspnet_Membership : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new aspnet_Membership object.
+        /// </summary>
+        /// <param name="applicationId">Initial value of the ApplicationId property.</param>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        /// <param name="password">Initial value of the Password property.</param>
+        /// <param name="passwordFormat">Initial value of the PasswordFormat property.</param>
+        /// <param name="passwordSalt">Initial value of the PasswordSalt property.</param>
+        /// <param name="isApproved">Initial value of the IsApproved property.</param>
+        /// <param name="isLockedOut">Initial value of the IsLockedOut property.</param>
+        /// <param name="createDate">Initial value of the CreateDate property.</param>
+        /// <param name="lastLoginDate">Initial value of the LastLoginDate property.</param>
+        /// <param name="lastPasswordChangedDate">Initial value of the LastPasswordChangedDate property.</param>
+        /// <param name="lastLockoutDate">Initial value of the LastLockoutDate property.</param>
+        /// <param name="failedPasswordAttemptCount">Initial value of the FailedPasswordAttemptCount property.</param>
+        /// <param name="failedPasswordAttemptWindowStart">Initial value of the FailedPasswordAttemptWindowStart property.</param>
+        /// <param name="failedPasswordAnswerAttemptCount">Initial value of the FailedPasswordAnswerAttemptCount property.</param>
+        /// <param name="failedPasswordAnswerAttemptWindowStart">Initial value of the FailedPasswordAnswerAttemptWindowStart property.</param>
+        public static aspnet_Membership Createaspnet_Membership(global::System.Guid applicationId, global::System.Guid userId, global::System.String password, global::System.Int32 passwordFormat, global::System.String passwordSalt, global::System.Boolean isApproved, global::System.Boolean isLockedOut, global::System.DateTime createDate, global::System.DateTime lastLoginDate, global::System.DateTime lastPasswordChangedDate, global::System.DateTime lastLockoutDate, global::System.Int32 failedPasswordAttemptCount, global::System.DateTime failedPasswordAttemptWindowStart, global::System.Int32 failedPasswordAnswerAttemptCount, global::System.DateTime failedPasswordAnswerAttemptWindowStart)
+        {
+            aspnet_Membership aspnet_Membership = new aspnet_Membership();
+            aspnet_Membership.ApplicationId = applicationId;
+            aspnet_Membership.UserId = userId;
+            aspnet_Membership.Password = password;
+            aspnet_Membership.PasswordFormat = passwordFormat;
+            aspnet_Membership.PasswordSalt = passwordSalt;
+            aspnet_Membership.IsApproved = isApproved;
+            aspnet_Membership.IsLockedOut = isLockedOut;
+            aspnet_Membership.CreateDate = createDate;
+            aspnet_Membership.LastLoginDate = lastLoginDate;
+            aspnet_Membership.LastPasswordChangedDate = lastPasswordChangedDate;
+            aspnet_Membership.LastLockoutDate = lastLockoutDate;
+            aspnet_Membership.FailedPasswordAttemptCount = failedPasswordAttemptCount;
+            aspnet_Membership.FailedPasswordAttemptWindowStart = failedPasswordAttemptWindowStart;
+            aspnet_Membership.FailedPasswordAnswerAttemptCount = failedPasswordAnswerAttemptCount;
+            aspnet_Membership.FailedPasswordAnswerAttemptWindowStart = failedPasswordAnswerAttemptWindowStart;
+            return aspnet_Membership;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid ApplicationId
+        {
+            get
+            {
+                return _ApplicationId;
+            }
+            set
+            {
+                OnApplicationIdChanging(value);
+                ReportPropertyChanging("ApplicationId");
+                _ApplicationId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ApplicationId");
+                OnApplicationIdChanged();
+            }
+        }
+        private global::System.Guid _ApplicationId;
+        partial void OnApplicationIdChanging(global::System.Guid value);
+        partial void OnApplicationIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                if (_UserId != value)
+                {
+                    OnUserIdChanging(value);
+                    ReportPropertyChanging("UserId");
+                    _UserId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("UserId");
+                    OnUserIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Password
+        {
+            get
+            {
+                return _Password;
+            }
+            set
+            {
+                OnPasswordChanging(value);
+                ReportPropertyChanging("Password");
+                _Password = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Password");
+                OnPasswordChanged();
+            }
+        }
+        private global::System.String _Password;
+        partial void OnPasswordChanging(global::System.String value);
+        partial void OnPasswordChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 PasswordFormat
+        {
+            get
+            {
+                return _PasswordFormat;
+            }
+            set
+            {
+                OnPasswordFormatChanging(value);
+                ReportPropertyChanging("PasswordFormat");
+                _PasswordFormat = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PasswordFormat");
+                OnPasswordFormatChanged();
+            }
+        }
+        private global::System.Int32 _PasswordFormat;
+        partial void OnPasswordFormatChanging(global::System.Int32 value);
+        partial void OnPasswordFormatChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String PasswordSalt
+        {
+            get
+            {
+                return _PasswordSalt;
+            }
+            set
+            {
+                OnPasswordSaltChanging(value);
+                ReportPropertyChanging("PasswordSalt");
+                _PasswordSalt = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("PasswordSalt");
+                OnPasswordSaltChanged();
+            }
+        }
+        private global::System.String _PasswordSalt;
+        partial void OnPasswordSaltChanging(global::System.String value);
+        partial void OnPasswordSaltChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String MobilePIN
+        {
+            get
+            {
+                return _MobilePIN;
+            }
+            set
+            {
+                OnMobilePINChanging(value);
+                ReportPropertyChanging("MobilePIN");
+                _MobilePIN = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("MobilePIN");
+                OnMobilePINChanged();
+            }
+        }
+        private global::System.String _MobilePIN;
+        partial void OnMobilePINChanging(global::System.String value);
+        partial void OnMobilePINChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Email
+        {
+            get
+            {
+                return _Email;
+            }
+            set
+            {
+                OnEmailChanging(value);
+                ReportPropertyChanging("Email");
+                _Email = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Email");
+                OnEmailChanged();
+            }
+        }
+        private global::System.String _Email;
+        partial void OnEmailChanging(global::System.String value);
+        partial void OnEmailChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LoweredEmail
+        {
+            get
+            {
+                return _LoweredEmail;
+            }
+            set
+            {
+                OnLoweredEmailChanging(value);
+                ReportPropertyChanging("LoweredEmail");
+                _LoweredEmail = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LoweredEmail");
+                OnLoweredEmailChanged();
+            }
+        }
+        private global::System.String _LoweredEmail;
+        partial void OnLoweredEmailChanging(global::System.String value);
+        partial void OnLoweredEmailChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PasswordQuestion
+        {
+            get
+            {
+                return _PasswordQuestion;
+            }
+            set
+            {
+                OnPasswordQuestionChanging(value);
+                ReportPropertyChanging("PasswordQuestion");
+                _PasswordQuestion = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PasswordQuestion");
+                OnPasswordQuestionChanged();
+            }
+        }
+        private global::System.String _PasswordQuestion;
+        partial void OnPasswordQuestionChanging(global::System.String value);
+        partial void OnPasswordQuestionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PasswordAnswer
+        {
+            get
+            {
+                return _PasswordAnswer;
+            }
+            set
+            {
+                OnPasswordAnswerChanging(value);
+                ReportPropertyChanging("PasswordAnswer");
+                _PasswordAnswer = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PasswordAnswer");
+                OnPasswordAnswerChanged();
+            }
+        }
+        private global::System.String _PasswordAnswer;
+        partial void OnPasswordAnswerChanging(global::System.String value);
+        partial void OnPasswordAnswerChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsApproved
+        {
+            get
+            {
+                return _IsApproved;
+            }
+            set
+            {
+                OnIsApprovedChanging(value);
+                ReportPropertyChanging("IsApproved");
+                _IsApproved = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsApproved");
+                OnIsApprovedChanged();
+            }
+        }
+        private global::System.Boolean _IsApproved;
+        partial void OnIsApprovedChanging(global::System.Boolean value);
+        partial void OnIsApprovedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsLockedOut
+        {
+            get
+            {
+                return _IsLockedOut;
+            }
+            set
+            {
+                OnIsLockedOutChanging(value);
+                ReportPropertyChanging("IsLockedOut");
+                _IsLockedOut = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsLockedOut");
+                OnIsLockedOutChanged();
+            }
+        }
+        private global::System.Boolean _IsLockedOut;
+        partial void OnIsLockedOutChanging(global::System.Boolean value);
+        partial void OnIsLockedOutChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime CreateDate
+        {
+            get
+            {
+                return _CreateDate;
+            }
+            set
+            {
+                OnCreateDateChanging(value);
+                ReportPropertyChanging("CreateDate");
+                _CreateDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreateDate");
+                OnCreateDateChanged();
+            }
+        }
+        private global::System.DateTime _CreateDate;
+        partial void OnCreateDateChanging(global::System.DateTime value);
+        partial void OnCreateDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime LastLoginDate
+        {
+            get
+            {
+                return _LastLoginDate;
+            }
+            set
+            {
+                OnLastLoginDateChanging(value);
+                ReportPropertyChanging("LastLoginDate");
+                _LastLoginDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LastLoginDate");
+                OnLastLoginDateChanged();
+            }
+        }
+        private global::System.DateTime _LastLoginDate;
+        partial void OnLastLoginDateChanging(global::System.DateTime value);
+        partial void OnLastLoginDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime LastPasswordChangedDate
+        {
+            get
+            {
+                return _LastPasswordChangedDate;
+            }
+            set
+            {
+                OnLastPasswordChangedDateChanging(value);
+                ReportPropertyChanging("LastPasswordChangedDate");
+                _LastPasswordChangedDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LastPasswordChangedDate");
+                OnLastPasswordChangedDateChanged();
+            }
+        }
+        private global::System.DateTime _LastPasswordChangedDate;
+        partial void OnLastPasswordChangedDateChanging(global::System.DateTime value);
+        partial void OnLastPasswordChangedDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime LastLockoutDate
+        {
+            get
+            {
+                return _LastLockoutDate;
+            }
+            set
+            {
+                OnLastLockoutDateChanging(value);
+                ReportPropertyChanging("LastLockoutDate");
+                _LastLockoutDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LastLockoutDate");
+                OnLastLockoutDateChanged();
+            }
+        }
+        private global::System.DateTime _LastLockoutDate;
+        partial void OnLastLockoutDateChanging(global::System.DateTime value);
+        partial void OnLastLockoutDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 FailedPasswordAttemptCount
+        {
+            get
+            {
+                return _FailedPasswordAttemptCount;
+            }
+            set
+            {
+                OnFailedPasswordAttemptCountChanging(value);
+                ReportPropertyChanging("FailedPasswordAttemptCount");
+                _FailedPasswordAttemptCount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FailedPasswordAttemptCount");
+                OnFailedPasswordAttemptCountChanged();
+            }
+        }
+        private global::System.Int32 _FailedPasswordAttemptCount;
+        partial void OnFailedPasswordAttemptCountChanging(global::System.Int32 value);
+        partial void OnFailedPasswordAttemptCountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FailedPasswordAttemptWindowStart
+        {
+            get
+            {
+                return _FailedPasswordAttemptWindowStart;
+            }
+            set
+            {
+                OnFailedPasswordAttemptWindowStartChanging(value);
+                ReportPropertyChanging("FailedPasswordAttemptWindowStart");
+                _FailedPasswordAttemptWindowStart = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FailedPasswordAttemptWindowStart");
+                OnFailedPasswordAttemptWindowStartChanged();
+            }
+        }
+        private global::System.DateTime _FailedPasswordAttemptWindowStart;
+        partial void OnFailedPasswordAttemptWindowStartChanging(global::System.DateTime value);
+        partial void OnFailedPasswordAttemptWindowStartChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 FailedPasswordAnswerAttemptCount
+        {
+            get
+            {
+                return _FailedPasswordAnswerAttemptCount;
+            }
+            set
+            {
+                OnFailedPasswordAnswerAttemptCountChanging(value);
+                ReportPropertyChanging("FailedPasswordAnswerAttemptCount");
+                _FailedPasswordAnswerAttemptCount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FailedPasswordAnswerAttemptCount");
+                OnFailedPasswordAnswerAttemptCountChanged();
+            }
+        }
+        private global::System.Int32 _FailedPasswordAnswerAttemptCount;
+        partial void OnFailedPasswordAnswerAttemptCountChanging(global::System.Int32 value);
+        partial void OnFailedPasswordAnswerAttemptCountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FailedPasswordAnswerAttemptWindowStart
+        {
+            get
+            {
+                return _FailedPasswordAnswerAttemptWindowStart;
+            }
+            set
+            {
+                OnFailedPasswordAnswerAttemptWindowStartChanging(value);
+                ReportPropertyChanging("FailedPasswordAnswerAttemptWindowStart");
+                _FailedPasswordAnswerAttemptWindowStart = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FailedPasswordAnswerAttemptWindowStart");
+                OnFailedPasswordAnswerAttemptWindowStartChanged();
+            }
+        }
+        private global::System.DateTime _FailedPasswordAnswerAttemptWindowStart;
+        partial void OnFailedPasswordAnswerAttemptWindowStartChanging(global::System.DateTime value);
+        partial void OnFailedPasswordAnswerAttemptWindowStartChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Comment
+        {
+            get
+            {
+                return _Comment;
+            }
+            set
+            {
+                OnCommentChanging(value);
+                ReportPropertyChanging("Comment");
+                _Comment = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Comment");
+                OnCommentChanged();
+            }
+        }
+        private global::System.String _Comment;
+        partial void OnCommentChanging(global::System.String value);
+        partial void OnCommentChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Me__Appli__3A4CA8FD", "aspnet_Applications")]
+        public aspnet_Applications aspnet_Applications
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Me__Appli__3A4CA8FD", "aspnet_Applications").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Me__Appli__3A4CA8FD", "aspnet_Applications").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Applications> aspnet_ApplicationsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Me__Appli__3A4CA8FD", "aspnet_Applications");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Me__Appli__3A4CA8FD", "aspnet_Applications", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Me__Appli__3B40CD36", "aspnet_Applications")]
+        public aspnet_Applications aspnet_Applications1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Me__Appli__3B40CD36", "aspnet_Applications").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Me__Appli__3B40CD36", "aspnet_Applications").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Applications> aspnet_Applications1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Me__Appli__3B40CD36", "aspnet_Applications");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Me__Appli__3B40CD36", "aspnet_Applications", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Me__UserI__3C34F16F", "aspnet_Users")]
+        public aspnet_Users aspnet_Users
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Me__UserI__3C34F16F", "aspnet_Users").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Me__UserI__3C34F16F", "aspnet_Users").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Users> aspnet_UsersReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Me__UserI__3C34F16F", "aspnet_Users");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Me__UserI__3C34F16F", "aspnet_Users", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Me__UserI__3D2915A8", "aspnet_Users")]
+        public aspnet_Users aspnet_Users1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Me__UserI__3D2915A8", "aspnet_Users").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Me__UserI__3D2915A8", "aspnet_Users").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Users> aspnet_Users1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Me__UserI__3D2915A8", "aspnet_Users");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Me__UserI__3D2915A8", "aspnet_Users", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="aspnet_Paths")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class aspnet_Paths : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new aspnet_Paths object.
+        /// </summary>
+        /// <param name="applicationId">Initial value of the ApplicationId property.</param>
+        /// <param name="pathId">Initial value of the PathId property.</param>
+        /// <param name="path">Initial value of the Path property.</param>
+        /// <param name="loweredPath">Initial value of the LoweredPath property.</param>
+        public static aspnet_Paths Createaspnet_Paths(global::System.Guid applicationId, global::System.Guid pathId, global::System.String path, global::System.String loweredPath)
+        {
+            aspnet_Paths aspnet_Paths = new aspnet_Paths();
+            aspnet_Paths.ApplicationId = applicationId;
+            aspnet_Paths.PathId = pathId;
+            aspnet_Paths.Path = path;
+            aspnet_Paths.LoweredPath = loweredPath;
+            return aspnet_Paths;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid ApplicationId
+        {
+            get
+            {
+                return _ApplicationId;
+            }
+            set
+            {
+                OnApplicationIdChanging(value);
+                ReportPropertyChanging("ApplicationId");
+                _ApplicationId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ApplicationId");
+                OnApplicationIdChanged();
+            }
+        }
+        private global::System.Guid _ApplicationId;
+        partial void OnApplicationIdChanging(global::System.Guid value);
+        partial void OnApplicationIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid PathId
+        {
+            get
+            {
+                return _PathId;
+            }
+            set
+            {
+                if (_PathId != value)
+                {
+                    OnPathIdChanging(value);
+                    ReportPropertyChanging("PathId");
+                    _PathId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("PathId");
+                    OnPathIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _PathId;
+        partial void OnPathIdChanging(global::System.Guid value);
+        partial void OnPathIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Path
+        {
+            get
+            {
+                return _Path;
+            }
+            set
+            {
+                OnPathChanging(value);
+                ReportPropertyChanging("Path");
+                _Path = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Path");
+                OnPathChanged();
+            }
+        }
+        private global::System.String _Path;
+        partial void OnPathChanging(global::System.String value);
+        partial void OnPathChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String LoweredPath
+        {
+            get
+            {
+                return _LoweredPath;
+            }
+            set
+            {
+                OnLoweredPathChanging(value);
+                ReportPropertyChanging("LoweredPath");
+                _LoweredPath = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("LoweredPath");
+                OnLoweredPathChanged();
+            }
+        }
+        private global::System.String _LoweredPath;
+        partial void OnLoweredPathChanging(global::System.String value);
+        partial void OnLoweredPathChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pa__Appli__3E1D39E1", "aspnet_Applications")]
+        public aspnet_Applications aspnet_Applications
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Pa__Appli__3E1D39E1", "aspnet_Applications").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Pa__Appli__3E1D39E1", "aspnet_Applications").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Applications> aspnet_ApplicationsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Pa__Appli__3E1D39E1", "aspnet_Applications");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Pa__Appli__3E1D39E1", "aspnet_Applications", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pa__Appli__3F115E1A", "aspnet_Applications")]
+        public aspnet_Applications aspnet_Applications1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Pa__Appli__3F115E1A", "aspnet_Applications").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Pa__Appli__3F115E1A", "aspnet_Applications").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Applications> aspnet_Applications1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Pa__Appli__3F115E1A", "aspnet_Applications");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Pa__Appli__3F115E1A", "aspnet_Applications", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pe__PathI__40058253", "aspnet_PersonalizationAllUsers")]
+        public aspnet_PersonalizationAllUsers aspnet_PersonalizationAllUsers
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_PersonalizationAllUsers>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__40058253", "aspnet_PersonalizationAllUsers").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_PersonalizationAllUsers>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__40058253", "aspnet_PersonalizationAllUsers").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_PersonalizationAllUsers> aspnet_PersonalizationAllUsersReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_PersonalizationAllUsers>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__40058253", "aspnet_PersonalizationAllUsers");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_PersonalizationAllUsers>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__40058253", "aspnet_PersonalizationAllUsers", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pe__PathI__40F9A68C", "aspnet_PersonalizationAllUsers")]
+        public aspnet_PersonalizationAllUsers aspnet_PersonalizationAllUsers1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_PersonalizationAllUsers>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__40F9A68C", "aspnet_PersonalizationAllUsers").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_PersonalizationAllUsers>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__40F9A68C", "aspnet_PersonalizationAllUsers").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_PersonalizationAllUsers> aspnet_PersonalizationAllUsers1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_PersonalizationAllUsers>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__40F9A68C", "aspnet_PersonalizationAllUsers");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_PersonalizationAllUsers>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__40F9A68C", "aspnet_PersonalizationAllUsers", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pe__PathI__41EDCAC5", "aspnet_PersonalizationPerUser")]
+        public EntityCollection<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_PersonalizationPerUser>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__41EDCAC5", "aspnet_PersonalizationPerUser");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_PersonalizationPerUser>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__41EDCAC5", "aspnet_PersonalizationPerUser", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pe__PathI__42E1EEFE", "aspnet_PersonalizationPerUser")]
+        public EntityCollection<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_PersonalizationPerUser>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__42E1EEFE", "aspnet_PersonalizationPerUser");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_PersonalizationPerUser>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__42E1EEFE", "aspnet_PersonalizationPerUser", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="aspnet_PersonalizationAllUsers")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class aspnet_PersonalizationAllUsers : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new aspnet_PersonalizationAllUsers object.
+        /// </summary>
+        /// <param name="pathId">Initial value of the PathId property.</param>
+        /// <param name="pageSettings">Initial value of the PageSettings property.</param>
+        /// <param name="lastUpdatedDate">Initial value of the LastUpdatedDate property.</param>
+        public static aspnet_PersonalizationAllUsers Createaspnet_PersonalizationAllUsers(global::System.Guid pathId, global::System.Byte[] pageSettings, global::System.DateTime lastUpdatedDate)
+        {
+            aspnet_PersonalizationAllUsers aspnet_PersonalizationAllUsers = new aspnet_PersonalizationAllUsers();
+            aspnet_PersonalizationAllUsers.PathId = pathId;
+            aspnet_PersonalizationAllUsers.PageSettings = pageSettings;
+            aspnet_PersonalizationAllUsers.LastUpdatedDate = lastUpdatedDate;
+            return aspnet_PersonalizationAllUsers;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid PathId
+        {
+            get
+            {
+                return _PathId;
+            }
+            set
+            {
+                if (_PathId != value)
+                {
+                    OnPathIdChanging(value);
+                    ReportPropertyChanging("PathId");
+                    _PathId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("PathId");
+                    OnPathIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _PathId;
+        partial void OnPathIdChanging(global::System.Guid value);
+        partial void OnPathIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] PageSettings
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_PageSettings);
+            }
+            set
+            {
+                OnPageSettingsChanging(value);
+                ReportPropertyChanging("PageSettings");
+                _PageSettings = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("PageSettings");
+                OnPageSettingsChanged();
+            }
+        }
+        private global::System.Byte[] _PageSettings;
+        partial void OnPageSettingsChanging(global::System.Byte[] value);
+        partial void OnPageSettingsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime LastUpdatedDate
+        {
+            get
+            {
+                return _LastUpdatedDate;
+            }
+            set
+            {
+                OnLastUpdatedDateChanging(value);
+                ReportPropertyChanging("LastUpdatedDate");
+                _LastUpdatedDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LastUpdatedDate");
+                OnLastUpdatedDateChanged();
+            }
+        }
+        private global::System.DateTime _LastUpdatedDate;
+        partial void OnLastUpdatedDateChanging(global::System.DateTime value);
+        partial void OnLastUpdatedDateChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pe__PathI__40058253", "aspnet_Paths")]
+        public aspnet_Paths aspnet_Paths
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__40058253", "aspnet_Paths").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__40058253", "aspnet_Paths").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Paths> aspnet_PathsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__40058253", "aspnet_Paths");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Paths>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__40058253", "aspnet_Paths", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pe__PathI__40F9A68C", "aspnet_Paths")]
+        public aspnet_Paths aspnet_Paths1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__40F9A68C", "aspnet_Paths").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__40F9A68C", "aspnet_Paths").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Paths> aspnet_Paths1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__40F9A68C", "aspnet_Paths");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Paths>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__40F9A68C", "aspnet_Paths", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="aspnet_PersonalizationPerUser")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class aspnet_PersonalizationPerUser : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new aspnet_PersonalizationPerUser object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="pageSettings">Initial value of the PageSettings property.</param>
+        /// <param name="lastUpdatedDate">Initial value of the LastUpdatedDate property.</param>
+        public static aspnet_PersonalizationPerUser Createaspnet_PersonalizationPerUser(global::System.Guid id, global::System.Byte[] pageSettings, global::System.DateTime lastUpdatedDate)
+        {
+            aspnet_PersonalizationPerUser aspnet_PersonalizationPerUser = new aspnet_PersonalizationPerUser();
+            aspnet_PersonalizationPerUser.Id = id;
+            aspnet_PersonalizationPerUser.PageSettings = pageSettings;
+            aspnet_PersonalizationPerUser.LastUpdatedDate = lastUpdatedDate;
+            return aspnet_PersonalizationPerUser;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> PathId
+        {
+            get
+            {
+                return _PathId;
+            }
+            set
+            {
+                OnPathIdChanging(value);
+                ReportPropertyChanging("PathId");
+                _PathId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PathId");
+                OnPathIdChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _PathId;
+        partial void OnPathIdChanging(Nullable<global::System.Guid> value);
+        partial void OnPathIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _UserId;
+        partial void OnUserIdChanging(Nullable<global::System.Guid> value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] PageSettings
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_PageSettings);
+            }
+            set
+            {
+                OnPageSettingsChanging(value);
+                ReportPropertyChanging("PageSettings");
+                _PageSettings = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("PageSettings");
+                OnPageSettingsChanged();
+            }
+        }
+        private global::System.Byte[] _PageSettings;
+        partial void OnPageSettingsChanging(global::System.Byte[] value);
+        partial void OnPageSettingsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime LastUpdatedDate
+        {
+            get
+            {
+                return _LastUpdatedDate;
+            }
+            set
+            {
+                OnLastUpdatedDateChanging(value);
+                ReportPropertyChanging("LastUpdatedDate");
+                _LastUpdatedDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LastUpdatedDate");
+                OnLastUpdatedDateChanged();
+            }
+        }
+        private global::System.DateTime _LastUpdatedDate;
+        partial void OnLastUpdatedDateChanging(global::System.DateTime value);
+        partial void OnLastUpdatedDateChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pe__PathI__41EDCAC5", "aspnet_Paths")]
+        public aspnet_Paths aspnet_Paths
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__41EDCAC5", "aspnet_Paths").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__41EDCAC5", "aspnet_Paths").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Paths> aspnet_PathsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__41EDCAC5", "aspnet_Paths");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Paths>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__41EDCAC5", "aspnet_Paths", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pe__PathI__42E1EEFE", "aspnet_Paths")]
+        public aspnet_Paths aspnet_Paths1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__42E1EEFE", "aspnet_Paths").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__42E1EEFE", "aspnet_Paths").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Paths> aspnet_Paths1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__42E1EEFE", "aspnet_Paths");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Paths>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__PathI__42E1EEFE", "aspnet_Paths", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pe__UserI__43D61337", "aspnet_Users")]
+        public aspnet_Users aspnet_Users
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__UserI__43D61337", "aspnet_Users").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__UserI__43D61337", "aspnet_Users").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Users> aspnet_UsersReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__UserI__43D61337", "aspnet_Users");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__UserI__43D61337", "aspnet_Users", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pe__UserI__44CA3770", "aspnet_Users")]
+        public aspnet_Users aspnet_Users1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__UserI__44CA3770", "aspnet_Users").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__UserI__44CA3770", "aspnet_Users").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Users> aspnet_Users1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__UserI__44CA3770", "aspnet_Users");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__UserI__44CA3770", "aspnet_Users", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="aspnet_Profile")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class aspnet_Profile : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new aspnet_Profile object.
+        /// </summary>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        /// <param name="propertyNames">Initial value of the PropertyNames property.</param>
+        /// <param name="propertyValuesString">Initial value of the PropertyValuesString property.</param>
+        /// <param name="propertyValuesBinary">Initial value of the PropertyValuesBinary property.</param>
+        /// <param name="lastUpdatedDate">Initial value of the LastUpdatedDate property.</param>
+        public static aspnet_Profile Createaspnet_Profile(global::System.Guid userId, global::System.String propertyNames, global::System.String propertyValuesString, global::System.Byte[] propertyValuesBinary, global::System.DateTime lastUpdatedDate)
+        {
+            aspnet_Profile aspnet_Profile = new aspnet_Profile();
+            aspnet_Profile.UserId = userId;
+            aspnet_Profile.PropertyNames = propertyNames;
+            aspnet_Profile.PropertyValuesString = propertyValuesString;
+            aspnet_Profile.PropertyValuesBinary = propertyValuesBinary;
+            aspnet_Profile.LastUpdatedDate = lastUpdatedDate;
+            return aspnet_Profile;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                if (_UserId != value)
+                {
+                    OnUserIdChanging(value);
+                    ReportPropertyChanging("UserId");
+                    _UserId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("UserId");
+                    OnUserIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String PropertyNames
+        {
+            get
+            {
+                return _PropertyNames;
+            }
+            set
+            {
+                OnPropertyNamesChanging(value);
+                ReportPropertyChanging("PropertyNames");
+                _PropertyNames = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("PropertyNames");
+                OnPropertyNamesChanged();
+            }
+        }
+        private global::System.String _PropertyNames;
+        partial void OnPropertyNamesChanging(global::System.String value);
+        partial void OnPropertyNamesChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String PropertyValuesString
+        {
+            get
+            {
+                return _PropertyValuesString;
+            }
+            set
+            {
+                OnPropertyValuesStringChanging(value);
+                ReportPropertyChanging("PropertyValuesString");
+                _PropertyValuesString = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("PropertyValuesString");
+                OnPropertyValuesStringChanged();
+            }
+        }
+        private global::System.String _PropertyValuesString;
+        partial void OnPropertyValuesStringChanging(global::System.String value);
+        partial void OnPropertyValuesStringChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] PropertyValuesBinary
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_PropertyValuesBinary);
+            }
+            set
+            {
+                OnPropertyValuesBinaryChanging(value);
+                ReportPropertyChanging("PropertyValuesBinary");
+                _PropertyValuesBinary = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("PropertyValuesBinary");
+                OnPropertyValuesBinaryChanged();
+            }
+        }
+        private global::System.Byte[] _PropertyValuesBinary;
+        partial void OnPropertyValuesBinaryChanging(global::System.Byte[] value);
+        partial void OnPropertyValuesBinaryChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime LastUpdatedDate
+        {
+            get
+            {
+                return _LastUpdatedDate;
+            }
+            set
+            {
+                OnLastUpdatedDateChanging(value);
+                ReportPropertyChanging("LastUpdatedDate");
+                _LastUpdatedDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LastUpdatedDate");
+                OnLastUpdatedDateChanged();
+            }
+        }
+        private global::System.DateTime _LastUpdatedDate;
+        partial void OnLastUpdatedDateChanging(global::System.DateTime value);
+        partial void OnLastUpdatedDateChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pr__UserI__45BE5BA9", "aspnet_Users")]
+        public aspnet_Users aspnet_Users
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Pr__UserI__45BE5BA9", "aspnet_Users").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Pr__UserI__45BE5BA9", "aspnet_Users").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Users> aspnet_UsersReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Pr__UserI__45BE5BA9", "aspnet_Users");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Pr__UserI__45BE5BA9", "aspnet_Users", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pr__UserI__46B27FE2", "aspnet_Users")]
+        public aspnet_Users aspnet_Users1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Pr__UserI__46B27FE2", "aspnet_Users").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Pr__UserI__46B27FE2", "aspnet_Users").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Users> aspnet_Users1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Pr__UserI__46B27FE2", "aspnet_Users");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Pr__UserI__46B27FE2", "aspnet_Users", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="aspnet_Roles")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class aspnet_Roles : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new aspnet_Roles object.
+        /// </summary>
+        /// <param name="applicationId">Initial value of the ApplicationId property.</param>
+        /// <param name="roleId">Initial value of the RoleId property.</param>
+        /// <param name="roleName">Initial value of the RoleName property.</param>
+        /// <param name="loweredRoleName">Initial value of the LoweredRoleName property.</param>
+        public static aspnet_Roles Createaspnet_Roles(global::System.Guid applicationId, global::System.Guid roleId, global::System.String roleName, global::System.String loweredRoleName)
+        {
+            aspnet_Roles aspnet_Roles = new aspnet_Roles();
+            aspnet_Roles.ApplicationId = applicationId;
+            aspnet_Roles.RoleId = roleId;
+            aspnet_Roles.RoleName = roleName;
+            aspnet_Roles.LoweredRoleName = loweredRoleName;
+            return aspnet_Roles;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid ApplicationId
+        {
+            get
+            {
+                return _ApplicationId;
+            }
+            set
+            {
+                OnApplicationIdChanging(value);
+                ReportPropertyChanging("ApplicationId");
+                _ApplicationId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ApplicationId");
+                OnApplicationIdChanged();
+            }
+        }
+        private global::System.Guid _ApplicationId;
+        partial void OnApplicationIdChanging(global::System.Guid value);
+        partial void OnApplicationIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid RoleId
+        {
+            get
+            {
+                return _RoleId;
+            }
+            set
+            {
+                if (_RoleId != value)
+                {
+                    OnRoleIdChanging(value);
+                    ReportPropertyChanging("RoleId");
+                    _RoleId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("RoleId");
+                    OnRoleIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _RoleId;
+        partial void OnRoleIdChanging(global::System.Guid value);
+        partial void OnRoleIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String RoleName
+        {
+            get
+            {
+                return _RoleName;
+            }
+            set
+            {
+                OnRoleNameChanging(value);
+                ReportPropertyChanging("RoleName");
+                _RoleName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("RoleName");
+                OnRoleNameChanged();
+            }
+        }
+        private global::System.String _RoleName;
+        partial void OnRoleNameChanging(global::System.String value);
+        partial void OnRoleNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String LoweredRoleName
+        {
+            get
+            {
+                return _LoweredRoleName;
+            }
+            set
+            {
+                OnLoweredRoleNameChanging(value);
+                ReportPropertyChanging("LoweredRoleName");
+                _LoweredRoleName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("LoweredRoleName");
+                OnLoweredRoleNameChanged();
+            }
+        }
+        private global::System.String _LoweredRoleName;
+        partial void OnLoweredRoleNameChanging(global::System.String value);
+        partial void OnLoweredRoleNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Ro__Appli__47A6A41B", "aspnet_Applications")]
+        public aspnet_Applications aspnet_Applications
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Ro__Appli__47A6A41B", "aspnet_Applications").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Ro__Appli__47A6A41B", "aspnet_Applications").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Applications> aspnet_ApplicationsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Ro__Appli__47A6A41B", "aspnet_Applications");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Ro__Appli__47A6A41B", "aspnet_Applications", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Ro__Appli__489AC854", "aspnet_Applications")]
+        public aspnet_Applications aspnet_Applications1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Ro__Appli__489AC854", "aspnet_Applications").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Ro__Appli__489AC854", "aspnet_Applications").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Applications> aspnet_Applications1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Ro__Appli__489AC854", "aspnet_Applications");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Ro__Appli__489AC854", "aspnet_Applications", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Us__RoleI__4B7734FF", "aspnet_UsersInRoles")]
+        public EntityCollection<aspnet_UsersInRoles> aspnet_UsersInRoles
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_UsersInRoles>("DB_9B22F2_nationalitModel.FK__aspnet_Us__RoleI__4B7734FF", "aspnet_UsersInRoles");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_UsersInRoles>("DB_9B22F2_nationalitModel.FK__aspnet_Us__RoleI__4B7734FF", "aspnet_UsersInRoles", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Us__RoleI__4C6B5938", "aspnet_UsersInRoles")]
+        public EntityCollection<aspnet_UsersInRoles> aspnet_UsersInRoles1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_UsersInRoles>("DB_9B22F2_nationalitModel.FK__aspnet_Us__RoleI__4C6B5938", "aspnet_UsersInRoles");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_UsersInRoles>("DB_9B22F2_nationalitModel.FK__aspnet_Us__RoleI__4C6B5938", "aspnet_UsersInRoles", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="aspnet_SchemaVersions")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class aspnet_SchemaVersions : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new aspnet_SchemaVersions object.
+        /// </summary>
+        /// <param name="feature">Initial value of the Feature property.</param>
+        /// <param name="compatibleSchemaVersion">Initial value of the CompatibleSchemaVersion property.</param>
+        /// <param name="isCurrentVersion">Initial value of the IsCurrentVersion property.</param>
+        public static aspnet_SchemaVersions Createaspnet_SchemaVersions(global::System.String feature, global::System.String compatibleSchemaVersion, global::System.Boolean isCurrentVersion)
+        {
+            aspnet_SchemaVersions aspnet_SchemaVersions = new aspnet_SchemaVersions();
+            aspnet_SchemaVersions.Feature = feature;
+            aspnet_SchemaVersions.CompatibleSchemaVersion = compatibleSchemaVersion;
+            aspnet_SchemaVersions.IsCurrentVersion = isCurrentVersion;
+            return aspnet_SchemaVersions;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Feature
+        {
+            get
+            {
+                return _Feature;
+            }
+            set
+            {
+                if (_Feature != value)
+                {
+                    OnFeatureChanging(value);
+                    ReportPropertyChanging("Feature");
+                    _Feature = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("Feature");
+                    OnFeatureChanged();
+                }
+            }
+        }
+        private global::System.String _Feature;
+        partial void OnFeatureChanging(global::System.String value);
+        partial void OnFeatureChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String CompatibleSchemaVersion
+        {
+            get
+            {
+                return _CompatibleSchemaVersion;
+            }
+            set
+            {
+                if (_CompatibleSchemaVersion != value)
+                {
+                    OnCompatibleSchemaVersionChanging(value);
+                    ReportPropertyChanging("CompatibleSchemaVersion");
+                    _CompatibleSchemaVersion = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("CompatibleSchemaVersion");
+                    OnCompatibleSchemaVersionChanged();
+                }
+            }
+        }
+        private global::System.String _CompatibleSchemaVersion;
+        partial void OnCompatibleSchemaVersionChanging(global::System.String value);
+        partial void OnCompatibleSchemaVersionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsCurrentVersion
+        {
+            get
+            {
+                return _IsCurrentVersion;
+            }
+            set
+            {
+                OnIsCurrentVersionChanging(value);
+                ReportPropertyChanging("IsCurrentVersion");
+                _IsCurrentVersion = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsCurrentVersion");
+                OnIsCurrentVersionChanged();
+            }
+        }
+        private global::System.Boolean _IsCurrentVersion;
+        partial void OnIsCurrentVersionChanging(global::System.Boolean value);
+        partial void OnIsCurrentVersionChanged();
+
+        #endregion
+
+    
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -1112,6 +3881,322 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Us__Appli__498EEC8D", "aspnet_Applications")]
+        public aspnet_Applications aspnet_Applications
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Us__Appli__498EEC8D", "aspnet_Applications").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Us__Appli__498EEC8D", "aspnet_Applications").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Applications> aspnet_ApplicationsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Us__Appli__498EEC8D", "aspnet_Applications");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Us__Appli__498EEC8D", "aspnet_Applications", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Us__Appli__4A8310C6", "aspnet_Applications")]
+        public aspnet_Applications aspnet_Applications1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Us__Appli__4A8310C6", "aspnet_Applications").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Us__Appli__4A8310C6", "aspnet_Applications").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Applications> aspnet_Applications1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Us__Appli__4A8310C6", "aspnet_Applications");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("DB_9B22F2_nationalitModel.FK__aspnet_Us__Appli__4A8310C6", "aspnet_Applications", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Me__UserI__3C34F16F", "aspnet_Membership")]
+        public aspnet_Membership aspnet_Membership
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("DB_9B22F2_nationalitModel.FK__aspnet_Me__UserI__3C34F16F", "aspnet_Membership").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("DB_9B22F2_nationalitModel.FK__aspnet_Me__UserI__3C34F16F", "aspnet_Membership").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Membership> aspnet_MembershipReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("DB_9B22F2_nationalitModel.FK__aspnet_Me__UserI__3C34F16F", "aspnet_Membership");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("DB_9B22F2_nationalitModel.FK__aspnet_Me__UserI__3C34F16F", "aspnet_Membership", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Me__UserI__3D2915A8", "aspnet_Membership")]
+        public aspnet_Membership aspnet_Membership1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("DB_9B22F2_nationalitModel.FK__aspnet_Me__UserI__3D2915A8", "aspnet_Membership").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("DB_9B22F2_nationalitModel.FK__aspnet_Me__UserI__3D2915A8", "aspnet_Membership").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Membership> aspnet_Membership1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("DB_9B22F2_nationalitModel.FK__aspnet_Me__UserI__3D2915A8", "aspnet_Membership");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("DB_9B22F2_nationalitModel.FK__aspnet_Me__UserI__3D2915A8", "aspnet_Membership", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pe__UserI__43D61337", "aspnet_PersonalizationPerUser")]
+        public EntityCollection<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_PersonalizationPerUser>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__UserI__43D61337", "aspnet_PersonalizationPerUser");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_PersonalizationPerUser>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__UserI__43D61337", "aspnet_PersonalizationPerUser", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pe__UserI__44CA3770", "aspnet_PersonalizationPerUser")]
+        public EntityCollection<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_PersonalizationPerUser>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__UserI__44CA3770", "aspnet_PersonalizationPerUser");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_PersonalizationPerUser>("DB_9B22F2_nationalitModel.FK__aspnet_Pe__UserI__44CA3770", "aspnet_PersonalizationPerUser", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pr__UserI__45BE5BA9", "aspnet_Profile")]
+        public aspnet_Profile aspnet_Profile
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Profile>("DB_9B22F2_nationalitModel.FK__aspnet_Pr__UserI__45BE5BA9", "aspnet_Profile").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Profile>("DB_9B22F2_nationalitModel.FK__aspnet_Pr__UserI__45BE5BA9", "aspnet_Profile").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Profile> aspnet_ProfileReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Profile>("DB_9B22F2_nationalitModel.FK__aspnet_Pr__UserI__45BE5BA9", "aspnet_Profile");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Profile>("DB_9B22F2_nationalitModel.FK__aspnet_Pr__UserI__45BE5BA9", "aspnet_Profile", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Pr__UserI__46B27FE2", "aspnet_Profile")]
+        public aspnet_Profile aspnet_Profile1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Profile>("DB_9B22F2_nationalitModel.FK__aspnet_Pr__UserI__46B27FE2", "aspnet_Profile").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Profile>("DB_9B22F2_nationalitModel.FK__aspnet_Pr__UserI__46B27FE2", "aspnet_Profile").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Profile> aspnet_Profile1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Profile>("DB_9B22F2_nationalitModel.FK__aspnet_Pr__UserI__46B27FE2", "aspnet_Profile");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Profile>("DB_9B22F2_nationalitModel.FK__aspnet_Pr__UserI__46B27FE2", "aspnet_Profile", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Us__UserI__4D5F7D71", "aspnet_UsersInRoles")]
+        public EntityCollection<aspnet_UsersInRoles> aspnet_UsersInRoles
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_UsersInRoles>("DB_9B22F2_nationalitModel.FK__aspnet_Us__UserI__4D5F7D71", "aspnet_UsersInRoles");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_UsersInRoles>("DB_9B22F2_nationalitModel.FK__aspnet_Us__UserI__4D5F7D71", "aspnet_UsersInRoles", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Us__UserI__4E53A1AA", "aspnet_UsersInRoles")]
+        public EntityCollection<aspnet_UsersInRoles> aspnet_UsersInRoles1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_UsersInRoles>("DB_9B22F2_nationalitModel.FK__aspnet_Us__UserI__4E53A1AA", "aspnet_UsersInRoles");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_UsersInRoles>("DB_9B22F2_nationalitModel.FK__aspnet_Us__UserI__4E53A1AA", "aspnet_UsersInRoles", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Account_aspnet_Users", "mUser")]
         public EntityCollection<mUser> mUser
         {
@@ -1130,6 +4215,657 @@ namespace NationalIT
 
         #endregion
 
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="aspnet_UsersInRoles")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class aspnet_UsersInRoles : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new aspnet_UsersInRoles object.
+        /// </summary>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        /// <param name="roleId">Initial value of the RoleId property.</param>
+        public static aspnet_UsersInRoles Createaspnet_UsersInRoles(global::System.Guid userId, global::System.Guid roleId)
+        {
+            aspnet_UsersInRoles aspnet_UsersInRoles = new aspnet_UsersInRoles();
+            aspnet_UsersInRoles.UserId = userId;
+            aspnet_UsersInRoles.RoleId = roleId;
+            return aspnet_UsersInRoles;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                if (_UserId != value)
+                {
+                    OnUserIdChanging(value);
+                    ReportPropertyChanging("UserId");
+                    _UserId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("UserId");
+                    OnUserIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid RoleId
+        {
+            get
+            {
+                return _RoleId;
+            }
+            set
+            {
+                if (_RoleId != value)
+                {
+                    OnRoleIdChanging(value);
+                    ReportPropertyChanging("RoleId");
+                    _RoleId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("RoleId");
+                    OnRoleIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _RoleId;
+        partial void OnRoleIdChanging(global::System.Guid value);
+        partial void OnRoleIdChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Us__RoleI__4B7734FF", "aspnet_Roles")]
+        public aspnet_Roles aspnet_Roles
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Roles>("DB_9B22F2_nationalitModel.FK__aspnet_Us__RoleI__4B7734FF", "aspnet_Roles").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Roles>("DB_9B22F2_nationalitModel.FK__aspnet_Us__RoleI__4B7734FF", "aspnet_Roles").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Roles> aspnet_RolesReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Roles>("DB_9B22F2_nationalitModel.FK__aspnet_Us__RoleI__4B7734FF", "aspnet_Roles");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Roles>("DB_9B22F2_nationalitModel.FK__aspnet_Us__RoleI__4B7734FF", "aspnet_Roles", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Us__RoleI__4C6B5938", "aspnet_Roles")]
+        public aspnet_Roles aspnet_Roles1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Roles>("DB_9B22F2_nationalitModel.FK__aspnet_Us__RoleI__4C6B5938", "aspnet_Roles").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Roles>("DB_9B22F2_nationalitModel.FK__aspnet_Us__RoleI__4C6B5938", "aspnet_Roles").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Roles> aspnet_Roles1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Roles>("DB_9B22F2_nationalitModel.FK__aspnet_Us__RoleI__4C6B5938", "aspnet_Roles");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Roles>("DB_9B22F2_nationalitModel.FK__aspnet_Us__RoleI__4C6B5938", "aspnet_Roles", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Us__UserI__4D5F7D71", "aspnet_Users")]
+        public aspnet_Users aspnet_Users
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Us__UserI__4D5F7D71", "aspnet_Users").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Us__UserI__4D5F7D71", "aspnet_Users").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Users> aspnet_UsersReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Us__UserI__4D5F7D71", "aspnet_Users");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Us__UserI__4D5F7D71", "aspnet_Users", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK__aspnet_Us__UserI__4E53A1AA", "aspnet_Users")]
+        public aspnet_Users aspnet_Users1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Us__UserI__4E53A1AA", "aspnet_Users").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Us__UserI__4E53A1AA", "aspnet_Users").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Users> aspnet_Users1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Us__UserI__4E53A1AA", "aspnet_Users");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("DB_9B22F2_nationalitModel.FK__aspnet_Us__UserI__4E53A1AA", "aspnet_Users", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_9B22F2_nationalitModel", Name="aspnet_WebEvent_Events")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class aspnet_WebEvent_Events : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new aspnet_WebEvent_Events object.
+        /// </summary>
+        /// <param name="eventId">Initial value of the EventId property.</param>
+        /// <param name="eventTimeUtc">Initial value of the EventTimeUtc property.</param>
+        /// <param name="eventTime">Initial value of the EventTime property.</param>
+        /// <param name="eventType">Initial value of the EventType property.</param>
+        /// <param name="eventSequence">Initial value of the EventSequence property.</param>
+        /// <param name="eventOccurrence">Initial value of the EventOccurrence property.</param>
+        /// <param name="eventCode">Initial value of the EventCode property.</param>
+        /// <param name="eventDetailCode">Initial value of the EventDetailCode property.</param>
+        /// <param name="machineName">Initial value of the MachineName property.</param>
+        public static aspnet_WebEvent_Events Createaspnet_WebEvent_Events(global::System.String eventId, global::System.DateTime eventTimeUtc, global::System.DateTime eventTime, global::System.String eventType, global::System.Decimal eventSequence, global::System.Decimal eventOccurrence, global::System.Int32 eventCode, global::System.Int32 eventDetailCode, global::System.String machineName)
+        {
+            aspnet_WebEvent_Events aspnet_WebEvent_Events = new aspnet_WebEvent_Events();
+            aspnet_WebEvent_Events.EventId = eventId;
+            aspnet_WebEvent_Events.EventTimeUtc = eventTimeUtc;
+            aspnet_WebEvent_Events.EventTime = eventTime;
+            aspnet_WebEvent_Events.EventType = eventType;
+            aspnet_WebEvent_Events.EventSequence = eventSequence;
+            aspnet_WebEvent_Events.EventOccurrence = eventOccurrence;
+            aspnet_WebEvent_Events.EventCode = eventCode;
+            aspnet_WebEvent_Events.EventDetailCode = eventDetailCode;
+            aspnet_WebEvent_Events.MachineName = machineName;
+            return aspnet_WebEvent_Events;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String EventId
+        {
+            get
+            {
+                return _EventId;
+            }
+            set
+            {
+                if (_EventId != value)
+                {
+                    OnEventIdChanging(value);
+                    ReportPropertyChanging("EventId");
+                    _EventId = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("EventId");
+                    OnEventIdChanged();
+                }
+            }
+        }
+        private global::System.String _EventId;
+        partial void OnEventIdChanging(global::System.String value);
+        partial void OnEventIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime EventTimeUtc
+        {
+            get
+            {
+                return _EventTimeUtc;
+            }
+            set
+            {
+                OnEventTimeUtcChanging(value);
+                ReportPropertyChanging("EventTimeUtc");
+                _EventTimeUtc = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EventTimeUtc");
+                OnEventTimeUtcChanged();
+            }
+        }
+        private global::System.DateTime _EventTimeUtc;
+        partial void OnEventTimeUtcChanging(global::System.DateTime value);
+        partial void OnEventTimeUtcChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime EventTime
+        {
+            get
+            {
+                return _EventTime;
+            }
+            set
+            {
+                OnEventTimeChanging(value);
+                ReportPropertyChanging("EventTime");
+                _EventTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EventTime");
+                OnEventTimeChanged();
+            }
+        }
+        private global::System.DateTime _EventTime;
+        partial void OnEventTimeChanging(global::System.DateTime value);
+        partial void OnEventTimeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String EventType
+        {
+            get
+            {
+                return _EventType;
+            }
+            set
+            {
+                OnEventTypeChanging(value);
+                ReportPropertyChanging("EventType");
+                _EventType = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("EventType");
+                OnEventTypeChanged();
+            }
+        }
+        private global::System.String _EventType;
+        partial void OnEventTypeChanging(global::System.String value);
+        partial void OnEventTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal EventSequence
+        {
+            get
+            {
+                return _EventSequence;
+            }
+            set
+            {
+                OnEventSequenceChanging(value);
+                ReportPropertyChanging("EventSequence");
+                _EventSequence = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EventSequence");
+                OnEventSequenceChanged();
+            }
+        }
+        private global::System.Decimal _EventSequence;
+        partial void OnEventSequenceChanging(global::System.Decimal value);
+        partial void OnEventSequenceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal EventOccurrence
+        {
+            get
+            {
+                return _EventOccurrence;
+            }
+            set
+            {
+                OnEventOccurrenceChanging(value);
+                ReportPropertyChanging("EventOccurrence");
+                _EventOccurrence = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EventOccurrence");
+                OnEventOccurrenceChanged();
+            }
+        }
+        private global::System.Decimal _EventOccurrence;
+        partial void OnEventOccurrenceChanging(global::System.Decimal value);
+        partial void OnEventOccurrenceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 EventCode
+        {
+            get
+            {
+                return _EventCode;
+            }
+            set
+            {
+                OnEventCodeChanging(value);
+                ReportPropertyChanging("EventCode");
+                _EventCode = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EventCode");
+                OnEventCodeChanged();
+            }
+        }
+        private global::System.Int32 _EventCode;
+        partial void OnEventCodeChanging(global::System.Int32 value);
+        partial void OnEventCodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 EventDetailCode
+        {
+            get
+            {
+                return _EventDetailCode;
+            }
+            set
+            {
+                OnEventDetailCodeChanging(value);
+                ReportPropertyChanging("EventDetailCode");
+                _EventDetailCode = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EventDetailCode");
+                OnEventDetailCodeChanged();
+            }
+        }
+        private global::System.Int32 _EventDetailCode;
+        partial void OnEventDetailCodeChanging(global::System.Int32 value);
+        partial void OnEventDetailCodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Message
+        {
+            get
+            {
+                return _Message;
+            }
+            set
+            {
+                OnMessageChanging(value);
+                ReportPropertyChanging("Message");
+                _Message = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Message");
+                OnMessageChanged();
+            }
+        }
+        private global::System.String _Message;
+        partial void OnMessageChanging(global::System.String value);
+        partial void OnMessageChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ApplicationPath
+        {
+            get
+            {
+                return _ApplicationPath;
+            }
+            set
+            {
+                OnApplicationPathChanging(value);
+                ReportPropertyChanging("ApplicationPath");
+                _ApplicationPath = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ApplicationPath");
+                OnApplicationPathChanged();
+            }
+        }
+        private global::System.String _ApplicationPath;
+        partial void OnApplicationPathChanging(global::System.String value);
+        partial void OnApplicationPathChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ApplicationVirtualPath
+        {
+            get
+            {
+                return _ApplicationVirtualPath;
+            }
+            set
+            {
+                OnApplicationVirtualPathChanging(value);
+                ReportPropertyChanging("ApplicationVirtualPath");
+                _ApplicationVirtualPath = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ApplicationVirtualPath");
+                OnApplicationVirtualPathChanged();
+            }
+        }
+        private global::System.String _ApplicationVirtualPath;
+        partial void OnApplicationVirtualPathChanging(global::System.String value);
+        partial void OnApplicationVirtualPathChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String MachineName
+        {
+            get
+            {
+                return _MachineName;
+            }
+            set
+            {
+                OnMachineNameChanging(value);
+                ReportPropertyChanging("MachineName");
+                _MachineName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("MachineName");
+                OnMachineNameChanged();
+            }
+        }
+        private global::System.String _MachineName;
+        partial void OnMachineNameChanging(global::System.String value);
+        partial void OnMachineNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String RequestUrl
+        {
+            get
+            {
+                return _RequestUrl;
+            }
+            set
+            {
+                OnRequestUrlChanging(value);
+                ReportPropertyChanging("RequestUrl");
+                _RequestUrl = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("RequestUrl");
+                OnRequestUrlChanged();
+            }
+        }
+        private global::System.String _RequestUrl;
+        partial void OnRequestUrlChanging(global::System.String value);
+        partial void OnRequestUrlChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ExceptionType
+        {
+            get
+            {
+                return _ExceptionType;
+            }
+            set
+            {
+                OnExceptionTypeChanging(value);
+                ReportPropertyChanging("ExceptionType");
+                _ExceptionType = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ExceptionType");
+                OnExceptionTypeChanged();
+            }
+        }
+        private global::System.String _ExceptionType;
+        partial void OnExceptionTypeChanging(global::System.String value);
+        partial void OnExceptionTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Details
+        {
+            get
+            {
+                return _Details;
+            }
+            set
+            {
+                OnDetailsChanging(value);
+                ReportPropertyChanging("Details");
+                _Details = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Details");
+                OnDetailsChanged();
+            }
+        }
+        private global::System.String _Details;
+        partial void OnDetailsChanging(global::System.String value);
+        partial void OnDetailsChanged();
+
+        #endregion
+
+    
     }
     
     /// <summary>
@@ -2084,30 +5820,18 @@ namespace NationalIT
         /// Create a new Driver_Info object.
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
-        /// <param name="last_name">Initial value of the Last_name property.</param>
-        /// <param name="first_name">Initial value of the First_name property.</param>
-        /// <param name="expiration_Date">Initial value of the Expiration_Date property.</param>
         /// <param name="hazMat">Initial value of the HazMat property.</param>
         /// <param name="pay_rate">Initial value of the Pay_rate property.</param>
-        /// <param name="truck">Initial value of the Truck property.</param>
-        /// <param name="trailer">Initial value of the Trailer property.</param>
-        /// <param name="phone">Initial value of the Phone property.</param>
         /// <param name="fuel___advance_Fee_rate">Initial value of the fuel___advance_Fee_rate property.</param>
         /// <param name="active">Initial value of the Active property.</param>
         /// <param name="owner">Initial value of the Owner property.</param>
         /// <param name="owner_Pay_Rate">Initial value of the Owner_Pay_Rate property.</param>
-        public static Driver_Info CreateDriver_Info(global::System.Int32 id, global::System.String last_name, global::System.String first_name, global::System.DateTime expiration_Date, global::System.Boolean hazMat, global::System.Double pay_rate, global::System.String truck, global::System.String trailer, global::System.String phone, global::System.Double fuel___advance_Fee_rate, global::System.Boolean active, global::System.Boolean owner, global::System.Double owner_Pay_Rate)
+        public static Driver_Info CreateDriver_Info(global::System.Int32 id, global::System.Boolean hazMat, global::System.Double pay_rate, global::System.Double fuel___advance_Fee_rate, global::System.Boolean active, global::System.Boolean owner, global::System.Double owner_Pay_Rate)
         {
             Driver_Info driver_Info = new Driver_Info();
             driver_Info.ID = id;
-            driver_Info.Last_name = last_name;
-            driver_Info.First_name = first_name;
-            driver_Info.Expiration_Date = expiration_Date;
             driver_Info.HazMat = hazMat;
             driver_Info.Pay_rate = pay_rate;
-            driver_Info.Truck = truck;
-            driver_Info.Trailer = trailer;
-            driver_Info.Phone = phone;
             driver_Info.fuel___advance_Fee_rate = fuel___advance_Fee_rate;
             driver_Info.Active = active;
             driver_Info.Owner = owner;
@@ -2173,7 +5897,7 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Last_name
         {
@@ -2185,7 +5909,7 @@ namespace NationalIT
             {
                 OnLast_nameChanging(value);
                 ReportPropertyChanging("Last_name");
-                _Last_name = StructuralObject.SetValidValue(value, false);
+                _Last_name = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Last_name");
                 OnLast_nameChanged();
             }
@@ -2197,7 +5921,7 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String First_name
         {
@@ -2209,7 +5933,7 @@ namespace NationalIT
             {
                 OnFirst_nameChanging(value);
                 ReportPropertyChanging("First_name");
-                _First_name = StructuralObject.SetValidValue(value, false);
+                _First_name = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("First_name");
                 OnFirst_nameChanged();
             }
@@ -2317,9 +6041,9 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime Expiration_Date
+        public Nullable<global::System.DateTime> Expiration_Date
         {
             get
             {
@@ -2334,8 +6058,8 @@ namespace NationalIT
                 OnExpiration_DateChanged();
             }
         }
-        private global::System.DateTime _Expiration_Date;
-        partial void OnExpiration_DateChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _Expiration_Date;
+        partial void OnExpiration_DateChanging(Nullable<global::System.DateTime> value);
         partial void OnExpiration_DateChanged();
     
         /// <summary>
@@ -2437,7 +6161,7 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Truck
         {
@@ -2449,7 +6173,7 @@ namespace NationalIT
             {
                 OnTruckChanging(value);
                 ReportPropertyChanging("Truck");
-                _Truck = StructuralObject.SetValidValue(value, false);
+                _Truck = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Truck");
                 OnTruckChanged();
             }
@@ -2461,7 +6185,7 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Trailer
         {
@@ -2473,7 +6197,7 @@ namespace NationalIT
             {
                 OnTrailerChanging(value);
                 ReportPropertyChanging("Trailer");
-                _Trailer = StructuralObject.SetValidValue(value, false);
+                _Trailer = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Trailer");
                 OnTrailerChanged();
             }
@@ -2485,7 +6209,7 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Phone
         {
@@ -2497,7 +6221,7 @@ namespace NationalIT
             {
                 OnPhoneChanging(value);
                 ReportPropertyChanging("Phone");
-                _Phone = StructuralObject.SetValidValue(value, false);
+                _Phone = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Phone");
                 OnPhoneChanged();
             }
@@ -2829,28 +6553,6 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Driver_Info", "Violations")]
-        public EntityCollection<Violations> Violations
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Violations>("DB_9B22F2_nationalitModel.FK_Violations_Driver_Info", "Violations");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Violations>("DB_9B22F2_nationalitModel.FK_Violations_Driver_Info", "Violations", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Trip_Info_Driver_Info1", "Trip_Info")]
         public EntityCollection<Trip_Info> Trip_Info
         {
@@ -2863,6 +6565,28 @@ namespace NationalIT
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Trip_Info>("DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1", "Trip_Info", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Violations_Driver_Info", "Violations")]
+        public EntityCollection<Violations> Violations
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Violations>("DB_9B22F2_nationalitModel.FK_Violations_Driver_Info", "Violations");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Violations>("DB_9B22F2_nationalitModel.FK_Violations_Driver_Info", "Violations", value);
                 }
             }
         }
@@ -6837,12 +10561,10 @@ namespace NationalIT
         /// Create a new Owners object.
         /// </summary>
         /// <param name="ownerID">Initial value of the OwnerID property.</param>
-        /// <param name="ssn_">Initial value of the ssn_ property.</param>
-        public static Owners CreateOwners(global::System.Int32 ownerID, global::System.String ssn_)
+        public static Owners CreateOwners(global::System.Int32 ownerID)
         {
             Owners owners = new Owners();
             owners.OwnerID = ownerID;
-            owners.ssn_ = ssn_;
             return owners;
         }
 
@@ -6904,7 +10626,7 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String ssn_
         {
@@ -6916,7 +10638,7 @@ namespace NationalIT
             {
                 Onssn_Changing(value);
                 ReportPropertyChanging("ssn_");
-                _ssn_ = StructuralObject.SetValidValue(value, false);
+                _ssn_ = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("ssn_");
                 Onssn_Changed();
             }
@@ -7309,14 +11031,16 @@ namespace NationalIT
         /// Create a new split_expenses object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="ownerDriver">Initial value of the OwnerDriver property.</param>
         /// <param name="idndex">Initial value of the Idndex property.</param>
         /// <param name="fee_Charged">Initial value of the Fee_Charged property.</param>
         /// <param name="current_Payroll">Initial value of the Current_Payroll property.</param>
         /// <param name="paid_Off">Initial value of the Paid_Off property.</param>
-        public static split_expenses Createsplit_expenses(global::System.Int32 id, global::System.Int32 idndex, global::System.Boolean fee_Charged, global::System.Boolean current_Payroll, global::System.Boolean paid_Off)
+        public static split_expenses Createsplit_expenses(global::System.Int32 id, global::System.Int32 ownerDriver, global::System.Int32 idndex, global::System.Boolean fee_Charged, global::System.Boolean current_Payroll, global::System.Boolean paid_Off)
         {
             split_expenses split_expenses = new split_expenses();
             split_expenses.Id = id;
+            split_expenses.OwnerDriver = ownerDriver;
             split_expenses.Idndex = idndex;
             split_expenses.Fee_Charged = fee_Charged;
             split_expenses.Current_Payroll = current_Payroll;
@@ -7358,9 +11082,9 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> OwnerDriver
+        public global::System.Int32 OwnerDriver
         {
             get
             {
@@ -7375,8 +11099,8 @@ namespace NationalIT
                 OnOwnerDriverChanged();
             }
         }
-        private Nullable<global::System.Int32> _OwnerDriver;
-        partial void OnOwnerDriverChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _OwnerDriver;
+        partial void OnOwnerDriverChanging(global::System.Int32 value);
         partial void OnOwnerDriverChanged();
     
         /// <summary>
@@ -8711,16 +12435,18 @@ namespace NationalIT
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="splitExpensesID">Initial value of the SplitExpensesID property.</param>
         /// <param name="tempReportID">Initial value of the TempReportID property.</param>
+        /// <param name="ownerDriver">Initial value of the OwnerDriver property.</param>
         /// <param name="index">Initial value of the Index property.</param>
         /// <param name="fee_Charged">Initial value of the Fee_Charged property.</param>
         /// <param name="current_Payroll">Initial value of the Current_Payroll property.</param>
         /// <param name="paid_Off">Initial value of the Paid_Off property.</param>
-        public static Temp_Split_Expenses CreateTemp_Split_Expenses(global::System.Int32 id, global::System.Int32 splitExpensesID, global::System.Int32 tempReportID, global::System.Int32 index, global::System.Boolean fee_Charged, global::System.Boolean current_Payroll, global::System.Boolean paid_Off)
+        public static Temp_Split_Expenses CreateTemp_Split_Expenses(global::System.Int32 id, global::System.Int32 splitExpensesID, global::System.Int32 tempReportID, global::System.Int32 ownerDriver, global::System.Int32 index, global::System.Boolean fee_Charged, global::System.Boolean current_Payroll, global::System.Boolean paid_Off)
         {
             Temp_Split_Expenses temp_Split_Expenses = new Temp_Split_Expenses();
             temp_Split_Expenses.ID = id;
             temp_Split_Expenses.SplitExpensesID = splitExpensesID;
             temp_Split_Expenses.TempReportID = tempReportID;
+            temp_Split_Expenses.OwnerDriver = ownerDriver;
             temp_Split_Expenses.Index = index;
             temp_Split_Expenses.Fee_Charged = fee_Charged;
             temp_Split_Expenses.Current_Payroll = current_Payroll;
@@ -8810,9 +12536,9 @@ namespace NationalIT
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> OwnerDriver
+        public global::System.Int32 OwnerDriver
         {
             get
             {
@@ -8827,8 +12553,8 @@ namespace NationalIT
                 OnOwnerDriverChanged();
             }
         }
-        private Nullable<global::System.Int32> _OwnerDriver;
-        partial void OnOwnerDriverChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _OwnerDriver;
+        partial void OnOwnerDriverChanging(global::System.Int32 value);
         partial void OnOwnerDriverChanged();
     
         /// <summary>
@@ -10128,6 +13854,28 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Temp_EscrowLoan_TempReport", "Temp_EscrowLoan")]
+        public EntityCollection<Temp_EscrowLoan> Temp_EscrowLoan
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Temp_EscrowLoan>("DB_9B22F2_nationalitModel.FK_Temp_EscrowLoan_TempReport", "Temp_EscrowLoan");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Temp_EscrowLoan>("DB_9B22F2_nationalitModel.FK_Temp_EscrowLoan_TempReport", "Temp_EscrowLoan", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Fuel_Expenses_TempReport", "Temp_Fuel_Expenses")]
         public EntityCollection<Temp_Fuel_Expenses> Temp_Fuel_Expenses
         {
@@ -10172,28 +13920,6 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Split_Expenses_TempReport", "Temp_Split_Expenses")]
-        public EntityCollection<Temp_Split_Expenses> Temp_Split_Expenses
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Temp_Split_Expenses>("DB_9B22F2_nationalitModel.FK_Temp_Split_Expenses_TempReport", "Temp_Split_Expenses");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Temp_Split_Expenses>("DB_9B22F2_nationalitModel.FK_Temp_Split_Expenses_TempReport", "Temp_Split_Expenses", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Trip_Info_TempReport", "Temp_Trip_Info")]
         public EntityCollection<Temp_Trip_Info> Temp_Trip_Info
         {
@@ -10216,18 +13942,18 @@ namespace NationalIT
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Temp_EscrowLoan_TempReport", "Temp_EscrowLoan")]
-        public EntityCollection<Temp_EscrowLoan> Temp_EscrowLoan
+        [EdmRelationshipNavigationPropertyAttribute("DB_9B22F2_nationalitModel", "FK_Temp_Split_Expenses_TempReport", "Temp_Split_Expenses")]
+        public EntityCollection<Temp_Split_Expenses> Temp_Split_Expenses
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Temp_EscrowLoan>("DB_9B22F2_nationalitModel.FK_Temp_EscrowLoan_TempReport", "Temp_EscrowLoan");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Temp_Split_Expenses>("DB_9B22F2_nationalitModel.FK_Temp_Split_Expenses_TempReport", "Temp_Split_Expenses");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Temp_EscrowLoan>("DB_9B22F2_nationalitModel.FK_Temp_EscrowLoan_TempReport", "Temp_EscrowLoan", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Temp_Split_Expenses>("DB_9B22F2_nationalitModel.FK_Temp_Split_Expenses_TempReport", "Temp_Split_Expenses", value);
                 }
             }
         }
