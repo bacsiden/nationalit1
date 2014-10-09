@@ -6,7 +6,7 @@
     $(document).ready(function () {
         //rdoSplitDriver  rdoSplitOwner chonsen-split-expenses
         var value1 = eval($(".rdoSplitExpenses:checked").val());
-        if (value1 == 1) {
+        if (value1 == 2) {
             $(".chonsen-split-expenses-owner").next().hide();
             $(".chonsen-split-expenses").next().show();
         } else {
@@ -15,7 +15,7 @@
         }
         $(".rdoSplitExpenses").change(function () {
             var value = eval($(this).val());
-            if (value == 1) {
+            if (value == 2) {
                 $(".chonsen-split-expenses-owner").next().hide();
                 $(".chonsen-split-expenses").next().show();
             } else {
@@ -63,11 +63,11 @@
                             <div class="span12">
                                 <label class="radio inline">
                                     <input type="radio" name="Idndex" class="rdoSplitExpenses" value="1" @(Model != null?( Model.Idndex == 1 ? "checked" : ""):"checked")>
-                                    Driver's expenses
+                                    Owner's expenses
                                 </label>
                                 <label class="radio inline">
                                     <input type="radio" name="Idndex" class="rdoSplitExpenses" value="2" @(Model != null && Model.Idndex == 2 ? "checked" : "")>
-                                    Owner's expenses
+                                    Driver's expenses
                                 </label>
                                 @Html.ValidationMessageFor(model => model.Idndex)
                             </div>
