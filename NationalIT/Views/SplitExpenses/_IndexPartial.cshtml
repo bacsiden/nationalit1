@@ -55,26 +55,23 @@
                 </td>
                 <td>
                     @{
-               if (item.OwnerDriver.HasValue)
-               {
-                   if (item.Idndex == 1)
-                   {
-                       var driver = NationalIT.DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == item.OwnerDriver);
-                       if (driver != null)
-                       {
-                        <span>@driver.Last_name @driver.First_name</span>
-                       }
-                   }
-                   else
-                   {
-                       var owner = NationalIT.DB.Entities.Owners.FirstOrDefault(m => m.OwnerID == item.OwnerDriver);
-                       if (owner != null)
-                       {
-                        <span>@owner.Name</span>
-                       }
-                   }
+                if (item.Idndex == 2)
+                {
+                    var driver = NationalIT.DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == item.OwnerDriver);
+                    if (driver != null)
+                    {
+                        <span>@driver.Last_name @driver.First_name (Driver)</span>
+                    }
+                }
+                else
+                {
+                    var owner = NationalIT.DB.Entities.Owners.FirstOrDefault(m => m.OwnerID == item.OwnerDriver);
+                    if (owner != null)
+                    {
+                        <span>@owner.Name (Owner)</span>
+                    }
+                }
 
-               }                        
                     }
                 </td>
                 <td>
