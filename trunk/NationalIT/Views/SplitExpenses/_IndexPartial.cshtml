@@ -15,10 +15,7 @@
                 ID
             </th>
             <th>
-                OwnerDriver
-            </th>
-            <th>
-                Index
+                Owner / Driver
             </th>
             <th>
                 Expenses
@@ -55,27 +52,24 @@
                 </td>
                 <td>
                     @{
-                if (item.Idndex == 2)
+                if (item.OwnerDriver == 2)
                 {
-                    var driver = NationalIT.DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == item.OwnerDriver);
+                    var driver = NationalIT.DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == item.Idndex);
                     if (driver != null)
                     {
-                        <span>@driver.Last_name @driver.First_name (Driver)</span>
+                        @driver.Last_name @driver.First_name <span class="colorBlue">(Driver)</span>
                     }
                 }
                 else
                 {
-                    var owner = NationalIT.DB.Entities.Owners.FirstOrDefault(m => m.OwnerID == item.OwnerDriver);
+                    var owner = NationalIT.DB.Entities.Owners.FirstOrDefault(m => m.OwnerID == item.Idndex);
                     if (owner != null)
                     {
-                        <span>@owner.Name (Owner)</span>
+                        @owner.Name <span class="f_req">(Owner)</span>
                     }
                 }
 
                     }
-                </td>
-                <td>
-                    @item.Idndex
                 </td>
                 <td>
                     @item.Expenses

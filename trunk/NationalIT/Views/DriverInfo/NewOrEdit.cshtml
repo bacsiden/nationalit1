@@ -83,7 +83,7 @@
                     <div class="control-group">
                         <label for="Expiration_Date">
                             Expiration Date <span class="requiredStar">(*)</span></label>
-                        @Html.TextBoxFor(model => model.Expiration_Date, new { Value = Model != null ? Model.Expiration_Date.ToString("MM/dd/yyyy") : "", @class = "input-xlarge date-picker" })
+                        @Html.TextBoxFor(model => model.Expiration_Date, new { Value = Model != null && Model.Expiration_Date.HasValue ? Model.Expiration_Date.Value.ToString("MM/dd/yyyy") : "", @class = "input-xlarge date-picker" })
                     </div>
                     <div class="control-group">
                         <label for="Pay_rate">

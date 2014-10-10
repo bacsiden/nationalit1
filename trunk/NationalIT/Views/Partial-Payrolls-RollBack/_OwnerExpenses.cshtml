@@ -10,13 +10,13 @@
             </th>
             <th>
                 Driver
-            </th>            
+            </th>
             <th>
                 Expenses
             </th>
             <th>
                 Amount
-            </th>            
+            </th>
             <th>
                 Date
             </th>
@@ -40,35 +40,20 @@
                     @Html.ActionLink(item.Id.ToString(), "NewOrEdit", "SplitExpenses", new { id = item.Id }, null)
                 </td>
                 <td>
-                    
-                     @{
-               if (item.OwnerDriver.HasValue)
+                    @{
+               var owner = NationalIT.DB.Entities.Owners.FirstOrDefault(m => m.OwnerID == item.Idndex);
+               if (owner != null)
                {
-                   if (item.Idndex == 1)
-                   {
-                       var driver = NationalIT.DB.Entities.Driver_Info.FirstOrDefault(m => m.ID == item.OwnerDriver);
-                       if (driver != null)
-                       {
-                        <span>@driver.Last_name @driver.First_name</span>
-                       }
-                   }
-                   else
-                   {
-                       var owner = NationalIT.DB.Entities.Owners.FirstOrDefault(m => m.OwnerID == item.OwnerDriver);
-                       if (owner != null)
-                       {
                         <span>@owner.Name</span>
-                       }
-                   }
-               }                        
+               }
                     }
-                </td>               
+                </td>
                 <td>
                     @item.Expenses
                 </td>
                 <td>
                     @String.Format("{0:C}", item.Amount)
-                </td>                
+                </td>
                 <td>
                     @(item.Date.HasValue ? item.Date.Value.ToString("MM/dd/yyyy") : "")
                 </td>

@@ -125,7 +125,7 @@ namespace NationalIT.Reports
                     }
 
                     DataTable osplit = ds.OwnerExpenses;
-                    foreach (var item in objtr.Temp_Split_Expenses.Where(m => m.Index == 2))
+                    foreach (var item in objtr.Temp_Split_Expenses.Where(m => m.OwnerDriver == 1))
                     {
                         var dr3 = osplit.NewRow();
                         dr3["Date"] = string.Format("{0:MM/dd/yyyy}", item.Date);
@@ -149,7 +149,7 @@ namespace NationalIT.Reports
                     double total5 = 0;
                     double fee5 = 0;
                     DataTable dsplit = ds.DriverExpenses;
-                    foreach (var item in objtr.Temp_Split_Expenses.Where(m => m.Index == 1))
+                    foreach (var item in objtr.Temp_Split_Expenses.Where(m => m.OwnerDriver == 2))
                     {
                         var dr4 = dsplit.NewRow();
                         dr4["Date"] = string.Format("{0:MM/dd/yyyy}", item.Date);
