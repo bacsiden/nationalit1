@@ -49,7 +49,7 @@
                         <a href="/DriverInfo/NewOrEdit/@item.ID" >@item.Last_name @item.First_name</a>
                     </td>
                     <td>
-                        @item.Expiration_Date.ToString("MM/dd/yyyy")
+                        @(item.Expiration_Date.HasValue?item.Expiration_Date.Value.ToString("MM/dd/yyyy"):"")
                     </td>
                     <td>
                         @NationalIT.CommonFunction.getYesNO(item.Active)

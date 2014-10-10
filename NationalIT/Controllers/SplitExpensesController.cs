@@ -7,7 +7,7 @@ using Webdiyer.WebControls.Mvc;
 
 namespace NationalIT.Controllers
 {
-    [Authorize]    
+    [Authorize]
     public class SplitExpensesController : BaseController
     {
         int pageSize = 20;
@@ -40,7 +40,7 @@ namespace NationalIT.Controllers
             string dataDriver_Info = "<option value=''>--Select Driver_Info--</option>";
             foreach (var item in NationalIT.DB.Entities.Driver_Info)
             {
-                if (obj != null && obj.Idndex == 1 && obj.OwnerDriver == item.ID)
+                if (obj != null && obj.OwnerDriver == 2 && obj.Idndex == item.ID)
                 {
                     dataDriver_Info += string.Format("<option value='{0}' selected='selected'>{1} {2}</option>", item.ID, item.Last_name, item.First_name);
                 }
@@ -54,7 +54,7 @@ namespace NationalIT.Controllers
             string dataOwner_Info = "<option value=''>--Select Owner_Info--</option>";
             foreach (var item in NationalIT.DB.Entities.Owners)
             {
-                if (obj != null && obj.Idndex == 2 && obj.OwnerDriver == item.OwnerID)
+                if (obj != null && obj.OwnerDriver == 1 && obj.Idndex == item.OwnerID)
                 {
                     dataOwner_Info += string.Format("<option value='{0}' selected='selected'>{1}</option>", item.OwnerID, item.Name);
                 }
@@ -74,7 +74,7 @@ namespace NationalIT.Controllers
             var obj = DB.Entities.split_expenses.FirstOrDefault(m => m.Id == id);
             if (obj == null)
             {
-                obj = new split_expenses() { Current_Payroll = true, Fee_Charged = true };
+                obj = new split_expenses() { Current_Payroll = true, Fee_Charged = true, OwnerDriver = 1 };
             }
             SelectOption(obj);
             return View(obj);
@@ -90,9 +90,9 @@ namespace NationalIT.Controllers
             {
                 var db = DB.Entities;
                 model.Date = CommonFunction.ChangeFormatDate(frm["Date"]);
-                if (model.Idndex == 2)
+                if (model.OwnerDriver == 1)
                 {
-                    model.OwnerDriver = int.Parse(frm["OwnerDriver2"]);
+                    model.Idndex = int.Parse(frm["Idndex2"]);
                 }
                 if (model.Id == 0)
                 {

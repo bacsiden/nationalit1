@@ -4,17 +4,47 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Webdiyer.WebControls.Mvc;
+using Microsoft.Office.Interop.Excel;
+using System.Reflection;
 namespace NationalIT.Controllers
 {
-    [Authorize]    
+    [Authorize]
     public class FuelExpensesController : BaseController
     {
+        public string Test()
+        {
+            string filepath = "";
+            try
+            {
+                
+                Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+                filepath = "http://naccounting.net" + @"/Content/FUELEXCL.xls";
+                Microsoft.Office.Interop.Excel.Workbook wbook = null;
+                Microsoft.Office.Interop.Excel.Worksheet wsheet = null;
+                Range range = null;
+                app.Visible = false;
+                //Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+                
+                wbook = app.Workbooks.Open(filepath, Missing.Value, Missing.Value, Missing.Value,
+                Missing.Value, Missing.Value, Missing.Value,
+                Missing.Value, Missing.Value, Missing.Value,
+                Missing.Value, Missing.Value, Missing.Value,
+                Missing.Value, Missing.Value);
+
+                string currentSheet = "FUELEXCL";
+                wsheet = (Worksheet)wbook.Worksheets.get_Item(currentSheet);
+                range = wsheet.get_Range("A1", "A7");
+                System.Array myvalues = (System.Array)range.Cells.Value2;
+                return filepath + "---" + myvalues.GetLength(1).ToString();
+            }
+            catch (Exception ex) { return ex.ToString() + "\n\n\r" + filepath; }
+        }
         int pageSize = 20;
         [ValidationFunction(ActionName.ViewListFuelExpenses)]
         public ActionResult Index(int? page, int? driverID)
         {
             var db = DB.Entities;
-            var list = db.Fuel___Expenses.Where(m => ((driverID == null ? true : m.ID == driverID.Value)))
+            var list = db.Fuel___Expenses.Where(m => ((driverID == null ? true : m.Driver == driverID.Value)))
                     .OrderByDescending(m => m.ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize);
             if (Request.IsAjaxRequest())
             {
@@ -26,21 +56,26 @@ namespace NationalIT.Controllers
 
         void SelectOption(Fuel___Expenses obj)
         {
-            #region SELECT OPTION
-            string dataFuel_Expenses = "<option value=''>--Select Fuel_Expenses--</option>";
-            foreach (var item in NationalIT.DB.Entities.Fuel___Expenses)
-            {
-                dataFuel_Expenses += string.Format("<option value='{0}'>{0}</option>", item.ID);
-            }
-            ViewBag.dataFuel_Expenses = dataFuel_Expenses;
-            #endregion
+            //#region SELECT OPTION
+            //string dataFuel_Expenses = "<option value=''>--Select Fuel_Expenses--</option>";
+            //foreach (var item in NationalIT.DB.Entities.Fuel___Expenses)
+            //{
+            //    dataFuel_Expenses += string.Format("<option value='{0}'>{0}</option>", item.ID);
+            //}
+            //ViewBag.dataFuel_Expenses = dataFuel_Expenses;
+            //#endregion
 
 
             var lst1 = new List<string> { "FUEL", "ADVANCE", "REPAIR" };
             string type = "";
             foreach (var item in lst1)
             {
-                type += "<option value='" + item + "'>" + item + "</option>";
+                string selected = "";
+                if (!string.IsNullOrEmpty(obj.Type) && obj.Type.Equals(item, StringComparison.OrdinalIgnoreCase))
+                {
+                    selected = "selected='selected'";
+                }
+                type += "<option value='" + item + "' " + selected + ">" + item + "</option>";
             }
             ViewBag.Type = type;
 

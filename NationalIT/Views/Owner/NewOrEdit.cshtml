@@ -61,7 +61,7 @@
                 }
                 <br />
                 <h4>List drivers</h4>
-                @Html.Partial("_ListDriver", Model.OwnerID)
+                @Html.Partial("_ListDriver", Model!=null?Model.OwnerID:0)
             </div>
         </div>
     </div>

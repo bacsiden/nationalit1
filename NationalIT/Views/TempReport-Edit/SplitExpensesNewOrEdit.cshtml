@@ -46,10 +46,10 @@
                             OwnerDriver</label>
                         <div class="controls">
                             <div class="span12">
-                                <select data-placeholder="Select OwnerDriver" name="OwnerDriver" class="chosen-with-diselect input-xxlarge chonsen-split-expenses">
+                                <select data-placeholder="Select OwnerDriver" name="Idndex" class="chosen-with-diselect input-xxlarge chonsen-split-expenses">
                                     @Html.Raw(ViewBag.dataDriver)
                                 </select>
-                                <select data-placeholder="Select OwnerDriver" name="OwnerDriver2" class="chosen-with-diselect input-xxlarge chonsen-split-expenses-owner">
+                                <select data-placeholder="Select OwnerDriver" name="Idndex2" class="chosen-with-diselect input-xxlarge chonsen-split-expenses-owner">
                                     @Html.Raw(ViewBag.dataOwner)
                                 </select>
                                 @Html.ValidationMessageFor(model => model.OwnerDriver)
@@ -62,11 +62,11 @@
                         <div class="controls">
                             <div class="span12">
                                 <label class="radio inline">
-                                    <input type="radio" name="Idndex" class="rdoSplitExpenses" value="1" @(Model != null?( Model.Idndex == 1 ? "checked" : ""):"checked")>
+                                    <input type="radio" name="OwnerDriver" class="rdoSplitExpenses" value="1" @(Model != null?( Model.OwnerDriver == 2 ? "checked" : ""):"checked")>
                                     Driver's expenses
                                 </label>
                                 <label class="radio inline">
-                                    <input type="radio" name="Idndex" class="rdoSplitExpenses" value="2" @(Model != null && Model.Idndex == 2 ? "checked" : "")>
+                                    <input type="radio" name="OwnerDriver" class="rdoSplitExpenses" value="2" @(Model != null && Model.OwnerDriver == 1 ? "checked" : "")>
                                     Owner's expenses
                                 </label>
                                 @Html.ValidationMessageFor(model => model.Idndex)

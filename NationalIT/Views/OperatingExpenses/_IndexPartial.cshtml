@@ -16,7 +16,7 @@
                     ID
                 </th>
                 <th>
-                    First Name
+                    Driver
                 </th>
                 <th>
                     Current Payroll
@@ -26,9 +26,6 @@
                 </th>
                 <th>
                     Amount
-                </th>
-                <th>
-                    Driver
                 </th>
                 <th>
                     Paid_off
@@ -46,7 +43,7 @@
                         <a href="/OperatingExpenses/NewOrEdit/@item.ID" >@item.ID</a>
                     </td>
                     <td>
-                        <a href="/OperatingExpenses/NewOrEdit/@item.ID" >@Html.Raw(item.Driver_Info != null ? item.Driver_Info.Last_name + " " + item.Driver_Info.First_name : "")</a>
+                        <a href="@(item.Driver.HasValue ? Url.Action("NewOrEdit", "DriverInfo", new { id = item.Driver }) : "#")" >@Html.Raw(item.Driver_Info != null ? item.Driver_Info.Last_name + " " + item.Driver_Info.First_name : "")</a>
                     </td>
                     <td>
                         @item.Current_Payroll
@@ -56,9 +53,6 @@
                     </td>
                     <td>
                         @String.Format("{0:C}", item.Amount)
-                    </td>
-                    <td>
-                        @(item.Driver_Info != null ? item.Driver_Info.First_name : "")
                     </td>
                     <td>
                         @item.Paid_off
