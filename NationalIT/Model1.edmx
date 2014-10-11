@@ -876,6 +876,7 @@
           <Property Name="PO_" Type="nvarchar" MaxLength="16" />
           <Property Name="Customer_Invoiced_date" Type="datetime" Nullable="false" />
           <Property Name="Company" Type="int" />
+          <Property Name="Chargebacks" Type="float" />
         </EntityType>
         <EntityType Name="Violations">
           <Key>
@@ -2357,6 +2358,7 @@
           <NavigationProperty Name="Dispatchers" Relationship="DB_9B22F2_nationalitModel.FK_Trip_Info_Dispatchers1" FromRole="Trip_Info" ToRole="Dispatchers" />
           <NavigationProperty Name="Driver_Info" Relationship="DB_9B22F2_nationalitModel.FK_Trip_Info_Driver_Info1" FromRole="Trip_Info" ToRole="Driver_Info" />
           <NavigationProperty Name="Equipment" Relationship="DB_9B22F2_nationalitModel.FK_Trip_Info_Equipment1" FromRole="Trip_Info" ToRole="Equipment" />
+          <Property Type="Double" Name="Chargebacks" />
         </EntityType>
         <EntityType Name="Violations">
           <Key>
@@ -3473,6 +3475,7 @@
           <EntitySetMapping Name="Trip_Info">
             <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.Trip_Info">
               <MappingFragment StoreEntitySet="Trip_Info">
+                <ScalarProperty Name="Chargebacks" ColumnName="Chargebacks" />
                 <ScalarProperty Name="Company" ColumnName="Company" />
                 <ScalarProperty Name="Customer_Invoiced_date" ColumnName="Customer_Invoiced_date" />
                 <ScalarProperty Name="PO_" ColumnName="PO_" />

@@ -40,16 +40,28 @@
           <DataField>CustomerAddress</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="DriverName">
-          <DataField>DriverName</DataField>
+        <Field Name="ComfirmedRate">
+          <DataField>ComfirmedRate</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="TotalCharges">
           <DataField>TotalCharges</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DeliveryLocation">
+          <DataField>DeliveryLocation</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="SumOfCharges">
-          <DataField>SumOfCharges</DataField>
+        <Field Name="LumperExtra">
+          <DataField>LumperExtra</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DetentionPay">
+          <DataField>DetentionPay</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ChargesBack">
+          <DataField>ChargesBack</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -59,7 +71,7 @@
       </Query>
       <rd:DataSetInfo>
         <rd:DataSetName>DispatcherTrip</rd:DataSetName>
-        <rd:SchemaPath>D:\Recnaleerf\nationalit1\NationalIT\Reports\DispatcherTrip.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Recnaleerf\NationalIT11\nationalit1\NationalIT\Reports\DispatcherTrip.xsd</rd:SchemaPath>
         <rd:TableName>DataTable1</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -94,15 +106,15 @@
                                 <Width>2.22916in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>1.39051in</Width>
+                                <Width>1.16135in</Width>
                               </TablixColumn>
                               <TablixColumn>
-                                <Width>1.16134in</Width>
+                                <Width>1.3905in</Width>
                               </TablixColumn>
                             </TablixColumns>
                             <TablixRows>
                               <TablixRow>
-                                <Height>0.23622in</Height>
+                                <Height>0.29872in</Height>
                                 <TablixCells>
                                   <TablixCell>
                                     <CellContents>
@@ -150,7 +162,7 @@
                                           </TopBorder>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
-                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingTop>4pt</PaddingTop>
                                           <PaddingBottom>2pt</PaddingBottom>
                                         </Style>
                                       </Textbox>
@@ -516,21 +528,24 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="ComfirmedRate1">
+                                      <Textbox Name="ComfirmedRate">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value />
-                                                <Style />
+                                                <Value>=Fields!ComfirmedRate.Value</Value>
+                                                <Style>
+                                                  <FontWeight>Bold</FontWeight>
+                                                  <Format>n2</Format>
+                                                </Style>
                                               </TextRun>
                                             </TextRuns>
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>ComfirmedRate1</rd:DefaultName>
+                                        <rd:DefaultName>ComfirmedRate</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Style>None</Style>
@@ -643,21 +658,24 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="LumperExtra1">
+                                      <Textbox Name="LumperExtra">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value />
-                                                <Style />
+                                                <Value>=Fields!LumperExtra.Value</Value>
+                                                <Style>
+                                                  <FontWeight>Bold</FontWeight>
+                                                  <Format>0.00;(0.00)</Format>
+                                                </Style>
                                               </TextRun>
                                             </TextRuns>
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>LumperExtra1</rd:DefaultName>
+                                        <rd:DefaultName>LumperExtra</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Style>None</Style>
@@ -770,21 +788,24 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="DetentionPay1">
+                                      <Textbox Name="DetentionPay">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value />
-                                                <Style />
+                                                <Value>=Fields!DetentionPay.Value</Value>
+                                                <Style>
+                                                  <FontWeight>Bold</FontWeight>
+                                                  <Format>n2</Format>
+                                                </Style>
                                               </TextRun>
                                             </TextRuns>
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>DetentionPay1</rd:DefaultName>
+                                        <rd:DefaultName>DetentionPay</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Style>None</Style>
@@ -897,21 +918,24 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="ChargesBack1">
+                                      <Textbox Name="ChargesBack">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value />
-                                                <Style />
+                                                <Value>=Fields!ChargesBack.Value</Value>
+                                                <Style>
+                                                  <FontWeight>Bold</FontWeight>
+                                                  <Format>0.00;(0.00)</Format>
+                                                </Style>
                                               </TextRun>
                                             </TextRuns>
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>ChargesBack1</rd:DefaultName>
+                                        <rd:DefaultName>ChargesBack</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Style>None</Style>
@@ -954,7 +978,7 @@
                           </TablixRowHierarchy>
                           <DataSetName>DataSet1</DataSetName>
                           <Top>1.22618cm</Top>
-                          <Height>4.43812cm</Height>
+                          <Height>4.59687cm</Height>
                           <Width>15.09357cm</Width>
                           <Style>
                             <Border>
@@ -1021,7 +1045,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Total charges: $</Value>
+                                  <Value>Total charges: </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontWeight>Normal</FontWeight>
@@ -1030,10 +1054,19 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
+                                  <Value>$</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontWeight>Bold</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
                                   <Value>=Fields!TotalCharges.Value</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
-                                    <FontWeight>Normal</FontWeight>
+                                    <FontWeight>Bold</FontWeight>
                                     <Format>n2</Format>
                                     <TextDecoration>None</TextDecoration>
                                     <Color>#000000</Color>
@@ -1083,7 +1116,7 @@
             <TablixMember>
               <Group Name="Details">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!DriverName.Value</GroupExpression>
+                  <GroupExpression>=Fields!DispatcherName.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
             </TablixMember>
