@@ -10,7 +10,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1">
+    <DataSet Name="DataTable1">
       <Fields>
         <Field Name="Date">
           <DataField>Date</DataField>
@@ -95,7 +95,7 @@
       </Query>
       <rd:DataSetInfo>
         <rd:DataSetName>Invoice</rd:DataSetName>
-        <rd:SchemaPath>D:\Recnaleerf\NationalIT11\nationalit1\NationalIT\Reports\Invoice.xsd</rd:SchemaPath>
+        <rd:SchemaPath>E:\MR HUYEN\NationalIT\NationalIT\Invoice.xsd</rd:SchemaPath>
         <rd:TableName>DataTable1</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -155,7 +155,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
             <Top>0.3691in</Top>
-            <Left>0.99688in</Left>
+            <Left>1.0025in</Left>
             <Height>0.22916in</Height>
             <Width>3.46875in</Width>
             <ZIndex>1</ZIndex>
@@ -1069,7 +1069,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DataSet1</DataSetName>
+        <DataSetName>DataTable1</DataSetName>
         <Height>0.91667in</Height>
         <Width>3.05208in</Width>
         <ZIndex>10</ZIndex>

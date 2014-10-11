@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using Webdiyer.WebControls.Mvc;
 using System.Data.Objects.SqlClient;
+using Microsoft.Reporting.WebForms;
+using NationalIT.Reports;
+using System.Data;
 
 namespace NationalIT.Controllers
 {
@@ -34,7 +37,7 @@ namespace NationalIT.Controllers
             }
             else
             {
-                lst = lst.Where(m => m.Driver_paid == true);
+                lst = lst.Where(m => m.Driver_paid == false);
             }
             var list = lst.OrderByDescending(m => m.Driver_paid).ThenBy(m => m.Trip_ID).ToPagedList(!page.HasValue ? 0 : page.Value, pageSize);
             if (Request.IsAjaxRequest())
@@ -132,7 +135,7 @@ namespace NationalIT.Controllers
 
             var lstCompany = db.Company.ToList();
             ViewBag.dataCompany = CommonFunction.BuildDropdown(lstCompany.Select(m => m.ID.ToString()).ToArray(),
-                lstCompany.Select(m => m.Name+" - "+m.Address+" , "+m.FaxNumber).ToArray(), obj.Company, "--Select Company--");
+                lstCompany.Select(m => m.Name + " - " + m.Address + " , " + m.FaxNumber).ToArray(), obj.Company, "--Select Company--");
 
             #endregion
 
@@ -175,7 +178,7 @@ namespace NationalIT.Controllers
                     else
                     {
                         var income = db.Income.FirstOrDefault(m => m.InvoiceNumber == model.Invoice);
-                        if (income!=null)
+                        if (income != null)
                         {
                             income.IncomeDate = DateTime.Now;
                             income.AmountInvoiced = model.Total_charges;
@@ -308,6 +311,83 @@ namespace NationalIT.Controllers
                 address = obj.Street + ", " + obj.City + ", " + obj.State + " " + obj.ZIP_Code + ", Phone: " + obj.Phone;
             }
             return address;
+        }
+
+        [ValidationFunction(ActionName.NewOrEditItem)]
+        public ActionResult InvoicedReport(FormCollection frm)
+        {
+            try
+            {
+                //Xuất dự liệu ra pdf
+                Warning[] warnings;
+                string[] streamIds;
+                string mimeType = string.Empty;
+                string encoding = string.Empty;
+                string extension = string.Empty;
+                string reportPath = "Reports/Invoice.rdlc";
+
+                // Setup the report viewer object and get the array of bytes
+                ReportViewer viewer = new ReportViewer();
+                viewer.ProcessingMode = ProcessingMode.Local;
+                viewer.LocalReport.ReportPath = reportPath;
+
+                DataTable dt = new Invoice().DataTable1;
+                var db = DB.Entities;
+                int id = int.Parse(Request.QueryString["tripID"]);
+                var obj = db.Trip_Info.FirstOrDefault(m => m.Trip_ID == id);
+                string s = Request.QueryString["companyID"];
+                int coID = int.Parse(s);
+                var co = db.Company.First(m => m.ID == coID);
+
+                obj.Company = coID;
+                db.SaveChanges();
+                DataRow dr = dt.NewRow();
+                dr["Date"] = String.Format("{0:MM/dd/yyyy}", obj.Order_date);
+                dr["CustomerName"] = obj.Customer_Info != null ? obj.Customer_Info.Customer_Name : "";
+                dr["CustomerAddress"] = obj.Customer_Info != null ? obj.Customer_Info.City + ", " +
+                    obj.Customer_Info.State + " " + obj.Customer_Info.ZIP_Code : "";
+                dr["Street"] = obj.Customer_Info != null ? obj.Customer_Info.Street : "";
+                //Lấy 2 kí tự đầu của first name, last name dirver info
+                string invoice = obj.Invoice + "";
+                if (obj.Driver_Info != null)
+                {
+                    string char1 = string.IsNullOrEmpty(obj.Driver_Info.First_name) ? null : obj.Driver_Info.First_name[0] + "";
+                    string char2 = string.IsNullOrEmpty(obj.Driver_Info.Last_name) ? null : obj.Driver_Info.Last_name[0] + "";
+                    invoice = char1 + char2 + invoice;
+                }
+                dr["Invoice"] = invoice;
+                dr["Load_"] = obj.Loaded_miles;
+                dr["PO_"] = obj.PO_;
+                dr["PickupLocation"] = obj.Pick_up_location;
+                dr["DeliveryLocation"] = obj.Delivery_location;
+                dr["ComfirmedRate"] = obj.Comfirmed_Rate == null ? ".00" : (int)obj.Comfirmed_Rate + ".00";
+                dr["Lumber_ExtraCharges"] = obj.Extra_charges == null ? ".00" : (int)obj.Extra_charges + ".00";
+                dr["DetentionPay"] = obj.Detention_pay == null ? ".00" : (int)obj.Detention_pay + ".00";
+                dr["TotalCharges"] = obj.Total_charges == null ? ".00" : (int)obj.Total_charges + ".00";
+                dr["ExtraStops"] = obj.Extra_stops;
+                dr["DispatcherName"] = obj.Dispatchers != null ? obj.Dispatchers.Last_name + " " + obj.Dispatchers.Last_name : "";
+
+                dr["CompanyName"] = co.Name;
+                dr["CompanyAddress"] = co.Address;
+                dr["CompanyPhone"] = co.PhoneNumber;
+                dr["CompanyFax"] = co.FaxNumber;
+                dt.Rows.Add(dr);
+
+                ReportDataSource newDS = new ReportDataSource(dt.TableName, dt);
+                viewer.LocalReport.DataSources.Clear();
+                viewer.LocalReport.DataSources.Add(newDS);
+                viewer.LocalReport.Refresh();
+
+
+                byte[] bytes = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out extension, out streamIds, out warnings);
+
+                string fileName = "Invoice.pdf";
+                return File(bytes, mimeType, fileName);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
     }
 }
