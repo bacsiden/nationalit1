@@ -52,7 +52,8 @@
                     <input type="submit" value="Save" class="btn btn-primary" />
                     <a href="/Reports/ShowReport.aspx?ReportName=Invoice&&tripID=@Model.Trip_ID" target="_blank" class="btn btn-primary BeforePrintReport">
                         Print Report</a> 
-                        @*@Html.ActionLink("Show Report", "index", "Report", new { @tripID=Model.Trip_ID}, new { @class = "btn btn-primary" })*@
+                    <a href="/TripInfo/InvoicedReport?tripID=@Model.Trip_ID" target="_blank" class="btn btn-primary BeforePrintReport">
+                        Pdf Report</a> 
                     @((Model != null && Model.Trip_ID > 0) ? Html.ActionLink("Delete", "Delete", new { arrayID = Model.Trip_ID }, new { @class = "btn btn-danger confirmDelete" }) : new MvcHtmlString(""))
                     @Html.ActionLink("Cancel", "Index", null, new { @class = "btn" })
                 </div>

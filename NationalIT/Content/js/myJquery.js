@@ -228,10 +228,11 @@
         var endDate = $(".EndDate").val();
         var selectDispatcher = $(".SelectDispatcher").val();
         var selectDriver = $(".SelectDriver").val();
+        var selectCompany = $(".SelectCompany").val();
         var url = $(this).attr('href');
-        var newurl = addParam(addParam(addParam(addParam(url, "startDate", startDate), "endDate", endDate), "selectDriver", selectDriver), "selectDispatcher", selectDispatcher);
+        var newurl = addParam(addParam(addParam(addParam(addParam(url, "selectCompany", selectCompany), "startDate", startDate), "endDate", endDate), "selectDriver", selectDriver), "selectDispatcher", selectDispatcher);
         if (isAllDate) {
-            newurl = addParam(addParam(addParam(url, "allDate", true), "selectDriver", selectDriver), "selectDispatcher", selectDispatcher);
+            newurl = addParam(addParam(addParam(addParam(url, "selectCompany", selectCompany), "allDate", true), "selectDriver", selectDriver), "selectDispatcher", selectDispatcher);
         }
         window.open(newurl, '_blank');
         return false;
