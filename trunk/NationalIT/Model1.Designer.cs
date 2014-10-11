@@ -14725,6 +14725,30 @@ namespace NationalIT
         private Nullable<global::System.Int32> _Company;
         partial void OnCompanyChanging(Nullable<global::System.Int32> value);
         partial void OnCompanyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> Chargebacks
+        {
+            get
+            {
+                return _Chargebacks;
+            }
+            set
+            {
+                OnChargebacksChanging(value);
+                ReportPropertyChanging("Chargebacks");
+                _Chargebacks = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Chargebacks");
+                OnChargebacksChanged();
+            }
+        }
+        private Nullable<global::System.Double> _Chargebacks;
+        partial void OnChargebacksChanging(Nullable<global::System.Double> value);
+        partial void OnChargebacksChanged();
 
         #endregion
 

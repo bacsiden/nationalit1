@@ -144,21 +144,22 @@ namespace NationalIT.Reports
                 {
                     int totalCharges = 0;
                     List<DataRow> lstDR = new List<DataRow>();
-                    foreach (var item in lst.Where(m => m.Driver == dispatherID))
+                    foreach (var item in lst.Where(m => m.Dispatcher == dispatherID))
                     {
                         DataRow dr = dt.NewRow();
-                        dr["DriverID"] = dispatherID;
-                        dr["DriverName"] = item.Driver_Info != null ? item.Driver_Info.First_name + item.Driver_Info.First_name : "";
+                        //dr["DispatherID"] = dispatherID;
+                        var objdis = db.Dispatchers.FirstOrDefault(m => m.ID == dispatherID.Value);
+                        dr["DispatcherName"] = objdis != null ? objdis.First_name + objdis.Last_name : "1";
                         dr["OrderDate"] = String.Format("{0:MM/dd/yyyy}", item.Order_date);
                         dr["PickupDate"] = String.Format("{0:MM/dd/yyyy}", item.Pickup_date);
                         dr["DeliveryDate"] = String.Format("{0:MM/dd/yyyy}", item.Delivery_date);
                         dr["CustomerName"] = item.Customer_Info != null ? item.Customer_Info.Customer_Name : "";
                         dr["DeliveryLocation"] = item.Delivery_location;
-                        dr["ComfirmedRate1"] = item.Comfirmed_Rate;
-                        dr["LumperExtra1"] = "LumperExtra";
-                        dr["DetentionPay1"] = item.Detention_pay;
-                        dr["ChargesBack1"] = "ChargesBack1";
-                        dr["TotalCharges1"] = item.Total_charges;
+                        dr["ComfirmedRate"] = item.Comfirmed_Rate == null ? string.Format("{0:C}", 0) : string.Format("{0:C}", item.Comfirmed_Rate);
+                        dr["LumperExtra"] = item.Extra_charges == null ? string.Format("{0:C}", 0) : string.Format("{0:C}", item.Extra_charges);
+                        dr["DetentionPay"] = item.Detention_pay == null ? string.Format("{0:C}", 0) : string.Format("{0:C}", item.Detention_pay);
+                        dr["ChargesBack"] = item.Chargebacks == null ? string.Format("{0:C}", 0) : string.Format("{0:C}", item.Chargebacks);
+                        //dr["TotalCharges"] = item.Total_charges; //item.Total_charges == null ? string.Format("{0:C}", 0) : string.Format("{0:C}", item.Total_charges);
 
                         totalCharges += (int)item.Total_charges;
                         lstDR.Add(dr);

@@ -222,9 +222,10 @@
                         @Html.ValidationMessageFor(model => model.Equipment_ID)
                     </div>
                     <div class="control-group">
-                        <label for="Total_charges">
+                        <label for="Chargebacks">
                             Chargebacks</label>
-                        <input type="text" name="Chargebacks" value=" " class="input-xlarge" />
+                        @Html.TextBoxFor(model => model.Chargebacks, new { @class = "input-xlarge onlyNumber" })
+                        @Html.ValidationMessageFor(model => model.Chargebacks)
                     </div>
                     <div class="control-group">
                         <label for="Picked" class="checkbox">
