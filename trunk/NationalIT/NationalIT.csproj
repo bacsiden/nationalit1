@@ -132,6 +132,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DB.cs" />
+    <Compile Include="DispatcherTrip.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DispatcherTrip.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -146,11 +151,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\CurrentPayroll.Designer.cs">
       <DependentUpon>CurrentPayroll.xsd</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="Reports\DispatcherTrip.Designer.cs">
-      <DependentUpon>DispatcherTrip.xsd</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
@@ -311,6 +311,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="DispatcherTrip.xsc">
+      <DependentUpon>DispatcherTrip.xsd</DependentUpon>
+    </None>
+    <None Include="DispatcherTrip.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DispatcherTrip.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DispatcherTrip.xss">
+      <DependentUpon>DispatcherTrip.xsd</DependentUpon>
+    </None>
     <None Include="Reports\CurrentPayroll.xsc">
       <DependentUpon>CurrentPayroll.xsd</DependentUpon>
     </None>
@@ -321,17 +332,6 @@
     </None>
     <None Include="Reports\CurrentPayroll.xss">
       <DependentUpon>CurrentPayroll.xsd</DependentUpon>
-    </None>
-    <None Include="Reports\DispatcherTrip.xsc">
-      <DependentUpon>DispatcherTrip.xsd</DependentUpon>
-    </None>
-    <None Include="Reports\DispatcherTrip.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DispatcherTrip.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Reports\DispatcherTrip.xss">
-      <DependentUpon>DispatcherTrip.xsd</DependentUpon>
     </None>
     <None Include="Reports\DriverTripFlue.xsc">
       <DependentUpon>DriverTripFlue.xsd</DependentUpon>

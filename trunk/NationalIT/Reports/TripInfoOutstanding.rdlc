@@ -1108,7 +1108,7 @@
                           <DataSetName>DataSet1</DataSetName>
                           <Top>1.22618cm</Top>
                           <Height>5.03812cm</Height>
-                          <Width>15.09358cm</Width>
+                          <Width>15.09357cm</Width>
                           <Style>
                             <Border>
                               <Color>White</Color>
@@ -1174,7 +1174,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Total charges: </Value>
+                                  <Value>Sum of charges: </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontWeight>Normal</FontWeight>
@@ -1184,7 +1184,9 @@
                                 </TextRun>
                                 <TextRun>
                                   <Value>=First(Fields!TotalCharges.Value)</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -1194,7 +1196,7 @@
                           <Top>6.62309cm</Top>
                           <Left>8.61187cm</Left>
                           <Height>0.6cm</Height>
-                          <Width>4.33857cm</Width>
+                          <Width>6.4817cm</Width>
                           <ZIndex>2</ZIndex>
                           <Style>
                             <Border>
@@ -1214,6 +1216,7 @@
                         </Border>
                       </Style>
                     </Rectangle>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -1239,8 +1242,8 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>2.11975cm</Top>
         <Left>0.00004cm</Left>
-        <Height>7.49617cm</Height>
-        <Width>15.09358cm</Width>
+        <Height>7.49618cm</Height>
+        <Width>15.09357cm</Width>
         <Style>
           <Border>
             <Style>None</Style>

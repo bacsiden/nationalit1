@@ -46,7 +46,22 @@ namespace NationalIT
 
             return st.ToString();
         }
+        public static string BuildDropdown(int[] values, object[] texts, object selectedValue, string none = "- none -")
+        {
+            System.Text.StringBuilder st = new StringBuilder();
+            if (none != null)
+                st = new StringBuilder("<option value=''>" + none + "</option>");
+            string s = selectedValue + "";
+            for (int i = 0; i < values.Length; i++)
+            {
+                if (s.Equals(values[i]))
+                    st.Append(string.Format("<option value='{0}' selected='selected'>{1}</option>", values[i], texts[i]));
+                else
+                    st.Append(string.Format("<option value='{0}'>{1}</option>", values[i], texts[i]));
+            }
 
+            return st.ToString();
+        }
     }
     public static class Cultures
     {

@@ -422,6 +422,7 @@
           <Property Name="DOB" Type="datetime" />
           <Property Name="Hire_date" Type="datetime" />
           <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="PayRate" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Driver_Info">
           <Key>
@@ -1933,6 +1934,7 @@
           <Property Type="Boolean" Name="Active" Nullable="false" />
           <NavigationProperty Name="Driver_Info" Relationship="DB_9B22F2_nationalitModel.FK_Driver_Info_Dispatchers" FromRole="Dispatchers" ToRole="Driver_Info" />
           <NavigationProperty Name="Trip_Info" Relationship="DB_9B22F2_nationalitModel.FK_Trip_Info_Dispatchers1" FromRole="Dispatchers" ToRole="Trip_Info" />
+          <Property Type="Double" Name="PayRate" Nullable="false" />
         </EntityType>
         <EntityType Name="Driver_Info">
           <Key>
@@ -3083,6 +3085,7 @@
           <EntitySetMapping Name="Dispatchers">
             <EntityTypeMapping TypeName="DB_9B22F2_nationalitModel.Dispatchers">
               <MappingFragment StoreEntitySet="Dispatchers">
+                <ScalarProperty Name="PayRate" ColumnName="PayRate" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="Hire_date" ColumnName="Hire_date" />
                 <ScalarProperty Name="DOB" ColumnName="DOB" />
