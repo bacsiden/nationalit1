@@ -34,6 +34,15 @@
                 </div>
             </div>
             <div class="control-group">
+                <label class="control-label" for="PayRate">@Html.LabelFor(model => model.PayRate)</label>
+                <div class="controls">
+                    <div class="span12">
+                        @Html.TextBoxFor(model => model.PayRate, new { @class = "input-xlarge" })
+                        @Html.ValidationMessageFor(model => model.PayRate)
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
                 <label class="control-label" for="SSN">@Html.LabelFor(model => model.SSN)</label>
                 <div class="controls">
                     <div class="span12">

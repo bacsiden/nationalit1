@@ -5570,11 +5570,13 @@ namespace NationalIT
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="active">Initial value of the Active property.</param>
-        public static Dispatchers CreateDispatchers(global::System.Int32 id, global::System.Boolean active)
+        /// <param name="payRate">Initial value of the PayRate property.</param>
+        public static Dispatchers CreateDispatchers(global::System.Int32 id, global::System.Boolean active, global::System.Double payRate)
         {
             Dispatchers dispatchers = new Dispatchers();
             dispatchers.ID = id;
             dispatchers.Active = active;
+            dispatchers.PayRate = payRate;
             return dispatchers;
         }
 
@@ -5752,6 +5754,30 @@ namespace NationalIT
         private global::System.Boolean _Active;
         partial void OnActiveChanging(global::System.Boolean value);
         partial void OnActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double PayRate
+        {
+            get
+            {
+                return _PayRate;
+            }
+            set
+            {
+                OnPayRateChanging(value);
+                ReportPropertyChanging("PayRate");
+                _PayRate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PayRate");
+                OnPayRateChanged();
+            }
+        }
+        private global::System.Double _PayRate;
+        partial void OnPayRateChanging(global::System.Double value);
+        partial void OnPayRateChanged();
 
         #endregion
 
