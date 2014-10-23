@@ -226,7 +226,7 @@
                                                 </Style>
                                               </TextRun>
                                               <TextRun>
-                                                <Value>=Fields!CustormerName.Value</Value>
+                                                <Value>=Fields!CustomerName.Value</Value>
                                                 <Style>
                                                   <FontStyle>Normal</FontStyle>
                                                   <FontWeight>Normal</FontWeight>
