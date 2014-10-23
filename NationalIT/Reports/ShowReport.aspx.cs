@@ -86,8 +86,10 @@ namespace NationalIT.Reports
                     return TripInfoOutstanding();
                 case "ScheduleOfInvoices":
                     return ScheduleOfInvoices(out rparam);
-                case "DispatcherTrip":
-                    return DispatcherTrip();
+                case "DispatcherTrip1":
+                    return DispatcherTrip1();
+                case "DispatcherTrip2":
+                    return DispatcherTrip2();
                 case "Invoice":
                     return Invoice();
                 default:
@@ -179,14 +181,63 @@ namespace NationalIT.Reports
             return dt;
         }
 
-        private DataTable DispatcherTrip()
+        private DataTable DispatcherTrip1()
         {
             var db = DB.Entities;
 
             var lst = db.Trip_Info.Where(m => (DispatcherID == 0 || m.Dispatcher == DispatcherID) &&
                 (DriverID == 0 || m.Driver == DriverID) &&
                 (CompanyID == 0 || m.Company == CompanyID) && AllDate ? true :
-                (m.Order_date != null && m.Order_date.Value >= StartDate && m.Order_date.Value <= EndDate)).ToList();
+                (m.Order_date != null && m.Order_date.Value >= StartDate && m.Order_date.Value <= EndDate)
+                 && m.Deliverd && m.Customer_Invoiced).ToList();
+
+            List<int> lstDis = lst.Where(m => m.Dispatcher != null).Select(m => m.Dispatcher.Value).Distinct().ToList<int>();
+            DataTable dt = new DispatcherTrip().DataTable1;
+            foreach (int dispatherID in lstDis)
+            {
+                int sumofCharges = 0;
+                List<DataRow> lstDR = new List<DataRow>();
+                foreach (var item in lst.Where(m => m.Dispatcher == dispatherID))
+                {
+                    DataRow dr = dt.NewRow();
+                    //dr["DispatherID"] = dispatherID;
+                    var objdis = db.Dispatchers.FirstOrDefault(m => m.ID == dispatherID);
+                    dr["DispatcherName"] = objdis != null ? objdis.First_name + objdis.Last_name : "1";
+                    dr["OrderDate"] = String.Format("{0:MM/dd/yyyy}", item.Order_date);
+                    dr["PickupDate"] = String.Format("{0:MM/dd/yyyy}", item.Pickup_date);
+                    dr["DeliveryDate"] = String.Format("{0:MM/dd/yyyy}", item.Delivery_date);
+                    dr["CustomerName"] = item.Customer_Info != null ? item.Customer_Info.Customer_Name : "";
+                    dr["CustomerAddress"] = item.Customer_Info != null ? item.Customer_Info.State + "" + item.Customer_Info.Street : "";
+                    dr["DriverName"] = item.Driver_Info != null ? item.Driver_Info.First_name + "" + item.Driver_Info.Last_name : "";
+                    //dr["DeliveryLocation"] = item.Delivery_location;
+                    //dr["ComfirmedRate"] = item.Comfirmed_Rate == null ? string.Format("{0:C}", 0) : string.Format("{0:C}", item.Comfirmed_Rate);
+                    //dr["LumperExtra"] = item.Extra_charges == null ? string.Format("{0:C}", 0) : string.Format("{0:C}", item.Extra_charges);
+                    //dr["DetentionPay"] = item.Detention_pay == null ? string.Format("{0:C}", 0) : string.Format("{0:C}", item.Detention_pay);
+                    //dr["ChargesBack"] = item.Chargebacks == null ? string.Format("{0:C}", 0) : string.Format("{0:C}", item.Chargebacks);
+                    dr["TotalCharges"] = item.Total_charges;// == null ? string.Format("{0:C}", 0) : string.Format("{0:C}", item.Total_charges);
+                    dr["PayRate"] = objdis.PayRate;
+                    sumofCharges += (int)item.Total_charges;
+                    lstDR.Add(dr);
+                }
+                foreach (var item in lstDR)
+                {
+                    double payrate = double.Parse(item["PayRate"].ToString());
+                    item["SumOfCharges"] = string.Format("{0:C}", sumofCharges * payrate);
+                    dt.Rows.Add(item);
+                }
+            }
+
+            return dt;
+        }
+        private DataTable DispatcherTrip2()
+        {
+            var db = DB.Entities;
+
+            var lst = db.Trip_Info.Where(m => (DispatcherID == 0 || m.Dispatcher == DispatcherID) &&
+                (DriverID == 0 || m.Driver == DriverID) &&
+                (CompanyID == 0 || m.Company == CompanyID) && AllDate ? true :
+                (m.Order_date != null && m.Order_date.Value >= StartDate && m.Order_date.Value <= EndDate)
+                && m.Deliverd && m.Customer_Invoiced && m.Driver_paid).ToList();
 
             List<int> lstDis = lst.Where(m => m.Dispatcher != null).Select(m => m.Dispatcher.Value).Distinct().ToList<int>();
             DataTable dt = new DispatcherTrip().DataTable1;
