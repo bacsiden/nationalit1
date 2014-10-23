@@ -12,7 +12,7 @@
   <xs:element name="DispatcherTrip" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DispatcherTrip" msprop:Generator_UserDSName="DispatcherTrip">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="DispatcherName" msprop:Generator_ColumnVarNameInTable="columnDispatcherName" msprop:Generator_ColumnPropNameInRow="DispatcherName" msprop:Generator_ColumnPropNameInTable="DispatcherNameColumn" msprop:Generator_UserColumnName="DispatcherName" type="xs:string" minOccurs="0" />
@@ -26,6 +26,8 @@
               <xs:element name="SumOfCharges" msprop:Generator_ColumnVarNameInTable="columnSumOfCharges" msprop:Generator_ColumnPropNameInRow="SumOfCharges" msprop:Generator_ColumnPropNameInTable="SumOfChargesColumn" msprop:Generator_UserColumnName="SumOfCharges" type="xs:string" minOccurs="0" />
               <xs:element name="DriverName" msprop:Generator_ColumnVarNameInTable="columnDriverName" msprop:Generator_ColumnPropNameInRow="DriverName" msprop:Generator_ColumnPropNameInTable="DriverNameColumn" msprop:Generator_UserColumnName="DriverName" type="xs:string" minOccurs="0" />
               <xs:element name="PayRate" msprop:Generator_ColumnVarNameInTable="columnPayRate" msprop:Generator_ColumnPropNameInRow="PayRate" msprop:Generator_ColumnPropNameInTable="PayRateColumn" msprop:Generator_UserColumnName="PayRate" type="xs:string" minOccurs="0" />
+              <xs:element name="InvoiceDate" msprop:Generator_ColumnVarNameInTable="columnInvoiceDate" msprop:Generator_ColumnPropNameInRow="InvoiceDate" msprop:Generator_ColumnPropNameInTable="InvoiceDateColumn" msprop:Generator_UserColumnName="InvoiceDate" type="xs:string" minOccurs="0" />
+              <xs:element name="PayrollAmount" msprop:Generator_ColumnVarNameInTable="columnPayrollAmount" msprop:Generator_ColumnPropNameInRow="PayrollAmount" msprop:Generator_ColumnPropNameInTable="PayrollAmountColumn" msprop:Generator_UserColumnName="PayrollAmount" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
