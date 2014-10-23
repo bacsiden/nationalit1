@@ -154,7 +154,15 @@ namespace NationalIT.Controllers
                 if (model.Dispatcher.HasValue)
                 {
                     var db = DB.Entities;
-                    model.Customer_Invoiced_date = CommonFunction.ChangeFormatDate(frm["Customer_Invoiced_date"]).Value;
+                    if (frm["Customer_Invoiced_date"]==null)
+                    {
+                        model.Customer_Invoiced_date = DateTime.Now;
+                    }
+                    else
+                    {
+                        model.Customer_Invoiced_date = CommonFunction.ChangeFormatDate(frm["Customer_Invoiced_date"]).Value;
+                    }
+                    
                     model.Order_date = CommonFunction.ChangeFormatDate(frm["Order_date"]);
                     model.Delivery_date = CommonFunction.ChangeFormatDate(frm["Delivery_date"]);
                     model.Pickup_date = CommonFunction.ChangeFormatDate(frm["Pickup_date"]);

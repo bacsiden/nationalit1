@@ -13,7 +13,7 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
         <rsweb:ReportViewer ID="ReportViewer1" runat="server" SizeToReportContent="False"
-            Width="100%" Height="1200" ShowRefreshButton="false" AsyncRendering="false"
+            Width="1024" Height="1200" ShowRefreshButton="false" AsyncRendering="false"
             DocumentMapCollapsed="True" PageCountMode="Actual" PromptAreaCollapsed="True">
         </rsweb:ReportViewer>
     </div>

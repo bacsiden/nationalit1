@@ -206,6 +206,7 @@ namespace NationalIT.Reports
                     dr["OrderDate"] = String.Format("{0:MM/dd/yyyy}", item.Order_date);
                     dr["PickupDate"] = String.Format("{0:MM/dd/yyyy}", item.Pickup_date);
                     dr["DeliveryDate"] = String.Format("{0:MM/dd/yyyy}", item.Delivery_date);
+                    dr["InvoiceDate"] = String.Format("{0:MM/dd/yyyy}", item.Customer_Invoiced_date);
                     dr["CustomerName"] = item.Customer_Info != null ? item.Customer_Info.Customer_Name : "";
                     dr["CustomerAddress"] = item.Customer_Info != null ? item.Customer_Info.State + "" + item.Customer_Info.Street : "";
                     dr["DriverName"] = item.Driver_Info != null ? item.Driver_Info.First_name + "" + item.Driver_Info.Last_name : "";
@@ -222,7 +223,8 @@ namespace NationalIT.Reports
                 foreach (var item in lstDR)
                 {
                     double payrate = double.Parse(item["PayRate"].ToString());
-                    item["SumOfCharges"] = string.Format("{0:C}", sumofCharges * payrate);
+                    item["SumOfCharges"] = string.Format("{0:C}", sumofCharges);
+                    item["PayrollAmount"] = string.Format("{0:C}", sumofCharges * payrate);
                     dt.Rows.Add(item);
                 }
             }
