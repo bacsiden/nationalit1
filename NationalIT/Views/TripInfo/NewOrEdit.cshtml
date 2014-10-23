@@ -5,6 +5,18 @@
 }
 <script type="text/javascript">
     $(document).ready(function () {
+        var customer_invoiced_date = $("input.date-picker[name=Customer_Invoiced_date]").val();
+        if (!$("#Customer_Invoiced").is(":checked")) {
+            $("input.date-picker[name=Customer_Invoiced_date]").val('');
+        }
+        $("#Customer_Invoiced").click(function () {
+            if ($(this).is(':checked')) {
+                $("input.date-picker[name=Customer_Invoiced_date]").val(customer_invoiced_date);
+            } else {
+                $("input.date-picker[name=Customer_Invoiced_date]").val('');
+            }
+        });
+
         //        autoCompleteByClassName($(":input.Dispatcher"),Html.Raw(ViewBag.dataDispatchers));
         //        autoCompleteByClassName($(":input.Driver"),Html.Raw(ViewBag.dataDriver)); 
         setValueForTotalCharges();
