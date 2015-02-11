@@ -187,8 +187,8 @@ namespace NationalIT.Reports
 
             var lst = db.Trip_Info.Where(m => (DispatcherID == 0 || m.Dispatcher == DispatcherID) &&
                 (DriverID == 0 || m.Driver == DriverID) &&
-                (CompanyID == 0 || m.Company == CompanyID) && AllDate ? true :
-                (m.Order_date != null && m.Order_date.Value >= StartDate && m.Order_date.Value <= EndDate)
+                (CompanyID == 0 || m.Company == CompanyID) && (AllDate ? true :
+                (m.Order_date != null && m.Order_date.Value >= StartDate && m.Order_date.Value <= EndDate))
                  && m.Deliverd && m.Customer_Invoiced).ToList();
 
             List<int> lstDis = lst.Where(m => m.Dispatcher != null).Select(m => m.Dispatcher.Value).Distinct().ToList<int>();
